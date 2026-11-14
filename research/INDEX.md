@@ -93,6 +93,13 @@ Phase 1 research for Field Shift, gathered on 2026-11-13. There are 39 files and
 | [papers.md](03_domain/papers.md) | 17 papers, each checked against Crossref or Europe PMC. |
 | [open_source.md](03_domain/open_source.md) | 30 Python libraries with licences and versions. |
 
+## 07_plan
+
+| File | Key facts |
+|---|---|
+| [feature_ideas.md](07_plan/feature_ideas.md) | 8 must-have, 6 should-have and 9 later features, each tied to evidence and to the judging criteria. The tool answers one question for one Karnal field. |
+| [build_plan.md](07_plan/build_plan.md) | 28-hour plan to the 15 November deadline: a reduced stack, the Karnal data pack, four roles, an hourly timeline, the 30-second demo script, the submission checklist, and a 16-week roadmap after the event. |
+
 ## Open questions from the research
 
 - OpenET coverage: the FAQ says 23 western states, while a 2025 NASA/DRI release says all 48 states.

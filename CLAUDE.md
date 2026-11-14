@@ -40,4 +40,4 @@ Details are in `research/02_hackathon/rules_judging.md`.
 
 ## Status
 
-Phase 1 research finished on 2026-11-13: 39 files, indexed in `research/INDEX.md`. No code exists yet, and we have downloaded no data. Architecture and stack decisions are still open.
+Phase 1 research finished on 2026-11-13. Phase 2 (live data probes, India datasets, full-text papers and news, stack v2) finished on 2026-11-14. Everything is indexed in `research/INDEX.md`. The feature ranking and the hackathon build plan are in `research/07_plan/`. No product code exists yet. Small probe samples are in `research/04_data_probes/samples/`; raw data stays in the cache outside the repo.
