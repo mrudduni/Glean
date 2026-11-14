@@ -2055,5 +2055,657 @@
   }
  },
  "wfp_hdx_ran_at": "2026-11-14 15:04:23 +0530",
- "wfp_hdx_seconds": 12.3
+ "wfp_hdx_seconds": 12.3,
+ "india": {
+  "realtime_rain_15072025": {
+   "url": "https://imdpune.gov.in/cmpg/Realtimedata/Rainfall/rain.php",
+   "post": {
+    "rain": "15072025"
+   },
+   "status": 200,
+   "bytes": 69660,
+   "content_disposition": "attachment; filename=rain_ind0.25_25_07_15.grd",
+   "seconds": 1.0,
+   "rain_mm": {
+    "ludhiana_crop": 12.1,
+    "karnal_crop": 0.0,
+    "nashik_crop": 17.3
+   }
+  },
+  "realtime_rain_01082025": {
+   "url": "https://imdpune.gov.in/cmpg/Realtimedata/Rainfall/rain.php",
+   "post": {
+    "rain": "01082025"
+   },
+   "status": 200,
+   "bytes": 69660,
+   "content_disposition": "attachment; filename=rain_ind0.25_25_08_01.grd",
+   "seconds": 1.0,
+   "rain_mm": {
+    "ludhiana_crop": 1.1,
+    "karnal_crop": 18.2,
+    "nashik_crop": 2.6
+   }
+  },
+  "archive_tmax_2023": {
+   "url": "https://imdpune.gov.in/cmpg/Griddata/maxtemp.php",
+   "post": {
+    "maxtemp": "2023"
+   },
+   "status": 200,
+   "bytes": 1403060,
+   "content_disposition": "attachment; filename=Maxtemp/MaxT_2023.GRD",
+   "seconds": 1.1,
+   "tmax_2023": {
+    "ludhiana_crop": {
+     "max": 43.0,
+     "mean": 30.4,
+     "days_over_40": 11
+    },
+    "karnal_crop": {
+     "max": 43.7,
+     "mean": 30.8,
+     "days_over_40": 16
+    },
+    "nashik_crop": {
+     "max": 39.4,
+     "mean": 32.8,
+     "days_over_40": 0
+    }
+   }
+  },
+  "archive_rain_2023_headers_only": {
+   "url": "https://imdpune.gov.in/cmpg/Griddata/rainfall.php",
+   "status": 200,
+   "content_disposition": "attachment; filename=Rainfall/ind2023_rfp25.grd"
+  },
+  "data_gov_in_no_key": {
+   "url": "https://api.data.gov.in/resource/9ef84268-d588-465a-a308-a864a43d0070",
+   "params": {
+    "format": "json",
+    "limit": 5,
+    "filters[state.keyword]": "Haryana"
+   },
+   "status": 400,
+   "seconds": 0.8,
+   "final_url": "https://api.data.gov.in/resource/9ef84268-d588-465a-a308-a864a43d0070?format=json&limit=5&filters%5Bstate.keyword%5D=Haryana",
+   "body": "{\n    \"error\": \"Authorization field missing\"\n}"
+  }
+ },
+ "india_ran_at": "2026-11-14 18:55:13 +0530",
+ "india_seconds": 5.6,
+ "soilgrids_rest": {
+  "ludhiana_crop": {
+   "url": "https://rest.isric.org/soilgrids/v2.0/properties/query",
+   "params": [
+    [
+     "lon",
+     75.77
+    ],
+    [
+     "lat",
+     30.9
+    ],
+    [
+     "property",
+     "clay"
+    ],
+    [
+     "property",
+     "sand"
+    ],
+    [
+     "property",
+     "soc"
+    ],
+    [
+     "property",
+     "phh2o"
+    ],
+    [
+     "depth",
+     "0-5cm"
+    ],
+    [
+     "depth",
+     "15-30cm"
+    ],
+    [
+     "depth",
+     "30-60cm"
+    ],
+    [
+     "value",
+     "mean"
+    ],
+    [
+     "value",
+     "Q0.05"
+    ],
+    [
+     "value",
+     "Q0.95"
+    ]
+   ],
+   "status": 504,
+   "seconds": 181.2,
+   "final_url": "https://rest.isric.org/soilgrids/v2.0/properties/query?lon=75.77&lat=30.9&property=clay&property=sand&property=soc&property=phh2o&depth=0-5cm&depth=15-30cm&depth=30-60cm&value=mean&value=Q0.05&value=Q0.95",
+   "body": "<html>\r\n<head><title>504 Gateway Time-out</title></head>\r\n<body>\r\n<center><h1>504 Gateway Time-out</h1></center>\r\n<hr><center>nginx</center>\r\n</body>\r\n</html>\r\n"
+  },
+  "karnal_crop": {
+   "url": "https://rest.isric.org/soilgrids/v2.0/properties/query",
+   "params": [
+    [
+     "lon",
+     76.9
+    ],
+    [
+     "lat",
+     29.69
+    ],
+    [
+     "property",
+     "clay"
+    ],
+    [
+     "property",
+     "sand"
+    ],
+    [
+     "property",
+     "soc"
+    ],
+    [
+     "property",
+     "phh2o"
+    ],
+    [
+     "depth",
+     "0-5cm"
+    ],
+    [
+     "depth",
+     "15-30cm"
+    ],
+    [
+     "depth",
+     "30-60cm"
+    ],
+    [
+     "value",
+     "mean"
+    ],
+    [
+     "value",
+     "Q0.05"
+    ],
+    [
+     "value",
+     "Q0.95"
+    ]
+   ],
+   "status": 200,
+   "seconds": 15.9,
+   "final_url": "https://rest.isric.org/soilgrids/v2.0/properties/query?lon=76.9&lat=29.69&property=clay&property=sand&property=soc&property=phh2o&depth=0-5cm&depth=15-30cm&depth=30-60cm&value=mean&value=Q0.05&value=Q0.95",
+   "values": {
+    "clay": {
+     "0-5cm": {
+      "Q0.05": 29,
+      "Q0.95": 861,
+      "mean": 279
+     },
+     "15-30cm": {
+      "Q0.05": 33,
+      "Q0.95": 801,
+      "mean": 303
+     },
+     "30-60cm": {
+      "Q0.05": 26,
+      "Q0.95": 788,
+      "mean": 325
+     }
+    },
+    "phh2o": {
+     "0-5cm": {
+      "Q0.05": 58,
+      "Q0.95": 103,
+      "mean": 81
+     },
+     "15-30cm": {
+      "Q0.05": 62,
+      "Q0.95": 103,
+      "mean": 81
+     },
+     "30-60cm": {
+      "Q0.05": 62,
+      "Q0.95": 100,
+      "mean": 82
+     }
+    },
+    "sand": {
+     "0-5cm": {
+      "Q0.05": 52,
+      "Q0.95": 631,
+      "mean": 353
+     },
+     "15-30cm": {
+      "Q0.05": 85,
+      "Q0.95": 596,
+      "mean": 331
+     },
+     "30-60cm": {
+      "Q0.05": 80,
+      "Q0.95": 563,
+      "mean": 319
+     }
+    },
+    "soc": {
+     "0-5cm": {
+      "Q0.05": 20,
+      "Q0.95": 405,
+      "mean": 143
+     },
+     "15-30cm": {
+      "Q0.05": 15,
+      "Q0.95": 151,
+      "mean": 70
+     },
+     "30-60cm": {
+      "Q0.05": 10,
+      "Q0.95": 91,
+      "mean": 38
+     }
+    }
+   },
+   "units": {
+    "clay": {
+     "d_factor": 10,
+     "mapped_units": "g/kg",
+     "target_units": "%",
+     "uncertainty_unit": ""
+    },
+    "phh2o": {
+     "d_factor": 10,
+     "mapped_units": "pH*10",
+     "target_units": "-",
+     "uncertainty_unit": ""
+    },
+    "sand": {
+     "d_factor": 10,
+     "mapped_units": "g/kg",
+     "target_units": "%",
+     "uncertainty_unit": ""
+    },
+    "soc": {
+     "d_factor": 10,
+     "mapped_units": "dg/kg",
+     "target_units": "g/kg",
+     "uncertainty_unit": ""
+    }
+   }
+  },
+  "nashik_crop": {
+   "url": "https://rest.isric.org/soilgrids/v2.0/properties/query",
+   "params": [
+    [
+     "lon",
+     73.75
+    ],
+    [
+     "lat",
+     20.05
+    ],
+    [
+     "property",
+     "clay"
+    ],
+    [
+     "property",
+     "sand"
+    ],
+    [
+     "property",
+     "soc"
+    ],
+    [
+     "property",
+     "phh2o"
+    ],
+    [
+     "depth",
+     "0-5cm"
+    ],
+    [
+     "depth",
+     "15-30cm"
+    ],
+    [
+     "depth",
+     "30-60cm"
+    ],
+    [
+     "value",
+     "mean"
+    ],
+    [
+     "value",
+     "Q0.05"
+    ],
+    [
+     "value",
+     "Q0.95"
+    ]
+   ],
+   "status": 504,
+   "seconds": 181.0,
+   "final_url": "https://rest.isric.org/soilgrids/v2.0/properties/query?lon=73.75&lat=20.05&property=clay&property=sand&property=soc&property=phh2o&depth=0-5cm&depth=15-30cm&depth=30-60cm&value=mean&value=Q0.05&value=Q0.95",
+   "body": "<html>\r\n<head><title>504 Gateway Time-out</title></head>\r\n<body>\r\n<center><h1>504 Gateway Time-out</h1></center>\r\n<hr><center>nginx</center>\r\n</body>\r\n</html>\r\n"
+  },
+  "eldoret_crop": {
+   "url": "https://rest.isric.org/soilgrids/v2.0/properties/query",
+   "params": [
+    [
+     "lon",
+     35.35
+    ],
+    [
+     "lat",
+     0.55
+    ],
+    [
+     "property",
+     "clay"
+    ],
+    [
+     "property",
+     "sand"
+    ],
+    [
+     "property",
+     "soc"
+    ],
+    [
+     "property",
+     "phh2o"
+    ],
+    [
+     "depth",
+     "0-5cm"
+    ],
+    [
+     "depth",
+     "15-30cm"
+    ],
+    [
+     "depth",
+     "30-60cm"
+    ],
+    [
+     "value",
+     "mean"
+    ],
+    [
+     "value",
+     "Q0.05"
+    ],
+    [
+     "value",
+     "Q0.95"
+    ]
+   ],
+   "status": 200,
+   "seconds": 46.1,
+   "final_url": "https://rest.isric.org/soilgrids/v2.0/properties/query?lon=35.35&lat=0.55&property=clay&property=sand&property=soc&property=phh2o&depth=0-5cm&depth=15-30cm&depth=30-60cm&value=mean&value=Q0.05&value=Q0.95",
+   "values": {
+    "clay": {
+     "0-5cm": {
+      "Q0.05": 97,
+      "Q0.95": 948,
+      "mean": 438
+     },
+     "15-30cm": {
+      "Q0.05": 114,
+      "Q0.95": 812,
+      "mean": 464
+     },
+     "30-60cm": {
+      "Q0.05": 115,
+      "Q0.95": 805,
+      "mean": 475
+     }
+    },
+    "phh2o": {
+     "0-5cm": {
+      "Q0.05": 45,
+      "Q0.95": 82,
+      "mean": 62
+     },
+     "15-30cm": {
+      "Q0.05": 45,
+      "Q0.95": 82,
+      "mean": 61
+     },
+     "30-60cm": {
+      "Q0.05": 45,
+      "Q0.95": 87,
+      "mean": 63
+     }
+    },
+    "sand": {
+     "0-5cm": {
+      "Q0.05": 26,
+      "Q0.95": 673,
+      "mean": 339
+     },
+     "15-30cm": {
+      "Q0.05": 71,
+      "Q0.95": 644,
+      "mean": 331
+     },
+     "30-60cm": {
+      "Q0.05": 96,
+      "Q0.95": 663,
+      "mean": 338
+     }
+    },
+    "soc": {
+     "0-5cm": {
+      "Q0.05": 49,
+      "Q0.95": 956,
+      "mean": 361
+     },
+     "15-30cm": {
+      "Q0.05": 29,
+      "Q0.95": 880,
+      "mean": 268
+     },
+     "30-60cm": {
+      "Q0.05": 20,
+      "Q0.95": 560,
+      "mean": 159
+     }
+    }
+   },
+   "units": {
+    "clay": {
+     "d_factor": 10,
+     "mapped_units": "g/kg",
+     "target_units": "%",
+     "uncertainty_unit": ""
+    },
+    "phh2o": {
+     "d_factor": 10,
+     "mapped_units": "pH*10",
+     "target_units": "-",
+     "uncertainty_unit": ""
+    },
+    "sand": {
+     "d_factor": 10,
+     "mapped_units": "g/kg",
+     "target_units": "%",
+     "uncertainty_unit": ""
+    },
+    "soc": {
+     "d_factor": 10,
+     "mapped_units": "dg/kg",
+     "target_units": "g/kg",
+     "uncertainty_unit": ""
+    }
+   }
+  },
+  "iowa": {
+   "url": "https://rest.isric.org/soilgrids/v2.0/properties/query",
+   "params": [
+    [
+     "lon",
+     -93.75
+    ],
+    [
+     "lat",
+     42.03
+    ],
+    [
+     "property",
+     "clay"
+    ],
+    [
+     "property",
+     "sand"
+    ],
+    [
+     "property",
+     "soc"
+    ],
+    [
+     "property",
+     "phh2o"
+    ],
+    [
+     "depth",
+     "0-5cm"
+    ],
+    [
+     "depth",
+     "15-30cm"
+    ],
+    [
+     "depth",
+     "30-60cm"
+    ],
+    [
+     "value",
+     "mean"
+    ],
+    [
+     "value",
+     "Q0.05"
+    ],
+    [
+     "value",
+     "Q0.95"
+    ]
+   ],
+   "status": 200,
+   "seconds": 69.9,
+   "final_url": "https://rest.isric.org/soilgrids/v2.0/properties/query?lon=-93.75&lat=42.03&property=clay&property=sand&property=soc&property=phh2o&depth=0-5cm&depth=15-30cm&depth=30-60cm&value=mean&value=Q0.05&value=Q0.95",
+   "values": {
+    "clay": {
+     "0-5cm": {
+      "Q0.05": 37,
+      "Q0.95": 855,
+      "mean": 311
+     },
+     "15-30cm": {
+      "Q0.05": 35,
+      "Q0.95": 816,
+      "mean": 288
+     },
+     "30-60cm": {
+      "Q0.05": 31,
+      "Q0.95": 791,
+      "mean": 293
+     }
+    },
+    "phh2o": {
+     "0-5cm": {
+      "Q0.05": 55,
+      "Q0.95": 78,
+      "mean": 67
+     },
+     "15-30cm": {
+      "Q0.05": 56,
+      "Q0.95": 79,
+      "mean": 67
+     },
+     "30-60cm": {
+      "Q0.05": 56,
+      "Q0.95": 80,
+      "mean": 69
+     }
+    },
+    "sand": {
+     "0-5cm": {
+      "Q0.05": 34,
+      "Q0.95": 535,
+      "mean": 262
+     },
+     "15-30cm": {
+      "Q0.05": 32,
+      "Q0.95": 551,
+      "mean": 277
+     },
+     "30-60cm": {
+      "Q0.05": 30,
+      "Q0.95": 551,
+      "mean": 287
+     }
+    },
+    "soc": {
+     "0-5cm": {
+      "Q0.05": 74,
+      "Q0.95": 480,
+      "mean": 213
+     },
+     "15-30cm": {
+      "Q0.05": 41,
+      "Q0.95": 466,
+      "mean": 171
+     },
+     "30-60cm": {
+      "Q0.05": 25,
+      "Q0.95": 221,
+      "mean": 93
+     }
+    }
+   },
+   "units": {
+    "clay": {
+     "d_factor": 10,
+     "mapped_units": "g/kg",
+     "target_units": "%",
+     "uncertainty_unit": ""
+    },
+    "phh2o": {
+     "d_factor": 10,
+     "mapped_units": "pH*10",
+     "target_units": "-",
+     "uncertainty_unit": ""
+    },
+    "sand": {
+     "d_factor": 10,
+     "mapped_units": "g/kg",
+     "target_units": "%",
+     "uncertainty_unit": ""
+    },
+    "soc": {
+     "d_factor": 10,
+     "mapped_units": "dg/kg",
+     "target_units": "g/kg",
+     "uncertainty_unit": ""
+    }
+   }
+  }
+ },
+ "soilgrids_rest_ran_at": "2026-11-14 19:04:27 +0530",
+ "soilgrids_rest_seconds": 554.2
 }

@@ -8,7 +8,7 @@ The phase 2 probe agents ran live calls on 2026-11-14. We stopped them early to 
 |---|---|---|
 | NASA catalog (POWER, CMR, AppEEARS, GIBS, earthaccess) | `scripts/probe_nasa.py` and 20 samples, including the 53-collection CMR table below | The written report and the "corrections to phase 1" list |
 | US agriculture APIs (SDA, CropScape, NASS, OpenET, USGS, PRISM, GAEZ, AMS) | `samples/probe_cdl_result.json` only | Script, SDA queries, and the report. Rerun this probe with a small scoped agent |
-| Global and India (SoilGrids, Open-Meteo, CHIRPS, WorldCereal, FAOSTAT, WFP) | `scripts/probe_global.py`, FAOSTAT and WFP price samples, Open-Meteo, FAO crop calendar, `global_probe_results.json` | The per-dataset files and the India folder files |
+| Global and India (SoilGrids, Open-Meteo, CHIRPS, WorldCereal, FAOSTAT, WFP) | `scripts/probe_global.py`, FAOSTAT and WFP price samples, Open-Meteo, FAO crop calendar, `global_probe_results.json`. The `india` and `soilgrids_rest` probes ran on 2026-11-14 and are written up in `01_datasets/global/` and `01_datasets/india/`. | The `soilgrids_wcs` and `ssurgo_iowa` probes have not run |
 
 ## NASA collections confirmed in CMR
 

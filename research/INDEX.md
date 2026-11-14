@@ -50,6 +50,21 @@ Phase 1 research for Field Shift, gathered on 2026-11-13. There are 39 files and
 | [gaez.md](01_datasets/global/gaez.md) | Crop suitability for about 53 crops. v5 (2025) adds 1 km layers and an API. |
 | [sentinel2.md](01_datasets/global/sentinel2.md) | 10 m imagery with red-edge bands and a 5-day revisit. Covers the CDSE APIs. |
 | [era5.md](01_datasets/global/era5.md) | Reanalysis at 0.25 degree from 1940. ERA5-Land is 0.1 degree from 1950. |
+| [soilgrids.md](01_datasets/global/soilgrids.md) | 250 m soil properties with 90 percent ranges. At Karnal the clay range runs from 3 to 86 percent. The REST API is slow and often times out. |
+| [chirps.md](01_datasets/global/chirps.md) | 0.05 degree rainfall from 1981, public domain. v2 and v3 differ by 17 percent on Karnal's 2024 kharif total. |
+| [worldcereal.md](01_datasets/global/worldcereal.md) | 10 m crop maps for 2021 only, CC BY 4.0. Has no rice class, so it can't tell us the rotation at Karnal. |
+| [open_meteo.md](01_datasets/global/open_meteo.md) | Keyless ERA5 API with FAO-56 ET0. Karnal 2024 had 773 mm of rain against 1,585 mm of ET0. |
+| [wapor.md](01_datasets/global/wapor.md) | FAO actual ET at 300 m from 2018, CC BY 4.0. Karnal AETI for 2024 was 752 mm. |
+| [fao_wfp_prices_calendar.md](01_datasets/global/fao_wfp_prices_calendar.md) | FAOSTAT bulk prices work without a token. WFP covers only city retail prices in India. The FAO crop calendar has no India data. |
+
+## 01_datasets/india
+
+| File | Key facts |
+|---|---|
+| [isro_data_access.md](01_datasets/india/isro_data_access.md) | Bhoonidhi, MOSDAC, VEDAS, NISAR S-band and EOS-04 access and data policy. |
+| [imd_gridded.md](01_datasets/india/imd_gridded.md) | IMD daily rainfall at 0.25 degree from 1901 and temperature at 1 degree from 1951, through POST forms with no login. Karnal had 16 days over 40 C in 2023. |
+| [cgwb_groundwater.md](01_datasets/india/cgwb_groundwater.md) | 1,307 Haryana monitoring wells from 1996 to 2020, open CSV. Kurukshetra wells fall a median 1.15 m per year. |
+| [agmarknet.md](01_datasets/india/agmarknet.md) | Daily mandi prices through data.gov.in. Needs a free API key. |
 
 ## 02_hackathon
 
