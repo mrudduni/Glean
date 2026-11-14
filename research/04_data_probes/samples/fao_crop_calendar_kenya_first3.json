@@ -1,0 +1,227 @@
+[
+ {
+  "id_country": "KE",
+  "lastUpdated": "26/02/2021",
+  "crop": {
+   "id": "0113",
+   "name": "Corn, sweet",
+   "link_image": "https://firebasestorage.googleapis.com/v0/b/fao-cropcalendar.appspot.com/o/corn.jpg?alt=media",
+   "copyright": "CIMMYT",
+   "cropParent": {}
+  },
+  "aez": {
+   "id": "003",
+   "name": "Upper Highland Zone 1 (UH 1)"
+  },
+  "sessions": [
+   {
+    "additional_information": "First season",
+    "comments": "Maize takes very long to maturity. Not very ideal.",
+    "all_year": "no",
+    "early_harvest": {
+     "month": "9",
+     "day": "15"
+    },
+    "early_sowing": {
+     "month": "3",
+     "day": "15"
+    },
+    "growing_period": {
+     "period": "days",
+     "value": "210 - 280"
+    },
+    "late_harvest": {
+     "month": "1",
+     "day": "1"
+    },
+    "later_sowing": {
+     "month": "4",
+     "day": "1"
+    },
+    "sowing_rate": {
+     "unit": "kg/ha",
+     "value": "25"
+    }
+   },
+   {
+    "additional_information": "Second season.Mid Maturing 6 series hybrids eg.H612, H622",
+    "comments": "Maize takes very long to maturity. Not very ideal",
+    "all_year": "no",
+    "early_harvest": {
+     "month": "5",
+     "day": "15"
+    },
+    "early_sowing": {
+     "month": "10",
+     "day": "15"
+    },
+    "growing_period": {
+     "period": "days",
+     "value": "210 - 280"
+    },
+    "late_harvest": {
+     "month": "7",
+     "day": "31"
+    },
+    "later_sowing": {
+     "month": "10",
+     "day": "31"
+    },
+    "sowing_rate": {
+     "unit": "kg/ha",
+     "value": "25"
+    }
+   }
+  ]
+ },
+ {
+  "id_country": "KE",
+  "lastUpdated": "26/02/2021",
+  "crop": {
+   "id": "0113",
+   "name": "Corn, sweet",
+   "link_image": "https://firebasestorage.googleapis.com/v0/b/fao-cropcalendar.appspot.com/o/corn.jpg?alt=media",
+   "copyright": "CIMMYT",
+   "cropParent": {}
+  },
+  "aez": {
+   "id": "004",
+   "name": "Upper Highland Zone 2 (UH2)"
+  },
+  "sessions": [
+   {
+    "additional_information": "First season. Long Maturing 6 series hybrids eg.H629, H628, H627,625, H611, ^11BPAN 691,PAN683,WH699",
+    "comments": "Rainfed, fertilizer application at planting & in some cases topdressing.",
+    "all_year": "no",
+    "early_harvest": {
+     "month": "9",
+     "day": "30"
+    },
+    "early_sowing": {
+     "month": "3",
+     "day": "31"
+    },
+    "growing_period": {
+     "period": "days",
+     "value": "210 - 280"
+    },
+    "late_harvest": {
+     "month": "12",
+     "day": "31"
+    },
+    "later_sowing": {
+     "month": "4",
+     "day": "1"
+    },
+    "sowing_rate": {
+     "unit": "kg/ha",
+     "value": "25"
+    }
+   },
+   {
+    "additional_information": "Second season.Mid Maturing 6 series hybrids eg.H612, H622",
+    "comments": "Rainfed, fertilizer application at planting & in some cases topdressing.",
+    "all_year": "no",
+    "early_harvest": {
+     "month": "5",
+     "day": "15"
+    },
+    "early_sowing": {
+     "month": "10",
+     "day": "15"
+    },
+    "growing_period": {
+     "period": "days",
+     "value": "210 - 280"
+    },
+    "late_harvest": {
+     "month": "7",
+     "day": "31"
+    },
+    "later_sowing": {
+     "month": "10",
+     "day": "31"
+    },
+    "sowing_rate": {
+     "unit": "kg/ha",
+     "value": "25"
+    }
+   }
+  ]
+ },
+ {
+  "id_country": "KE",
+  "lastUpdated": "26/02/2021",
+  "crop": {
+   "id": "0113",
+   "name": "Corn, sweet",
+   "link_image": "https://firebasestorage.googleapis.com/v0/b/fao-cropcalendar.appspot.com/o/corn.jpg?alt=media",
+   "copyright": "CIMMYT",
+   "cropParent": {}
+  },
+  "aez": {
+   "id": "007",
+   "name": "Lower Highland Zone 1 (LH1)"
+  },
+  "sessions": [
+   {
+    "additional_information": "First season. Long Maturing 6 series hybrids eg.H6213, H629, H628, H627,625, H611, ^11BPAN 691,PAN683,WH699",
+    "comments": "Rainfed, fertilizer application at planting & in some cases topdressing.",
+    "all_year": "no",
+    "early_harvest": {
+     "month": "8",
+     "day": "31"
+    },
+    "early_sowing": {
+     "month": "2",
+     "day": "29"
+    },
+    "growing_period": {
+     "period": "days",
+     "value": "180 - 270"
+    },
+    "late_harvest": {
+     "month": "12",
+     "day": "31"
+    },
+    "later_sowing": {
+     "month": "3",
+     "day": "31"
+    },
+    "sowing_rate": {
+     "unit": "kg/ha",
+     "value": "25"
+    }
+   },
+   {
+    "additional_information": "Second season. Mid Maturing 6 series hybrids eg.H612, H622",
+    "comments": "Rainfed, fertilizer application at planting & in some cases topdressing",
+    "all_year": "no",
+    "early_harvest": {
+     "month": "2",
+     "day": "1"
+    },
+    "early_sowing": {
+     "month": "8",
+     "day": "31"
+    },
+    "growing_period": {
+     "period": "days",
+     "value": "180 - 270"
+    },
+    "late_harvest": {
+     "month": "6",
+     "day": "30"
+    },
+    "later_sowing": {
+     "month": "9",
+     "day": "30"
+    },
+    "sowing_rate": {
+     "unit": "kg/ha",
+     "value": "25"
+    }
+   }
+  ]
+ }
+]

@@ -1,0 +1,43 @@
+{
+ "T2M_MIN": {
+  "temporal": {
+   "HOURLY": {
+    "name": null,
+    "definition": null,
+    "communities": [],
+    "calculated": null
+   },
+   "DAILY": {
+    "name": "Temperature at 2 Meters Minimum",
+    "definition": "The minimum hourly air (dry bulb) temperature at 2 meters above the surface of the earth in the period of interest.",
+    "communities": [
+     "AG",
+     "RE",
+     "SB"
+    ],
+    "calculated": false
+   },
+   "MONTHLY": {
+    "name": "Temperature at 2 Meters Minimum",
+    "definition": "The minimum hourly air (dry bulb) temperature at 2 meters above the surface of the earth in the period of interest.",
+    "communities": [
+     "AG",
+     "RE",
+     "SB"
+    ],
+    "calculated": false
+   },
+   "CLIMATOLOGY": {
+    "name": "Temperature at 2 Meters Minimum",
+    "definition": "The minimum hourly air (dry bulb) temperature at 2 meters above the surface of the earth in the period of interest.",
+    "communities": [
+     "AG",
+     "RE",
+     "SB"
+    ],
+    "calculated": false
+   }
+  },
+  "type": "METEOROLOGY"
+ }
+}

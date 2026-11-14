@@ -1,0 +1,3836 @@
+{
+ "epsg4326_best": {
+  "url": "https://gibs.earthdata.nasa.gov/wmts/epsg4326/best/wmts.cgi?SERVICE=WMTS&REQUEST=GetCapabilities",
+  "status": 200,
+  "bytes": 5319381,
+  "seconds": 1.61,
+  "content_type": "text/xml; charset=UTF-8",
+  "n_layers": 1330,
+  "matches": {
+   "SMAP": {
+    "SMAP_L3_Passive_Brightness_Temp_H": {
+     "default_time": "2026-11-11",
+     "time_values_first_last": [
+      "2015-03-31/2015-05-12/P1D",
+      "2026-11-03/2026-11-11/P1D"
+     ],
+     "tile_matrix_set": [
+      "2km"
+     ],
+     "format": [
+      "image/png"
+     ]
+    },
+    "SMAP_L3_Passive_Brightness_Temp_V": {
+     "default_time": "2026-11-11",
+     "time_values_first_last": [
+      "2015-03-31/2015-05-12/P1D",
+      "2026-11-03/2026-11-11/P1D"
+     ],
+     "tile_matrix_set": [
+      "2km"
+     ],
+     "format": [
+      "image/png"
+     ]
+    },
+    "SMAP_L3_Active_Passive_Brightness_Temp_H": {
+     "default_time": "2015-07-07",
+     "time_values_first_last": [
+      "2015-04-13/2015-07-07/P1D",
+      "2015-04-13/2015-07-07/P1D"
+     ],
+     "tile_matrix_set": [
+      "2km"
+     ],
+     "format": [
+      "image/png"
+     ]
+    },
+    "SMAP_L3_Active_Passive_Brightness_Temp_V": {
+     "default_time": "2015-07-07",
+     "time_values_first_last": [
+      "2015-04-13/2015-07-07/P1D",
+      "2015-04-13/2015-07-07/P1D"
+     ],
+     "tile_matrix_set": [
+      "2km"
+     ],
+     "format": [
+      "image/png"
+     ]
+    },
+    "SMAP_L1_Passive_Faraday_Rotation_Aft": {
+     "default_time": "2026-11-11",
+     "time_values_first_last": [
+      "2015-03-31/2015-05-12/P1D",
+      "2026-01-01/2026-11-11/P1D"
+     ],
+     "tile_matrix_set": [
+      "2km"
+     ],
+     "format": [
+      "image/png"
+     ]
+    },
+    "SMAP_L1_Passive_Faraday_Rotation_Fore": {
+     "default_time": "2026-11-11",
+     "time_values_first_last": [
+      "2015-03-31/2015-05-12/P1D",
+      "2026-01-01/2026-11-11/P1D"
+     ],
+     "tile_matrix_set": [
+      "2km"
+     ],
+     "format": [
+      "image/png"
+     ]
+    },
+    "SMAP_L3_Passive_Enhanced_Day_Freeze_Thaw": {
+     "default_time": "2026-11-11",
+     "time_values_first_last": [
+      "2015-03-31/2015-05-12/P1D",
+      "2026-11-03/2026-11-11/P1D"
+     ],
+     "tile_matrix_set": [
+      "2km"
+     ],
+     "format": [
+      "image/png"
+     ]
+    },
+    "SMAP_L3_Passive_Enhanced_Night_Freeze_Thaw": {
+     "default_time": "2026-11-11",
+     "time_values_first_last": [
+      "2015-03-31/2015-05-12/P1D",
+      "2026-11-03/2026-11-11/P1D"
+     ],
+     "tile_matrix_set": [
+      "2km"
+     ],
+     "format": [
+      "image/png"
+     ]
+    },
+    "SMAP_L3_Passive_Day_Freeze_Thaw": {
+     "default_time": "2026-11-11",
+     "time_values_first_last": [
+      "2015-03-31/2015-05-12/P1D",
+      "2026-11-05/2026-11-11/P1D"
+     ],
+     "tile_matrix_set": [
+      "2km"
+     ],
+     "format": [
+      "image/png"
+     ]
+    },
+    "SMAP_L3_Passive_Night_Freeze_Thaw": {
+     "default_time": "2026-11-11",
+     "time_values_first_last": [
+      "2015-03-31/2015-05-12/P1D",
+      "2026-11-05/2026-11-11/P1D"
+     ],
+     "tile_matrix_set": [
+      "2km"
+     ],
+     "format": [
+      "image/png"
+     ]
+    },
+    "SMAP_L4_Mean_Gross_Primary_Productivity": {
+     "default_time": "2026-10-31",
+     "time_values_first_last": [
+      "2015-03-31/2025-10-07/P1D",
+      "2026-10-09/2026-10-31/P1D"
+     ],
+     "tile_matrix_set": [
+      "2km"
+     ],
+     "format": [
+      "image/png"
+     ]
+    },
+    "SMAP_L4_Mean_Heterotrophic_Respiration": {
+     "default_time": "2026-10-31",
+     "time_values_first_last": [
+      "2015-03-31/2025-10-07/P1D",
+      "2026-10-09/2026-10-31/P1D"
+     ],
+     "tile_matrix_set": [
+      "2km"
+     ],
+     "format": [
+      "image/png"
+     ]
+    },
+    "SMAP_L4_Mean_Net_Ecosystem_Exchange": {
+     "default_time": "2026-10-31",
+     "time_values_first_last": [
+      "2015-03-31/2025-10-07/P1D",
+      "2026-10-09/2026-10-31/P1D"
+     ],
+     "tile_matrix_set": [
+      "2km"
+     ],
+     "format": [
+      "image/png"
+     ]
+    },
+    "SMAP_L4_Uncertainty_Mean_Net_Ecosystem_Exchange": {
+     "default_time": "2026-10-31",
+     "time_values_first_last": [
+      "2015-03-31/2025-10-07/P1D",
+      "2026-10-09/2026-10-31/P1D"
+     ],
+     "tile_matrix_set": [
+      "2km"
+     ],
+     "format": [
+      "image/png"
+     ]
+    },
+    "OrbitTracks_SMAP_Ascending": {
+     "default_time": "2026-11-14",
+     "time_values_first_last": [
+      "2015-01-31/2026-11-14/P1D",
+      "2015-01-31/2026-11-14/P1D"
+     ],
+     "tile_matrix_set": [
+      "2km"
+     ],
+     "format": [
+      "application/vnd.mapbox-vector-tile"
+     ]
+    },
+    "OrbitTracks_SMAP_Descending": {
+     "default_time": "2026-11-13",
+     "time_values_first_last": [
+      "2015-01-31/2026-11-13/P1D",
+      "2015-01-31/2026-11-13/P1D"
+     ],
+     "tile_matrix_set": [
+      "2km"
+     ],
+     "format": [
+      "application/vnd.mapbox-vector-tile"
+     ]
+    },
+    "SMAP_L4_Frozen_Area": {
+     "default_time": "2026-10-31",
+     "time_values_first_last": [
+      "2015-03-31/2025-10-07/P1D",
+      "2026-10-09/2026-10-31/P1D"
+     ],
+     "tile_matrix_set": [
+      "2km"
+     ],
+     "format": [
+      "image/png"
+     ]
+    },
+    "SMAP_L4_Emult_Average": {
+     "default_time": "2026-10-31",
+     "time_values_first_last": [
+      "2015-03-31/2025-10-07/P1D",
+      "2026-10-09/2026-10-31/P1D"
+     ],
+     "tile_matrix_set": [
+      "2km"
+     ],
+     "format": [
+      "image/png"
+     ]
+    },
+    "SMAP_L4_Analyzed_Root_Zone_Soil_Moisture": {
+     "default_time": "2026-11-10",
+     "time_values_first_last": [
+      "2015-03-31/2025-10-09/P1D",
+      "2026-11-08/2026-11-10/P1D"
+     ],
+     "tile_matrix_set": [
+      "2km"
+     ],
+     "format": [
+      "image/png"
+     ]
+    },
+    "SMAP_L4_Uncertainty_Analyzed_Root_Zone_Soil_Moisture": {
+     "default_time": "2026-11-10",
+     "time_values_first_last": [
+      "2015-03-31/2025-07-31/P1D",
+      "2026-11-08/2026-11-10/P1D"
+     ],
+     "tile_matrix_set": [
+      "2km"
+     ],
+     "format": [
+      "image/png"
+     ]
+    },
+    "SMAP_L3_Sea_Surface_Salinity_CAP_8Day_RunningMean": {
+     "default_time": "2026-11-10",
+     "time_values_first_last": [
+      "2015-05-08/2020-12-19/P1D",
+      "2026-03-29/2026-11-10/P1D"
+     ],
+     "tile_matrix_set": [
+      "2km"
+     ],
+     "format": [
+      "image/png"
+     ]
+    },
+    "SMAP_L3_Sea_Surface_Salinity_CAP_Monthly": {
+     "default_time": "2026-09-01",
+     "time_values_first_last": [
+      "2015-04-01/2022-08-01/P1M",
+      "2025-01-01/2026-09-01/P1M"
+     ],
+     "tile_matrix_set": [
+      "2km"
+     ],
+     "format": [
+      "image/png"
+     ]
+    },
+    "SMAP_L3_Sea_Surface_Salinity_REMSS_8Day_RunningMean": {
+     "default_time": "2022-07-11",
+     "time_values_first_last": [
+      "2015-03-31/2019-06-20/P1D",
+      "2019-12-01/2022-07-11/P1D"
+     ],
+     "tile_matrix_set": [
+      "2km"
+     ],
+     "format": [
+      "image/png"
+     ]
+    },
+    "SMAP_L3_Sea_Surface_Salinity_REMSS_Monthly": {
+     "default_time": "2022-06-01",
+     "time_values_first_last": [
+      "2015-04-01/2022-06-01/P1M",
+      "2015-04-01/2022-06-01/P1M"
+     ],
+     "tile_matrix_set": [
+      "2km"
+     ],
+     "format": [
+      "image/png"
+     ]
+    },
+    "SMAP_L3_Active_Sigma0_HH": {
+     "default_time": "2015-07-07",
+     "time_values_first_last": [
+      "2015-04-13/2015-07-07/P1D",
+      "2015-04-13/2015-07-07/P1D"
+     ],
+     "tile_matrix_set": [
+      "2km"
+     ],
+     "format": [
+      "image/png"
+     ]
+    },
+    "SMAP_L3_Active_Sigma0_VV": {
+     "default_time": "2015-07-07",
+     "time_values_first_last": [
+      "2015-04-13/2015-07-07/P1D",
+      "2015-04-13/2015-07-07/P1D"
+     ],
+     "tile_matrix_set": [
+      "2km"
+     ],
+     "format": [
+      "image/png"
+     ]
+    },
+    "SMAP_L3_Active_Sigma0_XPOL": {
+     "default_time": "2015-07-07",
+     "time_values_first_last": [
+      "2015-04-13/2015-07-07/P1D",
+      "2015-04-13/2015-07-07/P1D"
+     ],
+     "tile_matrix_set": [
+      "2km"
+     ],
+     "format": [
+      "image/png"
+     ]
+    },
+    "SMAP_L3_Active_Sigma0_HH_QA": {
+     "default_time": "2015-07-07",
+     "time_values_first_last": [
+      "2015-04-13/2015-07-07/P1D",
+      "2015-04-13/2015-07-07/P1D"
+     ],
+     "tile_matrix_set": [
+      "2km"
+     ],
+     "format": [
+      "image/png"
+     ]
+    },
+    "SMAP_L3_Active_Sigma0_VV_QA": {
+     "default_time": "2015-07-07",
+     "time_values_first_last": [
+      "2015-04-13/2015-07-07/P1D",
+      "2015-04-13/2015-07-07/P1D"
+     ],
+     "tile_matrix_set": [
+      "2km"
+     ],
+     "format": [
+      "image/png"
+     ]
+    },
+    "SMAP_L3_Active_Sigma0_XPOL_QA": {
+     "default_time": "2015-07-07",
+     "time_values_first_last": [
+      "2015-04-13/2015-07-07/P1D",
+      "2015-04-13/2015-07-07/P1D"
+     ],
+     "tile_matrix_set": [
+      "2km"
+     ],
+     "format": [
+      "image/png"
+     ]
+    },
+    "SMAP_L3_Active_Sigma0_HH_RFI": {
+     "default_time": "2015-07-07",
+     "time_values_first_last": [
+      "2015-04-13/2015-07-07/P1D",
+      "2015-04-13/2015-07-07/P1D"
+     ],
+     "tile_matrix_set": [
+      "2km"
+     ],
+     "format": [
+      "image/png"
+     ]
+    },
+    "SMAP_L3_Active_Sigma0_VV_RFI": {
+     "default_time": "2015-07-07",
+     "time_values_first_last": [
+      "2015-04-13/2015-07-07/P1D",
+      "2015-04-13/2015-07-07/P1D"
+     ],
+     "tile_matrix_set": [
+      "2km"
+     ],
+     "format": [
+      "image/png"
+     ]
+    },
+    "SMAP_L3_Active_Sigma0_XPOL_RFI": {
+     "default_time": "2015-07-07",
+     "time_values_first_last": [
+      "2015-04-13/2015-07-07/P1D",
+      "2015-04-13/2015-07-07/P1D"
+     ],
+     "tile_matrix_set": [
+      "2km"
+     ],
+     "format": [
+      "image/png"
+     ]
+    },
+    "SMAP_L4_Snow_Mass": {
+     "default_time": "2026-11-10",
+     "time_values_first_last": [
+      "2015-03-31/2025-08-02/P1D",
+      "2026-09-01/2026-11-10/P1D"
+     ],
+     "tile_matrix_set": [
+      "2km"
+     ],
+     "format": [
+      "image/png"
+     ]
+    },
+    "SMAP_Sentinel-1_L2_Active_Passive_Soil_Moisture": {
+     "default_time": "2026-07-21",
+     "time_values_first_last": [
+      "2015-04-01/2015-04-15/P1D",
+      "2026-07-19/2026-07-21/P1D"
+     ],
+     "tile_matrix_set": [
+      "2km"
+     ],
+     "format": [
+      "image/png"
+     ]
+    },
+    "SMAP_L2_Passive_Enhanced_Day_Soil_Moisture_Option3": {
+     "default_time": "2026-11-11",
+     "time_values_first_last": [
+      "2015-03-31/2015-05-12/P1D",
+      "2026-11-01/2026-11-11/P1D"
+     ],
+     "tile_matrix_set": [
+      "2km"
+     ],
+     "format": [
+      "image/png"
+     ]
+    },
+    "SMAP_L2_Passive_Enhanced_Day_Soil_Moisture_Option1": {
+     "default_time": "2026-11-11",
+     "time_values_first_last": [
+      "2015-03-31/2015-05-12/P1D",
+      "2026-11-01/2026-11-11/P1D"
+     ],
+     "tile_matrix_set": [
+      "2km"
+     ],
+     "format": [
+      "image/png"
+     ]
+    },
+    "SMAP_L2_Passive_Enhanced_Day_Soil_Moisture_Option2": {
+     "default_time": "2026-11-11",
+     "time_values_first_last": [
+      "2015-03-31/2015-05-12/P1D",
+      "2026-11-01/2026-11-11/P1D"
+     ],
+     "tile_matrix_set": [
+      "2km"
+     ],
+     "format": [
+      "image/png"
+     ]
+    },
+    "SMAP_L2_Passive_Enhanced_Night_Soil_Moisture_Option3": {
+     "default_time": "2026-11-11",
+     "time_values_first_last": [
+      "2015-03-31/2015-05-12/P1D",
+      "2026-11-01/2026-11-11/P1D"
+     ],
+     "tile_matrix_set": [
+      "2km"
+     ],
+     "format": [
+      "image/png"
+     ]
+    },
+    "SMAP_L2_Passive_Enhanced_Night_Soil_Moisture_Option1": {
+     "default_time": "2026-11-11",
+     "time_values_first_last": [
+      "2015-03-31/2015-05-12/P1D",
+      "2026-11-01/2026-11-11/P1D"
+     ],
+     "tile_matrix_set": [
+      "2km"
+     ],
+     "format": [
+      "image/png"
+     ]
+    },
+    "SMAP_L2_Passive_Enhanced_Night_Soil_Moisture_Option2": {
+     "default_time": "2026-11-11",
+     "time_values_first_last": [
+      "2015-03-31/2015-05-12/P1D",
+      "2026-11-01/2026-11-11/P1D"
+     ],
+     "tile_matrix_set": [
+      "2km"
+     ],
+     "format": [
+      "image/png"
+     ]
+    },
+    "SMAP_L2_Passive_Day_Soil_Moisture_Option3": {
+     "default_time": "2026-11-11",
+     "time_values_first_last": [
+      "2015-03-31/2015-05-12/P1D",
+      "2022-09-20/2026-11-11/P1D"
+     ],
+     "tile_matrix_set": [
+      "2km"
+     ],
+     "format": [
+      "image/png"
+     ]
+    },
+    "SMAP_L2_Passive_Day_Soil_Moisture_Option1": {
+     "default_time": "2026-11-11",
+     "time_values_first_last": [
+      "2015-03-31/2015-05-12/P1D",
+      "2022-09-20/2026-11-11/P1D"
+     ],
+     "tile_matrix_set": [
+      "2km"
+     ],
+     "format": [
+      "image/png"
+     ]
+    },
+    "SMAP_L2_Passive_Day_Soil_Moisture_Option2": {
+     "default_time": "2026-11-11",
+     "time_values_first_last": [
+      "2015-03-31/2015-05-12/P1D",
+      "2022-09-20/2026-11-11/P1D"
+     ],
+     "tile_matrix_set": [
+      "2km"
+     ],
+     "format": [
+      "image/png"
+     ]
+    },
+    "SMAP_L2_Passive_Night_Soil_Moisture_Option3": {
+     "default_time": "2026-11-11",
+     "time_values_first_last": [
+      "2015-03-31/2015-05-12/P1D",
+      "2022-09-20/2026-11-11/P1D"
+     ],
+     "tile_matrix_set": [
+      "2km"
+     ],
+     "format": [
+      "image/png"
+     ]
+    },
+    "SMAP_L2_Passive_Night_Soil_Moisture_Option1": {
+     "default_time": "2026-11-11",
+     "time_values_first_last": [
+      "2015-03-31/2015-05-12/P1D",
+      "2022-09-20/2026-11-11/P1D"
+     ],
+     "tile_matrix_set": [
+      "2km"
+     ],
+     "format": [
+      "image/png"
+     ]
+    },
+    "SMAP_L2_Passive_Night_Soil_Moisture_Option2": {
+     "default_time": "2026-11-11",
+     "time_values_first_last": [
+      "2015-03-31/2015-05-12/P1D",
+      "2022-09-20/2026-11-11/P1D"
+     ],
+     "tile_matrix_set": [
+      "2km"
+     ],
+     "format": [
+      "image/png"
+     ]
+    },
+    "SMAP_L3_Active_Soil_Moisture": {
+     "default_time": "2015-07-07",
+     "time_values_first_last": [
+      "2015-04-13/2015-07-07/P1D",
+      "2015-04-13/2015-07-07/P1D"
+     ],
+     "tile_matrix_set": [
+      "2km"
+     ],
+     "format": [
+      "image/png"
+     ]
+    },
+    "SMAP_L3_Active_Passive_Soil_Moisture": {
+     "default_time": "2015-07-07",
+     "time_values_first_last": [
+      "2015-04-13/2015-07-07/P1D",
+      "2015-04-13/2015-07-07/P1D"
+     ],
+     "tile_matrix_set": [
+      "2km"
+     ],
+     "format": [
+      "image/png"
+     ]
+    },
+    "SMAP_L3_Passive_Enhanced_Day_Soil_Moisture": {
+     "default_time": "2026-11-11",
+     "time_values_first_last": [
+      "2015-03-31/2015-05-12/P1D",
+      "2026-11-03/2026-11-11/P1D"
+     ],
+     "tile_matrix_set": [
+      "2km"
+     ],
+     "format": [
+      "image/png"
+     ]
+    },
+    "SMAP_L3_Passive_Enhanced_Night_Soil_Moisture": {
+     "default_time": "2026-11-11",
+     "time_values_first_last": [
+      "2015-03-31/2015-05-12/P1D",
+      "2026-11-03/2026-11-11/P1D"
+     ],
+     "tile_matrix_set": [
+      "2km"
+     ],
+     "format": [
+      "image/png"
+     ]
+    },
+    "SMAP_L3_Passive_Day_Soil_Moisture": {
+     "default_time": "2026-11-11",
+     "time_values_first_last": [
+      "2015-03-31/2015-05-12/P1D",
+      "2026-11-03/2026-11-11/P1D"
+     ],
+     "tile_matrix_set": [
+      "2km"
+     ],
+     "format": [
+      "image/png"
+     ]
+    },
+    "SMAP_L3_Passive_Night_Soil_Moisture": {
+     "default_time": "2026-11-11",
+     "time_values_first_last": [
+      "2015-03-31/2015-05-12/P1D",
+      "2026-11-03/2026-11-11/P1D"
+     ],
+     "tile_matrix_set": [
+      "2km"
+     ],
+     "format": [
+      "image/png"
+     ]
+    },
+    "SMAP_L4_Analyzed_Surface_Soil_Moisture": {
+     "default_time": "2026-11-10",
+     "time_values_first_last": [
+      "2015-03-31/2025-10-09/P1D",
+      "2026-11-08/2026-11-10/P1D"
+     ],
+     "tile_matrix_set": [
+      "2km"
+     ],
+     "format": [
+      "image/png"
+     ]
+    },
+    "SMAP_L4_Uncertainty_Analyzed_Surface_Soil_Moisture": {
+     "default_time": "2026-11-10",
+     "time_values_first_last": [
+      "2015-03-31/2025-10-09/P1D",
+      "2026-11-08/2026-11-10/P1D"
+     ],
+     "tile_matrix_set": [
+      "2km"
+     ],
+     "format": [
+      "image/png"
+     ]
+    },
+    "SMAP_L4_Soil_Temperature_Layer_1": {
+     "default_time": "2026-11-10",
+     "time_values_first_last": [
+      "2015-03-31/2025-10-09/P1D",
+      "2026-11-08/2026-11-10/P1D"
+     ],
+     "tile_matrix_set": [
+      "2km"
+     ],
+     "format": [
+      "image/png"
+     ]
+    },
+    "SMAP_L1_Passive_Enhanced_Brightness_Temp_Aft_H": {
+     "default_time": "2026-11-11",
+     "time_values_first_last": [
+      "2015-03-31/2015-05-12/P1D",
+      "2026-10-19/2026-11-11/P1D"
+     ],
+     "tile_matrix_set": [
+      "2km"
+     ],
+     "format": [
+      "image/png"
+     ]
+    },
+    "SMAP_L1_Passive_Enhanced_Brightness_Temp_Aft_V": {
+     "default_time": "2026-11-11",
+     "time_values_first_last": [
+      "2015-03-31/2015-05-12/P1D",
+      "2026-10-19/2026-11-11/P1D"
+     ],
+     "tile_matrix_set": [
+      "2km"
+     ],
+     "format": [
+      "image/png"
+     ]
+    },
+    "SMAP_L1_Passive_Enhanced_Brightness_Temp_Fore_H": {
+     "default_time": "2026-11-11",
+     "time_values_first_last": [
+      "2015-03-31/2015-05-12/P1D",
+      "2026-10-19/2026-11-11/P1D"
+     ],
+     "tile_matrix_set": [
+      "2km"
+     ],
+     "format": [
+      "image/png"
+     ]
+    },
+    "SMAP_L1_Passive_Enhanced_Brightness_Temp_Fore_V": {
+     "default_time": "2026-11-11",
+     "time_values_first_last": [
+      "2015-03-31/2015-05-12/P1D",
+      "2026-10-19/2026-11-11/P1D"
+     ],
+     "tile_matrix_set": [
+      "2km"
+     ],
+     "format": [
+      "image/png"
+     ]
+    }
+   },
+   "SMAP_count": 80,
+   "IMERG": {
+    "IMERG_Precipitation_Rate": {
+     "default_time": "2026-11-12",
+     "time_values_first_last": [
+      "2000-06-01/2025-10-22/P1D",
+      "2026-05-27/2026-11-12/P1D"
+     ],
+     "tile_matrix_set": [
+      "2km"
+     ],
+     "format": [
+      "image/png"
+     ]
+    },
+    "IMERG_Precipitation_Rate_30min": {
+     "default_time": "2026-11-14T03:30:00Z",
+     "time_values_first_last": [
+      "1998-01-01T00:00:00Z/2025-09-13T19:30:00Z/PT30M",
+      "2026-02-10T01:00:00Z/2026-11-14T03:30:00Z/PT30M"
+     ],
+     "tile_matrix_set": [
+      "2km"
+     ],
+     "format": [
+      "image/png"
+     ]
+    }
+   },
+   "IMERG_count": 2,
+   "MODIS_NDVI": {
+    "MISR_Land_NDVI_Average_Monthly": {
+     "default_time": "2022-02-01",
+     "time_values_first_last": [
+      "2000-03-01/2022-02-01/P1M",
+      "2000-03-01/2022-02-01/P1M"
+     ],
+     "tile_matrix_set": [
+      "2km"
+     ],
+     "format": [
+      "image/png"
+     ]
+    },
+    "VIIRS_NOAA20_NDVI_8Day": {
+     "default_time": "2026-11-13",
+     "time_values_first_last": [
+      "2025-09-22/2026-11-13/P1D",
+      "2025-09-22/2026-11-13/P1D"
+     ],
+     "tile_matrix_set": [
+      "500m"
+     ],
+     "format": [
+      "image/png"
+     ]
+    },
+    "VIIRS_SNPP_NDVI_8Day": {
+     "default_time": "2026-11-02",
+     "time_values_first_last": [
+      "2025-07-01/2026-02-08/P1D",
+      "2026-02-10/2026-11-02/P1D"
+     ],
+     "tile_matrix_set": [
+      "500m"
+     ],
+     "format": [
+      "image/png"
+     ]
+    },
+    "VIIRS_NOAA21_NDVI_8Day": {
+     "default_time": "2026-11-13",
+     "time_values_first_last": [
+      "2026-09-27/2026-11-13/P1D",
+      "2026-09-27/2026-11-13/P1D"
+     ],
+     "tile_matrix_set": [
+      "500m"
+     ],
+     "format": [
+      "image/png"
+     ]
+    },
+    "Landsat_WELD_NDVI_Global_Annual": {
+     "default_time": "2000-12-01",
+     "time_values_first_last": [
+      "1983-12-01/1985-12-01/P1Y",
+      "1998-12-01/2000-12-01/P1Y"
+     ],
+     "tile_matrix_set": [
+      "31.25m"
+     ],
+     "format": [
+      "image/jpeg"
+     ]
+    },
+    "Landsat_WELD_NDVI_Global_Monthly": {
+     "default_time": "2001-11-01",
+     "time_values_first_last": [
+      "1984-03-01/1986-11-01/P1M",
+      "1998-12-01/2001-11-01/P1M"
+     ],
+     "tile_matrix_set": [
+      "31.25m"
+     ],
+     "format": [
+      "image/jpeg"
+     ]
+    },
+    "MODIS_Aqua_L3_NDVI_16Day": {
+     "default_time": "2026-10-24",
+     "time_values_first_last": [
+      "2002-07-04/2002-12-27/P16D",
+      "2026-01-09/2026-10-24/P16D"
+     ],
+     "tile_matrix_set": [
+      "250m"
+     ],
+     "format": [
+      "image/png"
+     ]
+    },
+    "MODIS_Terra_L3_NDVI_16Day": {
+     "default_time": "2026-10-16",
+     "time_values_first_last": [
+      "2000-03-05/2000-12-18/P16D",
+      "2026-01-01/2026-10-16/P16D"
+     ],
+     "tile_matrix_set": [
+      "250m"
+     ],
+     "format": [
+      "image/png"
+     ]
+    },
+    "VIIRS_NOAA20_L3_NDVI_16Day": {
+     "default_time": "2026-10-16",
+     "time_values_first_last": [
+      "2018-01-01/2018-12-27/P8D",
+      "2026-01-01/2026-10-16/P8D"
+     ],
+     "tile_matrix_set": [
+      "500m"
+     ],
+     "format": [
+      "image/png"
+     ]
+    },
+    "VIIRS_SNPP_L3_NDVI_16Day": {
+     "default_time": "2026-10-24",
+     "time_values_first_last": [
+      "2024-08-28/2024-08-28/P16D",
+      "2026-10-24/2026-10-24/P16D"
+     ],
+     "tile_matrix_set": [
+      "500m"
+     ],
+     "format": [
+      "image/png"
+     ]
+    },
+    "MODIS_Terra_L3_NDVI_Monthly": {
+     "default_time": "2026-10-01",
+     "time_values_first_last": [
+      "2000-03-01/2025-03-01/P1M",
+      "2025-05-01/2026-10-01/P1M"
+     ],
+     "tile_matrix_set": [
+      "1km"
+     ],
+     "format": [
+      "image/png"
+     ]
+    },
+    "VIIRS_NOAA20_L3_NDVI_Monthly": {
+     "default_time": "2026-09-01",
+     "time_values_first_last": [
+      "2018-01-01/2026-09-01/P1M",
+      "2018-01-01/2026-09-01/P1M"
+     ],
+     "tile_matrix_set": [
+      "1km"
+     ],
+     "format": [
+      "image/png"
+     ]
+    },
+    "VIIRS_SNPP_L3_NDVI_Monthly": {
+     "default_time": "2026-11-01",
+     "time_values_first_last": [
+      "2012-01-01/2026-11-01/P1M",
+      "2012-01-01/2026-11-01/P1M"
+     ],
+     "tile_matrix_set": [
+      "1km"
+     ],
+     "format": [
+      "image/png"
+     ]
+    },
+    "MODIS_Aqua_L3_NDVI_Monthly": {
+     "default_time": "2026-10-01",
+     "time_values_first_last": [
+      "2002-07-01/2026-10-01/P1M",
+      "2002-07-01/2026-10-01/P1M"
+     ],
+     "tile_matrix_set": [
+      "1km"
+     ],
+     "format": [
+      "image/png"
+     ]
+    },
+    "MODIS_Terra_NDVI_8Day": {
+     "default_time": "2026-11-13",
+     "time_values_first_last": [
+      "2025-02-12/2026-02-08/P1D",
+      "2026-02-10/2026-11-13/P1D"
+     ],
+     "tile_matrix_set": [
+      "250m"
+     ],
+     "format": [
+      "image/png"
+     ]
+    }
+   },
+   "MODIS_NDVI_count": 15,
+   "ECOSTRESS": {},
+   "ECOSTRESS_count": 0,
+   "GRACE": {
+    "GRACE_Tellus_Liquid_Water_Equivalent_Thickness_Mascon_CRI": {
+     "default_time": "2022-07-01",
+     "time_values_first_last": [
+      "2002-04-04/2002-04-04/P28D",
+      "2020-02-01/2022-07-01/P1M"
+     ],
+     "tile_matrix_set": [
+      "2km"
+     ],
+     "format": [
+      "image/png"
+     ]
+    }
+   },
+   "GRACE_count": 1,
+   "HLS": {
+    "OPERA_L3_Dynamic_Surface_Water_Extent-HLS": {
+     "default_time": "2026-11-05",
+     "time_values_first_last": [
+      "2016-01-07/2020-08-15/P1D",
+      "2024-06-04/2026-11-05/P1D"
+     ],
+     "tile_matrix_set": [
+      "31.25m"
+     ],
+     "format": [
+      "image/png"
+     ]
+    },
+    "HLS_MGRS_Granule_Grid": {
+     "default_time": null,
+     "time_values_first_last": null,
+     "tile_matrix_set": [
+      "31.25m"
+     ],
+     "format": [
+      "application/vnd.mapbox-vector-tile"
+     ]
+    },
+    "HLS_L30_Nadir_BRDF_Adjusted_Reflectance": {
+     "default_time": "2026-11-05",
+     "time_values_first_last": [
+      "2013-03-22/2013-03-22/P1D",
+      "2026-03-02/2026-11-05/P1D"
+     ],
+     "tile_matrix_set": [
+      "31.25m"
+     ],
+     "format": [
+      "image/png"
+     ]
+    },
+    "HLS_S30_Nadir_BRDF_Adjusted_Reflectance": {
+     "default_time": "2026-11-06",
+     "time_values_first_last": [
+      "2015-11-28/2015-12-11/P1D",
+      "2026-03-02/2026-11-06/P1D"
+     ],
+     "tile_matrix_set": [
+      "31.25m"
+     ],
+     "format": [
+      "image/png"
+     ]
+    },
+    "OPERA_L3_DIST-ALERT-HLS_Color_Index": {
+     "default_time": "2026-11-05",
+     "time_values_first_last": [
+      "2023-01-01/2025-06-02/P1D",
+      "2025-06-05/2026-11-05/P1D"
+     ],
+     "tile_matrix_set": [
+      "31.25m"
+     ],
+     "format": [
+      "image/png"
+     ]
+    },
+    "OPERA_L3_DIST-ANN-HLS_Color_Index": {
+     "default_time": "2025-01-01",
+     "time_values_first_last": [
+      "2023-01-01/2025-01-01/P1Y",
+      "2023-01-01/2025-01-01/P1Y"
+     ],
+     "tile_matrix_set": [
+      "31.25m"
+     ],
+     "format": [
+      "image/png"
+     ]
+    }
+   },
+   "HLS_count": 6,
+   "VIIRS_truecolor": {
+    "VIIRS_NOAA20_CorrectedReflectance_TrueColor_Granule": {
+     "default_time": "2026-11-14T05:06:00Z",
+     "time_values_first_last": [
+      "2026-08-16T05:06:00Z/2026-11-14T05:06:00Z/PT6M",
+      "2026-08-16T05:06:00Z/2026-11-14T05:06:00Z/PT6M"
+     ],
+     "tile_matrix_set": [
+      "250m"
+     ],
+     "format": [
+      "image/png"
+     ]
+    },
+    "VIIRS_SNPP_CorrectedReflectance_TrueColor_Granule": {
+     "default_time": "2026-11-02T15:18:00Z",
+     "time_values_first_last": [
+      "2026-08-04T15:18:00Z/2026-11-02T15:18:00Z/PT6M",
+      "2026-08-04T15:18:00Z/2026-11-02T15:18:00Z/PT6M"
+     ],
+     "tile_matrix_set": [
+      "250m"
+     ],
+     "format": [
+      "image/png"
+     ]
+    },
+    "VIIRS_NOAA20_CorrectedReflectance_TrueColor": {
+     "default_time": "2026-11-14",
+     "time_values_first_last": [
+      "2018-01-05/2018-02-21/P1D",
+      "2022-01-14/2026-11-14/P1D"
+     ],
+     "tile_matrix_set": [
+      "250m"
+     ],
+     "format": [
+      "image/jpeg"
+     ]
+    },
+    "VIIRS_NOAA21_CorrectedReflectance_TrueColor": {
+     "default_time": "2026-11-14",
+     "time_values_first_last": [
+      "2023-02-10/2023-02-23/P1D",
+      "2024-02-29/2026-11-14/P1D"
+     ],
+     "tile_matrix_set": [
+      "250m"
+     ],
+     "format": [
+      "image/jpeg"
+     ]
+    },
+    "VIIRS_SNPP_CorrectedReflectance_TrueColor": {
+     "default_time": "2026-11-02",
+     "time_values_first_last": [
+      "2015-11-24/2022-07-27/P1D",
+      "2026-07-16/2026-11-02/P1D"
+     ],
+     "tile_matrix_set": [
+      "250m"
+     ],
+     "format": [
+      "image/jpeg"
+     ]
+    }
+   },
+   "VIIRS_truecolor_count": 5,
+   "MODIS_truecolor": {
+    "MODIS_Terra_CorrectedReflectance_TrueColor": {
+     "default_time": "2026-11-14",
+     "time_values_first_last": [
+      "2000-02-24/2000-04-25/P1D",
+      "2022-10-23/2026-11-14/P1D"
+     ],
+     "tile_matrix_set": [
+      "250m"
+     ],
+     "format": [
+      "image/jpeg"
+     ]
+    }
+   },
+   "MODIS_truecolor_count": 1,
+   "LST": {
+    "UHI_Avg_Summer_Day_Max_Land_Surface_Temp_2013": {
+     "default_time": null,
+     "time_values_first_last": null,
+     "tile_matrix_set": [
+      "1km"
+     ],
+     "format": [
+      "image/png"
+     ]
+    },
+    "UHI_Avg_Summer_Night_Min_Land_Surface_Temp_2013": {
+     "default_time": null,
+     "time_values_first_last": null,
+     "tile_matrix_set": [
+      "1km"
+     ],
+     "format": [
+      "image/png"
+     ]
+    },
+    "MODIS_Terra_L3_Land_Surface_Temp_8Day_Day": {
+     "default_time": "2026-11-01",
+     "time_values_first_last": [
+      "2000-02-26/2000-12-26/P8D",
+      "2026-01-09/2026-11-01/P8D"
+     ],
+     "tile_matrix_set": [
+      "1km"
+     ],
+     "format": [
+      "image/png"
+     ]
+    },
+    "MODIS_Aqua_L3_Land_Surface_Temp_8Day_Day_TES": {
+     "default_time": "2026-11-01",
+     "time_values_first_last": [
+      "2002-07-04/2002-12-27/P8D",
+      "2026-02-10/2026-11-01/P8D"
+     ],
+     "tile_matrix_set": [
+      "1km"
+     ],
+     "format": [
+      "image/png"
+     ]
+    },
+    "MODIS_Terra_L3_Land_Surface_Temp_8Day_Day_TES": {
+     "default_time": "2026-11-01",
+     "time_values_first_last": [
+      "2000-02-24/2000-12-26/P8D",
+      "2026-01-01/2026-11-01/P8D"
+     ],
+     "tile_matrix_set": [
+      "1km"
+     ],
+     "format": [
+      "image/png"
+     ]
+    },
+    "MODIS_Aqua_L3_Land_Surface_Temp_8Day_Night_TES": {
+     "default_time": "2026-11-01",
+     "time_values_first_last": [
+      "2002-07-04/2002-12-27/P8D",
+      "2026-01-01/2026-11-01/P8D"
+     ],
+     "tile_matrix_set": [
+      "1km"
+     ],
+     "format": [
+      "image/png"
+     ]
+    },
+    "MODIS_Terra_L3_Land_Surface_Temp_8Day_Night_TES": {
+     "default_time": "2026-11-01",
+     "time_values_first_last": [
+      "2000-02-24/2000-12-26/P8D",
+      "2026-01-01/2026-11-01/P8D"
+     ],
+     "tile_matrix_set": [
+      "1km"
+     ],
+     "format": [
+      "image/png"
+     ]
+    },
+    "MODIS_Aqua_L3_Land_Surface_Temp_Daily_Day_TES": {
+     "default_time": "2026-11-12",
+     "time_values_first_last": [
+      "2002-07-03/2002-07-29/P1D",
+      "2026-02-09/2026-11-12/P1D"
+     ],
+     "tile_matrix_set": [
+      "1km"
+     ],
+     "format": [
+      "image/png"
+     ]
+    },
+    "MODIS_Terra_L3_Land_Surface_Temp_Daily_Day_TES": {
+     "default_time": "2026-11-12",
+     "time_values_first_last": [
+      "2000-02-24/2000-04-25/P1D",
+      "2022-10-23/2026-11-12/P1D"
+     ],
+     "tile_matrix_set": [
+      "1km"
+     ],
+     "format": [
+      "image/png"
+     ]
+    },
+    "MODIS_Aqua_L3_Land_Surface_Temp_Daily_Night_TES": {
+     "default_time": "2026-11-12",
+     "time_values_first_last": [
+      "2002-07-03/2002-07-29/P1D",
+      "2026-02-09/2026-11-12/P1D"
+     ],
+     "tile_matrix_set": [
+      "1km"
+     ],
+     "format": [
+      "image/png"
+     ]
+    },
+    "MODIS_Terra_L3_Land_Surface_Temp_Daily_Night_TES": {
+     "default_time": "2026-11-12",
+     "time_values_first_last": [
+      "2000-02-24/2000-04-25/P1D",
+      "2026-02-09/2026-11-12/P1D"
+     ],
+     "tile_matrix_set": [
+      "1km"
+     ],
+     "format": [
+      "image/png"
+     ]
+    },
+    "MODIS_Aqua_L3_Land_Surface_Temp_Monthly_CMG_Day_TES": {
+     "default_time": "2026-10-01",
+     "time_values_first_last": [
+      "2002-07-01/2026-10-01/P1M",
+      "2002-07-01/2026-10-01/P1M"
+     ],
+     "tile_matrix_set": [
+      "2km"
+     ],
+     "format": [
+      "image/png"
+     ]
+    },
+    "MODIS_Terra_L3_Land_Surface_Temp_Monthly_CMG_Day_TES": {
+     "default_time": "2026-10-01",
+     "time_values_first_last": [
+      "2000-02-01/2026-10-01/P1M",
+      "2000-02-01/2026-10-01/P1M"
+     ],
+     "tile_matrix_set": [
+      "2km"
+     ],
+     "format": [
+      "image/png"
+     ]
+    },
+    "MODIS_Aqua_L3_Land_Surface_Temp_Monthly_CMG_Night_TES": {
+     "default_time": "2026-10-01",
+     "time_values_first_last": [
+      "2002-07-01/2026-10-01/P1M",
+      "2002-07-01/2026-10-01/P1M"
+     ],
+     "tile_matrix_set": [
+      "2km"
+     ],
+     "format": [
+      "image/png"
+     ]
+    },
+    "MODIS_Terra_L3_Land_Surface_Temp_Monthly_CMG_Night_TES": {
+     "default_time": "2026-10-01",
+     "time_values_first_last": [
+      "2000-02-01/2026-10-01/P1M",
+      "2000-02-01/2026-10-01/P1M"
+     ],
+     "tile_matrix_set": [
+      "2km"
+     ],
+     "format": [
+      "image/png"
+     ]
+    },
+    "MODIS_Terra_Land_Surface_Temp_Day_TES": {
+     "default_time": "2026-11-14",
+     "time_values_first_last": [
+      "2000-02-24/2000-04-25/P1D",
+      "2022-10-23/2026-11-14/P1D"
+     ],
+     "tile_matrix_set": [
+      "1km"
+     ],
+     "format": [
+      "image/png"
+     ]
+    },
+    "MODIS_Terra_Land_Surface_Temp_Night_TES": {
+     "default_time": "2026-11-14",
+     "time_values_first_last": [
+      "2000-02-24/2000-04-25/P1D",
+      "2022-10-23/2026-11-14/P1D"
+     ],
+     "tile_matrix_set": [
+      "1km"
+     ],
+     "format": [
+      "image/png"
+     ]
+    },
+    "MODIS_Aqua_Land_Surface_Temp_Day": {
+     "default_time": "2026-11-14",
+     "time_values_first_last": [
+      "2002-07-03/2002-07-29/P1D",
+      "2022-04-16/2026-11-14/P1D"
+     ],
+     "tile_matrix_set": [
+      "1km"
+     ],
+     "format": [
+      "image/png"
+     ]
+    },
+    "MODIS_Aqua_Land_Surface_Temp_Day_TES": {
+     "default_time": "2026-11-14",
+     "time_values_first_last": [
+      "2002-07-04/2002-07-29/P1D",
+      "2022-04-17/2026-11-14/P1D"
+     ],
+     "tile_matrix_set": [
+      "1km"
+     ],
+     "format": [
+      "image/png"
+     ]
+    },
+    "MODIS_Terra_Land_Surface_Temp_Day": {
+     "default_time": "2026-11-14",
+     "time_values_first_last": [
+      "2000-02-24/2000-04-25/P1D",
+      "2022-10-23/2026-11-14/P1D"
+     ],
+     "tile_matrix_set": [
+      "1km"
+     ],
+     "format": [
+      "image/png"
+     ]
+    },
+    "VIIRS_NOAA20_Land_Surface_Temp_Day": {
+     "default_time": "2026-11-14",
+     "time_values_first_last": [
+      "2018-01-05/2018-02-22/P1D",
+      "2023-10-01/2026-11-14/P1D"
+     ],
+     "tile_matrix_set": [
+      "1km"
+     ],
+     "format": [
+      "image/png"
+     ]
+    },
+    "VIIRS_NOAA21_Land_Surface_Temp_Day": {
+     "default_time": "2026-11-14",
+     "time_values_first_last": [
+      "2023-02-10/2026-11-14/P1D",
+      "2023-02-10/2026-11-14/P1D"
+     ],
+     "tile_matrix_set": [
+      "1km"
+     ],
+     "format": [
+      "image/png"
+     ]
+    },
+    "VIIRS_SNPP_Land_Surface_Temp_Day": {
+     "default_time": "2026-11-02",
+     "time_values_first_last": [
+      "2012-01-19/2012-03-24/P1D",
+      "2026-07-16/2026-11-02/P1D"
+     ],
+     "tile_matrix_set": [
+      "1km"
+     ],
+     "format": [
+      "image/png"
+     ]
+    },
+    "MODIS_Aqua_L3_Land_Surface_Temp_8Day_Day": {
+     "default_time": "2026-11-01",
+     "time_values_first_last": [
+      "2002-07-04/2002-12-27/P8D",
+      "2026-02-10/2026-11-01/P8D"
+     ],
+     "tile_matrix_set": [
+      "1km"
+     ],
+     "format": [
+      "image/png"
+     ]
+    },
+    "VIIRS_NOAA20_L3_Land_Surface_Temp_8Day_Day": {
+     "default_time": "2026-10-24",
+     "time_values_first_last": [
+      "2018-01-01/2018-12-27/P8D",
+      "2026-01-01/2026-10-24/P8D"
+     ],
+     "tile_matrix_set": [
+      "1km"
+     ],
+     "format": [
+      "image/png"
+     ]
+    },
+    "VIIRS_SNPP_L3_Land_Surface_Temp_8Day_Day": {
+     "default_time": "2026-11-01",
+     "time_values_first_last": [
+      "2012-01-25/2012-12-26/P8D",
+      "2026-01-01/2026-11-01/P8D"
+     ],
+     "tile_matrix_set": [
+      "1km"
+     ],
+     "format": [
+      "image/png"
+     ]
+    },
+    "MODIS_Aqua_L3_Land_Surface_Temp_8Day_Night": {
+     "default_time": "2026-11-01",
+     "time_values_first_last": [
+      "2002-07-04/2002-12-27/P8D",
+      "2026-01-01/2026-11-01/P8D"
+     ],
+     "tile_matrix_set": [
+      "1km"
+     ],
+     "format": [
+      "image/png"
+     ]
+    },
+    "MODIS_Terra_L3_Land_Surface_Temp_8Day_Night": {
+     "default_time": "2026-11-01",
+     "time_values_first_last": [
+      "2000-02-26/2000-12-26/P8D",
+      "2026-01-01/2026-11-01/P8D"
+     ],
+     "tile_matrix_set": [
+      "1km"
+     ],
+     "format": [
+      "image/png"
+     ]
+    },
+    "VIIRS_NOAA20_L3_Land_Surface_Temp_8Day_Night": {
+     "default_time": "2026-10-24",
+     "time_values_first_last": [
+      "2018-01-01/2018-12-27/P8D",
+      "2026-01-01/2026-10-24/P8D"
+     ],
+     "tile_matrix_set": [
+      "1km"
+     ],
+     "format": [
+      "image/png"
+     ]
+    },
+    "VIIRS_SNPP_L3_Land_Surface_Temp_8Day_Night": {
+     "default_time": "2026-11-01",
+     "time_values_first_last": [
+      "2012-01-25/2012-12-26/P8D",
+      "2026-01-01/2026-11-01/P8D"
+     ],
+     "tile_matrix_set": [
+      "1km"
+     ],
+     "format": [
+      "image/png"
+     ]
+    },
+    "MODIS_Aqua_L3_Land_Surface_Temp_Daily_Day": {
+     "default_time": "2026-11-12",
+     "time_values_first_last": [
+      "2002-07-04/2002-07-29/P1D",
+      "2022-04-17/2026-11-12/P1D"
+     ],
+     "tile_matrix_set": [
+      "1km"
+     ],
+     "format": [
+      "image/png"
+     ]
+    },
+    "MODIS_Terra_L3_Land_Surface_Temp_Daily_Day": {
+     "default_time": "2026-11-12",
+     "time_values_first_last": [
+      "2000-02-25/2000-04-25/P1D",
+      "2026-02-10/2026-11-12/P1D"
+     ],
+     "tile_matrix_set": [
+      "1km"
+     ],
+     "format": [
+      "image/png"
+     ]
+    },
+    "VIIRS_NOAA20_L3_Land_Surface_Temp_Daily_Day": {
+     "default_time": "2026-11-06",
+     "time_values_first_last": [
+      "2018-01-05/2018-02-21/P1D",
+      "2026-11-06/2026-11-06/P1D"
+     ],
+     "tile_matrix_set": [
+      "1km"
+     ],
+     "format": [
+      "image/png"
+     ]
+    },
+    "VIIRS_SNPP_L3_Land_Surface_Temp_Daily_Day": {
+     "default_time": "2026-11-02",
+     "time_values_first_last": [
+      "2012-01-19/2012-02-09/P1D",
+      "2026-08-06/2026-11-02/P1D"
+     ],
+     "tile_matrix_set": [
+      "1km"
+     ],
+     "format": [
+      "image/png"
+     ]
+    },
+    "MODIS_Aqua_L3_Land_Surface_Temp_Daily_Night": {
+     "default_time": "2026-11-12",
+     "time_values_first_last": [
+      "2002-07-04/2002-07-29/P1D",
+      "2022-04-17/2026-11-12/P1D"
+     ],
+     "tile_matrix_set": [
+      "1km"
+     ],
+     "format": [
+      "image/png"
+     ]
+    },
+    "MODIS_Terra_L3_Land_Surface_Temp_Daily_Night": {
+     "default_time": "2026-11-12",
+     "time_values_first_last": [
+      "2000-02-25/2000-04-25/P1D",
+      "2022-10-23/2026-11-12/P1D"
+     ],
+     "tile_matrix_set": [
+      "1km"
+     ],
+     "format": [
+      "image/png"
+     ]
+    },
+    "VIIRS_NOAA20_L3_Land_Surface_Temp_Daily_Night": {
+     "default_time": "2026-11-06",
+     "time_values_first_last": [
+      "2018-01-05/2018-02-21/P1D",
+      "2026-11-06/2026-11-06/P1D"
+     ],
+     "tile_matrix_set": [
+      "1km"
+     ],
+     "format": [
+      "image/png"
+     ]
+    },
+    "VIIRS_SNPP_L3_Land_Surface_Temp_Daily_Night": {
+     "default_time": "2026-11-02",
+     "time_values_first_last": [
+      "2012-01-19/2012-02-11/P1D",
+      "2026-08-06/2026-11-02/P1D"
+     ],
+     "tile_matrix_set": [
+      "1km"
+     ],
+     "format": [
+      "image/png"
+     ]
+    },
+    "MODIS_Aqua_L3_Land_Surface_Temp_Monthly_Day": {
+     "default_time": "2026-10-01",
+     "time_values_first_last": [
+      "2002-07-01/2026-10-01/P1M",
+      "2002-07-01/2026-10-01/P1M"
+     ],
+     "tile_matrix_set": [
+      "2km"
+     ],
+     "format": [
+      "image/png"
+     ]
+    },
+    "MODIS_Terra_L3_Land_Surface_Temp_Monthly_Day": {
+     "default_time": "2026-10-01",
+     "time_values_first_last": [
+      "2000-03-01/2026-10-01/P1M",
+      "2000-03-01/2026-10-01/P1M"
+     ],
+     "tile_matrix_set": [
+      "2km"
+     ],
+     "format": [
+      "image/png"
+     ]
+    },
+    "VIIRS_NOAA20_L3_Land_Surface_Temp_Monthly_Day": {
+     "default_time": "2026-10-01",
+     "time_values_first_last": [
+      "2018-01-01/2026-10-01/P1M",
+      "2018-01-01/2026-10-01/P1M"
+     ],
+     "tile_matrix_set": [
+      "1km"
+     ],
+     "format": [
+      "image/png"
+     ]
+    },
+    "VIIRS_SNPP_L3_Land_Surface_Temp_Monthly_Day": {
+     "default_time": "2026-11-01",
+     "time_values_first_last": [
+      "2012-02-01/2026-11-01/P1M",
+      "2012-02-01/2026-11-01/P1M"
+     ],
+     "tile_matrix_set": [
+      "1km"
+     ],
+     "format": [
+      "image/png"
+     ]
+    },
+    "MODIS_Aqua_L3_Land_Surface_Temp_Monthly_Night": {
+     "default_time": "2026-10-01",
+     "time_values_first_last": [
+      "2002-07-01/2026-10-01/P1M",
+      "2002-07-01/2026-10-01/P1M"
+     ],
+     "tile_matrix_set": [
+      "2km"
+     ],
+     "format": [
+      "image/png"
+     ]
+    },
+    "MODIS_Terra_L3_Land_Surface_Temp_Monthly_Night": {
+     "default_time": "2026-10-01",
+     "time_values_first_last": [
+      "2000-03-01/2026-10-01/P1M",
+      "2000-03-01/2026-10-01/P1M"
+     ],
+     "tile_matrix_set": [
+      "2km"
+     ],
+     "format": [
+      "image/png"
+     ]
+    },
+    "VIIRS_NOAA20_L3_Land_Surface_Temp_Monthly_Night": {
+     "default_time": "2026-10-01",
+     "time_values_first_last": [
+      "2018-01-01/2026-10-01/P1M",
+      "2018-01-01/2026-10-01/P1M"
+     ],
+     "tile_matrix_set": [
+      "1km"
+     ],
+     "format": [
+      "image/png"
+     ]
+    },
+    "VIIRS_SNPP_L3_Land_Surface_Temp_Monthly_Night": {
+     "default_time": "2026-11-01",
+     "time_values_first_last": [
+      "2012-02-01/2026-11-01/P1M",
+      "2012-02-01/2026-11-01/P1M"
+     ],
+     "tile_matrix_set": [
+      "1km"
+     ],
+     "format": [
+      "image/png"
+     ]
+    },
+    "MODIS_Aqua_Land_Surface_Temp_Night_TES": {
+     "default_time": "2026-11-14",
+     "time_values_first_last": [
+      "2002-07-04/2002-07-29/P1D",
+      "2022-04-17/2026-11-14/P1D"
+     ],
+     "tile_matrix_set": [
+      "1km"
+     ],
+     "format": [
+      "image/png"
+     ]
+    },
+    "MODIS_Aqua_Land_Surface_Temp_Night": {
+     "default_time": "2026-11-14",
+     "time_values_first_last": [
+      "2002-07-03/2002-07-29/P1D",
+      "2022-04-17/2026-11-14/P1D"
+     ],
+     "tile_matrix_set": [
+      "1km"
+     ],
+     "format": [
+      "image/png"
+     ]
+    },
+    "MODIS_Terra_Land_Surface_Temp_Night": {
+     "default_time": "2026-11-14",
+     "time_values_first_last": [
+      "2000-02-24/2000-04-25/P1D",
+      "2022-10-23/2026-11-14/P1D"
+     ],
+     "tile_matrix_set": [
+      "1km"
+     ],
+     "format": [
+      "image/png"
+     ]
+    },
+    "VIIRS_NOAA20_Land_Surface_Temp_Night": {
+     "default_time": "2026-11-14",
+     "time_values_first_last": [
+      "2018-01-05/2018-02-21/P1D",
+      "2023-10-01/2026-11-14/P1D"
+     ],
+     "tile_matrix_set": [
+      "1km"
+     ],
+     "format": [
+      "image/png"
+     ]
+    },
+    "VIIRS_NOAA21_Land_Surface_Temp_Night": {
+     "default_time": "2026-11-14",
+     "time_values_first_last": [
+      "2023-02-10/2026-11-14/P1D",
+      "2023-02-10/2026-11-14/P1D"
+     ],
+     "tile_matrix_set": [
+      "1km"
+     ],
+     "format": [
+      "image/png"
+     ]
+    },
+    "VIIRS_SNPP_Land_Surface_Temp_Night": {
+     "default_time": "2026-11-02",
+     "time_values_first_last": [
+      "2012-01-19/2012-03-24/P1D",
+      "2026-07-16/2026-11-02/P1D"
+     ],
+     "tile_matrix_set": [
+      "1km"
+     ],
+     "format": [
+      "image/png"
+     ]
+    },
+    "Summer_Day_Max_Land_Surface_Temp_2013": {
+     "default_time": null,
+     "time_values_first_last": null,
+     "tile_matrix_set": [
+      "1km"
+     ],
+     "format": [
+      "image/png"
+     ]
+    },
+    "UHI_Urban-Rural_Summer_Day_Max_Land_Surface_Temp_Difference_2013": {
+     "default_time": null,
+     "time_values_first_last": null,
+     "tile_matrix_set": [
+      "1km"
+     ],
+     "format": [
+      "image/png"
+     ]
+    },
+    "Summer_Night_Min_Land_Surface_Temp_2013": {
+     "default_time": null,
+     "time_values_first_last": null,
+     "tile_matrix_set": [
+      "1km"
+     ],
+     "format": [
+      "image/png"
+     ]
+    },
+    "UHI_Urban-Rural_Summer_Night_Min_Land_Surface_Temp_Difference_2013": {
+     "default_time": null,
+     "time_values_first_last": null,
+     "tile_matrix_set": [
+      "1km"
+     ],
+     "format": [
+      "image/png"
+     ]
+    }
+   },
+   "LST_count": 56
+  }
+ },
+ "epsg3857_best": {
+  "url": "https://gibs.earthdata.nasa.gov/wmts/epsg3857/best/wmts.cgi?SERVICE=WMTS&REQUEST=GetCapabilities",
+  "status": 200,
+  "bytes": 5842320,
+  "seconds": 0.49,
+  "content_type": "text/xml; charset=UTF-8",
+  "n_layers": 1330,
+  "matches": {
+   "SMAP": {
+    "SMAP_L3_Passive_Brightness_Temp_H": {
+     "default_time": "2026-11-11",
+     "time_values_first_last": [
+      "2015-03-31/2015-05-12/P1D",
+      "2026-11-03/2026-11-11/P1D"
+     ],
+     "tile_matrix_set": [
+      "GoogleMapsCompatible_Level6"
+     ],
+     "format": [
+      "image/png"
+     ]
+    },
+    "SMAP_L3_Passive_Brightness_Temp_V": {
+     "default_time": "2026-11-11",
+     "time_values_first_last": [
+      "2015-03-31/2015-05-12/P1D",
+      "2026-11-03/2026-11-11/P1D"
+     ],
+     "tile_matrix_set": [
+      "GoogleMapsCompatible_Level6"
+     ],
+     "format": [
+      "image/png"
+     ]
+    },
+    "SMAP_L3_Active_Passive_Brightness_Temp_H": {
+     "default_time": "2015-07-07",
+     "time_values_first_last": [
+      "2015-04-13/2015-07-07/P1D",
+      "2015-04-13/2015-07-07/P1D"
+     ],
+     "tile_matrix_set": [
+      "GoogleMapsCompatible_Level6"
+     ],
+     "format": [
+      "image/png"
+     ]
+    },
+    "SMAP_L3_Active_Passive_Brightness_Temp_V": {
+     "default_time": "2015-07-07",
+     "time_values_first_last": [
+      "2015-04-13/2015-07-07/P1D",
+      "2015-04-13/2015-07-07/P1D"
+     ],
+     "tile_matrix_set": [
+      "GoogleMapsCompatible_Level6"
+     ],
+     "format": [
+      "image/png"
+     ]
+    },
+    "SMAP_L1_Passive_Faraday_Rotation_Aft": {
+     "default_time": "2026-11-11",
+     "time_values_first_last": [
+      "2015-03-31/2015-05-12/P1D",
+      "2026-01-01/2026-11-11/P1D"
+     ],
+     "tile_matrix_set": [
+      "GoogleMapsCompatible_Level6"
+     ],
+     "format": [
+      "image/png"
+     ]
+    },
+    "SMAP_L1_Passive_Faraday_Rotation_Fore": {
+     "default_time": "2026-11-11",
+     "time_values_first_last": [
+      "2015-03-31/2015-05-12/P1D",
+      "2026-01-01/2026-11-11/P1D"
+     ],
+     "tile_matrix_set": [
+      "GoogleMapsCompatible_Level6"
+     ],
+     "format": [
+      "image/png"
+     ]
+    },
+    "SMAP_L3_Passive_Enhanced_Day_Freeze_Thaw": {
+     "default_time": "2026-11-11",
+     "time_values_first_last": [
+      "2015-03-31/2015-05-12/P1D",
+      "2026-11-03/2026-11-11/P1D"
+     ],
+     "tile_matrix_set": [
+      "GoogleMapsCompatible_Level6"
+     ],
+     "format": [
+      "image/png"
+     ]
+    },
+    "SMAP_L3_Passive_Enhanced_Night_Freeze_Thaw": {
+     "default_time": "2026-11-11",
+     "time_values_first_last": [
+      "2015-03-31/2015-05-12/P1D",
+      "2026-11-03/2026-11-11/P1D"
+     ],
+     "tile_matrix_set": [
+      "GoogleMapsCompatible_Level6"
+     ],
+     "format": [
+      "image/png"
+     ]
+    },
+    "SMAP_L3_Passive_Day_Freeze_Thaw": {
+     "default_time": "2026-11-11",
+     "time_values_first_last": [
+      "2015-03-31/2015-05-12/P1D",
+      "2026-11-05/2026-11-11/P1D"
+     ],
+     "tile_matrix_set": [
+      "GoogleMapsCompatible_Level6"
+     ],
+     "format": [
+      "image/png"
+     ]
+    },
+    "SMAP_L3_Passive_Night_Freeze_Thaw": {
+     "default_time": "2026-11-11",
+     "time_values_first_last": [
+      "2015-03-31/2015-05-12/P1D",
+      "2026-11-05/2026-11-11/P1D"
+     ],
+     "tile_matrix_set": [
+      "GoogleMapsCompatible_Level6"
+     ],
+     "format": [
+      "image/png"
+     ]
+    },
+    "SMAP_L4_Mean_Gross_Primary_Productivity": {
+     "default_time": "2026-10-31",
+     "time_values_first_last": [
+      "2015-03-31/2023-01-21/P1D",
+      "2026-10-09/2026-10-31/P1D"
+     ],
+     "tile_matrix_set": [
+      "GoogleMapsCompatible_Level6"
+     ],
+     "format": [
+      "image/png"
+     ]
+    },
+    "SMAP_L4_Mean_Heterotrophic_Respiration": {
+     "default_time": "2026-10-31",
+     "time_values_first_last": [
+      "2015-03-31/2025-08-06/P1D",
+      "2026-10-09/2026-10-31/P1D"
+     ],
+     "tile_matrix_set": [
+      "GoogleMapsCompatible_Level6"
+     ],
+     "format": [
+      "image/png"
+     ]
+    },
+    "SMAP_L4_Mean_Net_Ecosystem_Exchange": {
+     "default_time": "2026-10-31",
+     "time_values_first_last": [
+      "2015-03-31/2025-08-24/P1D",
+      "2026-10-09/2026-10-31/P1D"
+     ],
+     "tile_matrix_set": [
+      "GoogleMapsCompatible_Level6"
+     ],
+     "format": [
+      "image/png"
+     ]
+    },
+    "SMAP_L4_Uncertainty_Mean_Net_Ecosystem_Exchange": {
+     "default_time": "2026-10-31",
+     "time_values_first_last": [
+      "2015-03-31/2025-07-31/P1D",
+      "2026-10-09/2026-10-31/P1D"
+     ],
+     "tile_matrix_set": [
+      "GoogleMapsCompatible_Level6"
+     ],
+     "format": [
+      "image/png"
+     ]
+    },
+    "OrbitTracks_SMAP_Ascending": {
+     "default_time": "2026-11-14",
+     "time_values_first_last": [
+      "2015-01-31/2025-08-08/P1D",
+      "2025-08-10/2026-11-14/P1D"
+     ],
+     "tile_matrix_set": [
+      "GoogleMapsCompatible_Level6"
+     ],
+     "format": [
+      "application/vnd.mapbox-vector-tile"
+     ]
+    },
+    "OrbitTracks_SMAP_Descending": {
+     "default_time": "2026-11-13",
+     "time_values_first_last": [
+      "2015-01-31/2025-11-18/P1D",
+      "2026-01-30/2026-11-13/P1D"
+     ],
+     "tile_matrix_set": [
+      "GoogleMapsCompatible_Level6"
+     ],
+     "format": [
+      "application/vnd.mapbox-vector-tile"
+     ]
+    },
+    "SMAP_L4_Frozen_Area": {
+     "default_time": "2026-10-31",
+     "time_values_first_last": [
+      "2015-03-31/2023-01-19/P1D",
+      "2026-10-09/2026-10-31/P1D"
+     ],
+     "tile_matrix_set": [
+      "GoogleMapsCompatible_Level6"
+     ],
+     "format": [
+      "image/png"
+     ]
+    },
+    "SMAP_L4_Emult_Average": {
+     "default_time": "2026-10-31",
+     "time_values_first_last": [
+      "2015-03-31/2025-08-23/P1D",
+      "2026-10-09/2026-10-31/P1D"
+     ],
+     "tile_matrix_set": [
+      "GoogleMapsCompatible_Level6"
+     ],
+     "format": [
+      "image/png"
+     ]
+    },
+    "SMAP_L4_Analyzed_Root_Zone_Soil_Moisture": {
+     "default_time": "2026-11-10",
+     "time_values_first_last": [
+      "2015-03-31/2025-07-06/P1D",
+      "2026-11-08/2026-11-10/P1D"
+     ],
+     "tile_matrix_set": [
+      "GoogleMapsCompatible_Level6"
+     ],
+     "format": [
+      "image/png"
+     ]
+    },
+    "SMAP_L4_Uncertainty_Analyzed_Root_Zone_Soil_Moisture": {
+     "default_time": "2026-11-10",
+     "time_values_first_last": [
+      "2015-03-31/2025-07-13/P1D",
+      "2026-11-08/2026-11-10/P1D"
+     ],
+     "tile_matrix_set": [
+      "GoogleMapsCompatible_Level6"
+     ],
+     "format": [
+      "image/png"
+     ]
+    },
+    "SMAP_L3_Sea_Surface_Salinity_CAP_8Day_RunningMean": {
+     "default_time": "2026-11-10",
+     "time_values_first_last": [
+      "2015-05-08/2020-12-19/P1D",
+      "2026-03-29/2026-11-10/P1D"
+     ],
+     "tile_matrix_set": [
+      "GoogleMapsCompatible_Level6"
+     ],
+     "format": [
+      "image/png"
+     ]
+    },
+    "SMAP_L3_Sea_Surface_Salinity_CAP_Monthly": {
+     "default_time": "2026-09-01",
+     "time_values_first_last": [
+      "2015-04-01/2022-08-01/P1M",
+      "2025-01-01/2026-09-01/P1M"
+     ],
+     "tile_matrix_set": [
+      "GoogleMapsCompatible_Level6"
+     ],
+     "format": [
+      "image/png"
+     ]
+    },
+    "SMAP_L3_Sea_Surface_Salinity_REMSS_8Day_RunningMean": {
+     "default_time": "2022-07-11",
+     "time_values_first_last": [
+      "2015-03-31/2019-06-20/P1D",
+      "2019-12-01/2022-07-11/P1D"
+     ],
+     "tile_matrix_set": [
+      "GoogleMapsCompatible_Level6"
+     ],
+     "format": [
+      "image/png"
+     ]
+    },
+    "SMAP_L3_Sea_Surface_Salinity_REMSS_Monthly": {
+     "default_time": "2022-06-01",
+     "time_values_first_last": [
+      "2015-04-01/2022-06-01/P1M",
+      "2015-04-01/2022-06-01/P1M"
+     ],
+     "tile_matrix_set": [
+      "GoogleMapsCompatible_Level6"
+     ],
+     "format": [
+      "image/png"
+     ]
+    },
+    "SMAP_L3_Active_Sigma0_HH": {
+     "default_time": "2015-07-07",
+     "time_values_first_last": [
+      "2015-04-13/2015-07-07/P1D",
+      "2015-04-13/2015-07-07/P1D"
+     ],
+     "tile_matrix_set": [
+      "GoogleMapsCompatible_Level6"
+     ],
+     "format": [
+      "image/png"
+     ]
+    },
+    "SMAP_L3_Active_Sigma0_VV": {
+     "default_time": "2015-07-07",
+     "time_values_first_last": [
+      "2015-04-13/2015-07-07/P1D",
+      "2015-04-13/2015-07-07/P1D"
+     ],
+     "tile_matrix_set": [
+      "GoogleMapsCompatible_Level6"
+     ],
+     "format": [
+      "image/png"
+     ]
+    },
+    "SMAP_L3_Active_Sigma0_XPOL": {
+     "default_time": "2015-07-07",
+     "time_values_first_last": [
+      "2015-04-13/2015-07-07/P1D",
+      "2015-04-13/2015-07-07/P1D"
+     ],
+     "tile_matrix_set": [
+      "GoogleMapsCompatible_Level6"
+     ],
+     "format": [
+      "image/png"
+     ]
+    },
+    "SMAP_L3_Active_Sigma0_HH_QA": {
+     "default_time": "2015-07-07",
+     "time_values_first_last": [
+      "2015-04-13/2015-07-07/P1D",
+      "2015-04-13/2015-07-07/P1D"
+     ],
+     "tile_matrix_set": [
+      "GoogleMapsCompatible_Level6"
+     ],
+     "format": [
+      "image/png"
+     ]
+    },
+    "SMAP_L3_Active_Sigma0_VV_QA": {
+     "default_time": "2015-07-07",
+     "time_values_first_last": [
+      "2015-04-13/2015-07-07/P1D",
+      "2015-04-13/2015-07-07/P1D"
+     ],
+     "tile_matrix_set": [
+      "GoogleMapsCompatible_Level6"
+     ],
+     "format": [
+      "image/png"
+     ]
+    },
+    "SMAP_L3_Active_Sigma0_XPOL_QA": {
+     "default_time": "2015-07-07",
+     "time_values_first_last": [
+      "2015-04-13/2015-07-07/P1D",
+      "2015-04-13/2015-07-07/P1D"
+     ],
+     "tile_matrix_set": [
+      "GoogleMapsCompatible_Level6"
+     ],
+     "format": [
+      "image/png"
+     ]
+    },
+    "SMAP_L3_Active_Sigma0_HH_RFI": {
+     "default_time": "2015-07-07",
+     "time_values_first_last": [
+      "2015-04-13/2015-07-07/P1D",
+      "2015-04-13/2015-07-07/P1D"
+     ],
+     "tile_matrix_set": [
+      "GoogleMapsCompatible_Level6"
+     ],
+     "format": [
+      "image/png"
+     ]
+    },
+    "SMAP_L3_Active_Sigma0_VV_RFI": {
+     "default_time": "2015-07-07",
+     "time_values_first_last": [
+      "2015-04-13/2015-07-07/P1D",
+      "2015-04-13/2015-07-07/P1D"
+     ],
+     "tile_matrix_set": [
+      "GoogleMapsCompatible_Level6"
+     ],
+     "format": [
+      "image/png"
+     ]
+    },
+    "SMAP_L3_Active_Sigma0_XPOL_RFI": {
+     "default_time": "2015-07-07",
+     "time_values_first_last": [
+      "2015-04-13/2015-07-07/P1D",
+      "2015-04-13/2015-07-07/P1D"
+     ],
+     "tile_matrix_set": [
+      "GoogleMapsCompatible_Level6"
+     ],
+     "format": [
+      "image/png"
+     ]
+    },
+    "SMAP_L4_Snow_Mass": {
+     "default_time": "2026-11-10",
+     "time_values_first_last": [
+      "2015-03-31/2025-07-18/P1D",
+      "2026-09-01/2026-11-10/P1D"
+     ],
+     "tile_matrix_set": [
+      "GoogleMapsCompatible_Level6"
+     ],
+     "format": [
+      "image/png"
+     ]
+    },
+    "SMAP_Sentinel-1_L2_Active_Passive_Soil_Moisture": {
+     "default_time": "2026-07-21",
+     "time_values_first_last": [
+      "2015-04-01/2015-04-15/P1D",
+      "2026-07-19/2026-07-21/P1D"
+     ],
+     "tile_matrix_set": [
+      "GoogleMapsCompatible_Level6"
+     ],
+     "format": [
+      "image/png"
+     ]
+    },
+    "SMAP_L2_Passive_Enhanced_Day_Soil_Moisture_Option3": {
+     "default_time": "2026-11-11",
+     "time_values_first_last": [
+      "2015-03-31/2015-05-12/P1D",
+      "2026-11-01/2026-11-11/P1D"
+     ],
+     "tile_matrix_set": [
+      "GoogleMapsCompatible_Level6"
+     ],
+     "format": [
+      "image/png"
+     ]
+    },
+    "SMAP_L2_Passive_Enhanced_Day_Soil_Moisture_Option1": {
+     "default_time": "2026-11-11",
+     "time_values_first_last": [
+      "2015-03-31/2015-05-12/P1D",
+      "2026-11-01/2026-11-11/P1D"
+     ],
+     "tile_matrix_set": [
+      "GoogleMapsCompatible_Level6"
+     ],
+     "format": [
+      "image/png"
+     ]
+    },
+    "SMAP_L2_Passive_Enhanced_Day_Soil_Moisture_Option2": {
+     "default_time": "2026-11-11",
+     "time_values_first_last": [
+      "2015-03-31/2015-05-12/P1D",
+      "2026-11-01/2026-11-11/P1D"
+     ],
+     "tile_matrix_set": [
+      "GoogleMapsCompatible_Level6"
+     ],
+     "format": [
+      "image/png"
+     ]
+    },
+    "SMAP_L2_Passive_Enhanced_Night_Soil_Moisture_Option3": {
+     "default_time": "2026-11-11",
+     "time_values_first_last": [
+      "2015-03-31/2015-05-12/P1D",
+      "2026-11-01/2026-11-11/P1D"
+     ],
+     "tile_matrix_set": [
+      "GoogleMapsCompatible_Level6"
+     ],
+     "format": [
+      "image/png"
+     ]
+    },
+    "SMAP_L2_Passive_Enhanced_Night_Soil_Moisture_Option1": {
+     "default_time": "2026-11-11",
+     "time_values_first_last": [
+      "2015-03-31/2015-05-12/P1D",
+      "2026-11-01/2026-11-11/P1D"
+     ],
+     "tile_matrix_set": [
+      "GoogleMapsCompatible_Level6"
+     ],
+     "format": [
+      "image/png"
+     ]
+    },
+    "SMAP_L2_Passive_Enhanced_Night_Soil_Moisture_Option2": {
+     "default_time": "2026-11-11",
+     "time_values_first_last": [
+      "2015-03-31/2015-05-12/P1D",
+      "2026-11-01/2026-11-11/P1D"
+     ],
+     "tile_matrix_set": [
+      "GoogleMapsCompatible_Level6"
+     ],
+     "format": [
+      "image/png"
+     ]
+    },
+    "SMAP_L2_Passive_Day_Soil_Moisture_Option3": {
+     "default_time": "2026-11-11",
+     "time_values_first_last": [
+      "2015-03-31/2015-05-12/P1D",
+      "2022-09-20/2026-11-11/P1D"
+     ],
+     "tile_matrix_set": [
+      "GoogleMapsCompatible_Level6"
+     ],
+     "format": [
+      "image/png"
+     ]
+    },
+    "SMAP_L2_Passive_Day_Soil_Moisture_Option1": {
+     "default_time": "2026-11-11",
+     "time_values_first_last": [
+      "2015-03-31/2015-05-12/P1D",
+      "2022-09-20/2026-11-11/P1D"
+     ],
+     "tile_matrix_set": [
+      "GoogleMapsCompatible_Level6"
+     ],
+     "format": [
+      "image/png"
+     ]
+    },
+    "SMAP_L2_Passive_Day_Soil_Moisture_Option2": {
+     "default_time": "2026-11-11",
+     "time_values_first_last": [
+      "2015-03-31/2015-05-12/P1D",
+      "2022-09-20/2026-11-11/P1D"
+     ],
+     "tile_matrix_set": [
+      "GoogleMapsCompatible_Level6"
+     ],
+     "format": [
+      "image/png"
+     ]
+    },
+    "SMAP_L2_Passive_Night_Soil_Moisture_Option3": {
+     "default_time": "2026-11-11",
+     "time_values_first_last": [
+      "2015-03-31/2015-05-12/P1D",
+      "2022-09-20/2026-11-11/P1D"
+     ],
+     "tile_matrix_set": [
+      "GoogleMapsCompatible_Level6"
+     ],
+     "format": [
+      "image/png"
+     ]
+    },
+    "SMAP_L2_Passive_Night_Soil_Moisture_Option1": {
+     "default_time": "2026-11-11",
+     "time_values_first_last": [
+      "2015-03-31/2015-05-12/P1D",
+      "2022-09-20/2026-11-11/P1D"
+     ],
+     "tile_matrix_set": [
+      "GoogleMapsCompatible_Level6"
+     ],
+     "format": [
+      "image/png"
+     ]
+    },
+    "SMAP_L2_Passive_Night_Soil_Moisture_Option2": {
+     "default_time": "2026-11-11",
+     "time_values_first_last": [
+      "2015-03-31/2015-05-12/P1D",
+      "2022-09-20/2026-11-11/P1D"
+     ],
+     "tile_matrix_set": [
+      "GoogleMapsCompatible_Level6"
+     ],
+     "format": [
+      "image/png"
+     ]
+    },
+    "SMAP_L3_Active_Soil_Moisture": {
+     "default_time": "2015-07-07",
+     "time_values_first_last": [
+      "2015-04-13/2015-07-07/P1D",
+      "2015-04-13/2015-07-07/P1D"
+     ],
+     "tile_matrix_set": [
+      "GoogleMapsCompatible_Level6"
+     ],
+     "format": [
+      "image/png"
+     ]
+    },
+    "SMAP_L3_Active_Passive_Soil_Moisture": {
+     "default_time": "2015-07-07",
+     "time_values_first_last": [
+      "2015-04-13/2015-07-07/P1D",
+      "2015-04-13/2015-07-07/P1D"
+     ],
+     "tile_matrix_set": [
+      "GoogleMapsCompatible_Level6"
+     ],
+     "format": [
+      "image/png"
+     ]
+    },
+    "SMAP_L3_Passive_Enhanced_Day_Soil_Moisture": {
+     "default_time": "2026-11-11",
+     "time_values_first_last": [
+      "2015-03-31/2015-05-12/P1D",
+      "2026-11-03/2026-11-11/P1D"
+     ],
+     "tile_matrix_set": [
+      "GoogleMapsCompatible_Level6"
+     ],
+     "format": [
+      "image/png"
+     ]
+    },
+    "SMAP_L3_Passive_Enhanced_Night_Soil_Moisture": {
+     "default_time": "2026-11-11",
+     "time_values_first_last": [
+      "2015-03-31/2015-05-12/P1D",
+      "2026-11-03/2026-11-11/P1D"
+     ],
+     "tile_matrix_set": [
+      "GoogleMapsCompatible_Level6"
+     ],
+     "format": [
+      "image/png"
+     ]
+    },
+    "SMAP_L3_Passive_Day_Soil_Moisture": {
+     "default_time": "2026-11-11",
+     "time_values_first_last": [
+      "2015-03-31/2015-05-12/P1D",
+      "2026-11-03/2026-11-11/P1D"
+     ],
+     "tile_matrix_set": [
+      "GoogleMapsCompatible_Level6"
+     ],
+     "format": [
+      "image/png"
+     ]
+    },
+    "SMAP_L3_Passive_Night_Soil_Moisture": {
+     "default_time": "2026-11-11",
+     "time_values_first_last": [
+      "2015-03-31/2015-05-12/P1D",
+      "2026-11-03/2026-11-11/P1D"
+     ],
+     "tile_matrix_set": [
+      "GoogleMapsCompatible_Level6"
+     ],
+     "format": [
+      "image/png"
+     ]
+    },
+    "SMAP_L4_Analyzed_Surface_Soil_Moisture": {
+     "default_time": "2026-11-10",
+     "time_values_first_last": [
+      "2015-03-31/2025-07-27/P1D",
+      "2026-11-08/2026-11-10/P1D"
+     ],
+     "tile_matrix_set": [
+      "GoogleMapsCompatible_Level6"
+     ],
+     "format": [
+      "image/png"
+     ]
+    },
+    "SMAP_L4_Uncertainty_Analyzed_Surface_Soil_Moisture": {
+     "default_time": "2026-11-10",
+     "time_values_first_last": [
+      "2015-03-31/2025-07-03/P1D",
+      "2026-11-08/2026-11-10/P1D"
+     ],
+     "tile_matrix_set": [
+      "GoogleMapsCompatible_Level6"
+     ],
+     "format": [
+      "image/png"
+     ]
+    },
+    "SMAP_L4_Soil_Temperature_Layer_1": {
+     "default_time": "2026-11-10",
+     "time_values_first_last": [
+      "2015-03-31/2025-07-17/P1D",
+      "2026-11-08/2026-11-10/P1D"
+     ],
+     "tile_matrix_set": [
+      "GoogleMapsCompatible_Level6"
+     ],
+     "format": [
+      "image/png"
+     ]
+    },
+    "SMAP_L1_Passive_Enhanced_Brightness_Temp_Aft_H": {
+     "default_time": "2026-11-11",
+     "time_values_first_last": [
+      "2015-03-31/2015-05-12/P1D",
+      "2026-10-19/2026-11-11/P1D"
+     ],
+     "tile_matrix_set": [
+      "GoogleMapsCompatible_Level6"
+     ],
+     "format": [
+      "image/png"
+     ]
+    },
+    "SMAP_L1_Passive_Enhanced_Brightness_Temp_Aft_V": {
+     "default_time": "2026-11-11",
+     "time_values_first_last": [
+      "2015-03-31/2015-05-12/P1D",
+      "2026-10-19/2026-11-11/P1D"
+     ],
+     "tile_matrix_set": [
+      "GoogleMapsCompatible_Level6"
+     ],
+     "format": [
+      "image/png"
+     ]
+    },
+    "SMAP_L1_Passive_Enhanced_Brightness_Temp_Fore_H": {
+     "default_time": "2026-11-11",
+     "time_values_first_last": [
+      "2015-03-31/2015-05-12/P1D",
+      "2026-10-19/2026-11-11/P1D"
+     ],
+     "tile_matrix_set": [
+      "GoogleMapsCompatible_Level6"
+     ],
+     "format": [
+      "image/png"
+     ]
+    },
+    "SMAP_L1_Passive_Enhanced_Brightness_Temp_Fore_V": {
+     "default_time": "2026-11-11",
+     "time_values_first_last": [
+      "2015-03-31/2015-05-12/P1D",
+      "2026-10-19/2026-11-11/P1D"
+     ],
+     "tile_matrix_set": [
+      "GoogleMapsCompatible_Level6"
+     ],
+     "format": [
+      "image/png"
+     ]
+    }
+   },
+   "SMAP_count": 80,
+   "IMERG": {
+    "IMERG_Precipitation_Rate": {
+     "default_time": "2026-11-12",
+     "time_values_first_last": [
+      "2000-06-01/2025-10-22/P1D",
+      "2026-05-27/2026-11-12/P1D"
+     ],
+     "tile_matrix_set": [
+      "GoogleMapsCompatible_Level6"
+     ],
+     "format": [
+      "image/png"
+     ]
+    },
+    "IMERG_Precipitation_Rate_30min": {
+     "default_time": "2026-11-14T03:30:00Z",
+     "time_values_first_last": [
+      "2026-01-19T20:30:00Z/2026-01-19T21:30:00Z/PT30M",
+      "2026-02-11T09:00:00Z/2026-11-14T03:30:00Z/PT30M"
+     ],
+     "tile_matrix_set": [
+      "GoogleMapsCompatible_Level6"
+     ],
+     "format": [
+      "image/png"
+     ]
+    }
+   },
+   "IMERG_count": 2,
+   "MODIS_NDVI": {
+    "MISR_Land_NDVI_Average_Monthly": {
+     "default_time": "2022-02-01",
+     "time_values_first_last": [
+      "2000-03-01/2022-02-01/P1M",
+      "2000-03-01/2022-02-01/P1M"
+     ],
+     "tile_matrix_set": [
+      "GoogleMapsCompatible_Level6"
+     ],
+     "format": [
+      "image/png"
+     ]
+    },
+    "VIIRS_NOAA20_NDVI_8Day": {
+     "default_time": "2026-11-13",
+     "time_values_first_last": [
+      "2025-09-22/2025-11-15/P1D",
+      "2025-11-17/2026-11-13/P1D"
+     ],
+     "tile_matrix_set": [
+      "GoogleMapsCompatible_Level8"
+     ],
+     "format": [
+      "image/png"
+     ]
+    },
+    "VIIRS_SNPP_NDVI_8Day": {
+     "default_time": "2026-11-02",
+     "time_values_first_last": [
+      "2025-07-01/2025-08-29/P1D",
+      "2026-02-10/2026-11-02/P1D"
+     ],
+     "tile_matrix_set": [
+      "GoogleMapsCompatible_Level8"
+     ],
+     "format": [
+      "image/png"
+     ]
+    },
+    "VIIRS_NOAA21_NDVI_8Day": {
+     "default_time": "2026-11-13",
+     "time_values_first_last": [
+      "2026-09-27/2026-11-13/P1D",
+      "2026-09-27/2026-11-13/P1D"
+     ],
+     "tile_matrix_set": [
+      "GoogleMapsCompatible_Level8"
+     ],
+     "format": [
+      "image/png"
+     ]
+    },
+    "Landsat_WELD_NDVI_Global_Annual": {
+     "default_time": "2000-12-01",
+     "time_values_first_last": [
+      "1983-12-01/1985-12-01/P1Y",
+      "1998-12-01/2000-12-01/P1Y"
+     ],
+     "tile_matrix_set": [
+      "GoogleMapsCompatible_Level12"
+     ],
+     "format": [
+      "image/jpeg"
+     ]
+    },
+    "Landsat_WELD_NDVI_Global_Monthly": {
+     "default_time": "2001-11-01",
+     "time_values_first_last": [
+      "1984-03-01/1986-11-01/P1M",
+      "1998-12-01/2001-11-01/P1M"
+     ],
+     "tile_matrix_set": [
+      "GoogleMapsCompatible_Level12"
+     ],
+     "format": [
+      "image/jpeg"
+     ]
+    },
+    "MODIS_Aqua_L3_NDVI_16Day": {
+     "default_time": "2026-10-24",
+     "time_values_first_last": [
+      "2002-07-04/2002-12-27/P16D",
+      "2026-01-09/2026-10-24/P16D"
+     ],
+     "tile_matrix_set": [
+      "GoogleMapsCompatible_Level9"
+     ],
+     "format": [
+      "image/png"
+     ]
+    },
+    "MODIS_Terra_L3_NDVI_16Day": {
+     "default_time": "2026-10-16",
+     "time_values_first_last": [
+      "2000-03-05/2000-12-18/P16D",
+      "2026-01-01/2026-10-16/P16D"
+     ],
+     "tile_matrix_set": [
+      "GoogleMapsCompatible_Level9"
+     ],
+     "format": [
+      "image/png"
+     ]
+    },
+    "VIIRS_NOAA20_L3_NDVI_16Day": {
+     "default_time": "2026-10-16",
+     "time_values_first_last": [
+      "2018-01-01/2018-12-27/P8D",
+      "2026-01-01/2026-10-16/P8D"
+     ],
+     "tile_matrix_set": [
+      "GoogleMapsCompatible_Level8"
+     ],
+     "format": [
+      "image/png"
+     ]
+    },
+    "VIIRS_SNPP_L3_NDVI_16Day": {
+     "default_time": "2026-10-24",
+     "time_values_first_last": [
+      "2024-08-28/2024-08-28/P16D",
+      "2026-10-24/2026-10-24/P16D"
+     ],
+     "tile_matrix_set": [
+      "GoogleMapsCompatible_Level8"
+     ],
+     "format": [
+      "image/png"
+     ]
+    },
+    "MODIS_Terra_L3_NDVI_Monthly": {
+     "default_time": "2026-10-01",
+     "time_values_first_last": [
+      "2000-03-01/2025-03-01/P1M",
+      "2025-05-01/2026-10-01/P1M"
+     ],
+     "tile_matrix_set": [
+      "GoogleMapsCompatible_Level7"
+     ],
+     "format": [
+      "image/png"
+     ]
+    },
+    "VIIRS_NOAA20_L3_NDVI_Monthly": {
+     "default_time": "2026-09-01",
+     "time_values_first_last": [
+      "2018-01-01/2026-09-01/P1M",
+      "2018-01-01/2026-09-01/P1M"
+     ],
+     "tile_matrix_set": [
+      "GoogleMapsCompatible_Level7"
+     ],
+     "format": [
+      "image/png"
+     ]
+    },
+    "VIIRS_SNPP_L3_NDVI_Monthly": {
+     "default_time": "2026-11-01",
+     "time_values_first_last": [
+      "2012-01-01/2026-11-01/P1M",
+      "2012-01-01/2026-11-01/P1M"
+     ],
+     "tile_matrix_set": [
+      "GoogleMapsCompatible_Level7"
+     ],
+     "format": [
+      "image/png"
+     ]
+    },
+    "MODIS_Aqua_L3_NDVI_Monthly": {
+     "default_time": "2026-10-01",
+     "time_values_first_last": [
+      "2002-07-01/2026-10-01/P1M",
+      "2002-07-01/2026-10-01/P1M"
+     ],
+     "tile_matrix_set": [
+      "GoogleMapsCompatible_Level7"
+     ],
+     "format": [
+      "image/png"
+     ]
+    },
+    "MODIS_Terra_NDVI_8Day": {
+     "default_time": "2026-11-13",
+     "time_values_first_last": [
+      "2025-02-12/2025-08-21/P1D",
+      "2026-02-10/2026-11-13/P1D"
+     ],
+     "tile_matrix_set": [
+      "GoogleMapsCompatible_Level9"
+     ],
+     "format": [
+      "image/png"
+     ]
+    }
+   },
+   "MODIS_NDVI_count": 15,
+   "ECOSTRESS": {},
+   "ECOSTRESS_count": 0,
+   "GRACE": {
+    "GRACE_Tellus_Liquid_Water_Equivalent_Thickness_Mascon_CRI": {
+     "default_time": "2022-07-01",
+     "time_values_first_last": [
+      "2002-04-04/2002-04-04/P28D",
+      "2020-02-01/2022-07-01/P1M"
+     ],
+     "tile_matrix_set": [
+      "GoogleMapsCompatible_Level6"
+     ],
+     "format": [
+      "image/png"
+     ]
+    }
+   },
+   "GRACE_count": 1,
+   "HLS": {
+    "OPERA_L3_Dynamic_Surface_Water_Extent-HLS": {
+     "default_time": "2026-11-05",
+     "time_values_first_last": [
+      "2016-01-07/2020-08-15/P1D",
+      "2025-08-08/2026-11-05/P1D"
+     ],
+     "tile_matrix_set": [
+      "GoogleMapsCompatible_Level12"
+     ],
+     "format": [
+      "image/png"
+     ]
+    },
+    "HLS_MGRS_Granule_Grid": {
+     "default_time": null,
+     "time_values_first_last": null,
+     "tile_matrix_set": [
+      "GoogleMapsCompatible_Level12"
+     ],
+     "format": [
+      "application/vnd.mapbox-vector-tile"
+     ]
+    },
+    "HLS_L30_Nadir_BRDF_Adjusted_Reflectance": {
+     "default_time": "2026-11-05",
+     "time_values_first_last": [
+      "2013-03-22/2013-03-22/P1D",
+      "2026-03-02/2026-11-05/P1D"
+     ],
+     "tile_matrix_set": [
+      "GoogleMapsCompatible_Level12"
+     ],
+     "format": [
+      "image/png"
+     ]
+    },
+    "HLS_S30_Nadir_BRDF_Adjusted_Reflectance": {
+     "default_time": "2026-11-06",
+     "time_values_first_last": [
+      "2015-11-28/2015-12-11/P1D",
+      "2026-03-02/2026-11-06/P1D"
+     ],
+     "tile_matrix_set": [
+      "GoogleMapsCompatible_Level12"
+     ],
+     "format": [
+      "image/png"
+     ]
+    },
+    "OPERA_L3_DIST-ALERT-HLS_Color_Index": {
+     "default_time": "2026-11-05",
+     "time_values_first_last": [
+      "2023-01-01/2025-06-02/P1D",
+      "2026-02-10/2026-11-05/P1D"
+     ],
+     "tile_matrix_set": [
+      "GoogleMapsCompatible_Level12"
+     ],
+     "format": [
+      "image/png"
+     ]
+    },
+    "OPERA_L3_DIST-ANN-HLS_Color_Index": {
+     "default_time": "2025-01-01",
+     "time_values_first_last": [
+      "2023-01-01/2025-01-01/P1Y",
+      "2023-01-01/2025-01-01/P1Y"
+     ],
+     "tile_matrix_set": [
+      "GoogleMapsCompatible_Level12"
+     ],
+     "format": [
+      "image/png"
+     ]
+    }
+   },
+   "HLS_count": 6,
+   "VIIRS_truecolor": {
+    "VIIRS_NOAA20_CorrectedReflectance_TrueColor_Granule": {
+     "default_time": "2026-11-14T05:18:00Z",
+     "time_values_first_last": [
+      "2026-08-16T05:18:00Z/2026-11-14T05:18:00Z/PT6M",
+      "2026-08-16T05:18:00Z/2026-11-14T05:18:00Z/PT6M"
+     ],
+     "tile_matrix_set": [
+      "GoogleMapsCompatible_Level9"
+     ],
+     "format": [
+      "image/png"
+     ]
+    },
+    "VIIRS_SNPP_CorrectedReflectance_TrueColor_Granule": {
+     "default_time": "2026-11-02T15:24:00Z",
+     "time_values_first_last": [
+      "2026-08-04T15:24:00Z/2026-11-02T15:24:00Z/PT6M",
+      "2026-08-04T15:24:00Z/2026-11-02T15:24:00Z/PT6M"
+     ],
+     "tile_matrix_set": [
+      "GoogleMapsCompatible_Level9"
+     ],
+     "format": [
+      "image/png"
+     ]
+    },
+    "VIIRS_NOAA20_CorrectedReflectance_TrueColor": {
+     "default_time": "2026-11-14",
+     "time_values_first_last": [
+      "2018-01-05/2018-02-21/P1D",
+      "2022-01-14/2026-11-14/P1D"
+     ],
+     "tile_matrix_set": [
+      "GoogleMapsCompatible_Level9"
+     ],
+     "format": [
+      "image/jpeg"
+     ]
+    },
+    "VIIRS_NOAA21_CorrectedReflectance_TrueColor": {
+     "default_time": "2026-11-14",
+     "time_values_first_last": [
+      "2023-02-10/2023-02-23/P1D",
+      "2024-02-29/2026-11-14/P1D"
+     ],
+     "tile_matrix_set": [
+      "GoogleMapsCompatible_Level9"
+     ],
+     "format": [
+      "image/jpeg"
+     ]
+    },
+    "VIIRS_SNPP_CorrectedReflectance_TrueColor": {
+     "default_time": "2026-11-02",
+     "time_values_first_last": [
+      "2015-11-24/2022-07-27/P1D",
+      "2026-07-16/2026-11-02/P1D"
+     ],
+     "tile_matrix_set": [
+      "GoogleMapsCompatible_Level9"
+     ],
+     "format": [
+      "image/jpeg"
+     ]
+    }
+   },
+   "VIIRS_truecolor_count": 5,
+   "MODIS_truecolor": {
+    "MODIS_Terra_CorrectedReflectance_TrueColor": {
+     "default_time": "2026-11-14",
+     "time_values_first_last": [
+      "2000-02-24/2000-04-25/P1D",
+      "2025-11-10/2026-11-14/P1D"
+     ],
+     "tile_matrix_set": [
+      "GoogleMapsCompatible_Level9"
+     ],
+     "format": [
+      "image/jpeg"
+     ]
+    }
+   },
+   "MODIS_truecolor_count": 1,
+   "LST": {
+    "UHI_Avg_Summer_Day_Max_Land_Surface_Temp_2013": {
+     "default_time": null,
+     "time_values_first_last": null,
+     "tile_matrix_set": [
+      "GoogleMapsCompatible_Level7"
+     ],
+     "format": [
+      "image/png"
+     ]
+    },
+    "UHI_Avg_Summer_Night_Min_Land_Surface_Temp_2013": {
+     "default_time": null,
+     "time_values_first_last": null,
+     "tile_matrix_set": [
+      "GoogleMapsCompatible_Level7"
+     ],
+     "format": [
+      "image/png"
+     ]
+    },
+    "MODIS_Terra_L3_Land_Surface_Temp_8Day_Day": {
+     "default_time": "2026-11-01",
+     "time_values_first_last": [
+      "2000-02-26/2000-12-26/P8D",
+      "2026-01-09/2026-11-01/P8D"
+     ],
+     "tile_matrix_set": [
+      "GoogleMapsCompatible_Level7"
+     ],
+     "format": [
+      "image/png"
+     ]
+    },
+    "MODIS_Aqua_L3_Land_Surface_Temp_8Day_Day_TES": {
+     "default_time": "2026-11-01",
+     "time_values_first_last": [
+      "2002-07-04/2002-12-27/P8D",
+      "2026-02-10/2026-11-01/P8D"
+     ],
+     "tile_matrix_set": [
+      "GoogleMapsCompatible_Level7"
+     ],
+     "format": [
+      "image/png"
+     ]
+    },
+    "MODIS_Terra_L3_Land_Surface_Temp_8Day_Day_TES": {
+     "default_time": "2026-11-01",
+     "time_values_first_last": [
+      "2000-02-24/2000-12-26/P8D",
+      "2026-01-01/2026-11-01/P8D"
+     ],
+     "tile_matrix_set": [
+      "GoogleMapsCompatible_Level7"
+     ],
+     "format": [
+      "image/png"
+     ]
+    },
+    "MODIS_Aqua_L3_Land_Surface_Temp_8Day_Night_TES": {
+     "default_time": "2026-11-01",
+     "time_values_first_last": [
+      "2002-07-04/2002-12-27/P8D",
+      "2026-01-01/2026-11-01/P8D"
+     ],
+     "tile_matrix_set": [
+      "GoogleMapsCompatible_Level7"
+     ],
+     "format": [
+      "image/png"
+     ]
+    },
+    "MODIS_Terra_L3_Land_Surface_Temp_8Day_Night_TES": {
+     "default_time": "2026-11-01",
+     "time_values_first_last": [
+      "2000-02-24/2000-12-26/P8D",
+      "2026-01-01/2026-11-01/P8D"
+     ],
+     "tile_matrix_set": [
+      "GoogleMapsCompatible_Level7"
+     ],
+     "format": [
+      "image/png"
+     ]
+    },
+    "MODIS_Aqua_L3_Land_Surface_Temp_Daily_Day_TES": {
+     "default_time": "2026-11-12",
+     "time_values_first_last": [
+      "2002-07-03/2002-07-29/P1D",
+      "2026-02-09/2026-11-12/P1D"
+     ],
+     "tile_matrix_set": [
+      "GoogleMapsCompatible_Level7"
+     ],
+     "format": [
+      "image/png"
+     ]
+    },
+    "MODIS_Terra_L3_Land_Surface_Temp_Daily_Day_TES": {
+     "default_time": "2026-11-12",
+     "time_values_first_last": [
+      "2000-02-24/2000-04-25/P1D",
+      "2025-10-17/2026-11-12/P1D"
+     ],
+     "tile_matrix_set": [
+      "GoogleMapsCompatible_Level7"
+     ],
+     "format": [
+      "image/png"
+     ]
+    },
+    "MODIS_Aqua_L3_Land_Surface_Temp_Daily_Night_TES": {
+     "default_time": "2026-11-12",
+     "time_values_first_last": [
+      "2002-07-03/2002-07-29/P1D",
+      "2026-02-09/2026-11-12/P1D"
+     ],
+     "tile_matrix_set": [
+      "GoogleMapsCompatible_Level7"
+     ],
+     "format": [
+      "image/png"
+     ]
+    },
+    "MODIS_Terra_L3_Land_Surface_Temp_Daily_Night_TES": {
+     "default_time": "2026-11-12",
+     "time_values_first_last": [
+      "2000-02-24/2000-04-25/P1D",
+      "2026-02-09/2026-11-12/P1D"
+     ],
+     "tile_matrix_set": [
+      "GoogleMapsCompatible_Level7"
+     ],
+     "format": [
+      "image/png"
+     ]
+    },
+    "MODIS_Aqua_L3_Land_Surface_Temp_Monthly_CMG_Day_TES": {
+     "default_time": "2026-10-01",
+     "time_values_first_last": [
+      "2002-07-01/2026-10-01/P1M",
+      "2002-07-01/2026-10-01/P1M"
+     ],
+     "tile_matrix_set": [
+      "GoogleMapsCompatible_Level6"
+     ],
+     "format": [
+      "image/png"
+     ]
+    },
+    "MODIS_Terra_L3_Land_Surface_Temp_Monthly_CMG_Day_TES": {
+     "default_time": "2026-10-01",
+     "time_values_first_last": [
+      "2000-02-01/2026-10-01/P1M",
+      "2000-02-01/2026-10-01/P1M"
+     ],
+     "tile_matrix_set": [
+      "GoogleMapsCompatible_Level6"
+     ],
+     "format": [
+      "image/png"
+     ]
+    },
+    "MODIS_Aqua_L3_Land_Surface_Temp_Monthly_CMG_Night_TES": {
+     "default_time": "2026-10-01",
+     "time_values_first_last": [
+      "2002-07-01/2026-10-01/P1M",
+      "2002-07-01/2026-10-01/P1M"
+     ],
+     "tile_matrix_set": [
+      "GoogleMapsCompatible_Level6"
+     ],
+     "format": [
+      "image/png"
+     ]
+    },
+    "MODIS_Terra_L3_Land_Surface_Temp_Monthly_CMG_Night_TES": {
+     "default_time": "2026-10-01",
+     "time_values_first_last": [
+      "2000-02-01/2026-10-01/P1M",
+      "2000-02-01/2026-10-01/P1M"
+     ],
+     "tile_matrix_set": [
+      "GoogleMapsCompatible_Level6"
+     ],
+     "format": [
+      "image/png"
+     ]
+    },
+    "MODIS_Terra_Land_Surface_Temp_Day_TES": {
+     "default_time": "2026-11-14",
+     "time_values_first_last": [
+      "2000-02-24/2000-04-25/P1D",
+      "2022-10-23/2026-11-14/P1D"
+     ],
+     "tile_matrix_set": [
+      "GoogleMapsCompatible_Level7"
+     ],
+     "format": [
+      "image/png"
+     ]
+    },
+    "MODIS_Terra_Land_Surface_Temp_Night_TES": {
+     "default_time": "2026-11-14",
+     "time_values_first_last": [
+      "2000-02-24/2000-04-25/P1D",
+      "2022-10-23/2026-11-14/P1D"
+     ],
+     "tile_matrix_set": [
+      "GoogleMapsCompatible_Level7"
+     ],
+     "format": [
+      "image/png"
+     ]
+    },
+    "MODIS_Aqua_Land_Surface_Temp_Day": {
+     "default_time": "2026-11-14",
+     "time_values_first_last": [
+      "2002-07-03/2002-07-29/P1D",
+      "2022-04-16/2026-11-14/P1D"
+     ],
+     "tile_matrix_set": [
+      "GoogleMapsCompatible_Level7"
+     ],
+     "format": [
+      "image/png"
+     ]
+    },
+    "MODIS_Aqua_Land_Surface_Temp_Day_TES": {
+     "default_time": "2026-11-14",
+     "time_values_first_last": [
+      "2002-07-04/2002-07-29/P1D",
+      "2025-07-05/2026-11-14/P1D"
+     ],
+     "tile_matrix_set": [
+      "GoogleMapsCompatible_Level7"
+     ],
+     "format": [
+      "image/png"
+     ]
+    },
+    "MODIS_Terra_Land_Surface_Temp_Day": {
+     "default_time": "2026-11-14",
+     "time_values_first_last": [
+      "2000-02-24/2000-04-25/P1D",
+      "2022-10-23/2026-11-14/P1D"
+     ],
+     "tile_matrix_set": [
+      "GoogleMapsCompatible_Level7"
+     ],
+     "format": [
+      "image/png"
+     ]
+    },
+    "VIIRS_NOAA20_Land_Surface_Temp_Day": {
+     "default_time": "2026-11-14",
+     "time_values_first_last": [
+      "2018-01-05/2018-02-22/P1D",
+      "2023-10-01/2026-11-14/P1D"
+     ],
+     "tile_matrix_set": [
+      "GoogleMapsCompatible_Level7"
+     ],
+     "format": [
+      "image/png"
+     ]
+    },
+    "VIIRS_NOAA21_Land_Surface_Temp_Day": {
+     "default_time": "2026-11-14",
+     "time_values_first_last": [
+      "2023-02-10/2026-11-14/P1D",
+      "2023-02-10/2026-11-14/P1D"
+     ],
+     "tile_matrix_set": [
+      "GoogleMapsCompatible_Level7"
+     ],
+     "format": [
+      "image/png"
+     ]
+    },
+    "VIIRS_SNPP_Land_Surface_Temp_Day": {
+     "default_time": "2026-11-02",
+     "time_values_first_last": [
+      "2012-01-19/2012-03-24/P1D",
+      "2026-07-16/2026-11-02/P1D"
+     ],
+     "tile_matrix_set": [
+      "GoogleMapsCompatible_Level7"
+     ],
+     "format": [
+      "image/png"
+     ]
+    },
+    "MODIS_Aqua_L3_Land_Surface_Temp_8Day_Day": {
+     "default_time": "2026-11-01",
+     "time_values_first_last": [
+      "2002-07-04/2002-12-27/P8D",
+      "2026-02-10/2026-11-01/P8D"
+     ],
+     "tile_matrix_set": [
+      "GoogleMapsCompatible_Level7"
+     ],
+     "format": [
+      "image/png"
+     ]
+    },
+    "VIIRS_NOAA20_L3_Land_Surface_Temp_8Day_Day": {
+     "default_time": "2026-10-24",
+     "time_values_first_last": [
+      "2018-01-01/2018-12-27/P8D",
+      "2026-01-01/2026-10-24/P8D"
+     ],
+     "tile_matrix_set": [
+      "GoogleMapsCompatible_Level7"
+     ],
+     "format": [
+      "image/png"
+     ]
+    },
+    "VIIRS_SNPP_L3_Land_Surface_Temp_8Day_Day": {
+     "default_time": "2026-11-01",
+     "time_values_first_last": [
+      "2012-01-25/2012-12-26/P8D",
+      "2026-01-01/2026-11-01/P8D"
+     ],
+     "tile_matrix_set": [
+      "GoogleMapsCompatible_Level7"
+     ],
+     "format": [
+      "image/png"
+     ]
+    },
+    "MODIS_Aqua_L3_Land_Surface_Temp_8Day_Night": {
+     "default_time": "2026-11-01",
+     "time_values_first_last": [
+      "2002-07-04/2002-12-27/P8D",
+      "2026-01-01/2026-11-01/P8D"
+     ],
+     "tile_matrix_set": [
+      "GoogleMapsCompatible_Level7"
+     ],
+     "format": [
+      "image/png"
+     ]
+    },
+    "MODIS_Terra_L3_Land_Surface_Temp_8Day_Night": {
+     "default_time": "2026-11-01",
+     "time_values_first_last": [
+      "2000-02-26/2000-12-26/P8D",
+      "2026-01-01/2026-11-01/P8D"
+     ],
+     "tile_matrix_set": [
+      "GoogleMapsCompatible_Level7"
+     ],
+     "format": [
+      "image/png"
+     ]
+    },
+    "VIIRS_NOAA20_L3_Land_Surface_Temp_8Day_Night": {
+     "default_time": "2026-10-24",
+     "time_values_first_last": [
+      "2018-01-01/2018-12-27/P8D",
+      "2026-01-01/2026-10-24/P8D"
+     ],
+     "tile_matrix_set": [
+      "GoogleMapsCompatible_Level7"
+     ],
+     "format": [
+      "image/png"
+     ]
+    },
+    "VIIRS_SNPP_L3_Land_Surface_Temp_8Day_Night": {
+     "default_time": "2026-11-01",
+     "time_values_first_last": [
+      "2012-01-25/2012-12-26/P8D",
+      "2026-01-01/2026-11-01/P8D"
+     ],
+     "tile_matrix_set": [
+      "GoogleMapsCompatible_Level7"
+     ],
+     "format": [
+      "image/png"
+     ]
+    },
+    "MODIS_Aqua_L3_Land_Surface_Temp_Daily_Day": {
+     "default_time": "2026-11-12",
+     "time_values_first_last": [
+      "2002-07-04/2002-07-29/P1D",
+      "2025-09-08/2026-11-12/P1D"
+     ],
+     "tile_matrix_set": [
+      "GoogleMapsCompatible_Level7"
+     ],
+     "format": [
+      "image/png"
+     ]
+    },
+    "MODIS_Terra_L3_Land_Surface_Temp_Daily_Day": {
+     "default_time": "2026-11-12",
+     "time_values_first_last": [
+      "2000-02-25/2000-04-25/P1D",
+      "2026-02-10/2026-11-12/P1D"
+     ],
+     "tile_matrix_set": [
+      "GoogleMapsCompatible_Level7"
+     ],
+     "format": [
+      "image/png"
+     ]
+    },
+    "VIIRS_NOAA20_L3_Land_Surface_Temp_Daily_Day": {
+     "default_time": "2026-11-06",
+     "time_values_first_last": [
+      "2018-01-05/2018-02-21/P1D",
+      "2026-11-06/2026-11-06/P1D"
+     ],
+     "tile_matrix_set": [
+      "GoogleMapsCompatible_Level7"
+     ],
+     "format": [
+      "image/png"
+     ]
+    },
+    "VIIRS_SNPP_L3_Land_Surface_Temp_Daily_Day": {
+     "default_time": "2026-11-02",
+     "time_values_first_last": [
+      "2012-01-19/2012-02-09/P1D",
+      "2026-08-06/2026-11-02/P1D"
+     ],
+     "tile_matrix_set": [
+      "GoogleMapsCompatible_Level7"
+     ],
+     "format": [
+      "image/png"
+     ]
+    },
+    "MODIS_Aqua_L3_Land_Surface_Temp_Daily_Night": {
+     "default_time": "2026-11-12",
+     "time_values_first_last": [
+      "2002-07-04/2002-07-29/P1D",
+      "2025-08-29/2026-11-12/P1D"
+     ],
+     "tile_matrix_set": [
+      "GoogleMapsCompatible_Level7"
+     ],
+     "format": [
+      "image/png"
+     ]
+    },
+    "MODIS_Terra_L3_Land_Surface_Temp_Daily_Night": {
+     "default_time": "2026-11-12",
+     "time_values_first_last": [
+      "2000-02-25/2000-04-25/P1D",
+      "2026-02-05/2026-11-12/P1D"
+     ],
+     "tile_matrix_set": [
+      "GoogleMapsCompatible_Level7"
+     ],
+     "format": [
+      "image/png"
+     ]
+    },
+    "VIIRS_NOAA20_L3_Land_Surface_Temp_Daily_Night": {
+     "default_time": "2026-11-06",
+     "time_values_first_last": [
+      "2018-01-05/2018-02-21/P1D",
+      "2026-11-06/2026-11-06/P1D"
+     ],
+     "tile_matrix_set": [
+      "GoogleMapsCompatible_Level7"
+     ],
+     "format": [
+      "image/png"
+     ]
+    },
+    "VIIRS_SNPP_L3_Land_Surface_Temp_Daily_Night": {
+     "default_time": "2026-11-02",
+     "time_values_first_last": [
+      "2012-01-19/2012-02-11/P1D",
+      "2026-08-06/2026-11-02/P1D"
+     ],
+     "tile_matrix_set": [
+      "GoogleMapsCompatible_Level7"
+     ],
+     "format": [
+      "image/png"
+     ]
+    },
+    "MODIS_Aqua_L3_Land_Surface_Temp_Monthly_Day": {
+     "default_time": "2026-10-01",
+     "time_values_first_last": [
+      "2002-07-01/2026-10-01/P1M",
+      "2002-07-01/2026-10-01/P1M"
+     ],
+     "tile_matrix_set": [
+      "GoogleMapsCompatible_Level6"
+     ],
+     "format": [
+      "image/png"
+     ]
+    },
+    "MODIS_Terra_L3_Land_Surface_Temp_Monthly_Day": {
+     "default_time": "2026-10-01",
+     "time_values_first_last": [
+      "2000-03-01/2026-10-01/P1M",
+      "2000-03-01/2026-10-01/P1M"
+     ],
+     "tile_matrix_set": [
+      "GoogleMapsCompatible_Level6"
+     ],
+     "format": [
+      "image/png"
+     ]
+    },
+    "VIIRS_NOAA20_L3_Land_Surface_Temp_Monthly_Day": {
+     "default_time": "2026-10-01",
+     "time_values_first_last": [
+      "2018-01-01/2026-10-01/P1M",
+      "2018-01-01/2026-10-01/P1M"
+     ],
+     "tile_matrix_set": [
+      "GoogleMapsCompatible_Level7"
+     ],
+     "format": [
+      "image/png"
+     ]
+    },
+    "VIIRS_SNPP_L3_Land_Surface_Temp_Monthly_Day": {
+     "default_time": "2026-11-01",
+     "time_values_first_last": [
+      "2012-02-01/2026-11-01/P1M",
+      "2012-02-01/2026-11-01/P1M"
+     ],
+     "tile_matrix_set": [
+      "GoogleMapsCompatible_Level7"
+     ],
+     "format": [
+      "image/png"
+     ]
+    },
+    "MODIS_Aqua_L3_Land_Surface_Temp_Monthly_Night": {
+     "default_time": "2026-10-01",
+     "time_values_first_last": [
+      "2002-07-01/2026-10-01/P1M",
+      "2002-07-01/2026-10-01/P1M"
+     ],
+     "tile_matrix_set": [
+      "GoogleMapsCompatible_Level6"
+     ],
+     "format": [
+      "image/png"
+     ]
+    },
+    "MODIS_Terra_L3_Land_Surface_Temp_Monthly_Night": {
+     "default_time": "2026-10-01",
+     "time_values_first_last": [
+      "2000-03-01/2026-10-01/P1M",
+      "2000-03-01/2026-10-01/P1M"
+     ],
+     "tile_matrix_set": [
+      "GoogleMapsCompatible_Level6"
+     ],
+     "format": [
+      "image/png"
+     ]
+    },
+    "VIIRS_NOAA20_L3_Land_Surface_Temp_Monthly_Night": {
+     "default_time": "2026-10-01",
+     "time_values_first_last": [
+      "2018-01-01/2026-10-01/P1M",
+      "2018-01-01/2026-10-01/P1M"
+     ],
+     "tile_matrix_set": [
+      "GoogleMapsCompatible_Level7"
+     ],
+     "format": [
+      "image/png"
+     ]
+    },
+    "VIIRS_SNPP_L3_Land_Surface_Temp_Monthly_Night": {
+     "default_time": "2026-11-01",
+     "time_values_first_last": [
+      "2012-02-01/2026-11-01/P1M",
+      "2012-02-01/2026-11-01/P1M"
+     ],
+     "tile_matrix_set": [
+      "GoogleMapsCompatible_Level7"
+     ],
+     "format": [
+      "image/png"
+     ]
+    },
+    "MODIS_Aqua_Land_Surface_Temp_Night": {
+     "default_time": "2026-11-14",
+     "time_values_first_last": [
+      "2002-07-03/2002-07-29/P1D",
+      "2025-09-02/2026-11-14/P1D"
+     ],
+     "tile_matrix_set": [
+      "GoogleMapsCompatible_Level7"
+     ],
+     "format": [
+      "image/png"
+     ]
+    },
+    "MODIS_Aqua_Land_Surface_Temp_Night_TES": {
+     "default_time": "2026-11-14",
+     "time_values_first_last": [
+      "2002-07-04/2002-07-29/P1D",
+      "2022-04-17/2026-11-14/P1D"
+     ],
+     "tile_matrix_set": [
+      "GoogleMapsCompatible_Level7"
+     ],
+     "format": [
+      "image/png"
+     ]
+    },
+    "MODIS_Terra_Land_Surface_Temp_Night": {
+     "default_time": "2026-11-14",
+     "time_values_first_last": [
+      "2000-02-24/2000-04-25/P1D",
+      "2022-10-23/2026-11-14/P1D"
+     ],
+     "tile_matrix_set": [
+      "GoogleMapsCompatible_Level7"
+     ],
+     "format": [
+      "image/png"
+     ]
+    },
+    "VIIRS_NOAA20_Land_Surface_Temp_Night": {
+     "default_time": "2026-11-14",
+     "time_values_first_last": [
+      "2018-01-05/2018-02-21/P1D",
+      "2023-10-01/2026-11-14/P1D"
+     ],
+     "tile_matrix_set": [
+      "GoogleMapsCompatible_Level7"
+     ],
+     "format": [
+      "image/png"
+     ]
+    },
+    "VIIRS_NOAA21_Land_Surface_Temp_Night": {
+     "default_time": "2026-11-14",
+     "time_values_first_last": [
+      "2023-02-10/2026-11-14/P1D",
+      "2023-02-10/2026-11-14/P1D"
+     ],
+     "tile_matrix_set": [
+      "GoogleMapsCompatible_Level7"
+     ],
+     "format": [
+      "image/png"
+     ]
+    },
+    "VIIRS_SNPP_Land_Surface_Temp_Night": {
+     "default_time": "2026-11-02",
+     "time_values_first_last": [
+      "2012-01-19/2012-03-24/P1D",
+      "2026-07-16/2026-11-02/P1D"
+     ],
+     "tile_matrix_set": [
+      "GoogleMapsCompatible_Level7"
+     ],
+     "format": [
+      "image/png"
+     ]
+    },
+    "Summer_Day_Max_Land_Surface_Temp_2013": {
+     "default_time": null,
+     "time_values_first_last": null,
+     "tile_matrix_set": [
+      "GoogleMapsCompatible_Level7"
+     ],
+     "format": [
+      "image/png"
+     ]
+    },
+    "UHI_Urban-Rural_Summer_Day_Max_Land_Surface_Temp_Difference_2013": {
+     "default_time": null,
+     "time_values_first_last": null,
+     "tile_matrix_set": [
+      "GoogleMapsCompatible_Level7"
+     ],
+     "format": [
+      "image/png"
+     ]
+    },
+    "Summer_Night_Min_Land_Surface_Temp_2013": {
+     "default_time": null,
+     "time_values_first_last": null,
+     "tile_matrix_set": [
+      "GoogleMapsCompatible_Level7"
+     ],
+     "format": [
+      "image/png"
+     ]
+    },
+    "UHI_Urban-Rural_Summer_Night_Min_Land_Surface_Temp_Difference_2013": {
+     "default_time": null,
+     "time_values_first_last": null,
+     "tile_matrix_set": [
+      "GoogleMapsCompatible_Level7"
+     ],
+     "format": [
+      "image/png"
+     ]
+    }
+   },
+   "LST_count": 56
+  }
+ },
+ "tile_test": {
+  "url": "https://gibs.earthdata.nasa.gov/wmts/epsg3857/best/MODIS_Terra_CorrectedReflectance_TrueColor/default/2024-07-15/GoogleMapsCompatible_Level9/6/23/14.jpg",
+  "status": 200,
+  "bytes": 15664,
+  "content_type": "image/jpeg"
+ },
+ "_run_utc": "2026-11-14T09:28:36.149280+00:00",
+ "_seconds": 2.9
+}

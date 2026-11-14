@@ -1,0 +1,418 @@
+{
+ "auth_wall": {
+  "imerg_daily_https_file": {
+   "url": "https://data.gesdisc.earthdata.nasa.gov/data/GPM_L3/GPM_3IMERGDF.07/2024/01/3B-DAY.MS.MRG.3IMERG.20240101-S000000-E235959.V07B.nc4",
+   "status": 302,
+   "redirect_host": "https://urs.earthdata.nasa.gov",
+   "content_type": "application/json",
+   "body_start": ""
+  },
+  "imerg_opendap_dmr": {
+   "url": "https://opendap.earthdata.nasa.gov/collections/C2723754864-GES_DISC/granules/GPM_3IMERGDF.07:3B-DAY.MS.MRG.3IMERG.20240101-S000000-E235959.V07B.nc4.dmr",
+   "status": 302,
+   "redirect_host": "/login/urs",
+   "content_type": null,
+   "body_start": ""
+  },
+  "hls_cog_file": {
+   "url": "https://data.lpdaac.earthdatacloud.nasa.gov/lp-prod-protected/HLSL30.020/HLS.L30.T15TVG.2024002T165931.v2.0/HLS.L30.T15TVG.2024002T165931.v2.0.Fmask.tif",
+   "status": 302,
+   "redirect_host": "https://urs.earthdata.nasa.gov",
+   "content_type": "application/json",
+   "body_start": ""
+  },
+  "smap_l3e_file": {
+   "url": "https://data.nsidc.earthdatacloud.nasa.gov/nsidc-cumulus-prod-protected/SMAP/SPL3SMP_E/006/2024/01/01/SMAP_L3_SM_P_E_20240101_R19240_001.h5",
+   "status": 302,
+   "redirect_host": "https://urs.earthdata.nasa.gov",
+   "content_type": "application/json",
+   "body_start": ""
+  },
+  "appeears_task_list": {
+   "url": "https://appeears.earthdatacloud.nasa.gov/api/task",
+   "status": 403,
+   "redirect_host": null,
+   "content_type": "application/json",
+   "body_start": "{\"message\": \"You don't have the permission to access the requested resource. It is either read-protected or not readable by the server.\"}\n"
+  },
+  "harmony_capabilities": {
+   "url": "https://harmony.earthdata.nasa.gov/capabilities?collectionId=C2723754864-GES_DISC",
+   "status": 200,
+   "redirect_host": null,
+   "content_type": "application/json; charset=utf-8",
+   "body_start": "{\"conceptId\":\"C2723754864-GES_DISC\",\"shortName\":\"GPM_3IMERGDF\",\"summary\":{\"subsetting\":{\"bbox\":true,\"dimension\":true,\"shape\":true,\"temporal\":true,\"variable\":true},\"reprojection\":{\"supported\":true,\"supportedProjections\":[{\"name\":\"Geographic\",\"crs\":\"EPSG:4326\"}],\"interpolationMethods\":[]},\"averaging\":{\"time\":true,\"area\":true},\"concatenation\":false,\"outputFormats\":[{\"name\":\"CSV\",\"mimeType\":\"text/csv\""
+  },
+  "harmony_imerg_point_subset": {
+   "url": "https://harmony.earthdata.nasa.gov/C2723754864-GES_DISC/ogc-api-coverages/1.0.0/collections/all/coverage/rangeset?subset=lat(42.0:42.1)&subset=lon(-93.8:-93.7)&subset=time(%222024-07-01T00:00:00Z%22:%222024-07-02T00:00:00Z%22)",
+   "status": 303,
+   "redirect_host": "https://urs.earthdata.nasa.gov",
+   "content_type": "text/plain; charset=utf-8",
+   "body_start": ""
+  },
+  "giovanni_landing": {
+   "url": "https://giovanni.gsfc.nasa.gov/giovanni/",
+   "status": 200,
+   "redirect_host": null,
+   "content_type": "text/html; charset=UTF-8",
+   "body_start": ""
+  },
+  "nasagrace_unl": {
+   "url": "https://nasagrace.unl.edu/",
+   "status": 200,
+   "redirect_host": null,
+   "content_type": "text/html; charset=utf-8",
+   "body_start": ""
+  }
+ },
+ "landsat_stac": {
+  "url": "https://landsatlook.usgs.gov/stac-server/search",
+  "body": {
+   "collections": [
+    "landsat-c2l2-sr"
+   ],
+   "intersects": {
+    "type": "Point",
+    "coordinates": [
+     -93.75,
+     42.03
+    ]
+   },
+   "datetime": "2024-01-01T00:00:00Z/2024-12-31T23:59:59Z",
+   "limit": 100
+  },
+  "status": 200,
+  "matched": 92,
+  "returned": 92,
+  "platforms": [
+   "LANDSAT_8",
+   "LANDSAT_9"
+  ],
+  "cloud_cover_lt_20": 30,
+  "asset_keys": [
+   "ANG.txt",
+   "MTL.json",
+   "MTL.txt",
+   "MTL.xml",
+   "blue",
+   "coastal",
+   "green",
+   "index",
+   "nir08",
+   "qa_aerosol",
+   "qa_pixel",
+   "qa_radsat",
+   "red",
+   "reduced_resolution_browse",
+   "swir16",
+   "swir22",
+   "thumbnail"
+  ],
+  "example_href": "https://landsatlook.usgs.gov/data/collection02/level-2/standard/oli-tirs/2024/026/031/LC08_L2SP_026031_20241228_20250104_02_T1/LC08_L2SP_026031_20241228_20250104_02_T1_SR_B4.TIF",
+  "alternate_s3": "s3://usgs-landsat/collection02/level-2/standard/oli-tirs/2024/026/031/LC08_L2SP_026031_20241228_20250104_02_T1/LC08_L2SP_026031_20241228_20250104_02_T1_SR_B4.TIF"
+ },
+ "landsat_stac_collections": [
+  "landsat-c2l2-sr",
+  "landsat-c2l2-st",
+  "landsat-c2ard-st",
+  "landsat-c2ard-bt",
+  "landsat-c2l3-fsca",
+  "eo-1-hyperion-l1t",
+  "landsat-c2l1",
+  "landsat-c2l3-ba",
+  "eo-1-ali-l1t",
+  "landsat-c2ard-sr",
+  "eo-1-ali-l1gst",
+  "eo-1-hyperion-l1gst",
+  "landsat-c2ard-ta",
+  "landsat-c2l3-dswe"
+ ],
+ "landsat_asset_http": {
+  "status": 302,
+  "location_host": "https://ers.cr.usgs.gov"
+ },
+ "landsat_ard_vs_l2_2024": {
+  "S1_landsat-c2ard-sr": 93,
+  "S1_landsat-c2l2-sr": 92,
+  "S4_landsat-c2ard-sr": 0,
+  "S4_landsat-c2l2-sr": 94
+ },
+ "coverage": {
+  "ECO_L2T_LSTE_v003": {
+   "S1_all_time": {
+    "url": "https://cmr.earthdata.nasa.gov/search/granules.json?collection_concept_id=C3998139651-LPCLOUD&page_size=1&point=-93.75%2C42.03",
+    "hits": "422",
+    "first": "2018-07-29T00:13:58.467Z"
+   },
+   "S1_all_time_oldest": {
+    "url": "https://cmr.earthdata.nasa.gov/search/granules.json?collection_concept_id=C3998139651-LPCLOUD&page_size=1&point=-93.75%2C42.03&sort_key=start_date",
+    "hits": "422",
+    "first": "2018-07-29T00:13:58.467Z"
+   },
+   "global_oldest": {
+    "url": "https://cmr.earthdata.nasa.gov/search/granules.json?collection_concept_id=C3998139651-LPCLOUD&page_size=1&sort_key=start_date",
+    "hits": "4612876",
+    "first": "2018-07-09T20:49:02.330Z"
+   },
+   "global_newest": {
+    "url": "https://cmr.earthdata.nasa.gov/search/granules.json?collection_concept_id=C3998139651-LPCLOUD&page_size=1&sort_key=-start_date",
+    "hits": "4612876",
+    "first": "2026-11-10T20:11:58.059Z"
+   }
+  },
+  "ECO_L3T_JET_v003": {
+   "S1_all_time": {
+    "url": "https://cmr.earthdata.nasa.gov/search/granules.json?collection_concept_id=C4057232489-LPCLOUD&page_size=1&point=-93.75%2C42.03",
+    "hits": "74",
+    "first": "2019-08-23T18:43:34.888Z"
+   },
+   "S1_all_time_oldest": {
+    "url": "https://cmr.earthdata.nasa.gov/search/granules.json?collection_concept_id=C4057232489-LPCLOUD&page_size=1&point=-93.75%2C42.03&sort_key=start_date",
+    "hits": "74",
+    "first": "2019-08-23T18:43:34.888Z"
+   },
+   "global_oldest": {
+    "url": "https://cmr.earthdata.nasa.gov/search/granules.json?collection_concept_id=C4057232489-LPCLOUD&page_size=1&sort_key=start_date",
+    "hits": "378068",
+    "first": "2019-08-23T01:22:33.172Z"
+   },
+   "global_newest": {
+    "url": "https://cmr.earthdata.nasa.gov/search/granules.json?collection_concept_id=C4057232489-LPCLOUD&page_size=1&sort_key=-start_date",
+    "hits": "378068",
+    "first": "2026-10-28T02:54:25.775Z"
+   }
+  },
+  "ECO_L4T_ESI_v003": {
+   "S1_all_time": {
+    "url": "https://cmr.earthdata.nasa.gov/search/granules.json?collection_concept_id=C4057232495-LPCLOUD&page_size=1&point=-93.75%2C42.03",
+    "hits": "74",
+    "first": "2019-08-23T18:43:34.888Z"
+   },
+   "S1_all_time_oldest": {
+    "url": "https://cmr.earthdata.nasa.gov/search/granules.json?collection_concept_id=C4057232495-LPCLOUD&page_size=1&point=-93.75%2C42.03&sort_key=start_date",
+    "hits": "74",
+    "first": "2019-08-23T18:43:34.888Z"
+   },
+   "global_oldest": {
+    "url": "https://cmr.earthdata.nasa.gov/search/granules.json?collection_concept_id=C4057232495-LPCLOUD&page_size=1&sort_key=start_date",
+    "hits": "378450",
+    "first": "2019-08-23T01:22:33.172Z"
+   },
+   "global_newest": {
+    "url": "https://cmr.earthdata.nasa.gov/search/granules.json?collection_concept_id=C4057232495-LPCLOUD&page_size=1&sort_key=-start_date",
+    "hits": "378450",
+    "first": "2026-10-28T02:54:25.775Z"
+   }
+  },
+  "ECO_L3T_ET_ALEXI_v002": {
+   "S1_all_time": {
+    "url": "https://cmr.earthdata.nasa.gov/search/granules.json?collection_concept_id=C2076105456-LPCLOUD&page_size=1&point=-93.75%2C42.03",
+    "hits": "169",
+    "first": "2019-08-23T18:43:34.888Z"
+   },
+   "S1_all_time_oldest": {
+    "url": "https://cmr.earthdata.nasa.gov/search/granules.json?collection_concept_id=C2076105456-LPCLOUD&page_size=1&point=-93.75%2C42.03&sort_key=start_date",
+    "hits": "169",
+    "first": "2019-08-23T18:43:34.888Z"
+   },
+   "global_oldest": {
+    "url": "https://cmr.earthdata.nasa.gov/search/granules.json?collection_concept_id=C2076105456-LPCLOUD&page_size=1&sort_key=start_date",
+    "hits": "258622",
+    "first": "2018-07-15T13:58:28.108Z"
+   },
+   "global_newest": {
+    "url": "https://cmr.earthdata.nasa.gov/search/granules.json?collection_concept_id=C2076105456-LPCLOUD&page_size=1&sort_key=-start_date",
+    "hits": "258622",
+    "first": "2026-02-05T23:29:43.174Z"
+   }
+  },
+  "GEDI02_A_v003": {
+   "S1_all_time": {
+    "url": "https://cmr.earthdata.nasa.gov/search/granules.json?collection_concept_id=C3974616071-LPCLOUD&page_size=1&point=-93.75%2C42.03",
+    "hits": "33",
+    "first": "2019-04-17T15:04:04.000Z"
+   },
+   "S1_all_time_oldest": {
+    "url": "https://cmr.earthdata.nasa.gov/search/granules.json?collection_concept_id=C3974616071-LPCLOUD&page_size=1&point=-93.75%2C42.03&sort_key=start_date",
+    "hits": "33",
+    "first": "2019-04-17T15:04:04.000Z"
+   },
+   "global_oldest": {
+    "url": "https://cmr.earthdata.nasa.gov/search/granules.json?collection_concept_id=C3974616071-LPCLOUD&page_size=1&sort_key=start_date",
+    "hits": "114575",
+    "first": "2019-04-04T18:05:55.000Z"
+   },
+   "global_newest": {
+    "url": "https://cmr.earthdata.nasa.gov/search/granules.json?collection_concept_id=C3974616071-LPCLOUD&page_size=1&sort_key=-start_date",
+    "hits": "114575",
+    "first": "2026-06-10T23:32:36.000Z"
+   }
+  },
+  "GEDI02_A_v002": {
+   "S1_all_time": {
+    "url": "https://cmr.earthdata.nasa.gov/search/granules.json?collection_concept_id=C2142771958-LPCLOUD&page_size=1&point=-93.75%2C42.03",
+    "hits": "19",
+    "first": "2019-09-17T02:35:38.000Z"
+   },
+   "S1_all_time_oldest": {
+    "url": "https://cmr.earthdata.nasa.gov/search/granules.json?collection_concept_id=C2142771958-LPCLOUD&page_size=1&point=-93.75%2C42.03&sort_key=start_date",
+    "hits": "19",
+    "first": "2019-09-17T02:35:38.000Z"
+   },
+   "global_oldest": {
+    "url": "https://cmr.earthdata.nasa.gov/search/granules.json?collection_concept_id=C2142771958-LPCLOUD&page_size=1&sort_key=start_date",
+    "hits": "95770",
+    "first": "2019-04-18T00:20:12.000Z"
+   },
+   "global_newest": {
+    "url": "https://cmr.earthdata.nasa.gov/search/granules.json?collection_concept_id=C2142771958-LPCLOUD&page_size=1&sort_key=-start_date",
+    "hits": "95770",
+    "first": "2025-07-09T22:30:19.000Z"
+   }
+  },
+  "GEDI_L4A_v2_1": {
+   "S1_all_time": {
+    "url": "https://cmr.earthdata.nasa.gov/search/granules.json?collection_concept_id=C2237824918-ORNL_CLOUD&page_size=1&point=-93.75%2C42.03",
+    "hits": "19",
+    "first": "2019-09-17T02:58:31.000Z"
+   },
+   "S1_all_time_oldest": {
+    "url": "https://cmr.earthdata.nasa.gov/search/granules.json?collection_concept_id=C2237824918-ORNL_CLOUD&page_size=1&point=-93.75%2C42.03&sort_key=start_date",
+    "hits": "19",
+    "first": "2019-09-17T02:58:31.000Z"
+   },
+   "global_oldest": {
+    "url": "https://cmr.earthdata.nasa.gov/search/granules.json?collection_concept_id=C2237824918-ORNL_CLOUD&page_size=1&sort_key=start_date",
+    "hits": "96318",
+    "first": "2019-04-17T23:03:08.000Z"
+   },
+   "global_newest": {
+    "url": "https://cmr.earthdata.nasa.gov/search/granules.json?collection_concept_id=C2237824918-ORNL_CLOUD&page_size=1&sort_key=-start_date",
+    "hits": "96318",
+    "first": "2025-07-09T23:43:25.000Z"
+   }
+  },
+  "GEDI02_A_v002_S2_all_time": {
+   "url": "https://cmr.earthdata.nasa.gov/search/granules.json?collection_concept_id=C2142771958-LPCLOUD&page_size=1&point=-100.9%2C37.95",
+   "hits": "17",
+   "first": "2020-06-25T10:52:37.000Z"
+  },
+  "ECO_L2T_LSTE_v002_S2_2024": {
+   "url": "https://cmr.earthdata.nasa.gov/search/granules.json?collection_concept_id=C2076090826-LPCLOUD&page_size=1&point=-100.9%2C37.95&temporal=2024-01-01T00%3A00%3A00Z%2C2024-12-31T23%3A59%3A59Z",
+   "hits": "164",
+   "first": "2024-01-02T13:44:12.281Z"
+  },
+  "HLSL30_S2_2024": {
+   "url": "https://cmr.earthdata.nasa.gov/search/granules.json?collection_concept_id=C2021957657-LPCLOUD&page_size=1&point=-100.9%2C37.95&temporal=2024-01-01T00%3A00%3A00Z%2C2024-12-31T23%3A59%3A59Z",
+   "hits": "81",
+   "first": "2024-01-06T17:25:33.905Z"
+  },
+  "HLSS30_S2_2024": {
+   "url": "https://cmr.earthdata.nasa.gov/search/granules.json?collection_concept_id=C2021957295-LPCLOUD&page_size=1&point=-100.9%2C37.95&temporal=2024-01-01T00%3A00%3A00Z%2C2024-12-31T23%3A59%3A59Z",
+   "hits": "63",
+   "first": "2024-01-25T17:43:15.422Z"
+  },
+  "GEDI02_A_v002_S3_all_time": {
+   "url": "https://cmr.earthdata.nasa.gov/search/granules.json?collection_concept_id=C2142771958-LPCLOUD&page_size=1&point=-120.1%2C36.6",
+   "hits": "17",
+   "first": "2019-12-16T22:39:17.000Z"
+  },
+  "ECO_L2T_LSTE_v002_S3_2024": {
+   "url": "https://cmr.earthdata.nasa.gov/search/granules.json?collection_concept_id=C2076090826-LPCLOUD&page_size=1&point=-120.1%2C36.6&temporal=2024-01-01T00%3A00%3A00Z%2C2024-12-31T23%3A59%3A59Z",
+   "hits": "303",
+   "first": "2024-01-01T07:58:34.636Z"
+  },
+  "HLSL30_S3_2024": {
+   "url": "https://cmr.earthdata.nasa.gov/search/granules.json?collection_concept_id=C2021957657-LPCLOUD&page_size=1&point=-120.1%2C36.6&temporal=2024-01-01T00%3A00%3A00Z%2C2024-12-31T23%3A59%3A59Z",
+   "hits": "174",
+   "first": "2024-01-02T18:40:00.027Z"
+  },
+  "HLSS30_S3_2024": {
+   "url": "https://cmr.earthdata.nasa.gov/search/granules.json?collection_concept_id=C2021957295-LPCLOUD&page_size=1&point=-120.1%2C36.6&temporal=2024-01-01T00%3A00%3A00Z%2C2024-12-31T23%3A59%3A59Z",
+   "hits": "131",
+   "first": "2024-01-11T18:54:14.531Z"
+  },
+  "GEDI02_A_v002_S4_all_time": {
+   "url": "https://cmr.earthdata.nasa.gov/search/granules.json?collection_concept_id=C2142771958-LPCLOUD&page_size=1&point=75.85%2C30.9",
+   "hits": "19",
+   "first": "2019-10-01T16:16:27.000Z"
+  },
+  "ECO_L2T_LSTE_v002_S4_2024": {
+   "url": "https://cmr.earthdata.nasa.gov/search/granules.json?collection_concept_id=C2076090826-LPCLOUD&page_size=1&point=75.85%2C30.9&temporal=2024-01-01T00%3A00%3A00Z%2C2024-12-31T23%3A59%3A59Z",
+   "hits": "82",
+   "first": "2024-01-02T17:59:04.381Z"
+  },
+  "HLSL30_S4_2024": {
+   "url": "https://cmr.earthdata.nasa.gov/search/granules.json?collection_concept_id=C2021957657-LPCLOUD&page_size=1&point=75.85%2C30.9&temporal=2024-01-01T00%3A00%3A00Z%2C2024-12-31T23%3A59%3A59Z",
+   "hits": "43",
+   "first": "2024-01-10T05:30:40.818Z"
+  },
+  "HLSS30_S4_2024": {
+   "url": "https://cmr.earthdata.nasa.gov/search/granules.json?collection_concept_id=C2021957295-LPCLOUD&page_size=1&point=75.85%2C30.9&temporal=2024-01-01T00%3A00%3A00Z%2C2024-12-31T23%3A59%3A59Z",
+   "hits": "65",
+   "first": "2024-01-17T05:50:14.018Z"
+  },
+  "S1_granules_per_year": {
+   "ECO_L2T_LSTE_v003": {
+    "2018": "40",
+    "2019": "1",
+    "2020": "0",
+    "2021": "0",
+    "2022": "0",
+    "2023": "0",
+    "2024": "0",
+    "2025": "35",
+    "2026": "346"
+   },
+   "ECO_L3T_JET_v003": {
+    "2018": "0",
+    "2019": "1",
+    "2020": "0",
+    "2021": "0",
+    "2022": "0",
+    "2023": "0",
+    "2024": "0",
+    "2025": "12",
+    "2026": "61"
+   },
+   "ECO_L2T_LSTE_v002": {
+    "2018": "27",
+    "2019": "253",
+    "2020": "298",
+    "2021": "321",
+    "2022": "325",
+    "2023": "433",
+    "2024": "167",
+    "2025": "224",
+    "2026": "172"
+   },
+   "GEDI02_A_v003": {
+    "2018": "0",
+    "2019": "6",
+    "2020": "7",
+    "2021": "6",
+    "2022": "5",
+    "2023": "1",
+    "2024": "0",
+    "2025": "4",
+    "2026": "4"
+   },
+   "ECO_L3T_ET_ALEXI_v002": {
+    "2018": "0",
+    "2019": "1",
+    "2020": "11",
+    "2021": "0",
+    "2022": "118",
+    "2023": "13",
+    "2024": "0",
+    "2025": "22",
+    "2026": "4"
+   }
+  },
+  "imerg_v08_collections": {
+   "url": "https://cmr.earthdata.nasa.gov/search/collections.json?short_name=GPM_3IMERG%2A&version=08&options%5Bshort_name%5D%5Bpattern%5D=true",
+   "hits": "0"
+  }
+ },
+ "_run_utc": "2026-11-14T09:32:11.914631+00:00",
+ "_seconds": 88.9
+}

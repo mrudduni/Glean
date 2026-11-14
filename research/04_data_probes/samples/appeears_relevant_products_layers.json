@@ -1,0 +1,1124 @@
+{
+ "DAYMET.004": {
+  "url": "https://appeears.earthdatacloud.nasa.gov/api/product/DAYMET.004",
+  "resolution": "1000m",
+  "temporal_granularity": "Daily",
+  "temporal_extent": [
+   "1950-01-01",
+   "2025-12-31"
+  ],
+  "source": "ORNL",
+  "layers": [
+   "dayl",
+   "prcp",
+   "srad",
+   "swe",
+   "tmax",
+   "tmin",
+   "vp"
+  ]
+ },
+ "ECOCO3.002": {
+  "url": "https://appeears.earthdatacloud.nasa.gov/api/product/ECOCO3.002",
+  "resolution": "557m",
+  "temporal_granularity": "ISS-dependent",
+  "temporal_extent": [
+   "2019-08-01",
+   "2026-06-28"
+  ],
+  "source": "GES DISC",
+  "layers": [
+   "eco_cloud",
+   "eco_esi",
+   "eco_et_daily",
+   "eco_et_inst_uncert",
+   "eco_gpp",
+   "eco_lst",
+   "eco_lst_err",
+   "eco_lst_sdev",
+   "eco_pet",
+   "eco_ptjplsm_inst",
+   "eco_rg",
+   "eco_rh",
+   "eco_rn",
+   "eco_sm",
+   "eco_ta",
+   "eco_wue",
+   "igbp17_fraction_modis",
+   "igbp17_fraction_viirs",
+   "igbp17_land_fraction",
+   "igbp17_type_modis",
+   "igbp17_type_viirs",
+   "oco_sif_740nm",
+   "oco_sif_740nm_daily",
+   "oco_sif_740nm_uncert",
+   "oco_sif_757nm",
+   "oco_sif_757nm_daily",
+   "oco_sif_757nm_relative",
+   "oco_sif_757nm_uncert",
+   "oco_sif_771nm",
+   "oco_sif_771nm_daily",
+   "oco_sif_771nm_relative",
+   "oco_sif_771nm_uncert",
+   "oco_sif_losazm_angle",
+   "oco_sif_loszen_angle",
+   "oco_sif_phase_angle",
+   "oco_sif_solazm_angle",
+   "oco_sif_solzen_angle",
+   "oco_xco2",
+   "oco_xco2_uncert"
+  ]
+ },
+ "ECO_L1B_GEO.002": {
+  "url": "https://appeears.earthdatacloud.nasa.gov/api/product/ECO_L1B_GEO.002",
+  "resolution": "70m",
+  "temporal_granularity": "ISS-dependent",
+  "temporal_extent": [
+   "2018-07-09",
+   "Present"
+  ],
+  "source": "LP DAAC",
+  "layers": [
+   "height",
+   "land_fraction",
+   "solar_azimuth",
+   "solar_zenith",
+   "view_azimuth",
+   "view_zenith"
+  ]
+ },
+ "ECO_L1CT_RAD.002": {
+  "url": "https://appeears.earthdatacloud.nasa.gov/api/product/ECO_L1CT_RAD.002",
+  "resolution": "70m",
+  "temporal_granularity": "ISS-dependent",
+  "temporal_extent": [
+   "2018-07-09",
+   "Present"
+  ],
+  "source": "LP DAAC",
+  "layers": [
+   "cloud",
+   "data_quality_1",
+   "data_quality_2",
+   "data_quality_3",
+   "data_quality_4",
+   "data_quality_5",
+   "radiance_1",
+   "radiance_2",
+   "radiance_3",
+   "radiance_4",
+   "radiance_5",
+   "water"
+  ]
+ },
+ "ECO_L2T_LSTE.002": {
+  "url": "https://appeears.earthdatacloud.nasa.gov/api/product/ECO_L2T_LSTE.002",
+  "resolution": "70m",
+  "temporal_granularity": "ISS-dependent",
+  "temporal_extent": [
+   "2018-07-09",
+   "Present"
+  ],
+  "source": "LP DAAC",
+  "layers": [
+   "EmisWB",
+   "LST",
+   "LST_err",
+   "QC",
+   "cloud",
+   "height",
+   "water"
+  ]
+ },
+ "ECO_L2T_STARS.002": {
+  "url": "https://appeears.earthdatacloud.nasa.gov/api/product/ECO_L2T_STARS.002",
+  "resolution": "70m",
+  "temporal_granularity": "ISS-dependent",
+  "temporal_extent": [
+   "2018-07-09",
+   "Present"
+  ],
+  "source": "LP DAAC",
+  "layers": [
+   "NDVI",
+   "NDVI-UQ",
+   "albedo",
+   "albedo-UQ"
+  ]
+ },
+ "ECO_L2_CLOUD.002": {
+  "url": "https://appeears.earthdatacloud.nasa.gov/api/product/ECO_L2_CLOUD.002",
+  "resolution": "70m",
+  "temporal_granularity": "ISS-dependent",
+  "temporal_extent": [
+   "2018-07-09",
+   "Present"
+  ],
+  "source": "LP DAAC",
+  "layers": [
+   "Cloud_confidence",
+   "Cloud_final"
+  ]
+ },
+ "ECO_L2_LSTE.002": {
+  "url": "https://appeears.earthdatacloud.nasa.gov/api/product/ECO_L2_LSTE.002",
+  "resolution": "70m",
+  "temporal_granularity": "ISS-dependent",
+  "temporal_extent": [
+   "2018-07-09",
+   "Present"
+  ],
+  "source": "LP DAAC",
+  "layers": [
+   "Emis1",
+   "Emis1_err",
+   "Emis2",
+   "Emis2_err",
+   "Emis3",
+   "Emis3_err",
+   "Emis4",
+   "Emis4_err",
+   "Emis5",
+   "Emis5_err",
+   "EmisWB",
+   "LST",
+   "LST_err",
+   "PWV",
+   "QC",
+   "cloud_mask",
+   "water_mask"
+  ]
+ },
+ "ECO_L3T_ET_ALEXI.002": {
+  "url": "https://appeears.earthdatacloud.nasa.gov/api/product/ECO_L3T_ET_ALEXI.002",
+  "resolution": "70m",
+  "temporal_granularity": "ISS-dependent",
+  "temporal_extent": [
+   "2018-07-15",
+   "Present"
+  ],
+  "source": "LP DAAC",
+  "layers": [
+   "ETdaily",
+   "ETdailyUncertainty"
+  ]
+ },
+ "ECO_L3T_JET.002": {
+  "url": "https://appeears.earthdatacloud.nasa.gov/api/product/ECO_L3T_JET.002",
+  "resolution": "70m",
+  "temporal_granularity": "ISS-dependent",
+  "temporal_extent": [
+   "2018-07-10",
+   "Present"
+  ],
+  "source": "LP DAAC",
+  "layers": [
+   "BESSinst",
+   "ETdaily",
+   "ETinstUncertainty",
+   "MOD16inst",
+   "PTJPLSMcanopy",
+   "PTJPLSMinst",
+   "PTJPLSMinterception",
+   "PTJPLSMsoil",
+   "STICcanopy",
+   "STICinst",
+   "cloud",
+   "water"
+  ]
+ },
+ "ECO_L3T_MET.002": {
+  "url": "https://appeears.earthdatacloud.nasa.gov/api/product/ECO_L3T_MET.002",
+  "resolution": "70m",
+  "temporal_granularity": "ISS-dependent",
+  "temporal_extent": [
+   "2018-07-10",
+   "Present"
+  ],
+  "source": "LP DAAC",
+  "layers": [
+   "RH",
+   "Ta",
+   "cloud",
+   "water"
+  ]
+ },
+ "ECO_L3T_SEB.002": {
+  "url": "https://appeears.earthdatacloud.nasa.gov/api/product/ECO_L3T_SEB.002",
+  "resolution": "70m",
+  "temporal_granularity": "ISS-dependent",
+  "temporal_extent": [
+   "2018-07-10",
+   "Present"
+  ],
+  "source": "LP DAAC",
+  "layers": [
+   "Rg",
+   "Rn",
+   "water"
+  ]
+ },
+ "ECO_L3T_SM.002": {
+  "url": "https://appeears.earthdatacloud.nasa.gov/api/product/ECO_L3T_SM.002",
+  "resolution": "70m",
+  "temporal_granularity": "ISS-dependent",
+  "temporal_extent": [
+   "2018-07-10",
+   "Present"
+  ],
+  "source": "LP DAAC",
+  "layers": [
+   "SM",
+   "water"
+  ]
+ },
+ "ECO_L4T_ESI.002": {
+  "url": "https://appeears.earthdatacloud.nasa.gov/api/product/ECO_L4T_ESI.002",
+  "resolution": "70m",
+  "temporal_granularity": "ISS-dependent",
+  "temporal_extent": [
+   "2018-07-10",
+   "Present"
+  ],
+  "source": "LP DAAC",
+  "layers": [
+   "ESI",
+   "PET",
+   "cloud",
+   "water"
+  ]
+ },
+ "ECO_L4T_ESI_ALEXI.002": {
+  "url": "https://appeears.earthdatacloud.nasa.gov/api/product/ECO_L4T_ESI_ALEXI.002",
+  "resolution": "70m",
+  "temporal_granularity": "ISS-dependent",
+  "temporal_extent": [
+   "2018-07-15",
+   "Present"
+  ],
+  "source": "LP DAAC",
+  "layers": [
+   "ESIdaily",
+   "ESIdailyUncertainty"
+  ]
+ },
+ "ECO_L4T_WUE.002": {
+  "url": "https://appeears.earthdatacloud.nasa.gov/api/product/ECO_L4T_WUE.002",
+  "resolution": "70m",
+  "temporal_granularity": "ISS-dependent",
+  "temporal_extent": [
+   "2018-07-10",
+   "Present"
+  ],
+  "source": "LP DAAC",
+  "layers": [
+   "GPP",
+   "WUE",
+   "cloud",
+   "water"
+  ]
+ },
+ "HLSL30.020": {
+  "url": "https://appeears.earthdatacloud.nasa.gov/api/product/HLSL30.020",
+  "resolution": "30m",
+  "temporal_granularity": "Daily",
+  "temporal_extent": [
+   "2013-04-11",
+   "Present"
+  ],
+  "source": "LP DAAC",
+  "layers": [
+   "B01",
+   "B02",
+   "B03",
+   "B04",
+   "B05",
+   "B06",
+   "B07",
+   "B09",
+   "B10",
+   "B11",
+   "Fmask",
+   "SAA",
+   "SZA",
+   "VAA",
+   "VZA"
+  ]
+ },
+ "HLSL30_VI.020": {
+  "url": "https://appeears.earthdatacloud.nasa.gov/api/product/HLSL30_VI.020",
+  "resolution": "30m",
+  "temporal_granularity": "Daily",
+  "temporal_extent": [
+   "2013-04-11",
+   "Present"
+  ],
+  "source": "LP DAAC",
+  "layers": [
+   "EVI",
+   "MSAVI",
+   "NBR",
+   "NBR2",
+   "NDMI",
+   "NDVI",
+   "NDWI",
+   "SAVI",
+   "TVI"
+  ]
+ },
+ "HLSS30.020": {
+  "url": "https://appeears.earthdatacloud.nasa.gov/api/product/HLSS30.020",
+  "resolution": "30m",
+  "temporal_granularity": "Daily",
+  "temporal_extent": [
+   "2015-11-28",
+   "Present"
+  ],
+  "source": "LP DAAC",
+  "layers": [
+   "B01",
+   "B02",
+   "B03",
+   "B04",
+   "B05",
+   "B06",
+   "B07",
+   "B08",
+   "B09",
+   "B10",
+   "B11",
+   "B12",
+   "B8A",
+   "Fmask",
+   "SAA",
+   "SZA",
+   "VAA",
+   "VZA"
+  ]
+ },
+ "HLSS30_VI.020": {
+  "url": "https://appeears.earthdatacloud.nasa.gov/api/product/HLSS30_VI.020",
+  "resolution": "30m",
+  "temporal_granularity": "Daily",
+  "temporal_extent": [
+   "2015-11-28",
+   "Present"
+  ],
+  "source": "LP DAAC",
+  "layers": [
+   "EVI",
+   "MSAVI",
+   "NBR",
+   "NBR2",
+   "NDMI",
+   "NDVI",
+   "NDWI",
+   "SAVI",
+   "TVI"
+  ]
+ },
+ "MCD12Q1.061": {
+  "url": "https://appeears.earthdatacloud.nasa.gov/api/product/MCD12Q1.061",
+  "resolution": "500m",
+  "temporal_granularity": "Yearly",
+  "temporal_extent": [
+   "2001-01-01",
+   "Present"
+  ],
+  "source": "LP DAAC",
+  "layers": [
+   "LC_Prop1",
+   "LC_Prop1_Assessment",
+   "LC_Prop2",
+   "LC_Prop2_Assessment",
+   "LC_Prop3",
+   "LC_Prop3_Assessment",
+   "LC_Type1",
+   "LC_Type2",
+   "LC_Type3",
+   "LC_Type4",
+   "LC_Type5",
+   "LW",
+   "QC"
+  ]
+ },
+ "MOD11A1.061": {
+  "url": "https://appeears.earthdatacloud.nasa.gov/api/product/MOD11A1.061",
+  "resolution": "1000m",
+  "temporal_granularity": "Daily",
+  "temporal_extent": [
+   "2000-02-24",
+   "Present"
+  ],
+  "source": "LP DAAC",
+  "layers": [
+   "Clear_day_cov",
+   "Clear_night_cov",
+   "Day_view_angl",
+   "Day_view_time",
+   "Emis_31",
+   "Emis_32",
+   "LST_Day_1km",
+   "LST_Night_1km",
+   "Night_view_angl",
+   "Night_view_time",
+   "QC_Day",
+   "QC_Night"
+  ]
+ },
+ "MOD11A2.061": {
+  "url": "https://appeears.earthdatacloud.nasa.gov/api/product/MOD11A2.061",
+  "resolution": "1000m",
+  "temporal_granularity": "8 day",
+  "temporal_extent": [
+   "2000-02-18",
+   "Present"
+  ],
+  "source": "LP DAAC",
+  "layers": [
+   "Clear_sky_days",
+   "Clear_sky_nights",
+   "Day_view_angl",
+   "Day_view_time",
+   "Emis_31",
+   "Emis_32",
+   "LST_Day_1km",
+   "LST_Night_1km",
+   "Night_view_angl",
+   "Night_view_time",
+   "QC_Day",
+   "QC_Night"
+  ]
+ },
+ "MOD13Q1.061": {
+  "url": "https://appeears.earthdatacloud.nasa.gov/api/product/MOD13Q1.061",
+  "resolution": "250m",
+  "temporal_granularity": "16 day",
+  "temporal_extent": [
+   "2000-02-18",
+   "Present"
+  ],
+  "source": "LP DAAC",
+  "layers": [
+   "_250m_16_days_EVI",
+   "_250m_16_days_MIR_reflectance",
+   "_250m_16_days_NDVI",
+   "_250m_16_days_NIR_reflectance",
+   "_250m_16_days_VI_Quality",
+   "_250m_16_days_blue_reflectance",
+   "_250m_16_days_composite_day_of_the_year",
+   "_250m_16_days_pixel_reliability",
+   "_250m_16_days_red_reflectance",
+   "_250m_16_days_relative_azimuth_angle",
+   "_250m_16_days_sun_zenith_angle",
+   "_250m_16_days_view_zenith_angle"
+  ]
+ },
+ "MOD15A2H.061": {
+  "url": "https://appeears.earthdatacloud.nasa.gov/api/product/MOD15A2H.061",
+  "resolution": "500m",
+  "temporal_granularity": "8 day",
+  "temporal_extent": [
+   "2000-02-18",
+   "Present"
+  ],
+  "source": "LP DAAC",
+  "layers": [
+   "FparExtra_QC",
+   "FparLai_QC",
+   "FparStdDev_500m",
+   "Fpar_500m",
+   "LaiStdDev_500m",
+   "Lai_500m"
+  ]
+ },
+ "MOD16A2.061": {
+  "url": "https://appeears.earthdatacloud.nasa.gov/api/product/MOD16A2.061",
+  "resolution": "500m",
+  "temporal_granularity": "8 day",
+  "temporal_extent": [
+   "2021-01-01",
+   "Present"
+  ],
+  "source": "LP DAAC",
+  "layers": [
+   "ET_500m",
+   "ET_QC_500m",
+   "LE_500m",
+   "PET_500m",
+   "PLE_500m"
+  ]
+ },
+ "MOD16A2GF.061": {
+  "url": "https://appeears.earthdatacloud.nasa.gov/api/product/MOD16A2GF.061",
+  "resolution": "500m",
+  "temporal_granularity": "8 day",
+  "temporal_extent": [
+   "2000-01-01",
+   "Present"
+  ],
+  "source": "LP DAAC",
+  "layers": [
+   "ET_500m",
+   "ET_QC_500m",
+   "LE_500m",
+   "PET_500m",
+   "PLE_500m"
+  ]
+ },
+ "MOD17A2H.061": {
+  "url": "https://appeears.earthdatacloud.nasa.gov/api/product/MOD17A2H.061",
+  "resolution": "500m",
+  "temporal_granularity": "8 day",
+  "temporal_extent": [
+   "2021-01-01",
+   "Present"
+  ],
+  "source": "LP DAAC",
+  "layers": [
+   "Gpp_500m",
+   "PsnNet_500m",
+   "Psn_QC_500m"
+  ]
+ },
+ "MOD17A2HGF.061": {
+  "url": "https://appeears.earthdatacloud.nasa.gov/api/product/MOD17A2HGF.061",
+  "resolution": "500m",
+  "temporal_granularity": "8 day",
+  "temporal_extent": [
+   "2000-01-01",
+   "Present"
+  ],
+  "source": "LP DAAC",
+  "layers": [
+   "Gpp_500m",
+   "PsnNet_500m",
+   "Psn_QC_500m"
+  ]
+ },
+ "MOD17A3HGF.061": {
+  "url": "https://appeears.earthdatacloud.nasa.gov/api/product/MOD17A3HGF.061",
+  "resolution": "500m",
+  "temporal_granularity": "Yearly",
+  "temporal_extent": [
+   "2001-01-01",
+   "Present"
+  ],
+  "source": "LP DAAC",
+  "layers": [
+   "Npp_500m",
+   "Npp_QC_500m"
+  ]
+ },
+ "MYD13Q1.061": {
+  "url": "https://appeears.earthdatacloud.nasa.gov/api/product/MYD13Q1.061",
+  "resolution": "250m",
+  "temporal_granularity": "16 day",
+  "temporal_extent": [
+   "2002-07-04",
+   "Present"
+  ],
+  "source": "LP DAAC",
+  "layers": [
+   "_250m_16_days_EVI",
+   "_250m_16_days_MIR_reflectance",
+   "_250m_16_days_NDVI",
+   "_250m_16_days_NIR_reflectance",
+   "_250m_16_days_VI_Quality",
+   "_250m_16_days_blue_reflectance",
+   "_250m_16_days_composite_day_of_the_year",
+   "_250m_16_days_pixel_reliability",
+   "_250m_16_days_red_reflectance",
+   "_250m_16_days_relative_azimuth_angle",
+   "_250m_16_days_sun_zenith_angle",
+   "_250m_16_days_view_zenith_angle"
+  ]
+ },
+ "NASADEM_NC.001": {
+  "url": "https://appeears.earthdatacloud.nasa.gov/api/product/NASADEM_NC.001",
+  "resolution": "30m",
+  "temporal_granularity": "Static",
+  "temporal_extent": [
+   "2000-02-11",
+   "2000-02-21"
+  ],
+  "source": "LP DAAC",
+  "layers": [
+   "NASADEM_HGT"
+  ]
+ },
+ "NASADEM_NUMNC.001": {
+  "url": "https://appeears.earthdatacloud.nasa.gov/api/product/NASADEM_NUMNC.001",
+  "resolution": "30m",
+  "temporal_granularity": "Static",
+  "temporal_extent": [
+   "2000-02-11",
+   "2000-02-21"
+  ],
+  "source": "LP DAAC",
+  "layers": [
+   "NASADEM_NUM"
+  ]
+ },
+ "SPL3SMP.009": {
+  "url": "https://appeears.earthdatacloud.nasa.gov/api/product/SPL3SMP.009",
+  "resolution": "36000m",
+  "temporal_granularity": "Daily",
+  "temporal_extent": [
+   "2015-03-31",
+   "Present"
+  ],
+  "source": "NSIDC DAAC",
+  "layers": [
+   "Soil_Moisture_Retrieval_Data_AM_albedo",
+   "Soil_Moisture_Retrieval_Data_AM_albedo_dca",
+   "Soil_Moisture_Retrieval_Data_AM_albedo_scah",
+   "Soil_Moisture_Retrieval_Data_AM_albedo_scav",
+   "Soil_Moisture_Retrieval_Data_AM_boresight_incidence",
+   "Soil_Moisture_Retrieval_Data_AM_bulk_density",
+   "Soil_Moisture_Retrieval_Data_AM_clay_fraction",
+   "Soil_Moisture_Retrieval_Data_AM_freeze_thaw_fraction",
+   "Soil_Moisture_Retrieval_Data_AM_grid_surface_status",
+   "Soil_Moisture_Retrieval_Data_AM_landcover_class",
+   "Soil_Moisture_Retrieval_Data_AM_landcover_class_fraction",
+   "Soil_Moisture_Retrieval_Data_AM_radar_water_body_fraction",
+   "Soil_Moisture_Retrieval_Data_AM_retrieval_qual_flag",
+   "Soil_Moisture_Retrieval_Data_AM_retrieval_qual_flag_dca",
+   "Soil_Moisture_Retrieval_Data_AM_retrieval_qual_flag_scah",
+   "Soil_Moisture_Retrieval_Data_AM_retrieval_qual_flag_scav",
+   "Soil_Moisture_Retrieval_Data_AM_roughness_coefficient",
+   "Soil_Moisture_Retrieval_Data_AM_roughness_coefficient_dca",
+   "Soil_Moisture_Retrieval_Data_AM_roughness_coefficient_scah",
+   "Soil_Moisture_Retrieval_Data_AM_roughness_coefficient_scav",
+   "Soil_Moisture_Retrieval_Data_AM_soil_moisture",
+   "Soil_Moisture_Retrieval_Data_AM_soil_moisture_dca",
+   "Soil_Moisture_Retrieval_Data_AM_soil_moisture_error",
+   "Soil_Moisture_Retrieval_Data_AM_soil_moisture_scah",
+   "Soil_Moisture_Retrieval_Data_AM_soil_moisture_scav",
+   "Soil_Moisture_Retrieval_Data_AM_static_water_body_fraction",
+   "Soil_Moisture_Retrieval_Data_AM_surface_flag",
+   "Soil_Moisture_Retrieval_Data_AM_surface_temperature",
+   "Soil_Moisture_Retrieval_Data_AM_surface_water_fraction_mb_h",
+   "Soil_Moisture_Retrieval_Data_AM_surface_water_fraction_mb_v",
+   "Soil_Moisture_Retrieval_Data_AM_tb_3_corrected",
+   "Soil_Moisture_Retrieval_Data_AM_tb_4_corrected",
+   "Soil_Moisture_Retrieval_Data_AM_tb_h_corrected",
+   "Soil_Moisture_Retrieval_Data_AM_tb_h_uncorrected",
+   "Soil_Moisture_Retrieval_Data_AM_tb_qual_flag_3",
+   "Soil_Moisture_Retrieval_Data_AM_tb_qual_flag_4",
+   "Soil_Moisture_Retrieval_Data_AM_tb_qual_flag_h",
+   "Soil_Moisture_Retrieval_Data_AM_tb_qual_flag_v",
+   "Soil_Moisture_Retrieval_Data_AM_tb_time_seconds",
+   "Soil_Moisture_Retrieval_Data_AM_tb_v_corrected",
+   "Soil_Moisture_Retrieval_Data_AM_vegetation_opacity",
+   "Soil_Moisture_Retrieval_Data_AM_vegetation_opacity_dca",
+   "Soil_Moisture_Retrieval_Data_AM_vegetation_opacity_scah",
+   "Soil_Moisture_Retrieval_Data_AM_vegetation_opacity_scav",
+   "Soil_Moisture_Retrieval_Data_AM_vegetation_water_content",
+   "Soil_Moisture_Retrieval_Data_PM_albedo_dca_pm",
+   "Soil_Moisture_Retrieval_Data_PM_albedo_pm",
+   "Soil_Moisture_Retrieval_Data_PM_albedo_scah_pm",
+   "Soil_Moisture_Retrieval_Data_PM_albedo_scav_pm",
+   "Soil_Moisture_Retrieval_Data_PM_boresight_incidence_pm",
+   "Soil_Moisture_Retrieval_Data_PM_bulk_density_pm",
+   "Soil_Moisture_Retrieval_Data_PM_clay_fraction_pm",
+   "Soil_Moisture_Retrieval_Data_PM_freeze_thaw_fraction_pm",
+   "Soil_Moisture_Retrieval_Data_PM_grid_surface_status_pm",
+   "Soil_Moisture_Retrieval_Data_PM_landcover_class_fraction_pm",
+   "Soil_Moisture_Retrieval_Data_PM_landcover_class_pm",
+   "Soil_Moisture_Retrieval_Data_PM_radar_water_body_fraction_pm",
+   "Soil_Moisture_Retrieval_Data_PM_retrieval_qual_flag_dca_pm",
+   "Soil_Moisture_Retrieval_Data_PM_retrieval_qual_flag_pm",
+   "Soil_Moisture_Retrieval_Data_PM_retrieval_qual_flag_scah_pm",
+   "Soil_Moisture_Retrieval_Data_PM_retrieval_qual_flag_scav_pm",
+   "Soil_Moisture_Retrieval_Data_PM_roughness_coefficient_dca_pm",
+   "Soil_Moisture_Retrieval_Data_PM_roughness_coefficient_pm",
+   "Soil_Moisture_Retrieval_Data_PM_roughness_coefficient_scah_pm",
+   "Soil_Moisture_Retrieval_Data_PM_roughness_coefficient_scav_pm",
+   "Soil_Moisture_Retrieval_Data_PM_soil_moisture_dca_pm",
+   "Soil_Moisture_Retrieval_Data_PM_soil_moisture_error_pm",
+   "Soil_Moisture_Retrieval_Data_PM_soil_moisture_pm",
+   "Soil_Moisture_Retrieval_Data_PM_soil_moisture_scah_pm",
+   "Soil_Moisture_Retrieval_Data_PM_soil_moisture_scav_pm",
+   "Soil_Moisture_Retrieval_Data_PM_static_water_body_fraction_pm",
+   "Soil_Moisture_Retrieval_Data_PM_surface_flag_pm",
+   "Soil_Moisture_Retrieval_Data_PM_surface_temperature_pm",
+   "Soil_Moisture_Retrieval_Data_PM_surface_water_fraction_mb_h_pm",
+   "Soil_Moisture_Retrieval_Data_PM_surface_water_fraction_mb_v_pm",
+   "Soil_Moisture_Retrieval_Data_PM_tb_3_corrected_pm",
+   "Soil_Moisture_Retrieval_Data_PM_tb_4_corrected_pm",
+   "Soil_Moisture_Retrieval_Data_PM_tb_h_corrected_pm",
+   "Soil_Moisture_Retrieval_Data_PM_tb_h_uncorrected_pm",
+   "Soil_Moisture_Retrieval_Data_PM_tb_qual_flag_3_pm",
+   "Soil_Moisture_Retrieval_Data_PM_tb_qual_flag_4_pm",
+   "Soil_Moisture_Retrieval_Data_PM_tb_qual_flag_h_pm",
+   "Soil_Moisture_Retrieval_Data_PM_tb_qual_flag_v_pm",
+   "Soil_Moisture_Retrieval_Data_PM_tb_time_seconds_pm",
+   "Soil_Moisture_Retrieval_Data_PM_tb_v_corrected_pm",
+   "Soil_Moisture_Retrieval_Data_PM_vegetation_opacity_dca_pm",
+   "Soil_Moisture_Retrieval_Data_PM_vegetation_opacity_pm",
+   "Soil_Moisture_Retrieval_Data_PM_vegetation_opacity_scah_pm",
+   "Soil_Moisture_Retrieval_Data_PM_vegetation_opacity_scav_pm",
+   "Soil_Moisture_Retrieval_Data_PM_vegetation_water_content_pm"
+  ]
+ },
+ "SPL3SMP_E.006": {
+  "url": "https://appeears.earthdatacloud.nasa.gov/api/product/SPL3SMP_E.006",
+  "resolution": "9000m",
+  "temporal_granularity": "Daily",
+  "temporal_extent": [
+   "2015-03-31",
+   "Present"
+  ],
+  "source": "NSIDC DAAC",
+  "layers": [
+   "Soil_Moisture_Retrieval_Data_AM_albedo",
+   "Soil_Moisture_Retrieval_Data_AM_albedo_dca",
+   "Soil_Moisture_Retrieval_Data_AM_albedo_scah",
+   "Soil_Moisture_Retrieval_Data_AM_albedo_scav",
+   "Soil_Moisture_Retrieval_Data_AM_boresight_incidence",
+   "Soil_Moisture_Retrieval_Data_AM_bulk_density",
+   "Soil_Moisture_Retrieval_Data_AM_clay_fraction",
+   "Soil_Moisture_Retrieval_Data_AM_freeze_thaw_fraction",
+   "Soil_Moisture_Retrieval_Data_AM_grid_surface_status",
+   "Soil_Moisture_Retrieval_Data_AM_radar_water_body_fraction",
+   "Soil_Moisture_Retrieval_Data_AM_retrieval_qual_flag",
+   "Soil_Moisture_Retrieval_Data_AM_retrieval_qual_flag_dca",
+   "Soil_Moisture_Retrieval_Data_AM_retrieval_qual_flag_scah",
+   "Soil_Moisture_Retrieval_Data_AM_retrieval_qual_flag_scav",
+   "Soil_Moisture_Retrieval_Data_AM_roughness_coefficient",
+   "Soil_Moisture_Retrieval_Data_AM_roughness_coefficient_dca",
+   "Soil_Moisture_Retrieval_Data_AM_roughness_coefficient_scah",
+   "Soil_Moisture_Retrieval_Data_AM_roughness_coefficient_scav",
+   "Soil_Moisture_Retrieval_Data_AM_soil_moisture",
+   "Soil_Moisture_Retrieval_Data_AM_soil_moisture_dca",
+   "Soil_Moisture_Retrieval_Data_AM_soil_moisture_error",
+   "Soil_Moisture_Retrieval_Data_AM_soil_moisture_scah",
+   "Soil_Moisture_Retrieval_Data_AM_soil_moisture_scav",
+   "Soil_Moisture_Retrieval_Data_AM_static_water_body_fraction",
+   "Soil_Moisture_Retrieval_Data_AM_surface_flag",
+   "Soil_Moisture_Retrieval_Data_AM_surface_temperature",
+   "Soil_Moisture_Retrieval_Data_AM_surface_water_fraction_mb_h",
+   "Soil_Moisture_Retrieval_Data_AM_surface_water_fraction_mb_v",
+   "Soil_Moisture_Retrieval_Data_AM_tb_3_corrected",
+   "Soil_Moisture_Retrieval_Data_AM_tb_4_corrected",
+   "Soil_Moisture_Retrieval_Data_AM_tb_h_corrected",
+   "Soil_Moisture_Retrieval_Data_AM_tb_h_uncorrected",
+   "Soil_Moisture_Retrieval_Data_AM_tb_qual_flag_3",
+   "Soil_Moisture_Retrieval_Data_AM_tb_qual_flag_4",
+   "Soil_Moisture_Retrieval_Data_AM_tb_qual_flag_h",
+   "Soil_Moisture_Retrieval_Data_AM_tb_qual_flag_v",
+   "Soil_Moisture_Retrieval_Data_AM_tb_time_seconds",
+   "Soil_Moisture_Retrieval_Data_AM_tb_v_corrected",
+   "Soil_Moisture_Retrieval_Data_AM_vegetation_opacity",
+   "Soil_Moisture_Retrieval_Data_AM_vegetation_opacity_dca",
+   "Soil_Moisture_Retrieval_Data_AM_vegetation_opacity_scah",
+   "Soil_Moisture_Retrieval_Data_AM_vegetation_opacity_scav",
+   "Soil_Moisture_Retrieval_Data_AM_vegetation_water_content",
+   "Soil_Moisture_Retrieval_Data_PM_albedo_dca_pm",
+   "Soil_Moisture_Retrieval_Data_PM_albedo_pm",
+   "Soil_Moisture_Retrieval_Data_PM_albedo_scah_pm",
+   "Soil_Moisture_Retrieval_Data_PM_albedo_scav_pm",
+   "Soil_Moisture_Retrieval_Data_PM_boresight_incidence_pm",
+   "Soil_Moisture_Retrieval_Data_PM_bulk_density_pm",
+   "Soil_Moisture_Retrieval_Data_PM_clay_fraction_pm",
+   "Soil_Moisture_Retrieval_Data_PM_freeze_thaw_fraction_pm",
+   "Soil_Moisture_Retrieval_Data_PM_grid_surface_status_pm",
+   "Soil_Moisture_Retrieval_Data_PM_radar_water_body_fraction_pm",
+   "Soil_Moisture_Retrieval_Data_PM_retrieval_qual_flag_dca_pm",
+   "Soil_Moisture_Retrieval_Data_PM_retrieval_qual_flag_pm",
+   "Soil_Moisture_Retrieval_Data_PM_retrieval_qual_flag_scah_pm",
+   "Soil_Moisture_Retrieval_Data_PM_retrieval_qual_flag_scav_pm",
+   "Soil_Moisture_Retrieval_Data_PM_roughness_coefficient_dca_pm",
+   "Soil_Moisture_Retrieval_Data_PM_roughness_coefficient_pm",
+   "Soil_Moisture_Retrieval_Data_PM_roughness_coefficient_scah_pm",
+   "Soil_Moisture_Retrieval_Data_PM_roughness_coefficient_scav_pm",
+   "Soil_Moisture_Retrieval_Data_PM_soil_moisture_dca_pm",
+   "Soil_Moisture_Retrieval_Data_PM_soil_moisture_error_pm",
+   "Soil_Moisture_Retrieval_Data_PM_soil_moisture_pm",
+   "Soil_Moisture_Retrieval_Data_PM_soil_moisture_scah_pm",
+   "Soil_Moisture_Retrieval_Data_PM_soil_moisture_scav_pm",
+   "Soil_Moisture_Retrieval_Data_PM_static_water_body_fraction_pm",
+   "Soil_Moisture_Retrieval_Data_PM_surface_flag_pm",
+   "Soil_Moisture_Retrieval_Data_PM_surface_temperature_pm",
+   "Soil_Moisture_Retrieval_Data_PM_surface_water_fraction_mb_h_pm",
+   "Soil_Moisture_Retrieval_Data_PM_surface_water_fraction_mb_v_pm",
+   "Soil_Moisture_Retrieval_Data_PM_tb_3_corrected_pm",
+   "Soil_Moisture_Retrieval_Data_PM_tb_4_corrected_pm",
+   "Soil_Moisture_Retrieval_Data_PM_tb_h_corrected_pm",
+   "Soil_Moisture_Retrieval_Data_PM_tb_h_uncorrected_pm",
+   "Soil_Moisture_Retrieval_Data_PM_tb_qual_flag_3_pm",
+   "Soil_Moisture_Retrieval_Data_PM_tb_qual_flag_4_pm",
+   "Soil_Moisture_Retrieval_Data_PM_tb_qual_flag_h_pm",
+   "Soil_Moisture_Retrieval_Data_PM_tb_qual_flag_v_pm",
+   "Soil_Moisture_Retrieval_Data_PM_tb_time_seconds_pm",
+   "Soil_Moisture_Retrieval_Data_PM_tb_v_corrected_pm",
+   "Soil_Moisture_Retrieval_Data_PM_vegetation_opacity_dca_pm",
+   "Soil_Moisture_Retrieval_Data_PM_vegetation_opacity_pm",
+   "Soil_Moisture_Retrieval_Data_PM_vegetation_opacity_scah_pm",
+   "Soil_Moisture_Retrieval_Data_PM_vegetation_opacity_scav_pm",
+   "Soil_Moisture_Retrieval_Data_PM_vegetation_water_content_pm"
+  ]
+ },
+ "SPL4SMGP.008": {
+  "url": "https://appeears.earthdatacloud.nasa.gov/api/product/SPL4SMGP.008",
+  "resolution": "9000m",
+  "temporal_granularity": "Daily",
+  "temporal_extent": [
+   "2015-03-31",
+   "Present"
+  ],
+  "source": "NSIDC DAAC",
+  "layers": [
+   "Geophysical_Data_baseflow_flux",
+   "Geophysical_Data_depth_to_water_table_from_surface",
+   "Geophysical_Data_free_surface_water_on_peat_flux",
+   "Geophysical_Data_heat_flux_ground",
+   "Geophysical_Data_heat_flux_latent",
+   "Geophysical_Data_heat_flux_sensible",
+   "Geophysical_Data_height_lowatmmodlay",
+   "Geophysical_Data_land_evapotranspiration_flux",
+   "Geophysical_Data_land_fraction_saturated",
+   "Geophysical_Data_land_fraction_snow_covered",
+   "Geophysical_Data_land_fraction_unsaturated",
+   "Geophysical_Data_land_fraction_wilting",
+   "Geophysical_Data_leaf_area_index",
+   "Geophysical_Data_mwrtm_vegopacity",
+   "Geophysical_Data_net_downward_longwave_flux",
+   "Geophysical_Data_net_downward_shortwave_flux",
+   "Geophysical_Data_overland_runoff_flux",
+   "Geophysical_Data_precipitation_total_surface_flux",
+   "Geophysical_Data_radiation_longwave_absorbed_flux",
+   "Geophysical_Data_radiation_shortwave_downward_flux",
+   "Geophysical_Data_sm_profile",
+   "Geophysical_Data_sm_profile_pctl",
+   "Geophysical_Data_sm_profile_wetness",
+   "Geophysical_Data_sm_rootzone",
+   "Geophysical_Data_sm_rootzone_pctl",
+   "Geophysical_Data_sm_rootzone_wetness",
+   "Geophysical_Data_sm_surface",
+   "Geophysical_Data_sm_surface_wetness",
+   "Geophysical_Data_snow_depth",
+   "Geophysical_Data_snow_mass",
+   "Geophysical_Data_snow_melt_flux",
+   "Geophysical_Data_snowfall_surface_flux",
+   "Geophysical_Data_soil_temp_layer1",
+   "Geophysical_Data_soil_temp_layer2",
+   "Geophysical_Data_soil_temp_layer3",
+   "Geophysical_Data_soil_temp_layer4",
+   "Geophysical_Data_soil_temp_layer5",
+   "Geophysical_Data_soil_temp_layer6",
+   "Geophysical_Data_soil_water_infiltration_flux",
+   "Geophysical_Data_specific_humidity_lowatmmodlay",
+   "Geophysical_Data_surface_pressure",
+   "Geophysical_Data_surface_temp",
+   "Geophysical_Data_temp_lowatmmodlay",
+   "Geophysical_Data_vegetation_greenness_fraction",
+   "Geophysical_Data_windspeed_lowatmmodlay"
+  ]
+ },
+ "SRTMGL1_NC.003": {
+  "url": "https://appeears.earthdatacloud.nasa.gov/api/product/SRTMGL1_NC.003",
+  "resolution": "30m",
+  "temporal_granularity": "Static",
+  "temporal_extent": [
+   "2000-02-11",
+   "2000-02-21"
+  ],
+  "source": "LP DAAC",
+  "layers": [
+   "SRTMGL1_DEM"
+  ]
+ },
+ "SRTMGL1_NUMNC.003": {
+  "url": "https://appeears.earthdatacloud.nasa.gov/api/product/SRTMGL1_NUMNC.003",
+  "resolution": "30m",
+  "temporal_granularity": "Static",
+  "temporal_extent": [
+   "2000-02-11",
+   "2000-02-21"
+  ],
+  "source": "LP DAAC",
+  "layers": [
+   "SRTMGL1_NUM"
+  ]
+ },
+ "VJ113A1.002": {
+  "url": "https://appeears.earthdatacloud.nasa.gov/api/product/VJ113A1.002",
+  "resolution": "500m",
+  "temporal_granularity": "16 day",
+  "temporal_extent": [
+   "2018-01-01",
+   "Present"
+  ],
+  "source": "LP DAAC",
+  "layers": [
+   "500_m_16_days_EVI",
+   "500_m_16_days_EVI2",
+   "500_m_16_days_NDVI",
+   "500_m_16_days_NIR_reflectance",
+   "500_m_16_days_SWIR1_reflectance",
+   "500_m_16_days_SWIR2_reflectance",
+   "500_m_16_days_SWIR3_reflectance",
+   "500_m_16_days_VI_Quality",
+   "500_m_16_days_blue_reflectance",
+   "500_m_16_days_composite_day_of_the_year",
+   "500_m_16_days_green_reflectance",
+   "500_m_16_days_pixel_reliability",
+   "500_m_16_days_red_reflectance",
+   "500_m_16_days_relative_azimuth_angle",
+   "500_m_16_days_sun_zenith_angle",
+   "500_m_16_days_view_zenith_angle"
+  ]
+ },
+ "VJ121A1D.002": {
+  "url": "https://appeears.earthdatacloud.nasa.gov/api/product/VJ121A1D.002",
+  "resolution": "1000m",
+  "temporal_granularity": "Daily",
+  "temporal_extent": [
+   "2018-01-01",
+   "Present"
+  ],
+  "source": "LP DAAC",
+  "layers": [
+   "Emis_14",
+   "Emis_15",
+   "Emis_16",
+   "LST_1KM",
+   "QC",
+   "View_Angle",
+   "View_Time"
+  ]
+ },
+ "VJ121A1N.002": {
+  "url": "https://appeears.earthdatacloud.nasa.gov/api/product/VJ121A1N.002",
+  "resolution": "1000m",
+  "temporal_granularity": "Daily",
+  "temporal_extent": [
+   "2018-01-01",
+   "Present"
+  ],
+  "source": "LP DAAC",
+  "layers": [
+   "Emis_14",
+   "Emis_15",
+   "Emis_16",
+   "LST_1KM",
+   "QC",
+   "View_Angle",
+   "View_Time"
+  ]
+ },
+ "VJ121A2.002": {
+  "url": "https://appeears.earthdatacloud.nasa.gov/api/product/VJ121A2.002",
+  "resolution": "1000m",
+  "temporal_granularity": "8 day",
+  "temporal_extent": [
+   "2018-01-01",
+   "Present"
+  ],
+  "source": "LP DAAC",
+  "layers": [
+   "Emis_14",
+   "Emis_15",
+   "Emis_16",
+   "LST_Day_1KM",
+   "LST_Night_1KM",
+   "QC_Day",
+   "QC_Night",
+   "View_Angle_Day",
+   "View_Angle_Night",
+   "View_Time_Day",
+   "View_Time_Night"
+  ]
+ },
+ "VNP13A1.002": {
+  "url": "https://appeears.earthdatacloud.nasa.gov/api/product/VNP13A1.002",
+  "resolution": "500m",
+  "temporal_granularity": "16 day",
+  "temporal_extent": [
+   "2012-01-17",
+   "Present"
+  ],
+  "source": "LP DAAC",
+  "layers": [
+   "500_m_16_days_EVI",
+   "500_m_16_days_EVI2",
+   "500_m_16_days_NDVI",
+   "500_m_16_days_NIR_reflectance",
+   "500_m_16_days_SWIR1_reflectance",
+   "500_m_16_days_SWIR2_reflectance",
+   "500_m_16_days_SWIR3_reflectance",
+   "500_m_16_days_VI_Quality",
+   "500_m_16_days_blue_reflectance",
+   "500_m_16_days_composite_day_of_the_year",
+   "500_m_16_days_green_reflectance",
+   "500_m_16_days_pixel_reliability",
+   "500_m_16_days_red_reflectance",
+   "500_m_16_days_relative_azimuth_angle",
+   "500_m_16_days_sun_zenith_angle",
+   "500_m_16_days_view_zenith_angle"
+  ]
+ },
+ "VNP21A1D.002": {
+  "url": "https://appeears.earthdatacloud.nasa.gov/api/product/VNP21A1D.002",
+  "resolution": "1000m",
+  "temporal_granularity": "Daily",
+  "temporal_extent": [
+   "2012-01-17",
+   "Present"
+  ],
+  "source": "LP DAAC",
+  "layers": [
+   "Emis_14",
+   "Emis_15",
+   "Emis_16",
+   "LST_1KM",
+   "QC",
+   "View_Angle",
+   "View_Time"
+  ]
+ },
+ "VNP21A1N.002": {
+  "url": "https://appeears.earthdatacloud.nasa.gov/api/product/VNP21A1N.002",
+  "resolution": "1000m",
+  "temporal_granularity": "Daily",
+  "temporal_extent": [
+   "2012-01-17",
+   "Present"
+  ],
+  "source": "LP DAAC",
+  "layers": [
+   "Emis_14",
+   "Emis_15",
+   "Emis_16",
+   "LST_1KM",
+   "QC",
+   "View_Angle",
+   "View_Time"
+  ]
+ },
+ "VNP21A2.002": {
+  "url": "https://appeears.earthdatacloud.nasa.gov/api/product/VNP21A2.002",
+  "resolution": "1000m",
+  "temporal_granularity": "8 day",
+  "temporal_extent": [
+   "2012-01-17",
+   "Present"
+  ],
+  "source": "LP DAAC",
+  "layers": [
+   "Emis_14",
+   "Emis_15",
+   "Emis_16",
+   "LST_Day_1KM",
+   "LST_Night_1KM",
+   "QC_Day",
+   "QC_Night",
+   "View_Angle_Day",
+   "View_Angle_Night",
+   "View_Time_Day",
+   "View_Time_Night"
+  ]
+ }
+}

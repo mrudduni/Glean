@@ -1,0 +1,193 @@
+{
+ "GSFC mascon": {
+  "url": "https://cmr.earthdata.nasa.gov/search/collections.json?keyword=GSFC+mascon&page_size=30",
+  "hits": "2",
+  "entries": [
+   [
+    "GRACEDADM_CLSM025GL_7D",
+    "3.0",
+    "C2283200566-GES_DISC"
+   ],
+   [
+    "GRACEDADM_CLSM0125US_7D",
+    "4.0",
+    "C1993409520-GES_DISC"
+   ]
+  ]
+ },
+ "mascon": {
+  "url": "https://cmr.earthdata.nasa.gov/search/collections.json?keyword=mascon&page_size=30",
+  "hits": "11",
+  "entries": [
+   [
+    "TELLUS_GRAC-GRFO_MASCON_CRI_GRID_RL06.3_V4",
+    "RL06.3Mv04",
+    "C3195527175-POCLOUD"
+   ],
+   [
+    "TELLUS_GRAC-GRFO_MASCON_GRID_RL06.3_V4",
+    "RL06.3Mv04",
+    "C3195502222-POCLOUD"
+   ],
+   [
+    "ANTARCTICA_MASS_TELLUS_MASCON_CRI_TIME_SERIES_RL06.3_V4",
+    "RL06.3Mv04",
+    "C3206284786-POCLOUD"
+   ],
+   [
+    "GREENLAND_MASS_TELLUS_MASCON_CRI_TIME_SERIES_RL06.3_V4",
+    "RL06.3Mv04",
+    "C3206299308-POCLOUD"
+   ],
+   [
+    "OCEAN_MASS_TELLUS_MASCON_CRI_TIME_SERIES_RL06.3_V4",
+    "RL06.3Mv04",
+    "C3206302778-POCLOUD"
+   ],
+   [
+    "GRC-GFO_GRIDDED_AOD1B_JPL_MASCON_RL06.3",
+    "RL06.3",
+    "C3215162709-POCLOUD"
+   ],
+   [
+    "GRACEDADM_CLSM025GL_7D",
+    "3.0",
+    "C2283200566-GES_DISC"
+   ],
+   [
+    "GRACEDADM_CLSM0125US_7D",
+    "4.0",
+    "C1993409520-GES_DISC"
+   ],
+   [
+    "TELLUS_GIA_L3_0.5-DEG_V1.0",
+    "1.0",
+    "C2689796236-POCLOUD"
+   ],
+   [
+    "HOMAGE_GGFO_MSC_CRI_SALGRD_v01",
+    "1.0",
+    "C3560326548-POCLOUD"
+   ],
+   [
+    "GRC-GFO_GRIDDED_AOD1B_JPL_1-DEG_RL06.3",
+    "RL06.3",
+    "C3215150173-POCLOUD"
+   ]
+  ]
+ },
+ "GRACE drought indicator": {
+  "url": "https://cmr.earthdata.nasa.gov/search/collections.json?keyword=GRACE+drought+indicator&page_size=30",
+  "hits": "2",
+  "entries": [
+   [
+    "GRACEDADM_CLSM025GL_7D",
+    "3.0",
+    "C2283200566-GES_DISC"
+   ],
+   [
+    "GRACEDADM_CLSM0125US_7D",
+    "4.0",
+    "C1993409520-GES_DISC"
+   ]
+  ]
+ },
+ "NLDAS-3": {
+  "url": "https://cmr.earthdata.nasa.gov/search/collections.json?keyword=NLDAS-3&page_size=30",
+  "hits": "0",
+  "entries": []
+ },
+ "GEDI L4B gridded biomass": {
+  "url": "https://cmr.earthdata.nasa.gov/search/collections.json?keyword=GEDI+L4B+gridded+biomass&page_size=30",
+  "hits": "3",
+  "entries": [
+   [
+    "GEDI_L4B_Gridded_Biomass_V2_1_2299",
+    "2.1",
+    "C2792577683-ORNL_CLOUD"
+   ],
+   [
+    "GEDI_HighQuality_Shots_Rasters_2339",
+    "1",
+    "C3043630107-ORNL_CLOUD"
+   ],
+   [
+    "GEDI_L4B_Country_Biomass_2321",
+    "1",
+    "C2813390180-ORNL_CLOUD"
+   ]
+  ]
+ },
+ "IMERG V08": {
+  "url": "https://cmr.earthdata.nasa.gov/search/collections.json?keyword=IMERG+V08&page_size=30",
+  "hits": "3",
+  "entries": [
+   [
+    "ASCATB_ESDR_ANCILLARY_L2_V1.1",
+    "1.1",
+    "C2706510710-POCLOUD"
+   ],
+   [
+    "SCATSAT1_ESDR_ANCILLARY_L2_V1.1",
+    "1.1",
+    "C2706524255-POCLOUD"
+   ],
+   [
+    "ASCATA_ESDR_ANCILLARY_L2_V1.1",
+    "1.1",
+    "C2705728324-POCLOUD"
+   ]
+  ]
+ },
+ "ECOSTRESS v003 tiled": {
+  "url": "https://cmr.earthdata.nasa.gov/search/collections.json?keyword=ECOSTRESS+v003+tiled&page_size=30",
+  "hits": "9",
+  "entries": [
+   [
+    "ECO_L2T_LSTE",
+    "003",
+    "C3998139651-LPCLOUD"
+   ],
+   [
+    "ECO_L3T_JET",
+    "003",
+    "C4057232489-LPCLOUD"
+   ],
+   [
+    "ECO_L4T_ESI",
+    "003",
+    "C4057232495-LPCLOUD"
+   ],
+   [
+    "ECO_L4T_WUE",
+    "003",
+    "C4057232498-LPCLOUD"
+   ],
+   [
+    "ECO_L3T_ETAUX",
+    "003",
+    "C4057520953-LPCLOUD"
+   ],
+   [
+    "ECO_L2T_STARS",
+    "003",
+    "C3998139658-LPCLOUD"
+   ],
+   [
+    "ECO_L1CT_RAD",
+    "003",
+    "C4142244484-LPCLOUD"
+   ],
+   [
+    "ECO_L2G_LSTE",
+    "003",
+    "C3998139648-LPCLOUD"
+   ],
+   [
+    "ECO_L2G_CLOUD",
+    "003",
+    "C3998139427-LPCLOUD"
+   ]
+  ]
+ }
+}

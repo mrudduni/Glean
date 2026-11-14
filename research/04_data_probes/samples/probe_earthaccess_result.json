@@ -1,0 +1,61 @@
+{
+ "installed": false,
+ "import_error": "No module named 'earthaccess'",
+ "pypi": {
+  "url": "https://pypi.org/pypi/earthaccess/json",
+  "version": "0.19.0",
+  "requires_python": ">=3.12",
+  "license": "MIT",
+  "upload_time": "2026-09-04T00:37:55",
+  "project_urls": {
+   "Bug Tracker": "https://github.com/earthaccess-dev/earthaccess/issues",
+   "Changelog": "https://github.com/earthaccess-dev/earthaccess/blob/main/CHANGELOG.md",
+   "Documentation": "https://earthaccess.readthedocs.io",
+   "Repository": "https://github.com/earthaccess-dev/earthaccess"
+  }
+ },
+ "https://earthaccess.readthedocs.io/en/latest/user/explanation/authenticate/": {
+  "status": 200,
+  "auth_terms": [
+   "\"interactive\"",
+   ".netrc",
+   "EARTHDATA_PASSWORD",
+   "EARTHDATA_USERNAME",
+   "_netrc",
+   "persist"
+  ]
+ },
+ "https://earthaccess.readthedocs.io/en/latest/user/howto/authenticate/": {
+  "status": 200,
+  "auth_terms": [
+   ".netrc",
+   "EARTHDATA_PASSWORD",
+   "EARTHDATA_USERNAME"
+  ]
+ },
+ "https://earthaccess.readthedocs.io/en/latest/user/howto/authenticate-with-environment-variables/": {
+  "status": 200,
+  "auth_terms": [
+   "\"environment\"",
+   ".netrc",
+   "EARTHDATA_PASSWORD",
+   "EARTHDATA_TOKEN",
+   "EARTHDATA_USERNAME"
+  ]
+ },
+ "https://earthaccess.readthedocs.io/en/latest/api/auth/auth/": {
+  "status": 200,
+  "auth_terms": [
+   "\"environment\"",
+   "\"interactive\"",
+   "\"netrc\"",
+   ".netrc",
+   "EARTHDATA_PASSWORD",
+   "EARTHDATA_TOKEN",
+   "EARTHDATA_USERNAME",
+   "persist"
+  ]
+ },
+ "_run_utc": "2026-11-14T09:27:44.436401+00:00",
+ "_seconds": 3.2
+}

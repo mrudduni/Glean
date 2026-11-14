@@ -1,0 +1,39 @@
+{
+ "S1": {
+  "given": {
+   "url": "https://nassgeodata.gmu.edu/axis2/services/CDLService/GetCDLValue?year=2024&x=185002.3&y=2116458.4",
+   "status": 200,
+   "category": "Corn"
+  }
+ },
+ "S2": {
+  "given": {
+   "url": "https://nassgeodata.gmu.edu/axis2/services/CDLService/GetCDLValue?year=2024&x=-426308.4&y=1668213.5",
+   "status": 200,
+   "category": "Grass/Pasture"
+  },
+  "nearest_crop": {
+   "lat": 37.96,
+   "lon": -100.9,
+   "url": "https://nassgeodata.gmu.edu/axis2/services/CDLService/GetCDLValue?year=2024&x=-426250.7&y=1669332.8",
+   "status": 200,
+   "category": "Alfalfa"
+  }
+ },
+ "S3": {
+  "given": {
+   "url": "https://nassgeodata.gmu.edu/axis2/services/CDLService/GetCDLValue?year=2024&x=-2113213.1&y=1775337.0",
+   "status": 200,
+   "category": "Developed/Open Space"
+  },
+  "nearest_crop": {
+   "lat": 36.605,
+   "lon": -120.1,
+   "url": "https://nassgeodata.gmu.edu/axis2/services/CDLService/GetCDLValue?year=2024&x=-2113072.6&y=1775879.2",
+   "status": 200,
+   "category": "Pistachios"
+  }
+ },
+ "_run_utc": "2026-11-14T09:28:05.391158+00:00",
+ "_seconds": 21.0
+}

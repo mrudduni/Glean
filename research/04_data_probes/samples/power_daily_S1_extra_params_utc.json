@@ -1,0 +1,129 @@
+{
+ "type": "Feature",
+ "geometry": {
+  "type": "Point",
+  "coordinates": [
+   -93.75,
+   42.03,
+   310.22
+  ]
+ },
+ "properties": {
+  "parameter": {
+   "IMERG_PRECTOT": {
+    "20240701": 12.08,
+    "20240702": 69.2,
+    "20240703": 0.04,
+    "20240704": 4.87,
+    "20240705": 0.0,
+    "20240706": 0.0,
+    "20240707": 1.11
+   },
+   "SFMC": {
+    "20240701": -999.0,
+    "20240702": -999.0,
+    "20240703": -999.0,
+    "20240704": -999.0,
+    "20240705": -999.0,
+    "20240706": -999.0,
+    "20240707": -999.0
+   },
+   "RZMC": {
+    "20240701": -999.0,
+    "20240702": -999.0,
+    "20240703": -999.0,
+    "20240704": -999.0,
+    "20240705": -999.0,
+    "20240706": -999.0,
+    "20240707": -999.0
+   },
+   "RZMC_PRCNTL": {
+    "20240701": -999.0,
+    "20240702": -999.0,
+    "20240703": -999.0,
+    "20240704": -999.0,
+    "20240705": -999.0,
+    "20240706": -999.0,
+    "20240707": -999.0
+   },
+   "FROST_DAYS": {
+    "20240701": 0.0,
+    "20240702": 0.0,
+    "20240703": 0.0,
+    "20240704": 0.0,
+    "20240705": 0.0,
+    "20240706": 0.0,
+    "20240707": 0.0
+   },
+   "GDD10": {
+    "20240701": 9.0,
+    "20240702": 12.61,
+    "20240703": 12.1,
+    "20240704": 11.63,
+    "20240705": 10.1,
+    "20240706": 11.64,
+    "20240707": 13.15
+   },
+   "EVLAND": {
+    "20240701": 4.09,
+    "20240702": 4.73,
+    "20240703": 5.07,
+    "20240704": 5.5,
+    "20240705": 5.7,
+    "20240706": 5.01,
+    "20240707": 5.05
+   }
+  }
+ },
+ "header": {
+  "title": "NASA/POWER Source Native Resolution Daily Data",
+  "api": {
+   "version": "v2.10.3",
+   "name": "POWER Daily API"
+  },
+  "sources": [
+   "MERRA2",
+   "IMERG",
+   "POWER"
+  ],
+  "fill_value": -999.0,
+  "time_standard": "UTC",
+  "start": "20240701",
+  "end": "20240707"
+ },
+ "messages": [],
+ "parameters": {
+  "IMERG_PRECTOT": {
+   "units": "mm/day",
+   "longname": "Total Precipitation"
+  },
+  "SFMC": {
+   "units": "m3 m-3",
+   "longname": "Surface Soil Moisture"
+  },
+  "RZMC": {
+   "units": "m3 m-3",
+   "longname": "Root Zone Soil Moisture"
+  },
+  "RZMC_PRCNTL": {
+   "units": "%",
+   "longname": "Root Zone Soil Moisture (Percentile)"
+  },
+  "FROST_DAYS": {
+   "units": "Days",
+   "longname": "Frost Days"
+  },
+  "GDD10": {
+   "units": "degree-day-c",
+   "longname": "Growing Degree Days Above 10 C"
+  },
+  "EVLAND": {
+   "units": "mm/day",
+   "longname": "Evaporation Land"
+  }
+ },
+ "times": {
+  "data": 0.519,
+  "process": 0.01
+ }
+}

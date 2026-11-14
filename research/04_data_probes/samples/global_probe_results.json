@@ -1,0 +1,2059 @@
+{
+ "open_meteo": {
+  "ludhiana_crop": {
+   "url": "https://archive-api.open-meteo.com/v1/archive",
+   "params": {
+    "latitude": 30.9,
+    "longitude": 75.77,
+    "start_date": "2024-01-01",
+    "end_date": "2024-12-31",
+    "daily": "temperature_2m_max,temperature_2m_min,precipitation_sum,et0_fao_evapotranspiration,shortwave_radiation_sum",
+    "hourly": "soil_moisture_0_to_7cm,soil_moisture_28_to_100cm",
+    "timezone": "auto"
+   },
+   "status": 200,
+   "seconds": 1.3,
+   "final_url": "https://archive-api.open-meteo.com/v1/archive?latitude=30.9&longitude=75.77&start_date=2024-01-01&end_date=2024-12-31&daily=temperature_2m_max%2Ctemperature_2m_min%2Cprecipitation_sum%2Cet0_fao_evapotranspiration%2Cshortwave_radiation_sum&hourly=soil_moisture_0_to_7cm%2Csoil_moisture_28_to_100cm&timezone=auto",
+   "grid_lat": 30.896309,
+   "grid_lon": 75.727806,
+   "elevation": 245.0,
+   "annual_precip_mm": 570.6,
+   "annual_et0_mm": 1510.7,
+   "tmax_max": 45.4,
+   "tmin_min": 2.7,
+   "sm_0_7_mean": 0.238,
+   "ratelimit_headers": {
+    "X-RateLimit-Cost": "18.3",
+    "X-RateLimit-Limit": "600.0",
+    "X-RateLimit-Remaining": "581.7",
+    "X-RateLimit-Reset": "1794648189",
+    "X-RateLimit-Window": "60"
+   }
+  },
+  "karnal_crop": {
+   "url": "https://archive-api.open-meteo.com/v1/archive",
+   "params": {
+    "latitude": 29.69,
+    "longitude": 76.9,
+    "start_date": "2024-01-01",
+    "end_date": "2024-12-31",
+    "daily": "temperature_2m_max,temperature_2m_min,precipitation_sum,et0_fao_evapotranspiration,shortwave_radiation_sum",
+    "hourly": "soil_moisture_0_to_7cm,soil_moisture_28_to_100cm",
+    "timezone": "auto"
+   },
+   "status": 200,
+   "seconds": 1.3,
+   "final_url": "https://archive-api.open-meteo.com/v1/archive?latitude=29.69&longitude=76.9&start_date=2024-01-01&end_date=2024-12-31&daily=temperature_2m_max%2Ctemperature_2m_min%2Cprecipitation_sum%2Cet0_fao_evapotranspiration%2Cshortwave_radiation_sum&hourly=soil_moisture_0_to_7cm%2Csoil_moisture_28_to_100cm&timezone=auto",
+   "grid_lat": 29.70123,
+   "grid_lon": 76.94896,
+   "elevation": 246.0,
+   "annual_precip_mm": 773.2,
+   "annual_et0_mm": 1585.2,
+   "tmax_max": 45.8,
+   "tmin_min": 2.9,
+   "sm_0_7_mean": 0.252,
+   "ratelimit_headers": {
+    "X-RateLimit-Cost": "18.3",
+    "X-RateLimit-Limit": "600.0",
+    "X-RateLimit-Remaining": "563.4",
+    "X-RateLimit-Reset": "1794648189",
+    "X-RateLimit-Window": "60"
+   }
+  },
+  "nashik_crop": {
+   "url": "https://archive-api.open-meteo.com/v1/archive",
+   "params": {
+    "latitude": 20.05,
+    "longitude": 73.75,
+    "start_date": "2024-01-01",
+    "end_date": "2024-12-31",
+    "daily": "temperature_2m_max,temperature_2m_min,precipitation_sum,et0_fao_evapotranspiration,shortwave_radiation_sum",
+    "hourly": "soil_moisture_0_to_7cm,soil_moisture_28_to_100cm",
+    "timezone": "auto"
+   },
+   "status": 200,
+   "seconds": 2.0,
+   "final_url": "https://archive-api.open-meteo.com/v1/archive?latitude=20.05&longitude=73.75&start_date=2024-01-01&end_date=2024-12-31&daily=temperature_2m_max%2Ctemperature_2m_min%2Cprecipitation_sum%2Cet0_fao_evapotranspiration%2Cshortwave_radiation_sum&hourly=soil_moisture_0_to_7cm%2Csoil_moisture_28_to_100cm&timezone=auto",
+   "grid_lat": 20.070297,
+   "grid_lon": 73.78378,
+   "elevation": 599.0,
+   "annual_precip_mm": 1313.7,
+   "annual_et0_mm": 1680.5,
+   "tmax_max": 40.3,
+   "tmin_min": 10.8,
+   "sm_0_7_mean": 0.349,
+   "ratelimit_headers": {
+    "X-RateLimit-Cost": "18.3",
+    "X-RateLimit-Limit": "600.0",
+    "X-RateLimit-Remaining": "545.1",
+    "X-RateLimit-Reset": "1794648189",
+    "X-RateLimit-Window": "60"
+   }
+  },
+  "eldoret_crop": {
+   "url": "https://archive-api.open-meteo.com/v1/archive",
+   "params": {
+    "latitude": 0.55,
+    "longitude": 35.35,
+    "start_date": "2024-01-01",
+    "end_date": "2024-12-31",
+    "daily": "temperature_2m_max,temperature_2m_min,precipitation_sum,et0_fao_evapotranspiration,shortwave_radiation_sum",
+    "hourly": "soil_moisture_0_to_7cm,soil_moisture_28_to_100cm",
+    "timezone": "auto"
+   },
+   "status": 200,
+   "seconds": 1.4,
+   "final_url": "https://archive-api.open-meteo.com/v1/archive?latitude=0.55&longitude=35.35&start_date=2024-01-01&end_date=2024-12-31&daily=temperature_2m_max%2Ctemperature_2m_min%2Cprecipitation_sum%2Cet0_fao_evapotranspiration%2Cshortwave_radiation_sum&hourly=soil_moisture_0_to_7cm%2Csoil_moisture_28_to_100cm&timezone=auto",
+   "grid_lat": 0.59753954,
+   "grid_lon": 35.33699,
+   "elevation": 2179.0,
+   "annual_precip_mm": 903.6,
+   "annual_et0_mm": 1683.2,
+   "tmax_max": 27.9,
+   "tmin_min": 10.4,
+   "sm_0_7_mean": 0.236,
+   "ratelimit_headers": {
+    "X-RateLimit-Cost": "18.3",
+    "X-RateLimit-Limit": "600.0",
+    "X-RateLimit-Remaining": "526.8",
+    "X-RateLimit-Reset": "1794648189",
+    "X-RateLimit-Window": "60"
+   }
+  },
+  "iowa": {
+   "url": "https://archive-api.open-meteo.com/v1/archive",
+   "params": {
+    "latitude": 42.03,
+    "longitude": -93.75,
+    "start_date": "2024-01-01",
+    "end_date": "2024-12-31",
+    "daily": "temperature_2m_max,temperature_2m_min,precipitation_sum,et0_fao_evapotranspiration,shortwave_radiation_sum",
+    "hourly": "soil_moisture_0_to_7cm,soil_moisture_28_to_100cm",
+    "timezone": "auto"
+   },
+   "status": 200,
+   "seconds": 1.4,
+   "final_url": "https://archive-api.open-meteo.com/v1/archive?latitude=42.03&longitude=-93.75&start_date=2024-01-01&end_date=2024-12-31&daily=temperature_2m_max%2Ctemperature_2m_min%2Cprecipitation_sum%2Cet0_fao_evapotranspiration%2Cshortwave_radiation_sum&hourly=soil_moisture_0_to_7cm%2Csoil_moisture_28_to_100cm&timezone=auto",
+   "grid_lat": 42.003513,
+   "grid_lon": -93.79913,
+   "elevation": 323.0,
+   "annual_precip_mm": 1115.4,
+   "annual_et0_mm": 1144.0,
+   "tmax_max": 34.2,
+   "tmin_min": -30.8,
+   "sm_0_7_mean": 0.319,
+   "ratelimit_headers": {
+    "X-RateLimit-Cost": "18.3",
+    "X-RateLimit-Limit": "600.0",
+    "X-RateLimit-Remaining": "508.5",
+    "X-RateLimit-Reset": "1794648189",
+    "X-RateLimit-Window": "60"
+   }
+  }
+ },
+ "open_meteo_ran_at": "2026-11-14 14:52:46 +0530",
+ "open_meteo_seconds": 7.5,
+ "chirps": {
+  "v3": {
+   "months": {
+    "2024-06": {
+     "ludhiana_crop": 24.7,
+     "karnal_crop": 22.6,
+     "nashik_crop": 150.8,
+     "eldoret_crop": 75.5,
+     "iowa": 104.0,
+     "_seconds": 25.8
+    },
+    "2024-07": {
+     "ludhiana_crop": 228.9,
+     "karnal_crop": 228.1,
+     "nashik_crop": 363.5,
+     "eldoret_crop": 288.6,
+     "iowa": 129.8,
+     "_seconds": 37.0
+    },
+    "2024-08": {
+     "ludhiana_crop": 308.2,
+     "karnal_crop": 249.8,
+     "nashik_crop": 343.8,
+     "eldoret_crop": 222.9,
+     "iowa": 71.5,
+     "_seconds": 37.7
+    },
+    "2024-09": {
+     "ludhiana_crop": 83.0,
+     "karnal_crop": 92.9,
+     "nashik_crop": 224.3,
+     "eldoret_crop": 114.8,
+     "iowa": 38.6,
+     "_seconds": 20.0
+    }
+   },
+   "profile": {
+    "crs": "EPSG:4326",
+    "res": [
+     0.05000000074505806,
+     0.05000000074505806
+    ],
+    "shape": [
+     2400,
+     7200
+    ],
+    "nodata": null,
+    "bounds": [
+     -180.0,
+     -60.00000178813934,
+     180.00000536441803,
+     60.0
+    ]
+   },
+   "url_template": "https://data.chc.ucsb.edu/products/CHIRPS/v3.0/monthly/global/cogs/chirps-v3.0.{y}.{m:02d}.cog"
+  },
+  "v2": {
+   "months": {
+    "2024-06": {
+     "ludhiana_crop": 30.7,
+     "karnal_crop": 37.6,
+     "nashik_crop": 133.4,
+     "eldoret_crop": 74.5,
+     "iowa": 106.3,
+     "_seconds": 72.1
+    },
+    "2024-07": {
+     "ludhiana_crop": 260.9,
+     "karnal_crop": 242.7,
+     "nashik_crop": 226.2,
+     "eldoret_crop": 236.0,
+     "iowa": 114.1,
+     "_seconds": 64.1
+    },
+    "2024-08": {
+     "ludhiana_crop": 312.7,
+     "karnal_crop": 291.1,
+     "nashik_crop": 218.5,
+     "eldoret_crop": 196.6,
+     "iowa": 64.7,
+     "_seconds": 33.6
+    },
+    "2024-09": {
+     "ludhiana_crop": 78.2,
+     "karnal_crop": 147.3,
+     "nashik_crop": 203.5,
+     "eldoret_crop": 90.3,
+     "iowa": 40.1,
+     "_seconds": 14.5
+    }
+   },
+   "profile": {
+    "crs": "EPSG:4326",
+    "res": [
+     0.05000000074505806,
+     0.05000000074505806
+    ],
+    "shape": [
+     2000,
+     7200
+    ],
+    "nodata": null,
+    "bounds": [
+     -180.0,
+     -50.00000149011612,
+     180.00000536441803,
+     50.0
+    ]
+   },
+   "url_template": "https://data.chc.ucsb.edu/products/CHIRPS/v2.0/global_monthly/cogs/chirps-v2.0.{y}.{m:02d}.cog"
+  }
+ },
+ "chirps_ran_at": "2026-11-14 14:57:52 +0530",
+ "chirps_seconds": 306.4,
+ "worldcereal": {
+  "ludhiana": {
+   "temporarycrops": {
+    "items": [
+     "25147_tc-annual_temporarycrops_2021"
+    ],
+    "values": {
+     "25147_tc-annual_temporarycrops_2021": [
+      0.0,
+      58.0
+     ]
+    }
+   },
+   "wintercereals": {
+    "items": [
+     "25147_tc-wintercereals_wintercereals_2021"
+    ],
+    "values": {
+     "25147_tc-wintercereals_wintercereals_2021": [
+      254.0,
+      254.0
+     ]
+    }
+   },
+   "maize": {
+    "items": [
+     "25147_tc-maize-main_maize_2021"
+    ],
+    "values": {
+     "25147_tc-maize-main_maize_2021": [
+      254.0,
+      254.0
+     ]
+    }
+   },
+   "springcereals": {
+    "items": [
+     "25147_tc-springcereals_springcereals_2021"
+    ],
+    "values": {
+     "25147_tc-springcereals_springcereals_2021": [
+      254.0,
+      254.0
+     ]
+    }
+   },
+   "irrigation": {
+    "items": [
+     "25147_tc-wintercereals_irrigation_2021",
+     "25147_tc-maize-main_irrigation_2021"
+    ],
+    "values": {
+     "25147_tc-wintercereals_irrigation_2021": [
+      254.0,
+      254.0
+     ],
+     "25147_tc-maize-main_irrigation_2021": [
+      254.0,
+      254.0
+     ]
+    }
+   },
+   "activecropland": {
+    "items": [
+     "25147_tc-wintercereals_activecropland_2021",
+     "25147_tc-maize-main_activecropland_2021"
+    ],
+    "values": {
+     "25147_tc-wintercereals_activecropland_2021": {
+      "url": "https://titiler.terrascope.be/collections/esa-worldcereal-activecropland-10m-2021-v1/items/25147_tc-wintercereals_activecropland_2021/point/75.85,30.9",
+      "params": {
+       "assets": [
+        "classification",
+        "confidence"
+       ]
+      },
+      "status": 404,
+      "seconds": 2.1,
+      "final_url": "https://titiler.terrascope.be/collections/esa-worldcereal-activecropland-10m-2021-v1/items/25147_tc-wintercereals_activecropland_2021/point/75.85,30.9?assets=classification&assets=confidence"
+     },
+     "25147_tc-maize-main_activecropland_2021": {
+      "url": "https://titiler.terrascope.be/collections/esa-worldcereal-activecropland-10m-2021-v1/items/25147_tc-maize-main_activecropland_2021/point/75.85,30.9",
+      "params": {
+       "assets": [
+        "classification",
+        "confidence"
+       ]
+      },
+      "status": 404,
+      "seconds": 1.7,
+      "final_url": "https://titiler.terrascope.be/collections/esa-worldcereal-activecropland-10m-2021-v1/items/25147_tc-maize-main_activecropland_2021/point/75.85,30.9?assets=classification&assets=confidence"
+     }
+    }
+   }
+  },
+  "ludhiana_crop": {
+   "temporarycrops": {
+    "items": [
+     "25147_tc-annual_temporarycrops_2021"
+    ],
+    "values": {
+     "25147_tc-annual_temporarycrops_2021": [
+      100.0,
+      99.0
+     ]
+    }
+   },
+   "wintercereals": {
+    "items": [
+     "25147_tc-wintercereals_wintercereals_2021"
+    ],
+    "values": {
+     "25147_tc-wintercereals_wintercereals_2021": [
+      0.0,
+      37.0
+     ]
+    }
+   },
+   "maize": {
+    "items": [
+     "25147_tc-maize-main_maize_2021"
+    ],
+    "values": {
+     "25147_tc-maize-main_maize_2021": [
+      0.0,
+      98.0
+     ]
+    }
+   },
+   "springcereals": {
+    "items": [
+     "25147_tc-springcereals_springcereals_2021"
+    ],
+    "values": {
+     "25147_tc-springcereals_springcereals_2021": [
+      0.0,
+      93.0
+     ]
+    }
+   },
+   "irrigation": {
+    "items": [
+     "25147_tc-wintercereals_irrigation_2021",
+     "25147_tc-maize-main_irrigation_2021"
+    ],
+    "values": {
+     "25147_tc-wintercereals_irrigation_2021": [
+      0.0,
+      52.0
+     ],
+     "25147_tc-maize-main_irrigation_2021": [
+      0.0,
+      94.0
+     ]
+    }
+   },
+   "activecropland": {
+    "items": [
+     "25147_tc-wintercereals_activecropland_2021",
+     "25147_tc-maize-main_activecropland_2021"
+    ],
+    "values": {
+     "25147_tc-wintercereals_activecropland_2021": {
+      "url": "https://titiler.terrascope.be/collections/esa-worldcereal-activecropland-10m-2021-v1/items/25147_tc-wintercereals_activecropland_2021/point/75.77,30.9",
+      "params": {
+       "assets": [
+        "classification",
+        "confidence"
+       ]
+      },
+      "status": 404,
+      "seconds": 1.8,
+      "final_url": "https://titiler.terrascope.be/collections/esa-worldcereal-activecropland-10m-2021-v1/items/25147_tc-wintercereals_activecropland_2021/point/75.77,30.9?assets=classification&assets=confidence"
+     },
+     "25147_tc-maize-main_activecropland_2021": {
+      "url": "https://titiler.terrascope.be/collections/esa-worldcereal-activecropland-10m-2021-v1/items/25147_tc-maize-main_activecropland_2021/point/75.77,30.9",
+      "params": {
+       "assets": [
+        "classification",
+        "confidence"
+       ]
+      },
+      "status": 404,
+      "seconds": 1.8,
+      "final_url": "https://titiler.terrascope.be/collections/esa-worldcereal-activecropland-10m-2021-v1/items/25147_tc-maize-main_activecropland_2021/point/75.77,30.9?assets=classification&assets=confidence"
+     }
+    }
+   }
+  },
+  "karnal": {
+   "temporarycrops": {
+    "items": [
+     "34119_tc-annual_temporarycrops_2021"
+    ],
+    "values": {
+     "34119_tc-annual_temporarycrops_2021": [
+      0.0,
+      25.0
+     ]
+    }
+   },
+   "wintercereals": {
+    "items": [
+     "34119_tc-wintercereals_wintercereals_2021"
+    ],
+    "values": {
+     "34119_tc-wintercereals_wintercereals_2021": [
+      254.0,
+      254.0
+     ]
+    }
+   },
+   "maize": {
+    "items": [
+     "34119_tc-maize-second_maize_2021",
+     "34119_tc-maize-main_maize_2021"
+    ],
+    "values": {
+     "34119_tc-maize-second_maize_2021": [
+      254.0,
+      254.0
+     ],
+     "34119_tc-maize-main_maize_2021": [
+      254.0,
+      254.0
+     ]
+    }
+   },
+   "springcereals": {
+    "items": [],
+    "values": {}
+   },
+   "irrigation": {
+    "items": [
+     "34119_tc-wintercereals_irrigation_2021",
+     "34119_tc-maize-second_irrigation_2021",
+     "34119_tc-maize-main_irrigation_2021"
+    ],
+    "values": {
+     "34119_tc-wintercereals_irrigation_2021": [
+      254.0,
+      254.0
+     ],
+     "34119_tc-maize-second_irrigation_2021": [
+      254.0,
+      254.0
+     ],
+     "34119_tc-maize-main_irrigation_2021": [
+      254.0,
+      254.0
+     ]
+    }
+   },
+   "activecropland": {
+    "items": [
+     "34119_tc-wintercereals_activecropland_2021",
+     "34119_tc-maize-second_activecropland_2021",
+     "34119_tc-maize-main_activecropland_2021"
+    ],
+    "values": {
+     "34119_tc-wintercereals_activecropland_2021": {
+      "url": "https://titiler.terrascope.be/collections/esa-worldcereal-activecropland-10m-2021-v1/items/34119_tc-wintercereals_activecropland_2021/point/76.98,29.69",
+      "params": {
+       "assets": [
+        "classification",
+        "confidence"
+       ]
+      },
+      "status": 404,
+      "seconds": 1.8,
+      "final_url": "https://titiler.terrascope.be/collections/esa-worldcereal-activecropland-10m-2021-v1/items/34119_tc-wintercereals_activecropland_2021/point/76.98,29.69?assets=classification&assets=confidence"
+     },
+     "34119_tc-maize-second_activecropland_2021": {
+      "url": "https://titiler.terrascope.be/collections/esa-worldcereal-activecropland-10m-2021-v1/items/34119_tc-maize-second_activecropland_2021/point/76.98,29.69",
+      "params": {
+       "assets": [
+        "classification",
+        "confidence"
+       ]
+      },
+      "status": 404,
+      "seconds": 1.5,
+      "final_url": "https://titiler.terrascope.be/collections/esa-worldcereal-activecropland-10m-2021-v1/items/34119_tc-maize-second_activecropland_2021/point/76.98,29.69?assets=classification&assets=confidence"
+     },
+     "34119_tc-maize-main_activecropland_2021": {
+      "url": "https://titiler.terrascope.be/collections/esa-worldcereal-activecropland-10m-2021-v1/items/34119_tc-maize-main_activecropland_2021/point/76.98,29.69",
+      "params": {
+       "assets": [
+        "classification",
+        "confidence"
+       ]
+      },
+      "status": 404,
+      "seconds": 2.6,
+      "final_url": "https://titiler.terrascope.be/collections/esa-worldcereal-activecropland-10m-2021-v1/items/34119_tc-maize-main_activecropland_2021/point/76.98,29.69?assets=classification&assets=confidence"
+     }
+    }
+   }
+  },
+  "karnal_crop": {
+   "temporarycrops": {
+    "items": [
+     "34119_tc-annual_temporarycrops_2021"
+    ],
+    "values": {
+     "34119_tc-annual_temporarycrops_2021": [
+      100.0,
+      99.0
+     ]
+    }
+   },
+   "wintercereals": {
+    "items": [
+     "34119_tc-wintercereals_wintercereals_2021"
+    ],
+    "values": {
+     "34119_tc-wintercereals_wintercereals_2021": [
+      100.0,
+      66.0
+     ]
+    }
+   },
+   "maize": {
+    "items": [
+     "34119_tc-maize-second_maize_2021",
+     "34119_tc-maize-main_maize_2021"
+    ],
+    "values": {
+     "34119_tc-maize-second_maize_2021": [
+      100.0,
+      50.0
+     ],
+     "34119_tc-maize-main_maize_2021": [
+      0.0,
+      94.0
+     ]
+    }
+   },
+   "springcereals": {
+    "items": [],
+    "values": {}
+   },
+   "irrigation": {
+    "items": [
+     "34119_tc-wintercereals_irrigation_2021",
+     "34119_tc-maize-second_irrigation_2021",
+     "34119_tc-maize-main_irrigation_2021"
+    ],
+    "values": {
+     "34119_tc-wintercereals_irrigation_2021": [
+      100.0,
+      86.0
+     ],
+     "34119_tc-maize-second_irrigation_2021": [
+      100.0,
+      81.0
+     ],
+     "34119_tc-maize-main_irrigation_2021": [
+      0.0,
+      39.0
+     ]
+    }
+   },
+   "activecropland": {
+    "items": [
+     "34119_tc-wintercereals_activecropland_2021",
+     "34119_tc-maize-second_activecropland_2021",
+     "34119_tc-maize-main_activecropland_2021"
+    ],
+    "values": {
+     "34119_tc-wintercereals_activecropland_2021": {
+      "url": "https://titiler.terrascope.be/collections/esa-worldcereal-activecropland-10m-2021-v1/items/34119_tc-wintercereals_activecropland_2021/point/76.9,29.69",
+      "params": {
+       "assets": [
+        "classification",
+        "confidence"
+       ]
+      },
+      "status": 404,
+      "seconds": 1.9,
+      "final_url": "https://titiler.terrascope.be/collections/esa-worldcereal-activecropland-10m-2021-v1/items/34119_tc-wintercereals_activecropland_2021/point/76.9,29.69?assets=classification&assets=confidence"
+     },
+     "34119_tc-maize-second_activecropland_2021": {
+      "url": "https://titiler.terrascope.be/collections/esa-worldcereal-activecropland-10m-2021-v1/items/34119_tc-maize-second_activecropland_2021/point/76.9,29.69",
+      "params": {
+       "assets": [
+        "classification",
+        "confidence"
+       ]
+      },
+      "status": 404,
+      "seconds": 1.5,
+      "final_url": "https://titiler.terrascope.be/collections/esa-worldcereal-activecropland-10m-2021-v1/items/34119_tc-maize-second_activecropland_2021/point/76.9,29.69?assets=classification&assets=confidence"
+     },
+     "34119_tc-maize-main_activecropland_2021": {
+      "url": "https://titiler.terrascope.be/collections/esa-worldcereal-activecropland-10m-2021-v1/items/34119_tc-maize-main_activecropland_2021/point/76.9,29.69",
+      "params": {
+       "assets": [
+        "classification",
+        "confidence"
+       ]
+      },
+      "status": 404,
+      "seconds": 1.4,
+      "final_url": "https://titiler.terrascope.be/collections/esa-worldcereal-activecropland-10m-2021-v1/items/34119_tc-maize-main_activecropland_2021/point/76.9,29.69?assets=classification&assets=confidence"
+     }
+    }
+   }
+  },
+  "nashik": {
+   "temporarycrops": {
+    "items": [
+     "34119_tc-annual_temporarycrops_2021"
+    ],
+    "values": {
+     "34119_tc-annual_temporarycrops_2021": [
+      0.0,
+      7.0
+     ]
+    }
+   },
+   "wintercereals": {
+    "items": [
+     "34119_tc-wintercereals_wintercereals_2021"
+    ],
+    "values": {
+     "34119_tc-wintercereals_wintercereals_2021": [
+      0.0,
+      254.0
+     ]
+    }
+   },
+   "maize": {
+    "items": [
+     "34119_tc-maize-second_maize_2021",
+     "34119_tc-maize-main_maize_2021"
+    ],
+    "values": {
+     "34119_tc-maize-second_maize_2021": [
+      254.0,
+      254.0
+     ],
+     "34119_tc-maize-main_maize_2021": [
+      254.0,
+      254.0
+     ]
+    }
+   },
+   "springcereals": {
+    "items": [],
+    "values": {}
+   },
+   "irrigation": {
+    "items": [
+     "34119_tc-wintercereals_irrigation_2021",
+     "34119_tc-maize-second_irrigation_2021",
+     "34119_tc-maize-main_irrigation_2021"
+    ],
+    "values": {
+     "34119_tc-wintercereals_irrigation_2021": [
+      0.0,
+      254.0
+     ],
+     "34119_tc-maize-second_irrigation_2021": [
+      254.0,
+      254.0
+     ],
+     "34119_tc-maize-main_irrigation_2021": [
+      254.0,
+      254.0
+     ]
+    }
+   },
+   "activecropland": {
+    "items": [
+     "34119_tc-wintercereals_activecropland_2021",
+     "34119_tc-maize-second_activecropland_2021",
+     "34119_tc-maize-main_activecropland_2021"
+    ],
+    "values": {
+     "34119_tc-wintercereals_activecropland_2021": {
+      "url": "https://titiler.terrascope.be/collections/esa-worldcereal-activecropland-10m-2021-v1/items/34119_tc-wintercereals_activecropland_2021/point/73.8,20.0",
+      "params": {
+       "assets": [
+        "classification",
+        "confidence"
+       ]
+      },
+      "status": 404,
+      "seconds": 1.8,
+      "final_url": "https://titiler.terrascope.be/collections/esa-worldcereal-activecropland-10m-2021-v1/items/34119_tc-wintercereals_activecropland_2021/point/73.8,20.0?assets=classification&assets=confidence"
+     },
+     "34119_tc-maize-second_activecropland_2021": {
+      "url": "https://titiler.terrascope.be/collections/esa-worldcereal-activecropland-10m-2021-v1/items/34119_tc-maize-second_activecropland_2021/point/73.8,20.0",
+      "params": {
+       "assets": [
+        "classification",
+        "confidence"
+       ]
+      },
+      "status": 404,
+      "seconds": 2.4,
+      "final_url": "https://titiler.terrascope.be/collections/esa-worldcereal-activecropland-10m-2021-v1/items/34119_tc-maize-second_activecropland_2021/point/73.8,20.0?assets=classification&assets=confidence"
+     },
+     "34119_tc-maize-main_activecropland_2021": {
+      "url": "https://titiler.terrascope.be/collections/esa-worldcereal-activecropland-10m-2021-v1/items/34119_tc-maize-main_activecropland_2021/point/73.8,20.0",
+      "params": {
+       "assets": [
+        "classification",
+        "confidence"
+       ]
+      },
+      "status": 404,
+      "seconds": 2.2,
+      "final_url": "https://titiler.terrascope.be/collections/esa-worldcereal-activecropland-10m-2021-v1/items/34119_tc-maize-main_activecropland_2021/point/73.8,20.0?assets=classification&assets=confidence"
+     }
+    }
+   }
+  },
+  "nashik_crop": {
+   "temporarycrops": {
+    "items": [
+     "34119_tc-annual_temporarycrops_2021"
+    ],
+    "values": {
+     "34119_tc-annual_temporarycrops_2021": [
+      100.0,
+      99.0
+     ]
+    }
+   },
+   "wintercereals": {
+    "items": [
+     "34119_tc-wintercereals_wintercereals_2021"
+    ],
+    "values": {
+     "34119_tc-wintercereals_wintercereals_2021": [
+      0.0,
+      2.0
+     ]
+    }
+   },
+   "maize": {
+    "items": [
+     "34119_tc-maize-second_maize_2021",
+     "34119_tc-maize-main_maize_2021"
+    ],
+    "values": {
+     "34119_tc-maize-second_maize_2021": [
+      0.0,
+      50.0
+     ],
+     "34119_tc-maize-main_maize_2021": [
+      0.0,
+      77.0
+     ]
+    }
+   },
+   "springcereals": {
+    "items": [],
+    "values": {}
+   },
+   "irrigation": {
+    "items": [
+     "34119_tc-wintercereals_irrigation_2021",
+     "34119_tc-maize-second_irrigation_2021",
+     "34119_tc-maize-main_irrigation_2021"
+    ],
+    "values": {
+     "34119_tc-wintercereals_irrigation_2021": [
+      0.0,
+      24.0
+     ],
+     "34119_tc-maize-second_irrigation_2021": [
+      0.0,
+      11.0
+     ],
+     "34119_tc-maize-main_irrigation_2021": [
+      0.0,
+      99.0
+     ]
+    }
+   },
+   "activecropland": {
+    "items": [
+     "34119_tc-wintercereals_activecropland_2021",
+     "34119_tc-maize-second_activecropland_2021",
+     "34119_tc-maize-main_activecropland_2021"
+    ],
+    "values": {
+     "34119_tc-wintercereals_activecropland_2021": {
+      "url": "https://titiler.terrascope.be/collections/esa-worldcereal-activecropland-10m-2021-v1/items/34119_tc-wintercereals_activecropland_2021/point/73.75,20.05",
+      "params": {
+       "assets": [
+        "classification",
+        "confidence"
+       ]
+      },
+      "status": 404,
+      "seconds": 1.5,
+      "final_url": "https://titiler.terrascope.be/collections/esa-worldcereal-activecropland-10m-2021-v1/items/34119_tc-wintercereals_activecropland_2021/point/73.75,20.05?assets=classification&assets=confidence"
+     },
+     "34119_tc-maize-second_activecropland_2021": {
+      "url": "https://titiler.terrascope.be/collections/esa-worldcereal-activecropland-10m-2021-v1/items/34119_tc-maize-second_activecropland_2021/point/73.75,20.05",
+      "params": {
+       "assets": [
+        "classification",
+        "confidence"
+       ]
+      },
+      "status": 404,
+      "seconds": 1.4,
+      "final_url": "https://titiler.terrascope.be/collections/esa-worldcereal-activecropland-10m-2021-v1/items/34119_tc-maize-second_activecropland_2021/point/73.75,20.05?assets=classification&assets=confidence"
+     },
+     "34119_tc-maize-main_activecropland_2021": {
+      "url": "https://titiler.terrascope.be/collections/esa-worldcereal-activecropland-10m-2021-v1/items/34119_tc-maize-main_activecropland_2021/point/73.75,20.05",
+      "params": {
+       "assets": [
+        "classification",
+        "confidence"
+       ]
+      },
+      "status": 404,
+      "seconds": 1.2,
+      "final_url": "https://titiler.terrascope.be/collections/esa-worldcereal-activecropland-10m-2021-v1/items/34119_tc-maize-main_activecropland_2021/point/73.75,20.05?assets=classification&assets=confidence"
+     }
+    }
+   }
+  },
+  "eldoret": {
+   "temporarycrops": {
+    "items": [
+     "12048_tc-annual_temporarycrops_2021"
+    ],
+    "values": {
+     "12048_tc-annual_temporarycrops_2021": [
+      0.0,
+      99.0
+     ]
+    }
+   },
+   "wintercereals": {
+    "items": [
+     "12048_tc-wintercereals_wintercereals_2021"
+    ],
+    "values": {
+     "12048_tc-wintercereals_wintercereals_2021": [
+      254.0,
+      254.0
+     ]
+    }
+   },
+   "maize": {
+    "items": [
+     "12048_tc-maize-second_maize_2021",
+     "12048_tc-maize-main_maize_2021"
+    ],
+    "values": {
+     "12048_tc-maize-second_maize_2021": [
+      254.0,
+      254.0
+     ],
+     "12048_tc-maize-main_maize_2021": [
+      254.0,
+      254.0
+     ]
+    }
+   },
+   "springcereals": {
+    "items": [],
+    "values": {}
+   },
+   "irrigation": {
+    "items": [
+     "12048_tc-wintercereals_irrigation_2021",
+     "12048_tc-maize-second_irrigation_2021",
+     "12048_tc-maize-main_irrigation_2021"
+    ],
+    "values": {
+     "12048_tc-wintercereals_irrigation_2021": [
+      254.0,
+      254.0
+     ],
+     "12048_tc-maize-second_irrigation_2021": [
+      254.0,
+      254.0
+     ],
+     "12048_tc-maize-main_irrigation_2021": [
+      254.0,
+      254.0
+     ]
+    }
+   },
+   "activecropland": {
+    "items": [
+     "12048_tc-wintercereals_activecropland_2021",
+     "12048_tc-maize-second_activecropland_2021",
+     "12048_tc-maize-main_activecropland_2021"
+    ],
+    "values": {
+     "12048_tc-wintercereals_activecropland_2021": {
+      "url": "https://titiler.terrascope.be/collections/esa-worldcereal-activecropland-10m-2021-v1/items/12048_tc-wintercereals_activecropland_2021/point/35.27,0.52",
+      "params": {
+       "assets": [
+        "classification",
+        "confidence"
+       ]
+      },
+      "status": 404,
+      "seconds": 1.4,
+      "final_url": "https://titiler.terrascope.be/collections/esa-worldcereal-activecropland-10m-2021-v1/items/12048_tc-wintercereals_activecropland_2021/point/35.27,0.52?assets=classification&assets=confidence"
+     },
+     "12048_tc-maize-second_activecropland_2021": {
+      "url": "https://titiler.terrascope.be/collections/esa-worldcereal-activecropland-10m-2021-v1/items/12048_tc-maize-second_activecropland_2021/point/35.27,0.52",
+      "params": {
+       "assets": [
+        "classification",
+        "confidence"
+       ]
+      },
+      "status": 404,
+      "seconds": 1.6,
+      "final_url": "https://titiler.terrascope.be/collections/esa-worldcereal-activecropland-10m-2021-v1/items/12048_tc-maize-second_activecropland_2021/point/35.27,0.52?assets=classification&assets=confidence"
+     },
+     "12048_tc-maize-main_activecropland_2021": {
+      "url": "https://titiler.terrascope.be/collections/esa-worldcereal-activecropland-10m-2021-v1/items/12048_tc-maize-main_activecropland_2021/point/35.27,0.52",
+      "params": {
+       "assets": [
+        "classification",
+        "confidence"
+       ]
+      },
+      "status": 404,
+      "seconds": 1.4,
+      "final_url": "https://titiler.terrascope.be/collections/esa-worldcereal-activecropland-10m-2021-v1/items/12048_tc-maize-main_activecropland_2021/point/35.27,0.52?assets=classification&assets=confidence"
+     }
+    }
+   }
+  },
+  "eldoret_crop": {
+   "temporarycrops": {
+    "items": [
+     "12048_tc-annual_temporarycrops_2021"
+    ],
+    "values": {
+     "12048_tc-annual_temporarycrops_2021": [
+      100.0,
+      99.0
+     ]
+    }
+   },
+   "wintercereals": {
+    "items": [
+     "12048_tc-wintercereals_wintercereals_2021"
+    ],
+    "values": {
+     "12048_tc-wintercereals_wintercereals_2021": [
+      0.0,
+      93.0
+     ]
+    }
+   },
+   "maize": {
+    "items": [
+     "12048_tc-maize-second_maize_2021",
+     "12048_tc-maize-main_maize_2021"
+    ],
+    "values": {
+     "12048_tc-maize-second_maize_2021": [
+      0.0,
+      5.0
+     ],
+     "12048_tc-maize-main_maize_2021": [
+      0.0,
+      27.0
+     ]
+    }
+   },
+   "springcereals": {
+    "items": [],
+    "values": {}
+   },
+   "irrigation": {
+    "items": [
+     "12048_tc-wintercereals_irrigation_2021",
+     "12048_tc-maize-second_irrigation_2021",
+     "12048_tc-maize-main_irrigation_2021"
+    ],
+    "values": {
+     "12048_tc-wintercereals_irrigation_2021": [
+      0.0,
+      97.0
+     ],
+     "12048_tc-maize-second_irrigation_2021": [
+      0.0,
+      57.0
+     ],
+     "12048_tc-maize-main_irrigation_2021": [
+      0.0,
+      84.0
+     ]
+    }
+   },
+   "activecropland": {
+    "items": [
+     "12048_tc-wintercereals_activecropland_2021",
+     "12048_tc-maize-second_activecropland_2021",
+     "12048_tc-maize-main_activecropland_2021"
+    ],
+    "values": {
+     "12048_tc-wintercereals_activecropland_2021": {
+      "url": "https://titiler.terrascope.be/collections/esa-worldcereal-activecropland-10m-2021-v1/items/12048_tc-wintercereals_activecropland_2021/point/35.35,0.55",
+      "params": {
+       "assets": [
+        "classification",
+        "confidence"
+       ]
+      },
+      "status": 404,
+      "seconds": 1.2,
+      "final_url": "https://titiler.terrascope.be/collections/esa-worldcereal-activecropland-10m-2021-v1/items/12048_tc-wintercereals_activecropland_2021/point/35.35,0.55?assets=classification&assets=confidence"
+     },
+     "12048_tc-maize-second_activecropland_2021": {
+      "url": "https://titiler.terrascope.be/collections/esa-worldcereal-activecropland-10m-2021-v1/items/12048_tc-maize-second_activecropland_2021/point/35.35,0.55",
+      "params": {
+       "assets": [
+        "classification",
+        "confidence"
+       ]
+      },
+      "status": 404,
+      "seconds": 1.2,
+      "final_url": "https://titiler.terrascope.be/collections/esa-worldcereal-activecropland-10m-2021-v1/items/12048_tc-maize-second_activecropland_2021/point/35.35,0.55?assets=classification&assets=confidence"
+     },
+     "12048_tc-maize-main_activecropland_2021": {
+      "url": "https://titiler.terrascope.be/collections/esa-worldcereal-activecropland-10m-2021-v1/items/12048_tc-maize-main_activecropland_2021/point/35.35,0.55",
+      "params": {
+       "assets": [
+        "classification",
+        "confidence"
+       ]
+      },
+      "status": 404,
+      "seconds": 1.3,
+      "final_url": "https://titiler.terrascope.be/collections/esa-worldcereal-activecropland-10m-2021-v1/items/12048_tc-maize-main_activecropland_2021/point/35.35,0.55?assets=classification&assets=confidence"
+     }
+    }
+   }
+  },
+  "iowa": {
+   "temporarycrops": {
+    "items": [
+     "46173_tc-annual_temporarycrops_2021"
+    ],
+    "values": {
+     "46173_tc-annual_temporarycrops_2021": [
+      100.0,
+      96.0
+     ]
+    }
+   },
+   "wintercereals": {
+    "items": [
+     "46173_tc-wintercereals_wintercereals_2021"
+    ],
+    "values": {
+     "46173_tc-wintercereals_wintercereals_2021": [
+      0.0,
+      89.0
+     ]
+    }
+   },
+   "maize": {
+    "items": [
+     "46173_tc-maize-main_maize_2021"
+    ],
+    "values": {
+     "46173_tc-maize-main_maize_2021": [
+      100.0,
+      40.0
+     ]
+    }
+   },
+   "springcereals": {
+    "items": [
+     "46173_tc-springcereals_springcereals_2021"
+    ],
+    "values": {
+     "46173_tc-springcereals_springcereals_2021": [
+      0.0,
+      99.0
+     ]
+    }
+   },
+   "irrigation": {
+    "items": [
+     "46173_tc-wintercereals_irrigation_2021",
+     "46173_tc-maize-main_irrigation_2021"
+    ],
+    "values": {
+     "46173_tc-wintercereals_irrigation_2021": [
+      0.0,
+      86.0
+     ],
+     "46173_tc-maize-main_irrigation_2021": [
+      0.0,
+      88.0
+     ]
+    }
+   },
+   "activecropland": {
+    "items": [
+     "46173_tc-wintercereals_activecropland_2021",
+     "46173_tc-maize-main_activecropland_2021"
+    ],
+    "values": {
+     "46173_tc-wintercereals_activecropland_2021": {
+      "url": "https://titiler.terrascope.be/collections/esa-worldcereal-activecropland-10m-2021-v1/items/46173_tc-wintercereals_activecropland_2021/point/-93.75,42.03",
+      "params": {
+       "assets": [
+        "classification",
+        "confidence"
+       ]
+      },
+      "status": 404,
+      "seconds": 2.2,
+      "final_url": "https://titiler.terrascope.be/collections/esa-worldcereal-activecropland-10m-2021-v1/items/46173_tc-wintercereals_activecropland_2021/point/-93.75,42.03?assets=classification&assets=confidence"
+     },
+     "46173_tc-maize-main_activecropland_2021": {
+      "url": "https://titiler.terrascope.be/collections/esa-worldcereal-activecropland-10m-2021-v1/items/46173_tc-maize-main_activecropland_2021/point/-93.75,42.03",
+      "params": {
+       "assets": [
+        "classification",
+        "confidence"
+       ]
+      },
+      "status": 404,
+      "seconds": 2.5,
+      "final_url": "https://titiler.terrascope.be/collections/esa-worldcereal-activecropland-10m-2021-v1/items/46173_tc-maize-main_activecropland_2021/point/-93.75,42.03?assets=classification&assets=confidence"
+     }
+    }
+   }
+  },
+  "_direct_download_check": {
+   "url": "https://services.terrascope.be/download/WORLDCEREAL/ESA_WORLDCEREAL_TEMPORARYCROPS_V1/aez/2021/tc-annual/34119_tc-annual_temporarycrops_2021/34119_tc-annual_temporarycrops_2020-10-22_2021-10-22_classification.tif",
+   "params": null,
+   "status": 401,
+   "seconds": 1.7,
+   "final_url": "https://services.terrascope.be/download/WORLDCEREAL/ESA_WORLDCEREAL_TEMPORARYCROPS_V1/aez/2021/tc-annual/34119_tc-annual_temporarycrops_2021/34119_tc-annual_temporarycrops_2020-10-22_2021-10-22_classification.tif"
+  }
+ },
+ "worldcereal_ran_at": "2026-11-14 15:02:50 +0530",
+ "worldcereal_seconds": 298.0,
+ "faostat": {
+  "api_no_token": {
+   "url": "https://faostatservices.fao.org/api/v1/en/data/PP",
+   "params": {
+    "area": "100",
+    "item": "27",
+    "element": "5532",
+    "year": "2022"
+   },
+   "status": 401,
+   "seconds": 2.0,
+   "final_url": "https://faostatservices.fao.org/api/v1/en/data/PP?area=100&item=27&element=5532&year=2022",
+   "body": "Missing Authorization Header"
+  },
+  "India": {
+   "url": "https://bulks-faostat.fao.org/production/Prices_E_Asia.zip",
+   "bytes": 2569106,
+   "seconds": 3.0,
+   "csv": "Prices_E_Asia.csv",
+   "columns": [
+    "Area Code",
+    "Area Code (M49)",
+    "Area",
+    "Item Code",
+    "Item Code (CPC)",
+    "Item",
+    "Element Code",
+    "Element",
+    "Months Code",
+    "Months",
+    "Unit",
+    "Y1991"
+   ],
+   "latest_years": [
+    "Y2022",
+    "Y2023",
+    "Y2024",
+    "Y2025"
+   ],
+   "rows": [
+    [
+     "Chick peas, dry",
+     "Producer Price (LCU/tonne)",
+     "LCU",
+     "",
+     "",
+     "",
+     ""
+    ],
+    [
+     "Chick peas, dry",
+     "Producer Price (USD/tonne)",
+     "USD",
+     "",
+     "",
+     "",
+     ""
+    ],
+    [
+     "Maize (corn)",
+     "Producer Price (LCU/tonne)",
+     "LCU",
+     "",
+     "",
+     "",
+     ""
+    ],
+    [
+     "Maize (corn)",
+     "Producer Price (USD/tonne)",
+     "USD",
+     "",
+     "",
+     "",
+     ""
+    ],
+    [
+     "Rape or colza seed",
+     "Producer Price (LCU/tonne)",
+     "LCU",
+     "",
+     "",
+     "",
+     ""
+    ],
+    [
+     "Rape or colza seed",
+     "Producer Price (USD/tonne)",
+     "USD",
+     "",
+     "",
+     "",
+     ""
+    ],
+    [
+     "Rice",
+     "Producer Price (LCU/tonne)",
+     "LCU",
+     "",
+     "",
+     "",
+     ""
+    ],
+    [
+     "Rice",
+     "Producer Price (USD/tonne)",
+     "USD",
+     "",
+     "",
+     "",
+     ""
+    ],
+    [
+     "Soya beans",
+     "Producer Price (LCU/tonne)",
+     "LCU",
+     "",
+     "",
+     "",
+     ""
+    ],
+    [
+     "Soya beans",
+     "Producer Price (USD/tonne)",
+     "USD",
+     "",
+     "",
+     "",
+     ""
+    ],
+    [
+     "Sugar cane",
+     "Producer Price (LCU/tonne)",
+     "LCU",
+     "",
+     "",
+     "",
+     ""
+    ],
+    [
+     "Sugar cane",
+     "Producer Price (USD/tonne)",
+     "USD",
+     "",
+     "",
+     "",
+     ""
+    ],
+    [
+     "Wheat",
+     "Producer Price (LCU/tonne)",
+     "LCU",
+     "",
+     "",
+     "",
+     ""
+    ],
+    [
+     "Wheat",
+     "Producer Price (USD/tonne)",
+     "USD",
+     "",
+     "",
+     "",
+     ""
+    ]
+   ]
+  },
+  "Kenya": {
+   "url": "https://bulks-faostat.fao.org/production/Prices_E_Africa.zip",
+   "bytes": 1461402,
+   "seconds": 2.2,
+   "csv": "Prices_E_Africa.csv",
+   "columns": [
+    "Area Code",
+    "Area Code (M49)",
+    "Area",
+    "Item Code",
+    "Item Code (CPC)",
+    "Item",
+    "Element Code",
+    "Element",
+    "Months Code",
+    "Months",
+    "Unit",
+    "Y1991"
+   ],
+   "latest_years": [
+    "Y2022",
+    "Y2023",
+    "Y2024",
+    "Y2025"
+   ],
+   "rows": [
+    [
+     "Beans, dry",
+     "Producer Price (LCU/tonne)",
+     "LCU",
+     "101046.0",
+     "102326.0",
+     "94130.0",
+     ""
+    ],
+    [
+     "Beans, dry",
+     "Producer Price (LCU/tonne)",
+     "LCU",
+     "",
+     "",
+     "",
+     ""
+    ],
+    [
+     "Beans, dry",
+     "Producer Price (LCU/tonne)",
+     "LCU",
+     "",
+     "",
+     "",
+     ""
+    ],
+    [
+     "Beans, dry",
+     "Producer Price (LCU/tonne)",
+     "LCU",
+     "",
+     "",
+     "",
+     ""
+    ],
+    [
+     "Beans, dry",
+     "Producer Price (LCU/tonne)",
+     "LCU",
+     "",
+     "",
+     "",
+     ""
+    ],
+    [
+     "Beans, dry",
+     "Producer Price (LCU/tonne)",
+     "LCU",
+     "",
+     "",
+     "",
+     ""
+    ],
+    [
+     "Beans, dry",
+     "Producer Price (LCU/tonne)",
+     "LCU",
+     "",
+     "",
+     "",
+     ""
+    ],
+    [
+     "Beans, dry",
+     "Producer Price (LCU/tonne)",
+     "LCU",
+     "",
+     "",
+     "",
+     ""
+    ],
+    [
+     "Beans, dry",
+     "Producer Price (LCU/tonne)",
+     "LCU",
+     "",
+     "",
+     "",
+     ""
+    ],
+    [
+     "Beans, dry",
+     "Producer Price (LCU/tonne)",
+     "LCU",
+     "",
+     "",
+     "",
+     ""
+    ],
+    [
+     "Beans, dry",
+     "Producer Price (LCU/tonne)",
+     "LCU",
+     "",
+     "",
+     "",
+     ""
+    ],
+    [
+     "Beans, dry",
+     "Producer Price (LCU/tonne)",
+     "LCU",
+     "",
+     "",
+     "",
+     ""
+    ],
+    [
+     "Beans, dry",
+     "Producer Price (LCU/tonne)",
+     "LCU",
+     "",
+     "",
+     "",
+     ""
+    ],
+    [
+     "Beans, dry",
+     "Producer Price (USD/tonne)",
+     "USD",
+     "857.3",
+     "731.7",
+     "698.2",
+     ""
+    ],
+    [
+     "Maize (corn)",
+     "Producer Price (LCU/tonne)",
+     "LCU",
+     "53010.0",
+     "61167.0",
+     "62812.0",
+     ""
+    ],
+    [
+     "Maize (corn)",
+     "Producer Price (LCU/tonne)",
+     "LCU",
+     "",
+     "",
+     "",
+     ""
+    ],
+    [
+     "Maize (corn)",
+     "Producer Price (LCU/tonne)",
+     "LCU",
+     "",
+     "",
+     "",
+     ""
+    ],
+    [
+     "Maize (corn)",
+     "Producer Price (LCU/tonne)",
+     "LCU",
+     "",
+     "",
+     "",
+     ""
+    ],
+    [
+     "Maize (corn)",
+     "Producer Price (LCU/tonne)",
+     "LCU",
+     "",
+     "",
+     "",
+     ""
+    ],
+    [
+     "Maize (corn)",
+     "Producer Price (LCU/tonne)",
+     "LCU",
+     "",
+     "",
+     "",
+     ""
+    ],
+    [
+     "Maize (corn)",
+     "Producer Price (LCU/tonne)",
+     "LCU",
+     "",
+     "",
+     "",
+     ""
+    ],
+    [
+     "Maize (corn)",
+     "Producer Price (LCU/tonne)",
+     "LCU",
+     "",
+     "",
+     "",
+     ""
+    ],
+    [
+     "Maize (corn)",
+     "Producer Price (LCU/tonne)",
+     "LCU",
+     "",
+     "",
+     "",
+     ""
+    ],
+    [
+     "Maize (corn)",
+     "Producer Price (LCU/tonne)",
+     "LCU",
+     "",
+     "",
+     "",
+     ""
+    ],
+    [
+     "Maize (corn)",
+     "Producer Price (LCU/tonne)",
+     "LCU",
+     "",
+     "",
+     "",
+     ""
+    ],
+    [
+     "Maize (corn)",
+     "Producer Price (LCU/tonne)",
+     "LCU",
+     "",
+     "",
+     "",
+     ""
+    ],
+    [
+     "Maize (corn)",
+     "Producer Price (LCU/tonne)",
+     "LCU",
+     "",
+     "",
+     "",
+     ""
+    ],
+    [
+     "Maize (corn)",
+     "Producer Price (USD/tonne)",
+     "USD",
+     "449.7",
+     "437.4",
+     "465.9",
+     ""
+    ],
+    [
+     "Potatoes",
+     "Producer Price (LCU/tonne)",
+     "LCU",
+     "35702.0",
+     "28529.0",
+     "32113.0",
+     ""
+    ],
+    [
+     "Potatoes",
+     "Producer Price (LCU/tonne)",
+     "LCU",
+     "",
+     "",
+     "",
+     ""
+    ],
+    [
+     "Potatoes",
+     "Producer Price (LCU/tonne)",
+     "LCU",
+     "",
+     "",
+     "",
+     ""
+    ],
+    [
+     "Potatoes",
+     "Producer Price (LCU/tonne)",
+     "LCU",
+     "",
+     "",
+     "",
+     ""
+    ],
+    [
+     "Potatoes",
+     "Producer Price (LCU/tonne)",
+     "LCU",
+     "",
+     "",
+     "",
+     ""
+    ],
+    [
+     "Potatoes",
+     "Producer Price (LCU/tonne)",
+     "LCU",
+     "",
+     "",
+     "",
+     ""
+    ],
+    [
+     "Potatoes",
+     "Producer Price (LCU/tonne)",
+     "LCU",
+     "",
+     "",
+     "",
+     ""
+    ],
+    [
+     "Potatoes",
+     "Producer Price (LCU/tonne)",
+     "LCU",
+     "",
+     "",
+     "",
+     ""
+    ],
+    [
+     "Potatoes",
+     "Producer Price (LCU/tonne)",
+     "LCU",
+     "",
+     "",
+     "",
+     ""
+    ],
+    [
+     "Potatoes",
+     "Producer Price (LCU/tonne)",
+     "LCU",
+     "",
+     "",
+     "",
+     ""
+    ],
+    [
+     "Potatoes",
+     "Producer Price (LCU/tonne)",
+     "LCU",
+     "",
+     "",
+     "",
+     ""
+    ],
+    [
+     "Potatoes",
+     "Producer Price (LCU/tonne)",
+     "LCU",
+     "",
+     "",
+     "",
+     ""
+    ],
+    [
+     "Potatoes",
+     "Producer Price (LCU/tonne)",
+     "LCU",
+     "",
+     "",
+     "",
+     ""
+    ],
+    [
+     "Potatoes",
+     "Producer Price (USD/tonne)",
+     "USD",
+     "302.9",
+     "204.0",
+     "238.2",
+     ""
+    ],
+    [
+     "Wheat",
+     "Producer Price (LCU/tonne)",
+     "LCU",
+     "59713.0",
+     "50437.0",
+     "57232.0",
+     ""
+    ],
+    [
+     "Wheat",
+     "Producer Price (USD/tonne)",
+     "USD",
+     "506.6",
+     "360.7",
+     "424.5",
+     ""
+    ]
+   ]
+  }
+ },
+ "faostat_ran_at": "2026-11-14 15:03:01 +0530",
+ "faostat_seconds": 10.7,
+ "wapor": {
+  "catalog": {
+   "url": "https://data.apps.fao.org/gismgr/api/v2/catalog/workspaces/WAPOR-3/mapsets",
+   "params": null,
+   "status": 200,
+   "seconds": 1.3,
+   "final_url": "https://data.apps.fao.org/gismgr/api/v2/catalog/workspaces/WAPOR-3/mapsets"
+  },
+  "L1-AETI-A/WAPOR-3.L1-AETI-A.2024": {
+   "url": "https://storage.googleapis.com/fao-gismgr-wapor-3-data/DATA/WAPOR-3/MAPSET/L1-AETI-A/WAPOR-3.L1-AETI-A.2024.tif",
+   "unit": "mm/year",
+   "res_deg": [
+    0.0029296875,
+    0.0029296875
+   ],
+   "values": {
+    "ludhiana_crop": 783.1,
+    "karnal_crop": 751.5,
+    "nashik_crop": 784.7,
+    "eldoret_crop": 1072.3,
+    "iowa": 569.1
+   },
+   "seconds": 28.8
+  },
+  "L1-RSM-D/WAPOR-3.L1-RSM-D.2024-08-D1": {
+   "url": "https://storage.googleapis.com/fao-gismgr-wapor-3-data/DATA/WAPOR-3/MAPSET/L1-RSM-D/WAPOR-3.L1-RSM-D.2024-08-D1.tif",
+   "unit": "fraction",
+   "res_deg": [
+    0.0029296875,
+    0.0029296875
+   ],
+   "values": {
+    "ludhiana_crop": 0.612,
+    "karnal_crop": 0.711,
+    "nashik_crop": 0.579,
+    "eldoret_crop": 0.884,
+    "iowa": 0.692
+   },
+   "seconds": 25.4
+  }
+ },
+ "wapor_ran_at": "2026-11-14 15:03:56 +0530",
+ "wapor_seconds": 55.6,
+ "crop_calendar": {
+  "countries": {
+   "url": "https://api-cropcalendar.apps.fao.org/api/v1/countries",
+   "params": {
+    "language": "en"
+   },
+   "status": 200,
+   "seconds": 1.9,
+   "final_url": "https://api-cropcalendar.apps.fao.org/api/v1/countries?language=en",
+   "countries": [
+    "DZ",
+    "AZ",
+    "BD",
+    "BO",
+    "BI",
+    "CV",
+    "CM",
+    "TD",
+    "CL",
+    "CO",
+    "CI",
+    "KP",
+    "DJ",
+    "EC",
+    "EG",
+    "GQ",
+    "ER",
+    "SZ",
+    "ET",
+    "GA",
+    "GH",
+    "GN",
+    "GW",
+    "JM",
+    "JO",
+    "KE",
+    "KG",
+    "LS",
+    "LR",
+    "MG",
+    "MW",
+    "ML",
+    "MR",
+    "MU",
+    "MA",
+    "MZ",
+    "MM",
+    "NA",
+    "NP",
+    "NE",
+    "PK",
+    "PE",
+    "RW",
+    "ST",
+    "SN",
+    "SL",
+    "SO",
+    "LK",
+    "SD",
+    "TJ",
+    "TL",
+    "TG",
+    "TN",
+    "UG",
+    "TZ",
+    "UZ",
+    "ZM",
+    "ZW"
+   ]
+  },
+  "IN": {
+   "url": "https://api-cropcalendar.apps.fao.org/api/v1/countries/IN/cropCalendar",
+   "params": {
+    "language": "en"
+   },
+   "status": 204,
+   "seconds": 1.7,
+   "final_url": "https://api-cropcalendar.apps.fao.org/api/v1/countries/IN/cropCalendar?language=en",
+   "body_len": 0
+  },
+  "KE": {
+   "url": "https://api-cropcalendar.apps.fao.org/api/v1/countries/KE/cropCalendar",
+   "params": {
+    "language": "en"
+   },
+   "status": 200,
+   "seconds": 10.4,
+   "final_url": "https://api-cropcalendar.apps.fao.org/api/v1/countries/KE/cropCalendar?language=en",
+   "n_entries": 290,
+   "crops": [
+    "Bean",
+    "Bean, broad green",
+    "Bok choy",
+    "Cabbage, common",
+    "Carrot",
+    "Cashewnut",
+    "Cassava",
+    "Chick-pea",
+    "Coconut",
+    "Corn, sweet",
+    "Cowpea",
+    "Dolicos lablab",
+    "Kales",
+    "Millet, foxtail",
+    "Onion",
+    "Pea, dry",
+    "Peanut",
+    "Pigeon pea",
+    "Potato",
+    "Pumpkin",
+    "Rice",
+    "Sesame",
+    "Sorghum",
+    "Soybean",
+    "Spinach",
+    "Sugarcane",
+    "Sunflower",
+    "Sweet potato",
+    "Tomato",
+    "Watermelon",
+    "Wheat, bread"
+   ]
+  }
+ },
+ "crop_calendar_ran_at": "2026-11-14 15:04:10 +0530",
+ "crop_calendar_seconds": 14.0,
+ "wfp_hdx": {
+  "india": {
+   "url": "https://data.humdata.org/api/3/action/package_show",
+   "params": {
+    "id": "wfp-food-prices-for-india"
+   },
+   "status": 200,
+   "seconds": 1.4,
+   "final_url": "https://data.humdata.org/api/3/action/package_show?id=wfp-food-prices-for-india",
+   "license": "Creative Commons Attribution for Intergovernmental Organisations (CC BY-IGO)",
+   "last_modified": "2026-11-05T21:00:10.800809",
+   "resources": [
+    [
+     "India - Food Prices",
+     "https://data.humdata.org/dataset/dc663585-4b6f-46ae-a6d6-b2f3e4ea32b5/resource/3b1ff071-6b01-4998-aa62-2f3efb5d4888/download/wfp_food_prices_ind.csv",
+     25865442
+    ],
+    [
+     "India - Markets",
+     "https://data.humdata.org/dataset/dc663585-4b6f-46ae-a6d6-b2f3e4ea32b5/resource/a8fed7ab-5e3f-4f1f-86ec-5ef0a92ad1be/download/wfp_markets_ind.csv",
+     8856
+    ]
+   ],
+   "header": [
+    "date,admin1,admin2,market,market_id,latitude,longitude,category,commodity,commodity_id,unit,priceflag,pricetype,currency,price,usdprice",
+    "1994-01-15,Delhi,Delhi,Delhi,934,28.67,77.22,cereals and tubers,Rice,52,KG,actual,Retail,INR,8,0.26"
+   ],
+   "sample_rows": [
+    "1994-01-15,Delhi,Delhi,Delhi,934,28.67,77.22,cereals and tubers,Wheat,84,KG,actual,Retail,INR,5,0.16",
+    "1994-01-15,Delhi,Delhi,Delhi,934,28.67,77.22,miscellaneous food,Sugar,97,KG,actual,Retail,INR,13.5,0.43",
+    "1994-01-15,Delhi,Delhi,Delhi,934,28.67,77.22,oil and fats,Oil (mustard),228,KG,actual,Retail,INR,31,0.99",
+    "1994-01-15,Gujarat,Ahmadabad,Ahmedabad,923,23.03,72.62,cereals and tubers,Rice,52,KG,actual,Retail,INR,6.8,0.22",
+    "1994-01-15,Gujarat,Ahmadabad,Ahmedabad,923,23.03,72.62,cereals and tubers,Wheat,84,KG,actual,Retail,INR,6.2,0.2"
+   ]
+  },
+  "kenya": {
+   "url": "https://data.humdata.org/api/3/action/package_show",
+   "params": {
+    "id": "wfp-food-prices-for-kenya"
+   },
+   "status": 200,
+   "seconds": 1.3,
+   "final_url": "https://data.humdata.org/api/3/action/package_show?id=wfp-food-prices-for-kenya",
+   "license": "Creative Commons Attribution for Intergovernmental Organisations (CC BY-IGO)",
+   "last_modified": "2026-11-04T01:24:21.670860",
+   "resources": [
+    [
+     "Kenya - Food Prices",
+     "https://data.humdata.org/dataset/e0d3fba6-f9a2-45d7-b949-140c455197ff/resource/517ee1bf-2437-4f8c-aa1b-cb9925b9d437/download/wfp_food_prices_ken.csv",
+     3793902
+    ],
+    [
+     "Kenya - Markets",
+     "https://data.humdata.org/dataset/e0d3fba6-f9a2-45d7-b949-140c455197ff/resource/fde6f6c7-9776-4b52-a826-d77f9d3f6688/download/wfp_markets_ken.csv",
+     14282
+    ]
+   ],
+   "header": [
+    "date,admin1,admin2,market,market_id,latitude,longitude,category,commodity,commodity_id,unit,priceflag,pricetype,currency,price,usdprice",
+    "2006-01-15,Coast,Mombasa,Mombasa,191,-4.05,39.67,cereals and tubers,Maize,51,KG,actual,Wholesale,KES,16.13,0.22"
+   ],
+   "sample_rows": [
+    "2006-01-15,Coast,Mombasa,Mombasa,191,-4.05,39.67,cereals and tubers,Maize (white),67,90 KG,actual,Wholesale,KES,1480,20.58",
+    "2006-01-15,Coast,Mombasa,Mombasa,191,-4.05,39.67,pulses and nuts,Beans,50,KG,actual,Wholesale,KES,33.63,0.47",
+    "2006-01-15,Coast,Mombasa,Mombasa,191,-4.05,39.67,pulses and nuts,Beans (dry),262,90 KG,actual,Wholesale,KES,3246,45.15",
+    "2006-01-15,Eastern,Kitui,Kitui,187,-1.37,38.02,cereals and tubers,Maize (white),67,KG,actual,Retail,KES,17,0.24",
+    "2006-01-15,Eastern,Kitui,Kitui,187,-1.37,38.02,cereals and tubers,Potatoes (Irish),148,50 KG,actual,Wholesale,KES,1249.99,17.39"
+   ]
+  }
+ },
+ "wfp_hdx_ran_at": "2026-11-14 15:04:23 +0530",
+ "wfp_hdx_seconds": 12.3
+}

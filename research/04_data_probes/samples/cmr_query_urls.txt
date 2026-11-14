@@ -1,0 +1,348 @@
+https://cmr.earthdata.nasa.gov/search/collections.json?keyword=GSFC+mascon&page_size=30
+https://cmr.earthdata.nasa.gov/search/collections.json?keyword=mascon&page_size=30
+https://cmr.earthdata.nasa.gov/search/collections.json?keyword=GRACE+drought+indicator&page_size=30
+https://cmr.earthdata.nasa.gov/search/collections.json?keyword=NLDAS-3&page_size=30
+https://cmr.earthdata.nasa.gov/search/collections.json?keyword=GEDI+L4B+gridded+biomass&page_size=30
+https://cmr.earthdata.nasa.gov/search/collections.json?keyword=IMERG+V08&page_size=30
+https://cmr.earthdata.nasa.gov/search/collections.json?keyword=ECOSTRESS+v003+tiled&page_size=30
+https://cmr.earthdata.nasa.gov/search/collections.json?page_size=20&short_name=SPL3SMP_E
+https://cmr.earthdata.nasa.gov/search/collections.umm_json?concept_id=C2938664763-NSIDC_CPRD
+https://cmr.earthdata.nasa.gov/search/services.umm_json?concept_id%5B%5D=S3671941188-XYZ_PROV&concept_id%5B%5D=S2472217299-NSIDC_CPRD&concept_id%5B%5D=S3107386427-NSIDC_CPRD&concept_id%5B%5D=S3213793274-NSIDC_CPRD&page_size=50
+https://cmr.earthdata.nasa.gov/search/tools.umm_json?concept_id%5B%5D=TL4019517520-NSIDC_CPRD&concept_id%5B%5D=TL4019507017-NSIDC_CPRD&concept_id%5B%5D=TL3010466318-NSIDC_CPRD&concept_id%5B%5D=TL4019511337-NSIDC_CPRD&page_size=50
+POST https://cmr.earthdata.nasa.gov/search/variables.json concept_id[]=... (100 ids)
+POST https://cmr.earthdata.nasa.gov/search/variables.json concept_id[]=... (100 ids)
+https://cmr.earthdata.nasa.gov/search/granules.umm_json?collection_concept_id=C2938664763-NSIDC_CPRD&point=-93.75%2C42.03&temporal=2024-01-01T00%3A00%3A00Z%2C2024-12-31T23%3A59%3A59Z&page_size=5
+https://cmr.earthdata.nasa.gov/search/granules.json?collection_concept_id=C2938664763-NSIDC_CPRD&sort_key=-start_date&page_size=1
+https://cmr.earthdata.nasa.gov/search/collections.json?page_size=20&short_name=SPL4SMGP
+https://cmr.earthdata.nasa.gov/search/collections.umm_json?concept_id=C3480440870-NSIDC_CPRD
+https://cmr.earthdata.nasa.gov/search/services.umm_json?concept_id%5B%5D=S3213793274-NSIDC_CPRD&concept_id%5B%5D=S3107386427-NSIDC_CPRD&concept_id%5B%5D=S3671941188-XYZ_PROV&concept_id%5B%5D=S2472217299-NSIDC_CPRD&page_size=50
+https://cmr.earthdata.nasa.gov/search/tools.umm_json?concept_id%5B%5D=TL3010466318-NSIDC_CPRD&concept_id%5B%5D=TL4019507017-NSIDC_CPRD&concept_id%5B%5D=TL4019511337-NSIDC_CPRD&concept_id%5B%5D=TL4019526230-NSIDC_CPRD&concept_id%5B%5D=TL4019517520-NSIDC_CPRD&page_size=50
+POST https://cmr.earthdata.nasa.gov/search/variables.json concept_id[]=... (53 ids)
+https://cmr.earthdata.nasa.gov/search/granules.umm_json?collection_concept_id=C3480440870-NSIDC_CPRD&point=-93.75%2C42.03&temporal=2024-01-01T00%3A00%3A00Z%2C2024-12-31T23%3A59%3A59Z&page_size=5
+https://cmr.earthdata.nasa.gov/search/granules.json?collection_concept_id=C3480440870-NSIDC_CPRD&sort_key=-start_date&page_size=1
+https://cmr.earthdata.nasa.gov/search/collections.json?page_size=20&short_name=SPL2SMP_E
+https://cmr.earthdata.nasa.gov/search/collections.umm_json?concept_id=C2938663676-NSIDC_CPRD
+https://cmr.earthdata.nasa.gov/search/services.umm_json?concept_id%5B%5D=S3213793274-NSIDC_CPRD&concept_id%5B%5D=S3671933145-XYZ_PROV&concept_id%5B%5D=S2472217299-NSIDC_CPRD&concept_id%5B%5D=S3107386427-NSIDC_CPRD&page_size=50
+https://cmr.earthdata.nasa.gov/search/tools.umm_json?concept_id%5B%5D=TL4019511337-NSIDC_CPRD&concept_id%5B%5D=TL4019517520-NSIDC_CPRD&concept_id%5B%5D=TL4019526230-NSIDC_CPRD&concept_id%5B%5D=TL3010466318-NSIDC_CPRD&page_size=50
+POST https://cmr.earthdata.nasa.gov/search/variables.json concept_id[]=... (98 ids)
+https://cmr.earthdata.nasa.gov/search/granules.umm_json?collection_concept_id=C2938663676-NSIDC_CPRD&point=-93.75%2C42.03&temporal=2024-01-01T00%3A00%3A00Z%2C2024-12-31T23%3A59%3A59Z&page_size=5
+https://cmr.earthdata.nasa.gov/search/granules.json?collection_concept_id=C2938663676-NSIDC_CPRD&sort_key=-start_date&page_size=1
+https://cmr.earthdata.nasa.gov/search/collections.json?page_size=20&short_name=SPL2SMAP_S
+https://cmr.earthdata.nasa.gov/search/collections.umm_json?concept_id=C2938663471-NSIDC_CPRD
+https://cmr.earthdata.nasa.gov/search/services.umm_json?concept_id%5B%5D=S2472217299-NSIDC_CPRD&concept_id%5B%5D=S3107386427-NSIDC_CPRD&concept_id%5B%5D=S3671941188-XYZ_PROV&concept_id%5B%5D=S3213793274-NSIDC_CPRD&page_size=50
+https://cmr.earthdata.nasa.gov/search/tools.umm_json?concept_id%5B%5D=TL4019517520-NSIDC_CPRD&concept_id%5B%5D=TL3010466318-NSIDC_CPRD&concept_id%5B%5D=TL4019511337-NSIDC_CPRD&concept_id%5B%5D=TL4019526230-NSIDC_CPRD&page_size=50
+POST https://cmr.earthdata.nasa.gov/search/variables.json concept_id[]=... (100 ids)
+POST https://cmr.earthdata.nasa.gov/search/variables.json concept_id[]=... (8 ids)
+https://cmr.earthdata.nasa.gov/search/granules.umm_json?collection_concept_id=C2938663471-NSIDC_CPRD&point=-93.75%2C42.03&temporal=2024-01-01T00%3A00%3A00Z%2C2024-12-31T23%3A59%3A59Z&page_size=5
+https://cmr.earthdata.nasa.gov/search/granules.json?collection_concept_id=C2938663471-NSIDC_CPRD&sort_key=-start_date&page_size=1
+https://cmr.earthdata.nasa.gov/search/collections.json?page_size=20&short_name=SPL3SMP
+https://cmr.earthdata.nasa.gov/search/collections.umm_json?concept_id=C2938664585-NSIDC_CPRD
+https://cmr.earthdata.nasa.gov/search/services.umm_json?concept_id%5B%5D=S3671941188-XYZ_PROV&concept_id%5B%5D=S3107386427-NSIDC_CPRD&concept_id%5B%5D=S3213793274-NSIDC_CPRD&concept_id%5B%5D=S2472217299-NSIDC_CPRD&page_size=50
+https://cmr.earthdata.nasa.gov/search/tools.umm_json?concept_id%5B%5D=TL3965403834-NSIDC_CPRD&concept_id%5B%5D=TL4019517520-NSIDC_CPRD&concept_id%5B%5D=TL4019511337-NSIDC_CPRD&concept_id%5B%5D=TL3010466318-NSIDC_CPRD&concept_id%5B%5D=TL4019526230-NSIDC_CPRD&concept_id%5B%5D=TL4019507017-NSIDC_CPRD&page_size=50
+POST https://cmr.earthdata.nasa.gov/search/variables.json concept_id[]=... (100 ids)
+POST https://cmr.earthdata.nasa.gov/search/variables.json concept_id[]=... (4 ids)
+https://cmr.earthdata.nasa.gov/search/granules.umm_json?collection_concept_id=C2938664585-NSIDC_CPRD&point=-93.75%2C42.03&temporal=2024-01-01T00%3A00%3A00Z%2C2024-12-31T23%3A59%3A59Z&page_size=5
+https://cmr.earthdata.nasa.gov/search/granules.json?collection_concept_id=C2938664585-NSIDC_CPRD&sort_key=-start_date&page_size=1
+https://cmr.earthdata.nasa.gov/search/collections.json?page_size=20&short_name=GPM_3IMERGDF
+https://cmr.earthdata.nasa.gov/search/collections.umm_json?concept_id=C2723754864-GES_DISC
+https://cmr.earthdata.nasa.gov/search/services.umm_json?concept_id%5B%5D=S2874702816-XYZ_PROV&concept_id%5B%5D=S4057306097-XYZ_PROV&concept_id%5B%5D=S2739607260-GES_DISC&concept_id%5B%5D=S3385907677-GES_DISC&concept_id%5B%5D=S2164732315-XYZ_PROV&concept_id%5B%5D=S3671941188-XYZ_PROV&page_size=50
+POST https://cmr.earthdata.nasa.gov/search/variables.json concept_id[]=... (13 ids)
+https://cmr.earthdata.nasa.gov/search/granules.umm_json?collection_concept_id=C2723754864-GES_DISC&point=-93.75%2C42.03&temporal=2024-01-01T00%3A00%3A00Z%2C2024-12-31T23%3A59%3A59Z&page_size=5
+https://cmr.earthdata.nasa.gov/search/granules.json?collection_concept_id=C2723754864-GES_DISC&sort_key=-start_date&page_size=1
+https://cmr.earthdata.nasa.gov/search/collections.json?page_size=20&short_name=GPM_3IMERGDL
+https://cmr.earthdata.nasa.gov/search/collections.umm_json?concept_id=C2723754859-GES_DISC
+https://cmr.earthdata.nasa.gov/search/services.umm_json?concept_id%5B%5D=S4057306097-XYZ_PROV&concept_id%5B%5D=S2739607260-GES_DISC&concept_id%5B%5D=S2164732315-XYZ_PROV&concept_id%5B%5D=S2874702816-XYZ_PROV&concept_id%5B%5D=S3385907677-GES_DISC&concept_id%5B%5D=S3671941188-XYZ_PROV&page_size=50
+POST https://cmr.earthdata.nasa.gov/search/variables.json concept_id[]=... (13 ids)
+https://cmr.earthdata.nasa.gov/search/granules.umm_json?collection_concept_id=C2723754859-GES_DISC&point=-93.75%2C42.03&temporal=2024-01-01T00%3A00%3A00Z%2C2024-12-31T23%3A59%3A59Z&page_size=5
+https://cmr.earthdata.nasa.gov/search/granules.json?collection_concept_id=C2723754859-GES_DISC&sort_key=-start_date&page_size=1
+https://cmr.earthdata.nasa.gov/search/collections.json?page_size=20&short_name=GPM_3IMERGDE
+https://cmr.earthdata.nasa.gov/search/collections.umm_json?concept_id=C2723754850-GES_DISC
+https://cmr.earthdata.nasa.gov/search/services.umm_json?concept_id%5B%5D=S3671941188-XYZ_PROV&concept_id%5B%5D=S2164732315-XYZ_PROV&concept_id%5B%5D=S2874702816-XYZ_PROV&concept_id%5B%5D=S2739607260-GES_DISC&concept_id%5B%5D=S3385907677-GES_DISC&concept_id%5B%5D=S4057306097-XYZ_PROV&page_size=50
+POST https://cmr.earthdata.nasa.gov/search/variables.json concept_id[]=... (13 ids)
+https://cmr.earthdata.nasa.gov/search/granules.umm_json?collection_concept_id=C2723754850-GES_DISC&point=-93.75%2C42.03&temporal=2024-01-01T00%3A00%3A00Z%2C2024-12-31T23%3A59%3A59Z&page_size=5
+https://cmr.earthdata.nasa.gov/search/granules.json?collection_concept_id=C2723754850-GES_DISC&sort_key=-start_date&page_size=1
+https://cmr.earthdata.nasa.gov/search/collections.json?page_size=20&short_name=GPM_3IMERGM
+https://cmr.earthdata.nasa.gov/search/collections.umm_json?concept_id=C2723754851-GES_DISC
+https://cmr.earthdata.nasa.gov/search/services.umm_json?concept_id%5B%5D=S3385907677-GES_DISC&concept_id%5B%5D=S2874702816-XYZ_PROV&concept_id%5B%5D=S2164732315-XYZ_PROV&concept_id%5B%5D=S4057306097-XYZ_PROV&concept_id%5B%5D=S3671941188-XYZ_PROV&concept_id%5B%5D=S2739607260-GES_DISC&page_size=50
+POST https://cmr.earthdata.nasa.gov/search/variables.json concept_id[]=... (11 ids)
+https://cmr.earthdata.nasa.gov/search/granules.umm_json?collection_concept_id=C2723754851-GES_DISC&point=-93.75%2C42.03&temporal=2024-01-01T00%3A00%3A00Z%2C2024-12-31T23%3A59%3A59Z&page_size=5
+https://cmr.earthdata.nasa.gov/search/granules.json?collection_concept_id=C2723754851-GES_DISC&sort_key=-start_date&page_size=1
+https://cmr.earthdata.nasa.gov/search/collections.json?page_size=20&short_name=HLSL30
+https://cmr.earthdata.nasa.gov/search/collections.umm_json?concept_id=C2021957657-LPCLOUD
+https://cmr.earthdata.nasa.gov/search/tools.umm_json?concept_id%5B%5D=TL1860232272-LPDAAC_ECS&page_size=50
+POST https://cmr.earthdata.nasa.gov/search/variables.json concept_id[]=... (15 ids)
+https://cmr.earthdata.nasa.gov/search/granules.umm_json?collection_concept_id=C2021957657-LPCLOUD&point=-93.75%2C42.03&temporal=2024-01-01T00%3A00%3A00Z%2C2024-12-31T23%3A59%3A59Z&page_size=5
+https://cmr.earthdata.nasa.gov/search/granules.json?collection_concept_id=C2021957657-LPCLOUD&sort_key=-start_date&page_size=1
+https://cmr.earthdata.nasa.gov/search/collections.json?page_size=20&short_name=HLSS30
+https://cmr.earthdata.nasa.gov/search/collections.umm_json?concept_id=C2021957295-LPCLOUD
+https://cmr.earthdata.nasa.gov/search/tools.umm_json?concept_id%5B%5D=TL1860232272-LPDAAC_ECS&page_size=50
+POST https://cmr.earthdata.nasa.gov/search/variables.json concept_id[]=... (18 ids)
+https://cmr.earthdata.nasa.gov/search/granules.umm_json?collection_concept_id=C2021957295-LPCLOUD&point=-93.75%2C42.03&temporal=2024-01-01T00%3A00%3A00Z%2C2024-12-31T23%3A59%3A59Z&page_size=5
+https://cmr.earthdata.nasa.gov/search/granules.json?collection_concept_id=C2021957295-LPCLOUD&sort_key=-start_date&page_size=1
+https://cmr.earthdata.nasa.gov/search/collections.json?page_size=20&short_name=HLSL30_VI
+https://cmr.earthdata.nasa.gov/search/collections.umm_json?concept_id=C3246892554-LPCLOUD
+https://cmr.earthdata.nasa.gov/search/tools.umm_json?concept_id%5B%5D=TL1860232272-LPDAAC_ECS&page_size=50
+POST https://cmr.earthdata.nasa.gov/search/variables.json concept_id[]=... (9 ids)
+https://cmr.earthdata.nasa.gov/search/granules.umm_json?collection_concept_id=C3246892554-LPCLOUD&point=-93.75%2C42.03&temporal=2024-01-01T00%3A00%3A00Z%2C2024-12-31T23%3A59%3A59Z&page_size=5
+https://cmr.earthdata.nasa.gov/search/granules.json?collection_concept_id=C3246892554-LPCLOUD&sort_key=-start_date&page_size=1
+https://cmr.earthdata.nasa.gov/search/collections.json?page_size=20&short_name=HLSS30_VI
+https://cmr.earthdata.nasa.gov/search/collections.umm_json?concept_id=C3246894861-LPCLOUD
+https://cmr.earthdata.nasa.gov/search/tools.umm_json?concept_id%5B%5D=TL1860232272-LPDAAC_ECS&page_size=50
+POST https://cmr.earthdata.nasa.gov/search/variables.json concept_id[]=... (9 ids)
+https://cmr.earthdata.nasa.gov/search/granules.umm_json?collection_concept_id=C3246894861-LPCLOUD&point=-93.75%2C42.03&temporal=2024-01-01T00%3A00%3A00Z%2C2024-12-31T23%3A59%3A59Z&page_size=5
+https://cmr.earthdata.nasa.gov/search/granules.json?collection_concept_id=C3246894861-LPCLOUD&sort_key=-start_date&page_size=1
+https://cmr.earthdata.nasa.gov/search/collections.json?page_size=20&concept_id=C3442503899-USGS_EROS
+https://cmr.earthdata.nasa.gov/search/collections.umm_json?concept_id=C3442503899-USGS_EROS
+https://cmr.earthdata.nasa.gov/search/granules.umm_json?collection_concept_id=C3442503899-USGS_EROS&point=-93.75%2C42.03&temporal=2024-01-01T00%3A00%3A00Z%2C2024-12-31T23%3A59%3A59Z&page_size=5
+https://cmr.earthdata.nasa.gov/search/granules.umm_json?collection_concept_id=C3442503899-USGS_EROS&sort_key=-start_date&page_size=5
+https://cmr.earthdata.nasa.gov/search/granules.json?collection_concept_id=C3442503899-USGS_EROS&sort_key=-start_date&page_size=1
+https://cmr.earthdata.nasa.gov/search/collections.json?page_size=20&concept_id=C3442506077-USGS_EROS
+https://cmr.earthdata.nasa.gov/search/collections.umm_json?concept_id=C3442506077-USGS_EROS
+https://cmr.earthdata.nasa.gov/search/granules.umm_json?collection_concept_id=C3442506077-USGS_EROS&point=-93.75%2C42.03&temporal=2024-01-01T00%3A00%3A00Z%2C2024-12-31T23%3A59%3A59Z&page_size=5
+https://cmr.earthdata.nasa.gov/search/granules.umm_json?collection_concept_id=C3442506077-USGS_EROS&sort_key=-start_date&page_size=5
+https://cmr.earthdata.nasa.gov/search/granules.json?collection_concept_id=C3442506077-USGS_EROS&sort_key=-start_date&page_size=1
+https://cmr.earthdata.nasa.gov/search/collections.json?page_size=20&short_name=MOD13Q1
+https://cmr.earthdata.nasa.gov/search/collections.umm_json?concept_id=C1748066515-LPCLOUD
+https://cmr.earthdata.nasa.gov/search/tools.umm_json?concept_id%5B%5D=TL1860232272-LPDAAC_ECS&page_size=50
+POST https://cmr.earthdata.nasa.gov/search/variables.json concept_id[]=... (12 ids)
+https://cmr.earthdata.nasa.gov/search/granules.umm_json?collection_concept_id=C1748066515-LPCLOUD&point=-93.75%2C42.03&temporal=2024-01-01T00%3A00%3A00Z%2C2024-12-31T23%3A59%3A59Z&page_size=5
+https://cmr.earthdata.nasa.gov/search/granules.json?collection_concept_id=C1748066515-LPCLOUD&sort_key=-start_date&page_size=1
+https://cmr.earthdata.nasa.gov/search/collections.json?page_size=20&short_name=MYD13Q1
+https://cmr.earthdata.nasa.gov/search/collections.umm_json?concept_id=C2307290656-LPCLOUD
+https://cmr.earthdata.nasa.gov/search/tools.umm_json?concept_id%5B%5D=TL1860232272-LPDAAC_ECS&page_size=50
+POST https://cmr.earthdata.nasa.gov/search/variables.json concept_id[]=... (12 ids)
+https://cmr.earthdata.nasa.gov/search/granules.umm_json?collection_concept_id=C2307290656-LPCLOUD&point=-93.75%2C42.03&temporal=2024-01-01T00%3A00%3A00Z%2C2024-12-31T23%3A59%3A59Z&page_size=5
+https://cmr.earthdata.nasa.gov/search/granules.json?collection_concept_id=C2307290656-LPCLOUD&sort_key=-start_date&page_size=1
+https://cmr.earthdata.nasa.gov/search/collections.json?page_size=20&short_name=MOD16A2GF
+https://cmr.earthdata.nasa.gov/search/collections.umm_json?concept_id=C2565791021-LPCLOUD
+https://cmr.earthdata.nasa.gov/search/tools.umm_json?concept_id%5B%5D=TL1860232272-LPDAAC_ECS&page_size=50
+POST https://cmr.earthdata.nasa.gov/search/variables.json concept_id[]=... (5 ids)
+https://cmr.earthdata.nasa.gov/search/granules.umm_json?collection_concept_id=C2565791021-LPCLOUD&point=-93.75%2C42.03&temporal=2024-01-01T00%3A00%3A00Z%2C2024-12-31T23%3A59%3A59Z&page_size=5
+https://cmr.earthdata.nasa.gov/search/granules.json?collection_concept_id=C2565791021-LPCLOUD&sort_key=-start_date&page_size=1
+https://cmr.earthdata.nasa.gov/search/collections.json?page_size=20&short_name=MOD16A2
+https://cmr.earthdata.nasa.gov/search/collections.umm_json?concept_id=C2343113232-LPCLOUD
+POST https://cmr.earthdata.nasa.gov/search/variables.json concept_id[]=... (5 ids)
+https://cmr.earthdata.nasa.gov/search/granules.umm_json?collection_concept_id=C2343113232-LPCLOUD&point=-93.75%2C42.03&temporal=2024-01-01T00%3A00%3A00Z%2C2024-12-31T23%3A59%3A59Z&page_size=5
+https://cmr.earthdata.nasa.gov/search/granules.json?collection_concept_id=C2343113232-LPCLOUD&sort_key=-start_date&page_size=1
+https://cmr.earthdata.nasa.gov/search/collections.json?page_size=20&short_name=MOD11A2
+https://cmr.earthdata.nasa.gov/search/collections.umm_json?concept_id=C2269056084-LPCLOUD
+https://cmr.earthdata.nasa.gov/search/tools.umm_json?concept_id%5B%5D=TL1860232272-LPDAAC_ECS&page_size=50
+POST https://cmr.earthdata.nasa.gov/search/variables.json concept_id[]=... (12 ids)
+https://cmr.earthdata.nasa.gov/search/granules.umm_json?collection_concept_id=C2269056084-LPCLOUD&point=-93.75%2C42.03&temporal=2024-01-01T00%3A00%3A00Z%2C2024-12-31T23%3A59%3A59Z&page_size=5
+https://cmr.earthdata.nasa.gov/search/granules.json?collection_concept_id=C2269056084-LPCLOUD&sort_key=-start_date&page_size=1
+https://cmr.earthdata.nasa.gov/search/collections.json?page_size=20&short_name=MCD12Q1
+https://cmr.earthdata.nasa.gov/search/collections.umm_json?concept_id=C2484079608-LPCLOUD
+https://cmr.earthdata.nasa.gov/search/tools.umm_json?concept_id%5B%5D=TL1860232272-LPDAAC_ECS&page_size=50
+POST https://cmr.earthdata.nasa.gov/search/variables.json concept_id[]=... (13 ids)
+https://cmr.earthdata.nasa.gov/search/granules.umm_json?collection_concept_id=C2484079608-LPCLOUD&point=-93.75%2C42.03&temporal=2024-01-01T00%3A00%3A00Z%2C2024-12-31T23%3A59%3A59Z&page_size=5
+https://cmr.earthdata.nasa.gov/search/granules.json?collection_concept_id=C2484079608-LPCLOUD&sort_key=-start_date&page_size=1
+https://cmr.earthdata.nasa.gov/search/collections.json?page_size=20&short_name=VNP13A1
+https://cmr.earthdata.nasa.gov/search/collections.umm_json?concept_id=C2519127224-LPCLOUD
+https://cmr.earthdata.nasa.gov/search/services.umm_json?concept_id%5B%5D=S2874702816-XYZ_PROV&page_size=50
+https://cmr.earthdata.nasa.gov/search/tools.umm_json?concept_id%5B%5D=TL1860232272-LPDAAC_ECS&page_size=50
+POST https://cmr.earthdata.nasa.gov/search/variables.json concept_id[]=... (16 ids)
+https://cmr.earthdata.nasa.gov/search/granules.umm_json?collection_concept_id=C2519127224-LPCLOUD&point=-93.75%2C42.03&temporal=2024-01-01T00%3A00%3A00Z%2C2024-12-31T23%3A59%3A59Z&page_size=5
+https://cmr.earthdata.nasa.gov/search/granules.json?collection_concept_id=C2519127224-LPCLOUD&sort_key=-start_date&page_size=1
+https://cmr.earthdata.nasa.gov/search/collections.json?page_size=20&short_name=VJ113A1
+https://cmr.earthdata.nasa.gov/search/collections.umm_json?concept_id=C2519122065-LPCLOUD
+https://cmr.earthdata.nasa.gov/search/services.umm_json?concept_id%5B%5D=S2874702816-XYZ_PROV&page_size=50
+https://cmr.earthdata.nasa.gov/search/tools.umm_json?concept_id%5B%5D=TL1860232272-LPDAAC_ECS&page_size=50
+POST https://cmr.earthdata.nasa.gov/search/variables.json concept_id[]=... (16 ids)
+https://cmr.earthdata.nasa.gov/search/granules.umm_json?collection_concept_id=C2519122065-LPCLOUD&point=-93.75%2C42.03&temporal=2024-01-01T00%3A00%3A00Z%2C2024-12-31T23%3A59%3A59Z&page_size=5
+https://cmr.earthdata.nasa.gov/search/granules.json?collection_concept_id=C2519122065-LPCLOUD&sort_key=-start_date&page_size=1
+https://cmr.earthdata.nasa.gov/search/collections.json?page_size=20&short_name=VNP21A2
+https://cmr.earthdata.nasa.gov/search/collections.umm_json?concept_id=C2545314562-LPCLOUD
+https://cmr.earthdata.nasa.gov/search/services.umm_json?concept_id%5B%5D=S2874702816-XYZ_PROV&page_size=50
+https://cmr.earthdata.nasa.gov/search/tools.umm_json?concept_id%5B%5D=TL1860232272-LPDAAC_ECS&page_size=50
+POST https://cmr.earthdata.nasa.gov/search/variables.json concept_id[]=... (11 ids)
+https://cmr.earthdata.nasa.gov/search/granules.umm_json?collection_concept_id=C2545314562-LPCLOUD&point=-93.75%2C42.03&temporal=2024-01-01T00%3A00%3A00Z%2C2024-12-31T23%3A59%3A59Z&page_size=5
+https://cmr.earthdata.nasa.gov/search/granules.json?collection_concept_id=C2545314562-LPCLOUD&sort_key=-start_date&page_size=1
+https://cmr.earthdata.nasa.gov/search/collections.json?page_size=20&short_name=VJ121A2
+https://cmr.earthdata.nasa.gov/search/collections.umm_json?concept_id=C2545310897-LPCLOUD
+https://cmr.earthdata.nasa.gov/search/services.umm_json?concept_id%5B%5D=S2874702816-XYZ_PROV&page_size=50
+https://cmr.earthdata.nasa.gov/search/tools.umm_json?concept_id%5B%5D=TL1860232272-LPDAAC_ECS&page_size=50
+POST https://cmr.earthdata.nasa.gov/search/variables.json concept_id[]=... (11 ids)
+https://cmr.earthdata.nasa.gov/search/granules.umm_json?collection_concept_id=C2545310897-LPCLOUD&point=-93.75%2C42.03&temporal=2024-01-01T00%3A00%3A00Z%2C2024-12-31T23%3A59%3A59Z&page_size=5
+https://cmr.earthdata.nasa.gov/search/granules.json?collection_concept_id=C2545310897-LPCLOUD&sort_key=-start_date&page_size=1
+https://cmr.earthdata.nasa.gov/search/collections.json?page_size=20&short_name=VNP21A1D
+https://cmr.earthdata.nasa.gov/search/collections.umm_json?concept_id=C2545314555-LPCLOUD
+https://cmr.earthdata.nasa.gov/search/services.umm_json?concept_id%5B%5D=S2874702816-XYZ_PROV&page_size=50
+https://cmr.earthdata.nasa.gov/search/tools.umm_json?concept_id%5B%5D=TL1860232272-LPDAAC_ECS&page_size=50
+POST https://cmr.earthdata.nasa.gov/search/variables.json concept_id[]=... (7 ids)
+https://cmr.earthdata.nasa.gov/search/granules.umm_json?collection_concept_id=C2545314555-LPCLOUD&point=-93.75%2C42.03&temporal=2024-01-01T00%3A00%3A00Z%2C2024-12-31T23%3A59%3A59Z&page_size=5
+https://cmr.earthdata.nasa.gov/search/granules.json?collection_concept_id=C2545314555-LPCLOUD&sort_key=-start_date&page_size=1
+https://cmr.earthdata.nasa.gov/search/collections.json?page_size=20&short_name=ECO_L2T_LSTE
+https://cmr.earthdata.nasa.gov/search/collections.umm_json?concept_id=C2076090826-LPCLOUD
+https://cmr.earthdata.nasa.gov/search/tools.umm_json?concept_id%5B%5D=TL1860232272-LPDAAC_ECS&page_size=50
+POST https://cmr.earthdata.nasa.gov/search/variables.json concept_id[]=... (8 ids)
+https://cmr.earthdata.nasa.gov/search/granules.umm_json?collection_concept_id=C2076090826-LPCLOUD&point=-93.75%2C42.03&temporal=2024-01-01T00%3A00%3A00Z%2C2024-12-31T23%3A59%3A59Z&page_size=5
+https://cmr.earthdata.nasa.gov/search/granules.json?collection_concept_id=C2076090826-LPCLOUD&sort_key=-start_date&page_size=1
+https://cmr.earthdata.nasa.gov/search/collections.umm_json?concept_id=C3998139651-LPCLOUD
+https://cmr.earthdata.nasa.gov/search/services.umm_json?concept_id%5B%5D=S2697183066-XYZ_PROV&page_size=50
+POST https://cmr.earthdata.nasa.gov/search/variables.json concept_id[]=... (18 ids)
+https://cmr.earthdata.nasa.gov/search/granules.umm_json?collection_concept_id=C3998139651-LPCLOUD&point=-93.75%2C42.03&temporal=2024-01-01T00%3A00%3A00Z%2C2024-12-31T23%3A59%3A59Z&page_size=5
+https://cmr.earthdata.nasa.gov/search/granules.umm_json?collection_concept_id=C3998139651-LPCLOUD&sort_key=-start_date&page_size=5
+https://cmr.earthdata.nasa.gov/search/granules.json?collection_concept_id=C3998139651-LPCLOUD&sort_key=-start_date&page_size=1
+https://cmr.earthdata.nasa.gov/search/collections.json?page_size=20&short_name=ECO_L3T_JET
+https://cmr.earthdata.nasa.gov/search/collections.umm_json?concept_id=C2076106409-LPCLOUD
+https://cmr.earthdata.nasa.gov/search/tools.umm_json?concept_id%5B%5D=TL1860232272-LPDAAC_ECS&page_size=50
+POST https://cmr.earthdata.nasa.gov/search/variables.json concept_id[]=... (12 ids)
+https://cmr.earthdata.nasa.gov/search/granules.umm_json?collection_concept_id=C2076106409-LPCLOUD&point=-93.75%2C42.03&temporal=2024-01-01T00%3A00%3A00Z%2C2024-12-31T23%3A59%3A59Z&page_size=5
+https://cmr.earthdata.nasa.gov/search/granules.json?collection_concept_id=C2076106409-LPCLOUD&sort_key=-start_date&page_size=1
+https://cmr.earthdata.nasa.gov/search/collections.umm_json?concept_id=C4057232489-LPCLOUD
+https://cmr.earthdata.nasa.gov/search/services.umm_json?concept_id%5B%5D=S2697183066-XYZ_PROV&page_size=50
+POST https://cmr.earthdata.nasa.gov/search/variables.json concept_id[]=... (14 ids)
+https://cmr.earthdata.nasa.gov/search/granules.umm_json?collection_concept_id=C4057232489-LPCLOUD&point=-93.75%2C42.03&temporal=2024-01-01T00%3A00%3A00Z%2C2024-12-31T23%3A59%3A59Z&page_size=5
+https://cmr.earthdata.nasa.gov/search/granules.umm_json?collection_concept_id=C4057232489-LPCLOUD&sort_key=-start_date&page_size=5
+https://cmr.earthdata.nasa.gov/search/granules.json?collection_concept_id=C4057232489-LPCLOUD&sort_key=-start_date&page_size=1
+https://cmr.earthdata.nasa.gov/search/collections.json?page_size=20&short_name=ECO_L4T_ESI
+https://cmr.earthdata.nasa.gov/search/collections.umm_json?concept_id=C2076104650-LPCLOUD
+https://cmr.earthdata.nasa.gov/search/services.umm_json?concept_id%5B%5D=S2874702816-XYZ_PROV&page_size=50
+https://cmr.earthdata.nasa.gov/search/tools.umm_json?concept_id%5B%5D=TL1860232272-LPDAAC_ECS&page_size=50
+POST https://cmr.earthdata.nasa.gov/search/variables.json concept_id[]=... (4 ids)
+https://cmr.earthdata.nasa.gov/search/granules.umm_json?collection_concept_id=C2076104650-LPCLOUD&point=-93.75%2C42.03&temporal=2024-01-01T00%3A00%3A00Z%2C2024-12-31T23%3A59%3A59Z&page_size=5
+https://cmr.earthdata.nasa.gov/search/granules.json?collection_concept_id=C2076104650-LPCLOUD&sort_key=-start_date&page_size=1
+https://cmr.earthdata.nasa.gov/search/collections.umm_json?concept_id=C4057232495-LPCLOUD
+https://cmr.earthdata.nasa.gov/search/services.umm_json?concept_id%5B%5D=S2697183066-XYZ_PROV&page_size=50
+POST https://cmr.earthdata.nasa.gov/search/variables.json concept_id[]=... (4 ids)
+https://cmr.earthdata.nasa.gov/search/granules.umm_json?collection_concept_id=C4057232495-LPCLOUD&point=-93.75%2C42.03&temporal=2024-01-01T00%3A00%3A00Z%2C2024-12-31T23%3A59%3A59Z&page_size=5
+https://cmr.earthdata.nasa.gov/search/granules.umm_json?collection_concept_id=C4057232495-LPCLOUD&sort_key=-start_date&page_size=5
+https://cmr.earthdata.nasa.gov/search/granules.json?collection_concept_id=C4057232495-LPCLOUD&sort_key=-start_date&page_size=1
+https://cmr.earthdata.nasa.gov/search/collections.json?page_size=20&short_name=ECO_L4T_WUE
+https://cmr.earthdata.nasa.gov/search/collections.umm_json?concept_id=C2076102081-LPCLOUD
+https://cmr.earthdata.nasa.gov/search/tools.umm_json?concept_id%5B%5D=TL1860232272-LPDAAC_ECS&page_size=50
+POST https://cmr.earthdata.nasa.gov/search/variables.json concept_id[]=... (4 ids)
+https://cmr.earthdata.nasa.gov/search/granules.umm_json?collection_concept_id=C2076102081-LPCLOUD&point=-93.75%2C42.03&temporal=2024-01-01T00%3A00%3A00Z%2C2024-12-31T23%3A59%3A59Z&page_size=5
+https://cmr.earthdata.nasa.gov/search/granules.json?collection_concept_id=C2076102081-LPCLOUD&sort_key=-start_date&page_size=1
+https://cmr.earthdata.nasa.gov/search/collections.umm_json?concept_id=C4057232498-LPCLOUD
+https://cmr.earthdata.nasa.gov/search/services.umm_json?concept_id%5B%5D=S2697183066-XYZ_PROV&page_size=50
+POST https://cmr.earthdata.nasa.gov/search/variables.json concept_id[]=... (4 ids)
+https://cmr.earthdata.nasa.gov/search/granules.umm_json?collection_concept_id=C4057232498-LPCLOUD&point=-93.75%2C42.03&temporal=2024-01-01T00%3A00%3A00Z%2C2024-12-31T23%3A59%3A59Z&page_size=5
+https://cmr.earthdata.nasa.gov/search/granules.umm_json?collection_concept_id=C4057232498-LPCLOUD&sort_key=-start_date&page_size=5
+https://cmr.earthdata.nasa.gov/search/granules.json?collection_concept_id=C4057232498-LPCLOUD&sort_key=-start_date&page_size=1
+https://cmr.earthdata.nasa.gov/search/collections.json?page_size=20&short_name=ECO_L3T_ET_ALEXI
+https://cmr.earthdata.nasa.gov/search/collections.umm_json?concept_id=C2076105456-LPCLOUD
+https://cmr.earthdata.nasa.gov/search/tools.umm_json?concept_id%5B%5D=TL1860232272-LPDAAC_ECS&page_size=50
+POST https://cmr.earthdata.nasa.gov/search/variables.json concept_id[]=... (2 ids)
+https://cmr.earthdata.nasa.gov/search/granules.umm_json?collection_concept_id=C2076105456-LPCLOUD&point=-93.75%2C42.03&temporal=2024-01-01T00%3A00%3A00Z%2C2024-12-31T23%3A59%3A59Z&page_size=5
+https://cmr.earthdata.nasa.gov/search/granules.umm_json?collection_concept_id=C2076105456-LPCLOUD&sort_key=-start_date&page_size=5
+https://cmr.earthdata.nasa.gov/search/granules.json?collection_concept_id=C2076105456-LPCLOUD&sort_key=-start_date&page_size=1
+https://cmr.earthdata.nasa.gov/search/collections.json?page_size=20&short_name=ECO_L4T_ESI_ALEXI
+https://cmr.earthdata.nasa.gov/search/collections.umm_json?concept_id=C2683463996-LPCLOUD
+https://cmr.earthdata.nasa.gov/search/tools.umm_json?concept_id%5B%5D=TL1860232272-LPDAAC_ECS&page_size=50
+POST https://cmr.earthdata.nasa.gov/search/variables.json concept_id[]=... (2 ids)
+https://cmr.earthdata.nasa.gov/search/granules.umm_json?collection_concept_id=C2683463996-LPCLOUD&point=-93.75%2C42.03&temporal=2024-01-01T00%3A00%3A00Z%2C2024-12-31T23%3A59%3A59Z&page_size=5
+https://cmr.earthdata.nasa.gov/search/granules.umm_json?collection_concept_id=C2683463996-LPCLOUD&sort_key=-start_date&page_size=5
+https://cmr.earthdata.nasa.gov/search/granules.json?collection_concept_id=C2683463996-LPCLOUD&sort_key=-start_date&page_size=1
+https://cmr.earthdata.nasa.gov/search/collections.json?page_size=20&short_name=TELLUS_GRAC-GRFO_MASCON_CRI_GRID_RL06.3_V4
+https://cmr.earthdata.nasa.gov/search/collections.umm_json?concept_id=C3195527175-POCLOUD
+https://cmr.earthdata.nasa.gov/search/services.umm_json?concept_id%5B%5D=S2874702816-XYZ_PROV&page_size=50
+https://cmr.earthdata.nasa.gov/search/tools.umm_json?concept_id%5B%5D=TL2108419875-POCLOUD&page_size=50
+POST https://cmr.earthdata.nasa.gov/search/variables.json concept_id[]=... (12 ids)
+https://cmr.earthdata.nasa.gov/search/granules.umm_json?collection_concept_id=C3195527175-POCLOUD&point=-93.75%2C42.03&temporal=2024-01-01T00%3A00%3A00Z%2C2024-12-31T23%3A59%3A59Z&page_size=5
+https://cmr.earthdata.nasa.gov/search/granules.json?collection_concept_id=C3195527175-POCLOUD&sort_key=-start_date&page_size=1
+https://cmr.earthdata.nasa.gov/search/collections.json?page_size=20&short_name=TELLUS_GRAC-GRFO_MASCON_GRID_RL06.3_V4
+https://cmr.earthdata.nasa.gov/search/collections.umm_json?concept_id=C3195502222-POCLOUD
+https://cmr.earthdata.nasa.gov/search/services.umm_json?concept_id%5B%5D=S2874702816-XYZ_PROV&page_size=50
+https://cmr.earthdata.nasa.gov/search/tools.umm_json?concept_id%5B%5D=TL2108419875-POCLOUD&page_size=50
+POST https://cmr.earthdata.nasa.gov/search/variables.json concept_id[]=... (10 ids)
+https://cmr.earthdata.nasa.gov/search/granules.umm_json?collection_concept_id=C3195502222-POCLOUD&point=-93.75%2C42.03&temporal=2024-01-01T00%3A00%3A00Z%2C2024-12-31T23%3A59%3A59Z&page_size=5
+https://cmr.earthdata.nasa.gov/search/granules.json?collection_concept_id=C3195502222-POCLOUD&sort_key=-start_date&page_size=1
+https://cmr.earthdata.nasa.gov/search/collections.json?page_size=20&short_name=GRACEDADM_CLSM0125US_7D
+https://cmr.earthdata.nasa.gov/search/collections.umm_json?concept_id=C1993409520-GES_DISC
+https://cmr.earthdata.nasa.gov/search/services.umm_json?concept_id%5B%5D=S2874702816-XYZ_PROV&concept_id%5B%5D=S3671941188-XYZ_PROV&concept_id%5B%5D=S2739607260-GES_DISC&concept_id%5B%5D=S3385907677-GES_DISC&concept_id%5B%5D=S2164732315-XYZ_PROV&concept_id%5B%5D=S4057306097-XYZ_PROV&page_size=50
+POST https://cmr.earthdata.nasa.gov/search/variables.json concept_id[]=... (6 ids)
+https://cmr.earthdata.nasa.gov/search/granules.umm_json?collection_concept_id=C1993409520-GES_DISC&point=-93.75%2C42.03&temporal=2024-01-01T00%3A00%3A00Z%2C2024-12-31T23%3A59%3A59Z&page_size=5
+https://cmr.earthdata.nasa.gov/search/granules.json?collection_concept_id=C1993409520-GES_DISC&sort_key=-start_date&page_size=1
+https://cmr.earthdata.nasa.gov/search/collections.json?page_size=20&short_name=GRACEDADM_CLSM025GL_7D
+https://cmr.earthdata.nasa.gov/search/collections.umm_json?concept_id=C2283200566-GES_DISC
+https://cmr.earthdata.nasa.gov/search/services.umm_json?concept_id%5B%5D=S3385907677-GES_DISC&concept_id%5B%5D=S2874702816-XYZ_PROV&concept_id%5B%5D=S2739607260-GES_DISC&concept_id%5B%5D=S4055478380-XYZ_PROV&concept_id%5B%5D=S3671941188-XYZ_PROV&page_size=50
+POST https://cmr.earthdata.nasa.gov/search/variables.json concept_id[]=... (6 ids)
+https://cmr.earthdata.nasa.gov/search/granules.umm_json?collection_concept_id=C2283200566-GES_DISC&point=-93.75%2C42.03&temporal=2024-01-01T00%3A00%3A00Z%2C2024-12-31T23%3A59%3A59Z&page_size=5
+https://cmr.earthdata.nasa.gov/search/granules.json?collection_concept_id=C2283200566-GES_DISC&sort_key=-start_date&page_size=1
+https://cmr.earthdata.nasa.gov/search/collections.json?page_size=20&short_name=SRTMGL1
+https://cmr.earthdata.nasa.gov/search/collections.umm_json?concept_id=C2763266360-LPCLOUD
+POST https://cmr.earthdata.nasa.gov/search/variables.json concept_id[]=... (1 ids)
+https://cmr.earthdata.nasa.gov/search/granules.umm_json?collection_concept_id=C2763266360-LPCLOUD&point=-93.75%2C42.03&temporal=2024-01-01T00%3A00%3A00Z%2C2024-12-31T23%3A59%3A59Z&page_size=5
+https://cmr.earthdata.nasa.gov/search/granules.umm_json?collection_concept_id=C2763266360-LPCLOUD&sort_key=-start_date&page_size=5
+https://cmr.earthdata.nasa.gov/search/granules.json?collection_concept_id=C2763266360-LPCLOUD&sort_key=-start_date&page_size=1
+https://cmr.earthdata.nasa.gov/search/collections.json?page_size=20&short_name=NASADEM_HGT
+https://cmr.earthdata.nasa.gov/search/collections.umm_json?concept_id=C2763264762-LPCLOUD
+POST https://cmr.earthdata.nasa.gov/search/variables.json concept_id[]=... (3 ids)
+https://cmr.earthdata.nasa.gov/search/granules.umm_json?collection_concept_id=C2763264762-LPCLOUD&point=-93.75%2C42.03&temporal=2024-01-01T00%3A00%3A00Z%2C2024-12-31T23%3A59%3A59Z&page_size=5
+https://cmr.earthdata.nasa.gov/search/granules.umm_json?collection_concept_id=C2763264762-LPCLOUD&sort_key=-start_date&page_size=5
+https://cmr.earthdata.nasa.gov/search/granules.json?collection_concept_id=C2763264762-LPCLOUD&sort_key=-start_date&page_size=1
+https://cmr.earthdata.nasa.gov/search/collections.json?page_size=20&short_name=GEDI02_A
+https://cmr.earthdata.nasa.gov/search/collections.umm_json?concept_id=C3974616071-LPCLOUD
+https://cmr.earthdata.nasa.gov/search/services.umm_json?concept_id%5B%5D=S2836723123-XYZ_PROV&page_size=50
+POST https://cmr.earthdata.nasa.gov/search/variables.json concept_id[]=... (100 ids)
+POST https://cmr.earthdata.nasa.gov/search/variables.json concept_id[]=... (100 ids)
+https://cmr.earthdata.nasa.gov/search/granules.umm_json?collection_concept_id=C3974616071-LPCLOUD&point=-93.75%2C42.03&temporal=2024-01-01T00%3A00%3A00Z%2C2024-12-31T23%3A59%3A59Z&page_size=5
+https://cmr.earthdata.nasa.gov/search/granules.umm_json?collection_concept_id=C3974616071-LPCLOUD&sort_key=-start_date&page_size=5
+https://cmr.earthdata.nasa.gov/search/granules.json?collection_concept_id=C3974616071-LPCLOUD&sort_key=-start_date&page_size=1
+https://cmr.earthdata.nasa.gov/search/collections.umm_json?concept_id=C2142771958-LPCLOUD
+https://cmr.earthdata.nasa.gov/search/services.umm_json?concept_id%5B%5D=S2836723123-XYZ_PROV&page_size=50
+POST https://cmr.earthdata.nasa.gov/search/variables.json concept_id[]=... (100 ids)
+POST https://cmr.earthdata.nasa.gov/search/variables.json concept_id[]=... (100 ids)
+https://cmr.earthdata.nasa.gov/search/granules.umm_json?collection_concept_id=C2142771958-LPCLOUD&point=-93.75%2C42.03&temporal=2024-01-01T00%3A00%3A00Z%2C2024-12-31T23%3A59%3A59Z&page_size=5
+https://cmr.earthdata.nasa.gov/search/granules.umm_json?collection_concept_id=C2142771958-LPCLOUD&sort_key=-start_date&page_size=5
+https://cmr.earthdata.nasa.gov/search/granules.json?collection_concept_id=C2142771958-LPCLOUD&sort_key=-start_date&page_size=1
+https://cmr.earthdata.nasa.gov/search/collections.json?page_size=20&short_name=GEDI_L4A_AGB_Density_V2_1_2056
+https://cmr.earthdata.nasa.gov/search/collections.umm_json?concept_id=C2237824918-ORNL_CLOUD
+https://cmr.earthdata.nasa.gov/search/services.umm_json?concept_id%5B%5D=S2164732315-XYZ_PROV&concept_id%5B%5D=S2836723123-XYZ_PROV&concept_id%5B%5D=S2874702816-XYZ_PROV&page_size=50
+POST https://cmr.earthdata.nasa.gov/search/variables.json concept_id[]=... (100 ids)
+POST https://cmr.earthdata.nasa.gov/search/variables.json concept_id[]=... (100 ids)
+https://cmr.earthdata.nasa.gov/search/granules.umm_json?collection_concept_id=C2237824918-ORNL_CLOUD&point=-93.75%2C42.03&temporal=2024-01-01T00%3A00%3A00Z%2C2024-12-31T23%3A59%3A59Z&page_size=5
+https://cmr.earthdata.nasa.gov/search/granules.umm_json?collection_concept_id=C2237824918-ORNL_CLOUD&sort_key=-start_date&page_size=5
+https://cmr.earthdata.nasa.gov/search/granules.json?collection_concept_id=C2237824918-ORNL_CLOUD&sort_key=-start_date&page_size=1
+https://cmr.earthdata.nasa.gov/search/collections.json?page_size=20&short_name=GEDI_L4B_Gridded_Biomass_V2_1_2299
+https://cmr.earthdata.nasa.gov/search/collections.umm_json?concept_id=C2792577683-ORNL_CLOUD
+https://cmr.earthdata.nasa.gov/search/granules.umm_json?collection_concept_id=C2792577683-ORNL_CLOUD&point=-93.75%2C42.03&temporal=2024-01-01T00%3A00%3A00Z%2C2024-12-31T23%3A59%3A59Z&page_size=5
+https://cmr.earthdata.nasa.gov/search/granules.umm_json?collection_concept_id=C2792577683-ORNL_CLOUD&sort_key=-start_date&page_size=5
+https://cmr.earthdata.nasa.gov/search/granules.json?collection_concept_id=C2792577683-ORNL_CLOUD&sort_key=-start_date&page_size=1
+https://cmr.earthdata.nasa.gov/search/collections.json?page_size=20&short_name=NLDAS_FORA0125_H
+https://cmr.earthdata.nasa.gov/search/collections.umm_json?concept_id=C2033151148-GES_DISC
+https://cmr.earthdata.nasa.gov/search/services.umm_json?concept_id%5B%5D=S3385907677-GES_DISC&concept_id%5B%5D=S4057306097-XYZ_PROV&concept_id%5B%5D=S2164732315-XYZ_PROV&concept_id%5B%5D=S3671941188-XYZ_PROV&concept_id%5B%5D=S2739607260-GES_DISC&concept_id%5B%5D=S2874702816-XYZ_PROV&page_size=50
+POST https://cmr.earthdata.nasa.gov/search/variables.json concept_id[]=... (15 ids)
+https://cmr.earthdata.nasa.gov/search/granules.umm_json?collection_concept_id=C2033151148-GES_DISC&point=-93.75%2C42.03&temporal=2024-01-01T00%3A00%3A00Z%2C2024-12-31T23%3A59%3A59Z&page_size=5
+https://cmr.earthdata.nasa.gov/search/granules.json?collection_concept_id=C2033151148-GES_DISC&sort_key=-start_date&page_size=1
+https://cmr.earthdata.nasa.gov/search/collections.json?page_size=20&short_name=NLDAS_NOAH0125_H
+https://cmr.earthdata.nasa.gov/search/collections.umm_json?concept_id=C2069246977-GES_DISC
+https://cmr.earthdata.nasa.gov/search/services.umm_json?concept_id%5B%5D=S3385907677-GES_DISC&concept_id%5B%5D=S4057306097-XYZ_PROV&concept_id%5B%5D=S2739607260-GES_DISC&concept_id%5B%5D=S2874702816-XYZ_PROV&concept_id%5B%5D=S2164732315-XYZ_PROV&concept_id%5B%5D=S3671941188-XYZ_PROV&page_size=50
+POST https://cmr.earthdata.nasa.gov/search/variables.json concept_id[]=... (57 ids)
+https://cmr.earthdata.nasa.gov/search/granules.umm_json?collection_concept_id=C2069246977-GES_DISC&point=-93.75%2C42.03&temporal=2024-01-01T00%3A00%3A00Z%2C2024-12-31T23%3A59%3A59Z&page_size=5
+https://cmr.earthdata.nasa.gov/search/granules.json?collection_concept_id=C2069246977-GES_DISC&sort_key=-start_date&page_size=1
+https://cmr.earthdata.nasa.gov/search/collections.json?page_size=20&short_name=GLDAS_NOAH025_3H
+https://cmr.earthdata.nasa.gov/search/collections.umm_json?concept_id=C1342986035-GES_DISC
+https://cmr.earthdata.nasa.gov/search/services.umm_json?concept_id%5B%5D=S4057306097-XYZ_PROV&concept_id%5B%5D=S3671941188-XYZ_PROV&concept_id%5B%5D=S3385907677-GES_DISC&concept_id%5B%5D=S2874702816-XYZ_PROV&concept_id%5B%5D=S2164732315-XYZ_PROV&concept_id%5B%5D=S2739607260-GES_DISC&page_size=50
+https://cmr.earthdata.nasa.gov/search/tools.umm_json?concept_id%5B%5D=TL2140660116-GES_DISC&page_size=50
+POST https://cmr.earthdata.nasa.gov/search/variables.json concept_id[]=... (40 ids)
+https://cmr.earthdata.nasa.gov/search/granules.umm_json?collection_concept_id=C1342986035-GES_DISC&point=-93.75%2C42.03&temporal=2024-01-01T00%3A00%3A00Z%2C2024-12-31T23%3A59%3A59Z&page_size=5
+https://cmr.earthdata.nasa.gov/search/granules.json?collection_concept_id=C1342986035-GES_DISC&sort_key=-start_date&page_size=1
+https://cmr.earthdata.nasa.gov/search/collections.umm_json?concept_id=C1233767545-GES_DISC
+https://cmr.earthdata.nasa.gov/search/services.umm_json?concept_id%5B%5D=S2739607260-GES_DISC&concept_id%5B%5D=S2874702816-XYZ_PROV&concept_id%5B%5D=S3671941188-XYZ_PROV&concept_id%5B%5D=S4057306097-XYZ_PROV&concept_id%5B%5D=S2164732315-XYZ_PROV&concept_id%5B%5D=S3385907677-GES_DISC&page_size=50
+https://cmr.earthdata.nasa.gov/search/tools.umm_json?concept_id%5B%5D=TL2140660116-GES_DISC&page_size=50
+POST https://cmr.earthdata.nasa.gov/search/variables.json concept_id[]=... (40 ids)
+https://cmr.earthdata.nasa.gov/search/granules.umm_json?collection_concept_id=C1233767545-GES_DISC&point=-93.75%2C42.03&temporal=2024-01-01T00%3A00%3A00Z%2C2024-12-31T23%3A59%3A59Z&page_size=5
+https://cmr.earthdata.nasa.gov/search/granules.umm_json?collection_concept_id=C1233767545-GES_DISC&sort_key=-start_date&page_size=5
+https://cmr.earthdata.nasa.gov/search/granules.json?collection_concept_id=C1233767545-GES_DISC&sort_key=-start_date&page_size=1
+https://cmr.earthdata.nasa.gov/search/collections.json?page_size=20&short_name=GLDAS_NOAH025_M
+https://cmr.earthdata.nasa.gov/search/collections.umm_json?concept_id=C1342986036-GES_DISC
+https://cmr.earthdata.nasa.gov/search/services.umm_json?concept_id%5B%5D=S2874702816-XYZ_PROV&concept_id%5B%5D=S3671941188-XYZ_PROV&concept_id%5B%5D=S2739607260-GES_DISC&concept_id%5B%5D=S4057306097-XYZ_PROV&concept_id%5B%5D=S3385907677-GES_DISC&concept_id%5B%5D=S2164732315-XYZ_PROV&page_size=50
+https://cmr.earthdata.nasa.gov/search/tools.umm_json?concept_id%5B%5D=TL2140660116-GES_DISC&page_size=50
+POST https://cmr.earthdata.nasa.gov/search/variables.json concept_id[]=... (40 ids)
+https://cmr.earthdata.nasa.gov/search/granules.umm_json?collection_concept_id=C1342986036-GES_DISC&point=-93.75%2C42.03&temporal=2024-01-01T00%3A00%3A00Z%2C2024-12-31T23%3A59%3A59Z&page_size=5
+https://cmr.earthdata.nasa.gov/search/granules.json?collection_concept_id=C1342986036-GES_DISC&sort_key=-start_date&page_size=1
+https://cmr.earthdata.nasa.gov/search/collections.umm_json?concept_id=C1233767569-GES_DISC
+https://cmr.earthdata.nasa.gov/search/services.umm_json?concept_id%5B%5D=S3385907677-GES_DISC&concept_id%5B%5D=S2164732315-XYZ_PROV&concept_id%5B%5D=S2739607260-GES_DISC&concept_id%5B%5D=S4057306097-XYZ_PROV&concept_id%5B%5D=S2874702816-XYZ_PROV&concept_id%5B%5D=S3671941188-XYZ_PROV&page_size=50
+https://cmr.earthdata.nasa.gov/search/tools.umm_json?concept_id%5B%5D=TL2140660116-GES_DISC&page_size=50
+POST https://cmr.earthdata.nasa.gov/search/variables.json concept_id[]=... (40 ids)
+https://cmr.earthdata.nasa.gov/search/granules.umm_json?collection_concept_id=C1233767569-GES_DISC&point=-93.75%2C42.03&temporal=2024-01-01T00%3A00%3A00Z%2C2024-12-31T23%3A59%3A59Z&page_size=5
+https://cmr.earthdata.nasa.gov/search/granules.umm_json?collection_concept_id=C1233767569-GES_DISC&sort_key=-start_date&page_size=5
+https://cmr.earthdata.nasa.gov/search/granules.json?collection_concept_id=C1233767569-GES_DISC&sort_key=-start_date&page_size=1
+https://cmr.earthdata.nasa.gov/search/collections.json?page_size=20&short_name=GLDAS_CLSM025_DA1_D
+https://cmr.earthdata.nasa.gov/search/collections.umm_json?concept_id=C1700900796-GES_DISC
+https://cmr.earthdata.nasa.gov/search/services.umm_json?concept_id%5B%5D=S2874702816-XYZ_PROV&concept_id%5B%5D=S2164732315-XYZ_PROV&concept_id%5B%5D=S3671941188-XYZ_PROV&concept_id%5B%5D=S4057306097-XYZ_PROV&concept_id%5B%5D=S2739607260-GES_DISC&concept_id%5B%5D=S3385907677-GES_DISC&page_size=50
+POST https://cmr.earthdata.nasa.gov/search/variables.json concept_id[]=... (28 ids)
+https://cmr.earthdata.nasa.gov/search/granules.umm_json?collection_concept_id=C1700900796-GES_DISC&point=-93.75%2C42.03&temporal=2024-01-01T00%3A00%3A00Z%2C2024-12-31T23%3A59%3A59Z&page_size=5
+https://cmr.earthdata.nasa.gov/search/granules.json?collection_concept_id=C1700900796-GES_DISC&sort_key=-start_date&page_size=1
