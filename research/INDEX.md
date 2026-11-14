@@ -59,7 +59,11 @@ Phase 1 research for Field Shift, gathered on 2026-11-13. There are 39 files and
 | [rules_judging.md](02_hackathon/rules_judging.md) | Judges score Impact, Creativity, Validity, Relevance, and Presentation from 1 to 5. The demo is a video of 30 seconds or less, or at most 7 slides. A Global Award requires NASA data. The project needs an open-source licence. |
 | [teams_tab.md](02_hackathon/teams_tab.md) | 1,605 teams have joined this challenge. The file samples 876 of them. |
 | [past_winners.md](02_hackathon/past_winners.md) | Farm winners from 2023 to 2025 and the patterns they share. |
+| [past_challenges_2012_2025.md](02_hackathon/past_challenges_2012_2025.md) | 41 past Space Apps challenges on farming, food, water and land from 2012 to 2025, and how the farm ask changed. |
 | [space_agency_partners.md](02_hackathon/space_agency_partners.md) | 17 partners. Only ESA has data on this challenge's resource list. |
+| [past_projects_deep_dive.md](02_hackathon/past_projects_deep_dive.md) | 11 past farm projects from 2020 to 2025 and 13 repos read in code: data truly used, live or static, failure modes, and lessons for Field Shift. |
+| [competition_2026.md](02_hackathon/competition_2026.md) | About 260 public competitor repos on 14 November 2026, the 22 strongest compared, and a re-check of the challenge page (no changes, 1,805 teams). |
+| [judging_insights.md](02_hackathon/judging_insights.md) | How judges score in practice, how Global Nominees are picked, what past winning demos showed, and what judges say they want. |
 
 ## 03_domain
 
