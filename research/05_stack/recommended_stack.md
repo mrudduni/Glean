@@ -1,5 +1,7 @@
 # Recommended stack
 
+> Superseded on 2026-11-14 by [stack_v2.md](stack_v2.md). This file stays as the record of version 1 and its dependency research.
+
 This file gives one stack for the hackathon demo (14 to 15 November 2026) and how it grows into the long-term portfolio app. Details and sources for each choice are in the other files in this folder: `backend.md`, `frontend.md`, `llm_layer.md`, `field_boundaries.md`, `misc_apis.md`, `deployment.md`, and `quality_tooling.md`.
 
 ## Architecture in one paragraph
