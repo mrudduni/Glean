@@ -1,29 +1,37 @@
 id,region,baseline,alternative,metric,effect,unit,design,source,read_level
-in01,"Karnal, Haryana",conventional rice-wheat (flood),CA maize-wheat with subsurface drip,irrigation water,-84.5,percent,station trial 2 yr,https://doi.org/10.1038/s41598-019-54086-1,abstract
-in02,"Karnal, Haryana",conventional rice-wheat (flood),CA maize-wheat with subsurface drip,system productivity,+19.7,percent,station trial 2 yr,https://doi.org/10.1038/s41598-019-54086-1,abstract
-in03,"Karnal, Haryana",conventional rice-wheat (flood),CA maize-wheat with subsurface drip,net returns,+48.9,percent,station trial 2 yr,https://doi.org/10.1038/s41598-019-54086-1,abstract
-in04,"Karnal, Haryana",conventional rice-wheat,irrigation water use of baseline,irrigation water,1889,mm per year (2-yr mean),station trial 2 yr,https://doi.org/10.1038/s41598-019-54086-1,abstract
-in05,Western IGP,farmer practice rice-wheat,CA maize-wheat,irrigation water,-84,percent,station trial,https://doi.org/10.1038/s41598-020-76035-z,abstract
-in06,Western IGP,farmer practice rice-wheat,CA maize-wheat,profitability,+16,percent,station trial,https://doi.org/10.1038/s41598-020-76035-z,abstract
-in07,Western IGP,farmer practice rice-wheat,CA maize-wheat,global warming potential,-95,percent,station trial,https://doi.org/10.1038/s41598-020-76035-z,abstract
-in08,Western IGP,farmer practice rice-wheat,CA maize-wheat-mungbean,irrigation water,-64,percent,station trial,https://doi.org/10.1038/s41598-020-76035-z,abstract
-in09,"Haryana and Punjab, 9 districts",rice,maize,rice-equivalent yield,-6.6,percent,on-farm n=250 per crop,https://doi.org/10.3389/fsufs.2025.1700854,abstract
-in10,"Haryana and Punjab, 9 districts",wheat after rice,wheat after maize,wheat yield,+16.7,percent,on-farm n=250 per crop,https://doi.org/10.3389/fsufs.2025.1700854,abstract
-in11,"Haryana, 9 districts",rice,maize,net returns,+46.5,percent,on-farm n=250 per crop,https://doi.org/10.3389/fsufs.2025.1700854,abstract
-in12,"Punjab, 9-district study",rice,maize,net returns,+32.5,percent,on-farm n=250 per crop,https://doi.org/10.3389/fsufs.2025.1700854,abstract
-in13,"Haryana and Punjab, 9 districts",rice,maize,number of irrigations,about 10x fewer for maize,ratio,on-farm n=250 per crop,https://doi.org/10.3389/fsufs.2025.1700854,abstract
+in01,"Karnal, Haryana",conventional rice-wheat (flood),CA maize-wheat with subsurface drip,irrigation water,-84.5,percent,station trial 2 yr,https://doi.org/10.1038/s41598-019-54086-1,full text
+in02,"Karnal, Haryana",conventional rice-wheat (flood),CA maize-wheat with subsurface drip,system productivity,+19.7,percent,station trial 2 yr,https://doi.org/10.1038/s41598-019-54086-1,full text
+in03,"Karnal, Haryana",conventional rice-wheat (flood),CA maize-wheat with subsurface drip,net returns,+48.9,percent,station trial 2 yr,https://doi.org/10.1038/s41598-019-54086-1,full text
+in04,"Karnal, Haryana",conventional rice-wheat,irrigation water use of baseline,irrigation water,1889,mm per year (2-yr mean),station trial 2 yr,https://doi.org/10.1038/s41598-019-54086-1,full text
+in05,Western IGP,farmer practice rice-wheat,CA maize-wheat,irrigation water,-84,percent,station trial,https://doi.org/10.1038/s41598-020-76035-z,full text
+in06,Western IGP,farmer practice rice-wheat,CA maize-wheat,profitability,+16,percent,station trial,https://doi.org/10.1038/s41598-020-76035-z,full text
+in07,Western IGP,farmer practice rice-wheat,CA maize-wheat,global warming potential,-95,percent,station trial,https://doi.org/10.1038/s41598-020-76035-z,full text
+in08,Western IGP,farmer practice rice-wheat,CA maize-wheat-mungbean,irrigation water,-64,percent,station trial,https://doi.org/10.1038/s41598-020-76035-z,full text
+in09,"Haryana and Punjab, 9 districts",rice,maize,rice-equivalent yield,-6.6,percent,on-farm n=250 per crop,https://doi.org/10.3389/fsufs.2025.1700854,full text
+in10,"Haryana and Punjab, 9 districts",wheat after rice,wheat after maize,wheat yield,+16.7,percent,on-farm n=250 per crop,https://doi.org/10.3389/fsufs.2025.1700854,full text
+in11,"Haryana, 9 districts",rice,maize,net returns,+46.5,percent,on-farm n=250 per crop,https://doi.org/10.3389/fsufs.2025.1700854,full text
+in12,"Punjab, 9-district study",rice,maize,net returns,+32.5,percent,on-farm n=250 per crop,https://doi.org/10.3389/fsufs.2025.1700854,full text
+in13,"Haryana and Punjab, 9 districts",rice,maize,number of irrigations,about 10x fewer for maize,ratio,on-farm n=250 per crop,https://doi.org/10.3389/fsufs.2025.1700854,full text
 in14,"Karnal, Haryana",puddled transplanted rice then CT wheat,ZT maize-wheat-mungbean,irrigation water,-82 to -89,percent,station trial 5 yr,https://doi.org/10.1016/j.agee.2017.10.006,abstract
 in15,"Karnal, Haryana",puddled transplanted rice then CT wheat,ZT maize-wheat-mungbean,profitability,+27 to +73,percent,station trial 5 yr,https://doi.org/10.1016/j.agee.2017.10.006,abstract
 in16,"Karnal, Haryana",puddled transplanted rice,ZT direct-seeded rice,rice yield in years 4 and 5,-11 to -30,percent,station trial 5 yr,https://doi.org/10.1016/j.agee.2017.10.006,abstract
 in17,"Karnal, Haryana",CT rice-wheat,PB maize-wheat-mungbean with residue and precise irrigation,irrigation water saved,1660,mm,station trial 3 yr,https://doi.org/10.1016/j.fcr.2017.12.023,abstract
 in18,"Karnal, Haryana",CT rice-wheat,PB maize-wheat-mungbean with residue and precise irrigation,net returns,+84,percent,station trial 3 yr,https://doi.org/10.1016/j.fcr.2017.12.023,abstract
 in19,"Karnal, Haryana",farmer-managed puddled transplanted rice,ZT maize,irrigation water,-88 to -95,percent,station trial 2 yr,https://doi.org/10.1016/j.agee.2013.06.002,abstract
-in20,"Karnal, Haryana (CSSRI)",CT rice-wheat (2514 mm irrigation),PB maize-mustard-mungbean,irrigation water,-81.8,percent,station trial 2 yr,https://doi.org/10.1038/s41598-022-18156-1,abstract
-in21,"Karnal, Haryana (CSSRI)",CT rice-wheat,PB maize-mustard-mungbean,profitability,+60.1,percent,station trial 2 yr,https://doi.org/10.1038/s41598-022-18156-1,abstract
-in22,"Karnal, Haryana (CSSRI)",CT rice-wheat,PB maize-wheat-mungbean,irrigation water,-75.5,percent,station trial 2 yr,https://doi.org/10.1038/s41598-022-18156-1,abstract
+in20,"Karnal, Haryana (CSSRI)",CT rice-wheat (2514 mm irrigation),PB maize-mustard-mungbean,irrigation water,-81.8,percent,station trial 2 yr,https://doi.org/10.1038/s41598-022-18156-1,full text
+in21,"Karnal, Haryana (CSSRI)",CT rice-wheat,PB maize-mustard-mungbean,profitability,+60.1,percent,station trial 2 yr,https://doi.org/10.1038/s41598-022-18156-1,full text
+in22,"Karnal, Haryana (CSSRI)",CT rice-wheat,PB maize-wheat-mungbean,irrigation water,-75.5,percent,station trial 2 yr,https://doi.org/10.1038/s41598-022-18156-1,full text
 us01,US Corn Belt,continuous corn,corn after soybean,corn yield penalty avoided,4.3,percent,"748,374 commercial fields 2007-2012",https://cropwatch.unl.edu/2020/yield-penalties-continuous-corn-and-soybean-midwest-us/,extension summary
 us02,US Corn Belt,continuous soybean,soybean after corn,soybean yield penalty avoided,10.3,percent,"748,374 commercial fields 2007-2012",https://cropwatch.unl.edu/2020/yield-penalties-continuous-corn-and-soybean-midwest-us/,extension summary
 us03,North America,simple rotation,more diverse rotation,maize yield,+28.1,percent,11 long-term experiments,https://www.cell.com/one-earth/fulltext/S2590-3322(20)30088-9,summary pages
 us04,North America,simple rotation,more diverse rotation,maize drought-year loss,-14 to -90,percent,11 long-term experiments,https://www.cell.com/one-earth/fulltext/S2590-3322(20)30088-9,summary pages
 us05,Nebraska,corn after corn,corn after soybean,N credit,45 (25 on sand),lb N per acre,extension recommendation,https://cropwatch.unl.edu/giving-proper-nitrogen-credit-legumes-corn-and-milo-rotations/,extension
 us06,Nebraska,corn after corn,first-year corn after alfalfa,N credit,90 to 150 fine soils; 40 to 100 sandy,lb N per acre,extension recommendation,https://cropwatch.unl.edu/giving-proper-nitrogen-credit-legumes-corn-and-milo-rotations/,extension
+in23,"Karnal, Haryana (CSSRI)",,rice (all scenarios),irrigation applied,1336 to 2782,mm per season,station trial 2 yr,https://doi.org/10.1038/s41598-022-18156-1,full text
+in24,"Karnal, Haryana (CSSRI)",,maize (all scenarios),irrigation applied,109 to 281,mm per season,station trial 2 yr,https://doi.org/10.1038/s41598-022-18156-1,full text
+in25,"Karnal, Haryana (CSSRI)",,wheat (all scenarios),irrigation applied,146 to 555,mm per season,station trial 2 yr,https://doi.org/10.1038/s41598-022-18156-1,full text
+in26,"Karnal, Haryana (CSSRI)",,mustard (maize-mustard-mungbean),irrigation applied,73 to 136,mm per season,station trial 2 yr,https://doi.org/10.1038/s41598-022-18156-1,full text
+in27,"Karnal, Haryana (CSSRI)",,soybean,irrigation applied,110 to 200,mm per season,station trial 2 yr,https://doi.org/10.1038/s41598-022-18156-1,full text
+in28,Western IGP (Karnal),,rice (all scenarios),irrigation applied,1382 to 2495,mm per season,station trial 4 yr,https://doi.org/10.1038/s41598-020-76035-z,full text
+in29,Western IGP (Karnal),,maize (all scenarios),irrigation applied,173 to 545,mm per season,station trial 4 yr,https://doi.org/10.1038/s41598-020-76035-z,full text
+in30,"Karnal, Haryana (CSSRI)",,conventional puddled rice,irrigation applied,about 1886 (2-yr mean),mm per season,station trial 2 yr,https://doi.org/10.1038/s41598-019-54086-1,full text

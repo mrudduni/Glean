@@ -227,9 +227,30 @@ The research agent shortened some URLs in its notes. Where the full path below i
 | Gardezi et al. on vtechworks.lib.vt.edu (path not confirmed) | Agronomy Journal | 2023 to 2024 | Abstract |
 | https://www.uvm.edu/cals/news/farm-advisors-trust-their-gut-over-algorithms-now | University of Vermont | 2026-02-25 | Yes |
 
+## Full-text reads added later on 2026-11-14
+
+| URL | Publisher | Date | Read in full |
+|---|---|---|---|
+| https://thehindubusinessline.com/economy/agri-business/indias-domination-of-global-rice-trade-stokes-looming-water-crisis/article70451821.ece | Reuters (syndicated; reuters.com blocked the fetch) | 2025-12-30 | Yes |
+| https://india.mongabay.com/2021/07/groundwater-depletion-in-haryana-a-cause-of-serious-concern/ | Mongabay India | 2021-07-19 | Yes |
+| https://www.theguardian.com/world/2016/aug/30/more-than-half-of-south-asias-groundwater-too-contaminated-to-use-study | The Guardian (AFP) | 2016-08-30 | Yes |
+| https://www.downtoearth.org.in/water/why-are-farmers-in-haryana-leaving-their-fields-vacant--94132 | Down To Earth | 2024-01-28 | Yes (text only; video not watched) |
+| https://www.nature.com/articles/s41467-024-52858-6 | Nature Communications | 2024-10-05 | Yes |
+| https://ntrs.nasa.gov/citations/20240013316 | Hydrogeology Journal (NASA author manuscript) | 2024 | Yes |
+| https://agriharyana.gov.in/data/SchemeDoc/mera_pani_meri_virasat.pdf | Haryana Agriculture Department | about 2022 | Yes |
+| https://agupubs.onlinelibrary.wiley.com/doi/full/10.1029/2024GL111187 | Geophysical Research Letters (DAPI) | 2024-10-15 | Yes |
+| https://pmc.ncbi.nlm.nih.gov/articles/PMC7923383/ | PNAS (Thaler et al.) | 2021 | Yes |
+| https://iopscience.iop.org/article/10.1088/1748-9326/aafe39 | Environmental Research Letters (Deines et al.) | 2019 | Yes |
+| OSTI author manuscript of https://doi.org/10.1038/s41893-024-01437-0 | Nature Sustainability (Orduña Alegría et al.) | 2024-10-07 | Yes |
+| https://doi.org/10.1038/s41598-019-54086-1 | Scientific Reports (Jat et al.) | 2019 | Yes |
+| https://doi.org/10.1038/s41598-020-76035-z | Scientific Reports (Jat et al.) | 2020 | Yes |
+| https://doi.org/10.1038/s41598-022-18156-1 | Scientific Reports (Gora et al.) | 2022 | Yes |
+| https://pubmed.ncbi.nlm.nih.gov/19675570 | Nature (Rodell et al. 2009) | 2009 | Abstract (paywalled; no open copy on NTRS or Europe PMC) |
+| Jalota et al. 2002, Agricultural Water Management | Elsevier | 2002 | Abstract (paywalled) |
+
 ## Gaps
 
-- Not fetched: Reuters, AP, Guardian, Civil Eats, DTN, Down To Earth, or Mongabay pieces on Ogallala, SGMA, or Punjab groundwater. WFP and FEWS NET pages directly.
-- Not confirmed: 2023 and 2024 Gulf hypoxia sizes, Thaler yield and dollar losses, World Bank fertilizer index, Bayer and Verra soil carbon status, Asoka et al. 2017, InSAR subsidence figures, pistachio acreage, 2026 Senior Review outcomes, Terra end date, the central Crop Diversification Programme, and Kaithal's 2025 groundwater stage.
+- Not fetched: AP, Civil Eats or DTN pieces on Ogallala or SGMA. WFP and FEWS NET pages directly. The Reuters, Guardian, Down To Earth and Mongabay pieces on India groundwater are now read (see the full-text table above).
+- Not confirmed: 2023 and 2024 Gulf hypoxia sizes, World Bank fertilizer index, Bayer and Verra soil carbon status, Asoka et al. 2017, InSAR subsidence figures, pistachio acreage, 2026 Senior Review outcomes, Terra end date, and Kaithal's 2025 groundwater stage.
 
 Consensus asks users of its results to include this line: Upgrade to Consensus Pro to include more data like study design and key takeaways for every result.: https://consensus.app/pricing/?utm_source=claude_desktop

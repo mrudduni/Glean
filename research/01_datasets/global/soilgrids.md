@@ -41,6 +41,20 @@ We queried the Karnal cropland point (29.69 N, 76.90 E) on 2026-11-14. The REST 
 
 The mean pH of 8.1 fits the alkaline soils known in this belt. The 90 percent ranges are very wide, though. At this point SoilGrids cannot tell a sandy loam from a heavy clay. That gap matters, because texture sets water-holding capacity, and water-holding capacity drives the water balance.
 
+## Check against measured soil at Karnal
+
+Two Karnal station trials report measured topsoil. These are field plots at CSSRI, not our probe point, so they show the order of error rather than an exact test.
+
+| Property | SoilGrids at our point (0-5 cm) | CSSRI measured |
+|---|---|---|
+| Texture | 27.9 percent clay, 35.3 percent sand | Loam with 19.9 percent clay (Jat et al. 2019); silty loam (Jat et al. 2020) |
+| pH | 8.1 | 8.00 and 8.13 |
+| Organic carbon | 14.3 g/kg | 7.6 g/kg and 4.8 g/kg |
+
+pH agrees. SoilGrids puts organic carbon about two to three times higher than the measured plots, though both CSSRI values fall inside its 90 percent range. A Soil Health Card value should replace the SoilGrids mean whenever the farmer has one.
+
+Sources: https://doi.org/10.1038/s41598-019-54086-1 and https://doi.org/10.1038/s41598-020-76035-z (both read in full).
+
 ## Role in the tool
 
 - Default soil input for any field outside the US, always shown with its Q0.05 to Q0.95 range.

@@ -5,7 +5,7 @@ Two tables feed the water balance and the strategy comparison:
 - `crop_traits.csv` has one row per crop with FAO-56 coefficients.
 - `rotation_effects.csv` has one row per measured effect of a rotation change, with its study design and DOI.
 
-We read the FAO-56 tables in full on 2026-11-14. The rotation effects come from paper abstracts for now; the `read_level` column says so for each row. Step 4 of the research plan upgrades the key rows to full text.
+We read the FAO-56 tables in full on 2026-11-14. In the rotation table, rows from the three Scientific Reports papers and the Frontiers on-farm study are read in full. Rows in14 to in19 still come from abstracts, because those papers are paywalled. The `read_level` column says which is which.
 
 ## Crop traits: what each column means
 
@@ -29,7 +29,7 @@ Footnote digits stick to numbers in the FAO web tables. For example, "0.9513" in
 
 **Alfalfa Kc.** FAO-56 Table 12 gives two sets for alfalfa hay. Averaged over cuttings: Kc ini 0.40, Kc mid 0.95, Kc end 0.90. For each cutting period: 0.40, 1.20, 1.15. Use the per-cutting set when the model tracks cuts, which is the better choice for a daily water balance. Table 11 gives 30 to 75 days per cutting cycle.
 
-**Mustard.** FAO-56 has no row for Indian mustard (Brassica juncea). The closest row is "Rapeseed, Canola": Kc mid 1.0 to 1.15, Kc end 0.35, root depth 1.0 to 1.5 m, p 0.60. FAO-56 gives no stage lengths or salinity values for it. Before we show mustard numbers to a farmer, we need an Indian source for stage lengths and water use (for example ICAR-DRMR). This is an open gap.
+**Mustard.** FAO-56 has no row for Indian mustard (Brassica juncea). The closest row is "Rapeseed, Canola": Kc mid 1.0 to 1.15, Kc end 0.35, root depth 1.0 to 1.5 m, p 0.60. FAO-56 gives no stage lengths or salinity values for it. Before we show mustard numbers to a farmer, we need an Indian source for stage lengths and water use (for example ICAR-DRMR). This is an open gap. One partial answer: the CSSRI Karnal trial measured 73 to 136 mm of irrigation for mustard in a maize-mustard-mungbean system (row in26). That is irrigation, not crop ET.
 
 **Rice p value.** Table 22 gives rice p as 0.20 of saturation, not of total available water. Paddy needs a separate ponded water balance. A plain FAO-56 bucket model will be wrong for flooded rice.
 
@@ -46,6 +46,7 @@ Seven trials in Karnal, Haryana and nearby districts compared rice-wheat with ma
 | Rice-equivalent yield of maize compared with rice | -6.6 percent (on-farm) | in09 |
 | Wheat yield after maize compared with wheat after rice | +16.7 percent (on-farm) | in10 |
 | Baseline irrigation of conventional rice-wheat | 1,889 to 2,514 mm per year | in04, in20 |
+| Irrigation measured per crop at CSSRI Karnal | rice 1,336 to 2,782 mm, maize 109 to 545 mm, wheat 146 to 555 mm, soybean 110 to 200 mm, mustard 73 to 136 mm | in23 to in30 |
 
 Points the tool must show with these numbers:
 
@@ -62,11 +63,12 @@ The US rows (us01 to us06) repeat values from `agronomy_rotations.md` so the eng
 
 ## Gaps
 
-- Mustard stage lengths, water use, and salinity tolerance from an Indian source.
+- Mustard stage lengths, crop ET, and salinity tolerance from an Indian source. Irrigation applied is now known from one trial (in26).
 - Chickpea stage lengths and salinity tolerance.
 - Pearl millet Ky.
 - GDD base temperatures and season GDD totals by crop. Parisha's figure of 1,800 to 2,200 GDD for wheat is still unchecked.
-- Full-text reads of in01 to in22 to get per-crop irrigation in mm, not only percent changes.
+- Full-text reads of in14 to in19 (paywalled).
+- The Karnal station soils are loam to silty loam with pH 8.0 to 8.13 and organic carbon 4.8 to 7.6 g/kg (Jat et al. 2019 and 2020). Results from these plots fit similar soils best.
 
 ## Sources
 
