@@ -69,7 +69,7 @@ The v4 Data Viewer and the .tif links did not ask for a login in the FAQ steps. 
 
 ## Licence
 
-Not confirmed for the v4 rasters. The v4 terms-of-use page returned empty content. FAO publications about GAEZ v4 use CC BY-NC-SA 3.0 IGO, but that applies to the report, and it is not confirmed for the data. FAO's own 2025 reference list cites the GAEZ v5 data catalogue entry with "Licence: CC-BY-4.0". Before shipping, check the licence on the dataset page.
+Not confirmed for the v4 rasters. The v4 terms-of-use page returned empty content. FAO publications about GAEZ v4 use CC BY-NC-SA 3.0 IGO, but that applies to the report, and it is not confirmed for the data. FAO's own 2025 reference list cites the GAEZ v5 data catalogue entry with "Licence: CC-BY-4.0". On 2026-11-14 we checked a v5 record on the FAO data catalogue (https://data.fao.org/catalog/iso/e7c45e67-b5b3-48de-b8e5-4e2f62f63d01). It states CC-BY-4.0. Use v5 layers and credit FAO and IIASA.
 
 Suggested v4 citation from the FAQ: FAO and IIASA. Global Agro Ecological Zones version 4 (GAEZ v4). Accessed DATE. URL: http://www.fao.org/gaez/
 

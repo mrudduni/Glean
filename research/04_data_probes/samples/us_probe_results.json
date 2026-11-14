@@ -1,0 +1,478 @@
+{
+ "sda": {
+  "iowa_s1": {
+   "mukey": {
+    "url": "https://SDMDataAccess.sc.egov.usda.gov/Tabular/post.rest",
+    "status": 200,
+    "seconds": 2.9,
+    "columns": [
+     "mukey"
+    ],
+    "rows": [
+     [
+      "2765522"
+     ]
+    ]
+   },
+   "muaggatt": {
+    "url": "https://SDMDataAccess.sc.egov.usda.gov/Tabular/post.rest",
+    "status": 200,
+    "seconds": 2.42,
+    "columns": [
+     "mukey",
+     "muname",
+     "aws0100wta",
+     "aws0150wta",
+     "slopegradwta",
+     "hydgrpdcd",
+     "drclassdcd",
+     "niccdcd",
+     "iccdcd"
+    ],
+    "rows": [
+     [
+      "2765522",
+      "Clarion loam, Bemis moraine, 2 to 6 percent slopes",
+      "18.64",
+      "27.64",
+      "3.5",
+      "B",
+      "Well drained",
+      "2",
+      null
+     ]
+    ]
+   },
+   "horizons": {
+    "url": "https://SDMDataAccess.sc.egov.usda.gov/Tabular/post.rest",
+    "status": 200,
+    "seconds": 2.03,
+    "columns": [
+     "cokey",
+     "compname",
+     "comppct_r",
+     "majcompflag",
+     "hzname",
+     "hzdept_r",
+     "hzdepb_r",
+     "sandtotal_r",
+     "claytotal_r",
+     "om_r",
+     "awc_r",
+     "ksat_r",
+     "dbthirdbar_r",
+     "ph1to1h2o_r",
+     "kwfact",
+     "wthirdbar_r",
+     "wfifteenbar_r"
+    ],
+    "rows": [
+     [
+      "28627767",
+      "Clarion",
+      "85",
+      "Yes",
+      "Ap",
+      "0",
+      "23",
+      "45",
+      "21",
+      "3.5",
+      "0.21",
+      "9.17",
+      "1.3",
+      "6.2",
+      ".24",
+      "28.6",
+      "14.5"
+     ],
+     [
+      "28627767",
+      "Clarion",
+      "85",
+      "Yes",
+      "A",
+      "23",
+      "35",
+      "45",
+      "21",
+      "2.5",
+      "0.18",
+      "9.17",
+      "1.35",
+      "6.2",
+      ".28",
+      "28.1",
+      "13.8"
+     ],
+     [
+      "28627767",
+      "Clarion",
+      "85",
+      "Yes",
+      "Bw",
+      "35",
+      "84",
+      "45",
+      "21",
+      "0.75",
+      "0.18",
+      "9.17",
+      "1.4",
+      "6.6",
+      ".32",
+      "27",
+      "12.2"
+     ],
+     [
+      "28627767",
+      "Clarion",
+      "85",
+      "Yes",
+      "C",
+      "84",
+      "200",
+      "49",
+      "15",
+      "0.25",
+      "0.18",
+      "9.17",
+      "1.6",
+      "8",
+      ".37",
+      "24.6",
+      "9.5"
+     ]
+    ]
+   }
+  },
+  "kansas_sd6": {
+   "mukey": {
+    "url": "https://SDMDataAccess.sc.egov.usda.gov/Tabular/post.rest",
+    "status": 200,
+    "seconds": 1.95,
+    "columns": [
+     "mukey"
+    ],
+    "rows": [
+     [
+      "2759231"
+     ]
+    ]
+   },
+   "muaggatt": {
+    "url": "https://SDMDataAccess.sc.egov.usda.gov/Tabular/post.rest",
+    "status": 200,
+    "seconds": 2.05,
+    "columns": [
+     "mukey",
+     "muname",
+     "aws0100wta",
+     "aws0150wta",
+     "slopegradwta",
+     "hydgrpdcd",
+     "drclassdcd",
+     "niccdcd",
+     "iccdcd"
+    ],
+    "rows": [
+     [
+      "2759231",
+      "Keith silt loam, 1 to 3 percent slopes, south",
+      "20.92",
+      "31.42",
+      "2",
+      "C",
+      "Well drained",
+      "2",
+      "2"
+     ]
+    ]
+   },
+   "horizons": {
+    "url": "https://SDMDataAccess.sc.egov.usda.gov/Tabular/post.rest",
+    "status": 200,
+    "seconds": 2.03,
+    "columns": [
+     "cokey",
+     "compname",
+     "comppct_r",
+     "majcompflag",
+     "hzname",
+     "hzdept_r",
+     "hzdepb_r",
+     "sandtotal_r",
+     "claytotal_r",
+     "om_r",
+     "awc_r",
+     "ksat_r",
+     "dbthirdbar_r",
+     "ph1to1h2o_r",
+     "kwfact",
+     "wthirdbar_r",
+     "wfifteenbar_r"
+    ],
+    "rows": [
+     [
+      "27880022",
+      "Keith",
+      "98",
+      "Yes",
+      "Ap",
+      "0",
+      "19",
+      "22",
+      "22",
+      "2.6",
+      "0.21",
+      "6",
+      "1.25",
+      "6.9",
+      ".37",
+      "29",
+      "14"
+     ],
+     [
+      "27880022",
+      "Keith",
+      "98",
+      "Yes",
+      "Bt1",
+      "19",
+      "38",
+      "17",
+      "28",
+      "1.3",
+      "0.21",
+      "3",
+      "1.2",
+      "7.6",
+      ".43",
+      "29.6",
+      "14.8"
+     ],
+     [
+      "27880022",
+      "Keith",
+      "98",
+      "Yes",
+      "Bt2",
+      "38",
+      "56",
+      "17",
+      "26",
+      "0.7",
+      "0.21",
+      "6",
+      "1.25",
+      "7.6",
+      ".49",
+      "28.9",
+      "13.8"
+     ],
+     [
+      "27880022",
+      "Keith",
+      "98",
+      "Yes",
+      "Bk",
+      "56",
+      "118",
+      "21",
+      "23",
+      "0.6",
+      "0.21",
+      "6",
+      "1.35",
+      "8.4",
+      ".49",
+      "28.4",
+      "13.2"
+     ],
+     [
+      "27880022",
+      "Keith",
+      "98",
+      "Yes",
+      "C",
+      "118",
+      "200",
+      "31",
+      "18",
+      "0.4",
+      "0.21",
+      "6",
+      "1.35",
+      "8.5",
+      ".55",
+      "26",
+      "10.2"
+     ]
+    ]
+   }
+  }
+ },
+ "sda_ran_at": "2026-11-14 20:09:23 +0530",
+ "sda_seconds": 13.4,
+ "cdl": {
+  "iowa_s1": {
+   "albers_xy": [
+    185002.3,
+    2116458.4
+   ],
+   "history": {
+    "2008": "1 Corn",
+    "2009": "5 Soybeans",
+    "2010": "1 Corn",
+    "2011": "5 Soybeans",
+    "2012": "1 Corn",
+    "2013": "5 Soybeans",
+    "2014": "1 Corn",
+    "2015": "5 Soybeans",
+    "2016": "1 Corn",
+    "2017": "5 Soybeans",
+    "2018": "1 Corn",
+    "2019": "5 Soybeans",
+    "2020": "1 Corn",
+    "2021": "5 Soybeans",
+    "2022": "1 Corn",
+    "2023": "5 Soybeans",
+    "2024": "1 Corn"
+   },
+   "example_url": "https://nassgeodata.gmu.edu/axis2/services/CDLService/GetCDLValue?year=2024&x=185002.3&y=2116458.4"
+  },
+  "kansas_sd6": {
+   "albers_xy": [
+    -375318.5,
+    1828431.3
+   ],
+   "history": {
+    "2008": "61 Fallow/Idle Cropland",
+    "2009": "24 Winter Wheat",
+    "2010": "24 Winter Wheat",
+    "2011": "1 Corn",
+    "2012": "61 Fallow/Idle Cropland",
+    "2013": "24 Winter Wheat",
+    "2014": "1 Corn",
+    "2015": "61 Fallow/Idle Cropland",
+    "2016": "24 Winter Wheat",
+    "2017": "1 Corn",
+    "2018": "61 Fallow/Idle Cropland",
+    "2019": "24 Winter Wheat",
+    "2020": "1 Corn",
+    "2021": "61 Fallow/Idle Cropland",
+    "2022": "24 Winter Wheat",
+    "2023": "1 Corn",
+    "2024": "61 Fallow/Idle Cropland"
+   },
+   "example_url": "https://nassgeodata.gmu.edu/axis2/services/CDLService/GetCDLValue?year=2024&x=-375318.5&y=1828431.3"
+  }
+ },
+ "cdl_ran_at": "2026-11-14 20:14:21 +0530",
+ "cdl_seconds": 95.7,
+ "nass": {
+  "no_key": {
+   "url": "https://quickstats.nass.usda.gov/api/api_GET/",
+   "status": 401,
+   "seconds": 2.47,
+   "body": "{\"error\":[\"unauthorized\"]}"
+  }
+ },
+ "nass_ran_at": "2026-11-14 20:11:00 +0530",
+ "nass_seconds": 2.7,
+ "usgs": {
+  "wells": {
+   "url": "https://api.waterdata.usgs.gov/ogcapi/v0/collections/monitoring-locations/items",
+   "status": 200,
+   "seconds": 2.5,
+   "n_returned": 20,
+   "sample_ids": [
+    "KS014-391512100245301",
+    "KS014-391612100261901",
+    "KS014-392206100234001",
+    "KS014-392316100302601",
+    "KS014-392745100221901"
+   ],
+   "ratelimit_remaining": null
+  },
+  "measurements_KS014-391512100245301": {
+   "url": "https://api.waterdata.usgs.gov/ogcapi/v0/collections/field-measurements/items",
+   "status": 200,
+   "seconds": 2.19,
+   "n": 51,
+   "by_parameter": {
+    "62610": {
+     "n": 17,
+     "first": [
+      "1989-04-07T12:00:00+00:00",
+      "2618.00",
+      "62610",
+      "ft"
+     ],
+     "last": [
+      "2013-12-18T12:00:00+00:00",
+      "2611.47",
+      "62610",
+      "ft"
+     ]
+    },
+    "62611": {
+     "n": 17,
+     "first": [
+      "1989-04-07T12:00:00+00:00",
+      "2619.04",
+      "62611",
+      "ft"
+     ],
+     "last": [
+      "2013-12-18T12:00:00+00:00",
+      "2612.51",
+      "62611",
+      "ft"
+     ]
+    },
+    "72019": {
+     "n": 17,
+     "first": [
+      "1989-04-07T12:00:00+00:00",
+      "140.00",
+      "72019",
+      "ft"
+     ],
+     "last": [
+      "2013-12-18T12:00:00+00:00",
+      "146.53",
+      "72019",
+      "ft"
+     ]
+    }
+   }
+  }
+ },
+ "usgs_ran_at": "2026-11-14 20:14:26 +0530",
+ "usgs_seconds": 4.7,
+ "prism_ams": {
+  "prism_ppt_monthly_202407": {
+   "url": "https://services.nacse.org/prism/data/get/us/4km/ppt/202407",
+   "status": 200,
+   "seconds": 1.69,
+   "content_type": "application/zip",
+   "content_disposition": "filename=\"prism_ppt_us_25m_202407.zip\""
+  },
+  "prism_old_public_path": {
+   "url": "https://services.nacse.org/prism/data/public/4km/ppt/202407",
+   "status": 200,
+   "seconds": 1.67,
+   "content_type": "text/html; charset=UTF-8",
+   "content_disposition": null
+  },
+  "ams_no_key": {
+   "url": "https://marsapi.ams.usda.gov/services/v1.2/reports",
+   "status": 403,
+   "seconds": 2.82,
+   "body": "{\"dateTime\":\"2026-11-14T07:41:09.6724938\",\"detail\":\"Attempt to access the protected resource. Please use HELP LINK for more information: https://marsapi.ams.usda.gov/services/help\",\"errorCode\":403,\"me"
+  }
+ },
+ "prism_ams_ran_at": "2026-11-14 20:11:10 +0530",
+ "prism_ams_seconds": 6.2
+}

@@ -93,6 +93,13 @@ Phase 1 research for Field Shift, gathered on 2026-11-13. There are 39 files and
 | [papers.md](03_domain/papers.md) | 17 papers, each checked against Crossref or Europe PMC. |
 | [open_source.md](03_domain/open_source.md) | 30 Python libraries with licences and versions. |
 
+## 04_data_probes
+
+| File | Key facts |
+|---|---|
+| [README.md](04_data_probes/README.md) | Status of every live probe, with scripts and saved samples. |
+| [us_probe_report.md](04_data_probes/us_probe_report.md) | SSURGO, CropScape, USGS wells and PRISM work without keys; NASS, AMS and OpenET need free keys. CDL shows 17 years of corn-soybean in Iowa and wheat-corn-fallow at SD-6. GAEZ v5 is CC-BY-4.0. |
+
 ## 07_plan
 
 | File | Key facts |
@@ -104,5 +111,5 @@ Phase 1 research for Field Shift, gathered on 2026-11-13. There are 39 files and
 
 - OpenET coverage: the FAQ says 23 western states, while a 2025 NASA/DRI release says all 48 states.
 - FAO-56 gives alfalfa a mid-season Kc of 0.95 in Table 12 and 1.05 in the chapter text.
-- The SSURGO column names and the SDA spatial query need a live test before we write code.
-- The GAEZ v4 licence is unconfirmed, while v5 is CC-BY-4.0.
+- The GAEZ v4 licence is unconfirmed. v5 is CC-BY-4.0 (checked on the FAO catalogue on 2026-11-14), so use v5.
+- PRISM's 4km path now serves a file named 25m. Check the grid before use.
