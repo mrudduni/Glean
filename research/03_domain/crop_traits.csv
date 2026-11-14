@@ -1,0 +1,14 @@
+crop,fao56_row,kc_ini,kc_mid,kc_end,max_height_m,root_depth_min_m,root_depth_max_m,p_depletion,ky_seasonal,ece_threshold_ds_m,ece_slope_pct_per_ds_m,salt_rating,l_ini_d,l_dev_d,l_mid_d,l_late_d,l_total_d,stage_plant_date,stage_region,notes
+rice,Rice,1.05,1.20,0.90-0.60,1.0,0.5,1.0,0.20,,3.0,12.0,S,30,30,60,30,150,Dec; May,Tropics; Mediterranean,p for rice is a fraction of saturation not of TAW (Table 22 footnote 4). FAO-56 Table 24 gives no Ky for rice.
+wheat,Spring Wheat / Winter Wheat,0.3 (cereal group); 0.7 winter wheat on non-frozen soil,1.15,0.25-0.4,1.0,1.0,1.5,0.55,1.15 spring; 1.05 winter,6.0,7.1,MT,15,25,50,30,120,November,Central India,Stage row is Barley/Oats/Wheat. Kc end 0.25 if harvested dry and 0.4 if harvested green. Root depth 1.5-1.8 m for winter wheat.
+maize,"Maize, Field (grain) (field corn)",0.3 (cereal group),1.20,0.60-0.35,2.0,1.0,1.7,0.55,1.25,1.7,12.0,MS,20,35,40,30,125,June,Nigeria (humid),Kharif proxy. FAO also lists India (dry cool) October 20/35/40/30. Kc end 0.60 if harvested at high grain moisture and 0.35 if dried in the field.
+mustard,"Rapeseed, Canola (proxy)",0.35 (oil crop group),1.0-1.15,0.35,0.6,1.0,1.5,0.60,,,,,,,,,,,,FAO-56 has no mustard (Brassica juncea) row. Rapeseed and canola stand in. No stage lengths or salinity row in FAO-56. Needs an Indian source before use.
+pearl_millet,Millet,0.3 (cereal group),1.00,0.30,1.5,1.0,2.0,0.55,,,,MS,15,25,40,25,105,June,Pakistan,FAO-56 Millet row is not species specific. No Ky in Table 24.
+sorghum,Sorghum - grain,0.3 (cereal group),1.00-1.10,0.55,1.0-2.0,1.0,2.0,0.55,0.9,6.8,16.0,MT,20,35,40,30,130,May/June,"USA, Pakistan, Mediterranean",
+barley,Barley,0.3 (cereal group),1.15,0.25,1.0,1.0,1.5,0.55,,8.0,5.0,T,15,25,50,30,120,November,Central India,Shares the Barley/Oats/Wheat stage row.
+chickpea,Chick pea,0.4 (legume group),1.00,0.35,0.4,0.6,1.0,0.50,,,,,,,,,,,,No stage lengths or salinity row in FAO-56. Table 22 lists Chick pea and Grabanzo separately (p 0.50 and 0.45).
+lentil,Lentil,0.4 (legume group),1.10,0.30,0.5,0.6,0.8,0.50,,,,,25,35,70,40,170,Oct/Nov,Arid region,Second FAO row: 20/30/60/40 from April in Europe.
+mungbean,Green Gram and Cowpeas,0.4 (legume group),1.05,0.60-0.35,0.4,0.6,1.0,0.45,,4.9,12.0,MT,20,30,30,20,110,March,Mediterranean,Salinity values are the Cowpea row. Kc end 0.60 if harvested fresh and 0.35 if dry.
+soybean,Soybeans,0.4 (legume group),1.15,0.50,0.5-1.0,0.6,1.3,0.50,0.85,5.0,20.0,MT,20,30,60,25,135,May,Central USA,Stage row reads 30/35 for development; 30 used here.
+cotton,Cotton,0.35 (fibre group),1.15-1.20,0.70-0.50,1.2-1.5,1.0,1.7,0.65,0.85,7.7,5.2,T,30,50,60,55,195,Mar-May,"Egypt, Pakistan, California",
+alfalfa,Alfalfa Hay - averaged cutting effects,0.40,0.95,0.90,0.7,1.0,2.0,0.55,1.1,2.0,7.3,MS,10,30,,,,,last -4 C in spring to first -4 C in fall,Per-cutting values are 0.40 / 1.20 / 1.15. Cutting cycles last 30 to 75 days (Table 11). Use per-cutting Kc when the model tracks cuts.

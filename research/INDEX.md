@@ -71,6 +71,9 @@ Phase 1 research for Field Shift, gathered on 2026-11-13. There are 39 files and
 |---|---|
 | [existing_tools.md](03_domain/existing_tools.md) | 17 tools reviewed. None compares three or more whole rotations for one field with explanations. |
 | [agronomy_rotations.md](03_domain/agronomy_rotations.md) | Nitrogen credits, pest breaks, FAO-56 crop coefficients, RUSLE factors, GDD, and frost thresholds, all with sources. |
+| [crop_traits.md](03_domain/crop_traits.md) | Guide to the two CSVs below. Answers the alfalfa Kc and mustard proxy questions and sums up seven Karnal trials of rice-wheat against maize systems. |
+| [crop_traits.csv](03_domain/crop_traits.csv) | 13 crops with FAO-56 Kc, root depth, depletion fraction, Ky, salinity tolerance, and stage lengths. |
+| [rotation_effects.csv](03_domain/rotation_effects.csv) | 28 measured rotation effects (22 from Haryana and Punjab, 6 from the US), each with design, DOI, and read level. |
 | [science_methods.md](03_domain/science_methods.md) | Indices, drought metrics, ETo, phenology, regridding, and TOPSIS ranking, each rated core, stretch, or later. |
 | [papers.md](03_domain/papers.md) | 17 papers, each checked against Crossref or Europe PMC. |
 | [open_source.md](03_domain/open_source.md) | 30 Python libraries with licences and versions. |
