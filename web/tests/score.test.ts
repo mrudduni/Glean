@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { DEFAULT_SLIDERS, excluded, pickShown, scoreEntry, weightsFromSliders, whyBullets, type Constraints, sameRotation } from "@/lib/score";
+import { DEFAULT_SLIDERS, excluded, pickShown, scoreEntry, weightsFromSliders, whyBullets, type Constraints, sameRotation, benefitsShown } from "@/lib/score";
 import { CRITERION_IDS } from "@/lib/schemas";
 import type { CriterionId, RotationId, StrategyEntry } from "@/lib/types";
 
@@ -96,5 +96,41 @@ describe("sameRotation", () => {
     expect(sameRotation(s("wheat", "sorghum", "fallow"), s("sorghum", "fallow", "wheat"))).toBe(true);
     expect(sameRotation(s("wheat", "sorghum", "fallow"), s("wheat", "fallow", "sorghum"))).toBe(false);
     expect(sameRotation(s("corn"), s("corn", "corn"))).toBe(false);
+  });
+});
+
+describe("pickShown fills the row to R0 + 3", () => {
+  const w = weightsFromSliders(DEFAULT_SLIDERS);
+  it("adds the best-scoring excluded rotations with their reason when fewer than 3 fit", () => {
+    const entries = [
+      entry("R0"), entry("R1", { water_use: 90 }),
+      entry("R2", { water_use: 20 }, { feasible: false }), entry("R3", { water_use: 80 }, { feasible: false }),
+      entry("R4", { water_use: 10 }, { feasible: false }),
+    ];
+    const picked = pickShown(entries, w, none);
+    expect(picked.shown.map((e) => e.rotation_id)).toEqual(["R0", "R1", "R3", "R2"]);
+    expect(picked.filled).toEqual({ R3: "needs_more_water", R2: "needs_more_water" });
+    expect(picked.hidden.map((h) => h.entry.rotation_id)).toEqual(["R4"]);
+  });
+  it("does not count or fill with duplicates of R0", () => {
+    const entries = [entry("R0"), entry("R1"), entry("R2", {}, { feasible: false })];
+    const picked = pickShown(entries, w, none, undefined, new Set(["R1"] as RotationId[]));
+    expect(picked.shown.map((e) => e.rotation_id)).toEqual(["R0", "R2"]);
+    expect(picked.filled).toEqual({ R2: "needs_more_water" });
+  });
+});
+
+describe("water guards", () => {
+  const w = weightsFromSliders({ save_water: 5, income: 0, steady_income: 0, soil_health: 0, erosion: 0 });
+  it("skips the water_use why bullet when saved_mm is negative", () => {
+    const more = entry("R1", { water_use: 90, income_mean: 80 });
+    more.criteria.water_use.vars = { irrigation_mm: 400, saved_mm: -50 };
+    expect(whyBullets(more, w)).not.toContain("water_use");
+    more.criteria.water_use.vars = { irrigation_mm: 200, saved_mm: 50 };
+    expect(whyBullets(more, w)).toContain("water_use");
+  });
+  it("drops benefits.water_saved when saved_mm is negative", () => {
+    const e = entry("R1", {}, { benefits: [{ text_id: "water_saved", vars: { saved_mm: -20 } }, { text_id: "legume_added", vars: { legume_years: 1, cycle_years: 3 } }] });
+    expect(benefitsShown(e).map((b) => b.text_id)).toEqual(["legume_added"]);
   });
 });

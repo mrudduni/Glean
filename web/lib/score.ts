@@ -82,6 +82,21 @@ export interface Picked {
   shown: StrategyEntry[];                                         // R0 first, then up to 3 by score
   hidden: { entry: StrategyEntry; reason: ExclusionReason }[];    // excluded rotations
   others: StrategyEntry[];                                        // feasible but outside the top 3
+  /** Excluded rotations moved into `shown` so the row always has R0 + 3; each card shows its reason. */
+  filled: Partial<Record<RotationId, ExclusionReason>>;
+}
+
+const SHOWN_ALTERNATIVES = 3;
+
+/** saved_mm < 0 means the rotation uses more water than R0, so "saved" text would read wrong. */
+function usesMoreWater(vars: Record<string, number | string> | undefined): boolean {
+  const saved = vars?.saved_mm;
+  return typeof saved === "number" && saved < 0;
+}
+
+/** Benefits to render: drops water_saved when the rotation does not save water. */
+export function benefitsShown(entry: StrategyEntry): StrategyEntry["benefits"] {
+  return entry.benefits.filter((item) => !(item.text_id === "water_saved" && usesMoreWater(item.vars)));
 }
 
 /**
@@ -121,11 +136,19 @@ export function pickShown(
     const diff = Math.round(b.score) - Math.round(a.score);
     return diff !== 0 ? diff : water(a.entry) - water(b.entry);
   });
-  const top = candidates.slice(0, 3).map((item) => item.entry);
+  const top = candidates.slice(0, SHOWN_ALTERNATIVES).map((item) => item.entry);
+  // Fewer than 3 fit: fill the row with the best-scoring excluded rotations, flagged with their reason.
+  const filled: Picked["filled"] = {};
+  const fillers = hidden
+    .map((item) => ({ ...item, score: rawScore(item.entry, weights) }))
+    .sort((a, b) => Math.round(b.score) - Math.round(a.score) || water(a.entry) - water(b.entry))
+    .slice(0, Math.max(0, SHOWN_ALTERNATIVES - top.length));
+  for (const item of fillers) filled[item.entry.rotation_id] = item.reason;
   return {
-    shown: current ? [current, ...top] : top,
-    hidden,
-    others: candidates.slice(3).map((item) => item.entry),
+    shown: [...(current ? [current] : []), ...top, ...fillers.map((item) => item.entry)],
+    hidden: hidden.filter((item) => !(item.entry.rotation_id in filled)),
+    others: candidates.slice(SHOWN_ALTERNATIVES).map((item) => item.entry),
+    filled,
   };
 }
 
@@ -134,6 +157,7 @@ export function whyBullets(entry: StrategyEntry, weights: Weights): CriterionId[
   const w = effective(weights);
   return CRITERION_IDS
     .filter((id) => entry.criteria[id].norm >= 50 && w[id] > 0)
+    .filter((id) => !(id === "water_use" && usesMoreWater(entry.criteria[id].vars)))
     .sort((a, b) => w[b] * entry.criteria[b].norm - w[a] * entry.criteria[a].norm)
     .slice(0, 3);
 }

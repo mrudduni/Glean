@@ -2,7 +2,7 @@
 
 These keys are not in README §8.6. The web app calls each one as `t("key", "English fallback")`.
 
-Status: all of them were added to `content/copy.json` with `en` and `es` text in role/content 3c740c7 (2026-11-15). Add new keys here and to copy.json together.
+Status: all of them were added to `content/copy.json` with `en` and `es` text in role/content 3c740c7 (2026-11-15). Add new keys here and to copy.json together. Added after that commit, not yet in copy.json: `neighbors.fields_header`.
 
 Generated from a grep of `t("…")` calls in `app/`, `components/` and `lib/`.
 
@@ -44,6 +44,7 @@ Generated from a grep of `t("…")` calls in `app/`, `components/` and `lib/`.
 | `nav.main` | components/SiteHeader.tsx | Main navigation |
 | `nav.sections` | components/FieldWorkspace.tsx | Field sections |
 | `neighbors.eyebrow` | components/NeighborsView.tsx | Learn from the landscape |
+| `neighbors.fields_header` | components/NeighborsView.tsx | Nearby fields |
 | `neighbors.like_yours` | components/NeighborsView.tsx | Like yours |
 | `neighbors.matched_note` | components/NeighborsView.tsx | nearby fields matched on soil and irrigation |
 | `neighbors.rotation` | components/NeighborsView.tsx | Rotation |

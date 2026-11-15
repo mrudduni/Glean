@@ -53,12 +53,10 @@ desktop.ini
 .vercel/
 .claude/worktrees/
 raw/
-.venv/
-node_modules/
-__pycache__/
-*.pyc
 .pytest_cache/
 !.env.example
 !**/.env.example
 !design/tokens.css
 !design/tokens.json
+
+*.env
