@@ -169,9 +169,9 @@ Normalisation within one field and scenario, across feasible rotations: `norm = 
 
 | Field | Item | Result | Level |
 |---|---|---|---|
-| f1 | Model ETa vs OpenET, Apr to Oct months 2018 to 2025 (n 56) | bias −1.9%, r² 0.79 | good |
+| f1 | Model ETa vs OpenET, Apr to Oct months 2018 to 2025 (n 56) | bias +0.9%, r² 0.80 | good |
 | f2 | same | bias −29.6%, r² 0.34 | fair |
-| f3 | same | bias +4.7%, r² 0.57 | fair |
+| f3 | same | bias +6.5%, r² 0.60 | good |
 
 Level rules: ET good if |bias| ≤ 15% and r² ≥ 0.6, fair if |bias| ≤ 30%; precipitation good if |bias| ≤ 10% and r ≥ 0.8, fair if |bias| ≤ 20%; SMAP good if r ≥ 0.6, fair if r ≥ 0.4.
 
