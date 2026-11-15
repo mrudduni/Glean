@@ -91,3 +91,21 @@ describe("copy before it loads, textures and years", () => {
     expect(yearsLabel(makeT({}, "es"), 2018, 2025)).toBe("2018-2025");
   });
 });
+
+describe("plain-language layer for content templates", () => {
+  const ui = (headline: string) => ({
+    lang: "en" as const, t: (_k: string, f?: string) => f ?? "", crops: {}, sources: { _meta: {}, sources: [] },
+    cardText: { headline: { heat_days_change: { en: headline, es: "" } } },
+  });
+  it("rewrites the form-like template while content still has it", async () => {
+    const { cardLine } = await import("@/lib/ui");
+    const old = "Hot days (35 °C or higher) a year, recent years versus 1991 to 2020, change in days: {days}.";
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    expect(cardLine(ui(old) as any, "headline", "heat_days_change", { days: -3 })).toBe("Recent years have had 3 fewer days at 35 °C or hotter each year than 1991 to 2020.");
+  });
+  it("leaves content alone once its owner changes the text", async () => {
+    const { cardLine } = await import("@/lib/ui");
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    expect(cardLine(ui("Hot days changed by {days}.") as any, "headline", "heat_days_change", { days: -3 })).toBe(`Hot days changed by ${"−"}3.`);
+  });
+});

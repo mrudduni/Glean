@@ -24,7 +24,7 @@ function monthNames(lang: "en" | "es", style: "short" | "long") {
  * stacked in card order, so none can hide off-screen. Each year row names its crops in words;
  * colour repeats it, and flag icons carry the risks.
  */
-export function FieldCalendar({ calendar, order, ui }: { calendar: CalendarFile; order: RotationId[]; ui: UI }) {
+export function FieldCalendar({ calendar, order, ui, bestId }: { calendar: CalendarFile; order: RotationId[]; ui: UI; bestId?: RotationId }) {
   const { t, lang } = ui;
   const short = monthNames(lang, "short");
   const long = monthNames(lang, "long");
@@ -92,7 +92,13 @@ export function FieldCalendar({ calendar, order, ui }: { calendar: CalendarFile;
               <h3 className="cal-block-title">
                 <i className={block.rotation_id === "R0" ? "dashed" : ""} style={{ "--key": `var(--rot-${block.rotation_id})` } as React.CSSProperties} aria-hidden="true" />
                 {loc(ui.cardText.rotations[block.rotation_id]?.name, lang) || block.rotation_id}
+                {block.rotation_id === bestId && <span className="cal-best">{t("summary.best_fit", "Best fit for your priorities")}</span>}
               </h3>
+              {/* Month names again on each rotation, so a long sheet never loses its columns. */}
+              <div className="cal-row cal-head cal-head-repeat" aria-hidden="true">
+                <span />
+                {short.map((month) => <span key={month}>{month}</span>)}
+              </div>
               {block.years.map((year) => (
                 <div className="cal-row cal-year" key={year.year_index}>
                   <span className="cal-year-label">

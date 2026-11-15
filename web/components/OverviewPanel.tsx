@@ -1,12 +1,10 @@
 "use client";
 
-import { useEffect, useState } from "react";
-import { Area, AreaChart, ResponsiveContainer, YAxis } from "recharts";
 import type { CopyFile, Field, GlossaryFile, SummaryFile, WaterFile } from "@/lib/types";
 import { formatVar, interpolate, textureLabel } from "@/lib/i18n";
 import { type UI } from "@/lib/ui";
 import { SourceChips } from "@/components/SourceChips";
-import { useGlean } from "@/lib/state";
+import { Sparkline } from "@/components/Sparkline";
 
 /** SSURGO wind erodibility group → plain words key (1 and 2 blow most easily). */
 function windClass(weg: string | null): "high" | "moderate" | "low" | null {
@@ -14,16 +12,6 @@ function windClass(weg: string | null): "high" | "moderate" | "low" | null {
   const n = parseInt(weg, 10);
   if (Number.isNaN(n)) return null;
   return n <= 2 ? "high" : n <= 4 ? "moderate" : "low";
-}
-
-/** Read one CSS colour token so the small charts follow the light/dark swap. */
-function useToken(name: string, fallback: string) {
-  const { theme } = useGlean();
-  const [value, setValue] = useState(fallback);
-  useEffect(() => {
-    setValue(getComputedStyle(document.documentElement).getPropertyValue(name).trim() || fallback);
-  }, [name, fallback, theme]);
-  return value;
 }
 
 export function OverviewPanel({
@@ -42,7 +30,6 @@ export function OverviewPanel({
   const wind = windClass(soil.weg);
   const windTerm = glossary?.terms.find((term) => term.id === "wind_erosion");
   const nearestWell = water?.wells.slice().sort((a, b) => a.distance_km - b.distance_km)[0];
-  const lineColour = useToken("--color-accent", "#1B5E8C");
   const locale = lang === "es" ? "es-ES" : "en-US";
   const one = (v: number) => `${v < 0 ? "−" : ""}${Math.abs(v).toLocaleString(locale, { maximumFractionDigits: 1, minimumFractionDigits: 1 })}`;
   const signed = (v: number) => `${v > 0 ? "+" : v < 0 ? "−" : ""}${Math.abs(v).toLocaleString(locale, { maximumFractionDigits: 0 })}`;
@@ -104,13 +91,8 @@ export function OverviewPanel({
           {grace.length > 1 && (
             <figure className="spark">
               <figcaption>{t("overview.grace_chart", "GRACE water storage anomaly, cm")}</figcaption>
-              <div className="spark-plot" role="img" aria-label={`${t("overview.grace_chart", "GRACE water storage anomaly, cm")}: ${grace[0].x} ${one(grace[0].v)}, ${grace[grace.length - 1].x} ${one(grace[grace.length - 1].v)}`}>
-                <ResponsiveContainer width="100%" height={56}>
-                  <AreaChart data={grace} margin={{ top: 4, right: 0, bottom: 4, left: 0 }}>
-                    <YAxis hide domain={["dataMin", "dataMax"]} />
-                    <Area type="linear" dataKey="v" stroke={lineColour} fill={lineColour} fillOpacity={0.12} strokeWidth={1.5} isAnimationActive={false} />
-                  </AreaChart>
-                </ResponsiveContainer>
+              <div className="spark-plot">
+                <Sparkline values={grace.map((point) => point.v)} label={`${t("overview.grace_chart", "GRACE water storage anomaly, cm")}: ${grace[0].x} ${one(grace[0].v)}, ${grace[grace.length - 1].x} ${one(grace[grace.length - 1].v)}`} />
               </div>
               <div className="spark-ends"><span>{grace[0].x.slice(0, 4)}: {one(grace[0].v)} cm</span><span>{grace[grace.length - 1].x.slice(0, 4)}: {one(grace[grace.length - 1].v)} cm</span></div>
             </figure>
@@ -119,14 +101,8 @@ export function OverviewPanel({
           {well.length > 1 && nearestWell && (
             <figure className="spark">
               <figcaption>{interpolate(t("overview.well_chart", "Depth to water at the nearest well ({km} km), metres below ground"), { km: one(nearestWell.distance_km) })}</figcaption>
-              <div className="spark-plot" role="img" aria-label={`${well[0].x.slice(0, 4)}: ${one(well[0].v)} m, ${well[well.length - 1].x.slice(0, 4)}: ${one(well[well.length - 1].v)} m`} title={nearestWell.name}>
-                <ResponsiveContainer width="100%" height={56}>
-                  <AreaChart data={well} margin={{ top: 4, right: 0, bottom: 4, left: 0 }}>
-                    {/* Deeper water plots lower, the way a well reads. */}
-                    <YAxis hide reversed domain={[0, "dataMax"]} />
-                    <Area type="linear" dataKey="v" stroke={lineColour} fill={lineColour} fillOpacity={0.12} strokeWidth={1.5} baseValue={0} isAnimationActive={false} />
-                  </AreaChart>
-                </ResponsiveContainer>
+              <div className="spark-plot" title={nearestWell.name}>
+                <Sparkline values={well.map((point) => point.v)} reversed label={`${well[0].x.slice(0, 4)}: ${one(well[0].v)} m, ${well[well.length - 1].x.slice(0, 4)}: ${one(well[well.length - 1].v)} m`} />
               </div>
               <div className="spark-ends"><span>{well[0].x.slice(0, 4)}: {one(well[0].v)} m</span><span>{well[well.length - 1].x.slice(0, 4)}: {one(well[well.length - 1].v)} m</span></div>
             </figure>

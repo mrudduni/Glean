@@ -42,12 +42,31 @@ describe("POST /api/ask", () => {
     expect(json.notice).toBe("scenario_mismatch");
   });
 
-  it("flags scenario_mismatch when the cache was written for other cards", async () => {
+  it("flags scenario_mismatch when the cache was written for other cards and no model answers", async () => {
+    vi.stubEnv("LLM_API_KEY", "");
     // f1's cache was generated with R4, R5, R1, R0 on screen.
     const other = await (await ask({ ...base, question_id: "q1", top_rotations: ["R0", "R5", "R1", "R2"] })).json();
     expect(other.notice).toBe("scenario_mismatch");
+    expect(other.provider).toBe("cache");
     const same = await (await ask({ ...base, question_id: "q1", top_rotations: ["R0", "R4", "R5", "R1"] })).json();
     expect(same.notice).toBeUndefined();
+  });
+
+  it("answers a mismatched suggested question live, with the question's own text", async () => {
+    const fetchSpy = vi.fn().mockResolvedValue(new Response(JSON.stringify({ choices: [{ message: { content: "Corn, soybean, wheat and rye cover fits best [MODEL]." }, finish_reason: "stop" }] }), { status: 200 }));
+    vi.stubGlobal("fetch", fetchSpy);
+    const json = await (await ask({ ...base, question_id: "q1", top_rotations: ["R0", "R5", "R1", "R2"] })).json();
+    expect(json.cached).toBe(false);
+    expect(json.notice).toBeUndefined();
+    const sent = JSON.parse(fetchSpy.mock.calls[0][1].body as string);
+    expect(sent.messages.at(-1).content).toBe("Why is the top strategy ranked first for my field?");
+  });
+
+  it("falls back to the saved answer with its notice when the live answer fails", async () => {
+    vi.stubGlobal("fetch", vi.fn().mockResolvedValue(new Response("nope", { status: 500 })));
+    const json = await (await ask({ ...base, question_id: "q1", top_rotations: ["R0", "R5", "R1", "R2"] })).json();
+    expect(json.provider).toBe("cache");
+    expect(json.notice).toBe("scenario_mismatch");
   });
 
   it("returns 503 when the LLM is not configured", async () => {

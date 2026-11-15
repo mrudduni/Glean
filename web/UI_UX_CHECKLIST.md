@@ -60,6 +60,41 @@ Each item names its audit ID. Ticked items are committed and checked with `npm t
 - [x] Hard-coded colours: 582 hex values in `globals.css` before; 4 deliberate literals after (ink on crop fills, labels over satellite imagery)
 - [x] `npm test` (134), `npm run typecheck`, `npm run build` pass on every commit
 
+
+## Round 2 (branch `role/web-ui-polish-2`)
+
+From the follow-up review. Items owned elsewhere are fixed on screen from `web/` and handed to the owner in `HANDOFF_OTHER_OWNERS.md`.
+
+**P1**
+- [x] **1** Dryland field starts on "No irrigation"; higher limits disabled with a reason
+- [x] **2** Options outside your limits are muted, flagged and sorted last; masthead says the same
+- [x] **3** "Why it was suggested" lists only points that beat the current rotation (rule sent to M)
+- [x] **4** Bars carry a tick at the current rotation; "Avoids heat and frost damage" label (U asked to change the source label)
+- [x] **5** Stale saved answers are answered live when a model is configured, with the saved answer as fallback (cache rebuild sent to M)
+- [x] **6** Cards lay out 4 / 2×2 / swipe by available width
+- [x] **7** Phones: priorities fold to one summary line; swipe dots show position
+
+**P2**
+- [x] **8** Wide screens: "Ask about this field" in the sticky nav, no floating button over content
+- [x] **9** Section nav marks the section in view
+- [x] **10** Priorities rail shows when it has more to scroll; tighter spacing
+- [x] **11** Criteria that score the same for every option are named once, not drawn
+- [x] **12** One water warning per card
+- [x] **13** Map zoom buttons and "Show my field" / "Show all three fields"
+- [x] **14** Replay: worst year marked; flat lines named "no irrigation"; dryland opens on income; phones show the table first
+- [x] **15** Calendar: month row on every rotation; best fit tagged
+- [x] **16** "Use my own key" only with `?byok=1` or a key already on
+- [x] **17** Form-like templates shown in plain language while content keeps the old text (proposals sent to U)
+- [x] **18** Rotation colours pass the palette validator over all pairs, light and dark; dark theme back to design tokens (sent to U for `design/`)
+- [x] **19** Empty NDVI columns hidden with a note; Spanish source descriptions while the data has none (sent to D)
+
+**P3**
+- [x] **20** "Copy link to this view"
+- [x] **21** Chart library loads only with Rotation Replay: field page first load 298 kB → 185 kB
+- [x] **22** Theme: light, dark or match this device (default)
+- [x] **23** "Print summary" with a print stylesheet
+- [x] **24** Score labelled "Fit with your priorities" with an explanation
+
 ## Not changed here (owner decisions or other folders)
 
 - **Mock banner** is switched off on `main` ("suppressed per production requirements"); left as is.

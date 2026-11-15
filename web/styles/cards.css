@@ -1,13 +1,15 @@
 /* Strategy cards (wireframe s4). The nine parts of every card sit on shared rows (subgrid),
    so "Why", "Evidence", "Risks"... line up across the four cards and can be read across. */
-.strategy-results { min-width: 0; display: grid; gap: var(--sp-4); }
+.strategy-results { min-width: 0; display: grid; grid-template-columns: minmax(0, 1fr); gap: var(--sp-4); container-type: inline-size; container-name: cards; }
+/* Columns follow the space the cards actually get: 4 across, 2 x 2 on tablets, a swipe row on phones. */
 .strategy-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  grid-template-columns: repeat(2, minmax(0, 1fr));
   column-gap: var(--sp-3);
   row-gap: 0;
 }
 .strategy-card {
+  position: relative; /* keeps absolutely positioned sr-only text inside the swipe scroller */
   grid-row: span 9;
   display: grid;
   grid-template-rows: subgrid;
@@ -91,10 +93,31 @@
 .hidden-score { color: var(--text-1); font-weight: 600; }
 .strategy-footnote { margin: 0; color: var(--text-3); font-size: var(--fs-cap); }
 
-/* Phones: cards swipe sideways (wireframe s4 note), rows still aligned. */
-@media (max-width: 640px) {
-  .strategy-grid { grid-template-columns: none; grid-auto-flow: column; grid-auto-columns: 84%; overflow-x: auto; scroll-snap-type: x mandatory; padding-bottom: var(--sp-2); }
+@container cards (min-width: 900px) {
+  .strategy-grid[data-count="4"] { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+  .strategy-grid[data-count="3"] { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+}
+/* Phones: cards swipe sideways (wireframe s4 note), rows still aligned, dots show the position. */
+@container cards (max-width: 520px) {
+  .strategy-grid { grid-template-columns: none; grid-auto-flow: column; grid-auto-columns: 86%; overflow-x: auto; scroll-snap-type: x mandatory; padding-bottom: var(--sp-2); }
   .strategy-card { scroll-snap-align: start; }
+  .swipe-dots { display: flex; }
+}
+.swipe-dots { display: none; justify-content: center; gap: 6px; margin: calc(-1 * var(--sp-2)) 0 0; }
+.swipe-dots i { width: 8px; height: 8px; border-radius: 50%; background: var(--rule-strong); transition: background 150ms var(--ease-out); }
+.swipe-dots i.active { background: var(--text-1); }
+@media (max-width: 640px) {
   .hidden-item { grid-template-columns: 1fr auto; }
   .hidden-item > span:nth-child(2) { grid-column: 1 / -1; grid-row: 2; }
 }
+
+/* Options outside the farmer's limits: readable, but clearly not on the table. */
+.unavailable-flag { justify-self: start; margin: 0 0 var(--sp-1); padding: 2px 8px; border: 1px solid var(--rule-strong); border-radius: 3px; color: var(--text-2); font-size: var(--fs-cap); font-weight: 600; }
+.strategy-card.unavailable { background: var(--color-bg); border-style: dashed; }
+.strategy-card.unavailable .score-row strong { color: var(--text-3); }
+.strategy-card.unavailable .score-meter i { background: var(--rule-strong); }
+.strategy-card.unavailable .rotation-key { opacity: 0.6; }
+
+/* Tick on each criterion bar marks the current rotation's value. */
+.criterion-bar i { position: relative; overflow: visible; }
+.criterion-bar em { position: absolute; top: -3px; width: 2px; height: 10px; margin-left: -1px; border-radius: 1px; background: var(--text-1); }

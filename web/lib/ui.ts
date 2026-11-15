@@ -1,6 +1,7 @@
 // Bundle of text helpers passed to workspace components.
 import type { CardText, CropId, CropsFile, Lang, SourcesFile } from "@/lib/types";
 import { fill, loc, type CropNames, type TFunction } from "@/lib/i18n";
+import { preferred } from "@/lib/copyPreferred";
 
 export interface UI {
   lang: Lang;
@@ -8,6 +9,8 @@ export interface UI {
   cardText: CardText;
   crops: CropNames;
   sources: SourcesFile;
+  /** copy.json strings, for templates rendered inside components (copyLine). */
+  copy?: Record<string, { en: string; es: string }>;
 }
 
 export function cropNames(crops: CropsFile | null): CropNames {
@@ -28,7 +31,19 @@ export function cardLine(ui: UI, section: Exclude<keyof CardText, "_meta" | "rot
     console.warn(`Missing card_text.${section}.${id}`);
     return id;
   }
+  const better = preferred(`card_text.${section}.${id}`, template.en, ui.lang, vars);
+  if (better && "text" in better) return better.text;
+  if (better) return fill({ en: better.template, es: better.template }, vars, ui.lang, ui.crops);
   return fill(template, vars, ui.lang, ui.crops);
+}
+
+/** A copy.json template (with {vars}) through the same plain-language layer as cardLine. */
+export function copyLine(copy: Record<string, { en: string; es: string }>, key: string, vars: Record<string, number | string>, lang: Lang, fallback: string): string {
+  const template = copy[key] ?? { en: fallback, es: fallback };
+  const better = preferred(`copy.${key}`, template.en, lang, vars);
+  if (better && "text" in better) return better.text;
+  if (better) return fill({ en: better.template, es: better.template }, vars, lang);
+  return fill(template, vars, lang);
 }
 
 export const KIND_LABEL: Record<string, string> = {

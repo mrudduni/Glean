@@ -10,12 +10,13 @@ import f3Context from "@/public/data/field/f3/assistant_context.json";
 import f1Cache from "@/public/data/field/f1/assistant_cache.json";
 import f2Cache from "@/public/data/field/f2/assistant_cache.json";
 import f3Cache from "@/public/data/field/f3/assistant_cache.json";
+import questionsJson from "@/public/data/content/assistant_questions.json";
 import { checkNumbers } from "@/lib/numberCheck";
 import {
   askRequestSchema, assistantCacheSchema, assistantContextSchema, cardTextSchema, copySchema, promptSchema, sourcesSchema,
 } from "@/lib/schemas";
 import type {
-  AskError, AskRequest, AskResponse, AssistantCache, AssistantContext, CardText, CopyFile, FieldId, PromptFile,
+  AskError, AskRequest, AskResponse, AssistantCache, AssistantContext, CardText, CopyFile, FieldId, Lang, PromptFile,
   ScenarioKey, SourcesFile,
 } from "@/lib/types";
 import type { ZodType, ZodTypeDef } from "zod";
@@ -128,7 +129,10 @@ export async function POST(request: NextRequest) {
   }
   const input = parsed.data;
 
-  // 1. Suggested question → cached answer, never the LLM.
+  // 1. Suggested question → cached answer. If the saved answer was written for other cards or another
+  // scenario, the server's model answers the same question live; the saved answer is the fallback.
+  let question: string;
+  let fallback: AskResponse | null = null;
   if (input.question_id) {
     const cache = caches[input.field_id];
     const cached = cache.answers?.[input.question_id]?.[input.lang];
@@ -136,15 +140,21 @@ export async function POST(request: NextRequest) {
     // The saved answer only fits if the farmer sees the same scenario and the same cards it was written for.
     const otherCards = Boolean(input.top_rotations?.length && cache.top_rotations?.length)
       && !sameIds(input.top_rotations ?? [], cache.top_rotations ?? []);
+    const mismatch = input.scenario !== DEFAULT_SCENARIO || otherCards;
     const response: AskResponse = {
       ...cached,
       cached: true,
       provider: "cache",
-      ...(input.scenario !== DEFAULT_SCENARIO || otherCards ? { notice: "scenario_mismatch" as const } : {}),
+      ...(mismatch ? { notice: "scenario_mismatch" as const } : {}),
     };
-    return NextResponse.json(response);
+    const text = questionText(input.question_id, input.lang);
+    const server = chooseProviders(new Headers());
+    if (!mismatch || !text || "error" in server || !server.providers.length) return NextResponse.json(response);
+    question = text;
+    fallback = response;
+  } else {
+    question = input.question as string;
   }
-  const question = input.question as string;
 
   // 2-3. Facts for this scenario, prompt template filled.
   const context = contexts[input.field_id];
@@ -163,7 +173,8 @@ export async function POST(request: NextRequest) {
   });
 
   // 4. Who answers: the user's own key (headers) if given, else the server provider, then the server fallback.
-  const chosen = chooseProviders(request.headers);
+  // Suggested questions never use a visitor's own key.
+  const chosen = chooseProviders(fallback ? new Headers() : request.headers);
   if ("error" in chosen) return fail(400, "bad_request", chosen.error);
   const { providers, userKey } = chosen;
   if (!providers.length) return fail(503, "llm_unavailable", "The assistant is not configured. Use a suggested question.");
@@ -188,7 +199,9 @@ export async function POST(request: NextRequest) {
     if (last.kind === "error" && last.status >= 400 && last.status < 500) break;
   }
 
-  // 6. Nothing answered. A user's own key never falls back to the server key.
+  // 6. Nothing answered. A suggested question falls back to its saved answer (with the notice);
+  // a user's own key never falls back to the server key.
+  if (fallback) return NextResponse.json(fallback);
   if (userKey) {
     const why = last.kind === "limited" ? "is rate-limited (429)"
       : last.kind === "error" && (last.status === 401 || last.status === 403) ? `rejected the key (${last.status}). Check the key and model`
@@ -199,6 +212,12 @@ export async function POST(request: NextRequest) {
   console.warn(`[ask] no provider answered (${last.kind}); sending the busy answer`);
   const busy: AskResponse = { answer_md: busyText(input.lang), citations: [], numbers: [], cached: true, provider: "cache", model: "none" };
   return NextResponse.json(busy);
+}
+
+/** Text of a suggested question in the asked language (English if the Spanish is empty). */
+function questionText(id: string, lang: Lang): string | null {
+  const found = (questionsJson as { questions: { id: string; text: Record<Lang, string> }[] }).questions.find((item) => item.id === id);
+  return found ? (found.text[lang] || found.text.en) : null;
 }
 
 // ---------- providers ----------

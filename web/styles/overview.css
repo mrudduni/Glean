@@ -35,3 +35,8 @@
   .overview-grid { grid-template-columns: minmax(0, 1fr); }
   .overview-item + .overview-item { border-left: 0; border-top: 1px solid var(--rule); }
 }
+.spark-plot { color: var(--color-accent); }
+.sparkline { display: block; }
+.climate-table thead th, .climate-table td { white-space: nowrap; }
+.climate-table th[scope="row"] { white-space: normal; }
+.climate-table thead th + th, .climate-table td { padding-left: var(--sp-3); }

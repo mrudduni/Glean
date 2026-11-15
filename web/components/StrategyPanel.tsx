@@ -1,26 +1,33 @@
 "use client";
 
-import { useState } from "react";
+import { useRef, useState } from "react";
 import { AlertTriangle, ChevronDown, ChevronUp, Droplets, Info } from "lucide-react";
 import type { CapId, CopyFile, CriterionId, EquipmentId, Rotation, RotationId, StrategyEntry, SummaryFile } from "@/lib/types";
 import { fill, formatVar, interpolate, loc } from "@/lib/i18n";
 import { useGlean } from "@/lib/state";
 import { CRITERION_IDS } from "@/lib/schemas";
 import { benefitsShown, scoreEntry, whyBullets, type Constraints, type ExclusionReason, type Picked, type Weights } from "@/lib/score";
-import { cardLine, cropLabel, type UI } from "@/lib/ui";
+import { cardLine, copyLine, cropLabel, type UI } from "@/lib/ui";
 import { SourceChips } from "@/components/SourceChips";
 import { TrustBadge } from "@/components/TrustBadge";
 import { CropChips } from "@/components/CropChips";
 import { AnimatedNumber } from "@/components/AnimatedNumber";
 import { rotColor } from "@/lib/theme";
 
+/** Criterion label from card_text; "Heat and frost risk" reads backwards on a better-is-longer bar, so it uses the wireframe's wording. */
+export function criterionLabel(ui: UI, k: CriterionId): string {
+  if (k === "heat_frost_risk") return ui.t("criteria.heat_frost_display", "Avoids heat and frost damage");
+  return loc(ui.cardText.criteria_labels[k], ui.lang) || k;
+}
+
 export function rotationSteps(id: RotationId, rotations: Rotation[], summary: SummaryFile) {
   return id === "R0" ? summary.current_rotation.steps : rotations.find((rotation) => rotation.id === id)?.steps ?? [];
 }
 
 export function StrategyPanel({
-  picked, weights, rotations, summary, irrigation, shownAt = {}, copy, ui,
+  picked, weights, rotations, summary, irrigation, shownAt = {}, copy, ui, irrigated = true,
 }: {
+  irrigated?: boolean;
   picked: Picked;
   weights: Weights;
   rotations: Rotation[];
@@ -32,22 +39,43 @@ export function StrategyPanel({
 }) {
   const { t, lang } = ui;
   const [showHidden, setShowHidden] = useState(false);
+  const [active, setActive] = useState(0);
+  const gridRef = useRef<HTMLDivElement>(null);
+  const onSwipe = () => {
+    const grid = gridRef.current;
+    const card = grid?.querySelector<HTMLElement>(".strategy-card");
+    if (grid && card) setActive(Math.round(grid.scrollLeft / (card.offsetWidth + 12)));
+  };
   const name = (id: RotationId) => loc(ui.cardText.rotations[id]?.name, lang) || id;
   const hiddenCount = picked.hidden.length + picked.others.length;
   // Caveats every shown card carries are said once, below the cards, instead of four times.
   const common = (lists: string[][]) => (lists.length > 1 ? lists.reduce((a, b) => a.filter((item) => b.includes(item))) : []);
   const sharedGaps = common(picked.shown.map((entry) => entry.gap_ids));
   const sharedRisks = common(picked.shown.map((entry) => entry.risk_ids));
+  // Options outside the farmer's limits go after the ones that fit, so the eye lands on what is possible.
+  const ordered = [...picked.shown].sort((a, b) => Number(Boolean(picked.filled[a.rotation_id])) - Number(Boolean(picked.filled[b.rotation_id])));
+  const currentEntry = picked.shown.find((entry) => entry.rotation_id === "R0");
+  // A criterion that scores the same for every option tells nothing apart: say it once instead of drawing it four times.
+  const uniform = CRITERION_IDS.filter((k) => new Set(picked.shown.map((entry) => Math.round(entry.criteria[k].norm))).size === 1 && picked.shown.length > 1);
+  const label = (k: CriterionId) => criterionLabel(ui, k);
 
   return (
     <div className="strategy-results">
-      {picked.shown.length - 1 === Object.keys(picked.filled).length && <div className="empty-state"><Info size={17} aria-hidden="true" />{t("strategies.none_fit", "No other rotation fits these limits. Try a higher water cap or tick the equipment you have.")}</div>}
-      <p className="criteria-hint">{t("card.bars_hint", "Bars compare the options shown: 100 is the best of them on that point.")}</p>
-      <div className="strategy-grid">
-        {picked.shown.map((entry) => (
-          <StrategyCard key={entry.rotation_id} entry={entry} reason={picked.filled[entry.rotation_id]} rotations={rotations} weights={weights} steps={rotationSteps(entry.rotation_id, rotations, summary)} irrigation={irrigation[entry.rotation_id]} shownAt={shownAt[entry.rotation_id]} sharedGaps={sharedGaps} sharedRisks={sharedRisks} ui={ui} />
+      {picked.shown.length - 1 === Object.keys(picked.filled).length && <div className="empty-state"><Info size={17} aria-hidden="true" />{irrigated
+        ? t("strategies.none_fit", "No other rotation fits these limits. Try a higher water cap or tick the equipment you have.")
+        : t("strategies.none_fit_dryland", "No other dryland rotation fits these limits. Tick the equipment or buyers you have to see more.")}</div>}
+      <p className="criteria-hint">
+        {t("card.bars_hint_tick", "Longer bars are better for you; 100 is the best of the options shown. The tick marks your current rotation.")}
+        {uniform.length > 0 && <> {interpolate(t("card.uniform", "Same for every option, so not drawn: {list}."), { list: uniform.map((k) => `${label(k)} (${Math.round(picked.shown[0].criteria[k].norm)})`).join(", ") })}</>}
+      </p>
+      <div className="strategy-grid" data-count={ordered.length} ref={gridRef} onScroll={onSwipe}>
+        {ordered.map((entry) => (
+          <StrategyCard key={entry.rotation_id} entry={entry} currentEntry={currentEntry} hiddenCriteria={uniform} reason={picked.filled[entry.rotation_id]} rotations={rotations} weights={weights} steps={rotationSteps(entry.rotation_id, rotations, summary)} irrigation={irrigation[entry.rotation_id]} shownAt={shownAt[entry.rotation_id]} sharedGaps={sharedGaps} sharedRisks={sharedRisks} ui={ui} />
         ))}
       </div>
+      {ordered.length > 1 && (
+        <p className="swipe-dots" aria-hidden="true">{ordered.map((entry, index) => <i key={entry.rotation_id} className={index === active ? "active" : ""} />)}</p>
+      )}
       {(sharedGaps.length > 0 || sharedRisks.length > 0) && (
         <section className="shared-caveats" id="shared-caveats" aria-labelledby="shared-caveats-heading">
           <h3 id="shared-caveats-heading">{t("card.shared_title", "Applies to every option above")}</h3>
@@ -70,7 +98,7 @@ export function StrategyPanel({
       {hiddenCount > 0 && (
         <div className="hidden-strategies">
           <button type="button" className="hidden-toggle" aria-expanded={showHidden} aria-controls="hidden-strategy-list" onClick={() => setShowHidden((value) => !value)}>
-            <span>{showHidden ? <ChevronUp size={16} aria-hidden="true" /> : <ChevronDown size={16} aria-hidden="true" />}{fill(copy["card.hidden_count"], { n: hiddenCount }, lang)}</span>
+            <span>{showHidden ? <ChevronUp size={16} aria-hidden="true" /> : <ChevronDown size={16} aria-hidden="true" />}{copyLine(copy, "card.hidden_count", { n: hiddenCount }, lang, "{n} more {n|option is|options are} hidden by your limits")}</span>
             <span className="hidden-count">{hiddenCount}</span>
           </button>
           {showHidden && (
@@ -115,8 +143,10 @@ function unlockHint(entry: StrategyEntry, reason: ExclusionReason, rotations: Ro
 }
 
 function StrategyCard({
-  entry, reason, weights, steps, rotations, irrigation, shownAt, sharedGaps, sharedRisks, ui,
+  entry, currentEntry, hiddenCriteria, reason, weights, steps, rotations, irrigation, shownAt, sharedGaps, sharedRisks, ui,
 }: {
+  currentEntry?: StrategyEntry;
+  hiddenCriteria: CriterionId[];
   entry: StrategyEntry;
   shownAt?: CapId | "none";
   reason?: ExclusionReason;
@@ -139,36 +169,47 @@ function StrategyCard({
   const current = id === "R0";
   // R0 is the baseline: its why and benefit lines would compare it with itself.
   // A rotation that cannot get the water it needs here has no fair why or benefit lines either.
-  const unfair = current || shownAt === "none";
+  const unavailable = Boolean(reason);
+  const unfair = current || shownAt === "none" || unavailable;
   const es = lang === "es";   // Spanish fallbacks until these keys reach copy.json
-  const why = unfair ? [] : whyBullets(entry, weights);
+  // A reason to switch must be something this option does better than the current rotation.
+  const why = unfair ? [] : whyBullets(entry, weights).filter((k) => !currentEntry || entry.criteria[k].norm > currentEntry.criteria[k].norm);
   const benefits = unfair ? [] : benefitsShown(entry);
   const { cap, hay, cotton, forage } = useGlean();
   const unlock = reason ? unlockHint(entry, reason, rotations, t, { cap, hay, cotton, forage }) : null;
   const text = ui.cardText.rotations[id];
-  const label = (k: CriterionId) => loc(ui.cardText.criteria_labels[k], lang) || k;
+  const label = (k: CriterionId) => criterionLabel(ui, k);
+  // "Needs more water" and "this field has no irrigation" say one thing; show it once.
+  const noWaterHere = reason === "needs_more_water" && shownAt === "none";
   return (
-    <article className={`strategy-card ${current ? "current-strategy" : ""}`} style={{ "--rotation-color": rotColor(id) } as React.CSSProperties} aria-labelledby={`card-${id}`}>
+    <article className={`strategy-card ${current ? "current-strategy" : ""} ${unavailable ? "unavailable" : ""}`} style={{ "--rotation-color": rotColor(id) } as React.CSSProperties} aria-labelledby={`card-${id}`}>
       <div className="strategy-card-head">
         <div className="strategy-heading">
           <h3 id={`card-${id}`}><span className="rotation-key" aria-hidden="true" />{loc(text?.name, lang) || id}</h3>
-          {reason && (
+          {unavailable && <p className="unavailable-flag">{t("card.unavailable", "Not available with your current limits")}</p>}
+          {reason && !noWaterHere && (
             <p className="infeasible-badge">
               <AlertTriangle size={13} aria-hidden="true" />
               <span>{cardLine(ui, "infeasible", reason)}{unlock && <b> {unlock}</b>}</span>
             </p>
           )}
-          {shownAt && <p className="shown-at">{shownAt === "none"
+          {noWaterHere && (
+            <p className="infeasible-badge">
+              <AlertTriangle size={13} aria-hidden="true" />
+              <span>{t("card.needs_water_none", "Needs irrigation, and this field has none. Its numbers assume no water.")}</span>
+            </p>
+          )}
+          {shownAt && !noWaterHere && <p className="shown-at">{shownAt === "none"
             ? t("card.no_water_here", es ? "Este campo no tiene riego. Estas cifras suponen cero agua, así que subestiman esta rotación." : "This field is not irrigated. These numbers assume no water, so they understate this rotation.")
-            : interpolate(t("card.shown_at", es ? "Cifras mostradas con: {cap}." : "Numbers shown with: {cap}."), { cap: t(`constraints.cap.${shownAt}`) })}</p>}
+            : copyLine(ui.copy ?? {}, "card.shown_at", { cap: t(`constraints.cap.${shownAt}`) }, lang, es ? "Cifras mostradas con {cap}." : "Numbers shown at {cap}.")}</p>}
           <p className="strategy-tagline">{loc(text?.tagline, lang)}</p>
         </div>
       </div>
       <div className="strategy-crops"><CropChips steps={steps} ui={ui} /></div>
       <div className="strategy-score">
       <div className="score-row">
-        <div><small>{t("card.score")}</small><strong><AnimatedNumber value={score} /><span>/100</span></strong></div>
-        <div className="score-meter" role="meter" aria-valuenow={score} aria-valuemin={0} aria-valuemax={100} aria-label={t("card.score")}>
+        <div><small title={t("card.fit_help", "How well this option matches the priorities you set, compared with the other options here. It changes when you move a slider.")}>{t("card.fit_label", "Fit with your priorities")}</small><strong><AnimatedNumber value={score} /><span>/100</span></strong></div>
+        <div className="score-meter" role="meter" aria-valuenow={score} aria-valuemin={0} aria-valuemax={100} aria-label={t("card.fit_label", "Fit with your priorities")}>
           <i style={{ width: `${score}%` }} />
         </div>
       </div>
@@ -179,19 +220,30 @@ function StrategyCard({
       </div>
       </div>
       <div className="criteria-bars">
-        {CRITERION_IDS.map((k) => (
-          <div className="criterion-bar" key={k}>
-            <span>{label(k)}</span>
-            <i aria-hidden="true"><b style={{ width: `${entry.criteria[k].norm}%` }} /></i>
-            <strong>{Math.round(entry.criteria[k].norm)}</strong>
-          </div>
-        ))}
+        {CRITERION_IDS.filter((k) => !hiddenCriteria.includes(k)).map((k) => {
+          const mine = entry.criteria[k].norm;
+          const base = currentEntry?.criteria[k].norm;
+          const delta = current || base === undefined ? 0 : Math.round(mine) - Math.round(base);
+          return (
+            <div className={`criterion-bar ${delta > 0 ? "better" : delta < 0 ? "worse" : ""}`} key={k}>
+              <span>{label(k)}</span>
+              <i aria-hidden="true">
+                <b style={{ width: `${mine}%` }} />
+                {!current && base !== undefined && <em style={{ left: `${base}%` }} />}
+              </i>
+              <strong>
+                {Math.round(mine)}
+                {delta !== 0 && <small className="sr-only">{delta > 0 ? t("card.better_than_current", "better than your current rotation") : t("card.worse_than_current", "worse than your current rotation")}</small>}
+              </strong>
+            </div>
+          );
+        })}
       </div>
 
       <CardSection title={t("card.why")}>
         {why.length
           ? <ul>{why.map((k) => <li key={k}><b>{label(k)}.</b> {cardLine(ui, "why", k, entry.criteria[k].vars)}</li>)}</ul>
-          : <p className="section-empty">{current ? t("card.current_why", "This is your baseline. The other cards are compared against it.") : shownAt === "none" ? t("card.no_water_why", es ? "No se sugiere aquí: necesita riego que este campo no tiene." : "Not suggested here: it needs irrigation this field does not have.") : t("card.no_why", "No criterion stands out at these priorities.")}</p>}
+          : <p className="section-empty">{current ? t("card.current_why", "This is your baseline. The other cards are compared against it.") : unavailable && !noWaterHere ? `${t("card.unavailable", "Not available with your current limits")}.${unlock ? ` ${unlock}` : ""}` : shownAt === "none" ? t("card.no_water_why", es ? "No se sugiere aquí: necesita riego que este campo no tiene." : "Not suggested here: it needs irrigation this field does not have.") : t("card.no_why", "No criterion stands out at these priorities.")}</p>}
       </CardSection>
       <section className="strategy-subsection">
         {entry.evidence.length ? (

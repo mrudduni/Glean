@@ -60,7 +60,13 @@ export function AssistantDrawer({
   const [waiting, setWaiting] = useState(false);
   const [error, setError] = useState<string | boolean>(false);
   const [own, setOwn] = useState<OwnKey>(NO_KEY);
-  useEffect(() => { setOwn(readOwnKey()); }, []);
+  // Bring-your-own-key is a developer tool: hidden from farmers unless the URL has ?byok=1 or a key is already on.
+  const [showOwnKey, setShowOwnKey] = useState(false);
+  useEffect(() => {
+    const saved = readOwnKey();
+    setOwn(saved);
+    setShowOwnKey(new URLSearchParams(window.location.search).get("byok") === "1" || saved.on);
+  }, []);
   const updateOwn = (patch: Partial<OwnKey>) => setOwn((current) => {
     const next = { ...current, ...patch };
     try { sessionStorage.setItem(OWN_KEY_STORE, JSON.stringify(next)); } catch { /* private mode: keep it in memory only */ }
@@ -69,6 +75,13 @@ export function AssistantDrawer({
   const panelRef = useRef<HTMLElement>(null);
   const inputRef = useRef<HTMLTextAreaElement>(null);
   const fabRef = useRef<HTMLButtonElement>(null);
+  // Focus goes back to whichever button opened the drawer (floating button or the one in the section nav).
+  const openerRef = useRef<HTMLElement | null>(null);
+  useEffect(() => {
+    const openFromNav = () => { openerRef.current = document.activeElement as HTMLElement | null; setOpen(true); };
+    window.addEventListener("glean:open-assistant", openFromNav);
+    return () => window.removeEventListener("glean:open-assistant", openFromNav);
+  }, []);
   const chatEnd = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -101,7 +114,8 @@ export function AssistantDrawer({
     document.addEventListener("keydown", onKey);
     return () => {
       document.removeEventListener("keydown", onKey);
-      fab?.focus();
+      (openerRef.current ?? fab)?.focus();
+      openerRef.current = null;
     };
   }, [open]);
 
@@ -188,7 +202,7 @@ export function AssistantDrawer({
                 </div>
               )}
             </div>
-            <details className="own-key">
+            {showOwnKey && <details className="own-key">
               <summary><KeyRound size={14} aria-hidden="true" />{t("assistant.own_key", "Use my own key")}{own.on && ownKeyHeaders(own) ? <b> · {t("assistant.own_key_on", "on")}</b> : null}</summary>
               <div className="own-key-body">
                 <label className="own-key-toggle">
@@ -215,7 +229,7 @@ export function AssistantDrawer({
                 </label>
                 <p>{t("assistant.own_key_note", "Your key stays in this browser tab and is sent only with your questions. Suggested questions never use it.")}</p>
               </div>
-            </details>
+            </details>}
             <form className="assistant-form" onSubmit={(event) => { event.preventDefault(); void send(draft); }}>
               <label className="sr-only" htmlFor="assistant-question">{t("assistant.placeholder")}</label>
               <textarea

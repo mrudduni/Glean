@@ -8,6 +8,7 @@ import { SourceChips } from "@/components/SourceChips";
 import { useGlean } from "@/lib/state";
 import { getContent, getCrops, getFields, getSources, getValidation } from "@/lib/data";
 import { formatVar, loc, makeT } from "@/lib/i18n";
+import { sourceText } from "@/lib/sourcesEs";
 import { cardLine, cropNames, type UI } from "@/lib/ui";
 import type { Content, CopyFile, Field, FieldId, SourcesFile, ValidationFile } from "@/lib/types";
 
@@ -101,8 +102,8 @@ export default function HowWeKnowPage() {
                   <tr key={source.tag}>
                     <td><code>{source.tag}</code></td>
                     <td><a href={source.url} target="_blank" rel="noreferrer">{source.name}<ArrowUpRight size={14} aria-hidden="true" /></a><small>{source.provider}</small></td>
-                    <td>{source.used_for}<small>{source.what}</small></td>
-                    <td>{source.resolution}<small>{source.period}</small></td>
+                    <td>{sourceText(source.used_for, lang)}<small>{sourceText(source.what, lang)}</small></td>
+                    <td>{sourceText(source.resolution, lang)}<small>{sourceText(source.period, lang)}</small></td>
                   </tr>
                 ))}
               </tbody>

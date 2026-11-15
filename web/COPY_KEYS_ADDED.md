@@ -16,7 +16,7 @@ Generated from a grep of `t("…")` calls in `app/`, `components/` and `lib/`.
 | `error.check_connection` | app/page.tsx | Check your connection and try again. |
 | `priorities.rail_hint` | components/PrioritiesPanel.tsx | Move a slider and the cards re-rank instantly. |
 | `summary.best_fit` | components/FieldWorkspace.tsx | Best fit for your priorities |
-| `summary.vs_current` | components/FieldWorkspace.tsx | Match score {score}, against {current} for your current rotation. |
+| `summary.vs_current` | components/FieldWorkspace.tsx | Fit with your priorities: {score}, against {current} for your current rotation. |
 | `summary.see_options` | components/FieldWorkspace.tsx | Compare all options |
 | `card.shared_title` | components/StrategyPanel.tsx | Applies to every option above |
 | `card.shared_more` | components/StrategyPanel.tsx | Plus {n} that apply to every option, listed below the cards. |
@@ -44,6 +44,29 @@ Generated from a grep of `t("…")` calls in `app/`, `components/` and `lib/`.
 | `error.field_title` | components/FieldWorkspace.tsx | This field could not be loaded |
 | `error.detail` | components/FieldWorkspace.tsx | Technical detail |
 | `state.loading_field` | components/FieldWorkspace.tsx | Loading this field (screen readers) |
+| `constraints.no_irrigation_note` | components/PrioritiesPanel.tsx | This field has no irrigation, so only dryland options apply. |
+| `card.bars_hint_tick` | components/StrategyPanel.tsx | Longer bars are better for you; 100 is the best of the options shown. The tick marks your current rotation. |
+| `card.uniform` | components/StrategyPanel.tsx | Same for every option, so not drawn: {list}. |
+| `card.unavailable` | components/StrategyPanel.tsx | Not available with your current limits |
+| `card.needs_water_none` | components/StrategyPanel.tsx | Needs irrigation, and this field has none. Its numbers assume no water. |
+| `card.fit_label` | components/StrategyPanel.tsx | Fit with your priorities (wireframe wording; replaces card.score on screen) |
+| `card.fit_help` | components/StrategyPanel.tsx | How well this option matches the priorities you set, compared with the other options here. It changes when you move a slider. |
+| `card.better_than_current` / `card.worse_than_current` | components/StrategyPanel.tsx | better / worse than your current rotation (screen readers) |
+| `criteria.heat_frost_display` | components/StrategyPanel.tsx | Avoids heat and frost damage (wireframe wording) |
+| `summary.none_fit_title` | components/FieldWorkspace.tsx | Nothing fits your limits yet |
+| `summary.unavailable` | components/FieldWorkspace.tsx | {n} {n\|option is\|options are} shown below, each needing a change to your limits. |
+| `strategies.none_fit_dryland` | components/StrategyPanel.tsx | No other dryland rotation fits these limits. Tick the equipment or buyers you have to see more. |
+| `theme.system` | components/SiteHeader.tsx | Match this device |
+| `priorities.summary_balanced` | components/PrioritiesPanel.tsx | Balanced priorities |
+| `priorities.summary_most` | components/PrioritiesPanel.tsx | Most: |
+| `priorities.edit` | components/PrioritiesPanel.tsx | Edit |
+| `share.copy` / `share.copied` / `share.copy_manual` | components/FieldWorkspace.tsx | Copy link to this view / Link copied / Copy this link |
+| `share.print` | components/FieldWorkspace.tsx | Print summary |
+| `priorities.print_label` | components/PrioritiesPanel.tsx | Your settings (print summary) |
+| `map.fit_field` / `map.fit_all` | components/FieldMapCanvas.tsx | Show my field / Show all three fields |
+| `replay.no_irrigation` | components/ReplayChart.tsx | no irrigation |
+| `replay.worst_year_key` | components/ReplayChart.tsx | Worst year for each option |
+| `replay.no_irrigation_note` | components/ReplayChart.tsx | This field has no irrigation, so every option uses 0 mm. Income, stress days and bare ground still differ. |
 | `assistant.own_key` | components/AssistantDrawer.tsx | Use my own key |
 | `assistant.own_key_on` | components/AssistantDrawer.tsx | on |
 | `assistant.own_key_toggle` | components/AssistantDrawer.tsx | Answer free-text questions with my key |

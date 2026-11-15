@@ -1,15 +1,15 @@
 "use client";
 
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
-import { ArrowDown, ArrowLeft, CircleHelp, MapPin, RotateCcw } from "lucide-react";
+import { ArrowDown, ArrowLeft, Check, CircleHelp, Link2, MapPin, MessageCircle, Printer, RotateCcw } from "lucide-react";
 import { OverviewPanel } from "@/components/OverviewPanel";
 import { PrioritiesPanel } from "@/components/PrioritiesPanel";
 import { FieldCalendar } from "@/components/FieldCalendar";
 import { rotationSteps, StrategyPanel } from "@/components/StrategyPanel";
 import { SourceChips } from "@/components/SourceChips";
-import { ReplayChart } from "@/components/ReplayChart";
+import dynamic from "next/dynamic";
 import { NeighborsView } from "@/components/NeighborsView";
 import { AssistantDrawer } from "@/components/AssistantDrawer";
 import { CropChips } from "@/components/CropChips";
@@ -20,6 +20,12 @@ import { formatVar, interpolate, loc, makeT, textureLabel, yearsLabel } from "@/
 import { cardLine, cropNames, KIND_LABEL, type UI } from "@/lib/ui";
 import { FIELD_IDS } from "@/lib/schemas";
 import type { CapId, Content, CropsFile, Field, FieldBundle, FieldId, RotationId, RotationsFile, ScenarioKey, SourcesFile } from "@/lib/types";
+
+// The chart library is only needed for Rotation Replay, further down the page: load it on its own.
+const ReplayChart = dynamic(() => import("@/components/ReplayChart").then((module) => module.ReplayChart), {
+  ssr: false,
+  loading: () => <div className="workspace-section"><div className="skeleton-block" style={{ height: 480 }} /></div>,
+});
 
 interface Loaded {
   field: Field;
@@ -66,10 +72,47 @@ export function FieldWorkspace({ fieldId }: { fieldId: FieldId }) {
     return () => { active = false; };
   }, [fieldId]);
 
+  // A field without irrigation can only run dryland options: start there, and give the 300 mm default back
+  // when the farmer moves on to an irrigated field.
+  const forcedDryland = useRef(false);
+  const irrigated = data?.field.irrigated;
+  useEffect(() => {
+    if (irrigated === undefined) return;
+    if (!irrigated && state.cap !== "dryland") { forcedDryland.current = true; state.setCap("dryland"); }
+    if (irrigated && forcedDryland.current) { forcedDryland.current = false; if (state.cap === "dryland") state.setCap("cap300"); }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [irrigated, fieldId]);
+
+  // Section nav shows where the reader is.
+  const [activeSection, setActiveSection] = useState<string>("overview");
+  const loaded = Boolean(data);
+  useEffect(() => {
+    if (!loaded) return;
+    const nodes = sections.map(([id]) => document.getElementById(id)).filter((node): node is HTMLElement => Boolean(node));
+    const observer = new IntersectionObserver((entries) => {
+      const visible = entries.filter((entry) => entry.isIntersecting).sort((a, b) => a.boundingClientRect.top - b.boundingClientRect.top)[0];
+      if (visible) setActiveSection(visible.target.id);
+    }, { rootMargin: "-30% 0px -60% 0px" });
+    nodes.forEach((node) => observer.observe(node));
+    return () => observer.disconnect();
+  }, [loaded]);
+
+  // Share the exact view (field, priorities, limits and language are in the URL).
+  const [copied, setCopied] = useState(false);
+  const copyLink = async () => {
+    try {
+      await navigator.clipboard.writeText(window.location.href);
+      setCopied(true);
+      window.setTimeout(() => setCopied(false), 2500);
+    } catch {
+      window.prompt?.(t("share.copy_manual", "Copy this link"), window.location.href);
+    }
+  };
+
   const copy = data?.content.copy.strings ?? NO_STRINGS;
   const t = useMemo(() => makeT(copy, lang), [copy, lang]);
   const ui: UI | null = useMemo(() => (data ? {
-    lang, t, cardText: data.content.cardText, crops: cropNames(data.crops), sources: data.sources,
+    lang, t, cardText: data.content.cardText, crops: cropNames(data.crops), sources: data.sources, copy: data.content.copy.strings,
   } : null), [data, lang, t]);
 
   const weights = useMemo(() => weightsFromSliders(state.sliders), [state.sliders]);
@@ -104,6 +147,7 @@ export function FieldWorkspace({ fieldId }: { fieldId: FieldId }) {
   const order = useMemo(() => picked.shown.map((entry) => entry.rotation_id), [picked]);
   const currentEntry = picked.shown.find((entry) => entry.rotation_id === "R0");
   const best = picked.shown.find((entry) => entry.rotation_id !== "R0" && !picked.filled[entry.rotation_id]);
+  const unavailableCount = Object.keys(picked.filled).length;
 
   if (error) {
     return (
@@ -137,6 +181,16 @@ export function FieldWorkspace({ fieldId }: { fieldId: FieldId }) {
     <div className="workspace-page">
       <div className="workspace-toolbar page-wrap">
         <Link href="/" className="back-link"><ArrowLeft size={16} aria-hidden="true" />{t("nav.all_fields", "All fields")}</Link>
+        <div className="toolbar-actions">
+          <button type="button" className="text-button" onClick={() => void copyLink()}>
+            {copied ? <Check size={16} aria-hidden="true" /> : <Link2 size={16} aria-hidden="true" />}
+            {copied ? t("share.copied", "Link copied") : t("share.copy", "Copy link to this view")}
+          </button>
+          <span className="sr-only" aria-live="polite">{copied ? t("share.copied", "Link copied") : ""}</span>
+          <button type="button" className="text-button" onClick={() => window.print()}>
+            <Printer size={16} aria-hidden="true" />{t("share.print", "Print summary")}
+          </button>
+        </div>
         <div className="field-switcher">
           <label htmlFor="field-switch"><MapPin size={15} aria-hidden="true" /><span>{t("nav.field", "Field")}</span></label>
           <select
@@ -171,10 +225,17 @@ export function FieldWorkspace({ fieldId }: { fieldId: FieldId }) {
                 <strong>{loc(data.content.cardText.rotations[best.rotation_id]?.name, lang) || best.rotation_id}</strong>
                 <CropChips steps={rotationSteps(best.rotation_id, data.rotations.rotations, bundle.summary)} ui={ui} />
                 <span className="brief-score">
-                  {interpolate(t("summary.vs_current", "Match score {score}, against {current} for your current rotation."), { score: scoreEntry(best, weights), current: currentEntry ? scoreEntry(currentEntry, weights) : "—" })}
+                  {interpolate(t("summary.vs_current", "Fit with your priorities: {score}, against {current} for your current rotation."), { score: scoreEntry(best, weights), current: currentEntry ? scoreEntry(currentEntry, weights) : "—" })}
                 </span>
               </>
-            ) : <span className="brief-score">{t("strategies.none_fit")}</span>}
+            ) : (
+              <>
+                <strong>{t("summary.none_fit_title", "Nothing fits your limits yet")}</strong>
+                <span className="brief-score">
+                  {interpolate(t("summary.unavailable", "{n} {n|option is|options are} shown below, each needing a change to your limits."), { n: unavailableCount }, lang)}
+                </span>
+              </>
+            )}
             <span className="brief-go">{t("summary.see_options", "Compare all options")}<ArrowDown size={15} aria-hidden="true" /></span>
           </a>
 
@@ -200,22 +261,25 @@ export function FieldWorkspace({ fieldId }: { fieldId: FieldId }) {
 
       <nav className="section-nav" aria-label={t("nav.sections", "Field sections")}>
         <div className="section-nav-inner page-wrap">
-          {sections.map(([id, key]) => <a href={`#${id}`} key={id}>{t(key)}</a>)}
+          {sections.map(([id, key]) => <a href={`#${id}`} key={id} aria-current={activeSection === id ? "location" : undefined}>{t(key)}</a>)}
           <Link href="/how-we-know" className="trust-nav"><CircleHelp size={16} aria-hidden="true" />{t("nav.trust")}</Link>
+          <button type="button" className="nav-ask" onClick={() => window.dispatchEvent(new Event("glean:open-assistant"))}>
+            <MessageCircle size={16} aria-hidden="true" />{t("assistant.title")}
+          </button>
         </div>
       </nav>
 
       <div className="workspace-content page-wrap">
         <OverviewPanel field={field} summary={bundle.summary} water={bundle.water} glossary={data.content.glossary} copy={copy} ui={ui} />
-        <FieldCalendar calendar={bundle.calendar} order={order} ui={ui} />
+        <FieldCalendar calendar={bundle.calendar} order={order} ui={ui} bestId={best?.rotation_id} />
         <section className="workspace-section compare-section" id="strategies" aria-labelledby="strategies-heading">
           <div className="section-title-row">
             <h2 id="strategies-heading">{t("strategies.eyebrow", "Compare your options")}</h2>
             <p>{t("strategies.subtitle", "Your current rotation and the three that fit your priorities most closely.")}</p>
           </div>
           <div className="compare-layout">
-            <PrioritiesPanel t={t} />
-            <StrategyPanel picked={picked} weights={weights} rotations={data.rotations.rotations} summary={bundle.summary} irrigation={irrigationShown} shownAt={shownAt} copy={copy} ui={ui} />
+            <PrioritiesPanel t={t} irrigated={field.irrigated} />
+            <StrategyPanel picked={picked} weights={weights} rotations={data.rotations.rotations} summary={bundle.summary} irrigation={irrigationShown} shownAt={shownAt} copy={copy} ui={ui} irrigated={field.irrigated} />
           </div>
         </section>
         <ReplayChart replay={bundle.replay} scenario={scenario} order={order} ui={ui} />

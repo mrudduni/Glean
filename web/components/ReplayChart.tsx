@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useMemo, useState } from "react";
-import { CartesianGrid, Line, LineChart, ReferenceArea, ResponsiveContainer, Tooltip, XAxis, YAxis, type TooltipProps } from "recharts";
+import { CartesianGrid, Line, LineChart, ReferenceArea, ReferenceDot, ResponsiveContainer, Tooltip, XAxis, YAxis, type TooltipProps } from "recharts";
 import type { ReplayFile, ReplayYear, RotationId, ScenarioKey } from "@/lib/types";
 import { formatVar, loc } from "@/lib/i18n";
 import { useGlean } from "@/lib/state";
@@ -67,6 +67,9 @@ export function ReplayChart({ replay, scenario, order, ui }: { replay: ReplayFil
   const runs = useMemo(() => replay.scenarios[scenario] ?? {}, [replay, scenario]);
   const ids = useMemo(() => order.filter((id) => runs[id]), [order, runs]);
   const colours = useTokenColours(ids, mode);
+  // On a field without irrigation every option uses 0 mm: open on income instead of an empty chart.
+  const noIrrigation = useMemo(() => ids.length > 0 && ids.every((id) => (runs[id]?.by_year ?? []).every((item) => !item.irrigation_mm)), [ids, runs]);
+  useEffect(() => { if (noIrrigation) setMetric((current) => (current === "irrigation" ? "revenue" : current)); }, [noIrrigation]);
   const key = FIELD[metric];
   const name = (id: RotationId) => loc(ui.cardText.rotations[id]?.name, lang) || id;
   const format = (value: number) => (
@@ -88,6 +91,16 @@ export function ReplayChart({ replay, scenario, order, ui }: { replay: ReplayFil
     }
     return rows;
   }, [ids, key, replay.years, runs]);
+
+  // A series that never leaves zero (a dryland rotation on the irrigation view) is named for what it is.
+  const flat = new Set(ids.filter((id) => data.every((row) => !row[id])));
+  const lineName = (id: RotationId) => (flat.has(id) && metric === "irrigation" ? `${name(id)} · ${t("replay.no_irrigation", "no irrigation")}` : name(id));
+  // Each rotation's worst year on this metric, marked on its line.
+  const worstYears = ids.filter((id) => !flat.has(id)).map((id) => {
+    const points = data.filter((row) => typeof row[id] === "number") as Record<string, number>[];
+    const pick = points.reduce((a, b) => ((HIGHER_IS_WORSE[metric] ? b[id] > a[id] : b[id] < a[id]) ? b : a), points[0]);
+    return pick ? { id, year: pick.year, value: pick[id] } : null;
+  }).filter((item): item is { id: RotationId; year: number; value: number } => Boolean(item));
 
   // Honest axis: magnitudes start at zero; the top is a round number just above the data.
   const values = data.flatMap((row) => ids.map((id) => row[id])).filter((v): v is number => typeof v === "number");
@@ -141,6 +154,9 @@ export function ReplayChart({ replay, scenario, order, ui }: { replay: ReplayFil
         </div>
 
         <p className="replay-unit" id="replay-unit">{t(`replay.unit.${metric}`, UNIT_FALLBACK[metric])}</p>
+        {metric === "irrigation" && noIrrigation ? (
+          <p className="empty-state replay-empty">{t("replay.no_irrigation_note", "This field has no irrigation, so every option uses 0 mm. Income, stress days and bare ground still differ.")}</p>
+        ) : (
         <div className="chart-scroll" tabIndex={0} role="region" aria-label={t("replay.title")}>
           <div className="replay-chart-inner" role="img" aria-labelledby="replay-unit" aria-describedby="replay-table-caption">
             <ResponsiveContainer width="100%" height={HEIGHT}>
@@ -162,6 +178,9 @@ export function ReplayChart({ replay, scenario, order, ui }: { replay: ReplayFil
                     <ReplayTooltip {...props} order={ids} colours={colours} name={name} format={format} dry={replay.drought_years} dryLabel={t("replay.drought_marker")} />
                   )}
                 />
+                {worstYears.map((item) => (
+                  <ReferenceDot key={`worst-${item.id}`} x={item.year} y={item.value} r={5} fill={colours.surface} stroke={colours[item.id]} strokeWidth={2} ifOverflow="visible" />
+                ))}
                 {ids.map((id) => (
                   <Line
                     key={id} type="linear" dataKey={id} name={id}
@@ -176,15 +195,16 @@ export function ReplayChart({ replay, scenario, order, ui }: { replay: ReplayFil
             </ResponsiveContainer>
             <ul className="replay-end-labels" aria-hidden="true">
               {endLabels.map((item) => (
-                <li key={item.id} style={{ top: item.y }}><i className={item.id === "R0" ? "dashed" : ""} style={{ "--key": colours[item.id] } as React.CSSProperties} />{name(item.id)}</li>
+                <li key={item.id} style={{ top: item.y }}><i className={item.id === "R0" ? "dashed" : ""} style={{ "--key": colours[item.id] } as React.CSSProperties} />{lineName(item.id)}</li>
               ))}
             </ul>
           </div>
         </div>
-
+        )}
         <div className="replay-legend">
           {ids.map((id) => <span key={id}><i className={id === "R0" ? "dashed" : ""} style={{ "--key": colours[id] } as React.CSSProperties} />{name(id)}</span>)}
           <span className="drought-key"><i />{t("replay.drought_marker")}</span>
+          {worstYears.length > 0 && <span className="worst-key"><b aria-hidden="true" />{t("replay.worst_year_key", "Worst year for each option")}</span>}
         </div>
 
         <table className="replay-summary-table">
@@ -193,7 +213,7 @@ export function ReplayChart({ replay, scenario, order, ui }: { replay: ReplayFil
           <tbody>
             {summaries.map((item) => (
               <tr key={item.id}>
-                <th scope="row"><i className={item.id === "R0" ? "dashed" : ""} style={{ "--key": colours[item.id] } as React.CSSProperties} />{name(item.id)}{!item.feasible && <small>{t("replay.not_feasible", "over your water limit")}</small>}</th>
+                <th scope="row"><i className={item.id === "R0" ? "dashed" : ""} style={{ "--key": colours[item.id] } as React.CSSProperties} />{lineName(item.id)}{!item.feasible && <small>{t("replay.not_feasible", "over your water limit")}</small>}</th>
                 <td>{format(Math.round(item.avg))}</td>
                 <td>{format(Math.round(item.worst))}</td>
               </tr>

@@ -1,5 +1,6 @@
 "use client";
 
+import { useEffect, useState } from "react";
 import { ChevronDown } from "lucide-react";
 import { useGlean } from "@/lib/state";
 import { CAP_IDS } from "@/lib/schemas";
@@ -12,13 +13,38 @@ const SLIDERS: SliderId[] = ["save_water", "income", "steady_income", "soil_heal
  * Priorities and limits, shown as a sticky rail beside the strategy cards (wireframe s4)
  * so every change visibly re-ranks the cards next to it. On phones it collapses above the cards.
  */
-export function PrioritiesPanel({ t }: { t: TFunction }) {
+export function PrioritiesPanel({ t, irrigated = true }: { t: TFunction; irrigated?: boolean }) {
   const state = useGlean();
+  // Open beside the cards on wide screens; on phones and tablets it starts folded to one summary line,
+  // so the cards are not pushed a screen and a half down.
+  const [open, setOpen] = useState(true);
+  const [wide, setWide] = useState(true);
+  useEffect(() => {
+    const media = window.matchMedia("(min-width: 1024px)");
+    const sync = () => { setWide(media.matches); setOpen(media.matches); };
+    sync();
+    media.addEventListener("change", sync);
+    return () => media.removeEventListener("change", sync);
+  }, []);
+  const values = SLIDERS.map((id) => state.sliders[id]);
+  const top = Math.max(...values);
+  const leaders = SLIDERS.filter((id) => state.sliders[id] === top);
+  const focus = leaders.length === SLIDERS.length
+    ? t("priorities.summary_balanced", "Balanced priorities")
+    : `${t("priorities.summary_most", "Most:")} ${leaders.map((id) => t(`priorities.${id}`)).join(", ")}`;
+  const summary = [focus, t(`constraints.cap.${state.cap}`), t(`climate.${state.climate}`)].join(" · ");
   return (
-    <details className="priority-rail" open aria-labelledby="priorities-heading">
+    <details
+      className="priority-rail" open={open} aria-labelledby="priorities-heading"
+      onToggle={(event) => { const next = event.currentTarget.open; setOpen(wide ? true : next); }}
+    >
+      <p className="print-only priority-print">{t("priorities.print_label", "Your settings")}: {summary}</p>
       <summary>
-        <h3 id="priorities-heading">{t("priorities.title")}</h3>
-        <ChevronDown className="priority-rail-chevron" size={18} aria-hidden="true" />
+        <span className="priority-rail-title">
+          <h3 id="priorities-heading">{t("priorities.title")}</h3>
+          {!open && <span className="priority-summary">{summary}</span>}
+        </span>
+        <span className="priority-rail-edit">{!open && t("priorities.edit", "Edit")}<ChevronDown className="priority-rail-chevron" size={18} aria-hidden="true" /></span>
       </summary>
       <div className="priority-rail-body">
         <p className="priority-hint">{t("priorities.rail_hint", "Move a slider and the cards re-rank instantly.")}</p>
@@ -46,11 +72,12 @@ export function PrioritiesPanel({ t }: { t: TFunction }) {
           <legend className="control-label">{t("constraints.water_cap")}</legend>
           <div className="segmented-control stacked">
             {CAP_IDS.map((cap) => (
-              <button type="button" key={cap} aria-pressed={state.cap === cap} onClick={() => state.setCap(cap)}>
+              <button type="button" key={cap} aria-pressed={state.cap === cap} disabled={!irrigated && cap !== "dryland"} onClick={() => state.setCap(cap)}>
                 {t(`constraints.cap.${cap}`)}
               </button>
             ))}
           </div>
+          {!irrigated && <p className="control-note">{t("constraints.no_irrigation_note", "This field has no irrigation, so only dryland options apply.")}</p>}
         </fieldset>
 
         <fieldset className="control-group">

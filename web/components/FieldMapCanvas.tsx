@@ -1,7 +1,8 @@
 "use client";
 
 import { Fragment, useEffect } from "react";
-import { MapContainer, Polygon, TileLayer, Tooltip, useMap } from "react-leaflet";
+import { createPortal } from "react-dom";
+import { MapContainer, Polygon, TileLayer, Tooltip, ZoomControl, useMap } from "react-leaflet";
 import type { LatLngBoundsExpression, LatLngExpression } from "leaflet";
 import type { Field, Lang } from "@/lib/types";
 import type { TFunction } from "@/lib/i18n";
@@ -16,13 +17,24 @@ function ring(polygon: Field["geometry"]): LatLngExpression[][] {
   return polygon.coordinates.map((r) => r.map(([lon, lat]) => [lat, lon] as [number, number]));
 }
 
+const FIT_PADDING = { paddingTopLeft: [90, 56] as [number, number], paddingBottomRight: [90, 96] as [number, number] };
+
 function FitBounds({ bounds, signature }: { bounds: LatLngBoundsExpression; signature: string }) {
   const map = useMap();
   useEffect(() => {
-    map.fitBounds(bounds, { paddingTopLeft: [90, 56], paddingBottomRight: [90, 96] });
+    map.fitBounds(bounds, FIT_PADDING);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [map, signature]);
   return null;
+}
+
+/** Button over the map that brings the framed fields back after zooming or panning. */
+function FitButton({ bounds, label }: { bounds: LatLngBoundsExpression; label: string }) {
+  const map = useMap();
+  return createPortal(
+    <button type="button" className="map-fit" onClick={() => map.fitBounds(bounds, FIT_PADDING)}>{label}</button>,
+    map.getContainer(),
+  );
 }
 
 export default function FieldMapCanvas({
@@ -44,11 +56,13 @@ export default function FieldMapCanvas({
   const bounds: LatLngBoundsExpression = points.length ? points : [[37.9, -101], [38.1, -100.7]];
   return (
     <MapContainer center={[37.99, -100.87]} zoom={11} scrollWheelZoom={false} className="leaflet-map" zoomControl={false}>
+      <ZoomControl position="topright" />
       <TileLayer
         url="https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}"
         attribution="Tiles &copy; Esri"
       />
       <FitBounds bounds={bounds} signature={`${selected ?? "all"}:${fields.length}:${neighbors.length}`} />
+      <FitButton bounds={bounds} label={selected ? t("map.fit_field", "Show my field") : t("map.fit_all", "Show all three fields")} />
       {neighbors.map((neighbor) => (
         <Polygon
           key={neighbor.id}
