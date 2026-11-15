@@ -4,7 +4,6 @@
 .netrc
 _netrc
 *.pem
-*token*
 !web/styles/tokens.css
 !web/styles/tokens.json
 
@@ -30,7 +29,6 @@ _netrc
 # Web dependencies and build outputs
 node_modules/
 .next/
-out/
 coverage/
 *.tsbuildinfo
 
