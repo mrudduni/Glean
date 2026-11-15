@@ -15,7 +15,7 @@
 .cal-risk tbody { display: grid; gap: 3px; }
 .cal-risk caption { display: block; margin: var(--sp-2) 0; text-align: left; color: var(--text-1); font-size: var(--fs-cap); font-weight: 700; }
 .cal-risk th { display: flex; flex-direction: column; justify-content: center; text-align: left; color: var(--text-1); font-size: var(--fs-cap); font-weight: 600; line-height: 1.2; }
-.cal-risk th small { color: var(--text-3); font-weight: 400; font-size: 0.8125rem; }
+.cal-risk th small { color: var(--text-3); font-weight: 400; font-size: 0.875rem; }
 .cal-risk td {
   display: grid; place-items: center; min-height: 30px;
   border-radius: 3px;

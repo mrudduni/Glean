@@ -40,13 +40,13 @@
 .markdown-answer p { margin: 0 0 var(--sp-2); }
 .markdown-answer p:last-child { margin-bottom: 0; }
 .markdown-answer ul { margin: var(--sp-1) 0; padding-left: 1.1em; }
-.assistant-source-chip { display: inline-flex; margin: 0 2px; padding: 0 5px; border: 1px solid var(--rule-strong); border-radius: 3px; color: var(--text-2); font: 500 0.75rem/1.5 var(--font-mono); vertical-align: 1px; }
+.assistant-source-chip { display: inline-flex; margin: 0 2px; padding: 0 5px; border: 1px solid var(--rule-strong); border-radius: 3px; color: var(--text-2); font: 500 0.875rem/1.5 var(--font-mono); vertical-align: 1px; }
 a.assistant-source-chip:hover { color: var(--color-accent); border-color: var(--color-accent); }
 .verified-number { border-bottom: 1px dotted var(--color-good); font-weight: 600; cursor: help; white-space: nowrap; }
 /* Tailwind preflight makes svg block-level; keep the check mark inline with its number. */
 .verified-number svg { display: inline-block; margin-left: 2px; vertical-align: -1px; color: var(--color-good); }
 .unverified-number { border-bottom: 1px dotted var(--color-fair); cursor: help; }
-.unverified-number small { margin-left: 4px; padding: 0 4px; border: 1px solid var(--color-fair); border-radius: 3px; color: var(--color-fair); font-size: 0.75rem; font-weight: 600; }
+.unverified-number small { margin-left: 4px; padding: 0 4px; border: 1px solid var(--color-fair); border-radius: 3px; color: var(--color-fair); font-size: 0.875rem; font-weight: 600; }
 .assistant-notice { margin-bottom: var(--sp-2); padding: var(--sp-2); border: 1px solid var(--color-fair); border-radius: var(--radius-sm); color: var(--text-1); font-size: var(--fs-cap); }
 .assistant-waiting { display: inline-flex; align-items: center; gap: var(--sp-2); color: var(--text-2); font-size: var(--fs-cap); }
 .assistant-error { padding: var(--sp-3); border: 1px solid var(--color-limited); border-radius: var(--radius-sm); color: var(--text-1); font-size: var(--fs-cap); }

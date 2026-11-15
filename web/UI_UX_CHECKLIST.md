@@ -24,7 +24,7 @@ Each item names its audit ID. Ticked items are committed and checked with `npm t
 - [x] **#10** Styles read only token variables; dark mode comes from the token swap, not a second hand-written stylesheet
   - [x] Foundation: `styles/base.css` (type scale, text/rule ramp, header, footer, buttons, chips, badges, form controls, states)
   - [x] Home + map (`styles/home.css`, `styles/map.css`) · [x] Field workspace (`styles/workspace.css`) · [x] Overview (`styles/overview.css`) · [x] Calendar (`styles/calendar.css`) · [x] Cards (`styles/cards.css`) · [x] Replay (`styles/replay.css`) · [x] Neighbours (`styles/neighbors.css`) · [x] Assistant (`styles/assistant.css`) · [x] How we know (`styles/trust.css`)
-- [ ] **#11** Text meets WCAG AA (4.5:1) in light and dark; labels ≥ 14px, body 16px
+- [x] **#11** Text meets WCAG AA (4.5:1) in light and dark; labels ≥ 14px, body 16px (only the Leaflet attribution control is smaller)
 - [x] **#15** Tabular figures on every number (set once on `body`)
 
 ## Layout (wireframes)

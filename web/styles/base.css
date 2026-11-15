@@ -166,9 +166,9 @@ input[type="range"], input[type="checkbox"] { accent-color: var(--color-accent);
 
 .source-chips { display: flex; flex-wrap: wrap; gap: var(--sp-1); }
 .source-chip {
-  display: inline-flex; align-items: center; min-height: 22px; padding: 0 6px;
+  display: inline-flex; align-items: center; min-height: 24px; padding: 0 6px;
   border: 1px solid var(--rule-strong); border-radius: 3px;
-  color: var(--text-2); font: 500 0.75rem/1 var(--font-mono); letter-spacing: 0;
+  color: var(--text-2); font: 500 0.875rem/1 var(--font-mono); letter-spacing: 0;
 }
 a.source-chip:hover { color: var(--color-accent); border-color: var(--color-accent); }
 
