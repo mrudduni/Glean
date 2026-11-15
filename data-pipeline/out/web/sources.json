@@ -2,7 +2,7 @@
  "_meta": {
   "schema": "sources@1",
   "mock": false,
-  "generated_at": "2026-11-15T14:55:28Z",
+  "generated_at": "2026-11-15T15:38:27Z",
   "generator": "data-pipeline/process/build_sources.py"
  },
  "sources": [
