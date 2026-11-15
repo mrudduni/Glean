@@ -1,0 +1,49 @@
+# Contract changes, 2026-11-15
+
+The web (F) session made these changes at the user's request, to fix mismatches between the README data contract and what each role publishes. Read this after you pull. Each entry says what changed, where, and why.
+
+README sections are cited as in the team README (`README.md` on main, same as `~/.fieldshift/README.md`).
+
+## Changes to the contract (README text)
+
+The main session applies these to `README.md` on main. Until then, treat this file as the source of truth for these points.
+
+| # | README section | Change | Why |
+|---|---|---|---|
+| C1 | 8.4 `Fact` | `value: number \| null`. A fact with `value: null` is text only (for example "The field is irrigated."). The number check ignores it. | M's real `assistant_context.json` has text-only facts. Without this rule, `Math.abs(null)` is 0 and an answer saying "0 mm" would be marked verified. |
+| C2 | 8.5 `CropTraits` | `family: string \| null`, `root_type: ... \| null`. "None" for `plant_window`, `harvest_window` and `heat` is written as `null`, not as an object of nulls. | Fallow has no family or root type. crops.yaml wrote `{ stage: null, tmax_c: null }`, which fails the type `{...} \| null`. |
+| C3 | 8.6 `headline.well_trend` | `m_per_yr` is the trend of depth to water, as in `water.json` wells. Positive means the water table is falling. Templates must read correctly for either sign. | The old template said "the water level changing by 1.8 m", which reads as a rise. |
+| C4 | 8.7 tie-break | "ties → lower irrigation_mm_mean" uses `replay.scenarios[scenario][rotation].summary.irrigation_mm_mean`. | `irrigation_mm_mean` is not in `StrategyEntry`. |
+| C5 | 8.7 shown | An alternative whose steps equal R0's steps, allowing a different starting year, is dropped. It is not shown and not counted as hidden. Fewer than 3 alternatives is valid; the UI shows a "none fit" note. | f2's R0 equals R2 and f3's R0 equals R1 (from model-core). Showing them as alternatives compares a rotation with itself. |
+| C6 | 8.6 `card.hidden_count` | `{n}` counts excluded alternatives plus feasible ones ranked below the top 3. Duplicates of R0 (C5) are not counted. | The README did not say which set `n` counts. |
+| C7 | 8.6 copy keys | The 94 keys in `web/COPY_KEYS_ADDED.md` are part of the catalog. `calendar.odds` takes `{risk}` and `{count}`. | The web app uses them. Spanish users saw English for all of them. |
+| C8 | 9 number check | The rules in `REFINEMENTS` in `model/assistant/number_check.py` are part of the contract, plus one new rule: digits glued to a letter, digit, underscore, dot or `$` are part of an identifier (R2, cap300), not a number. `number_check_cases.json` is the shared test. | The README regex alone splits "2016" into "201" and "6" and reads "R2" as the number 2. |
+| C9 | 9 errors | `POST /api/ask` may return `429 { error: "rate_limited", message }` after 20 requests a minute from one IP. On a provider 429 with `Retry-After` of 8 s or less, the route retries once. | Protects the shared free-tier LLM key. |
+| C10 | 9 `notice` | `using_cache` is not sent. A cached answer is marked by `cached: true` and `provider: "cache"`. `scenario_mismatch` is sent when a cached answer is served for a scenario other than `cap300\|actual`. | The README did not say when to send `using_cache`; `cached` already says it. |
+| C11 | 8.3 `neighbors.json` | `groups` may have no entry with `is_current: true` when no nearby field matches the field's rotation class. The UI then marks no row "Like yours". | f3 (corn, wheat, sorghum) has no matched neighbours in that class. |
+| C12 | 8.3 `sources.json` | Lists only sources whose data reached `out/`. A tag cited elsewhere but absent from `sources.json` renders as a plain chip with no link. | D's design: MODIS, SMAP and IMERG are listed once data-earthdata lands them. |
+
+## Changes made in each role's branch
+
+| Branch | Commit | Files | Change |
+|---|---|---|---|
+| role/content | 3c740c7 | `content/copy.json` | Added the 94 keys from `web/COPY_KEYS_ADDED.md` with `en` and `es`. |
+| role/content | 3c740c7 | `content/crops.yaml` | `heat`, `plant_window`, `harvest_window` written as `null` when absent (C2). U had already fixed the `well_trend` wording (C3) in 846e3b5. |
+| role/content | 3c740c7 | `content/validate.py` | `calendar.odds` may use `{risk}` and `{count}`. |
+| role/model-assistant | 0286397 | `model/assistant/number_check.py`, `number_check_cases.json` | Identifier lookbehind (C8) and two shared cases. All 38 tests pass. |
+| role/model | 0cf12fa | `model/calendar/build.py`, `model/replay/economics.py` | Read `c["heat"]` as possibly `null` (C2). Without this, M's next run would crash on the new crops.yaml. |
+| role/web | this commit | `web/**` | Schema accepts C1 and C2. Number check skips text-only facts. R0 duplicates dropped (C5). Route retries once on a short provider 429 (C9). Copy fallbacks match copy.json. |
+
+## What each role does on pull
+
+- **D (data):** nothing required. When MODIS, SMAP or IMERG data lands, `build_sources.py` lists them and the chips get links.
+- **M (model-core):** pull role/model, then re-run `python model/run_all.py` so `crops.json` has `null` for absent heat and windows. Keep the null-safe `heat` reads.
+- **M (model-assistant):** pull role/model-assistant, then rebuild `assistant_context.json` on role/model 0cf12fa so fact values match the new outputs. When adding number-check rules, add a shared case and run `npm test` in `web/` too.
+- **U (content):** pull role/content. Add new UI keys to `copy.json` and `web/COPY_KEYS_ADDED.md` together. Keep crops.yaml "none" values as `null`.
+- **Main:** apply the C1 to C12 rows to `README.md`, then merge role/web.
+
+## Data gaps left open
+
+These need new data, not a contract change. They belong to data-earthdata.
+
+- `observed.json`: `ndvi` and `ecostress` arrays are empty, and `precip_check` IMERG values are null. The neighbour drought columns show "—" until they arrive.
