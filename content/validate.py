@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Check U-role files against the Field Shift contract (README 7.4, 8.5, 8.6).
+"""Check U-role files against the Stubble contract (README 7.4, 8.5, 8.6).
 
 Run from the repo root:  python content/validate.py
 Needs: pyyaml (only for crops.yaml).  Exit code 1 if any error.
@@ -191,8 +191,8 @@ def check_copy():
     check_keys("copy.strings", s, COPY_KEYS, extra_ok=True)
     for k, v in s.items():
         check_text(f"copy.{k}", v, COPY_VARS.get(k, set()))
-    if s.get("app.name", {}).get("en") != "Field Shift":
-        err("copy: app.name must be 'Field Shift'")
+    if s.get("app.name", {}).get("en") != "Stubble":
+        err("copy: app.name must be 'Stubble'")
 
 
 def check_glossary():
