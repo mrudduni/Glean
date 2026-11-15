@@ -2,11 +2,38 @@
 
 import { Children, Fragment, useEffect, useRef, useState, type ReactNode } from "react";
 import ReactMarkdown from "react-markdown";
-import { ArrowUpRight, Bot, CircleCheck, LoaderCircle, MessageCircle, Send, X } from "lucide-react";
+import { ArrowUpRight, Bot, CircleCheck, KeyRound, LoaderCircle, MessageCircle, Send, X } from "lucide-react";
 import type { AskRequest, AskResponse, AssistantQuestionsFile, FieldId, Lang, RotationId, ScenarioKey, SourcesFile } from "@/lib/types";
 import { askResponseSchema } from "@/lib/schemas";
 import { findNumbers } from "@/lib/numberCheck";
 import { loc, type TFunction } from "@/lib/i18n";
+
+/** Bring your own key. Kept in this tab only (sessionStorage), sent per request in headers, never in the URL or body. */
+type OwnProvider = "groq" | "gemini" | "custom";
+interface OwnKey { on: boolean; provider: OwnProvider; baseUrl: string; model: string; key: string }
+const OWN_KEY_STORE = "stubble_own_llm";
+const PRESET_URL: Record<Exclude<OwnProvider, "custom">, string> = {
+  groq: "https://api.groq.com/openai/v1",
+  gemini: "https://generativelanguage.googleapis.com/v1beta/openai",
+};
+const MODEL_HINT: Record<OwnProvider, string> = { groq: "openai/gpt-oss-120b", gemini: "gemini-2.5-flash", custom: "model id" };
+const NO_KEY: OwnKey = { on: false, provider: "groq", baseUrl: "", model: "", key: "" };
+
+function readOwnKey(): OwnKey {
+  try {
+    const raw = sessionStorage.getItem(OWN_KEY_STORE);
+    return raw ? { ...NO_KEY, ...(JSON.parse(raw) as Partial<OwnKey>) } : NO_KEY;
+  } catch {
+    return NO_KEY;
+  }
+}
+
+function ownKeyHeaders(own: OwnKey): Record<string, string> | null {
+  if (!own.on || !own.key.trim() || !own.model.trim()) return null;
+  const baseUrl = own.provider === "custom" ? own.baseUrl.trim() : PRESET_URL[own.provider];
+  if (!baseUrl) return null;
+  return { "x-user-llm-key": own.key.trim(), "x-user-llm-base-url": baseUrl, "x-user-llm-model": own.model.trim() };
+}
 
 interface Message {
   id: number;
@@ -30,7 +57,14 @@ export function AssistantDrawer({
   const [draft, setDraft] = useState("");
   const [messages, setMessages] = useState<Message[]>([]);
   const [waiting, setWaiting] = useState(false);
-  const [error, setError] = useState(false);
+  const [error, setError] = useState<string | boolean>(false);
+  const [own, setOwn] = useState<OwnKey>(NO_KEY);
+  useEffect(() => { setOwn(readOwnKey()); }, []);
+  const updateOwn = (patch: Partial<OwnKey>) => setOwn((current) => {
+    const next = { ...current, ...patch };
+    try { sessionStorage.setItem(OWN_KEY_STORE, JSON.stringify(next)); } catch { /* private mode: keep it in memory only */ }
+    return next;
+  });
   const panelRef = useRef<HTMLElement>(null);
   const inputRef = useRef<HTMLTextAreaElement>(null);
   const fabRef = useRef<HTMLButtonElement>(null);
@@ -56,7 +90,7 @@ export function AssistantDrawer({
         return;
       }
       if (event.key !== "Tab" || !panelRef.current) return;
-      const focusable = [...panelRef.current.querySelectorAll<HTMLElement>("button:not([disabled]), textarea:not([disabled]), a[href]")];
+      const focusable = [...panelRef.current.querySelectorAll<HTMLElement>("button:not([disabled]), textarea:not([disabled]), input:not([disabled]), select:not([disabled]), summary, a[href]")];
       if (!focusable.length) return;
       const first = focusable[0];
       const last = focusable[focusable.length - 1];
@@ -82,9 +116,16 @@ export function AssistantDrawer({
       field_id: fieldId, lang, scenario, top_rotations: shownIds, history,
       ...(questionId ? { question_id: questionId } : { question }),
     };
+    // Suggested questions are answered from the cache, so the user's key is only sent with free text.
+    const userHeaders = questionId ? null : ownKeyHeaders(own);
     try {
-      const response = await fetch("/api/ask", { method: "POST", headers: { "content-type": "application/json" }, body: JSON.stringify(body) });
-      if (!response.ok) throw new Error(`Assistant request failed (${response.status})`);
+      const response = await fetch("/api/ask", { method: "POST", headers: { "content-type": "application/json", ...(userHeaders ?? {}) }, body: JSON.stringify(body) });
+      if (!response.ok) {
+        // With the user's own key, show the server's reason (it never contains the key).
+        const reason = userHeaders ? ((await response.json().catch(() => null)) as { message?: string } | null)?.message : undefined;
+        setError(reason || true);
+        throw new Error(`Assistant request failed (${response.status})`);
+      }
       const parsed = askResponseSchema.safeParse(await response.json());
       if (!parsed.success) {
         console.error("[assistant] response does not match the contract", parsed.error.issues);
@@ -93,7 +134,7 @@ export function AssistantDrawer({
       setMessages((current) => [...current, { id: Date.now() + 1, role: "assistant", content: parsed.data.answer_md, response: parsed.data }]);
     } catch (reason) {
       console.warn("[assistant]", reason instanceof Error ? reason.message : reason);
-      setError(true);
+      setError((current) => current || true);
     } finally {
       setWaiting(false);
     }
@@ -125,7 +166,7 @@ export function AssistantDrawer({
                   </article>
                 ))}
                 {waiting && <div className="assistant-waiting"><LoaderCircle size={15} className="spin" aria-hidden="true" />{t("assistant.waiting", "Checking the field data")}</div>}
-                {error && <div className="assistant-error" role="alert">{t("assistant.error")}</div>}
+                {error && <div className="assistant-error" role="alert">{typeof error === "string" ? error : t("assistant.error")}</div>}
                 <div ref={chatEnd} />
               </div>
               {chips.length > 0 && (
@@ -139,6 +180,34 @@ export function AssistantDrawer({
                 </div>
               )}
             </div>
+            <details className="own-key">
+              <summary><KeyRound size={14} aria-hidden="true" />{t("assistant.own_key", "Use my own key")}{own.on && ownKeyHeaders(own) ? <b> · {t("assistant.own_key_on", "on")}</b> : null}</summary>
+              <div className="own-key-body">
+                <label className="own-key-toggle">
+                  <input type="checkbox" checked={own.on} onChange={(event) => updateOwn({ on: event.currentTarget.checked })} />
+                  {t("assistant.own_key_toggle", "Answer free-text questions with my key")}
+                </label>
+                <label>{t("assistant.own_key_provider", "Provider")}
+                  <select value={own.provider} onChange={(event) => updateOwn({ provider: event.currentTarget.value as OwnProvider })}>
+                    <option value="groq">Groq</option>
+                    <option value="gemini">Gemini</option>
+                    <option value="custom">{t("assistant.own_key_custom", "Other (base URL)")}</option>
+                  </select>
+                </label>
+                {own.provider === "custom" && (
+                  <label>{t("assistant.own_key_url", "Base URL (https)")}
+                    <input type="url" inputMode="url" value={own.baseUrl} placeholder="https://..." autoComplete="off" spellCheck={false} onChange={(event) => updateOwn({ baseUrl: event.currentTarget.value })} />
+                  </label>
+                )}
+                <label>{t("assistant.own_key_model", "Model id")}
+                  <input type="text" value={own.model} placeholder={MODEL_HINT[own.provider]} autoComplete="off" spellCheck={false} onChange={(event) => updateOwn({ model: event.currentTarget.value })} />
+                </label>
+                <label>{t("assistant.own_key_key", "API key")}
+                  <input type="password" value={own.key} autoComplete="off" spellCheck={false} onChange={(event) => updateOwn({ key: event.currentTarget.value })} />
+                </label>
+                <p>{t("assistant.own_key_note", "Your key stays in this browser tab and is sent only with your questions. Suggested questions never use it.")}</p>
+              </div>
+            </details>
             <form className="assistant-form" onSubmit={(event) => { event.preventDefault(); void send(draft); }}>
               <label className="sr-only" htmlFor="assistant-question">{t("assistant.placeholder")}</label>
               <textarea

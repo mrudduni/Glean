@@ -25,6 +25,7 @@ The main session applies these to `README.md` on main. Until then, treat this fi
 | C13 | 8.7 shown | The card row always shows R0 + 3. When fewer than 3 alternatives fit, the best-scoring excluded ones fill the row (ties: lower irrigation). Each filled card shows its `card_text.infeasible` reason as a badge, plus what would include it (`card.unlock_tick` with the equipment or forage-buyer option, or `card.unlock_cap` with the lowest water limit that fits). Filled cards are not counted in `card.hidden_count`. | Rule from main: every field shows at least 3 strategies. f2 had only R0 after C5. |
 | C14 | 8.7 why bullets, 8.6 benefits | `why.water_use` is never a why bullet when its `saved_mm` < 0 (the next criterion is used). `benefits.water_saved` is not shown when `saved_mm` < 0. | The templates say "saved"; a negative value would read as a saving. Rule from the content session. |
 | C15 | 8.6 copy | `neighbors.n_fields` (`{n} fields`) is rendered per row with `{n}`. The column header uses a new key, `neighbors.fields_header`. `card.hidden_count` is rendered with `{n}`. | Both keys contain `{n}`; as a header the placeholder showed raw. |
+| C17 | 9 providers | `AskResponse.provider` may also be `"custom"` (a user's own endpoint). Server env may add `LLM_FALLBACK_*`, tried once after a 429, 5xx or timeout from the primary. A request may carry the user's own key in headers `x-user-llm-key`, `x-user-llm-base-url`, `x-user-llm-model`: used for free text only, https only, hosts api.groq.com and generativelanguage.googleapis.com unless the server sets `ALLOW_CUSTOM_LLM_URL=1`, never logged or echoed, no fallback to the server key (user failures return 503 with the reason). | User asked for bring-your-own-key and a Gemini backup while Groq is at its daily cap. |
 | C12 | 8.3 `sources.json` | Lists only sources whose data reached `out/`. A tag cited elsewhere but absent from `sources.json` renders as a plain chip with no link. | D's design: MODIS, SMAP and IMERG are listed once data-earthdata lands them. |
 
 ## Changes made in each role's branch
@@ -44,7 +45,7 @@ The main session applies these to `README.md` on main. Until then, treat this fi
 - **M (model-core):** pull role/model, then re-run `python model/run_all.py` so `crops.json` has `null` for absent heat and windows. Keep the null-safe `heat` reads.
 - **M (model-assistant):** pull role/model-assistant, then rebuild `assistant_context.json` on role/model 0cf12fa so fact values match the new outputs. When adding number-check rules, add a shared case and run `npm test` in `web/` too.
 - **U (content):** pull role/content. Add new UI keys to `copy.json` and `web/COPY_KEYS_ADDED.md` together. Keep crops.yaml "none" values as `null`.
-- **Main:** apply the C1 to C15 rows to `README.md`, then merge role/web.
+- **Main:** apply the C1 to C17 rows to `README.md`, then merge role/web.
 
 ## Data gaps left open
 

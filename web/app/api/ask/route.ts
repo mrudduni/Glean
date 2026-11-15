@@ -21,6 +21,7 @@ import type {
 import type { ZodType, ZodTypeDef } from "zod";
 
 export const runtime = "nodejs";
+export const maxDuration = 60;   // primary + fallback provider, 20 s each
 
 const DEFAULT_SCENARIO = "cap300|actual";
 const TIMEOUT_MS = 20_000;
@@ -147,70 +148,132 @@ export async function POST(request: NextRequest) {
     facts_block: factsBlock,
   });
 
-  const { LLM_PROVIDER, LLM_BASE_URL, LLM_MODEL, LLM_API_KEY } = process.env;
-  if (!LLM_BASE_URL || !LLM_MODEL || !LLM_API_KEY) {
-    return fail(503, "llm_unavailable", "The assistant is not configured. Use a suggested question.");
+  // 4. Who answers: the user's own key (headers) if given, else the server provider, then the server fallback.
+  const chosen = chooseProviders(request.headers);
+  if ("error" in chosen) return fail(400, "bad_request", chosen.error);
+  const { providers, userKey } = chosen;
+  if (!providers.length) return fail(503, "llm_unavailable", "The assistant is not configured. Use a suggested question.");
+
+  const messages = [{ role: "system", content: system }, ...(input.history ?? []).slice(-6), { role: "user", content: question }];
+  let last: CallResult = { kind: "error", status: 0 };
+  for (const provider of providers) {
+    last = await callProvider(provider, messages);
+    if (last.kind === "answer") {
+      // 5. Number check and citations.
+      const response: AskResponse = {
+        answer_md: last.answer,
+        citations: citations(last.answer),
+        numbers: checkNumbers(last.answer, facts),
+        cached: false,
+        provider: provider.label,
+        model: provider.model,
+      };
+      return NextResponse.json(response);
+    }
+    // Rate limits, server errors and timeouts move on to the next provider; other 4xx do not.
+    if (last.kind === "error" && last.status >= 400 && last.status < 500) break;
   }
 
-  // 4. OpenAI-compatible chat completion with a 20 s timeout.
+  // 6. Nothing answered. A user's own key never falls back to the server key.
+  if (userKey) {
+    const why = last.kind === "limited" ? "is rate-limited (429)"
+      : last.kind === "error" && (last.status === 401 || last.status === 403) ? `rejected the key (${last.status}). Check the key and model`
+        : last.kind === "timeout" ? "did not answer in time" : "returned an error";
+    return fail(503, "llm_unavailable", `Your provider ${why}. Turn off "Use my own key" to use the default assistant.`);
+  }
+  if (last.kind === "limited") {
+    console.warn("[ask] providers rate-limited; sending the busy answer");
+    const busy: AskResponse = { answer_md: busyText(input.lang), citations: [], numbers: [], cached: true, provider: "cache", model: "none" };
+    return NextResponse.json(busy);
+  }
+  return fail(503, "llm_unavailable", last.kind === "timeout" ? "The assistant did not answer in time." : "The assistant provider returned an error.");
+}
+
+// ---------- providers ----------
+
+interface Provider { baseUrl: string; model: string; key: string; label: AskResponse["provider"] }
+type CallResult = { kind: "answer"; answer: string } | { kind: "limited" } | { kind: "timeout" } | { kind: "error"; status: number };
+
+/** Hosts a user's own key may be sent to. Anything else needs ALLOW_CUSTOM_LLM_URL=1 on the server (SSRF guard). */
+const ALLOWED_HOSTS = new Set(["api.groq.com", "generativelanguage.googleapis.com"]);
+const USER_HEADERS = { key: "x-user-llm-key", baseUrl: "x-user-llm-base-url", model: "x-user-llm-model" } as const;
+
+function labelFor(baseUrl: string, declared?: string): AskResponse["provider"] {
+  const host = new URL(baseUrl).hostname;
+  if (host.endsWith("groq.com")) return "groq";
+  if (host.endsWith("googleapis.com")) return "gemini";
+  return declared === "gemini" || declared === "groq" ? declared : "custom";
+}
+
+function envProvider(prefix: "LLM" | "LLM_FALLBACK"): Provider | null {
+  const baseUrl = process.env[`${prefix}_BASE_URL`];
+  const model = process.env[`${prefix}_MODEL`];
+  const key = process.env[`${prefix}_API_KEY`];
+  if (!baseUrl || !model || !key) return null;
+  return { baseUrl, model, key, label: labelFor(baseUrl, process.env[`${prefix}_PROVIDER`]) };
+}
+
+function chooseProviders(headers: Headers): { providers: Provider[]; userKey: boolean } | { error: string } {
+  const key = headers.get(USER_HEADERS.key)?.trim();
+  if (!key) {
+    return { providers: [envProvider("LLM"), envProvider("LLM_FALLBACK")].filter((p): p is Provider => p !== null), userKey: false };
+  }
+  const baseUrl = headers.get(USER_HEADERS.baseUrl)?.trim() ?? "";
+  const model = headers.get(USER_HEADERS.model)?.trim() ?? "";
+  if (!model || model.length > 120) return { error: "Your own key needs a model id." };
+  let url: URL;
+  try { url = new URL(baseUrl); } catch { return { error: "Your own key needs a valid https base URL." }; }
+  if (url.protocol !== "https:" || url.username || url.password) return { error: "The base URL must use https." };
+  if (!ALLOWED_HOSTS.has(url.hostname) && process.env.ALLOW_CUSTOM_LLM_URL !== "1") {
+    return { error: `Only ${[...ALLOWED_HOSTS].join(" and ")} are allowed for your own key.` };
+  }
+  return { providers: [{ baseUrl: url.toString(), model, key, label: labelFor(url.toString()) }], userKey: true };
+}
+
+/** One OpenAI-compatible chat completion, retrying once on empty content or a short 429. Never logs keys. */
+async function callProvider(provider: Provider, messages: { role: string; content: string }[]): Promise<CallResult> {
+  // Reasoning models (gpt-oss) spend max_tokens on hidden reasoning first; give them room and keep reasoning short.
+  const reasoning = provider.model.startsWith("openai/gpt-oss");
   const controller = new AbortController();
   const timer = setTimeout(() => controller.abort(), TIMEOUT_MS);
+  const call = () => fetch(`${provider.baseUrl.replace(/\/+$/, "")}/chat/completions`, {
+    method: "POST",
+    headers: { "content-type": "application/json", authorization: `Bearer ${provider.key}` },
+    body: JSON.stringify({
+      model: provider.model,
+      messages,
+      temperature: prompt.temperature,
+      max_tokens: reasoning ? Math.max(prompt.max_tokens, REASONING_MAX_TOKENS) : prompt.max_tokens,
+      ...(reasoning ? { reasoning_effort: "low" } : {}),
+    }),
+    signal: controller.signal,
+    redirect: "error",
+  });
   try {
-    // Reasoning models (gpt-oss) spend max_tokens on hidden reasoning first; give them room and keep reasoning short.
-    const reasoning = LLM_MODEL.startsWith("openai/gpt-oss");
-    const call = () => fetch(`${LLM_BASE_URL.replace(/\/+$/, "")}/chat/completions`, {
-      method: "POST",
-      headers: { "content-type": "application/json", authorization: `Bearer ${LLM_API_KEY}` },
-      body: JSON.stringify({
-        model: LLM_MODEL,
-        messages: [{ role: "system", content: system }, ...(input.history ?? []).slice(-6), { role: "user", content: question }],
-        temperature: prompt.temperature,
-        max_tokens: reasoning ? Math.max(prompt.max_tokens, REASONING_MAX_TOKENS) : prompt.max_tokens,
-        ...(reasoning ? { reasoning_effort: "low" } : {}),
-      }),
-      signal: controller.signal,
-    });
-
-    let answer: string | null = null;
-    let limited = false;
-    for (let attempt = 0; attempt < 2 && !answer; attempt += 1) {
+    let result: CallResult = { kind: "error", status: 0 };
+    for (let attempt = 0; attempt < 2; attempt += 1) {
       const upstream = await call();
       if (upstream.status === 429) {
-        limited = true;
-        // One retry when the provider asks for a short wait; otherwise give up now.
+        result = { kind: "limited" };
         const wait = Number(upstream.headers.get("retry-after"));
         if (attempt === 0 && wait > 0 && wait <= 8) { await new Promise((resolve) => setTimeout(resolve, wait * 1000)); continue; }
         break;
       }
-      limited = false;
       if (!upstream.ok) {
-        console.warn(`[ask] provider returned ${upstream.status}`);
-        return fail(503, "llm_unavailable", "The assistant provider returned an error.");
+        console.warn(`[ask] ${provider.label} returned ${upstream.status}`);
+        return { kind: "error", status: upstream.status };
       }
-      answer = readAnswer(await upstream.json());   // empty content (reasoning ran out of tokens) → retry once
-      if (!answer) console.warn("[ask] provider returned an empty answer");
+      const answer = readAnswer(await upstream.json());   // empty content (reasoning ran out of tokens): retry once
+      if (answer) return { kind: "answer", answer };
+      console.warn(`[ask] ${provider.label} returned an empty answer`);
+      result = { kind: "error", status: 502 };
     }
-    if (!answer && limited) {
-      console.warn("[ask] provider rate limit; sending the busy answer");
-      const busy: AskResponse = { answer_md: busyText(input.lang), citations: [], numbers: [], cached: true, provider: "cache", model: "none" };
-      return NextResponse.json(busy);
-    }
-    if (!answer) return fail(503, "llm_unavailable", "The assistant provider returned an empty answer.");
-
-    // 5. Number check and citations.
-    const response: AskResponse = {
-      answer_md: answer,
-      citations: citations(answer),
-      numbers: checkNumbers(answer, facts),
-      cached: false,
-      provider: LLM_PROVIDER === "gemini" ? "gemini" : "groq",
-      model: LLM_MODEL,
-    };
-    return NextResponse.json(response);
+    if (result.kind === "limited") console.warn(`[ask] ${provider.label} rate limit`);
+    return result;
   } catch (error) {
-    // 6. Timeout or network failure → 503; the UI falls back to the suggested-question chips.
-    console.warn(`[ask] ${error instanceof Error && error.name === "AbortError" ? "timed out" : "request failed"}`);
-    return fail(503, "llm_unavailable", "The assistant did not answer in time.");
+    const timedOut = error instanceof Error && error.name === "AbortError";
+    console.warn(`[ask] ${provider.label} ${timedOut ? "timed out" : "request failed"}`);
+    return timedOut ? { kind: "timeout" } : { kind: "error", status: 502 };
   } finally {
     clearTimeout(timer);
   }

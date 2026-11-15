@@ -296,7 +296,7 @@ export interface AskResponse {
   numbers: { text: string; value: number; unit: string | null;
              verified: boolean; fact_id: string | null }[];
   cached: boolean;
-  provider: "gemini" | "groq" | "cache";
+  provider: "gemini" | "groq" | "custom" | "cache";   // custom: a user's own OpenAI-compatible endpoint
   model: string | null;
   notice?: "using_cache" | "scenario_mismatch";   // scenario_mismatch: cached answer is for cap300|actual
 }
