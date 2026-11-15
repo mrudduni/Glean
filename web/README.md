@@ -1,17 +1,17 @@
 # Field Shift web app
 
-This is the Next.js frontend for the Field Shift crop-rotation decision-support demo. It compares a farmer's current rotation with alternatives and makes the evidence gaps and local checks visible.
+Next.js 15 frontend for Field Shift. It shows one field's conditions, ranks crop rotations against the farmer's current one, and explains the evidence behind each number. It reads only the JSON files described in the team README, sections 7 to 9.
 
 ## Run locally
 
-Use Node.js 20 LTS or later.
+Use Node.js 20 or later.
 
 ```bash
-npm install
+npm ci
 npm run dev
 ```
 
-Open `http://localhost:3000`. To run the checks:
+Open `http://localhost:3000`. Checks:
 
 ```bash
 npm test
@@ -19,38 +19,51 @@ npm run typecheck
 npm run build
 ```
 
-The Leaflet basemap uses Esri World Imagery tiles and includes the required Esri attribution. It needs an internet connection.
+The map uses Esri World Imagery tiles and needs an internet connection.
 
-## Sample data
+## Data
 
-The app loads data from `public/data/` only. It does not call live NASA, USDA, soil or weather APIs. Every included field boundary, observation, score, chart series and neighbor comparison is illustrative mock data. The banner stays visible while mock data is loaded. Do not use the sample values to make farm decisions.
+The app fetches everything from `public/data/`. It calls no live NASA, USDA, soil or weather APIs.
 
-Replace the mock files with schema-compatible outputs from the data pipeline when they are ready. Keep `_meta.mock` set to `true` until a file contains real, checked data. The Zod schemas in `lib/schemas.ts` validate fetched JSON in development. Data loading errors are surfaced in the relevant screen rather than treated as valid values.
+| Files | Owner | Status |
+|---|---|---|
+| `fields.json`, `sources.json`, `field/*/{water,observed,neighbors}.json` | D (`role/data`) | Real |
+| `crops.json`, `rotations.json`, `field/*/{summary,calendar,replay,strategies,validation}.json`, `assistant/prompt.json`, `field/*/assistant_{context,cache}.json` | M (`role/model`, `role/model-assistant`) | Mock until M pushes |
+| `content/{copy,card_text,glossary,assistant_questions}.json`, `styles/tokens.{css,json}` | U (`role/content`) | Mock or placeholder until U pushes |
+
+Every mock file has `_meta.mock: true`. While any loaded file is a mock, a banner at the top of the page says so. To swap in real files, copy them over the mocks at the same paths; no code change is needed.
+
+`lib/data.ts` validates each file with the zod schemas in `lib/schemas.ts`. A file that does not match the contract logs `[data] <path> does not match the contract` in the console and still renders. Optional files (`validation`, `water`, `observed`, `neighbors`, `glossary`, `assistant_questions`) show a "not available" note when missing.
+
+To rebuild the mocks from D's weather data (needs `git fetch` of `origin/role/data`):
+
+```bash
+python scripts/mocks/make_mocks.py
+node scripts/mocks/make_cache.mts
+```
 
 ## Assistant
 
-The suggested questions use static responses from `public/data/field/{f1,f2,f3}/assistant_cache.json`. Free-text questions go through the only server route, `/api/ask`. Configure an OpenAI-compatible provider in a private environment file:
+Suggested questions are answered from `field/{id}/assistant_cache.json` without calling a model. Free-text questions go to `POST /api/ask`, which sends only the selected scenario's facts to an OpenAI-compatible chat endpoint, waits up to 20 seconds, and checks every number in the answer against those facts. Unverified numbers are marked in the UI.
 
-```dotenv
-LLM_PROVIDER=openai-compatible
-LLM_BASE_URL=https://api.openai.com/v1
-LLM_MODEL=your-model-name
-LLM_API_KEY=your-secret-key
-```
+Copy `.env.example` to `.env.local` and fill it in. Never commit keys.
 
-Keep the key server-side. Never use a `NEXT_PUBLIC_` prefix. Without a configured provider, the route returns `503` and the field comparison remains available.
+| Variable | Groq | Gemini |
+|---|---|---|
+| `LLM_PROVIDER` | `groq` | `gemini` |
+| `LLM_BASE_URL` | `https://api.groq.com/openai/v1` | `https://generativelanguage.googleapis.com/v1beta/openai` |
+| `LLM_MODEL` | model id from the Groq console | Gemini Flash model id |
+| `LLM_API_KEY` | Groq key | AI Studio key |
 
-## Main paths
+Without a key the route returns 503 `llm_unavailable` and the drawer falls back to the suggested questions. The route also limits each IP to 20 questions a minute.
 
-- `/` selects one of three demo fields.
-- `/field/f1`, `/field/f2` and `/field/f3` open the field workspace.
-- `/how-we-know` explains sources, evidence confidence and limitations.
-- `/api/ask` validates assistant requests and serves cached or provider-backed answers.
+## Code map
 
-The query string stores the field, water cap, climate scenario, five priority weights, equipment and market choices, and language. This makes a configuration shareable.
+- `lib/types.ts`, `lib/schemas.ts`: contract types and zod mirrors.
+- `lib/data.ts`: loaders and the mock flag.
+- `lib/score.ts`: slider weights, exclusion and the shown-rotation pick (README §8.7).
+- `lib/i18n.ts`: `t`, template `fill` and per-variable number formatting (README §7.4).
+- `lib/numberCheck.ts`: finds numbers in an answer and matches them to facts. `tests/numberCheck.test.ts` also runs M's shared cases when `model/assistant/number_check_cases.json` exists.
+- `app/api/ask/route.ts`: the assistant route.
 
-## Data sources in the demo
-
-The source register is in `public/data/sources.json`. It links to NASA POWER, SMAP, GPM IMERG, MODIS/VIIRS, USDA Soil Data Access, USDA's Cropland Data Layer and USDA NRCS references. Links describe intended data roles; they do not imply that this demo has downloaded or validated those datasets.
-
-The root `README.md` in this checkout does not contain the §7–9 data and assistant contract referenced by `3_FRONTEND.md`. This frontend therefore defines a local typed contract in `lib/types.ts` and `lib/schemas.ts`. Align these types with the shared contract when it is added. Do not change data-pipeline files from this frontend.
+Copy keys the app uses beyond README §8.6 are listed in `COPY_KEYS_ADDED.md`.
