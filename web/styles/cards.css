@@ -1,6 +1,6 @@
 /* Strategy cards (wireframe s4). The nine parts of every card sit on shared rows (subgrid),
    so "Why", "Evidence", "Risks"... line up across the four cards and can be read across. */
-.strategy-results { min-width: 0; display: grid; gap: var(--sp-4); container-type: inline-size; container-name: cards; }
+.strategy-results { min-width: 0; display: grid; grid-template-columns: minmax(0, 1fr); gap: var(--sp-4); container-type: inline-size; container-name: cards; }
 /* Columns follow the space the cards actually get: 4 across, 2 x 2 on tablets, a swipe row on phones. */
 .strategy-grid {
   display: grid;
@@ -9,6 +9,7 @@
   row-gap: 0;
 }
 .strategy-card {
+  position: relative; /* keeps absolutely positioned sr-only text inside the swipe scroller */
   grid-row: span 9;
   display: grid;
   grid-template-rows: subgrid;
