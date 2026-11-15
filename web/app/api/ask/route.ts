@@ -232,8 +232,8 @@ function chooseProviders(headers: Headers): { providers: Provider[]; userKey: bo
 
 /** One OpenAI-compatible chat completion, retrying once on empty content or a short 429. Never logs keys. */
 async function callProvider(provider: Provider, messages: { role: string; content: string }[]): Promise<CallResult> {
-  // Reasoning models (gpt-oss) spend max_tokens on hidden reasoning first; give them room and keep reasoning short.
-  const reasoning = provider.model.startsWith("openai/gpt-oss");
+  // Reasoning models (gpt-oss, Gemini) spend max_tokens on hidden reasoning first; give them room and keep reasoning short.
+  const reasoning = /^(openai\/gpt-oss|gemini)/.test(provider.model);
   const controller = new AbortController();
   const timer = setTimeout(() => controller.abort(), TIMEOUT_MS);
   const call = () => fetch(`${provider.baseUrl.replace(/\/+$/, "")}/chat/completions`, {
