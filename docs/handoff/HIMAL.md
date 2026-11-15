@@ -29,7 +29,7 @@ Do not use `field-shift.vercel.app`: that belongs to another team.
 ## Your tasks, in order
 
 1. **Check the 2026 rules now.** Confirm the deadline time zone and the demo format: a video of 30 seconds or less, or at most 7 slides. Going over either removes the project from global judging. Tell Sarthak the answer.
-2. **Decide the name with the team.** The app currently says "Field Shift". Your draft said "RootCycle". Another team already uses "Field Shift" on Vercel. If you switch, tell Sarthak and only `content/copy.json` `app.name` changes.
+2. **The name is decided: Stubble.** Stubble is the crop residue that protects soil from wind, which ties to the Dust Bowl story. Use it on the slides, the video and the project page. The app is being renamed now; the live link moves to https://stubble.vercel.app once the alias is set.
 3. **Finish the deck** (if slides). Start from Parisha's PDF on branch `Parisha`. Seven slides max: problem, our tool, how it decides (data to model to cards), Rotation Replay, Farms Like Yours plus assistant, validation and honesty, impact and next steps. Use real screenshots once the real-data version is live. No NASA logos or meatball.
 4. **Record the video** (if video). Follow `docs/PITCH.md`. Record the live site at 1080p, burn in captions, 30 seconds or less. Watermark any AI-generated media.
 5. **Fill the Space Apps project page** from `docs/SUBMISSION.md`. Add the live URL, the repo link (https://github.com/mrudduni/Team-Brackets, public, Apache 2.0) and the video or slides. List every data source from `docs/DATA_SOURCES.md`. Use the AI disclosure from `docs/AI_USE.md` once it lands.

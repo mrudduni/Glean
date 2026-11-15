@@ -17,7 +17,7 @@ Produced by `data-pipeline/process/build_sources.py` (D). The machine-readable v
 | `PRISM` | [PRISM daily (4 km)](https://prism.oregonstate.edu/) | PRISM Climate Group, Oregon State University | 4 km, daily | 1991–2025 | 1991–2020 climate normals vs 2016–2025, ground-based check of POWER |
 | `USGS` | [USGS Water Data APIs — groundwater field measurements](https://api.waterdata.usgs.gov/) | U.S. Geological Survey | Individual wells | 2000–2025 | Local aquifer trend near each field |
 | `FAO56` | [FAO Irrigation and Drainage Paper 56 (Penman-Monteith, crop coefficients)](https://www.fao.org/4/x0490e/x0490e00.htm) | FAO | Method, not a dataset | 1998 | Reference ET and crop water demand in the Replay |
-| `MODEL` | [Field Shift water-budget model (FAO-56)](https://github.com/mrudduni/Team-Brackets/blob/main/docs/METHODS.md) | Team Brackets (M) | Field, daily/annual | 2016–2025 | Rotation Replay results and the calendar |
+| `MODEL` | [Stubble water-budget model (FAO-56)](https://github.com/mrudduni/Team-Brackets/blob/main/docs/METHODS.md) | Team Brackets (M) | Field, daily/annual | 2016–2025 | Rotation Replay results and the calendar |
 
 ## Planned, not delivered yet
 
