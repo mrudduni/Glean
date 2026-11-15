@@ -181,12 +181,10 @@ export async function POST(request: NextRequest) {
         : last.kind === "timeout" ? "did not answer in time" : "returned an error";
     return fail(503, "llm_unavailable", `Your provider ${why}. Turn off "Use my own key" to use the default assistant.`);
   }
-  if (last.kind === "limited") {
-    console.warn("[ask] providers rate-limited; sending the busy answer");
-    const busy: AskResponse = { answer_md: busyText(input.lang), citations: [], numbers: [], cached: true, provider: "cache", model: "none" };
-    return NextResponse.json(busy);
-  }
-  return fail(503, "llm_unavailable", last.kind === "timeout" ? "The assistant did not answer in time." : "The assistant provider returned an error.");
+  // Server providers all failed (rate limit, error, empty or timeout): a short note pointing to the cached questions.
+  console.warn(`[ask] no provider answered (${last.kind}); sending the busy answer`);
+  const busy: AskResponse = { answer_md: busyText(input.lang), citations: [], numbers: [], cached: true, provider: "cache", model: "none" };
+  return NextResponse.json(busy);
 }
 
 // ---------- providers ----------
@@ -232,8 +230,8 @@ function chooseProviders(headers: Headers): { providers: Provider[]; userKey: bo
 
 /** One OpenAI-compatible chat completion, retrying once on empty content or a short 429. Never logs keys. */
 async function callProvider(provider: Provider, messages: { role: string; content: string }[]): Promise<CallResult> {
-  // Reasoning models (gpt-oss, Gemini) spend max_tokens on hidden reasoning first; give them room and keep reasoning short.
-  const reasoning = /^(openai\/gpt-oss|gemini)/.test(provider.model);
+  // Thinking models (gpt-oss on Groq, Gemini) spend max_tokens on hidden reasoning first; give them room and keep reasoning short.
+  const reasoning = provider.model.startsWith("openai/gpt-oss") || provider.label === "gemini";
   const controller = new AbortController();
   const timer = setTimeout(() => controller.abort(), TIMEOUT_MS);
   const call = () => fetch(`${provider.baseUrl.replace(/\/+$/, "")}/chat/completions`, {
