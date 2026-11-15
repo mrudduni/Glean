@@ -298,11 +298,11 @@
     "model": "qwen/qwen3.8-27b"
    },
    "es": {
-    "answer_md": "La alfalfa es una opción fuerte para su campo. De hecho, la rotación con alfalfa, alfalfa, alfalfa, alfalfa, maíz y trigo se muestra como la mejor opción en la lista actual.\n\nAquí hay razones para considerarla:\n*   **Ingresos:** Generó un promedio de $545/ac por año en el modelo [MODEL].\n*   **Salud del suelo:** Tiene una puntuación de salud del suelo de 75.43 sobre 100, la más alta de las opciones [MODEL].\n*   **Erosión:** Solo tuvo 5 días por año con suelo desnudo y viento fuerte, lo que ayuda a proteger su suelo de arena fina [MODEL].\n\nSin embargo, tenga en cuenta que es una estimación basada en el clima pasado (2000-2025), no una garantía futura [MODEL]. También requiere mucha agua: usó un promedio de 291 mm de riego por año [MODEL]. Dado que el agua subterránea regional está bajando, podría ser útil consultar con un agrónomo local sobre la disponibilidad de agua a largo plazo.",
+    "answer_md": "La rotación que incluye alfalfa (alfalfa, alfalfa, alfalfa, alfalfa, corn, wheat) podría ser una opción productiva. Según el modelo, esta estrategia obtuvo un ingreso promedio de $545/ac por año [MODEL].\n\nAquí hay algunos puntos sobre esta rotación:\n\n*   El uso promedio de riego fue de 291 mm por temporada [MODEL].\n*   El puntaje de salud del suelo es de 75.43 sobre 100 [MODEL].\n*   Se estimaron 76 días de estrés hídrico por año [MODEL].\n*   Hubo 5 días por año con suelo desnudo y viento fuerte [MODEL].\n\nEstos números son estimaciones basadas en el clima pasado de 2000 a 2025 [MODEL]. Si desea analizar más a fondo cómo esta rotación se ajusta a sus necesidades específicas, le sugiero consultar con un agente de extensión de K-State o un agrónomo local. Ellos pueden ofrecerle orientación experta sobre el manejo de cultivos en su campo.",
     "citations": [
      {
       "tag": "MODEL",
-      "name": "Stubble water-budget model (FAO-56)",
+      "name": "Glean water-budget model (FAO-56)",
       "url": "https://github.com/mrudduni/Team-Brackets/blob/main/docs/METHODS.md"
      }
     ],
@@ -313,6 +313,13 @@
       "unit": "usd",
       "verified": true,
       "fact_id": "replay.R4.cap300|actual.revenue_usd_ac_mean"
+     },
+     {
+      "text": "291 mm",
+      "value": 291.0,
+      "unit": "mm",
+      "verified": true,
+      "fact_id": "scenario.cap300|actual.cap_mm"
      },
      {
       "text": "75.43",
@@ -329,23 +336,23 @@
       "fact_id": "replay.R3.cap300|actual.stress_days_mean"
      },
      {
+      "text": "76",
+      "value": 76.0,
+      "unit": null,
+      "verified": true,
+      "fact_id": "field.water_storage_mm"
+     },
+     {
       "text": "5",
       "value": 5.0,
       "unit": null,
       "verified": true,
       "fact_id": "neighbors.continuous_corn.n"
-     },
-     {
-      "text": "291 mm",
-      "value": 291.0,
-      "unit": "mm",
-      "verified": true,
-      "fact_id": "scenario.cap300|actual.cap_mm"
      }
     ],
     "cached": true,
-    "provider": "groq",
-    "model": "qwen/qwen3.8-27b"
+    "provider": "gemini",
+    "model": "gemini-3.1-flash-lite"
    }
   },
   "q4": {
@@ -540,46 +547,17 @@
   },
   "q6": {
    "en": {
-    "answer_md": "Before switching crops, talk to a K-State Research and Extension agent or local agronomist. You do not have specific local advice in these facts.\n\nKey areas to discuss include:\n*   **Water Rights:** The field is irrigated [CSB], and regional groundwater is dropping [GRACE]. Confirm your legal water rights and pump capacity.\n*   **Soil Health:** The soil is fine sand with low organic matter [SSURGO]. Ask how new crops affect soil structure and erosion, especially since the wind erodibility index is high [SSURGO].\n*   **Market Access:** Check local demand and prices for alfalfa or other new crops.\n*   **Equipment Needs:** Determine if you need new machinery for planting or harvesting different crops.\n\nThese numbers are estimates from past weather, not guarantees [MODEL]. Your agent can help you plan for local conditions.",
+    "answer_md": "You should talk to a K-State Research and Extension agent or a local agronomist before making changes. They can help you evaluate the risks of switching rotations for your sandy field.\n\nWhen speaking with them, you may want to discuss these points:\n\n* The field has a wind erodibility index of 250 tons per acre per year [SSURGO].\n* The soil is fine sand with 0.75% organic matter [SSURGO].\n* The slope is 13.0% [SSURGO].\n* Regional groundwater storage is falling by about 0.86 cm per year [GRACE], and the depth to water in nearby wells is increasing by a median of 1.05 m per year [USGS].\n\nThese professionals can provide local guidance on managing soil health and water use for your field.",
     "citations": [
      {
-      "tag": "CSB",
-      "name": "Crop Sequence Boundaries 2018–2025 (rev23)",
-      "url": "https://www.nass.usda.gov/Research_and_Science/Crop-Sequence-Boundaries/"
+      "tag": "SSURGO",
+      "name": "SSURGO via Soil Data Access",
+      "url": "https://sdmdataaccess.sc.egov.usda.gov/"
      },
      {
       "tag": "GRACE",
       "name": "JPL GRACE/GRACE-FO Mascon RL06.3 (CRI filtered)",
       "url": "https://podaac.jpl.nasa.gov/dataset/TELLUS_GRAC-GRFO_MASCON_CRI_GRID_RL06.3_V4"
-     },
-     {
-      "tag": "SSURGO",
-      "name": "SSURGO via Soil Data Access",
-      "url": "https://sdmdataaccess.sc.egov.usda.gov/"
-     },
-     {
-      "tag": "MODEL",
-      "name": "Stubble water-budget model (FAO-56)",
-      "url": "https://github.com/mrudduni/Team-Brackets/blob/main/docs/METHODS.md"
-     }
-    ],
-    "numbers": [],
-    "cached": true,
-    "provider": "groq",
-    "model": "qwen/qwen3.8-27b"
-   },
-   "es": {
-    "answer_md": "Antes de cambiar su rotación, consulte con su agente de extensión de K-State Research and Extension sobre estos puntos clave:\n\n*   **Riesgo de erosión:** Su suelo es arena fina con un índice de erosión eólica de 250 toneladas por acre por año [SSURGO]. Pregunte cómo proteger el suelo, ya que la rotación actual tiene 22 días al año con suelo desnudo y viento fuerte [MODEL].\n*   **Disponibilidad de agua:** El nivel freático regional está bajando 1.05 metros por año [USGS]. Asegúrese de que su plan de riego (límite de 300 mm por temporada [MODEL]) sea sostenible a largo plazo.\n*   **Salud del suelo:** La rotación actual tiene una puntuación de salud de 48.4 sobre 100 [MODEL]. Discuta cómo mejorarla, especialmente dado que la materia orgánica es baja (0.75%) [SSURGO].\n*   **Rentabilidad en sequía:** En 2012, la rotación actual generó $295/acre [MODEL]. Compare esto con otras opciones para entender su resistencia a la sequía.\n\nEstas cifras son estimaciones basadas en el clima pasado (2000-2025), no predicciones [MODEL].",
-    "citations": [
-     {
-      "tag": "SSURGO",
-      "name": "SSURGO via Soil Data Access",
-      "url": "https://sdmdataaccess.sc.egov.usda.gov/"
-     },
-     {
-      "tag": "MODEL",
-      "name": "Stubble water-budget model (FAO-56)",
-      "url": "https://github.com/mrudduni/Team-Brackets/blob/main/docs/METHODS.md"
      },
      {
       "tag": "USGS",
@@ -589,46 +567,11 @@
     ],
     "numbers": [
      {
-      "text": "250",
+      "text": "250 tons",
       "value": 250.0,
-      "unit": null,
+      "unit": "tons",
       "verified": true,
       "fact_id": "field.wei_t_ac_yr"
-     },
-     {
-      "text": "22",
-      "value": 22.0,
-      "unit": null,
-      "verified": true,
-      "fact_id": "replay.R0.cap300|actual.bare_windy_days_mean"
-     },
-     {
-      "text": "1.05",
-      "value": 1.05,
-      "unit": null,
-      "verified": true,
-      "fact_id": "field.weg"
-     },
-     {
-      "text": "300 mm",
-      "value": 300.0,
-      "unit": "mm",
-      "verified": true,
-      "fact_id": "scenario.cap300|actual.cap_mm"
-     },
-     {
-      "text": "48.4",
-      "value": 48.4,
-      "unit": null,
-      "verified": true,
-      "fact_id": "replay.R0.cap300|actual.soil_health_score"
-     },
-     {
-      "text": "100",
-      "value": 100.0,
-      "unit": null,
-      "verified": true,
-      "fact_id": "replay.R3.cap300|actual.stress_days_mean"
      },
      {
       "text": "0.75%",
@@ -638,16 +581,83 @@
       "fact_id": "field.organic_matter_pct"
      },
      {
-      "text": "$295",
-      "value": 295.0,
-      "unit": "usd",
+      "text": "13.0%",
+      "value": 13.0,
+      "unit": "pct",
       "verified": true,
-      "fact_id": "replay.R5.cap300|actual.revenue_usd_ac_worst5"
+      "fact_id": "field.slope_pct"
+     },
+     {
+      "text": "0.86 cm",
+      "value": 0.86,
+      "unit": "cm",
+      "verified": true,
+      "fact_id": "water.grace_trend_cm_per_yr"
+     },
+     {
+      "text": "1.05 m",
+      "value": 1.05,
+      "unit": "m",
+      "verified": true,
+      "fact_id": "field.weg"
      }
     ],
     "cached": true,
-    "provider": "groq",
-    "model": "qwen/qwen3.8-27b"
+    "provider": "gemini",
+    "model": "gemini-3.1-flash-lite"
+   },
+   "es": {
+    "answer_md": "Consulte con un agente de extensión de K-State o un agrónomo local sobre cualquier cambio en su rotación. Ellos pueden ayudarle a evaluar los riesgos específicos de su campo.\n\nConsidere estos puntos basados en los datos del modelo:\n\n*   La rotación actual de maíz, trigo y sorgo tuvo un promedio de 40 días de estrés hídrico al año [MODEL].\n*   La rotación de alfalfa, alfalfa, alfalfa, alfalfa, maíz y trigo mostró una mejor salud del suelo con una puntuación de 75.43, comparada con 48.4 de su rotación actual [MODEL].\n*   El nivel de agua subterránea en pozos cercanos está bajando a una mediana de 1.05 m por año [USGS].\n\nEstos números son estimaciones basadas en el clima pasado de 2000 a 2025 [MODEL]. Un experto local puede ofrecerle orientación sobre el manejo de agua y la salud del suelo en su campo de arena fina [SSURGO].",
+    "citations": [
+     {
+      "tag": "MODEL",
+      "name": "Glean water-budget model (FAO-56)",
+      "url": "https://github.com/mrudduni/Team-Brackets/blob/main/docs/METHODS.md"
+     },
+     {
+      "tag": "USGS",
+      "name": "USGS Water Data APIs — groundwater field measurements",
+      "url": "https://api.waterdata.usgs.gov/"
+     },
+     {
+      "tag": "SSURGO",
+      "name": "SSURGO via Soil Data Access",
+      "url": "https://sdmdataaccess.sc.egov.usda.gov/"
+     }
+    ],
+    "numbers": [
+     {
+      "text": "40",
+      "value": 40.0,
+      "unit": null,
+      "verified": true,
+      "fact_id": "replay.R0.cap300|actual.stress_days_mean"
+     },
+     {
+      "text": "75.43",
+      "value": 75.43,
+      "unit": null,
+      "verified": true,
+      "fact_id": "field.water_storage_mm"
+     },
+     {
+      "text": "48.4",
+      "value": 48.4,
+      "unit": null,
+      "verified": true,
+      "fact_id": "replay.R0.cap300|actual.soil_health_score"
+     },
+     {
+      "text": "1.05 m",
+      "value": 1.05,
+      "unit": "m",
+      "verified": true,
+      "fact_id": "field.weg"
+     }
+    ],
+    "cached": true,
+    "provider": "gemini",
+    "model": "gemini-3.1-flash-lite"
    }
   }
  }
