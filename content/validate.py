@@ -95,7 +95,8 @@ assistant.title assistant.placeholder assistant.send assistant.suggested assista
 """.split()
 # README gives no var list for copy keys. Only these two use a placeholder.
 COPY_VARS = {"card.hidden_count": {"n"}, "neighbors.n_fields": {"n"}, "calendar.odds": {"risk", "count"},
-             "years.range": {"years_from", "years_to"}}
+             "years.range": {"years_from", "years_to"}, "card.shown_at": {"cap"},
+             "card.unlock_tick": {"option"}, "card.unlock_cap": {"option"}}
 GLOSSARY_IDS = """et et0 ndvi soil_moisture_anomaly root_zone frost_risk gdd water_balance evaporative_stress
 aquifer rotation cover_crop fallow nitrogen_fixing wind_erosion water_erosion satellite_vs_ground model_estimate""".split()
 CROPS = "corn sorghum wheat soybean alfalfa triticale rye_cover cotton fallow".split()
