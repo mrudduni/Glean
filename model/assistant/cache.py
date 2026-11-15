@@ -60,6 +60,12 @@ def top_rotations_text(ctx: dict, ids: list[str]) -> str:
     return ", ".join(names[r] for r in ids)
 
 
+def prompt_facts(ctx: dict, scenario: str, top_ids: list[str]) -> list[dict]:
+    """Scenario facts, limited to the strategies on screen (plus alfalfa for 'why not alfalfa')."""
+    keep = set(top_ids) | {"R4"}
+    return [f for f in facts_for(ctx, scenario) if (f.get("rotation_id") is None or f["rotation_id"] in keep)]
+
+
 def build_messages(prompt: dict, ctx: dict, lang: str, scenario: str, top_ids: list[str], question: str,
                    history: list[dict] | None = None) -> list[dict]:
     system = (prompt["system"]
@@ -67,12 +73,12 @@ def build_messages(prompt: dict, ctx: dict, lang: str, scenario: str, top_ids: l
               .replace("{field_name}", ctx["field_name"])
               .replace("{scenario_label}", scenario_label(scenario))
               .replace("{top_rotations}", top_rotations_text(ctx, top_ids))
-              .replace("{facts_block}", facts_block(facts_for(ctx, scenario))))
+              .replace("{facts_block}", facts_block(prompt_facts(ctx, scenario, top_ids))))
     return [{"role": "system", "content": system}, *(history or []), {"role": "user", "content": question}]
 
 
-def checkable(ctx: dict, scenario: str) -> list[dict]:
-    return [f for f in facts_for(ctx, scenario) if f["value"] is not None]
+def checkable(ctx: dict, scenario: str, top_ids: list[str]) -> list[dict]:
+    return [f for f in prompt_facts(ctx, scenario, top_ids) if f["value"] is not None]
 
 
 # ---- LLM call --------------------------------------------------------------------
@@ -175,7 +181,7 @@ def make_response(answer: str, numbers: list[dict], sources: dict, provider: str
 def generate(fid: str, qid: str, lang: str, ctx: dict, prompt: dict, questions: dict, top_ids: list[str],
              sources: dict, client=None, env: dict | None = None, dry: bool = False,
              feedback: list[str] | None = None) -> dict:
-    facts = checkable(ctx, SCENARIO)
+    facts = checkable(ctx, SCENARIO, top_ids)
     qtext = questions[qid]["text"][lang]
     if dry:
         ans = dry_answer(ctx, qid, lang, top_ids)

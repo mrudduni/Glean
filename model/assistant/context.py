@@ -17,7 +17,7 @@ from paths import CONTENT_DIR, DATA_WEB, FIELDS, OUT_WEB, SCENARIO
 
 CAPS = {"dryland": 0, "cap150": 150, "cap300": 300, "cap450": 450}
 ROT_IDS = ["R0", "R1", "R2", "R3", "R4", "R5", "R6"]
-DROUGHT_PICKS = 2  # drought years listed per rotation, 2012 first
+DROUGHT_PICKS = 1  # drought years listed per rotation, 2012 first
 NEIGHBOR_NAMES = {
     "wsf": "wheat, sorghum, fallow", "corn_wheat_sorghum": "corn, wheat, sorghum", "corn_soy": "corn, soybean",
     "continuous_corn": "continuous corn", "wheat_fallow": "wheat, fallow", "alfalfa": "alfalfa",
@@ -241,7 +241,7 @@ def build_field(fid: str, model_web: Path) -> dict:
     b.neighbors()
     b.validation()
     b.replay(names)
-    b.glossary()
+    # glossary facts left out of the prompt to save tokens (free-tier daily cap)
     ids = [f["id"] for f in b.facts]
     assert len(ids) == len(set(ids)), "duplicate fact ids"
     return {
