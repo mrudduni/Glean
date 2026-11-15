@@ -30,12 +30,23 @@ LANG_NAME = {"en": "English", "es": "Spanish"}
 RETRY_MSG = "Rewrite your answer using only numbers from the facts."
 
 
-def llm_env() -> dict:
-    return {k: os.environ.get(k, "") for k in ("LLM_PROVIDER", "LLM_BASE_URL", "LLM_MODEL", "LLM_API_KEY")}
+def llm_env(prefix: str = "LLM") -> dict:
+    """Env for one backend, always returned under the LLM_* names. prefix: LLM (default) or GEMINI."""
+    return {f"LLM_{k}": os.environ.get(f"{prefix}_{k}", "") for k in ("PROVIDER", "BASE_URL", "MODEL", "API_KEY")}
 
 
-def llm_ready() -> bool:
-    return all(llm_env().values())
+def gen_prefix() -> str:
+    """Backend used to write answers: CACHE_BACKEND=gemini selects GEMINI_*; default LLM_*."""
+    return os.environ.get("CACHE_BACKEND", "LLM").upper()
+
+
+def make_client(env: dict):
+    from openai import OpenAI
+    return OpenAI(base_url=env["LLM_BASE_URL"], api_key=env["LLM_API_KEY"], timeout=90, max_retries=0)
+
+
+def llm_ready(prefix: str = "LLM") -> bool:
+    return all(llm_env(prefix).values())
 
 
 # ---- prompt building -------------------------------------------------------------
@@ -85,12 +96,13 @@ def checkable(ctx: dict, scenario: str, top_ids: list[str]) -> list[dict]:
 
 def clean_text(t: str) -> str:
     """Plain spaces and hyphens; models like to emit narrow no-break spaces and non-breaking hyphens."""
+    t = re.sub(r"<think>.*?</think>", "", t, flags=re.S)
     for a, b in ((" ", " "), (" ", " "), ("‑", "-"), ("‒", "-")):
         t = t.replace(a, b)
     return t.strip()
 
 
-def call_llm(client, env: dict, messages: list[dict], prompt: dict, max_tries: int = 8) -> str:
+def call_llm(client, env: dict, messages: list[dict], prompt: dict, max_tries: int = 4) -> str:
     import openai
     for n in range(max_tries):
         try:
@@ -100,7 +112,8 @@ def call_llm(client, env: dict, messages: list[dict], prompt: dict, max_tries: i
                 extra["extra_body"] = {"reasoning_effort": effort}
             r = client.chat.completions.create(
                 model=env["LLM_MODEL"], messages=messages,
-                temperature=prompt["temperature"], max_tokens=prompt["max_tokens"], **extra)
+                temperature=prompt["temperature"],
+                max_tokens=int(os.environ.get("LLM_MAX_TOKENS", prompt["max_tokens"])), **extra)
             return clean_text(r.choices[0].message.content or "")
         except openai.RateLimitError as e:
             wait = min(90, 4 * 2 ** n)
@@ -218,14 +231,11 @@ def main():
     a = ap.parse_args()
 
     dry = a.dry_run
-    env = llm_env()
-    if not dry and not llm_ready():
+    env = llm_env(gen_prefix())
+    if not dry and not llm_ready(gen_prefix()):
         missing = [k for k, v in env.items() if not v]
-        raise SystemExit(f"LLM vars empty in {paths.ENV_FILE}: {', '.join(missing)}. Fill them or pass --dry-run.")
-    client = None
-    if not dry:
-        from openai import OpenAI
-        client = OpenAI(base_url=env["LLM_BASE_URL"], api_key=env["LLM_API_KEY"], timeout=60, max_retries=0)
+        raise SystemExit(f"{gen_prefix()} vars empty in {paths.ENV_FILE}: {', '.join(missing)}. Fill them or pass --dry-run.")
+    client = None if dry else make_client(env)
     prompt = load(a.out / "assistant" / "prompt.json")
     qs = {q["id"]: q for q in load(CONTENT_DIR / "assistant_questions.json")["questions"]}
     sources = load_sources()

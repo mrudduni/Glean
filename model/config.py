@@ -10,6 +10,7 @@ MODEL_DIR = Path(__file__).resolve().parent
 REPO_DIR = MODEL_DIR.parent
 
 load_dotenv(MODEL_DIR / ".env")
+load_dotenv(Path.home() / ".glean" / ".env")
 load_dotenv(Path.home() / ".fieldshift" / ".env")
 
 
