@@ -1,0 +1,1893 @@
+{
+ "_note": "Shared by model/assistant/number_check.py and web/lib/numberCheck.ts. facts use README 8.4 unit strings; expected is the numbers array in order.",
+ "cases": [
+  {
+   "id": "inches_vs_mm",
+   "description": "12 inches converts to 304.8 mm and matches 305 mm",
+   "answer": "The soil holds about 12 inches of water.",
+   "facts": [
+    {
+     "id": "field.aws_mm",
+     "value": 305,
+     "unit": "mm"
+    },
+    {
+     "id": "replay.R2.cap300|actual.revenue_usd_ac_mean",
+     "value": 412,
+     "unit": "usd_ac"
+    },
+    {
+     "id": "clim.pct",
+     "value": 12,
+     "unit": "pct"
+    },
+    {
+     "id": "clim.days",
+     "value": 23,
+     "unit": "days"
+    },
+    {
+     "id": "water.grace",
+     "value": -0.86,
+     "unit": "cm_per_yr"
+    },
+    {
+     "id": "clim.tmax",
+     "value": 30,
+     "unit": "c"
+    },
+    {
+     "id": "field.area",
+     "value": 128.4,
+     "unit": "ac"
+    },
+    {
+     "id": "nass.yield",
+     "value": 180,
+     "unit": "bu_ac"
+    },
+    {
+     "id": "well.depth",
+     "value": 3.0,
+     "unit": "m"
+    }
+   ],
+   "expected": [
+    {
+     "text": "12 inches",
+     "value": 12,
+     "unit": "in",
+     "verified": true,
+     "fact_id": "field.aws_mm"
+    }
+   ]
+  },
+  {
+   "id": "no_fact",
+   "description": "500 mm with no matching fact is unverified",
+   "answer": "It may use 500 mm of water.",
+   "facts": [],
+   "expected": [
+    {
+     "text": "500 mm",
+     "value": 500,
+     "unit": "mm",
+     "verified": false,
+     "fact_id": null
+    }
+   ]
+  },
+  {
+   "id": "year_skipped",
+   "description": "4-digit year in range is skipped",
+   "answer": "The drought came in 2012.",
+   "facts": [
+    {
+     "id": "field.aws_mm",
+     "value": 305,
+     "unit": "mm"
+    },
+    {
+     "id": "replay.R2.cap300|actual.revenue_usd_ac_mean",
+     "value": 412,
+     "unit": "usd_ac"
+    },
+    {
+     "id": "clim.pct",
+     "value": 12,
+     "unit": "pct"
+    },
+    {
+     "id": "clim.days",
+     "value": 23,
+     "unit": "days"
+    },
+    {
+     "id": "water.grace",
+     "value": -0.86,
+     "unit": "cm_per_yr"
+    },
+    {
+     "id": "clim.tmax",
+     "value": 30,
+     "unit": "c"
+    },
+    {
+     "id": "field.area",
+     "value": 128.4,
+     "unit": "ac"
+    },
+    {
+     "id": "nass.yield",
+     "value": 180,
+     "unit": "bu_ac"
+    },
+    {
+     "id": "well.depth",
+     "value": 3.0,
+     "unit": "m"
+    }
+   ],
+   "expected": []
+  },
+  {
+   "id": "year_edges",
+   "description": "1980 and 2035 skipped, 1979 and 2036 checked",
+   "answer": "1980 2035 1979 2036",
+   "facts": [],
+   "expected": [
+    {
+     "text": "1979",
+     "value": 1979,
+     "unit": null,
+     "verified": false,
+     "fact_id": null
+    },
+    {
+     "text": "2036",
+     "value": 2036,
+     "unit": null,
+     "verified": false,
+     "fact_id": null
+    }
+   ]
+  },
+  {
+   "id": "year_with_unit_checked",
+   "description": "a year-like number with a unit is a measurement",
+   "answer": "It rained 2020 mm.",
+   "facts": [
+    {
+     "id": "field.aws_mm",
+     "value": 305,
+     "unit": "mm"
+    },
+    {
+     "id": "replay.R2.cap300|actual.revenue_usd_ac_mean",
+     "value": 412,
+     "unit": "usd_ac"
+    },
+    {
+     "id": "clim.pct",
+     "value": 12,
+     "unit": "pct"
+    },
+    {
+     "id": "clim.days",
+     "value": 23,
+     "unit": "days"
+    },
+    {
+     "id": "water.grace",
+     "value": -0.86,
+     "unit": "cm_per_yr"
+    },
+    {
+     "id": "clim.tmax",
+     "value": 30,
+     "unit": "c"
+    },
+    {
+     "id": "field.area",
+     "value": 128.4,
+     "unit": "ac"
+    },
+    {
+     "id": "nass.yield",
+     "value": 180,
+     "unit": "bu_ac"
+    },
+    {
+     "id": "well.depth",
+     "value": 3.0,
+     "unit": "m"
+    }
+   ],
+   "expected": [
+    {
+     "text": "2020 mm",
+     "value": 2020,
+     "unit": "mm",
+     "verified": false,
+     "fact_id": null
+    }
+   ]
+  },
+  {
+   "id": "comma_thousands_not_year",
+   "description": "comma thousands are not years",
+   "answer": "Revenue was $2,012 per acre.",
+   "facts": [
+    {
+     "id": "field.aws_mm",
+     "value": 305,
+     "unit": "mm"
+    },
+    {
+     "id": "replay.R2.cap300|actual.revenue_usd_ac_mean",
+     "value": 412,
+     "unit": "usd_ac"
+    },
+    {
+     "id": "clim.pct",
+     "value": 12,
+     "unit": "pct"
+    },
+    {
+     "id": "clim.days",
+     "value": 23,
+     "unit": "days"
+    },
+    {
+     "id": "water.grace",
+     "value": -0.86,
+     "unit": "cm_per_yr"
+    },
+    {
+     "id": "clim.tmax",
+     "value": 30,
+     "unit": "c"
+    },
+    {
+     "id": "field.area",
+     "value": 128.4,
+     "unit": "ac"
+    },
+    {
+     "id": "nass.yield",
+     "value": 180,
+     "unit": "bu_ac"
+    },
+    {
+     "id": "well.depth",
+     "value": 3.0,
+     "unit": "m"
+    }
+   ],
+   "expected": [
+    {
+     "text": "$2,012",
+     "value": 2012,
+     "unit": "usd",
+     "verified": false,
+     "fact_id": null
+    }
+   ]
+  },
+  {
+   "id": "usd_per_ac",
+   "description": "dollar sign gives usd and /ac is part of the text",
+   "answer": "Expect about $412/ac.",
+   "facts": [
+    {
+     "id": "field.aws_mm",
+     "value": 305,
+     "unit": "mm"
+    },
+    {
+     "id": "replay.R2.cap300|actual.revenue_usd_ac_mean",
+     "value": 412,
+     "unit": "usd_ac"
+    },
+    {
+     "id": "clim.pct",
+     "value": 12,
+     "unit": "pct"
+    },
+    {
+     "id": "clim.days",
+     "value": 23,
+     "unit": "days"
+    },
+    {
+     "id": "water.grace",
+     "value": -0.86,
+     "unit": "cm_per_yr"
+    },
+    {
+     "id": "clim.tmax",
+     "value": 30,
+     "unit": "c"
+    },
+    {
+     "id": "field.area",
+     "value": 128.4,
+     "unit": "ac"
+    },
+    {
+     "id": "nass.yield",
+     "value": 180,
+     "unit": "bu_ac"
+    },
+    {
+     "id": "well.depth",
+     "value": 3.0,
+     "unit": "m"
+    }
+   ],
+   "expected": [
+    {
+     "text": "$412/ac",
+     "value": 412,
+     "unit": "usd",
+     "verified": true,
+     "fact_id": "replay.R2.cap300|actual.revenue_usd_ac_mean"
+    }
+   ]
+  },
+  {
+   "id": "usd_no_unit_suffix",
+   "description": "$ amount without /ac",
+   "answer": "Income of $412 may result.",
+   "facts": [
+    {
+     "id": "field.aws_mm",
+     "value": 305,
+     "unit": "mm"
+    },
+    {
+     "id": "replay.R2.cap300|actual.revenue_usd_ac_mean",
+     "value": 412,
+     "unit": "usd_ac"
+    },
+    {
+     "id": "clim.pct",
+     "value": 12,
+     "unit": "pct"
+    },
+    {
+     "id": "clim.days",
+     "value": 23,
+     "unit": "days"
+    },
+    {
+     "id": "water.grace",
+     "value": -0.86,
+     "unit": "cm_per_yr"
+    },
+    {
+     "id": "clim.tmax",
+     "value": 30,
+     "unit": "c"
+    },
+    {
+     "id": "field.area",
+     "value": 128.4,
+     "unit": "ac"
+    },
+    {
+     "id": "nass.yield",
+     "value": 180,
+     "unit": "bu_ac"
+    },
+    {
+     "id": "well.depth",
+     "value": 3.0,
+     "unit": "m"
+    }
+   ],
+   "expected": [
+    {
+     "text": "$412",
+     "value": 412,
+     "unit": "usd",
+     "verified": true,
+     "fact_id": "replay.R2.cap300|actual.revenue_usd_ac_mean"
+    }
+   ]
+  },
+  {
+   "id": "usd_wrong_value",
+   "description": "$ amount far from the fact",
+   "answer": "About $1,200 per acre.",
+   "facts": [
+    {
+     "id": "field.aws_mm",
+     "value": 305,
+     "unit": "mm"
+    },
+    {
+     "id": "replay.R2.cap300|actual.revenue_usd_ac_mean",
+     "value": 412,
+     "unit": "usd_ac"
+    },
+    {
+     "id": "clim.pct",
+     "value": 12,
+     "unit": "pct"
+    },
+    {
+     "id": "clim.days",
+     "value": 23,
+     "unit": "days"
+    },
+    {
+     "id": "water.grace",
+     "value": -0.86,
+     "unit": "cm_per_yr"
+    },
+    {
+     "id": "clim.tmax",
+     "value": 30,
+     "unit": "c"
+    },
+    {
+     "id": "field.area",
+     "value": 128.4,
+     "unit": "ac"
+    },
+    {
+     "id": "nass.yield",
+     "value": 180,
+     "unit": "bu_ac"
+    },
+    {
+     "id": "well.depth",
+     "value": 3.0,
+     "unit": "m"
+    }
+   ],
+   "expected": [
+    {
+     "text": "$1,200",
+     "value": 1200,
+     "unit": "usd",
+     "verified": false,
+     "fact_id": null
+    }
+   ]
+  },
+  {
+   "id": "tolerance_5pct",
+   "description": "300 mm is within 5% of 305 mm",
+   "answer": "Up to 300 mm of water.",
+   "facts": [
+    {
+     "id": "field.aws_mm",
+     "value": 305,
+     "unit": "mm"
+    },
+    {
+     "id": "replay.R2.cap300|actual.revenue_usd_ac_mean",
+     "value": 412,
+     "unit": "usd_ac"
+    },
+    {
+     "id": "clim.pct",
+     "value": 12,
+     "unit": "pct"
+    },
+    {
+     "id": "clim.days",
+     "value": 23,
+     "unit": "days"
+    },
+    {
+     "id": "water.grace",
+     "value": -0.86,
+     "unit": "cm_per_yr"
+    },
+    {
+     "id": "clim.tmax",
+     "value": 30,
+     "unit": "c"
+    },
+    {
+     "id": "field.area",
+     "value": 128.4,
+     "unit": "ac"
+    },
+    {
+     "id": "nass.yield",
+     "value": 180,
+     "unit": "bu_ac"
+    },
+    {
+     "id": "well.depth",
+     "value": 3.0,
+     "unit": "m"
+    }
+   ],
+   "expected": [
+    {
+     "text": "300 mm",
+     "value": 300,
+     "unit": "mm",
+     "verified": true,
+     "fact_id": "field.aws_mm"
+    }
+   ]
+  },
+  {
+   "id": "tolerance_outside",
+   "description": "330 mm is outside 5% of 305 mm",
+   "answer": "Up to 330 mm of water.",
+   "facts": [
+    {
+     "id": "field.aws_mm",
+     "value": 305,
+     "unit": "mm"
+    },
+    {
+     "id": "replay.R2.cap300|actual.revenue_usd_ac_mean",
+     "value": 412,
+     "unit": "usd_ac"
+    },
+    {
+     "id": "clim.pct",
+     "value": 12,
+     "unit": "pct"
+    },
+    {
+     "id": "clim.days",
+     "value": 23,
+     "unit": "days"
+    },
+    {
+     "id": "water.grace",
+     "value": -0.86,
+     "unit": "cm_per_yr"
+    },
+    {
+     "id": "clim.tmax",
+     "value": 30,
+     "unit": "c"
+    },
+    {
+     "id": "field.area",
+     "value": 128.4,
+     "unit": "ac"
+    },
+    {
+     "id": "nass.yield",
+     "value": 180,
+     "unit": "bu_ac"
+    },
+    {
+     "id": "well.depth",
+     "value": 3.0,
+     "unit": "m"
+    }
+   ],
+   "expected": [
+    {
+     "text": "330 mm",
+     "value": 330,
+     "unit": "mm",
+     "verified": false,
+     "fact_id": null
+    }
+   ]
+  },
+  {
+   "id": "inches_decimal",
+   "description": "12.2 in = 309.9 mm",
+   "answer": "That is 12.2 in of storage.",
+   "facts": [
+    {
+     "id": "field.aws_mm",
+     "value": 305,
+     "unit": "mm"
+    },
+    {
+     "id": "replay.R2.cap300|actual.revenue_usd_ac_mean",
+     "value": 412,
+     "unit": "usd_ac"
+    },
+    {
+     "id": "clim.pct",
+     "value": 12,
+     "unit": "pct"
+    },
+    {
+     "id": "clim.days",
+     "value": 23,
+     "unit": "days"
+    },
+    {
+     "id": "water.grace",
+     "value": -0.86,
+     "unit": "cm_per_yr"
+    },
+    {
+     "id": "clim.tmax",
+     "value": 30,
+     "unit": "c"
+    },
+    {
+     "id": "field.area",
+     "value": 128.4,
+     "unit": "ac"
+    },
+    {
+     "id": "nass.yield",
+     "value": 180,
+     "unit": "bu_ac"
+    },
+    {
+     "id": "well.depth",
+     "value": 3.0,
+     "unit": "m"
+    }
+   ],
+   "expected": [
+    {
+     "text": "12.2 in",
+     "value": 12.2,
+     "unit": "in",
+     "verified": true,
+     "fact_id": "field.aws_mm"
+    }
+   ]
+  },
+  {
+   "id": "list_markers",
+   "description": "list markers at line start are skipped",
+   "answer": "1. Wheat holds 305 mm\n2. Sorghum\n 3. Corn",
+   "facts": [
+    {
+     "id": "field.aws_mm",
+     "value": 305,
+     "unit": "mm"
+    },
+    {
+     "id": "replay.R2.cap300|actual.revenue_usd_ac_mean",
+     "value": 412,
+     "unit": "usd_ac"
+    },
+    {
+     "id": "clim.pct",
+     "value": 12,
+     "unit": "pct"
+    },
+    {
+     "id": "clim.days",
+     "value": 23,
+     "unit": "days"
+    },
+    {
+     "id": "water.grace",
+     "value": -0.86,
+     "unit": "cm_per_yr"
+    },
+    {
+     "id": "clim.tmax",
+     "value": 30,
+     "unit": "c"
+    },
+    {
+     "id": "field.area",
+     "value": 128.4,
+     "unit": "ac"
+    },
+    {
+     "id": "nass.yield",
+     "value": 180,
+     "unit": "bu_ac"
+    },
+    {
+     "id": "well.depth",
+     "value": 3.0,
+     "unit": "m"
+    }
+   ],
+   "expected": [
+    {
+     "text": "305 mm",
+     "value": 305,
+     "unit": "mm",
+     "verified": true,
+     "fact_id": "field.aws_mm"
+    }
+   ]
+  },
+  {
+   "id": "tag_and_fact_id",
+   "description": "numbers inside [TAG] and (fact_id) are skipped",
+   "answer": "Storage is 305 mm (field.aws_mm) [SSURGO] and (replay.R2.cap300|actual.eta_mm_mean) [MODEL].",
+   "facts": [
+    {
+     "id": "field.aws_mm",
+     "value": 305,
+     "unit": "mm"
+    },
+    {
+     "id": "replay.R2.cap300|actual.revenue_usd_ac_mean",
+     "value": 412,
+     "unit": "usd_ac"
+    },
+    {
+     "id": "clim.pct",
+     "value": 12,
+     "unit": "pct"
+    },
+    {
+     "id": "clim.days",
+     "value": 23,
+     "unit": "days"
+    },
+    {
+     "id": "water.grace",
+     "value": -0.86,
+     "unit": "cm_per_yr"
+    },
+    {
+     "id": "clim.tmax",
+     "value": 30,
+     "unit": "c"
+    },
+    {
+     "id": "field.area",
+     "value": 128.4,
+     "unit": "ac"
+    },
+    {
+     "id": "nass.yield",
+     "value": 180,
+     "unit": "bu_ac"
+    },
+    {
+     "id": "well.depth",
+     "value": 3.0,
+     "unit": "m"
+    }
+   ],
+   "expected": [
+    {
+     "text": "305 mm",
+     "value": 305,
+     "unit": "mm",
+     "verified": true,
+     "fact_id": "field.aws_mm"
+    }
+   ]
+  },
+  {
+   "id": "fahrenheit",
+   "description": "86 F converts to 30 C",
+   "answer": "Highs near 86 °F are common.",
+   "facts": [
+    {
+     "id": "field.aws_mm",
+     "value": 305,
+     "unit": "mm"
+    },
+    {
+     "id": "replay.R2.cap300|actual.revenue_usd_ac_mean",
+     "value": 412,
+     "unit": "usd_ac"
+    },
+    {
+     "id": "clim.pct",
+     "value": 12,
+     "unit": "pct"
+    },
+    {
+     "id": "clim.days",
+     "value": 23,
+     "unit": "days"
+    },
+    {
+     "id": "water.grace",
+     "value": -0.86,
+     "unit": "cm_per_yr"
+    },
+    {
+     "id": "clim.tmax",
+     "value": 30,
+     "unit": "c"
+    },
+    {
+     "id": "field.area",
+     "value": 128.4,
+     "unit": "ac"
+    },
+    {
+     "id": "nass.yield",
+     "value": 180,
+     "unit": "bu_ac"
+    },
+    {
+     "id": "well.depth",
+     "value": 3.0,
+     "unit": "m"
+    }
+   ],
+   "expected": [
+    {
+     "text": "86 °F",
+     "value": 86,
+     "unit": "f",
+     "verified": true,
+     "fact_id": "clim.tmax"
+    }
+   ]
+  },
+  {
+   "id": "celsius_direct",
+   "description": "30 C direct",
+   "answer": "Highs near 30°C.",
+   "facts": [
+    {
+     "id": "field.aws_mm",
+     "value": 305,
+     "unit": "mm"
+    },
+    {
+     "id": "replay.R2.cap300|actual.revenue_usd_ac_mean",
+     "value": 412,
+     "unit": "usd_ac"
+    },
+    {
+     "id": "clim.pct",
+     "value": 12,
+     "unit": "pct"
+    },
+    {
+     "id": "clim.days",
+     "value": 23,
+     "unit": "days"
+    },
+    {
+     "id": "water.grace",
+     "value": -0.86,
+     "unit": "cm_per_yr"
+    },
+    {
+     "id": "clim.tmax",
+     "value": 30,
+     "unit": "c"
+    },
+    {
+     "id": "field.area",
+     "value": 128.4,
+     "unit": "ac"
+    },
+    {
+     "id": "nass.yield",
+     "value": 180,
+     "unit": "bu_ac"
+    },
+    {
+     "id": "well.depth",
+     "value": 3.0,
+     "unit": "m"
+    }
+   ],
+   "expected": [
+    {
+     "text": "30°C",
+     "value": 30,
+     "unit": "c",
+     "verified": true,
+     "fact_id": "clim.tmax"
+    }
+   ]
+  },
+  {
+   "id": "feet_to_m",
+   "description": "10 ft = 3.048 m matches 3.0 m",
+   "answer": "The well is about 10 ft deeper.",
+   "facts": [
+    {
+     "id": "field.aws_mm",
+     "value": 305,
+     "unit": "mm"
+    },
+    {
+     "id": "replay.R2.cap300|actual.revenue_usd_ac_mean",
+     "value": 412,
+     "unit": "usd_ac"
+    },
+    {
+     "id": "clim.pct",
+     "value": 12,
+     "unit": "pct"
+    },
+    {
+     "id": "clim.days",
+     "value": 23,
+     "unit": "days"
+    },
+    {
+     "id": "water.grace",
+     "value": -0.86,
+     "unit": "cm_per_yr"
+    },
+    {
+     "id": "clim.tmax",
+     "value": 30,
+     "unit": "c"
+    },
+    {
+     "id": "field.area",
+     "value": 128.4,
+     "unit": "ac"
+    },
+    {
+     "id": "nass.yield",
+     "value": 180,
+     "unit": "bu_ac"
+    },
+    {
+     "id": "well.depth",
+     "value": 3.0,
+     "unit": "m"
+    }
+   ],
+   "expected": [
+    {
+     "text": "10 ft",
+     "value": 10,
+     "unit": "ft",
+     "verified": true,
+     "fact_id": "well.depth"
+    }
+   ]
+  },
+  {
+   "id": "days_and_percent",
+   "description": "days and percent units",
+   "answer": "23 days in a year, 12% of years.",
+   "facts": [
+    {
+     "id": "field.aws_mm",
+     "value": 305,
+     "unit": "mm"
+    },
+    {
+     "id": "replay.R2.cap300|actual.revenue_usd_ac_mean",
+     "value": 412,
+     "unit": "usd_ac"
+    },
+    {
+     "id": "clim.pct",
+     "value": 12,
+     "unit": "pct"
+    },
+    {
+     "id": "clim.days",
+     "value": 23,
+     "unit": "days"
+    },
+    {
+     "id": "water.grace",
+     "value": -0.86,
+     "unit": "cm_per_yr"
+    },
+    {
+     "id": "clim.tmax",
+     "value": 30,
+     "unit": "c"
+    },
+    {
+     "id": "field.area",
+     "value": 128.4,
+     "unit": "ac"
+    },
+    {
+     "id": "nass.yield",
+     "value": 180,
+     "unit": "bu_ac"
+    },
+    {
+     "id": "well.depth",
+     "value": 3.0,
+     "unit": "m"
+    }
+   ],
+   "expected": [
+    {
+     "text": "23 days",
+     "value": 23,
+     "unit": "days",
+     "verified": true,
+     "fact_id": "clim.days"
+    },
+    {
+     "text": "12%",
+     "value": 12,
+     "unit": "pct",
+     "verified": true,
+     "fact_id": "clim.pct"
+    }
+   ]
+  },
+  {
+   "id": "percent_with_space",
+   "description": "percent with a space",
+   "answer": "About 11 % of years.",
+   "facts": [
+    {
+     "id": "field.aws_mm",
+     "value": 305,
+     "unit": "mm"
+    },
+    {
+     "id": "replay.R2.cap300|actual.revenue_usd_ac_mean",
+     "value": 412,
+     "unit": "usd_ac"
+    },
+    {
+     "id": "clim.pct",
+     "value": 12,
+     "unit": "pct"
+    },
+    {
+     "id": "clim.days",
+     "value": 23,
+     "unit": "days"
+    },
+    {
+     "id": "water.grace",
+     "value": -0.86,
+     "unit": "cm_per_yr"
+    },
+    {
+     "id": "clim.tmax",
+     "value": 30,
+     "unit": "c"
+    },
+    {
+     "id": "field.area",
+     "value": 128.4,
+     "unit": "ac"
+    },
+    {
+     "id": "nass.yield",
+     "value": 180,
+     "unit": "bu_ac"
+    },
+    {
+     "id": "well.depth",
+     "value": 3.0,
+     "unit": "m"
+    }
+   ],
+   "expected": [
+    {
+     "text": "11 %",
+     "value": 11,
+     "unit": "pct",
+     "verified": true,
+     "fact_id": "clim.pct"
+    }
+   ]
+  },
+  {
+   "id": "unit_mismatch",
+   "description": "same number, incompatible unit",
+   "answer": "305 days",
+   "facts": [
+    {
+     "id": "field.aws_mm",
+     "value": 305,
+     "unit": "mm"
+    },
+    {
+     "id": "replay.R2.cap300|actual.revenue_usd_ac_mean",
+     "value": 412,
+     "unit": "usd_ac"
+    },
+    {
+     "id": "clim.pct",
+     "value": 12,
+     "unit": "pct"
+    },
+    {
+     "id": "clim.days",
+     "value": 23,
+     "unit": "days"
+    },
+    {
+     "id": "water.grace",
+     "value": -0.86,
+     "unit": "cm_per_yr"
+    },
+    {
+     "id": "clim.tmax",
+     "value": 30,
+     "unit": "c"
+    },
+    {
+     "id": "field.area",
+     "value": 128.4,
+     "unit": "ac"
+    },
+    {
+     "id": "nass.yield",
+     "value": 180,
+     "unit": "bu_ac"
+    },
+    {
+     "id": "well.depth",
+     "value": 3.0,
+     "unit": "m"
+    }
+   ],
+   "expected": [
+    {
+     "text": "305 days",
+     "value": 305,
+     "unit": "days",
+     "verified": false,
+     "fact_id": null
+    }
+   ]
+  },
+  {
+   "id": "no_unit_matches_any",
+   "description": "number with no unit matches any fact",
+   "answer": "It has 23 fields nearby.",
+   "facts": [
+    {
+     "id": "field.aws_mm",
+     "value": 305,
+     "unit": "mm"
+    },
+    {
+     "id": "replay.R2.cap300|actual.revenue_usd_ac_mean",
+     "value": 412,
+     "unit": "usd_ac"
+    },
+    {
+     "id": "clim.pct",
+     "value": 12,
+     "unit": "pct"
+    },
+    {
+     "id": "clim.days",
+     "value": 23,
+     "unit": "days"
+    },
+    {
+     "id": "water.grace",
+     "value": -0.86,
+     "unit": "cm_per_yr"
+    },
+    {
+     "id": "clim.tmax",
+     "value": 30,
+     "unit": "c"
+    },
+    {
+     "id": "field.area",
+     "value": 128.4,
+     "unit": "ac"
+    },
+    {
+     "id": "nass.yield",
+     "value": 180,
+     "unit": "bu_ac"
+    },
+    {
+     "id": "well.depth",
+     "value": 3.0,
+     "unit": "m"
+    }
+   ],
+   "expected": [
+    {
+     "text": "23",
+     "value": 23,
+     "unit": null,
+     "verified": true,
+     "fact_id": "clim.days"
+    }
+   ]
+  },
+  {
+   "id": "magnitude_without_sign",
+   "description": "a fall of 0.86 matches -0.86",
+   "answer": "Water fell 0.86 cm each year.",
+   "facts": [
+    {
+     "id": "field.aws_mm",
+     "value": 305,
+     "unit": "mm"
+    },
+    {
+     "id": "replay.R2.cap300|actual.revenue_usd_ac_mean",
+     "value": 412,
+     "unit": "usd_ac"
+    },
+    {
+     "id": "clim.pct",
+     "value": 12,
+     "unit": "pct"
+    },
+    {
+     "id": "clim.days",
+     "value": 23,
+     "unit": "days"
+    },
+    {
+     "id": "water.grace",
+     "value": -0.86,
+     "unit": "cm_per_yr"
+    },
+    {
+     "id": "clim.tmax",
+     "value": 30,
+     "unit": "c"
+    },
+    {
+     "id": "field.area",
+     "value": 128.4,
+     "unit": "ac"
+    },
+    {
+     "id": "nass.yield",
+     "value": 180,
+     "unit": "bu_ac"
+    },
+    {
+     "id": "well.depth",
+     "value": 3.0,
+     "unit": "m"
+    }
+   ],
+   "expected": [
+    {
+     "text": "0.86 cm",
+     "value": 0.86,
+     "unit": "cm",
+     "verified": true,
+     "fact_id": "water.grace"
+    }
+   ]
+  },
+  {
+   "id": "unicode_minus",
+   "description": "U+2212 minus read as hyphen-minus",
+   "answer": "The trend was −0.9 cm per year.",
+   "facts": [
+    {
+     "id": "field.aws_mm",
+     "value": 305,
+     "unit": "mm"
+    },
+    {
+     "id": "replay.R2.cap300|actual.revenue_usd_ac_mean",
+     "value": 412,
+     "unit": "usd_ac"
+    },
+    {
+     "id": "clim.pct",
+     "value": 12,
+     "unit": "pct"
+    },
+    {
+     "id": "clim.days",
+     "value": 23,
+     "unit": "days"
+    },
+    {
+     "id": "water.grace",
+     "value": -0.86,
+     "unit": "cm_per_yr"
+    },
+    {
+     "id": "clim.tmax",
+     "value": 30,
+     "unit": "c"
+    },
+    {
+     "id": "field.area",
+     "value": 128.4,
+     "unit": "ac"
+    },
+    {
+     "id": "nass.yield",
+     "value": 180,
+     "unit": "bu_ac"
+    },
+    {
+     "id": "well.depth",
+     "value": 3.0,
+     "unit": "m"
+    }
+   ],
+   "expected": [
+    {
+     "text": "-0.9 cm",
+     "value": -0.9,
+     "unit": "cm",
+     "verified": true,
+     "fact_id": "water.grace"
+    }
+   ]
+  },
+  {
+   "id": "signed_mismatch",
+   "description": "explicit minus compares signed",
+   "answer": "The trend was -2 cm per year.",
+   "facts": [
+    {
+     "id": "field.aws_mm",
+     "value": 305,
+     "unit": "mm"
+    },
+    {
+     "id": "replay.R2.cap300|actual.revenue_usd_ac_mean",
+     "value": 412,
+     "unit": "usd_ac"
+    },
+    {
+     "id": "clim.pct",
+     "value": 12,
+     "unit": "pct"
+    },
+    {
+     "id": "clim.days",
+     "value": 23,
+     "unit": "days"
+    },
+    {
+     "id": "water.grace",
+     "value": -0.86,
+     "unit": "cm_per_yr"
+    },
+    {
+     "id": "clim.tmax",
+     "value": 30,
+     "unit": "c"
+    },
+    {
+     "id": "field.area",
+     "value": 128.4,
+     "unit": "ac"
+    },
+    {
+     "id": "nass.yield",
+     "value": 180,
+     "unit": "bu_ac"
+    },
+    {
+     "id": "well.depth",
+     "value": 3.0,
+     "unit": "m"
+    }
+   ],
+   "expected": [
+    {
+     "text": "-2 cm",
+     "value": -2,
+     "unit": "cm",
+     "verified": false,
+     "fact_id": null
+    }
+   ]
+  },
+  {
+   "id": "range_dash",
+   "description": "a dash between numbers is not a sign",
+   "answer": "Expect 22-24 days.",
+   "facts": [
+    {
+     "id": "field.aws_mm",
+     "value": 305,
+     "unit": "mm"
+    },
+    {
+     "id": "replay.R2.cap300|actual.revenue_usd_ac_mean",
+     "value": 412,
+     "unit": "usd_ac"
+    },
+    {
+     "id": "clim.pct",
+     "value": 12,
+     "unit": "pct"
+    },
+    {
+     "id": "clim.days",
+     "value": 23,
+     "unit": "days"
+    },
+    {
+     "id": "water.grace",
+     "value": -0.86,
+     "unit": "cm_per_yr"
+    },
+    {
+     "id": "clim.tmax",
+     "value": 30,
+     "unit": "c"
+    },
+    {
+     "id": "field.area",
+     "value": 128.4,
+     "unit": "ac"
+    },
+    {
+     "id": "nass.yield",
+     "value": 180,
+     "unit": "bu_ac"
+    },
+    {
+     "id": "well.depth",
+     "value": 3.0,
+     "unit": "m"
+    }
+   ],
+   "expected": [
+    {
+     "text": "22",
+     "value": 22,
+     "unit": null,
+     "verified": true,
+     "fact_id": "clim.days"
+    },
+    {
+     "text": "24 days",
+     "value": 24,
+     "unit": "days",
+     "verified": true,
+     "fact_id": "clim.days"
+    }
+   ]
+  },
+  {
+   "id": "hyphen_word",
+   "description": "digit after a hyphenated word",
+   "answer": "Use the 3-year plan with 23 days.",
+   "facts": [
+    {
+     "id": "field.aws_mm",
+     "value": 305,
+     "unit": "mm"
+    },
+    {
+     "id": "replay.R2.cap300|actual.revenue_usd_ac_mean",
+     "value": 412,
+     "unit": "usd_ac"
+    },
+    {
+     "id": "clim.pct",
+     "value": 12,
+     "unit": "pct"
+    },
+    {
+     "id": "clim.days",
+     "value": 23,
+     "unit": "days"
+    },
+    {
+     "id": "water.grace",
+     "value": -0.86,
+     "unit": "cm_per_yr"
+    },
+    {
+     "id": "clim.tmax",
+     "value": 30,
+     "unit": "c"
+    },
+    {
+     "id": "field.area",
+     "value": 128.4,
+     "unit": "ac"
+    },
+    {
+     "id": "nass.yield",
+     "value": 180,
+     "unit": "bu_ac"
+    },
+    {
+     "id": "well.depth",
+     "value": 3.0,
+     "unit": "m"
+    }
+   ],
+   "expected": [
+    {
+     "text": "3",
+     "value": 3,
+     "unit": null,
+     "verified": false,
+     "fact_id": null
+    },
+    {
+     "text": "23 days",
+     "value": 23,
+     "unit": "days",
+     "verified": true,
+     "fact_id": "clim.days"
+    }
+   ]
+  },
+  {
+   "id": "acres",
+   "description": "acres and rounding step",
+   "answer": "The field is 128 acres.",
+   "facts": [
+    {
+     "id": "field.aws_mm",
+     "value": 305,
+     "unit": "mm"
+    },
+    {
+     "id": "replay.R2.cap300|actual.revenue_usd_ac_mean",
+     "value": 412,
+     "unit": "usd_ac"
+    },
+    {
+     "id": "clim.pct",
+     "value": 12,
+     "unit": "pct"
+    },
+    {
+     "id": "clim.days",
+     "value": 23,
+     "unit": "days"
+    },
+    {
+     "id": "water.grace",
+     "value": -0.86,
+     "unit": "cm_per_yr"
+    },
+    {
+     "id": "clim.tmax",
+     "value": 30,
+     "unit": "c"
+    },
+    {
+     "id": "field.area",
+     "value": 128.4,
+     "unit": "ac"
+    },
+    {
+     "id": "nass.yield",
+     "value": 180,
+     "unit": "bu_ac"
+    },
+    {
+     "id": "well.depth",
+     "value": 3.0,
+     "unit": "m"
+    }
+   ],
+   "expected": [
+    {
+     "text": "128 acres",
+     "value": 128,
+     "unit": "ac",
+     "verified": true,
+     "fact_id": "field.area"
+    }
+   ]
+  },
+  {
+   "id": "bu_per_ac",
+   "description": "bu/ac keeps the unit",
+   "answer": "Yields near 180 bu/ac.",
+   "facts": [
+    {
+     "id": "field.aws_mm",
+     "value": 305,
+     "unit": "mm"
+    },
+    {
+     "id": "replay.R2.cap300|actual.revenue_usd_ac_mean",
+     "value": 412,
+     "unit": "usd_ac"
+    },
+    {
+     "id": "clim.pct",
+     "value": 12,
+     "unit": "pct"
+    },
+    {
+     "id": "clim.days",
+     "value": 23,
+     "unit": "days"
+    },
+    {
+     "id": "water.grace",
+     "value": -0.86,
+     "unit": "cm_per_yr"
+    },
+    {
+     "id": "clim.tmax",
+     "value": 30,
+     "unit": "c"
+    },
+    {
+     "id": "field.area",
+     "value": 128.4,
+     "unit": "ac"
+    },
+    {
+     "id": "nass.yield",
+     "value": 180,
+     "unit": "bu_ac"
+    },
+    {
+     "id": "well.depth",
+     "value": 3.0,
+     "unit": "m"
+    }
+   ],
+   "expected": [
+    {
+     "text": "180 bu/ac",
+     "value": 180,
+     "unit": "bu",
+     "verified": true,
+     "fact_id": "nass.yield"
+    }
+   ]
+  },
+  {
+   "id": "first_fact_wins",
+   "description": "first matching fact is recorded",
+   "answer": "About 23.",
+   "facts": [
+    {
+     "id": "a",
+     "value": 23,
+     "unit": "days"
+    },
+    {
+     "id": "b",
+     "value": 23,
+     "unit": "days"
+    }
+   ],
+   "expected": [
+    {
+     "text": "23",
+     "value": 23,
+     "unit": null,
+     "verified": true,
+     "fact_id": "a"
+    }
+   ]
+  },
+  {
+   "id": "spanish_decimal_comma",
+   "description": "decimal comma is not supported, so prompts require a period",
+   "answer": "Son 12,2 pulg.",
+   "facts": [],
+   "expected": [
+    {
+     "text": "12",
+     "value": 12,
+     "unit": null,
+     "verified": false,
+     "fact_id": null
+    },
+    {
+     "text": "2",
+     "value": 2,
+     "unit": null,
+     "verified": false,
+     "fact_id": null
+    }
+   ]
+  },
+  {
+   "id": "preposition_in",
+   "description": "'in' after a number reads as inches (known limit of the spec)",
+   "answer": "We found 3 in the field.",
+   "facts": [
+    {
+     "id": "field.aws_mm",
+     "value": 305,
+     "unit": "mm"
+    },
+    {
+     "id": "replay.R2.cap300|actual.revenue_usd_ac_mean",
+     "value": 412,
+     "unit": "usd_ac"
+    },
+    {
+     "id": "clim.pct",
+     "value": 12,
+     "unit": "pct"
+    },
+    {
+     "id": "clim.days",
+     "value": 23,
+     "unit": "days"
+    },
+    {
+     "id": "water.grace",
+     "value": -0.86,
+     "unit": "cm_per_yr"
+    },
+    {
+     "id": "clim.tmax",
+     "value": 30,
+     "unit": "c"
+    },
+    {
+     "id": "field.area",
+     "value": 128.4,
+     "unit": "ac"
+    },
+    {
+     "id": "nass.yield",
+     "value": 180,
+     "unit": "bu_ac"
+    },
+    {
+     "id": "well.depth",
+     "value": 3.0,
+     "unit": "m"
+    }
+   ],
+   "expected": [
+    {
+     "text": "3 in",
+     "value": 3,
+     "unit": "in",
+     "verified": false,
+     "fact_id": null
+    }
+   ]
+  },
+  {
+   "id": "unit_not_prefix",
+   "description": "a unit must not run into a letter",
+   "answer": "5 increases and 7 mmHg",
+   "facts": [],
+   "expected": [
+    {
+     "text": "5",
+     "value": 5,
+     "unit": null,
+     "verified": false,
+     "fact_id": null
+    },
+    {
+     "text": "7",
+     "value": 7,
+     "unit": null,
+     "verified": false,
+     "fact_id": null
+    }
+   ]
+  },
+  {
+   "id": "empty",
+   "description": "empty answer",
+   "answer": "",
+   "facts": [
+    {
+     "id": "field.aws_mm",
+     "value": 305,
+     "unit": "mm"
+    },
+    {
+     "id": "replay.R2.cap300|actual.revenue_usd_ac_mean",
+     "value": 412,
+     "unit": "usd_ac"
+    },
+    {
+     "id": "clim.pct",
+     "value": 12,
+     "unit": "pct"
+    },
+    {
+     "id": "clim.days",
+     "value": 23,
+     "unit": "days"
+    },
+    {
+     "id": "water.grace",
+     "value": -0.86,
+     "unit": "cm_per_yr"
+    },
+    {
+     "id": "clim.tmax",
+     "value": 30,
+     "unit": "c"
+    },
+    {
+     "id": "field.area",
+     "value": 128.4,
+     "unit": "ac"
+    },
+    {
+     "id": "nass.yield",
+     "value": 180,
+     "unit": "bu_ac"
+    },
+    {
+     "id": "well.depth",
+     "value": 3.0,
+     "unit": "m"
+    }
+   ],
+   "expected": []
+  },
+  {
+   "id": "decimal_step",
+   "description": "step is the decimals as written",
+   "answer": "Water 305.4 mm and 0.5 days.",
+   "facts": [
+    {
+     "id": "field.aws_mm",
+     "value": 305,
+     "unit": "mm"
+    },
+    {
+     "id": "replay.R2.cap300|actual.revenue_usd_ac_mean",
+     "value": 412,
+     "unit": "usd_ac"
+    },
+    {
+     "id": "clim.pct",
+     "value": 12,
+     "unit": "pct"
+    },
+    {
+     "id": "clim.days",
+     "value": 23,
+     "unit": "days"
+    },
+    {
+     "id": "water.grace",
+     "value": -0.86,
+     "unit": "cm_per_yr"
+    },
+    {
+     "id": "clim.tmax",
+     "value": 30,
+     "unit": "c"
+    },
+    {
+     "id": "field.area",
+     "value": 128.4,
+     "unit": "ac"
+    },
+    {
+     "id": "nass.yield",
+     "value": 180,
+     "unit": "bu_ac"
+    },
+    {
+     "id": "well.depth",
+     "value": 3.0,
+     "unit": "m"
+    }
+   ],
+   "expected": [
+    {
+     "text": "305.4 mm",
+     "value": 305.4,
+     "unit": "mm",
+     "verified": true,
+     "fact_id": "field.aws_mm"
+    },
+    {
+     "text": "0.5 days",
+     "value": 0.5,
+     "unit": "days",
+     "verified": false,
+     "fact_id": null
+    }
+   ]
+  }
+ ]
+}
