@@ -14,53 +14,66 @@ Field Shift: Adapting Farms with NASA Data
 
 Team Brackets. TODO: member names and roles (D data, M model and AI, F frontend, U design and content).
 
-## High-level summary (about 200 words)
+## High-level summary
 
-Field Shift helps a farmer in western Kansas compare their current crop rotation with three other options. It starts from a real field. It reads the field's crop history from USDA maps and its soil from SSURGO, then shows a calendar of what is in the ground each month and when heat, frost, dry spells and wind are most likely.
+Western Kansas farms depend on the Ogallala aquifer, one of the largest underground water reserves in the world, and in many places it is running down. In southwest Kansas, water levels drop by more than 1.5 feet a year in some areas (TODO: cite KGS or USGS source). Many farmers keep the same irrigated rotations because they lack field-specific evidence for alternatives.
 
-The farmer sets priorities (save water, steady income, soil health, erosion control) and limits (such as the most irrigation water they can use in a season). Field Shift then shows their current rotation and the three closest-matching options. Each card explains why it was suggested, the evidence, the possible benefits, the information we are missing, and the risks to check locally.
+Field Shift is a decision-support web tool that replays several crop rotations on 25 years of real daily weather for a farmer's actual field in Finney County, Kansas. It combines NASA POWER climate data, SMAP soil moisture, MODIS vegetation health, GPM IMERG rainfall, GRACE aquifer trends and USDA soil surveys into a side-by-side comparison. For each rotation it shows irrigation demand, stress days, income stability and wind-erosion exposure, including what happened in the 2012 and 2022 droughts.
 
-The evidence comes from Rotation Replay, which runs each rotation on the field's own daily weather from 2000 to 2025 using the FAO-56 water balance, and from Farms Like Yours, which compares nearby fields on similar soil that already use other rotations, using OpenET and MODIS. A plain-language assistant answers questions in English and Spanish. It only sees the field's computed facts, and it marks every number as verified or unverified.
+A "Farms Like Yours" panel uses satellite observations from neighbouring fields that already farm differently. An AI assistant answers questions in plain English or Spanish, and every number it gives is checked against the source facts.
 
-Field Shift supports a farmer's judgement. It does not replace it or local expert advice.
+Field Shift does not tell farmers what to plant. It shows what the data says and lets them decide.
 
 ## Detailed description
 
-### What it does
+### What does it do?
 
-- **Pick a field.** Three example fields in Finney County, Kansas: an irrigated pivot on clay loam, a dryland wheat, sorghum and fallow field, and a pivot on sandy soil that is prone to blowing.
-- **Overview.** Current rotation, soil, how the climate has shifted since 1991 to 2020, and the groundwater outlook from GRACE satellites and nearby wells.
-- **Field Calendar.** Twelve months by rotation year, coloured by crop or bare ground, with the 25-year odds of heat, frost, dry spells, storms and wind laid on top.
-- **Plan.** Five priority sliders, a seasonal irrigation limit, a hotter and drier weather test, and equipment and forage-buyer checks. Four strategy cards respond at once.
-- **Rotation Replay.** Irrigation need, crop stress days, income before costs and bare-ground days for each rotation, year by year, with dry years marked.
-- **Farms Like Yours.** Nearby fields on the same soil and irrigation setup, grouped by rotation, with their satellite-measured water use and greenness in dry years. We show the number of fields and say the comparison is observational.
-- **Assistant.** Ask in English or Spanish. Six suggested questions have saved answers so the app still works if the language model is down.
-- **How we know.** Data sources, satellite-versus-ground agreement badges, and a plain-language glossary.
+Field Shift helps a western Kansas farmer compare their current crop rotation with three other options. The farmer picks a field on a map, sets priorities (save water, steady income, soil health, erosion control) and limits (for example, a seasonal pumping limit), and sees four strategy cards. Each card explains why it was suggested, what evidence supports it, its possible benefits, where information is missing, and the risks to check locally. No card is called a winner. Each one says here is the trade-off, you decide.
 
-### How it works
+Screens: pick a field, overview, Field Calendar, plan (priorities and cards), Rotation Replay, Farms Like Yours, assistant, and a "How we know" page with sources, trust badges and a glossary.
 
-1. Python scripts download and clean NASA, USDA and other data for each field outline.
-2. A daily soil water model (FAO-56) runs each rotation on 25 years of weather and produces the numbers for the cards.
-3. All results are written as static JSON files. The app reads them in the browser, so scoring responds instantly and nothing is fetched live during a demo, except the assistant.
-4. The assistant prompt is built from the field's computed facts. A number check compares each number in a reply with those facts.
-5. Crop settings come from FAO-56 and FAO-33 tables and K-State Research and Extension planting guides. Every farmer-facing sentence is a template with placeholders, so no number is typed by hand into text.
+### How does it work?
 
-### Benefits
+- **Data pipeline (Python).** Scripts fetch and clean more than 10 datasets for three demo fields in Finney County: an irrigated center pivot, a dryland field and a sandy, wind-prone field. NASA POWER gives daily weather. SMAP gives root-zone soil moisture. MODIS tracks vegetation every 16 days. GPM IMERG gives rainfall. GRACE and GRACE-FO show aquifer storage change. SSURGO gives soil texture, water-holding capacity and wind erodibility. USDA Crop Sequence Boundaries show what each field and its neighbours have grown.
+- **Model layer (Python).** The Rotation Replay engine runs each option on the field's daily weather from 2000 to 2025 with an FAO-56 daily water budget. Each year it estimates irrigation needed, crop stress days, yield and income, and bare-soil exposure. A wind-erosion index combines bare days, strong-wind days and soil erodibility. The model is checked against OpenET and SMAP.
+- **Crop settings.** Values come from FAO-56 and FAO-33 tables and K-State Research and Extension planting guides, each cited in `content/crops.yaml`.
+- **Frontend (Next.js on Vercel).** The app reads precomputed JSON and scores in the browser, so the sliders respond at once. Every farmer-facing sentence is a template with placeholders, so no number is typed by hand into the text.
+- **Farms Like Yours.** The tool finds about 100 to 150 nearby fields with similar soil and irrigation that run a different rotation, then compares their OpenET water use and MODIS greenness in dry years. It always shows the number of fields and says the comparison is observational, not proof of cause.
+- **AI Field Assistant.** A plain-language chat in English and Spanish (TODO: confirm provider) that uses only the field's computed facts. Each number is checked against those facts. Verified numbers show their source, and unverified numbers are flagged. Six common questions have saved answers.
 
-- Gives farmers a side-by-side view of water, income, soil and risk instead of one verdict.
-- Shows what is unknown (gaps) and what to check locally (risks) on every card.
-- Works in English and Spanish, with a glossary that explains satellite terms in plain words.
-- Uses open data and open methods, so an extension agent can check the work.
+### What benefits does it have?
 
-### Intended impact
+- **Water savings in view.** Each card shows estimated irrigation change per season in mm and inches, which relates to water-right limits.
+- **Drought stress test.** Farmers see how each rotation did in dry years such as 2012 and 2022.
+- **Wind erosion in view.** Bare-soil exposure to wind is often missing from crop tools but matters on sandy Finney County soils.
+- **Neighbour evidence.** Satellite observations of nearby fields add real-world context beyond model output.
+- **Honest uncertainty.** Every card has a gaps section and a local-risks section. The wording is cautious, for example "may" rather than a promise.
 
-Water saved is shown per field in mm and inches. The tool is meant to start a better conversation between a farmer and an extension agent about adapting to a declining aquifer, hotter summers and wind-blown soils. The method can move beyond Kansas with global datasets such as ERA5 and GLDAS. TODO: add the final water-saving figure for each demo field once the real model run is in.
+### What is the intended impact?
+
+The Sheridan 6 Local Enhanced Management Area in Kansas reported that modest crop switching plus efficiency gains cut water use and slowed depletion (TODO: add the exact figures only after checking them against the Kansas Division of Water Resources or K-State source; do not quote numbers from memory). Farmers still need field-specific evidence to make a switch with confidence. Field Shift offers that evidence as a transparent comparison grounded in the farmer's own soil and weather, not as a mandate. TODO: add the final water-saving figure for each demo field once the real model run is in.
+
+### How is it creative?
+
+1. **Wind-erosion lens.** Most rotation tools ignore wind erosion. In sandy southwest Kansas it is a major risk, so we estimate it from bare days, wind days and soil erodibility.
+2. **Replay on real weather.** Instead of using average climate, we replay each rotation on 25 years of actual daily weather. Farmers see the worst years, not only the averages.
+3. **Satellite neighbour comparison.** We show what is happening on similar nearby fields, not only what a model estimates.
+4. **Visible honesty.** Every assistant answer has number checks and source tags, and uncertainty is part of the design.
+
+### What factors did your team consider?
+
+- **Farmer trust.** Plain language at about an 8th-grade level, no overclaiming, and every number traced to a source.
+- **Bilingual access.** All farmer-facing text is in English and Spanish, since many farm workers in western Kansas speak Spanish. The Spanish was written with AI help (TODO: native-speaker check).
+- **Phones and sunlight.** Large type, high contrast, and colours checked for common colour blindness.
+- **Scientific validity.** FAO-56 is the international standard for crop water budgets, and we compare the model with OpenET and SMAP.
+- **Honest limits.** We list what we lack (pest counts, full costs, herbicide carryover, crop insurance details) as clearly as what we have.
 
 ## Tools, languages and libraries
 
 - Python 3.11 (pandas, numpy, geopandas, shapely, xarray, rasterio, pyet) for the data and model.
-- Next.js, TypeScript, Tailwind, react-leaflet and Recharts for the web app, hosted on Vercel.
-- Google Gemini or Groq through an OpenAI-compatible endpoint for the assistant. TODO: confirm which one is live.
+- Next.js (App Router), React, TypeScript, Tailwind, shadcn/ui, react-leaflet and Recharts for the web app, hosted on Vercel.
+- Gemini Flash through an OpenAI-compatible endpoint, with Groq as a fallback, for the assistant. TODO: confirm which one is live.
+- GitHub for version control. TODO: confirm the repo licence before stating one.
 - Fonts: Fraunces, Source Sans 3 and IBM Plex Mono from Google Fonts.
 - Design checks: WCAG contrast check and a colour-blind simulation script (`design/check_cvd.py`).
 
