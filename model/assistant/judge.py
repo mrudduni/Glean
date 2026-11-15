@@ -8,6 +8,7 @@ report says so.
 from __future__ import annotations
 
 import argparse
+import os
 import json
 import re
 import time
@@ -90,7 +91,7 @@ def llm_judge(client, env, prompt, lang, question, answer, facts_text) -> dict:
         return {k: 0 for k in CRITERIA} | {"issues": ["judge returned unreadable output"]}
 
 
-def judge_one(resp, lang, qtext, facts, facts_text, client, env, prompt, use_llm) -> dict:
+def judge_one(resp, lang, qtext, facts, facts_text, client, jenv, prompt, use_llm) -> dict:
     issues = rule_checks(resp, lang, facts)
     scores = None
     if use_llm:
@@ -116,6 +117,7 @@ def main():
     if use_llm:
         from openai import OpenAI
         client = OpenAI(base_url=env["LLM_BASE_URL"], api_key=env["LLM_API_KEY"], timeout=60, max_retries=0)
+    jenv = {**env, "LLM_MODEL": os.environ.get("JUDGE_MODEL", "openai/gpt-oss-20b")}
     prompt = load(a.out / "assistant" / "prompt.json")
     qs = {q["id"]: q for q in load(CONTENT_DIR / "assistant_questions.json")["questions"]}
     sources = cache.load_sources()
@@ -131,14 +133,14 @@ def main():
         for qid, by_lang in doc["answers"].items():
             for lang, resp in list(by_lang.items()):
                 qtext = qs[qid]["text"][lang]
-                verdict, rounds = judge_one(resp, lang, qtext, facts, facts_text, client, env, prompt, use_llm), 0
+                verdict, rounds = judge_one(resp, lang, qtext, facts, facts_text, client, jenv, prompt, use_llm), 0
                 while not verdict["pass"] and use_llm and rounds < a.rounds:
                     rounds += 1
                     regen_total += 1
                     time.sleep(a.sleep)
                     new = cache.generate(fid, qid, lang, ctx, prompt, qs, top_ids, sources, client, env,
                                          feedback=verdict["issues"])
-                    v2 = judge_one(new, lang, qtext, facts, facts_text, client, env, prompt, use_llm)
+                    v2 = judge_one(new, lang, qtext, facts, facts_text, client, jenv, prompt, use_llm)
                     if v2["pass"] or len(v2["issues"]) <= len(verdict["issues"]):
                         resp, verdict = new, v2
                         by_lang[lang] = new

@@ -41,11 +41,13 @@ def llm_ready() -> bool:
 # ---- prompt building -------------------------------------------------------------
 
 def rank_rotations(fid: str, model_web: Path) -> list[str]:
+    ctx = load(model_web / "field" / fid / "assistant_context.json")
+    cur = ctx["rotation_names"]["R0"].replace(" (current)", "")
     """Default weights (all sliders equal): R0 plus the top 3 feasible rotations by mean norm."""
     strat = load(model_web / "field" / fid / "strategies.json")["scenarios"][SCENARIO]
     scored = []
     for e in strat:
-        if e["rotation_id"] == "R0" or not e["feasible"]:
+        if e["rotation_id"] == "R0" or not e["feasible"] or ctx["rotation_names"][e["rotation_id"]] == cur:
             continue
         norms = [c["norm"] for c in e["criteria"].values()]
         scored.append((-sum(norms) / len(norms), e["rotation_id"]))

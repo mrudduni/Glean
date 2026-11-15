@@ -16,7 +16,7 @@ from pathlib import Path
 from paths import CONTENT_DIR, DATA_WEB, FIELDS, OUT_WEB, SCENARIO
 
 CAPS = {"dryland": 0, "cap150": 150, "cap300": 300, "cap450": 450}
-ROT_IDS = ["R0", "R1", "R2", "R3", "R4", "R5"]
+ROT_IDS = ["R0", "R1", "R2", "R3", "R4", "R5", "R6"]
 DROUGHT_PICKS = 2  # drought years listed per rotation, 2012 first
 NEIGHBOR_NAMES = {
     "wsf": "wheat, sorghum, fallow", "corn_wheat_sorghum": "corn, wheat, sorghum", "corn_soy": "corn, soybean",

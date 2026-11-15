@@ -1,8 +1,8 @@
 {
  "_meta": {
   "schema": "assistant_context@1",
-  "mock": true,
-  "generated_at": "2026-11-15T13:59:14Z",
+  "mock": false,
+  "generated_at": "2026-11-15T14:26:06Z",
   "generator": "model/assistant/context.py"
  },
  "field_id": "f2",
@@ -11,8 +11,9 @@
   "R1": "corn, wheat, sorghum",
   "R2": "wheat, sorghum, fallow",
   "R3": "wheat, sorghum, triticale",
-  "R4": "alfalfa, corn, wheat",
+  "R4": "alfalfa, alfalfa, alfalfa, alfalfa, corn, wheat",
   "R5": "corn, soybean, wheat",
+  "R6": "cotton, wheat, sorghum",
   "R0": "wheat, sorghum, fallow (current)"
  },
  "facts": [
@@ -81,71 +82,71 @@
   },
   {
    "id": "climate.normal.frost_free_days",
-   "text": "The average frost-free season in 1991 to 2020 is 178 days.",
-   "value": 178,
+   "text": "The average frost-free season in 1991 to 2020 is 174 days.",
+   "value": 174,
    "unit": "days",
    "source": "PRISM"
   },
   {
    "id": "climate.normal.precip_mm_yr",
-   "text": "Average rain and snow in 1991 to 2020 is 485 mm per year.",
-   "value": 485,
+   "text": "Average rain and snow in 1991 to 2020 is 502 mm per year.",
+   "value": 502,
    "unit": "mm",
    "source": "PRISM"
   },
   {
    "id": "climate.normal.days_tmax_ge_35",
-   "text": "The average number of days at or above 35 °C in 1991 to 2020 is 38 days per year.",
-   "value": 38,
+   "text": "The average number of days at or above 35 °C in 1991 to 2020 is 32 days per year.",
+   "value": 32,
    "unit": "days",
    "source": "PRISM"
   },
   {
    "id": "climate.normal.et0_mm_yr",
-   "text": "Reference evapotranspiration in 1991 to 2020 is 1620 mm per year.",
-   "value": 1620,
+   "text": "Reference evapotranspiration in 1991 to 2020 is 1495 mm per year.",
+   "value": 1495,
    "unit": "mm",
    "source": "PRISM"
   },
   {
    "id": "climate.normal.gdd_base10_c",
-   "text": "Growing degree days (base 10 °C) in 1991 to 2020 total 2650 per year.",
-   "value": 2650,
+   "text": "Growing degree days (base 10 °C) in 1991 to 2020 total 2059 per year.",
+   "value": 2059,
    "unit": null,
    "source": "PRISM"
   },
   {
    "id": "climate.recent.frost_free_days",
-   "text": "The average frost-free season in 2016 to 2025 is 184 days.",
-   "value": 184,
+   "text": "The average frost-free season in 2016 to 2025 is 177 days.",
+   "value": 177,
    "unit": "days",
    "source": "POWER"
   },
   {
    "id": "climate.recent.precip_mm_yr",
-   "text": "Average rain and snow in 2016 to 2025 is 470 mm per year.",
-   "value": 470,
+   "text": "Average rain and snow in 2016 to 2025 is 497 mm per year.",
+   "value": 497,
    "unit": "mm",
    "source": "POWER"
   },
   {
    "id": "climate.recent.days_tmax_ge_35",
-   "text": "The average number of days at or above 35 °C in 2016 to 2025 is 45 days per year.",
-   "value": 45,
+   "text": "The average number of days at or above 35 °C in 2016 to 2025 is 31 days per year.",
+   "value": 31,
    "unit": "days",
    "source": "POWER"
   },
   {
    "id": "climate.recent.et0_mm_yr",
-   "text": "Reference evapotranspiration in 2016 to 2025 is 1680 mm per year.",
-   "value": 1680,
+   "text": "Reference evapotranspiration in 2016 to 2025 is 1524 mm per year.",
+   "value": 1524,
    "unit": "mm",
    "source": "POWER"
   },
   {
    "id": "climate.recent.gdd_base10_c",
-   "text": "Growing degree days (base 10 °C) in 2016 to 2025 total 2760 per year.",
-   "value": 2760,
+   "text": "Growing degree days (base 10 °C) in 2016 to 2025 total 2125 per year.",
+   "value": 2125,
    "unit": null,
    "source": "POWER"
   },
@@ -207,24 +208,10 @@
   },
   {
    "id": "validation.et_vs_openet",
-   "text": "Model water use differed from OpenET satellite estimates by -7%. Confidence is good.",
-   "value": -7,
+   "text": "Model water use differed from OpenET satellite estimates by -29.6%. Confidence is fair.",
+   "value": -29.6,
    "unit": "pct",
-   "source": "OpenET"
-  },
-  {
-   "id": "validation.sm_vs_smap",
-   "text": "Model soil moisture and SMAP satellite soil moisture correlate at r = 0.61. Confidence is fair.",
-   "value": 0.61,
-   "unit": null,
-   "source": "SMAP"
-  },
-  {
-   "id": "validation.precip_power_vs_imerg",
-   "text": "POWER and IMERG rainfall correlate at r = 0.83. Confidence is good.",
-   "value": 0.83,
-   "unit": null,
-   "source": "POWER"
+   "source": "MODEL"
   },
   {
    "id": "replay.R0.dryland|actual.irrigation_mm_mean",
@@ -237,8 +224,8 @@
   },
   {
    "id": "replay.R0.dryland|actual.revenue_usd_ac_mean",
-   "text": "The wheat, sorghum, fallow (current) rotation, replayed over 2000 to 2025, earned an average of $320/ac per year.",
-   "value": 320,
+   "text": "The wheat, sorghum, fallow (current) rotation, replayed over 2000 to 2025, earned an average of $117/ac per year.",
+   "value": 117,
    "unit": "usd_ac",
    "source": "MODEL",
    "scenario": "dryland|actual",
@@ -246,8 +233,8 @@
   },
   {
    "id": "replay.R0.dryland|actual.revenue_usd_ac_worst5",
-   "text": "The wheat, sorghum, fallow (current) rotation, replayed over 2000 to 2025, earned an average of $176/ac in its 5 worst years.",
-   "value": 176,
+   "text": "The wheat, sorghum, fallow (current) rotation, replayed over 2000 to 2025, earned an average of $69/ac in its 5 worst years.",
+   "value": 69,
    "unit": "usd_ac",
    "source": "MODEL",
    "scenario": "dryland|actual",
@@ -255,8 +242,8 @@
   },
   {
    "id": "replay.R0.dryland|actual.stress_days_mean",
-   "text": "The wheat, sorghum, fallow (current) rotation, replayed over 2000 to 2025, had 25 days per year of crop water stress.",
-   "value": 25,
+   "text": "The wheat, sorghum, fallow (current) rotation, replayed over 2000 to 2025, had 69 days per year of crop water stress.",
+   "value": 69,
    "unit": "days",
    "source": "MODEL",
    "scenario": "dryland|actual",
@@ -264,8 +251,8 @@
   },
   {
    "id": "replay.R0.dryland|actual.bare_windy_days_mean",
-   "text": "The wheat, sorghum, fallow (current) rotation, replayed over 2000 to 2025, had 6 days per year with bare soil and strong wind.",
-   "value": 6,
+   "text": "The wheat, sorghum, fallow (current) rotation, replayed over 2000 to 2025, had 25 days per year with bare soil and strong wind.",
+   "value": 25,
    "unit": "days",
    "source": "MODEL",
    "scenario": "dryland|actual",
@@ -273,8 +260,8 @@
   },
   {
    "id": "replay.R0.dryland|actual.soil_health_score",
-   "text": "The wheat, sorghum, fallow (current) rotation has a soil health score of 41 out of 100.",
-   "value": 41,
+   "text": "The wheat, sorghum, fallow (current) rotation has a soil health score of 34.91 out of 100.",
+   "value": 34.91,
    "unit": null,
    "source": "MODEL",
    "scenario": "dryland|actual",
@@ -300,8 +287,8 @@
   },
   {
    "id": "replay.R2.dryland|actual.revenue_usd_ac_mean",
-   "text": "The wheat, sorghum, fallow rotation, replayed over 2000 to 2025, earned an average of $129/ac per year.",
-   "value": 129,
+   "text": "The wheat, sorghum, fallow rotation, replayed over 2000 to 2025, earned an average of $117/ac per year.",
+   "value": 117,
    "unit": "usd_ac",
    "source": "MODEL",
    "scenario": "dryland|actual",
@@ -309,8 +296,8 @@
   },
   {
    "id": "replay.R2.dryland|actual.revenue_usd_ac_worst5",
-   "text": "The wheat, sorghum, fallow rotation, replayed over 2000 to 2025, earned an average of $71/ac in its 5 worst years.",
-   "value": 71,
+   "text": "The wheat, sorghum, fallow rotation, replayed over 2000 to 2025, earned an average of $69/ac in its 5 worst years.",
+   "value": 69,
    "unit": "usd_ac",
    "source": "MODEL",
    "scenario": "dryland|actual",
@@ -318,8 +305,8 @@
   },
   {
    "id": "replay.R2.dryland|actual.stress_days_mean",
-   "text": "The wheat, sorghum, fallow rotation, replayed over 2000 to 2025, had 13 days per year of crop water stress.",
-   "value": 13,
+   "text": "The wheat, sorghum, fallow rotation, replayed over 2000 to 2025, had 69 days per year of crop water stress.",
+   "value": 69,
    "unit": "days",
    "source": "MODEL",
    "scenario": "dryland|actual",
@@ -327,8 +314,8 @@
   },
   {
    "id": "replay.R2.dryland|actual.bare_windy_days_mean",
-   "text": "The wheat, sorghum, fallow rotation, replayed over 2000 to 2025, had 14 days per year with bare soil and strong wind.",
-   "value": 14,
+   "text": "The wheat, sorghum, fallow rotation, replayed over 2000 to 2025, had 25 days per year with bare soil and strong wind.",
+   "value": 25,
    "unit": "days",
    "source": "MODEL",
    "scenario": "dryland|actual",
@@ -336,8 +323,8 @@
   },
   {
    "id": "replay.R2.dryland|actual.soil_health_score",
-   "text": "The wheat, sorghum, fallow rotation has a soil health score of 41 out of 100.",
-   "value": 41,
+   "text": "The wheat, sorghum, fallow rotation has a soil health score of 34.91 out of 100.",
+   "value": 34.91,
    "unit": null,
    "source": "MODEL",
    "scenario": "dryland|actual",
@@ -354,8 +341,8 @@
   },
   {
    "id": "replay.R3.dryland|actual.revenue_usd_ac_mean",
-   "text": "The wheat, sorghum, triticale rotation, replayed over 2000 to 2025, earned an average of $160/ac per year.",
-   "value": 160,
+   "text": "The wheat, sorghum, triticale rotation, replayed over 2000 to 2025, earned an average of $159/ac per year.",
+   "value": 159,
    "unit": "usd_ac",
    "source": "MODEL",
    "scenario": "dryland|actual",
@@ -363,8 +350,8 @@
   },
   {
    "id": "replay.R3.dryland|actual.revenue_usd_ac_worst5",
-   "text": "The wheat, sorghum, triticale rotation, replayed over 2000 to 2025, earned an average of $88/ac in its 5 worst years.",
-   "value": 88,
+   "text": "The wheat, sorghum, triticale rotation, replayed over 2000 to 2025, earned an average of $87/ac in its 5 worst years.",
+   "value": 87,
    "unit": "usd_ac",
    "source": "MODEL",
    "scenario": "dryland|actual",
@@ -372,8 +359,8 @@
   },
   {
    "id": "replay.R3.dryland|actual.stress_days_mean",
-   "text": "The wheat, sorghum, triticale rotation, replayed over 2000 to 2025, had 25 days per year of crop water stress.",
-   "value": 25,
+   "text": "The wheat, sorghum, triticale rotation, replayed over 2000 to 2025, had 99 days per year of crop water stress.",
+   "value": 99,
    "unit": "days",
    "source": "MODEL",
    "scenario": "dryland|actual",
@@ -381,8 +368,8 @@
   },
   {
    "id": "replay.R3.dryland|actual.bare_windy_days_mean",
-   "text": "The wheat, sorghum, triticale rotation, replayed over 2000 to 2025, had 6 days per year with bare soil and strong wind.",
-   "value": 6,
+   "text": "The wheat, sorghum, triticale rotation, replayed over 2000 to 2025, had 21 days per year with bare soil and strong wind.",
+   "value": 21,
    "unit": "days",
    "source": "MODEL",
    "scenario": "dryland|actual",
@@ -390,8 +377,8 @@
   },
   {
    "id": "replay.R3.dryland|actual.soil_health_score",
-   "text": "The wheat, sorghum, triticale rotation has a soil health score of 41 out of 100.",
-   "value": 41,
+   "text": "The wheat, sorghum, triticale rotation has a soil health score of 42.24 out of 100.",
+   "value": 42.24,
    "unit": null,
    "source": "MODEL",
    "scenario": "dryland|actual",
@@ -399,7 +386,7 @@
   },
   {
    "id": "replay.R4.dryland|actual.feasible",
-   "text": "The alfalfa, corn, wheat rotation is not feasible with this water limit.",
+   "text": "The alfalfa, alfalfa, alfalfa, alfalfa, corn, wheat rotation is not feasible with this water limit.",
    "value": null,
    "unit": null,
    "source": "MODEL",
@@ -414,6 +401,60 @@
    "source": "MODEL",
    "scenario": "dryland|actual",
    "rotation_id": "R5"
+  },
+  {
+   "id": "replay.R6.dryland|actual.irrigation_mm_mean",
+   "text": "The cotton, wheat, sorghum rotation, replayed over 2000 to 2025, used an average of 0 mm of irrigation per year.",
+   "value": 0,
+   "unit": "mm",
+   "source": "MODEL",
+   "scenario": "dryland|actual",
+   "rotation_id": "R6"
+  },
+  {
+   "id": "replay.R6.dryland|actual.revenue_usd_ac_mean",
+   "text": "The cotton, wheat, sorghum rotation, replayed over 2000 to 2025, earned an average of $170/ac per year.",
+   "value": 170,
+   "unit": "usd_ac",
+   "source": "MODEL",
+   "scenario": "dryland|actual",
+   "rotation_id": "R6"
+  },
+  {
+   "id": "replay.R6.dryland|actual.revenue_usd_ac_worst5",
+   "text": "The cotton, wheat, sorghum rotation, replayed over 2000 to 2025, earned an average of $87/ac in its 5 worst years.",
+   "value": 87,
+   "unit": "usd_ac",
+   "source": "MODEL",
+   "scenario": "dryland|actual",
+   "rotation_id": "R6"
+  },
+  {
+   "id": "replay.R6.dryland|actual.stress_days_mean",
+   "text": "The cotton, wheat, sorghum rotation, replayed over 2000 to 2025, had 94 days per year of crop water stress.",
+   "value": 94,
+   "unit": "days",
+   "source": "MODEL",
+   "scenario": "dryland|actual",
+   "rotation_id": "R6"
+  },
+  {
+   "id": "replay.R6.dryland|actual.bare_windy_days_mean",
+   "text": "The cotton, wheat, sorghum rotation, replayed over 2000 to 2025, had 25 days per year with bare soil and strong wind.",
+   "value": 25,
+   "unit": "days",
+   "source": "MODEL",
+   "scenario": "dryland|actual",
+   "rotation_id": "R6"
+  },
+  {
+   "id": "replay.R6.dryland|actual.soil_health_score",
+   "text": "The cotton, wheat, sorghum rotation has a soil health score of 42.27 out of 100.",
+   "value": 42.27,
+   "unit": null,
+   "source": "MODEL",
+   "scenario": "dryland|actual",
+   "rotation_id": "R6"
   },
   {
    "id": "scenario.dryland|hotdry.warming_c",
@@ -442,8 +483,8 @@
   },
   {
    "id": "replay.R0.dryland|hotdry.revenue_usd_ac_mean",
-   "text": "The wheat, sorghum, fallow (current) rotation, replayed over 2000 to 2025, earned an average of $262/ac per year.",
-   "value": 262,
+   "text": "The wheat, sorghum, fallow (current) rotation, replayed over 2000 to 2025, earned an average of $93/ac per year.",
+   "value": 93,
    "unit": "usd_ac",
    "source": "MODEL",
    "scenario": "dryland|hotdry",
@@ -451,8 +492,8 @@
   },
   {
    "id": "replay.R0.dryland|hotdry.revenue_usd_ac_worst5",
-   "text": "The wheat, sorghum, fallow (current) rotation, replayed over 2000 to 2025, earned an average of $144/ac in its 5 worst years.",
-   "value": 144,
+   "text": "The wheat, sorghum, fallow (current) rotation, replayed over 2000 to 2025, earned an average of $52/ac in its 5 worst years.",
+   "value": 52,
    "unit": "usd_ac",
    "source": "MODEL",
    "scenario": "dryland|hotdry",
@@ -460,8 +501,8 @@
   },
   {
    "id": "replay.R0.dryland|hotdry.stress_days_mean",
-   "text": "The wheat, sorghum, fallow (current) rotation, replayed over 2000 to 2025, had 38 days per year of crop water stress.",
-   "value": 38,
+   "text": "The wheat, sorghum, fallow (current) rotation, replayed over 2000 to 2025, had 91 days per year of crop water stress.",
+   "value": 91,
    "unit": "days",
    "source": "MODEL",
    "scenario": "dryland|hotdry",
@@ -469,8 +510,8 @@
   },
   {
    "id": "replay.R0.dryland|hotdry.bare_windy_days_mean",
-   "text": "The wheat, sorghum, fallow (current) rotation, replayed over 2000 to 2025, had 6 days per year with bare soil and strong wind.",
-   "value": 6,
+   "text": "The wheat, sorghum, fallow (current) rotation, replayed over 2000 to 2025, had 25 days per year with bare soil and strong wind.",
+   "value": 25,
    "unit": "days",
    "source": "MODEL",
    "scenario": "dryland|hotdry",
@@ -478,8 +519,8 @@
   },
   {
    "id": "replay.R0.dryland|hotdry.soil_health_score",
-   "text": "The wheat, sorghum, fallow (current) rotation has a soil health score of 41 out of 100.",
-   "value": 41,
+   "text": "The wheat, sorghum, fallow (current) rotation has a soil health score of 34.91 out of 100.",
+   "value": 34.91,
    "unit": null,
    "source": "MODEL",
    "scenario": "dryland|hotdry",
@@ -505,8 +546,8 @@
   },
   {
    "id": "replay.R2.dryland|hotdry.revenue_usd_ac_mean",
-   "text": "The wheat, sorghum, fallow rotation, replayed over 2000 to 2025, earned an average of $106/ac per year.",
-   "value": 106,
+   "text": "The wheat, sorghum, fallow rotation, replayed over 2000 to 2025, earned an average of $93/ac per year.",
+   "value": 93,
    "unit": "usd_ac",
    "source": "MODEL",
    "scenario": "dryland|hotdry",
@@ -514,8 +555,8 @@
   },
   {
    "id": "replay.R2.dryland|hotdry.revenue_usd_ac_worst5",
-   "text": "The wheat, sorghum, fallow rotation, replayed over 2000 to 2025, earned an average of $58/ac in its 5 worst years.",
-   "value": 58,
+   "text": "The wheat, sorghum, fallow rotation, replayed over 2000 to 2025, earned an average of $52/ac in its 5 worst years.",
+   "value": 52,
    "unit": "usd_ac",
    "source": "MODEL",
    "scenario": "dryland|hotdry",
@@ -523,8 +564,8 @@
   },
   {
    "id": "replay.R2.dryland|hotdry.stress_days_mean",
-   "text": "The wheat, sorghum, fallow rotation, replayed over 2000 to 2025, had 19 days per year of crop water stress.",
-   "value": 19,
+   "text": "The wheat, sorghum, fallow rotation, replayed over 2000 to 2025, had 91 days per year of crop water stress.",
+   "value": 91,
    "unit": "days",
    "source": "MODEL",
    "scenario": "dryland|hotdry",
@@ -532,8 +573,8 @@
   },
   {
    "id": "replay.R2.dryland|hotdry.bare_windy_days_mean",
-   "text": "The wheat, sorghum, fallow rotation, replayed over 2000 to 2025, had 14 days per year with bare soil and strong wind.",
-   "value": 14,
+   "text": "The wheat, sorghum, fallow rotation, replayed over 2000 to 2025, had 25 days per year with bare soil and strong wind.",
+   "value": 25,
    "unit": "days",
    "source": "MODEL",
    "scenario": "dryland|hotdry",
@@ -541,8 +582,8 @@
   },
   {
    "id": "replay.R2.dryland|hotdry.soil_health_score",
-   "text": "The wheat, sorghum, fallow rotation has a soil health score of 41 out of 100.",
-   "value": 41,
+   "text": "The wheat, sorghum, fallow rotation has a soil health score of 34.91 out of 100.",
+   "value": 34.91,
    "unit": null,
    "source": "MODEL",
    "scenario": "dryland|hotdry",
@@ -559,8 +600,8 @@
   },
   {
    "id": "replay.R3.dryland|hotdry.revenue_usd_ac_mean",
-   "text": "The wheat, sorghum, triticale rotation, replayed over 2000 to 2025, earned an average of $131/ac per year.",
-   "value": 131,
+   "text": "The wheat, sorghum, triticale rotation, replayed over 2000 to 2025, earned an average of $127/ac per year.",
+   "value": 127,
    "unit": "usd_ac",
    "source": "MODEL",
    "scenario": "dryland|hotdry",
@@ -568,8 +609,8 @@
   },
   {
    "id": "replay.R3.dryland|hotdry.revenue_usd_ac_worst5",
-   "text": "The wheat, sorghum, triticale rotation, replayed over 2000 to 2025, earned an average of $72/ac in its 5 worst years.",
-   "value": 72,
+   "text": "The wheat, sorghum, triticale rotation, replayed over 2000 to 2025, earned an average of $68/ac in its 5 worst years.",
+   "value": 68,
    "unit": "usd_ac",
    "source": "MODEL",
    "scenario": "dryland|hotdry",
@@ -577,8 +618,8 @@
   },
   {
    "id": "replay.R3.dryland|hotdry.stress_days_mean",
-   "text": "The wheat, sorghum, triticale rotation, replayed over 2000 to 2025, had 38 days per year of crop water stress.",
-   "value": 38,
+   "text": "The wheat, sorghum, triticale rotation, replayed over 2000 to 2025, had 118 days per year of crop water stress.",
+   "value": 118,
    "unit": "days",
    "source": "MODEL",
    "scenario": "dryland|hotdry",
@@ -586,8 +627,8 @@
   },
   {
    "id": "replay.R3.dryland|hotdry.bare_windy_days_mean",
-   "text": "The wheat, sorghum, triticale rotation, replayed over 2000 to 2025, had 6 days per year with bare soil and strong wind.",
-   "value": 6,
+   "text": "The wheat, sorghum, triticale rotation, replayed over 2000 to 2025, had 21 days per year with bare soil and strong wind.",
+   "value": 21,
    "unit": "days",
    "source": "MODEL",
    "scenario": "dryland|hotdry",
@@ -595,8 +636,8 @@
   },
   {
    "id": "replay.R3.dryland|hotdry.soil_health_score",
-   "text": "The wheat, sorghum, triticale rotation has a soil health score of 41 out of 100.",
-   "value": 41,
+   "text": "The wheat, sorghum, triticale rotation has a soil health score of 42.24 out of 100.",
+   "value": 42.24,
    "unit": null,
    "source": "MODEL",
    "scenario": "dryland|hotdry",
@@ -604,7 +645,7 @@
   },
   {
    "id": "replay.R4.dryland|hotdry.feasible",
-   "text": "The alfalfa, corn, wheat rotation is not feasible with this water limit.",
+   "text": "The alfalfa, alfalfa, alfalfa, alfalfa, corn, wheat rotation is not feasible with this water limit.",
    "value": null,
    "unit": null,
    "source": "MODEL",
@@ -621,6 +662,60 @@
    "rotation_id": "R5"
   },
   {
+   "id": "replay.R6.dryland|hotdry.irrigation_mm_mean",
+   "text": "The cotton, wheat, sorghum rotation, replayed over 2000 to 2025, used an average of 0 mm of irrigation per year.",
+   "value": 0,
+   "unit": "mm",
+   "source": "MODEL",
+   "scenario": "dryland|hotdry",
+   "rotation_id": "R6"
+  },
+  {
+   "id": "replay.R6.dryland|hotdry.revenue_usd_ac_mean",
+   "text": "The cotton, wheat, sorghum rotation, replayed over 2000 to 2025, earned an average of $138/ac per year.",
+   "value": 138,
+   "unit": "usd_ac",
+   "source": "MODEL",
+   "scenario": "dryland|hotdry",
+   "rotation_id": "R6"
+  },
+  {
+   "id": "replay.R6.dryland|hotdry.revenue_usd_ac_worst5",
+   "text": "The cotton, wheat, sorghum rotation, replayed over 2000 to 2025, earned an average of $68/ac in its 5 worst years.",
+   "value": 68,
+   "unit": "usd_ac",
+   "source": "MODEL",
+   "scenario": "dryland|hotdry",
+   "rotation_id": "R6"
+  },
+  {
+   "id": "replay.R6.dryland|hotdry.stress_days_mean",
+   "text": "The cotton, wheat, sorghum rotation, replayed over 2000 to 2025, had 112 days per year of crop water stress.",
+   "value": 112,
+   "unit": "days",
+   "source": "MODEL",
+   "scenario": "dryland|hotdry",
+   "rotation_id": "R6"
+  },
+  {
+   "id": "replay.R6.dryland|hotdry.bare_windy_days_mean",
+   "text": "The cotton, wheat, sorghum rotation, replayed over 2000 to 2025, had 25 days per year with bare soil and strong wind.",
+   "value": 25,
+   "unit": "days",
+   "source": "MODEL",
+   "scenario": "dryland|hotdry",
+   "rotation_id": "R6"
+  },
+  {
+   "id": "replay.R6.dryland|hotdry.soil_health_score",
+   "text": "The cotton, wheat, sorghum rotation has a soil health score of 42.27 out of 100.",
+   "value": 42.27,
+   "unit": null,
+   "source": "MODEL",
+   "scenario": "dryland|hotdry",
+   "rotation_id": "R6"
+  },
+  {
    "id": "scenario.cap150|actual.cap_mm",
    "text": "The irrigation limit in this scenario is 150 mm per season.",
    "value": 150,
@@ -630,8 +725,8 @@
   },
   {
    "id": "replay.R0.cap150|actual.irrigation_mm_mean",
-   "text": "The wheat, sorghum, fallow (current) rotation, replayed over 2000 to 2025, used an average of 150 mm of irrigation per year.",
-   "value": 150,
+   "text": "The wheat, sorghum, fallow (current) rotation, replayed over 2000 to 2025, used an average of 0 mm of irrigation per year.",
+   "value": 0,
    "unit": "mm",
    "source": "MODEL",
    "scenario": "cap150|actual",
@@ -639,8 +734,8 @@
   },
   {
    "id": "replay.R0.cap150|actual.revenue_usd_ac_mean",
-   "text": "The wheat, sorghum, fallow (current) rotation, replayed over 2000 to 2025, earned an average of $378/ac per year.",
-   "value": 378,
+   "text": "The wheat, sorghum, fallow (current) rotation, replayed over 2000 to 2025, earned an average of $117/ac per year.",
+   "value": 117,
    "unit": "usd_ac",
    "source": "MODEL",
    "scenario": "cap150|actual",
@@ -648,8 +743,8 @@
   },
   {
    "id": "replay.R0.cap150|actual.revenue_usd_ac_worst5",
-   "text": "The wheat, sorghum, fallow (current) rotation, replayed over 2000 to 2025, earned an average of $208/ac in its 5 worst years.",
-   "value": 208,
+   "text": "The wheat, sorghum, fallow (current) rotation, replayed over 2000 to 2025, earned an average of $69/ac in its 5 worst years.",
+   "value": 69,
    "unit": "usd_ac",
    "source": "MODEL",
    "scenario": "cap150|actual",
@@ -657,8 +752,8 @@
   },
   {
    "id": "replay.R0.cap150|actual.stress_days_mean",
-   "text": "The wheat, sorghum, fallow (current) rotation, replayed over 2000 to 2025, had 22 days per year of crop water stress.",
-   "value": 22,
+   "text": "The wheat, sorghum, fallow (current) rotation, replayed over 2000 to 2025, had 69 days per year of crop water stress.",
+   "value": 69,
    "unit": "days",
    "source": "MODEL",
    "scenario": "cap150|actual",
@@ -666,8 +761,8 @@
   },
   {
    "id": "replay.R0.cap150|actual.bare_windy_days_mean",
-   "text": "The wheat, sorghum, fallow (current) rotation, replayed over 2000 to 2025, had 6 days per year with bare soil and strong wind.",
-   "value": 6,
+   "text": "The wheat, sorghum, fallow (current) rotation, replayed over 2000 to 2025, had 25 days per year with bare soil and strong wind.",
+   "value": 25,
    "unit": "days",
    "source": "MODEL",
    "scenario": "cap150|actual",
@@ -675,62 +770,17 @@
   },
   {
    "id": "replay.R0.cap150|actual.soil_health_score",
-   "text": "The wheat, sorghum, fallow (current) rotation has a soil health score of 41 out of 100.",
-   "value": 41,
+   "text": "The wheat, sorghum, fallow (current) rotation has a soil health score of 34.91 out of 100.",
+   "value": 34.91,
    "unit": null,
    "source": "MODEL",
    "scenario": "cap150|actual",
    "rotation_id": "R0"
   },
   {
-   "id": "replay.R1.cap150|actual.irrigation_mm_mean",
-   "text": "The corn, wheat, sorghum rotation, replayed over 2000 to 2025, used an average of 150 mm of irrigation per year.",
-   "value": 150,
-   "unit": "mm",
-   "source": "MODEL",
-   "scenario": "cap150|actual",
-   "rotation_id": "R1"
-  },
-  {
-   "id": "replay.R1.cap150|actual.revenue_usd_ac_mean",
-   "text": "The corn, wheat, sorghum rotation, replayed over 2000 to 2025, earned an average of $349/ac per year.",
-   "value": 349,
-   "unit": "usd_ac",
-   "source": "MODEL",
-   "scenario": "cap150|actual",
-   "rotation_id": "R1"
-  },
-  {
-   "id": "replay.R1.cap150|actual.revenue_usd_ac_worst5",
-   "text": "The corn, wheat, sorghum rotation, replayed over 2000 to 2025, earned an average of $192/ac in its 5 worst years.",
-   "value": 192,
-   "unit": "usd_ac",
-   "source": "MODEL",
-   "scenario": "cap150|actual",
-   "rotation_id": "R1"
-  },
-  {
-   "id": "replay.R1.cap150|actual.stress_days_mean",
-   "text": "The corn, wheat, sorghum rotation, replayed over 2000 to 2025, had 22 days per year of crop water stress.",
-   "value": 22,
-   "unit": "days",
-   "source": "MODEL",
-   "scenario": "cap150|actual",
-   "rotation_id": "R1"
-  },
-  {
-   "id": "replay.R1.cap150|actual.bare_windy_days_mean",
-   "text": "The corn, wheat, sorghum rotation, replayed over 2000 to 2025, had 6 days per year with bare soil and strong wind.",
-   "value": 6,
-   "unit": "days",
-   "source": "MODEL",
-   "scenario": "cap150|actual",
-   "rotation_id": "R1"
-  },
-  {
-   "id": "replay.R1.cap150|actual.soil_health_score",
-   "text": "The corn, wheat, sorghum rotation has a soil health score of 41 out of 100.",
-   "value": 41,
+   "id": "replay.R1.cap150|actual.feasible",
+   "text": "The corn, wheat, sorghum rotation is not feasible with this water limit.",
+   "value": null,
    "unit": null,
    "source": "MODEL",
    "scenario": "cap150|actual",
@@ -738,8 +788,8 @@
   },
   {
    "id": "replay.R2.cap150|actual.irrigation_mm_mean",
-   "text": "The wheat, sorghum, fallow rotation, replayed over 2000 to 2025, used an average of 60 mm of irrigation per year.",
-   "value": 60,
+   "text": "The wheat, sorghum, fallow rotation, replayed over 2000 to 2025, used an average of 0 mm of irrigation per year.",
+   "value": 0,
    "unit": "mm",
    "source": "MODEL",
    "scenario": "cap150|actual",
@@ -747,8 +797,8 @@
   },
   {
    "id": "replay.R2.cap150|actual.revenue_usd_ac_mean",
-   "text": "The wheat, sorghum, fallow rotation, replayed over 2000 to 2025, earned an average of $153/ac per year.",
-   "value": 153,
+   "text": "The wheat, sorghum, fallow rotation, replayed over 2000 to 2025, earned an average of $117/ac per year.",
+   "value": 117,
    "unit": "usd_ac",
    "source": "MODEL",
    "scenario": "cap150|actual",
@@ -756,8 +806,8 @@
   },
   {
    "id": "replay.R2.cap150|actual.revenue_usd_ac_worst5",
-   "text": "The wheat, sorghum, fallow rotation, replayed over 2000 to 2025, earned an average of $84/ac in its 5 worst years.",
-   "value": 84,
+   "text": "The wheat, sorghum, fallow rotation, replayed over 2000 to 2025, earned an average of $69/ac in its 5 worst years.",
+   "value": 69,
    "unit": "usd_ac",
    "source": "MODEL",
    "scenario": "cap150|actual",
@@ -765,8 +815,8 @@
   },
   {
    "id": "replay.R2.cap150|actual.stress_days_mean",
-   "text": "The wheat, sorghum, fallow rotation, replayed over 2000 to 2025, had 11 days per year of crop water stress.",
-   "value": 11,
+   "text": "The wheat, sorghum, fallow rotation, replayed over 2000 to 2025, had 69 days per year of crop water stress.",
+   "value": 69,
    "unit": "days",
    "source": "MODEL",
    "scenario": "cap150|actual",
@@ -774,8 +824,8 @@
   },
   {
    "id": "replay.R2.cap150|actual.bare_windy_days_mean",
-   "text": "The wheat, sorghum, fallow rotation, replayed over 2000 to 2025, had 14 days per year with bare soil and strong wind.",
-   "value": 14,
+   "text": "The wheat, sorghum, fallow rotation, replayed over 2000 to 2025, had 25 days per year with bare soil and strong wind.",
+   "value": 25,
    "unit": "days",
    "source": "MODEL",
    "scenario": "cap150|actual",
@@ -783,8 +833,8 @@
   },
   {
    "id": "replay.R2.cap150|actual.soil_health_score",
-   "text": "The wheat, sorghum, fallow rotation has a soil health score of 41 out of 100.",
-   "value": 41,
+   "text": "The wheat, sorghum, fallow rotation has a soil health score of 34.91 out of 100.",
+   "value": 34.91,
    "unit": null,
    "source": "MODEL",
    "scenario": "cap150|actual",
@@ -792,8 +842,8 @@
   },
   {
    "id": "replay.R3.cap150|actual.irrigation_mm_mean",
-   "text": "The wheat, sorghum, triticale rotation, replayed over 2000 to 2025, used an average of 90 mm of irrigation per year.",
-   "value": 90,
+   "text": "The wheat, sorghum, triticale rotation, replayed over 2000 to 2025, used an average of 0 mm of irrigation per year.",
+   "value": 0,
    "unit": "mm",
    "source": "MODEL",
    "scenario": "cap150|actual",
@@ -801,8 +851,8 @@
   },
   {
    "id": "replay.R3.cap150|actual.revenue_usd_ac_mean",
-   "text": "The wheat, sorghum, triticale rotation, replayed over 2000 to 2025, earned an average of $189/ac per year.",
-   "value": 189,
+   "text": "The wheat, sorghum, triticale rotation, replayed over 2000 to 2025, earned an average of $159/ac per year.",
+   "value": 159,
    "unit": "usd_ac",
    "source": "MODEL",
    "scenario": "cap150|actual",
@@ -810,8 +860,8 @@
   },
   {
    "id": "replay.R3.cap150|actual.revenue_usd_ac_worst5",
-   "text": "The wheat, sorghum, triticale rotation, replayed over 2000 to 2025, earned an average of $104/ac in its 5 worst years.",
-   "value": 104,
+   "text": "The wheat, sorghum, triticale rotation, replayed over 2000 to 2025, earned an average of $87/ac in its 5 worst years.",
+   "value": 87,
    "unit": "usd_ac",
    "source": "MODEL",
    "scenario": "cap150|actual",
@@ -819,8 +869,8 @@
   },
   {
    "id": "replay.R3.cap150|actual.stress_days_mean",
-   "text": "The wheat, sorghum, triticale rotation, replayed over 2000 to 2025, had 22 days per year of crop water stress.",
-   "value": 22,
+   "text": "The wheat, sorghum, triticale rotation, replayed over 2000 to 2025, had 99 days per year of crop water stress.",
+   "value": 99,
    "unit": "days",
    "source": "MODEL",
    "scenario": "cap150|actual",
@@ -828,8 +878,8 @@
   },
   {
    "id": "replay.R3.cap150|actual.bare_windy_days_mean",
-   "text": "The wheat, sorghum, triticale rotation, replayed over 2000 to 2025, had 6 days per year with bare soil and strong wind.",
-   "value": 6,
+   "text": "The wheat, sorghum, triticale rotation, replayed over 2000 to 2025, had 21 days per year with bare soil and strong wind.",
+   "value": 21,
    "unit": "days",
    "source": "MODEL",
    "scenario": "cap150|actual",
@@ -837,120 +887,84 @@
   },
   {
    "id": "replay.R3.cap150|actual.soil_health_score",
-   "text": "The wheat, sorghum, triticale rotation has a soil health score of 41 out of 100.",
-   "value": 41,
+   "text": "The wheat, sorghum, triticale rotation has a soil health score of 42.24 out of 100.",
+   "value": 42.24,
    "unit": null,
    "source": "MODEL",
    "scenario": "cap150|actual",
    "rotation_id": "R3"
   },
   {
-   "id": "replay.R4.cap150|actual.irrigation_mm_mean",
-   "text": "The alfalfa, corn, wheat rotation, replayed over 2000 to 2025, used an average of 150 mm of irrigation per year.",
-   "value": 150,
-   "unit": "mm",
-   "source": "MODEL",
-   "scenario": "cap150|actual",
-   "rotation_id": "R4"
-  },
-  {
-   "id": "replay.R4.cap150|actual.revenue_usd_ac_mean",
-   "text": "The alfalfa, corn, wheat rotation, replayed over 2000 to 2025, earned an average of $407/ac per year.",
-   "value": 407,
-   "unit": "usd_ac",
-   "source": "MODEL",
-   "scenario": "cap150|actual",
-   "rotation_id": "R4"
-  },
-  {
-   "id": "replay.R4.cap150|actual.revenue_usd_ac_worst5",
-   "text": "The alfalfa, corn, wheat rotation, replayed over 2000 to 2025, earned an average of $224/ac in its 5 worst years.",
-   "value": 224,
-   "unit": "usd_ac",
-   "source": "MODEL",
-   "scenario": "cap150|actual",
-   "rotation_id": "R4"
-  },
-  {
-   "id": "replay.R4.cap150|actual.stress_days_mean",
-   "text": "The alfalfa, corn, wheat rotation, replayed over 2000 to 2025, had 22 days per year of crop water stress.",
-   "value": 22,
-   "unit": "days",
-   "source": "MODEL",
-   "scenario": "cap150|actual",
-   "rotation_id": "R4"
-  },
-  {
-   "id": "replay.R4.cap150|actual.bare_windy_days_mean",
-   "text": "The alfalfa, corn, wheat rotation, replayed over 2000 to 2025, had 6 days per year with bare soil and strong wind.",
-   "value": 6,
-   "unit": "days",
-   "source": "MODEL",
-   "scenario": "cap150|actual",
-   "rotation_id": "R4"
-  },
-  {
-   "id": "replay.R4.cap150|actual.soil_health_score",
-   "text": "The alfalfa, corn, wheat rotation has a soil health score of 62 out of 100.",
-   "value": 62,
+   "id": "replay.R4.cap150|actual.feasible",
+   "text": "The alfalfa, alfalfa, alfalfa, alfalfa, corn, wheat rotation is not feasible with this water limit.",
+   "value": null,
    "unit": null,
    "source": "MODEL",
    "scenario": "cap150|actual",
    "rotation_id": "R4"
   },
   {
-   "id": "replay.R5.cap150|actual.irrigation_mm_mean",
-   "text": "The corn, soybean, wheat rotation, replayed over 2000 to 2025, used an average of 150 mm of irrigation per year.",
-   "value": 150,
-   "unit": "mm",
-   "source": "MODEL",
-   "scenario": "cap150|actual",
-   "rotation_id": "R5"
-  },
-  {
-   "id": "replay.R5.cap150|actual.revenue_usd_ac_mean",
-   "text": "The corn, soybean, wheat rotation, replayed over 2000 to 2025, earned an average of $313/ac per year.",
-   "value": 313,
-   "unit": "usd_ac",
-   "source": "MODEL",
-   "scenario": "cap150|actual",
-   "rotation_id": "R5"
-  },
-  {
-   "id": "replay.R5.cap150|actual.revenue_usd_ac_worst5",
-   "text": "The corn, soybean, wheat rotation, replayed over 2000 to 2025, earned an average of $172/ac in its 5 worst years.",
-   "value": 172,
-   "unit": "usd_ac",
-   "source": "MODEL",
-   "scenario": "cap150|actual",
-   "rotation_id": "R5"
-  },
-  {
-   "id": "replay.R5.cap150|actual.stress_days_mean",
-   "text": "The corn, soybean, wheat rotation, replayed over 2000 to 2025, had 22 days per year of crop water stress.",
-   "value": 22,
-   "unit": "days",
-   "source": "MODEL",
-   "scenario": "cap150|actual",
-   "rotation_id": "R5"
-  },
-  {
-   "id": "replay.R5.cap150|actual.bare_windy_days_mean",
-   "text": "The corn, soybean, wheat rotation, replayed over 2000 to 2025, had 6 days per year with bare soil and strong wind.",
-   "value": 6,
-   "unit": "days",
-   "source": "MODEL",
-   "scenario": "cap150|actual",
-   "rotation_id": "R5"
-  },
-  {
-   "id": "replay.R5.cap150|actual.soil_health_score",
-   "text": "The corn, soybean, wheat rotation has a soil health score of 62 out of 100.",
-   "value": 62,
+   "id": "replay.R5.cap150|actual.feasible",
+   "text": "The corn, soybean, wheat rotation is not feasible with this water limit.",
+   "value": null,
    "unit": null,
    "source": "MODEL",
    "scenario": "cap150|actual",
    "rotation_id": "R5"
+  },
+  {
+   "id": "replay.R6.cap150|actual.irrigation_mm_mean",
+   "text": "The cotton, wheat, sorghum rotation, replayed over 2000 to 2025, used an average of 0 mm of irrigation per year.",
+   "value": 0,
+   "unit": "mm",
+   "source": "MODEL",
+   "scenario": "cap150|actual",
+   "rotation_id": "R6"
+  },
+  {
+   "id": "replay.R6.cap150|actual.revenue_usd_ac_mean",
+   "text": "The cotton, wheat, sorghum rotation, replayed over 2000 to 2025, earned an average of $170/ac per year.",
+   "value": 170,
+   "unit": "usd_ac",
+   "source": "MODEL",
+   "scenario": "cap150|actual",
+   "rotation_id": "R6"
+  },
+  {
+   "id": "replay.R6.cap150|actual.revenue_usd_ac_worst5",
+   "text": "The cotton, wheat, sorghum rotation, replayed over 2000 to 2025, earned an average of $87/ac in its 5 worst years.",
+   "value": 87,
+   "unit": "usd_ac",
+   "source": "MODEL",
+   "scenario": "cap150|actual",
+   "rotation_id": "R6"
+  },
+  {
+   "id": "replay.R6.cap150|actual.stress_days_mean",
+   "text": "The cotton, wheat, sorghum rotation, replayed over 2000 to 2025, had 94 days per year of crop water stress.",
+   "value": 94,
+   "unit": "days",
+   "source": "MODEL",
+   "scenario": "cap150|actual",
+   "rotation_id": "R6"
+  },
+  {
+   "id": "replay.R6.cap150|actual.bare_windy_days_mean",
+   "text": "The cotton, wheat, sorghum rotation, replayed over 2000 to 2025, had 25 days per year with bare soil and strong wind.",
+   "value": 25,
+   "unit": "days",
+   "source": "MODEL",
+   "scenario": "cap150|actual",
+   "rotation_id": "R6"
+  },
+  {
+   "id": "replay.R6.cap150|actual.soil_health_score",
+   "text": "The cotton, wheat, sorghum rotation has a soil health score of 42.27 out of 100.",
+   "value": 42.27,
+   "unit": null,
+   "source": "MODEL",
+   "scenario": "cap150|actual",
+   "rotation_id": "R6"
   },
   {
    "id": "scenario.cap150|hotdry.cap_mm",
@@ -978,8 +992,8 @@
   },
   {
    "id": "replay.R0.cap150|hotdry.irrigation_mm_mean",
-   "text": "The wheat, sorghum, fallow (current) rotation, replayed over 2000 to 2025, used an average of 162 mm of irrigation per year.",
-   "value": 162,
+   "text": "The wheat, sorghum, fallow (current) rotation, replayed over 2000 to 2025, used an average of 0 mm of irrigation per year.",
+   "value": 0,
    "unit": "mm",
    "source": "MODEL",
    "scenario": "cap150|hotdry",
@@ -987,8 +1001,8 @@
   },
   {
    "id": "replay.R0.cap150|hotdry.revenue_usd_ac_mean",
-   "text": "The wheat, sorghum, fallow (current) rotation, replayed over 2000 to 2025, earned an average of $310/ac per year.",
-   "value": 310,
+   "text": "The wheat, sorghum, fallow (current) rotation, replayed over 2000 to 2025, earned an average of $93/ac per year.",
+   "value": 93,
    "unit": "usd_ac",
    "source": "MODEL",
    "scenario": "cap150|hotdry",
@@ -996,8 +1010,8 @@
   },
   {
    "id": "replay.R0.cap150|hotdry.revenue_usd_ac_worst5",
-   "text": "The wheat, sorghum, fallow (current) rotation, replayed over 2000 to 2025, earned an average of $171/ac in its 5 worst years.",
-   "value": 171,
+   "text": "The wheat, sorghum, fallow (current) rotation, replayed over 2000 to 2025, earned an average of $52/ac in its 5 worst years.",
+   "value": 52,
    "unit": "usd_ac",
    "source": "MODEL",
    "scenario": "cap150|hotdry",
@@ -1005,8 +1019,8 @@
   },
   {
    "id": "replay.R0.cap150|hotdry.stress_days_mean",
-   "text": "The wheat, sorghum, fallow (current) rotation, replayed over 2000 to 2025, had 33 days per year of crop water stress.",
-   "value": 33,
+   "text": "The wheat, sorghum, fallow (current) rotation, replayed over 2000 to 2025, had 91 days per year of crop water stress.",
+   "value": 91,
    "unit": "days",
    "source": "MODEL",
    "scenario": "cap150|hotdry",
@@ -1014,8 +1028,8 @@
   },
   {
    "id": "replay.R0.cap150|hotdry.bare_windy_days_mean",
-   "text": "The wheat, sorghum, fallow (current) rotation, replayed over 2000 to 2025, had 6 days per year with bare soil and strong wind.",
-   "value": 6,
+   "text": "The wheat, sorghum, fallow (current) rotation, replayed over 2000 to 2025, had 25 days per year with bare soil and strong wind.",
+   "value": 25,
    "unit": "days",
    "source": "MODEL",
    "scenario": "cap150|hotdry",
@@ -1023,62 +1037,17 @@
   },
   {
    "id": "replay.R0.cap150|hotdry.soil_health_score",
-   "text": "The wheat, sorghum, fallow (current) rotation has a soil health score of 41 out of 100.",
-   "value": 41,
+   "text": "The wheat, sorghum, fallow (current) rotation has a soil health score of 34.91 out of 100.",
+   "value": 34.91,
    "unit": null,
    "source": "MODEL",
    "scenario": "cap150|hotdry",
    "rotation_id": "R0"
   },
   {
-   "id": "replay.R1.cap150|hotdry.irrigation_mm_mean",
-   "text": "The corn, wheat, sorghum rotation, replayed over 2000 to 2025, used an average of 162 mm of irrigation per year.",
-   "value": 162,
-   "unit": "mm",
-   "source": "MODEL",
-   "scenario": "cap150|hotdry",
-   "rotation_id": "R1"
-  },
-  {
-   "id": "replay.R1.cap150|hotdry.revenue_usd_ac_mean",
-   "text": "The corn, wheat, sorghum rotation, replayed over 2000 to 2025, earned an average of $286/ac per year.",
-   "value": 286,
-   "unit": "usd_ac",
-   "source": "MODEL",
-   "scenario": "cap150|hotdry",
-   "rotation_id": "R1"
-  },
-  {
-   "id": "replay.R1.cap150|hotdry.revenue_usd_ac_worst5",
-   "text": "The corn, wheat, sorghum rotation, replayed over 2000 to 2025, earned an average of $157/ac in its 5 worst years.",
-   "value": 157,
-   "unit": "usd_ac",
-   "source": "MODEL",
-   "scenario": "cap150|hotdry",
-   "rotation_id": "R1"
-  },
-  {
-   "id": "replay.R1.cap150|hotdry.stress_days_mean",
-   "text": "The corn, wheat, sorghum rotation, replayed over 2000 to 2025, had 33 days per year of crop water stress.",
-   "value": 33,
-   "unit": "days",
-   "source": "MODEL",
-   "scenario": "cap150|hotdry",
-   "rotation_id": "R1"
-  },
-  {
-   "id": "replay.R1.cap150|hotdry.bare_windy_days_mean",
-   "text": "The corn, wheat, sorghum rotation, replayed over 2000 to 2025, had 6 days per year with bare soil and strong wind.",
-   "value": 6,
-   "unit": "days",
-   "source": "MODEL",
-   "scenario": "cap150|hotdry",
-   "rotation_id": "R1"
-  },
-  {
-   "id": "replay.R1.cap150|hotdry.soil_health_score",
-   "text": "The corn, wheat, sorghum rotation has a soil health score of 41 out of 100.",
-   "value": 41,
+   "id": "replay.R1.cap150|hotdry.feasible",
+   "text": "The corn, wheat, sorghum rotation is not feasible with this water limit.",
+   "value": null,
    "unit": null,
    "source": "MODEL",
    "scenario": "cap150|hotdry",
@@ -1086,8 +1055,8 @@
   },
   {
    "id": "replay.R2.cap150|hotdry.irrigation_mm_mean",
-   "text": "The wheat, sorghum, fallow rotation, replayed over 2000 to 2025, used an average of 65 mm of irrigation per year.",
-   "value": 65,
+   "text": "The wheat, sorghum, fallow rotation, replayed over 2000 to 2025, used an average of 0 mm of irrigation per year.",
+   "value": 0,
    "unit": "mm",
    "source": "MODEL",
    "scenario": "cap150|hotdry",
@@ -1095,8 +1064,8 @@
   },
   {
    "id": "replay.R2.cap150|hotdry.revenue_usd_ac_mean",
-   "text": "The wheat, sorghum, fallow rotation, replayed over 2000 to 2025, earned an average of $125/ac per year.",
-   "value": 125,
+   "text": "The wheat, sorghum, fallow rotation, replayed over 2000 to 2025, earned an average of $93/ac per year.",
+   "value": 93,
    "unit": "usd_ac",
    "source": "MODEL",
    "scenario": "cap150|hotdry",
@@ -1104,8 +1073,8 @@
   },
   {
    "id": "replay.R2.cap150|hotdry.revenue_usd_ac_worst5",
-   "text": "The wheat, sorghum, fallow rotation, replayed over 2000 to 2025, earned an average of $69/ac in its 5 worst years.",
-   "value": 69,
+   "text": "The wheat, sorghum, fallow rotation, replayed over 2000 to 2025, earned an average of $52/ac in its 5 worst years.",
+   "value": 52,
    "unit": "usd_ac",
    "source": "MODEL",
    "scenario": "cap150|hotdry",
@@ -1113,8 +1082,8 @@
   },
   {
    "id": "replay.R2.cap150|hotdry.stress_days_mean",
-   "text": "The wheat, sorghum, fallow rotation, replayed over 2000 to 2025, had 17 days per year of crop water stress.",
-   "value": 17,
+   "text": "The wheat, sorghum, fallow rotation, replayed over 2000 to 2025, had 91 days per year of crop water stress.",
+   "value": 91,
    "unit": "days",
    "source": "MODEL",
    "scenario": "cap150|hotdry",
@@ -1122,8 +1091,8 @@
   },
   {
    "id": "replay.R2.cap150|hotdry.bare_windy_days_mean",
-   "text": "The wheat, sorghum, fallow rotation, replayed over 2000 to 2025, had 14 days per year with bare soil and strong wind.",
-   "value": 14,
+   "text": "The wheat, sorghum, fallow rotation, replayed over 2000 to 2025, had 25 days per year with bare soil and strong wind.",
+   "value": 25,
    "unit": "days",
    "source": "MODEL",
    "scenario": "cap150|hotdry",
@@ -1131,8 +1100,8 @@
   },
   {
    "id": "replay.R2.cap150|hotdry.soil_health_score",
-   "text": "The wheat, sorghum, fallow rotation has a soil health score of 41 out of 100.",
-   "value": 41,
+   "text": "The wheat, sorghum, fallow rotation has a soil health score of 34.91 out of 100.",
+   "value": 34.91,
    "unit": null,
    "source": "MODEL",
    "scenario": "cap150|hotdry",
@@ -1140,8 +1109,8 @@
   },
   {
    "id": "replay.R3.cap150|hotdry.irrigation_mm_mean",
-   "text": "The wheat, sorghum, triticale rotation, replayed over 2000 to 2025, used an average of 97 mm of irrigation per year.",
-   "value": 97,
+   "text": "The wheat, sorghum, triticale rotation, replayed over 2000 to 2025, used an average of 0 mm of irrigation per year.",
+   "value": 0,
    "unit": "mm",
    "source": "MODEL",
    "scenario": "cap150|hotdry",
@@ -1149,8 +1118,8 @@
   },
   {
    "id": "replay.R3.cap150|hotdry.revenue_usd_ac_mean",
-   "text": "The wheat, sorghum, triticale rotation, replayed over 2000 to 2025, earned an average of $155/ac per year.",
-   "value": 155,
+   "text": "The wheat, sorghum, triticale rotation, replayed over 2000 to 2025, earned an average of $127/ac per year.",
+   "value": 127,
    "unit": "usd_ac",
    "source": "MODEL",
    "scenario": "cap150|hotdry",
@@ -1158,8 +1127,8 @@
   },
   {
    "id": "replay.R3.cap150|hotdry.revenue_usd_ac_worst5",
-   "text": "The wheat, sorghum, triticale rotation, replayed over 2000 to 2025, earned an average of $85/ac in its 5 worst years.",
-   "value": 85,
+   "text": "The wheat, sorghum, triticale rotation, replayed over 2000 to 2025, earned an average of $68/ac in its 5 worst years.",
+   "value": 68,
    "unit": "usd_ac",
    "source": "MODEL",
    "scenario": "cap150|hotdry",
@@ -1167,8 +1136,8 @@
   },
   {
    "id": "replay.R3.cap150|hotdry.stress_days_mean",
-   "text": "The wheat, sorghum, triticale rotation, replayed over 2000 to 2025, had 33 days per year of crop water stress.",
-   "value": 33,
+   "text": "The wheat, sorghum, triticale rotation, replayed over 2000 to 2025, had 118 days per year of crop water stress.",
+   "value": 118,
    "unit": "days",
    "source": "MODEL",
    "scenario": "cap150|hotdry",
@@ -1176,8 +1145,8 @@
   },
   {
    "id": "replay.R3.cap150|hotdry.bare_windy_days_mean",
-   "text": "The wheat, sorghum, triticale rotation, replayed over 2000 to 2025, had 6 days per year with bare soil and strong wind.",
-   "value": 6,
+   "text": "The wheat, sorghum, triticale rotation, replayed over 2000 to 2025, had 21 days per year with bare soil and strong wind.",
+   "value": 21,
    "unit": "days",
    "source": "MODEL",
    "scenario": "cap150|hotdry",
@@ -1185,120 +1154,84 @@
   },
   {
    "id": "replay.R3.cap150|hotdry.soil_health_score",
-   "text": "The wheat, sorghum, triticale rotation has a soil health score of 41 out of 100.",
-   "value": 41,
+   "text": "The wheat, sorghum, triticale rotation has a soil health score of 42.24 out of 100.",
+   "value": 42.24,
    "unit": null,
    "source": "MODEL",
    "scenario": "cap150|hotdry",
    "rotation_id": "R3"
   },
   {
-   "id": "replay.R4.cap150|hotdry.irrigation_mm_mean",
-   "text": "The alfalfa, corn, wheat rotation, replayed over 2000 to 2025, used an average of 162 mm of irrigation per year.",
-   "value": 162,
-   "unit": "mm",
-   "source": "MODEL",
-   "scenario": "cap150|hotdry",
-   "rotation_id": "R4"
-  },
-  {
-   "id": "replay.R4.cap150|hotdry.revenue_usd_ac_mean",
-   "text": "The alfalfa, corn, wheat rotation, replayed over 2000 to 2025, earned an average of $334/ac per year.",
-   "value": 334,
-   "unit": "usd_ac",
-   "source": "MODEL",
-   "scenario": "cap150|hotdry",
-   "rotation_id": "R4"
-  },
-  {
-   "id": "replay.R4.cap150|hotdry.revenue_usd_ac_worst5",
-   "text": "The alfalfa, corn, wheat rotation, replayed over 2000 to 2025, earned an average of $184/ac in its 5 worst years.",
-   "value": 184,
-   "unit": "usd_ac",
-   "source": "MODEL",
-   "scenario": "cap150|hotdry",
-   "rotation_id": "R4"
-  },
-  {
-   "id": "replay.R4.cap150|hotdry.stress_days_mean",
-   "text": "The alfalfa, corn, wheat rotation, replayed over 2000 to 2025, had 33 days per year of crop water stress.",
-   "value": 33,
-   "unit": "days",
-   "source": "MODEL",
-   "scenario": "cap150|hotdry",
-   "rotation_id": "R4"
-  },
-  {
-   "id": "replay.R4.cap150|hotdry.bare_windy_days_mean",
-   "text": "The alfalfa, corn, wheat rotation, replayed over 2000 to 2025, had 6 days per year with bare soil and strong wind.",
-   "value": 6,
-   "unit": "days",
-   "source": "MODEL",
-   "scenario": "cap150|hotdry",
-   "rotation_id": "R4"
-  },
-  {
-   "id": "replay.R4.cap150|hotdry.soil_health_score",
-   "text": "The alfalfa, corn, wheat rotation has a soil health score of 62 out of 100.",
-   "value": 62,
+   "id": "replay.R4.cap150|hotdry.feasible",
+   "text": "The alfalfa, alfalfa, alfalfa, alfalfa, corn, wheat rotation is not feasible with this water limit.",
+   "value": null,
    "unit": null,
    "source": "MODEL",
    "scenario": "cap150|hotdry",
    "rotation_id": "R4"
   },
   {
-   "id": "replay.R5.cap150|hotdry.irrigation_mm_mean",
-   "text": "The corn, soybean, wheat rotation, replayed over 2000 to 2025, used an average of 162 mm of irrigation per year.",
-   "value": 162,
-   "unit": "mm",
-   "source": "MODEL",
-   "scenario": "cap150|hotdry",
-   "rotation_id": "R5"
-  },
-  {
-   "id": "replay.R5.cap150|hotdry.revenue_usd_ac_mean",
-   "text": "The corn, soybean, wheat rotation, replayed over 2000 to 2025, earned an average of $257/ac per year.",
-   "value": 257,
-   "unit": "usd_ac",
-   "source": "MODEL",
-   "scenario": "cap150|hotdry",
-   "rotation_id": "R5"
-  },
-  {
-   "id": "replay.R5.cap150|hotdry.revenue_usd_ac_worst5",
-   "text": "The corn, soybean, wheat rotation, replayed over 2000 to 2025, earned an average of $141/ac in its 5 worst years.",
-   "value": 141,
-   "unit": "usd_ac",
-   "source": "MODEL",
-   "scenario": "cap150|hotdry",
-   "rotation_id": "R5"
-  },
-  {
-   "id": "replay.R5.cap150|hotdry.stress_days_mean",
-   "text": "The corn, soybean, wheat rotation, replayed over 2000 to 2025, had 33 days per year of crop water stress.",
-   "value": 33,
-   "unit": "days",
-   "source": "MODEL",
-   "scenario": "cap150|hotdry",
-   "rotation_id": "R5"
-  },
-  {
-   "id": "replay.R5.cap150|hotdry.bare_windy_days_mean",
-   "text": "The corn, soybean, wheat rotation, replayed over 2000 to 2025, had 6 days per year with bare soil and strong wind.",
-   "value": 6,
-   "unit": "days",
-   "source": "MODEL",
-   "scenario": "cap150|hotdry",
-   "rotation_id": "R5"
-  },
-  {
-   "id": "replay.R5.cap150|hotdry.soil_health_score",
-   "text": "The corn, soybean, wheat rotation has a soil health score of 62 out of 100.",
-   "value": 62,
+   "id": "replay.R5.cap150|hotdry.feasible",
+   "text": "The corn, soybean, wheat rotation is not feasible with this water limit.",
+   "value": null,
    "unit": null,
    "source": "MODEL",
    "scenario": "cap150|hotdry",
    "rotation_id": "R5"
+  },
+  {
+   "id": "replay.R6.cap150|hotdry.irrigation_mm_mean",
+   "text": "The cotton, wheat, sorghum rotation, replayed over 2000 to 2025, used an average of 0 mm of irrigation per year.",
+   "value": 0,
+   "unit": "mm",
+   "source": "MODEL",
+   "scenario": "cap150|hotdry",
+   "rotation_id": "R6"
+  },
+  {
+   "id": "replay.R6.cap150|hotdry.revenue_usd_ac_mean",
+   "text": "The cotton, wheat, sorghum rotation, replayed over 2000 to 2025, earned an average of $138/ac per year.",
+   "value": 138,
+   "unit": "usd_ac",
+   "source": "MODEL",
+   "scenario": "cap150|hotdry",
+   "rotation_id": "R6"
+  },
+  {
+   "id": "replay.R6.cap150|hotdry.revenue_usd_ac_worst5",
+   "text": "The cotton, wheat, sorghum rotation, replayed over 2000 to 2025, earned an average of $68/ac in its 5 worst years.",
+   "value": 68,
+   "unit": "usd_ac",
+   "source": "MODEL",
+   "scenario": "cap150|hotdry",
+   "rotation_id": "R6"
+  },
+  {
+   "id": "replay.R6.cap150|hotdry.stress_days_mean",
+   "text": "The cotton, wheat, sorghum rotation, replayed over 2000 to 2025, had 112 days per year of crop water stress.",
+   "value": 112,
+   "unit": "days",
+   "source": "MODEL",
+   "scenario": "cap150|hotdry",
+   "rotation_id": "R6"
+  },
+  {
+   "id": "replay.R6.cap150|hotdry.bare_windy_days_mean",
+   "text": "The cotton, wheat, sorghum rotation, replayed over 2000 to 2025, had 25 days per year with bare soil and strong wind.",
+   "value": 25,
+   "unit": "days",
+   "source": "MODEL",
+   "scenario": "cap150|hotdry",
+   "rotation_id": "R6"
+  },
+  {
+   "id": "replay.R6.cap150|hotdry.soil_health_score",
+   "text": "The cotton, wheat, sorghum rotation has a soil health score of 42.27 out of 100.",
+   "value": 42.27,
+   "unit": null,
+   "source": "MODEL",
+   "scenario": "cap150|hotdry",
+   "rotation_id": "R6"
   },
   {
    "id": "scenario.cap300|actual.cap_mm",
@@ -1310,8 +1243,8 @@
   },
   {
    "id": "replay.R0.cap300|actual.irrigation_mm_mean",
-   "text": "The wheat, sorghum, fallow (current) rotation, replayed over 2000 to 2025, used an average of 260 mm of irrigation per year.",
-   "value": 260,
+   "text": "The wheat, sorghum, fallow (current) rotation, replayed over 2000 to 2025, used an average of 0 mm of irrigation per year.",
+   "value": 0,
    "unit": "mm",
    "source": "MODEL",
    "scenario": "cap300|actual",
@@ -1319,8 +1252,8 @@
   },
   {
    "id": "replay.R0.cap300|actual.revenue_usd_ac_mean",
-   "text": "The wheat, sorghum, fallow (current) rotation, replayed over 2000 to 2025, earned an average of $390/ac per year.",
-   "value": 390,
+   "text": "The wheat, sorghum, fallow (current) rotation, replayed over 2000 to 2025, earned an average of $117/ac per year.",
+   "value": 117,
    "unit": "usd_ac",
    "source": "MODEL",
    "scenario": "cap300|actual",
@@ -1328,8 +1261,8 @@
   },
   {
    "id": "replay.R0.cap300|actual.revenue_usd_ac_worst5",
-   "text": "The wheat, sorghum, fallow (current) rotation, replayed over 2000 to 2025, earned an average of $215/ac in its 5 worst years.",
-   "value": 215,
+   "text": "The wheat, sorghum, fallow (current) rotation, replayed over 2000 to 2025, earned an average of $69/ac in its 5 worst years.",
+   "value": 69,
    "unit": "usd_ac",
    "source": "MODEL",
    "scenario": "cap300|actual",
@@ -1337,8 +1270,8 @@
   },
   {
    "id": "replay.R0.cap300|actual.stress_days_mean",
-   "text": "The wheat, sorghum, fallow (current) rotation, replayed over 2000 to 2025, had 19 days per year of crop water stress.",
-   "value": 19,
+   "text": "The wheat, sorghum, fallow (current) rotation, replayed over 2000 to 2025, had 69 days per year of crop water stress.",
+   "value": 69,
    "unit": "days",
    "source": "MODEL",
    "scenario": "cap300|actual",
@@ -1346,8 +1279,8 @@
   },
   {
    "id": "replay.R0.cap300|actual.bare_windy_days_mean",
-   "text": "The wheat, sorghum, fallow (current) rotation, replayed over 2000 to 2025, had 6 days per year with bare soil and strong wind.",
-   "value": 6,
+   "text": "The wheat, sorghum, fallow (current) rotation, replayed over 2000 to 2025, had 25 days per year with bare soil and strong wind.",
+   "value": 25,
    "unit": "days",
    "source": "MODEL",
    "scenario": "cap300|actual",
@@ -1355,62 +1288,17 @@
   },
   {
    "id": "replay.R0.cap300|actual.soil_health_score",
-   "text": "The wheat, sorghum, fallow (current) rotation has a soil health score of 41 out of 100.",
-   "value": 41,
+   "text": "The wheat, sorghum, fallow (current) rotation has a soil health score of 34.91 out of 100.",
+   "value": 34.91,
    "unit": null,
    "source": "MODEL",
    "scenario": "cap300|actual",
    "rotation_id": "R0"
   },
   {
-   "id": "replay.R1.cap300|actual.irrigation_mm_mean",
-   "text": "The corn, wheat, sorghum rotation, replayed over 2000 to 2025, used an average of 240 mm of irrigation per year.",
-   "value": 240,
-   "unit": "mm",
-   "source": "MODEL",
-   "scenario": "cap300|actual",
-   "rotation_id": "R1"
-  },
-  {
-   "id": "replay.R1.cap300|actual.revenue_usd_ac_mean",
-   "text": "The corn, wheat, sorghum rotation, replayed over 2000 to 2025, earned an average of $360/ac per year.",
-   "value": 360,
-   "unit": "usd_ac",
-   "source": "MODEL",
-   "scenario": "cap300|actual",
-   "rotation_id": "R1"
-  },
-  {
-   "id": "replay.R1.cap300|actual.revenue_usd_ac_worst5",
-   "text": "The corn, wheat, sorghum rotation, replayed over 2000 to 2025, earned an average of $198/ac in its 5 worst years.",
-   "value": 198,
-   "unit": "usd_ac",
-   "source": "MODEL",
-   "scenario": "cap300|actual",
-   "rotation_id": "R1"
-  },
-  {
-   "id": "replay.R1.cap300|actual.stress_days_mean",
-   "text": "The corn, wheat, sorghum rotation, replayed over 2000 to 2025, had 19 days per year of crop water stress.",
-   "value": 19,
-   "unit": "days",
-   "source": "MODEL",
-   "scenario": "cap300|actual",
-   "rotation_id": "R1"
-  },
-  {
-   "id": "replay.R1.cap300|actual.bare_windy_days_mean",
-   "text": "The corn, wheat, sorghum rotation, replayed over 2000 to 2025, had 6 days per year with bare soil and strong wind.",
-   "value": 6,
-   "unit": "days",
-   "source": "MODEL",
-   "scenario": "cap300|actual",
-   "rotation_id": "R1"
-  },
-  {
-   "id": "replay.R1.cap300|actual.soil_health_score",
-   "text": "The corn, wheat, sorghum rotation has a soil health score of 41 out of 100.",
-   "value": 41,
+   "id": "replay.R1.cap300|actual.feasible",
+   "text": "The corn, wheat, sorghum rotation is not feasible with this water limit.",
+   "value": null,
    "unit": null,
    "source": "MODEL",
    "scenario": "cap300|actual",
@@ -1418,8 +1306,8 @@
   },
   {
    "id": "replay.R2.cap300|actual.irrigation_mm_mean",
-   "text": "The wheat, sorghum, fallow rotation, replayed over 2000 to 2025, used an average of 60 mm of irrigation per year.",
-   "value": 60,
+   "text": "The wheat, sorghum, fallow rotation, replayed over 2000 to 2025, used an average of 0 mm of irrigation per year.",
+   "value": 0,
    "unit": "mm",
    "source": "MODEL",
    "scenario": "cap300|actual",
@@ -1427,8 +1315,8 @@
   },
   {
    "id": "replay.R2.cap300|actual.revenue_usd_ac_mean",
-   "text": "The wheat, sorghum, fallow rotation, replayed over 2000 to 2025, earned an average of $158/ac per year.",
-   "value": 158,
+   "text": "The wheat, sorghum, fallow rotation, replayed over 2000 to 2025, earned an average of $117/ac per year.",
+   "value": 117,
    "unit": "usd_ac",
    "source": "MODEL",
    "scenario": "cap300|actual",
@@ -1436,8 +1324,8 @@
   },
   {
    "id": "replay.R2.cap300|actual.revenue_usd_ac_worst5",
-   "text": "The wheat, sorghum, fallow rotation, replayed over 2000 to 2025, earned an average of $87/ac in its 5 worst years.",
-   "value": 87,
+   "text": "The wheat, sorghum, fallow rotation, replayed over 2000 to 2025, earned an average of $69/ac in its 5 worst years.",
+   "value": 69,
    "unit": "usd_ac",
    "source": "MODEL",
    "scenario": "cap300|actual",
@@ -1445,8 +1333,8 @@
   },
   {
    "id": "replay.R2.cap300|actual.stress_days_mean",
-   "text": "The wheat, sorghum, fallow rotation, replayed over 2000 to 2025, had 10 days per year of crop water stress.",
-   "value": 10,
+   "text": "The wheat, sorghum, fallow rotation, replayed over 2000 to 2025, had 69 days per year of crop water stress.",
+   "value": 69,
    "unit": "days",
    "source": "MODEL",
    "scenario": "cap300|actual",
@@ -1454,8 +1342,8 @@
   },
   {
    "id": "replay.R2.cap300|actual.bare_windy_days_mean",
-   "text": "The wheat, sorghum, fallow rotation, replayed over 2000 to 2025, had 14 days per year with bare soil and strong wind.",
-   "value": 14,
+   "text": "The wheat, sorghum, fallow rotation, replayed over 2000 to 2025, had 25 days per year with bare soil and strong wind.",
+   "value": 25,
    "unit": "days",
    "source": "MODEL",
    "scenario": "cap300|actual",
@@ -1463,8 +1351,8 @@
   },
   {
    "id": "replay.R2.cap300|actual.soil_health_score",
-   "text": "The wheat, sorghum, fallow rotation has a soil health score of 41 out of 100.",
-   "value": 41,
+   "text": "The wheat, sorghum, fallow rotation has a soil health score of 34.91 out of 100.",
+   "value": 34.91,
    "unit": null,
    "source": "MODEL",
    "scenario": "cap300|actual",
@@ -1472,8 +1360,8 @@
   },
   {
    "id": "replay.R3.cap300|actual.irrigation_mm_mean",
-   "text": "The wheat, sorghum, triticale rotation, replayed over 2000 to 2025, used an average of 90 mm of irrigation per year.",
-   "value": 90,
+   "text": "The wheat, sorghum, triticale rotation, replayed over 2000 to 2025, used an average of 0 mm of irrigation per year.",
+   "value": 0,
    "unit": "mm",
    "source": "MODEL",
    "scenario": "cap300|actual",
@@ -1481,8 +1369,8 @@
   },
   {
    "id": "replay.R3.cap300|actual.revenue_usd_ac_mean",
-   "text": "The wheat, sorghum, triticale rotation, replayed over 2000 to 2025, earned an average of $195/ac per year.",
-   "value": 195,
+   "text": "The wheat, sorghum, triticale rotation, replayed over 2000 to 2025, earned an average of $159/ac per year.",
+   "value": 159,
    "unit": "usd_ac",
    "source": "MODEL",
    "scenario": "cap300|actual",
@@ -1490,8 +1378,8 @@
   },
   {
    "id": "replay.R3.cap300|actual.revenue_usd_ac_worst5",
-   "text": "The wheat, sorghum, triticale rotation, replayed over 2000 to 2025, earned an average of $107/ac in its 5 worst years.",
-   "value": 107,
+   "text": "The wheat, sorghum, triticale rotation, replayed over 2000 to 2025, earned an average of $87/ac in its 5 worst years.",
+   "value": 87,
    "unit": "usd_ac",
    "source": "MODEL",
    "scenario": "cap300|actual",
@@ -1499,8 +1387,8 @@
   },
   {
    "id": "replay.R3.cap300|actual.stress_days_mean",
-   "text": "The wheat, sorghum, triticale rotation, replayed over 2000 to 2025, had 19 days per year of crop water stress.",
-   "value": 19,
+   "text": "The wheat, sorghum, triticale rotation, replayed over 2000 to 2025, had 99 days per year of crop water stress.",
+   "value": 99,
    "unit": "days",
    "source": "MODEL",
    "scenario": "cap300|actual",
@@ -1508,8 +1396,8 @@
   },
   {
    "id": "replay.R3.cap300|actual.bare_windy_days_mean",
-   "text": "The wheat, sorghum, triticale rotation, replayed over 2000 to 2025, had 6 days per year with bare soil and strong wind.",
-   "value": 6,
+   "text": "The wheat, sorghum, triticale rotation, replayed over 2000 to 2025, had 21 days per year with bare soil and strong wind.",
+   "value": 21,
    "unit": "days",
    "source": "MODEL",
    "scenario": "cap300|actual",
@@ -1517,120 +1405,84 @@
   },
   {
    "id": "replay.R3.cap300|actual.soil_health_score",
-   "text": "The wheat, sorghum, triticale rotation has a soil health score of 41 out of 100.",
-   "value": 41,
+   "text": "The wheat, sorghum, triticale rotation has a soil health score of 42.24 out of 100.",
+   "value": 42.24,
    "unit": null,
    "source": "MODEL",
    "scenario": "cap300|actual",
    "rotation_id": "R3"
   },
   {
-   "id": "replay.R4.cap300|actual.irrigation_mm_mean",
-   "text": "The alfalfa, corn, wheat rotation, replayed over 2000 to 2025, used an average of 300 mm of irrigation per year.",
-   "value": 300,
-   "unit": "mm",
-   "source": "MODEL",
-   "scenario": "cap300|actual",
-   "rotation_id": "R4"
-  },
-  {
-   "id": "replay.R4.cap300|actual.revenue_usd_ac_mean",
-   "text": "The alfalfa, corn, wheat rotation, replayed over 2000 to 2025, earned an average of $420/ac per year.",
-   "value": 420,
-   "unit": "usd_ac",
-   "source": "MODEL",
-   "scenario": "cap300|actual",
-   "rotation_id": "R4"
-  },
-  {
-   "id": "replay.R4.cap300|actual.revenue_usd_ac_worst5",
-   "text": "The alfalfa, corn, wheat rotation, replayed over 2000 to 2025, earned an average of $231/ac in its 5 worst years.",
-   "value": 231,
-   "unit": "usd_ac",
-   "source": "MODEL",
-   "scenario": "cap300|actual",
-   "rotation_id": "R4"
-  },
-  {
-   "id": "replay.R4.cap300|actual.stress_days_mean",
-   "text": "The alfalfa, corn, wheat rotation, replayed over 2000 to 2025, had 19 days per year of crop water stress.",
-   "value": 19,
-   "unit": "days",
-   "source": "MODEL",
-   "scenario": "cap300|actual",
-   "rotation_id": "R4"
-  },
-  {
-   "id": "replay.R4.cap300|actual.bare_windy_days_mean",
-   "text": "The alfalfa, corn, wheat rotation, replayed over 2000 to 2025, had 6 days per year with bare soil and strong wind.",
-   "value": 6,
-   "unit": "days",
-   "source": "MODEL",
-   "scenario": "cap300|actual",
-   "rotation_id": "R4"
-  },
-  {
-   "id": "replay.R4.cap300|actual.soil_health_score",
-   "text": "The alfalfa, corn, wheat rotation has a soil health score of 62 out of 100.",
-   "value": 62,
+   "id": "replay.R4.cap300|actual.feasible",
+   "text": "The alfalfa, alfalfa, alfalfa, alfalfa, corn, wheat rotation is not feasible with this water limit.",
+   "value": null,
    "unit": null,
    "source": "MODEL",
    "scenario": "cap300|actual",
    "rotation_id": "R4"
   },
   {
-   "id": "replay.R5.cap300|actual.irrigation_mm_mean",
-   "text": "The corn, soybean, wheat rotation, replayed over 2000 to 2025, used an average of 230 mm of irrigation per year.",
-   "value": 230,
-   "unit": "mm",
-   "source": "MODEL",
-   "scenario": "cap300|actual",
-   "rotation_id": "R5"
-  },
-  {
-   "id": "replay.R5.cap300|actual.revenue_usd_ac_mean",
-   "text": "The corn, soybean, wheat rotation, replayed over 2000 to 2025, earned an average of $322/ac per year.",
-   "value": 322,
-   "unit": "usd_ac",
-   "source": "MODEL",
-   "scenario": "cap300|actual",
-   "rotation_id": "R5"
-  },
-  {
-   "id": "replay.R5.cap300|actual.revenue_usd_ac_worst5",
-   "text": "The corn, soybean, wheat rotation, replayed over 2000 to 2025, earned an average of $177/ac in its 5 worst years.",
-   "value": 177,
-   "unit": "usd_ac",
-   "source": "MODEL",
-   "scenario": "cap300|actual",
-   "rotation_id": "R5"
-  },
-  {
-   "id": "replay.R5.cap300|actual.stress_days_mean",
-   "text": "The corn, soybean, wheat rotation, replayed over 2000 to 2025, had 19 days per year of crop water stress.",
-   "value": 19,
-   "unit": "days",
-   "source": "MODEL",
-   "scenario": "cap300|actual",
-   "rotation_id": "R5"
-  },
-  {
-   "id": "replay.R5.cap300|actual.bare_windy_days_mean",
-   "text": "The corn, soybean, wheat rotation, replayed over 2000 to 2025, had 6 days per year with bare soil and strong wind.",
-   "value": 6,
-   "unit": "days",
-   "source": "MODEL",
-   "scenario": "cap300|actual",
-   "rotation_id": "R5"
-  },
-  {
-   "id": "replay.R5.cap300|actual.soil_health_score",
-   "text": "The corn, soybean, wheat rotation has a soil health score of 62 out of 100.",
-   "value": 62,
+   "id": "replay.R5.cap300|actual.feasible",
+   "text": "The corn, soybean, wheat rotation is not feasible with this water limit.",
+   "value": null,
    "unit": null,
    "source": "MODEL",
    "scenario": "cap300|actual",
    "rotation_id": "R5"
+  },
+  {
+   "id": "replay.R6.cap300|actual.irrigation_mm_mean",
+   "text": "The cotton, wheat, sorghum rotation, replayed over 2000 to 2025, used an average of 0 mm of irrigation per year.",
+   "value": 0,
+   "unit": "mm",
+   "source": "MODEL",
+   "scenario": "cap300|actual",
+   "rotation_id": "R6"
+  },
+  {
+   "id": "replay.R6.cap300|actual.revenue_usd_ac_mean",
+   "text": "The cotton, wheat, sorghum rotation, replayed over 2000 to 2025, earned an average of $170/ac per year.",
+   "value": 170,
+   "unit": "usd_ac",
+   "source": "MODEL",
+   "scenario": "cap300|actual",
+   "rotation_id": "R6"
+  },
+  {
+   "id": "replay.R6.cap300|actual.revenue_usd_ac_worst5",
+   "text": "The cotton, wheat, sorghum rotation, replayed over 2000 to 2025, earned an average of $87/ac in its 5 worst years.",
+   "value": 87,
+   "unit": "usd_ac",
+   "source": "MODEL",
+   "scenario": "cap300|actual",
+   "rotation_id": "R6"
+  },
+  {
+   "id": "replay.R6.cap300|actual.stress_days_mean",
+   "text": "The cotton, wheat, sorghum rotation, replayed over 2000 to 2025, had 94 days per year of crop water stress.",
+   "value": 94,
+   "unit": "days",
+   "source": "MODEL",
+   "scenario": "cap300|actual",
+   "rotation_id": "R6"
+  },
+  {
+   "id": "replay.R6.cap300|actual.bare_windy_days_mean",
+   "text": "The cotton, wheat, sorghum rotation, replayed over 2000 to 2025, had 25 days per year with bare soil and strong wind.",
+   "value": 25,
+   "unit": "days",
+   "source": "MODEL",
+   "scenario": "cap300|actual",
+   "rotation_id": "R6"
+  },
+  {
+   "id": "replay.R6.cap300|actual.soil_health_score",
+   "text": "The cotton, wheat, sorghum rotation has a soil health score of 42.27 out of 100.",
+   "value": 42.27,
+   "unit": null,
+   "source": "MODEL",
+   "scenario": "cap300|actual",
+   "rotation_id": "R6"
   },
   {
    "id": "scenario.cap300|hotdry.cap_mm",
@@ -1658,8 +1510,8 @@
   },
   {
    "id": "replay.R0.cap300|hotdry.irrigation_mm_mean",
-   "text": "The wheat, sorghum, fallow (current) rotation, replayed over 2000 to 2025, used an average of 281 mm of irrigation per year.",
-   "value": 281,
+   "text": "The wheat, sorghum, fallow (current) rotation, replayed over 2000 to 2025, used an average of 0 mm of irrigation per year.",
+   "value": 0,
    "unit": "mm",
    "source": "MODEL",
    "scenario": "cap300|hotdry",
@@ -1667,8 +1519,8 @@
   },
   {
    "id": "replay.R0.cap300|hotdry.revenue_usd_ac_mean",
-   "text": "The wheat, sorghum, fallow (current) rotation, replayed over 2000 to 2025, earned an average of $320/ac per year.",
-   "value": 320,
+   "text": "The wheat, sorghum, fallow (current) rotation, replayed over 2000 to 2025, earned an average of $93/ac per year.",
+   "value": 93,
    "unit": "usd_ac",
    "source": "MODEL",
    "scenario": "cap300|hotdry",
@@ -1676,8 +1528,8 @@
   },
   {
    "id": "replay.R0.cap300|hotdry.revenue_usd_ac_worst5",
-   "text": "The wheat, sorghum, fallow (current) rotation, replayed over 2000 to 2025, earned an average of $176/ac in its 5 worst years.",
-   "value": 176,
+   "text": "The wheat, sorghum, fallow (current) rotation, replayed over 2000 to 2025, earned an average of $52/ac in its 5 worst years.",
+   "value": 52,
    "unit": "usd_ac",
    "source": "MODEL",
    "scenario": "cap300|hotdry",
@@ -1685,8 +1537,8 @@
   },
   {
    "id": "replay.R0.cap300|hotdry.stress_days_mean",
-   "text": "The wheat, sorghum, fallow (current) rotation, replayed over 2000 to 2025, had 29 days per year of crop water stress.",
-   "value": 29,
+   "text": "The wheat, sorghum, fallow (current) rotation, replayed over 2000 to 2025, had 91 days per year of crop water stress.",
+   "value": 91,
    "unit": "days",
    "source": "MODEL",
    "scenario": "cap300|hotdry",
@@ -1694,8 +1546,8 @@
   },
   {
    "id": "replay.R0.cap300|hotdry.bare_windy_days_mean",
-   "text": "The wheat, sorghum, fallow (current) rotation, replayed over 2000 to 2025, had 6 days per year with bare soil and strong wind.",
-   "value": 6,
+   "text": "The wheat, sorghum, fallow (current) rotation, replayed over 2000 to 2025, had 25 days per year with bare soil and strong wind.",
+   "value": 25,
    "unit": "days",
    "source": "MODEL",
    "scenario": "cap300|hotdry",
@@ -1703,62 +1555,17 @@
   },
   {
    "id": "replay.R0.cap300|hotdry.soil_health_score",
-   "text": "The wheat, sorghum, fallow (current) rotation has a soil health score of 41 out of 100.",
-   "value": 41,
+   "text": "The wheat, sorghum, fallow (current) rotation has a soil health score of 34.91 out of 100.",
+   "value": 34.91,
    "unit": null,
    "source": "MODEL",
    "scenario": "cap300|hotdry",
    "rotation_id": "R0"
   },
   {
-   "id": "replay.R1.cap300|hotdry.irrigation_mm_mean",
-   "text": "The corn, wheat, sorghum rotation, replayed over 2000 to 2025, used an average of 259 mm of irrigation per year.",
-   "value": 259,
-   "unit": "mm",
-   "source": "MODEL",
-   "scenario": "cap300|hotdry",
-   "rotation_id": "R1"
-  },
-  {
-   "id": "replay.R1.cap300|hotdry.revenue_usd_ac_mean",
-   "text": "The corn, wheat, sorghum rotation, replayed over 2000 to 2025, earned an average of $295/ac per year.",
-   "value": 295,
-   "unit": "usd_ac",
-   "source": "MODEL",
-   "scenario": "cap300|hotdry",
-   "rotation_id": "R1"
-  },
-  {
-   "id": "replay.R1.cap300|hotdry.revenue_usd_ac_worst5",
-   "text": "The corn, wheat, sorghum rotation, replayed over 2000 to 2025, earned an average of $162/ac in its 5 worst years.",
-   "value": 162,
-   "unit": "usd_ac",
-   "source": "MODEL",
-   "scenario": "cap300|hotdry",
-   "rotation_id": "R1"
-  },
-  {
-   "id": "replay.R1.cap300|hotdry.stress_days_mean",
-   "text": "The corn, wheat, sorghum rotation, replayed over 2000 to 2025, had 29 days per year of crop water stress.",
-   "value": 29,
-   "unit": "days",
-   "source": "MODEL",
-   "scenario": "cap300|hotdry",
-   "rotation_id": "R1"
-  },
-  {
-   "id": "replay.R1.cap300|hotdry.bare_windy_days_mean",
-   "text": "The corn, wheat, sorghum rotation, replayed over 2000 to 2025, had 6 days per year with bare soil and strong wind.",
-   "value": 6,
-   "unit": "days",
-   "source": "MODEL",
-   "scenario": "cap300|hotdry",
-   "rotation_id": "R1"
-  },
-  {
-   "id": "replay.R1.cap300|hotdry.soil_health_score",
-   "text": "The corn, wheat, sorghum rotation has a soil health score of 41 out of 100.",
-   "value": 41,
+   "id": "replay.R1.cap300|hotdry.feasible",
+   "text": "The corn, wheat, sorghum rotation is not feasible with this water limit.",
+   "value": null,
    "unit": null,
    "source": "MODEL",
    "scenario": "cap300|hotdry",
@@ -1766,8 +1573,8 @@
   },
   {
    "id": "replay.R2.cap300|hotdry.irrigation_mm_mean",
-   "text": "The wheat, sorghum, fallow rotation, replayed over 2000 to 2025, used an average of 65 mm of irrigation per year.",
-   "value": 65,
+   "text": "The wheat, sorghum, fallow rotation, replayed over 2000 to 2025, used an average of 0 mm of irrigation per year.",
+   "value": 0,
    "unit": "mm",
    "source": "MODEL",
    "scenario": "cap300|hotdry",
@@ -1775,8 +1582,8 @@
   },
   {
    "id": "replay.R2.cap300|hotdry.revenue_usd_ac_mean",
-   "text": "The wheat, sorghum, fallow rotation, replayed over 2000 to 2025, earned an average of $129/ac per year.",
-   "value": 129,
+   "text": "The wheat, sorghum, fallow rotation, replayed over 2000 to 2025, earned an average of $93/ac per year.",
+   "value": 93,
    "unit": "usd_ac",
    "source": "MODEL",
    "scenario": "cap300|hotdry",
@@ -1784,8 +1591,8 @@
   },
   {
    "id": "replay.R2.cap300|hotdry.revenue_usd_ac_worst5",
-   "text": "The wheat, sorghum, fallow rotation, replayed over 2000 to 2025, earned an average of $71/ac in its 5 worst years.",
-   "value": 71,
+   "text": "The wheat, sorghum, fallow rotation, replayed over 2000 to 2025, earned an average of $52/ac in its 5 worst years.",
+   "value": 52,
    "unit": "usd_ac",
    "source": "MODEL",
    "scenario": "cap300|hotdry",
@@ -1793,8 +1600,8 @@
   },
   {
    "id": "replay.R2.cap300|hotdry.stress_days_mean",
-   "text": "The wheat, sorghum, fallow rotation, replayed over 2000 to 2025, had 14 days per year of crop water stress.",
-   "value": 14,
+   "text": "The wheat, sorghum, fallow rotation, replayed over 2000 to 2025, had 91 days per year of crop water stress.",
+   "value": 91,
    "unit": "days",
    "source": "MODEL",
    "scenario": "cap300|hotdry",
@@ -1802,8 +1609,8 @@
   },
   {
    "id": "replay.R2.cap300|hotdry.bare_windy_days_mean",
-   "text": "The wheat, sorghum, fallow rotation, replayed over 2000 to 2025, had 14 days per year with bare soil and strong wind.",
-   "value": 14,
+   "text": "The wheat, sorghum, fallow rotation, replayed over 2000 to 2025, had 25 days per year with bare soil and strong wind.",
+   "value": 25,
    "unit": "days",
    "source": "MODEL",
    "scenario": "cap300|hotdry",
@@ -1811,8 +1618,8 @@
   },
   {
    "id": "replay.R2.cap300|hotdry.soil_health_score",
-   "text": "The wheat, sorghum, fallow rotation has a soil health score of 41 out of 100.",
-   "value": 41,
+   "text": "The wheat, sorghum, fallow rotation has a soil health score of 34.91 out of 100.",
+   "value": 34.91,
    "unit": null,
    "source": "MODEL",
    "scenario": "cap300|hotdry",
@@ -1820,8 +1627,8 @@
   },
   {
    "id": "replay.R3.cap300|hotdry.irrigation_mm_mean",
-   "text": "The wheat, sorghum, triticale rotation, replayed over 2000 to 2025, used an average of 97 mm of irrigation per year.",
-   "value": 97,
+   "text": "The wheat, sorghum, triticale rotation, replayed over 2000 to 2025, used an average of 0 mm of irrigation per year.",
+   "value": 0,
    "unit": "mm",
    "source": "MODEL",
    "scenario": "cap300|hotdry",
@@ -1829,8 +1636,8 @@
   },
   {
    "id": "replay.R3.cap300|hotdry.revenue_usd_ac_mean",
-   "text": "The wheat, sorghum, triticale rotation, replayed over 2000 to 2025, earned an average of $160/ac per year.",
-   "value": 160,
+   "text": "The wheat, sorghum, triticale rotation, replayed over 2000 to 2025, earned an average of $127/ac per year.",
+   "value": 127,
    "unit": "usd_ac",
    "source": "MODEL",
    "scenario": "cap300|hotdry",
@@ -1838,8 +1645,8 @@
   },
   {
    "id": "replay.R3.cap300|hotdry.revenue_usd_ac_worst5",
-   "text": "The wheat, sorghum, triticale rotation, replayed over 2000 to 2025, earned an average of $88/ac in its 5 worst years.",
-   "value": 88,
+   "text": "The wheat, sorghum, triticale rotation, replayed over 2000 to 2025, earned an average of $68/ac in its 5 worst years.",
+   "value": 68,
    "unit": "usd_ac",
    "source": "MODEL",
    "scenario": "cap300|hotdry",
@@ -1847,8 +1654,8 @@
   },
   {
    "id": "replay.R3.cap300|hotdry.stress_days_mean",
-   "text": "The wheat, sorghum, triticale rotation, replayed over 2000 to 2025, had 29 days per year of crop water stress.",
-   "value": 29,
+   "text": "The wheat, sorghum, triticale rotation, replayed over 2000 to 2025, had 118 days per year of crop water stress.",
+   "value": 118,
    "unit": "days",
    "source": "MODEL",
    "scenario": "cap300|hotdry",
@@ -1856,8 +1663,8 @@
   },
   {
    "id": "replay.R3.cap300|hotdry.bare_windy_days_mean",
-   "text": "The wheat, sorghum, triticale rotation, replayed over 2000 to 2025, had 6 days per year with bare soil and strong wind.",
-   "value": 6,
+   "text": "The wheat, sorghum, triticale rotation, replayed over 2000 to 2025, had 21 days per year with bare soil and strong wind.",
+   "value": 21,
    "unit": "days",
    "source": "MODEL",
    "scenario": "cap300|hotdry",
@@ -1865,120 +1672,84 @@
   },
   {
    "id": "replay.R3.cap300|hotdry.soil_health_score",
-   "text": "The wheat, sorghum, triticale rotation has a soil health score of 41 out of 100.",
-   "value": 41,
+   "text": "The wheat, sorghum, triticale rotation has a soil health score of 42.24 out of 100.",
+   "value": 42.24,
    "unit": null,
    "source": "MODEL",
    "scenario": "cap300|hotdry",
    "rotation_id": "R3"
   },
   {
-   "id": "replay.R4.cap300|hotdry.irrigation_mm_mean",
-   "text": "The alfalfa, corn, wheat rotation, replayed over 2000 to 2025, used an average of 324 mm of irrigation per year.",
-   "value": 324,
-   "unit": "mm",
-   "source": "MODEL",
-   "scenario": "cap300|hotdry",
-   "rotation_id": "R4"
-  },
-  {
-   "id": "replay.R4.cap300|hotdry.revenue_usd_ac_mean",
-   "text": "The alfalfa, corn, wheat rotation, replayed over 2000 to 2025, earned an average of $344/ac per year.",
-   "value": 344,
-   "unit": "usd_ac",
-   "source": "MODEL",
-   "scenario": "cap300|hotdry",
-   "rotation_id": "R4"
-  },
-  {
-   "id": "replay.R4.cap300|hotdry.revenue_usd_ac_worst5",
-   "text": "The alfalfa, corn, wheat rotation, replayed over 2000 to 2025, earned an average of $189/ac in its 5 worst years.",
-   "value": 189,
-   "unit": "usd_ac",
-   "source": "MODEL",
-   "scenario": "cap300|hotdry",
-   "rotation_id": "R4"
-  },
-  {
-   "id": "replay.R4.cap300|hotdry.stress_days_mean",
-   "text": "The alfalfa, corn, wheat rotation, replayed over 2000 to 2025, had 29 days per year of crop water stress.",
-   "value": 29,
-   "unit": "days",
-   "source": "MODEL",
-   "scenario": "cap300|hotdry",
-   "rotation_id": "R4"
-  },
-  {
-   "id": "replay.R4.cap300|hotdry.bare_windy_days_mean",
-   "text": "The alfalfa, corn, wheat rotation, replayed over 2000 to 2025, had 6 days per year with bare soil and strong wind.",
-   "value": 6,
-   "unit": "days",
-   "source": "MODEL",
-   "scenario": "cap300|hotdry",
-   "rotation_id": "R4"
-  },
-  {
-   "id": "replay.R4.cap300|hotdry.soil_health_score",
-   "text": "The alfalfa, corn, wheat rotation has a soil health score of 62 out of 100.",
-   "value": 62,
+   "id": "replay.R4.cap300|hotdry.feasible",
+   "text": "The alfalfa, alfalfa, alfalfa, alfalfa, corn, wheat rotation is not feasible with this water limit.",
+   "value": null,
    "unit": null,
    "source": "MODEL",
    "scenario": "cap300|hotdry",
    "rotation_id": "R4"
   },
   {
-   "id": "replay.R5.cap300|hotdry.irrigation_mm_mean",
-   "text": "The corn, soybean, wheat rotation, replayed over 2000 to 2025, used an average of 248 mm of irrigation per year.",
-   "value": 248,
-   "unit": "mm",
-   "source": "MODEL",
-   "scenario": "cap300|hotdry",
-   "rotation_id": "R5"
-  },
-  {
-   "id": "replay.R5.cap300|hotdry.revenue_usd_ac_mean",
-   "text": "The corn, soybean, wheat rotation, replayed over 2000 to 2025, earned an average of $264/ac per year.",
-   "value": 264,
-   "unit": "usd_ac",
-   "source": "MODEL",
-   "scenario": "cap300|hotdry",
-   "rotation_id": "R5"
-  },
-  {
-   "id": "replay.R5.cap300|hotdry.revenue_usd_ac_worst5",
-   "text": "The corn, soybean, wheat rotation, replayed over 2000 to 2025, earned an average of $145/ac in its 5 worst years.",
-   "value": 145,
-   "unit": "usd_ac",
-   "source": "MODEL",
-   "scenario": "cap300|hotdry",
-   "rotation_id": "R5"
-  },
-  {
-   "id": "replay.R5.cap300|hotdry.stress_days_mean",
-   "text": "The corn, soybean, wheat rotation, replayed over 2000 to 2025, had 29 days per year of crop water stress.",
-   "value": 29,
-   "unit": "days",
-   "source": "MODEL",
-   "scenario": "cap300|hotdry",
-   "rotation_id": "R5"
-  },
-  {
-   "id": "replay.R5.cap300|hotdry.bare_windy_days_mean",
-   "text": "The corn, soybean, wheat rotation, replayed over 2000 to 2025, had 6 days per year with bare soil and strong wind.",
-   "value": 6,
-   "unit": "days",
-   "source": "MODEL",
-   "scenario": "cap300|hotdry",
-   "rotation_id": "R5"
-  },
-  {
-   "id": "replay.R5.cap300|hotdry.soil_health_score",
-   "text": "The corn, soybean, wheat rotation has a soil health score of 62 out of 100.",
-   "value": 62,
+   "id": "replay.R5.cap300|hotdry.feasible",
+   "text": "The corn, soybean, wheat rotation is not feasible with this water limit.",
+   "value": null,
    "unit": null,
    "source": "MODEL",
    "scenario": "cap300|hotdry",
    "rotation_id": "R5"
+  },
+  {
+   "id": "replay.R6.cap300|hotdry.irrigation_mm_mean",
+   "text": "The cotton, wheat, sorghum rotation, replayed over 2000 to 2025, used an average of 0 mm of irrigation per year.",
+   "value": 0,
+   "unit": "mm",
+   "source": "MODEL",
+   "scenario": "cap300|hotdry",
+   "rotation_id": "R6"
+  },
+  {
+   "id": "replay.R6.cap300|hotdry.revenue_usd_ac_mean",
+   "text": "The cotton, wheat, sorghum rotation, replayed over 2000 to 2025, earned an average of $138/ac per year.",
+   "value": 138,
+   "unit": "usd_ac",
+   "source": "MODEL",
+   "scenario": "cap300|hotdry",
+   "rotation_id": "R6"
+  },
+  {
+   "id": "replay.R6.cap300|hotdry.revenue_usd_ac_worst5",
+   "text": "The cotton, wheat, sorghum rotation, replayed over 2000 to 2025, earned an average of $68/ac in its 5 worst years.",
+   "value": 68,
+   "unit": "usd_ac",
+   "source": "MODEL",
+   "scenario": "cap300|hotdry",
+   "rotation_id": "R6"
+  },
+  {
+   "id": "replay.R6.cap300|hotdry.stress_days_mean",
+   "text": "The cotton, wheat, sorghum rotation, replayed over 2000 to 2025, had 112 days per year of crop water stress.",
+   "value": 112,
+   "unit": "days",
+   "source": "MODEL",
+   "scenario": "cap300|hotdry",
+   "rotation_id": "R6"
+  },
+  {
+   "id": "replay.R6.cap300|hotdry.bare_windy_days_mean",
+   "text": "The cotton, wheat, sorghum rotation, replayed over 2000 to 2025, had 25 days per year with bare soil and strong wind.",
+   "value": 25,
+   "unit": "days",
+   "source": "MODEL",
+   "scenario": "cap300|hotdry",
+   "rotation_id": "R6"
+  },
+  {
+   "id": "replay.R6.cap300|hotdry.soil_health_score",
+   "text": "The cotton, wheat, sorghum rotation has a soil health score of 42.27 out of 100.",
+   "value": 42.27,
+   "unit": null,
+   "source": "MODEL",
+   "scenario": "cap300|hotdry",
+   "rotation_id": "R6"
   },
   {
    "id": "scenario.cap450|actual.cap_mm",
@@ -1990,8 +1761,8 @@
   },
   {
    "id": "replay.R0.cap450|actual.irrigation_mm_mean",
-   "text": "The wheat, sorghum, fallow (current) rotation, replayed over 2000 to 2025, used an average of 260 mm of irrigation per year.",
-   "value": 260,
+   "text": "The wheat, sorghum, fallow (current) rotation, replayed over 2000 to 2025, used an average of 0 mm of irrigation per year.",
+   "value": 0,
    "unit": "mm",
    "source": "MODEL",
    "scenario": "cap450|actual",
@@ -1999,8 +1770,8 @@
   },
   {
    "id": "replay.R0.cap450|actual.revenue_usd_ac_mean",
-   "text": "The wheat, sorghum, fallow (current) rotation, replayed over 2000 to 2025, earned an average of $390/ac per year.",
-   "value": 390,
+   "text": "The wheat, sorghum, fallow (current) rotation, replayed over 2000 to 2025, earned an average of $117/ac per year.",
+   "value": 117,
    "unit": "usd_ac",
    "source": "MODEL",
    "scenario": "cap450|actual",
@@ -2008,8 +1779,8 @@
   },
   {
    "id": "replay.R0.cap450|actual.revenue_usd_ac_worst5",
-   "text": "The wheat, sorghum, fallow (current) rotation, replayed over 2000 to 2025, earned an average of $215/ac in its 5 worst years.",
-   "value": 215,
+   "text": "The wheat, sorghum, fallow (current) rotation, replayed over 2000 to 2025, earned an average of $69/ac in its 5 worst years.",
+   "value": 69,
    "unit": "usd_ac",
    "source": "MODEL",
    "scenario": "cap450|actual",
@@ -2017,8 +1788,8 @@
   },
   {
    "id": "replay.R0.cap450|actual.stress_days_mean",
-   "text": "The wheat, sorghum, fallow (current) rotation, replayed over 2000 to 2025, had 16 days per year of crop water stress.",
-   "value": 16,
+   "text": "The wheat, sorghum, fallow (current) rotation, replayed over 2000 to 2025, had 69 days per year of crop water stress.",
+   "value": 69,
    "unit": "days",
    "source": "MODEL",
    "scenario": "cap450|actual",
@@ -2026,8 +1797,8 @@
   },
   {
    "id": "replay.R0.cap450|actual.bare_windy_days_mean",
-   "text": "The wheat, sorghum, fallow (current) rotation, replayed over 2000 to 2025, had 6 days per year with bare soil and strong wind.",
-   "value": 6,
+   "text": "The wheat, sorghum, fallow (current) rotation, replayed over 2000 to 2025, had 25 days per year with bare soil and strong wind.",
+   "value": 25,
    "unit": "days",
    "source": "MODEL",
    "scenario": "cap450|actual",
@@ -2035,62 +1806,17 @@
   },
   {
    "id": "replay.R0.cap450|actual.soil_health_score",
-   "text": "The wheat, sorghum, fallow (current) rotation has a soil health score of 41 out of 100.",
-   "value": 41,
+   "text": "The wheat, sorghum, fallow (current) rotation has a soil health score of 34.91 out of 100.",
+   "value": 34.91,
    "unit": null,
    "source": "MODEL",
    "scenario": "cap450|actual",
    "rotation_id": "R0"
   },
   {
-   "id": "replay.R1.cap450|actual.irrigation_mm_mean",
-   "text": "The corn, wheat, sorghum rotation, replayed over 2000 to 2025, used an average of 240 mm of irrigation per year.",
-   "value": 240,
-   "unit": "mm",
-   "source": "MODEL",
-   "scenario": "cap450|actual",
-   "rotation_id": "R1"
-  },
-  {
-   "id": "replay.R1.cap450|actual.revenue_usd_ac_mean",
-   "text": "The corn, wheat, sorghum rotation, replayed over 2000 to 2025, earned an average of $360/ac per year.",
-   "value": 360,
-   "unit": "usd_ac",
-   "source": "MODEL",
-   "scenario": "cap450|actual",
-   "rotation_id": "R1"
-  },
-  {
-   "id": "replay.R1.cap450|actual.revenue_usd_ac_worst5",
-   "text": "The corn, wheat, sorghum rotation, replayed over 2000 to 2025, earned an average of $198/ac in its 5 worst years.",
-   "value": 198,
-   "unit": "usd_ac",
-   "source": "MODEL",
-   "scenario": "cap450|actual",
-   "rotation_id": "R1"
-  },
-  {
-   "id": "replay.R1.cap450|actual.stress_days_mean",
-   "text": "The corn, wheat, sorghum rotation, replayed over 2000 to 2025, had 16 days per year of crop water stress.",
-   "value": 16,
-   "unit": "days",
-   "source": "MODEL",
-   "scenario": "cap450|actual",
-   "rotation_id": "R1"
-  },
-  {
-   "id": "replay.R1.cap450|actual.bare_windy_days_mean",
-   "text": "The corn, wheat, sorghum rotation, replayed over 2000 to 2025, had 6 days per year with bare soil and strong wind.",
-   "value": 6,
-   "unit": "days",
-   "source": "MODEL",
-   "scenario": "cap450|actual",
-   "rotation_id": "R1"
-  },
-  {
-   "id": "replay.R1.cap450|actual.soil_health_score",
-   "text": "The corn, wheat, sorghum rotation has a soil health score of 41 out of 100.",
-   "value": 41,
+   "id": "replay.R1.cap450|actual.feasible",
+   "text": "The corn, wheat, sorghum rotation is not feasible with this water limit.",
+   "value": null,
    "unit": null,
    "source": "MODEL",
    "scenario": "cap450|actual",
@@ -2098,8 +1824,8 @@
   },
   {
    "id": "replay.R2.cap450|actual.irrigation_mm_mean",
-   "text": "The wheat, sorghum, fallow rotation, replayed over 2000 to 2025, used an average of 60 mm of irrigation per year.",
-   "value": 60,
+   "text": "The wheat, sorghum, fallow rotation, replayed over 2000 to 2025, used an average of 0 mm of irrigation per year.",
+   "value": 0,
    "unit": "mm",
    "source": "MODEL",
    "scenario": "cap450|actual",
@@ -2107,8 +1833,8 @@
   },
   {
    "id": "replay.R2.cap450|actual.revenue_usd_ac_mean",
-   "text": "The wheat, sorghum, fallow rotation, replayed over 2000 to 2025, earned an average of $158/ac per year.",
-   "value": 158,
+   "text": "The wheat, sorghum, fallow rotation, replayed over 2000 to 2025, earned an average of $117/ac per year.",
+   "value": 117,
    "unit": "usd_ac",
    "source": "MODEL",
    "scenario": "cap450|actual",
@@ -2116,8 +1842,8 @@
   },
   {
    "id": "replay.R2.cap450|actual.revenue_usd_ac_worst5",
-   "text": "The wheat, sorghum, fallow rotation, replayed over 2000 to 2025, earned an average of $87/ac in its 5 worst years.",
-   "value": 87,
+   "text": "The wheat, sorghum, fallow rotation, replayed over 2000 to 2025, earned an average of $69/ac in its 5 worst years.",
+   "value": 69,
    "unit": "usd_ac",
    "source": "MODEL",
    "scenario": "cap450|actual",
@@ -2125,8 +1851,8 @@
   },
   {
    "id": "replay.R2.cap450|actual.stress_days_mean",
-   "text": "The wheat, sorghum, fallow rotation, replayed over 2000 to 2025, had 8 days per year of crop water stress.",
-   "value": 8,
+   "text": "The wheat, sorghum, fallow rotation, replayed over 2000 to 2025, had 69 days per year of crop water stress.",
+   "value": 69,
    "unit": "days",
    "source": "MODEL",
    "scenario": "cap450|actual",
@@ -2134,8 +1860,8 @@
   },
   {
    "id": "replay.R2.cap450|actual.bare_windy_days_mean",
-   "text": "The wheat, sorghum, fallow rotation, replayed over 2000 to 2025, had 14 days per year with bare soil and strong wind.",
-   "value": 14,
+   "text": "The wheat, sorghum, fallow rotation, replayed over 2000 to 2025, had 25 days per year with bare soil and strong wind.",
+   "value": 25,
    "unit": "days",
    "source": "MODEL",
    "scenario": "cap450|actual",
@@ -2143,8 +1869,8 @@
   },
   {
    "id": "replay.R2.cap450|actual.soil_health_score",
-   "text": "The wheat, sorghum, fallow rotation has a soil health score of 41 out of 100.",
-   "value": 41,
+   "text": "The wheat, sorghum, fallow rotation has a soil health score of 34.91 out of 100.",
+   "value": 34.91,
    "unit": null,
    "source": "MODEL",
    "scenario": "cap450|actual",
@@ -2152,8 +1878,8 @@
   },
   {
    "id": "replay.R3.cap450|actual.irrigation_mm_mean",
-   "text": "The wheat, sorghum, triticale rotation, replayed over 2000 to 2025, used an average of 90 mm of irrigation per year.",
-   "value": 90,
+   "text": "The wheat, sorghum, triticale rotation, replayed over 2000 to 2025, used an average of 0 mm of irrigation per year.",
+   "value": 0,
    "unit": "mm",
    "source": "MODEL",
    "scenario": "cap450|actual",
@@ -2161,8 +1887,8 @@
   },
   {
    "id": "replay.R3.cap450|actual.revenue_usd_ac_mean",
-   "text": "The wheat, sorghum, triticale rotation, replayed over 2000 to 2025, earned an average of $195/ac per year.",
-   "value": 195,
+   "text": "The wheat, sorghum, triticale rotation, replayed over 2000 to 2025, earned an average of $159/ac per year.",
+   "value": 159,
    "unit": "usd_ac",
    "source": "MODEL",
    "scenario": "cap450|actual",
@@ -2170,8 +1896,8 @@
   },
   {
    "id": "replay.R3.cap450|actual.revenue_usd_ac_worst5",
-   "text": "The wheat, sorghum, triticale rotation, replayed over 2000 to 2025, earned an average of $107/ac in its 5 worst years.",
-   "value": 107,
+   "text": "The wheat, sorghum, triticale rotation, replayed over 2000 to 2025, earned an average of $87/ac in its 5 worst years.",
+   "value": 87,
    "unit": "usd_ac",
    "source": "MODEL",
    "scenario": "cap450|actual",
@@ -2179,8 +1905,8 @@
   },
   {
    "id": "replay.R3.cap450|actual.stress_days_mean",
-   "text": "The wheat, sorghum, triticale rotation, replayed over 2000 to 2025, had 16 days per year of crop water stress.",
-   "value": 16,
+   "text": "The wheat, sorghum, triticale rotation, replayed over 2000 to 2025, had 99 days per year of crop water stress.",
+   "value": 99,
    "unit": "days",
    "source": "MODEL",
    "scenario": "cap450|actual",
@@ -2188,8 +1914,8 @@
   },
   {
    "id": "replay.R3.cap450|actual.bare_windy_days_mean",
-   "text": "The wheat, sorghum, triticale rotation, replayed over 2000 to 2025, had 6 days per year with bare soil and strong wind.",
-   "value": 6,
+   "text": "The wheat, sorghum, triticale rotation, replayed over 2000 to 2025, had 21 days per year with bare soil and strong wind.",
+   "value": 21,
    "unit": "days",
    "source": "MODEL",
    "scenario": "cap450|actual",
@@ -2197,120 +1923,84 @@
   },
   {
    "id": "replay.R3.cap450|actual.soil_health_score",
-   "text": "The wheat, sorghum, triticale rotation has a soil health score of 41 out of 100.",
-   "value": 41,
+   "text": "The wheat, sorghum, triticale rotation has a soil health score of 42.24 out of 100.",
+   "value": 42.24,
    "unit": null,
    "source": "MODEL",
    "scenario": "cap450|actual",
    "rotation_id": "R3"
   },
   {
-   "id": "replay.R4.cap450|actual.irrigation_mm_mean",
-   "text": "The alfalfa, corn, wheat rotation, replayed over 2000 to 2025, used an average of 420 mm of irrigation per year.",
-   "value": 420,
-   "unit": "mm",
-   "source": "MODEL",
-   "scenario": "cap450|actual",
-   "rotation_id": "R4"
-  },
-  {
-   "id": "replay.R4.cap450|actual.revenue_usd_ac_mean",
-   "text": "The alfalfa, corn, wheat rotation, replayed over 2000 to 2025, earned an average of $420/ac per year.",
-   "value": 420,
-   "unit": "usd_ac",
-   "source": "MODEL",
-   "scenario": "cap450|actual",
-   "rotation_id": "R4"
-  },
-  {
-   "id": "replay.R4.cap450|actual.revenue_usd_ac_worst5",
-   "text": "The alfalfa, corn, wheat rotation, replayed over 2000 to 2025, earned an average of $231/ac in its 5 worst years.",
-   "value": 231,
-   "unit": "usd_ac",
-   "source": "MODEL",
-   "scenario": "cap450|actual",
-   "rotation_id": "R4"
-  },
-  {
-   "id": "replay.R4.cap450|actual.stress_days_mean",
-   "text": "The alfalfa, corn, wheat rotation, replayed over 2000 to 2025, had 16 days per year of crop water stress.",
-   "value": 16,
-   "unit": "days",
-   "source": "MODEL",
-   "scenario": "cap450|actual",
-   "rotation_id": "R4"
-  },
-  {
-   "id": "replay.R4.cap450|actual.bare_windy_days_mean",
-   "text": "The alfalfa, corn, wheat rotation, replayed over 2000 to 2025, had 6 days per year with bare soil and strong wind.",
-   "value": 6,
-   "unit": "days",
-   "source": "MODEL",
-   "scenario": "cap450|actual",
-   "rotation_id": "R4"
-  },
-  {
-   "id": "replay.R4.cap450|actual.soil_health_score",
-   "text": "The alfalfa, corn, wheat rotation has a soil health score of 62 out of 100.",
-   "value": 62,
+   "id": "replay.R4.cap450|actual.feasible",
+   "text": "The alfalfa, alfalfa, alfalfa, alfalfa, corn, wheat rotation is not feasible with this water limit.",
+   "value": null,
    "unit": null,
    "source": "MODEL",
    "scenario": "cap450|actual",
    "rotation_id": "R4"
   },
   {
-   "id": "replay.R5.cap450|actual.irrigation_mm_mean",
-   "text": "The corn, soybean, wheat rotation, replayed over 2000 to 2025, used an average of 230 mm of irrigation per year.",
-   "value": 230,
-   "unit": "mm",
-   "source": "MODEL",
-   "scenario": "cap450|actual",
-   "rotation_id": "R5"
-  },
-  {
-   "id": "replay.R5.cap450|actual.revenue_usd_ac_mean",
-   "text": "The corn, soybean, wheat rotation, replayed over 2000 to 2025, earned an average of $322/ac per year.",
-   "value": 322,
-   "unit": "usd_ac",
-   "source": "MODEL",
-   "scenario": "cap450|actual",
-   "rotation_id": "R5"
-  },
-  {
-   "id": "replay.R5.cap450|actual.revenue_usd_ac_worst5",
-   "text": "The corn, soybean, wheat rotation, replayed over 2000 to 2025, earned an average of $177/ac in its 5 worst years.",
-   "value": 177,
-   "unit": "usd_ac",
-   "source": "MODEL",
-   "scenario": "cap450|actual",
-   "rotation_id": "R5"
-  },
-  {
-   "id": "replay.R5.cap450|actual.stress_days_mean",
-   "text": "The corn, soybean, wheat rotation, replayed over 2000 to 2025, had 16 days per year of crop water stress.",
-   "value": 16,
-   "unit": "days",
-   "source": "MODEL",
-   "scenario": "cap450|actual",
-   "rotation_id": "R5"
-  },
-  {
-   "id": "replay.R5.cap450|actual.bare_windy_days_mean",
-   "text": "The corn, soybean, wheat rotation, replayed over 2000 to 2025, had 6 days per year with bare soil and strong wind.",
-   "value": 6,
-   "unit": "days",
-   "source": "MODEL",
-   "scenario": "cap450|actual",
-   "rotation_id": "R5"
-  },
-  {
-   "id": "replay.R5.cap450|actual.soil_health_score",
-   "text": "The corn, soybean, wheat rotation has a soil health score of 62 out of 100.",
-   "value": 62,
+   "id": "replay.R5.cap450|actual.feasible",
+   "text": "The corn, soybean, wheat rotation is not feasible with this water limit.",
+   "value": null,
    "unit": null,
    "source": "MODEL",
    "scenario": "cap450|actual",
    "rotation_id": "R5"
+  },
+  {
+   "id": "replay.R6.cap450|actual.irrigation_mm_mean",
+   "text": "The cotton, wheat, sorghum rotation, replayed over 2000 to 2025, used an average of 0 mm of irrigation per year.",
+   "value": 0,
+   "unit": "mm",
+   "source": "MODEL",
+   "scenario": "cap450|actual",
+   "rotation_id": "R6"
+  },
+  {
+   "id": "replay.R6.cap450|actual.revenue_usd_ac_mean",
+   "text": "The cotton, wheat, sorghum rotation, replayed over 2000 to 2025, earned an average of $170/ac per year.",
+   "value": 170,
+   "unit": "usd_ac",
+   "source": "MODEL",
+   "scenario": "cap450|actual",
+   "rotation_id": "R6"
+  },
+  {
+   "id": "replay.R6.cap450|actual.revenue_usd_ac_worst5",
+   "text": "The cotton, wheat, sorghum rotation, replayed over 2000 to 2025, earned an average of $87/ac in its 5 worst years.",
+   "value": 87,
+   "unit": "usd_ac",
+   "source": "MODEL",
+   "scenario": "cap450|actual",
+   "rotation_id": "R6"
+  },
+  {
+   "id": "replay.R6.cap450|actual.stress_days_mean",
+   "text": "The cotton, wheat, sorghum rotation, replayed over 2000 to 2025, had 94 days per year of crop water stress.",
+   "value": 94,
+   "unit": "days",
+   "source": "MODEL",
+   "scenario": "cap450|actual",
+   "rotation_id": "R6"
+  },
+  {
+   "id": "replay.R6.cap450|actual.bare_windy_days_mean",
+   "text": "The cotton, wheat, sorghum rotation, replayed over 2000 to 2025, had 25 days per year with bare soil and strong wind.",
+   "value": 25,
+   "unit": "days",
+   "source": "MODEL",
+   "scenario": "cap450|actual",
+   "rotation_id": "R6"
+  },
+  {
+   "id": "replay.R6.cap450|actual.soil_health_score",
+   "text": "The cotton, wheat, sorghum rotation has a soil health score of 42.27 out of 100.",
+   "value": 42.27,
+   "unit": null,
+   "source": "MODEL",
+   "scenario": "cap450|actual",
+   "rotation_id": "R6"
   },
   {
    "id": "scenario.cap450|hotdry.cap_mm",
@@ -2338,8 +2028,8 @@
   },
   {
    "id": "replay.R0.cap450|hotdry.irrigation_mm_mean",
-   "text": "The wheat, sorghum, fallow (current) rotation, replayed over 2000 to 2025, used an average of 281 mm of irrigation per year.",
-   "value": 281,
+   "text": "The wheat, sorghum, fallow (current) rotation, replayed over 2000 to 2025, used an average of 0 mm of irrigation per year.",
+   "value": 0,
    "unit": "mm",
    "source": "MODEL",
    "scenario": "cap450|hotdry",
@@ -2347,8 +2037,8 @@
   },
   {
    "id": "replay.R0.cap450|hotdry.revenue_usd_ac_mean",
-   "text": "The wheat, sorghum, fallow (current) rotation, replayed over 2000 to 2025, earned an average of $320/ac per year.",
-   "value": 320,
+   "text": "The wheat, sorghum, fallow (current) rotation, replayed over 2000 to 2025, earned an average of $93/ac per year.",
+   "value": 93,
    "unit": "usd_ac",
    "source": "MODEL",
    "scenario": "cap450|hotdry",
@@ -2356,8 +2046,8 @@
   },
   {
    "id": "replay.R0.cap450|hotdry.revenue_usd_ac_worst5",
-   "text": "The wheat, sorghum, fallow (current) rotation, replayed over 2000 to 2025, earned an average of $176/ac in its 5 worst years.",
-   "value": 176,
+   "text": "The wheat, sorghum, fallow (current) rotation, replayed over 2000 to 2025, earned an average of $52/ac in its 5 worst years.",
+   "value": 52,
    "unit": "usd_ac",
    "source": "MODEL",
    "scenario": "cap450|hotdry",
@@ -2365,8 +2055,8 @@
   },
   {
    "id": "replay.R0.cap450|hotdry.stress_days_mean",
-   "text": "The wheat, sorghum, fallow (current) rotation, replayed over 2000 to 2025, had 24 days per year of crop water stress.",
-   "value": 24,
+   "text": "The wheat, sorghum, fallow (current) rotation, replayed over 2000 to 2025, had 91 days per year of crop water stress.",
+   "value": 91,
    "unit": "days",
    "source": "MODEL",
    "scenario": "cap450|hotdry",
@@ -2374,8 +2064,8 @@
   },
   {
    "id": "replay.R0.cap450|hotdry.bare_windy_days_mean",
-   "text": "The wheat, sorghum, fallow (current) rotation, replayed over 2000 to 2025, had 6 days per year with bare soil and strong wind.",
-   "value": 6,
+   "text": "The wheat, sorghum, fallow (current) rotation, replayed over 2000 to 2025, had 25 days per year with bare soil and strong wind.",
+   "value": 25,
    "unit": "days",
    "source": "MODEL",
    "scenario": "cap450|hotdry",
@@ -2383,62 +2073,17 @@
   },
   {
    "id": "replay.R0.cap450|hotdry.soil_health_score",
-   "text": "The wheat, sorghum, fallow (current) rotation has a soil health score of 41 out of 100.",
-   "value": 41,
+   "text": "The wheat, sorghum, fallow (current) rotation has a soil health score of 34.91 out of 100.",
+   "value": 34.91,
    "unit": null,
    "source": "MODEL",
    "scenario": "cap450|hotdry",
    "rotation_id": "R0"
   },
   {
-   "id": "replay.R1.cap450|hotdry.irrigation_mm_mean",
-   "text": "The corn, wheat, sorghum rotation, replayed over 2000 to 2025, used an average of 259 mm of irrigation per year.",
-   "value": 259,
-   "unit": "mm",
-   "source": "MODEL",
-   "scenario": "cap450|hotdry",
-   "rotation_id": "R1"
-  },
-  {
-   "id": "replay.R1.cap450|hotdry.revenue_usd_ac_mean",
-   "text": "The corn, wheat, sorghum rotation, replayed over 2000 to 2025, earned an average of $295/ac per year.",
-   "value": 295,
-   "unit": "usd_ac",
-   "source": "MODEL",
-   "scenario": "cap450|hotdry",
-   "rotation_id": "R1"
-  },
-  {
-   "id": "replay.R1.cap450|hotdry.revenue_usd_ac_worst5",
-   "text": "The corn, wheat, sorghum rotation, replayed over 2000 to 2025, earned an average of $162/ac in its 5 worst years.",
-   "value": 162,
-   "unit": "usd_ac",
-   "source": "MODEL",
-   "scenario": "cap450|hotdry",
-   "rotation_id": "R1"
-  },
-  {
-   "id": "replay.R1.cap450|hotdry.stress_days_mean",
-   "text": "The corn, wheat, sorghum rotation, replayed over 2000 to 2025, had 24 days per year of crop water stress.",
-   "value": 24,
-   "unit": "days",
-   "source": "MODEL",
-   "scenario": "cap450|hotdry",
-   "rotation_id": "R1"
-  },
-  {
-   "id": "replay.R1.cap450|hotdry.bare_windy_days_mean",
-   "text": "The corn, wheat, sorghum rotation, replayed over 2000 to 2025, had 6 days per year with bare soil and strong wind.",
-   "value": 6,
-   "unit": "days",
-   "source": "MODEL",
-   "scenario": "cap450|hotdry",
-   "rotation_id": "R1"
-  },
-  {
-   "id": "replay.R1.cap450|hotdry.soil_health_score",
-   "text": "The corn, wheat, sorghum rotation has a soil health score of 41 out of 100.",
-   "value": 41,
+   "id": "replay.R1.cap450|hotdry.feasible",
+   "text": "The corn, wheat, sorghum rotation is not feasible with this water limit.",
+   "value": null,
    "unit": null,
    "source": "MODEL",
    "scenario": "cap450|hotdry",
@@ -2446,8 +2091,8 @@
   },
   {
    "id": "replay.R2.cap450|hotdry.irrigation_mm_mean",
-   "text": "The wheat, sorghum, fallow rotation, replayed over 2000 to 2025, used an average of 65 mm of irrigation per year.",
-   "value": 65,
+   "text": "The wheat, sorghum, fallow rotation, replayed over 2000 to 2025, used an average of 0 mm of irrigation per year.",
+   "value": 0,
    "unit": "mm",
    "source": "MODEL",
    "scenario": "cap450|hotdry",
@@ -2455,8 +2100,8 @@
   },
   {
    "id": "replay.R2.cap450|hotdry.revenue_usd_ac_mean",
-   "text": "The wheat, sorghum, fallow rotation, replayed over 2000 to 2025, earned an average of $129/ac per year.",
-   "value": 129,
+   "text": "The wheat, sorghum, fallow rotation, replayed over 2000 to 2025, earned an average of $93/ac per year.",
+   "value": 93,
    "unit": "usd_ac",
    "source": "MODEL",
    "scenario": "cap450|hotdry",
@@ -2464,8 +2109,8 @@
   },
   {
    "id": "replay.R2.cap450|hotdry.revenue_usd_ac_worst5",
-   "text": "The wheat, sorghum, fallow rotation, replayed over 2000 to 2025, earned an average of $71/ac in its 5 worst years.",
-   "value": 71,
+   "text": "The wheat, sorghum, fallow rotation, replayed over 2000 to 2025, earned an average of $52/ac in its 5 worst years.",
+   "value": 52,
    "unit": "usd_ac",
    "source": "MODEL",
    "scenario": "cap450|hotdry",
@@ -2473,8 +2118,8 @@
   },
   {
    "id": "replay.R2.cap450|hotdry.stress_days_mean",
-   "text": "The wheat, sorghum, fallow rotation, replayed over 2000 to 2025, had 12 days per year of crop water stress.",
-   "value": 12,
+   "text": "The wheat, sorghum, fallow rotation, replayed over 2000 to 2025, had 91 days per year of crop water stress.",
+   "value": 91,
    "unit": "days",
    "source": "MODEL",
    "scenario": "cap450|hotdry",
@@ -2482,8 +2127,8 @@
   },
   {
    "id": "replay.R2.cap450|hotdry.bare_windy_days_mean",
-   "text": "The wheat, sorghum, fallow rotation, replayed over 2000 to 2025, had 14 days per year with bare soil and strong wind.",
-   "value": 14,
+   "text": "The wheat, sorghum, fallow rotation, replayed over 2000 to 2025, had 25 days per year with bare soil and strong wind.",
+   "value": 25,
    "unit": "days",
    "source": "MODEL",
    "scenario": "cap450|hotdry",
@@ -2491,8 +2136,8 @@
   },
   {
    "id": "replay.R2.cap450|hotdry.soil_health_score",
-   "text": "The wheat, sorghum, fallow rotation has a soil health score of 41 out of 100.",
-   "value": 41,
+   "text": "The wheat, sorghum, fallow rotation has a soil health score of 34.91 out of 100.",
+   "value": 34.91,
    "unit": null,
    "source": "MODEL",
    "scenario": "cap450|hotdry",
@@ -2500,8 +2145,8 @@
   },
   {
    "id": "replay.R3.cap450|hotdry.irrigation_mm_mean",
-   "text": "The wheat, sorghum, triticale rotation, replayed over 2000 to 2025, used an average of 97 mm of irrigation per year.",
-   "value": 97,
+   "text": "The wheat, sorghum, triticale rotation, replayed over 2000 to 2025, used an average of 0 mm of irrigation per year.",
+   "value": 0,
    "unit": "mm",
    "source": "MODEL",
    "scenario": "cap450|hotdry",
@@ -2509,8 +2154,8 @@
   },
   {
    "id": "replay.R3.cap450|hotdry.revenue_usd_ac_mean",
-   "text": "The wheat, sorghum, triticale rotation, replayed over 2000 to 2025, earned an average of $160/ac per year.",
-   "value": 160,
+   "text": "The wheat, sorghum, triticale rotation, replayed over 2000 to 2025, earned an average of $127/ac per year.",
+   "value": 127,
    "unit": "usd_ac",
    "source": "MODEL",
    "scenario": "cap450|hotdry",
@@ -2518,8 +2163,8 @@
   },
   {
    "id": "replay.R3.cap450|hotdry.revenue_usd_ac_worst5",
-   "text": "The wheat, sorghum, triticale rotation, replayed over 2000 to 2025, earned an average of $88/ac in its 5 worst years.",
-   "value": 88,
+   "text": "The wheat, sorghum, triticale rotation, replayed over 2000 to 2025, earned an average of $68/ac in its 5 worst years.",
+   "value": 68,
    "unit": "usd_ac",
    "source": "MODEL",
    "scenario": "cap450|hotdry",
@@ -2527,8 +2172,8 @@
   },
   {
    "id": "replay.R3.cap450|hotdry.stress_days_mean",
-   "text": "The wheat, sorghum, triticale rotation, replayed over 2000 to 2025, had 24 days per year of crop water stress.",
-   "value": 24,
+   "text": "The wheat, sorghum, triticale rotation, replayed over 2000 to 2025, had 118 days per year of crop water stress.",
+   "value": 118,
    "unit": "days",
    "source": "MODEL",
    "scenario": "cap450|hotdry",
@@ -2536,8 +2181,8 @@
   },
   {
    "id": "replay.R3.cap450|hotdry.bare_windy_days_mean",
-   "text": "The wheat, sorghum, triticale rotation, replayed over 2000 to 2025, had 6 days per year with bare soil and strong wind.",
-   "value": 6,
+   "text": "The wheat, sorghum, triticale rotation, replayed over 2000 to 2025, had 21 days per year with bare soil and strong wind.",
+   "value": 21,
    "unit": "days",
    "source": "MODEL",
    "scenario": "cap450|hotdry",
@@ -2545,125 +2190,89 @@
   },
   {
    "id": "replay.R3.cap450|hotdry.soil_health_score",
-   "text": "The wheat, sorghum, triticale rotation has a soil health score of 41 out of 100.",
-   "value": 41,
+   "text": "The wheat, sorghum, triticale rotation has a soil health score of 42.24 out of 100.",
+   "value": 42.24,
    "unit": null,
    "source": "MODEL",
    "scenario": "cap450|hotdry",
    "rotation_id": "R3"
   },
   {
-   "id": "replay.R4.cap450|hotdry.irrigation_mm_mean",
-   "text": "The alfalfa, corn, wheat rotation, replayed over 2000 to 2025, used an average of 454 mm of irrigation per year.",
-   "value": 454,
-   "unit": "mm",
-   "source": "MODEL",
-   "scenario": "cap450|hotdry",
-   "rotation_id": "R4"
-  },
-  {
-   "id": "replay.R4.cap450|hotdry.revenue_usd_ac_mean",
-   "text": "The alfalfa, corn, wheat rotation, replayed over 2000 to 2025, earned an average of $344/ac per year.",
-   "value": 344,
-   "unit": "usd_ac",
-   "source": "MODEL",
-   "scenario": "cap450|hotdry",
-   "rotation_id": "R4"
-  },
-  {
-   "id": "replay.R4.cap450|hotdry.revenue_usd_ac_worst5",
-   "text": "The alfalfa, corn, wheat rotation, replayed over 2000 to 2025, earned an average of $189/ac in its 5 worst years.",
-   "value": 189,
-   "unit": "usd_ac",
-   "source": "MODEL",
-   "scenario": "cap450|hotdry",
-   "rotation_id": "R4"
-  },
-  {
-   "id": "replay.R4.cap450|hotdry.stress_days_mean",
-   "text": "The alfalfa, corn, wheat rotation, replayed over 2000 to 2025, had 24 days per year of crop water stress.",
-   "value": 24,
-   "unit": "days",
-   "source": "MODEL",
-   "scenario": "cap450|hotdry",
-   "rotation_id": "R4"
-  },
-  {
-   "id": "replay.R4.cap450|hotdry.bare_windy_days_mean",
-   "text": "The alfalfa, corn, wheat rotation, replayed over 2000 to 2025, had 6 days per year with bare soil and strong wind.",
-   "value": 6,
-   "unit": "days",
-   "source": "MODEL",
-   "scenario": "cap450|hotdry",
-   "rotation_id": "R4"
-  },
-  {
-   "id": "replay.R4.cap450|hotdry.soil_health_score",
-   "text": "The alfalfa, corn, wheat rotation has a soil health score of 62 out of 100.",
-   "value": 62,
+   "id": "replay.R4.cap450|hotdry.feasible",
+   "text": "The alfalfa, alfalfa, alfalfa, alfalfa, corn, wheat rotation is not feasible with this water limit.",
+   "value": null,
    "unit": null,
    "source": "MODEL",
    "scenario": "cap450|hotdry",
    "rotation_id": "R4"
   },
   {
-   "id": "replay.R5.cap450|hotdry.irrigation_mm_mean",
-   "text": "The corn, soybean, wheat rotation, replayed over 2000 to 2025, used an average of 248 mm of irrigation per year.",
-   "value": 248,
-   "unit": "mm",
-   "source": "MODEL",
-   "scenario": "cap450|hotdry",
-   "rotation_id": "R5"
-  },
-  {
-   "id": "replay.R5.cap450|hotdry.revenue_usd_ac_mean",
-   "text": "The corn, soybean, wheat rotation, replayed over 2000 to 2025, earned an average of $264/ac per year.",
-   "value": 264,
-   "unit": "usd_ac",
-   "source": "MODEL",
-   "scenario": "cap450|hotdry",
-   "rotation_id": "R5"
-  },
-  {
-   "id": "replay.R5.cap450|hotdry.revenue_usd_ac_worst5",
-   "text": "The corn, soybean, wheat rotation, replayed over 2000 to 2025, earned an average of $145/ac in its 5 worst years.",
-   "value": 145,
-   "unit": "usd_ac",
-   "source": "MODEL",
-   "scenario": "cap450|hotdry",
-   "rotation_id": "R5"
-  },
-  {
-   "id": "replay.R5.cap450|hotdry.stress_days_mean",
-   "text": "The corn, soybean, wheat rotation, replayed over 2000 to 2025, had 24 days per year of crop water stress.",
-   "value": 24,
-   "unit": "days",
-   "source": "MODEL",
-   "scenario": "cap450|hotdry",
-   "rotation_id": "R5"
-  },
-  {
-   "id": "replay.R5.cap450|hotdry.bare_windy_days_mean",
-   "text": "The corn, soybean, wheat rotation, replayed over 2000 to 2025, had 6 days per year with bare soil and strong wind.",
-   "value": 6,
-   "unit": "days",
-   "source": "MODEL",
-   "scenario": "cap450|hotdry",
-   "rotation_id": "R5"
-  },
-  {
-   "id": "replay.R5.cap450|hotdry.soil_health_score",
-   "text": "The corn, soybean, wheat rotation has a soil health score of 62 out of 100.",
-   "value": 62,
+   "id": "replay.R5.cap450|hotdry.feasible",
+   "text": "The corn, soybean, wheat rotation is not feasible with this water limit.",
+   "value": null,
    "unit": null,
    "source": "MODEL",
    "scenario": "cap450|hotdry",
    "rotation_id": "R5"
+  },
+  {
+   "id": "replay.R6.cap450|hotdry.irrigation_mm_mean",
+   "text": "The cotton, wheat, sorghum rotation, replayed over 2000 to 2025, used an average of 0 mm of irrigation per year.",
+   "value": 0,
+   "unit": "mm",
+   "source": "MODEL",
+   "scenario": "cap450|hotdry",
+   "rotation_id": "R6"
+  },
+  {
+   "id": "replay.R6.cap450|hotdry.revenue_usd_ac_mean",
+   "text": "The cotton, wheat, sorghum rotation, replayed over 2000 to 2025, earned an average of $138/ac per year.",
+   "value": 138,
+   "unit": "usd_ac",
+   "source": "MODEL",
+   "scenario": "cap450|hotdry",
+   "rotation_id": "R6"
+  },
+  {
+   "id": "replay.R6.cap450|hotdry.revenue_usd_ac_worst5",
+   "text": "The cotton, wheat, sorghum rotation, replayed over 2000 to 2025, earned an average of $68/ac in its 5 worst years.",
+   "value": 68,
+   "unit": "usd_ac",
+   "source": "MODEL",
+   "scenario": "cap450|hotdry",
+   "rotation_id": "R6"
+  },
+  {
+   "id": "replay.R6.cap450|hotdry.stress_days_mean",
+   "text": "The cotton, wheat, sorghum rotation, replayed over 2000 to 2025, had 112 days per year of crop water stress.",
+   "value": 112,
+   "unit": "days",
+   "source": "MODEL",
+   "scenario": "cap450|hotdry",
+   "rotation_id": "R6"
+  },
+  {
+   "id": "replay.R6.cap450|hotdry.bare_windy_days_mean",
+   "text": "The cotton, wheat, sorghum rotation, replayed over 2000 to 2025, had 25 days per year with bare soil and strong wind.",
+   "value": 25,
+   "unit": "days",
+   "source": "MODEL",
+   "scenario": "cap450|hotdry",
+   "rotation_id": "R6"
+  },
+  {
+   "id": "replay.R6.cap450|hotdry.soil_health_score",
+   "text": "The cotton, wheat, sorghum rotation has a soil health score of 42.27 out of 100.",
+   "value": 42.27,
+   "unit": null,
+   "source": "MODEL",
+   "scenario": "cap450|hotdry",
+   "rotation_id": "R6"
   },
   {
    "id": "drought.2012.R0.revenue_usd_ac",
-   "text": "In the drought year 2012, the wheat, sorghum, fallow (current) rotation would have earned about $195/ac.",
-   "value": 195,
+   "text": "In the drought year 2012, the wheat, sorghum, fallow (current) rotation would have earned about $57/ac.",
+   "value": 57,
    "unit": "usd_ac",
    "source": "MODEL",
    "scenario": "cap300|actual",
@@ -2671,8 +2280,8 @@
   },
   {
    "id": "drought.2012.R0.stress_days",
-   "text": "In 2012, the wheat, sorghum, fallow (current) rotation would have had about 30 days of crop water stress.",
-   "value": 30,
+   "text": "In 2012, the wheat, sorghum, fallow (current) rotation would have had about 121 days of crop water stress.",
+   "value": 121,
    "unit": "days",
    "source": "MODEL",
    "scenario": "cap300|actual",
@@ -2680,8 +2289,8 @@
   },
   {
    "id": "drought.2022.R0.revenue_usd_ac",
-   "text": "In the drought year 2022, the wheat, sorghum, fallow (current) rotation would have earned about $390/ac.",
-   "value": 390,
+   "text": "In the drought year 2022, the wheat, sorghum, fallow (current) rotation would have earned about $63/ac.",
+   "value": 63,
    "unit": "usd_ac",
    "source": "MODEL",
    "scenario": "cap300|actual",
@@ -2689,53 +2298,17 @@
   },
   {
    "id": "drought.2022.R0.stress_days",
-   "text": "In 2022, the wheat, sorghum, fallow (current) rotation would have had about 12 days of crop water stress.",
-   "value": 12,
+   "text": "In 2022, the wheat, sorghum, fallow (current) rotation would have had about 124 days of crop water stress.",
+   "value": 124,
    "unit": "days",
    "source": "MODEL",
    "scenario": "cap300|actual",
    "rotation_id": "R0"
   },
   {
-   "id": "drought.2012.R1.revenue_usd_ac",
-   "text": "In the drought year 2012, the corn, wheat, sorghum rotation would have earned about $180/ac.",
-   "value": 180,
-   "unit": "usd_ac",
-   "source": "MODEL",
-   "scenario": "cap300|actual",
-   "rotation_id": "R1"
-  },
-  {
-   "id": "drought.2012.R1.stress_days",
-   "text": "In 2012, the corn, wheat, sorghum rotation would have had about 30 days of crop water stress.",
-   "value": 30,
-   "unit": "days",
-   "source": "MODEL",
-   "scenario": "cap300|actual",
-   "rotation_id": "R1"
-  },
-  {
-   "id": "drought.2022.R1.revenue_usd_ac",
-   "text": "In the drought year 2022, the corn, wheat, sorghum rotation would have earned about $360/ac.",
-   "value": 360,
-   "unit": "usd_ac",
-   "source": "MODEL",
-   "scenario": "cap300|actual",
-   "rotation_id": "R1"
-  },
-  {
-   "id": "drought.2022.R1.stress_days",
-   "text": "In 2022, the corn, wheat, sorghum rotation would have had about 12 days of crop water stress.",
-   "value": 12,
-   "unit": "days",
-   "source": "MODEL",
-   "scenario": "cap300|actual",
-   "rotation_id": "R1"
-  },
-  {
    "id": "drought.2012.R2.revenue_usd_ac",
-   "text": "In the drought year 2012, the wheat, sorghum, fallow rotation would have earned about $79/ac.",
-   "value": 79,
+   "text": "In the drought year 2012, the wheat, sorghum, fallow rotation would have earned about $57/ac.",
+   "value": 57,
    "unit": "usd_ac",
    "source": "MODEL",
    "scenario": "cap300|actual",
@@ -2743,8 +2316,8 @@
   },
   {
    "id": "drought.2012.R2.stress_days",
-   "text": "In 2012, the wheat, sorghum, fallow rotation would have had about 30 days of crop water stress.",
-   "value": 30,
+   "text": "In 2012, the wheat, sorghum, fallow rotation would have had about 121 days of crop water stress.",
+   "value": 121,
    "unit": "days",
    "source": "MODEL",
    "scenario": "cap300|actual",
@@ -2752,8 +2325,8 @@
   },
   {
    "id": "drought.2022.R2.revenue_usd_ac",
-   "text": "In the drought year 2022, the wheat, sorghum, fallow rotation would have earned about $158/ac.",
-   "value": 158,
+   "text": "In the drought year 2022, the wheat, sorghum, fallow rotation would have earned about $63/ac.",
+   "value": 63,
    "unit": "usd_ac",
    "source": "MODEL",
    "scenario": "cap300|actual",
@@ -2761,8 +2334,8 @@
   },
   {
    "id": "drought.2022.R2.stress_days",
-   "text": "In 2022, the wheat, sorghum, fallow rotation would have had about 12 days of crop water stress.",
-   "value": 12,
+   "text": "In 2022, the wheat, sorghum, fallow rotation would have had about 124 days of crop water stress.",
+   "value": 124,
    "unit": "days",
    "source": "MODEL",
    "scenario": "cap300|actual",
@@ -2770,8 +2343,8 @@
   },
   {
    "id": "drought.2012.R3.revenue_usd_ac",
-   "text": "In the drought year 2012, the wheat, sorghum, triticale rotation would have earned about $98/ac.",
-   "value": 98,
+   "text": "In the drought year 2012, the wheat, sorghum, triticale rotation would have earned about $92/ac.",
+   "value": 92,
    "unit": "usd_ac",
    "source": "MODEL",
    "scenario": "cap300|actual",
@@ -2779,8 +2352,8 @@
   },
   {
    "id": "drought.2012.R3.stress_days",
-   "text": "In 2012, the wheat, sorghum, triticale rotation would have had about 30 days of crop water stress.",
-   "value": 30,
+   "text": "In 2012, the wheat, sorghum, triticale rotation would have had about 141 days of crop water stress.",
+   "value": 141,
    "unit": "days",
    "source": "MODEL",
    "scenario": "cap300|actual",
@@ -2788,8 +2361,8 @@
   },
   {
    "id": "drought.2022.R3.revenue_usd_ac",
-   "text": "In the drought year 2022, the wheat, sorghum, triticale rotation would have earned about $195/ac.",
-   "value": 195,
+   "text": "In the drought year 2022, the wheat, sorghum, triticale rotation would have earned about $83/ac.",
+   "value": 83,
    "unit": "usd_ac",
    "source": "MODEL",
    "scenario": "cap300|actual",
@@ -2797,84 +2370,48 @@
   },
   {
    "id": "drought.2022.R3.stress_days",
-   "text": "In 2022, the wheat, sorghum, triticale rotation would have had about 12 days of crop water stress.",
-   "value": 12,
+   "text": "In 2022, the wheat, sorghum, triticale rotation would have had about 148 days of crop water stress.",
+   "value": 148,
    "unit": "days",
    "source": "MODEL",
    "scenario": "cap300|actual",
    "rotation_id": "R3"
   },
   {
-   "id": "drought.2012.R4.revenue_usd_ac",
-   "text": "In the drought year 2012, the alfalfa, corn, wheat rotation would have earned about $210/ac.",
-   "value": 210,
+   "id": "drought.2012.R6.revenue_usd_ac",
+   "text": "In the drought year 2012, the cotton, wheat, sorghum rotation would have earned about $128/ac.",
+   "value": 128,
    "unit": "usd_ac",
    "source": "MODEL",
    "scenario": "cap300|actual",
-   "rotation_id": "R4"
+   "rotation_id": "R6"
   },
   {
-   "id": "drought.2012.R4.stress_days",
-   "text": "In 2012, the alfalfa, corn, wheat rotation would have had about 30 days of crop water stress.",
-   "value": 30,
+   "id": "drought.2012.R6.stress_days",
+   "text": "In 2012, the cotton, wheat, sorghum rotation would have had about 163 days of crop water stress.",
+   "value": 163,
    "unit": "days",
    "source": "MODEL",
    "scenario": "cap300|actual",
-   "rotation_id": "R4"
+   "rotation_id": "R6"
   },
   {
-   "id": "drought.2022.R4.revenue_usd_ac",
-   "text": "In the drought year 2022, the alfalfa, corn, wheat rotation would have earned about $420/ac.",
-   "value": 420,
+   "id": "drought.2022.R6.revenue_usd_ac",
+   "text": "In the drought year 2022, the cotton, wheat, sorghum rotation would have earned about $88/ac.",
+   "value": 88,
    "unit": "usd_ac",
    "source": "MODEL",
    "scenario": "cap300|actual",
-   "rotation_id": "R4"
+   "rotation_id": "R6"
   },
   {
-   "id": "drought.2022.R4.stress_days",
-   "text": "In 2022, the alfalfa, corn, wheat rotation would have had about 12 days of crop water stress.",
-   "value": 12,
+   "id": "drought.2022.R6.stress_days",
+   "text": "In 2022, the cotton, wheat, sorghum rotation would have had about 146 days of crop water stress.",
+   "value": 146,
    "unit": "days",
    "source": "MODEL",
    "scenario": "cap300|actual",
-   "rotation_id": "R4"
-  },
-  {
-   "id": "drought.2012.R5.revenue_usd_ac",
-   "text": "In the drought year 2012, the corn, soybean, wheat rotation would have earned about $161/ac.",
-   "value": 161,
-   "unit": "usd_ac",
-   "source": "MODEL",
-   "scenario": "cap300|actual",
-   "rotation_id": "R5"
-  },
-  {
-   "id": "drought.2012.R5.stress_days",
-   "text": "In 2012, the corn, soybean, wheat rotation would have had about 30 days of crop water stress.",
-   "value": 30,
-   "unit": "days",
-   "source": "MODEL",
-   "scenario": "cap300|actual",
-   "rotation_id": "R5"
-  },
-  {
-   "id": "drought.2022.R5.revenue_usd_ac",
-   "text": "In the drought year 2022, the corn, soybean, wheat rotation would have earned about $322/ac.",
-   "value": 322,
-   "unit": "usd_ac",
-   "source": "MODEL",
-   "scenario": "cap300|actual",
-   "rotation_id": "R5"
-  },
-  {
-   "id": "drought.2022.R5.stress_days",
-   "text": "In 2022, the corn, soybean, wheat rotation would have had about 12 days of crop water stress.",
-   "value": 12,
-   "unit": "days",
-   "source": "MODEL",
-   "scenario": "cap300|actual",
-   "rotation_id": "R5"
+   "rotation_id": "R6"
   },
   {
    "id": "glossary.et",
