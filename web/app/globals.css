@@ -2422,12 +2422,16 @@ main {
 [data-theme="dark"] .field-masthead h1,
 [data-theme="dark"] .section-heading h2,
 [data-theme="dark"] .section-title-row h2,
+[data-theme="dark"] .trust-section-heading h2,
+[data-theme="dark"] .trust-field h3,
 .dark .hero-copy h1,
 .dark .trust-hero h1,
 .dark .field-masthead h1,
 .dark .section-heading h2,
-.dark .section-title-row h2 {
-  color: #ffffff;
+.dark .section-title-row h2,
+.dark .trust-section-heading h2,
+.dark .trust-field h3 {
+  color: #ffffff !important;
 }
 
 [data-theme="dark"] .hero-copy p,
@@ -2435,12 +2439,16 @@ main {
 [data-theme="dark"] .section-heading p,
 [data-theme="dark"] .section-title-row p,
 [data-theme="dark"] .field-masthead p,
+[data-theme="dark"] .trust-section-heading p,
+[data-theme="dark"] .validation-card p,
 .dark .hero-copy p,
 .dark .trust-hero > p,
 .dark .section-heading p,
 .dark .section-title-row p,
-.dark .field-masthead p {
-  color: #ffffff;
+.dark .field-masthead p,
+.dark .trust-section-heading p,
+.dark .validation-card p {
+  color: #ffffff !important;
 }
 
 [data-theme="dark"] .eyebrow,
@@ -3334,9 +3342,51 @@ main {
 
 [data-theme="dark"] .trust-intro-note,
 .dark .trust-intro-note {
-  background: linear-gradient(135deg, #132219, #0e1a13);
-  border-color: rgba(82, 227, 150, 0.25);
+  background: rgba(18, 28, 22, 0.85);
+  border-color: rgba(82, 227, 150, 0.35);
+  color: #ffffff !important;
+}
+
+[data-theme="dark"] .trust-intro-note svg,
+.dark .trust-intro-note svg {
   color: #52e396;
+}
+
+[data-theme="dark"] .trust-section,
+.dark .trust-section {
+  border-bottom-color: rgba(255, 255, 255, 0.12);
+}
+
+[data-theme="dark"] .trust-section-icon,
+.dark .trust-section-icon {
+  background: #182d20;
+  color: #52e396;
+}
+
+[data-theme="dark"] .validation-card,
+.dark .validation-card {
+  background: rgba(18, 28, 22, 0.82);
+  border-color: rgba(255, 255, 255, 0.14);
+}
+
+[data-theme="dark"] .validation-card p,
+.dark .validation-card p {
+  color: #ffffff !important;
+}
+
+[data-theme="dark"] .validation-card small,
+.dark .validation-card small {
+  color: #dce8e0 !important;
+}
+
+[data-theme="dark"] .trust-field h3,
+.dark .trust-field h3 {
+  color: #ffffff !important;
+}
+
+[data-theme="dark"] .section-empty,
+.dark .section-empty {
+  color: #dce8e0 !important;
 }
 
 [data-theme="dark"] .source-table,
@@ -3862,6 +3912,12 @@ fieldset legend.control-label { padding: 0; margin-bottom: 8px; }
 .detected-rotation .spotlight-card-content {
   display: grid;
   gap: 8px;
+  height: 100%;
+}
+
+.validation-card .spotlight-card-content {
+  display: flex;
+  flex-direction: column;
   height: 100%;
 }
 

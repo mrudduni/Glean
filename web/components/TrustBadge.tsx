@@ -3,6 +3,7 @@
 import { AlertTriangle, CircleCheck, Info } from "lucide-react";
 import type { Level, ValidationFile } from "@/lib/types";
 import { SourceChips } from "@/components/SourceChips";
+import { SpotlightCard } from "@/components/SpotlightCard";
 import { cardLine, type UI } from "@/lib/ui";
 
 const icons = { good: CircleCheck, fair: Info, limited: AlertTriangle };
@@ -18,12 +19,12 @@ export function ValidationCards({ validation, ui }: { validation: ValidationFile
   return (
     <div className="validation-grid">
       {validation.items.map((item) => (
-        <article className="validation-card" key={item.id}>
+        <SpotlightCard as="article" className="validation-card" key={item.id} enableTilt={true} tiltMax={2.5}>
           <TrustBadge level={item.level} label={ui.t(`trust.level.${item.level}`)} />
           <p>{cardLine(ui, "validation", item.id, item.vars)}</p>
           <small className="micro-note">n = {item.n}</small>
           <SourceChips tags={item.sources} sources={ui.sources} />
-        </article>
+        </SpotlightCard>
       ))}
     </div>
   );
