@@ -16,7 +16,7 @@ Generated from a grep of `t("…")` calls in `app/`, `components/` and `lib/`.
 | `error.check_connection` | app/page.tsx | Check your connection and try again. |
 | `priorities.rail_hint` | components/PrioritiesPanel.tsx | Move a slider and the cards re-rank instantly. |
 | `summary.best_fit` | components/FieldWorkspace.tsx | Best fit for your priorities |
-| `summary.vs_current` | components/FieldWorkspace.tsx | Match score {score}, against {current} for your current rotation. |
+| `summary.vs_current` | components/FieldWorkspace.tsx | Fit with your priorities: {score}, against {current} for your current rotation. |
 | `summary.see_options` | components/FieldWorkspace.tsx | Compare all options |
 | `card.shared_title` | components/StrategyPanel.tsx | Applies to every option above |
 | `card.shared_more` | components/StrategyPanel.tsx | Plus {n} that apply to every option, listed below the cards. |

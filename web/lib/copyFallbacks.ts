@@ -8,7 +8,7 @@ export const ES_FALLBACK: Record<string, string> = {
   "state.loading_field": "Cargando este campo",
   "priorities.rail_hint": "Mueva un control y las tarjetas se reordenan al instante.",
   "summary.best_fit": "Lo que mejor encaja con sus prioridades",
-  "summary.vs_current": "Puntuación {score}, frente a {current} de su rotación actual.",
+  "summary.vs_current": "Encaje con sus prioridades: {score}, frente a {current} de su rotación actual.",
   "summary.see_options": "Comparar todas las opciones",
   "card.shared_title": "Se aplica a todas las opciones de arriba",
   "card.shared_more": "Más {n} que se aplican a todas las opciones, debajo de las tarjetas.",

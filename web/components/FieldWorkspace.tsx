@@ -225,7 +225,7 @@ export function FieldWorkspace({ fieldId }: { fieldId: FieldId }) {
                 <strong>{loc(data.content.cardText.rotations[best.rotation_id]?.name, lang) || best.rotation_id}</strong>
                 <CropChips steps={rotationSteps(best.rotation_id, data.rotations.rotations, bundle.summary)} ui={ui} />
                 <span className="brief-score">
-                  {interpolate(t("summary.vs_current", "Match score {score}, against {current} for your current rotation."), { score: scoreEntry(best, weights), current: currentEntry ? scoreEntry(currentEntry, weights) : "—" })}
+                  {interpolate(t("summary.vs_current", "Fit with your priorities: {score}, against {current} for your current rotation."), { score: scoreEntry(best, weights), current: currentEntry ? scoreEntry(currentEntry, weights) : "—" })}
                 </span>
               </>
             ) : (
