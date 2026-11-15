@@ -1,0 +1,4236 @@
+{
+ "_meta": {
+  "schema": "nass@1",
+  "mock": false,
+  "generated_at": "2026-11-14T20:24:30Z",
+  "generator": "data-pipeline/fetch/nass.py"
+ },
+ "county": "FINNEY",
+ "state": "KS",
+ "yields": [
+  {
+   "crop": "corn",
+   "practice": "all",
+   "year": 2000,
+   "value": 174.0,
+   "unit": "bu/ac",
+   "level": "county"
+  },
+  {
+   "crop": "corn",
+   "practice": "all",
+   "year": 2001,
+   "value": 157.0,
+   "unit": "bu/ac",
+   "level": "county"
+  },
+  {
+   "crop": "corn",
+   "practice": "all",
+   "year": 2002,
+   "value": 176.0,
+   "unit": "bu/ac",
+   "level": "county"
+  },
+  {
+   "crop": "corn",
+   "practice": "all",
+   "year": 2003,
+   "value": 177.0,
+   "unit": "bu/ac",
+   "level": "county"
+  },
+  {
+   "crop": "corn",
+   "practice": "all",
+   "year": 2004,
+   "value": 202.0,
+   "unit": "bu/ac",
+   "level": "county"
+  },
+  {
+   "crop": "corn",
+   "practice": "all",
+   "year": 2005,
+   "value": 191.0,
+   "unit": "bu/ac",
+   "level": "county"
+  },
+  {
+   "crop": "corn",
+   "practice": "all",
+   "year": 2006,
+   "value": 164.0,
+   "unit": "bu/ac",
+   "level": "county"
+  },
+  {
+   "crop": "corn",
+   "practice": "all",
+   "year": 2007,
+   "value": 185.0,
+   "unit": "bu/ac",
+   "level": "county"
+  },
+  {
+   "crop": "corn",
+   "practice": "all",
+   "year": 2008,
+   "value": 163.0,
+   "unit": "bu/ac",
+   "level": "county"
+  },
+  {
+   "crop": "corn",
+   "practice": "all",
+   "year": 2009,
+   "value": 202.0,
+   "unit": "bu/ac",
+   "level": "county"
+  },
+  {
+   "crop": "corn",
+   "practice": "all",
+   "year": 2010,
+   "value": 173.0,
+   "unit": "bu/ac",
+   "level": "county"
+  },
+  {
+   "crop": "corn",
+   "practice": "all",
+   "year": 2011,
+   "value": 145.0,
+   "unit": "bu/ac",
+   "level": "county"
+  },
+  {
+   "crop": "corn",
+   "practice": "all",
+   "year": 2012,
+   "value": 133.5,
+   "unit": "bu/ac",
+   "level": "county"
+  },
+  {
+   "crop": "corn",
+   "practice": "all",
+   "year": 2013,
+   "value": 191.2,
+   "unit": "bu/ac",
+   "level": "district"
+  },
+  {
+   "crop": "corn",
+   "practice": "all",
+   "year": 2014,
+   "value": 166.6,
+   "unit": "bu/ac",
+   "level": "county"
+  },
+  {
+   "crop": "corn",
+   "practice": "all",
+   "year": 2015,
+   "value": 201.2,
+   "unit": "bu/ac",
+   "level": "district"
+  },
+  {
+   "crop": "corn",
+   "practice": "all",
+   "year": 2016,
+   "value": 179.6,
+   "unit": "bu/ac",
+   "level": "district"
+  },
+  {
+   "crop": "corn",
+   "practice": "all",
+   "year": 2017,
+   "value": 163.9,
+   "unit": "bu/ac",
+   "level": "district"
+  },
+  {
+   "crop": "corn",
+   "practice": "all",
+   "year": 2018,
+   "value": 169.7,
+   "unit": "bu/ac",
+   "level": "district"
+  },
+  {
+   "crop": "corn",
+   "practice": "all",
+   "year": 2019,
+   "value": 155.9,
+   "unit": "bu/ac",
+   "level": "county"
+  },
+  {
+   "crop": "corn",
+   "practice": "all",
+   "year": 2020,
+   "value": 156.3,
+   "unit": "bu/ac",
+   "level": "county"
+  },
+  {
+   "crop": "corn",
+   "practice": "all",
+   "year": 2021,
+   "value": 139.0,
+   "unit": "bu/ac",
+   "level": "state"
+  },
+  {
+   "crop": "corn",
+   "practice": "all",
+   "year": 2022,
+   "value": 147.6,
+   "unit": "bu/ac",
+   "level": "county"
+  },
+  {
+   "crop": "corn",
+   "practice": "all",
+   "year": 2023,
+   "value": 119.0,
+   "unit": "bu/ac",
+   "level": "state"
+  },
+  {
+   "crop": "corn",
+   "practice": "all",
+   "year": 2024,
+   "value": 129.0,
+   "unit": "bu/ac",
+   "level": "state"
+  },
+  {
+   "crop": "corn",
+   "practice": "all",
+   "year": 2025,
+   "value": 145.0,
+   "unit": "bu/ac",
+   "level": "state"
+  },
+  {
+   "crop": "corn",
+   "practice": "all",
+   "year": 2026,
+   "value": 124.0,
+   "unit": "bu/ac",
+   "level": "state"
+  },
+  {
+   "crop": "corn",
+   "practice": "irrigated",
+   "year": 2000,
+   "value": 180.0,
+   "unit": "bu/ac",
+   "level": "county"
+  },
+  {
+   "crop": "corn",
+   "practice": "irrigated",
+   "year": 2001,
+   "value": 167.0,
+   "unit": "bu/ac",
+   "level": "county"
+  },
+  {
+   "crop": "corn",
+   "practice": "irrigated",
+   "year": 2002,
+   "value": 181.0,
+   "unit": "bu/ac",
+   "level": "county"
+  },
+  {
+   "crop": "corn",
+   "practice": "irrigated",
+   "year": 2003,
+   "value": 177.0,
+   "unit": "bu/ac",
+   "level": "district"
+  },
+  {
+   "crop": "corn",
+   "practice": "irrigated",
+   "year": 2004,
+   "value": 200.0,
+   "unit": "bu/ac",
+   "level": "district"
+  },
+  {
+   "crop": "corn",
+   "practice": "irrigated",
+   "year": 2005,
+   "value": 196.0,
+   "unit": "bu/ac",
+   "level": "county"
+  },
+  {
+   "crop": "corn",
+   "practice": "irrigated",
+   "year": 2006,
+   "value": 172.0,
+   "unit": "bu/ac",
+   "level": "county"
+  },
+  {
+   "crop": "corn",
+   "practice": "irrigated",
+   "year": 2007,
+   "value": 200.0,
+   "unit": "bu/ac",
+   "level": "county"
+  },
+  {
+   "crop": "corn",
+   "practice": "irrigated",
+   "year": 2008,
+   "value": 192.0,
+   "unit": "bu/ac",
+   "level": "district"
+  },
+  {
+   "crop": "corn",
+   "practice": "irrigated",
+   "year": 2009,
+   "value": 212.0,
+   "unit": "bu/ac",
+   "level": "county"
+  },
+  {
+   "crop": "corn",
+   "practice": "irrigated",
+   "year": 2010,
+   "value": 198.9,
+   "unit": "bu/ac",
+   "level": "county"
+  },
+  {
+   "crop": "corn",
+   "practice": "irrigated",
+   "year": 2011,
+   "value": 156.0,
+   "unit": "bu/ac",
+   "level": "district"
+  },
+  {
+   "crop": "corn",
+   "practice": "irrigated",
+   "year": 2012,
+   "value": 181.8,
+   "unit": "bu/ac",
+   "level": "district"
+  },
+  {
+   "crop": "corn",
+   "practice": "irrigated",
+   "year": 2013,
+   "value": 200.7,
+   "unit": "bu/ac",
+   "level": "district"
+  },
+  {
+   "crop": "corn",
+   "practice": "irrigated",
+   "year": 2014,
+   "value": 199.2,
+   "unit": "bu/ac",
+   "level": "district"
+  },
+  {
+   "crop": "corn",
+   "practice": "irrigated",
+   "year": 2015,
+   "value": 213.4,
+   "unit": "bu/ac",
+   "level": "district"
+  },
+  {
+   "crop": "corn",
+   "practice": "irrigated",
+   "year": 2016,
+   "value": 199.3,
+   "unit": "bu/ac",
+   "level": "district"
+  },
+  {
+   "crop": "corn",
+   "practice": "irrigated",
+   "year": 2017,
+   "value": 206.2,
+   "unit": "bu/ac",
+   "level": "district"
+  },
+  {
+   "crop": "corn",
+   "practice": "irrigated",
+   "year": 2018,
+   "value": 198.0,
+   "unit": "bu/ac",
+   "level": "district"
+  },
+  {
+   "crop": "corn",
+   "practice": "non_irrigated",
+   "year": 2000,
+   "value": 62.0,
+   "unit": "bu/ac",
+   "level": "county"
+  },
+  {
+   "crop": "corn",
+   "practice": "non_irrigated",
+   "year": 2001,
+   "value": 39.0,
+   "unit": "bu/ac",
+   "level": "county"
+  },
+  {
+   "crop": "corn",
+   "practice": "non_irrigated",
+   "year": 2002,
+   "value": 16.0,
+   "unit": "bu/ac",
+   "level": "county"
+  },
+  {
+   "crop": "corn",
+   "practice": "non_irrigated",
+   "year": 2003,
+   "value": 23.0,
+   "unit": "bu/ac",
+   "level": "district"
+  },
+  {
+   "crop": "corn",
+   "practice": "non_irrigated",
+   "year": 2004,
+   "value": 74.0,
+   "unit": "bu/ac",
+   "level": "district"
+  },
+  {
+   "crop": "corn",
+   "practice": "non_irrigated",
+   "year": 2005,
+   "value": 65.0,
+   "unit": "bu/ac",
+   "level": "county"
+  },
+  {
+   "crop": "corn",
+   "practice": "non_irrigated",
+   "year": 2006,
+   "value": 29.0,
+   "unit": "bu/ac",
+   "level": "county"
+  },
+  {
+   "crop": "corn",
+   "practice": "non_irrigated",
+   "year": 2007,
+   "value": 69.0,
+   "unit": "bu/ac",
+   "level": "county"
+  },
+  {
+   "crop": "corn",
+   "practice": "non_irrigated",
+   "year": 2008,
+   "value": 30.0,
+   "unit": "bu/ac",
+   "level": "district"
+  },
+  {
+   "crop": "corn",
+   "practice": "non_irrigated",
+   "year": 2009,
+   "value": 94.0,
+   "unit": "bu/ac",
+   "level": "county"
+  },
+  {
+   "crop": "corn",
+   "practice": "non_irrigated",
+   "year": 2010,
+   "value": 50.1,
+   "unit": "bu/ac",
+   "level": "county"
+  },
+  {
+   "crop": "corn",
+   "practice": "non_irrigated",
+   "year": 2011,
+   "value": 28.0,
+   "unit": "bu/ac",
+   "level": "district"
+  },
+  {
+   "crop": "corn",
+   "practice": "non_irrigated",
+   "year": 2012,
+   "value": 17.2,
+   "unit": "bu/ac",
+   "level": "district"
+  },
+  {
+   "crop": "corn",
+   "practice": "non_irrigated",
+   "year": 2013,
+   "value": 23.9,
+   "unit": "bu/ac",
+   "level": "district"
+  },
+  {
+   "crop": "corn",
+   "practice": "non_irrigated",
+   "year": 2014,
+   "value": 63.1,
+   "unit": "bu/ac",
+   "level": "district"
+  },
+  {
+   "crop": "corn",
+   "practice": "non_irrigated",
+   "year": 2015,
+   "value": 79.7,
+   "unit": "bu/ac",
+   "level": "district"
+  },
+  {
+   "crop": "corn",
+   "practice": "non_irrigated",
+   "year": 2016,
+   "value": 91.5,
+   "unit": "bu/ac",
+   "level": "district"
+  },
+  {
+   "crop": "corn",
+   "practice": "non_irrigated",
+   "year": 2017,
+   "value": 85.2,
+   "unit": "bu/ac",
+   "level": "district"
+  },
+  {
+   "crop": "corn",
+   "practice": "non_irrigated",
+   "year": 2018,
+   "value": 85.7,
+   "unit": "bu/ac",
+   "level": "district"
+  },
+  {
+   "crop": "sorghum",
+   "practice": "all",
+   "year": 2000,
+   "value": 62.0,
+   "unit": "bu/ac",
+   "level": "county"
+  },
+  {
+   "crop": "sorghum",
+   "practice": "all",
+   "year": 2001,
+   "value": 67.0,
+   "unit": "bu/ac",
+   "level": "county"
+  },
+  {
+   "crop": "sorghum",
+   "practice": "all",
+   "year": 2002,
+   "value": 39.0,
+   "unit": "bu/ac",
+   "level": "county"
+  },
+  {
+   "crop": "sorghum",
+   "practice": "all",
+   "year": 2003,
+   "value": 38.0,
+   "unit": "bu/ac",
+   "level": "county"
+  },
+  {
+   "crop": "sorghum",
+   "practice": "all",
+   "year": 2004,
+   "value": 69.0,
+   "unit": "bu/ac",
+   "level": "county"
+  },
+  {
+   "crop": "sorghum",
+   "practice": "all",
+   "year": 2005,
+   "value": 89.0,
+   "unit": "bu/ac",
+   "level": "county"
+  },
+  {
+   "crop": "sorghum",
+   "practice": "all",
+   "year": 2006,
+   "value": 64.0,
+   "unit": "bu/ac",
+   "level": "county"
+  },
+  {
+   "crop": "sorghum",
+   "practice": "all",
+   "year": 2007,
+   "value": 82.0,
+   "unit": "bu/ac",
+   "level": "county"
+  },
+  {
+   "crop": "sorghum",
+   "practice": "all",
+   "year": 2008,
+   "value": 51.0,
+   "unit": "bu/ac",
+   "level": "county"
+  },
+  {
+   "crop": "sorghum",
+   "practice": "all",
+   "year": 2009,
+   "value": 96.0,
+   "unit": "bu/ac",
+   "level": "county"
+  },
+  {
+   "crop": "sorghum",
+   "practice": "all",
+   "year": 2010,
+   "value": 75.0,
+   "unit": "bu/ac",
+   "level": "county"
+  },
+  {
+   "crop": "sorghum",
+   "practice": "all",
+   "year": 2011,
+   "value": 22.9,
+   "unit": "bu/ac",
+   "level": "district"
+  },
+  {
+   "crop": "sorghum",
+   "practice": "all",
+   "year": 2012,
+   "value": 28.2,
+   "unit": "bu/ac",
+   "level": "county"
+  },
+  {
+   "crop": "sorghum",
+   "practice": "all",
+   "year": 2013,
+   "value": 37.5,
+   "unit": "bu/ac",
+   "level": "county"
+  },
+  {
+   "crop": "sorghum",
+   "practice": "all",
+   "year": 2014,
+   "value": 74.5,
+   "unit": "bu/ac",
+   "level": "county"
+  },
+  {
+   "crop": "sorghum",
+   "practice": "all",
+   "year": 2015,
+   "value": 92.6,
+   "unit": "bu/ac",
+   "level": "district"
+  },
+  {
+   "crop": "sorghum",
+   "practice": "all",
+   "year": 2016,
+   "value": 107.5,
+   "unit": "bu/ac",
+   "level": "county"
+  },
+  {
+   "crop": "sorghum",
+   "practice": "all",
+   "year": 2017,
+   "value": 86.1,
+   "unit": "bu/ac",
+   "level": "district"
+  },
+  {
+   "crop": "sorghum",
+   "practice": "all",
+   "year": 2018,
+   "value": 86.1,
+   "unit": "bu/ac",
+   "level": "district"
+  },
+  {
+   "crop": "sorghum",
+   "practice": "all",
+   "year": 2019,
+   "value": 80.8,
+   "unit": "bu/ac",
+   "level": "district"
+  },
+  {
+   "crop": "sorghum",
+   "practice": "all",
+   "year": 2020,
+   "value": 79.1,
+   "unit": "bu/ac",
+   "level": "county"
+  },
+  {
+   "crop": "sorghum",
+   "practice": "all",
+   "year": 2021,
+   "value": 78.0,
+   "unit": "bu/ac",
+   "level": "state"
+  },
+  {
+   "crop": "sorghum",
+   "practice": "all",
+   "year": 2022,
+   "value": 39.0,
+   "unit": "bu/ac",
+   "level": "state"
+  },
+  {
+   "crop": "sorghum",
+   "practice": "all",
+   "year": 2023,
+   "value": 52.0,
+   "unit": "bu/ac",
+   "level": "state"
+  },
+  {
+   "crop": "sorghum",
+   "practice": "all",
+   "year": 2024,
+   "value": 65.0,
+   "unit": "bu/ac",
+   "level": "state"
+  },
+  {
+   "crop": "sorghum",
+   "practice": "all",
+   "year": 2025,
+   "value": 90.0,
+   "unit": "bu/ac",
+   "level": "state"
+  },
+  {
+   "crop": "sorghum",
+   "practice": "all",
+   "year": 2026,
+   "value": 59.0,
+   "unit": "bu/ac",
+   "level": "state"
+  },
+  {
+   "crop": "sorghum",
+   "practice": "irrigated",
+   "year": 2000,
+   "value": 100.0,
+   "unit": "bu/ac",
+   "level": "county"
+  },
+  {
+   "crop": "sorghum",
+   "practice": "irrigated",
+   "year": 2001,
+   "value": 94.0,
+   "unit": "bu/ac",
+   "level": "county"
+  },
+  {
+   "crop": "sorghum",
+   "practice": "irrigated",
+   "year": 2002,
+   "value": 96.0,
+   "unit": "bu/ac",
+   "level": "county"
+  },
+  {
+   "crop": "sorghum",
+   "practice": "irrigated",
+   "year": 2003,
+   "value": 92.0,
+   "unit": "bu/ac",
+   "level": "county"
+  },
+  {
+   "crop": "sorghum",
+   "practice": "irrigated",
+   "year": 2004,
+   "value": 136.0,
+   "unit": "bu/ac",
+   "level": "county"
+  },
+  {
+   "crop": "sorghum",
+   "practice": "irrigated",
+   "year": 2005,
+   "value": 126.0,
+   "unit": "bu/ac",
+   "level": "county"
+  },
+  {
+   "crop": "sorghum",
+   "practice": "irrigated",
+   "year": 2006,
+   "value": 90.0,
+   "unit": "bu/ac",
+   "level": "county"
+  },
+  {
+   "crop": "sorghum",
+   "practice": "irrigated",
+   "year": 2007,
+   "value": 111.0,
+   "unit": "bu/ac",
+   "level": "county"
+  },
+  {
+   "crop": "sorghum",
+   "practice": "irrigated",
+   "year": 2008,
+   "value": 95.0,
+   "unit": "bu/ac",
+   "level": "state"
+  },
+  {
+   "crop": "sorghum",
+   "practice": "irrigated",
+   "year": 2009,
+   "value": 105.0,
+   "unit": "bu/ac",
+   "level": "district"
+  },
+  {
+   "crop": "sorghum",
+   "practice": "non_irrigated",
+   "year": 2000,
+   "value": 59.0,
+   "unit": "bu/ac",
+   "level": "county"
+  },
+  {
+   "crop": "sorghum",
+   "practice": "non_irrigated",
+   "year": 2001,
+   "value": 64.0,
+   "unit": "bu/ac",
+   "level": "county"
+  },
+  {
+   "crop": "sorghum",
+   "practice": "non_irrigated",
+   "year": 2002,
+   "value": 27.0,
+   "unit": "bu/ac",
+   "level": "county"
+  },
+  {
+   "crop": "sorghum",
+   "practice": "non_irrigated",
+   "year": 2003,
+   "value": 23.0,
+   "unit": "bu/ac",
+   "level": "county"
+  },
+  {
+   "crop": "sorghum",
+   "practice": "non_irrigated",
+   "year": 2004,
+   "value": 56.0,
+   "unit": "bu/ac",
+   "level": "county"
+  },
+  {
+   "crop": "sorghum",
+   "practice": "non_irrigated",
+   "year": 2005,
+   "value": 83.0,
+   "unit": "bu/ac",
+   "level": "county"
+  },
+  {
+   "crop": "sorghum",
+   "practice": "non_irrigated",
+   "year": 2006,
+   "value": 59.0,
+   "unit": "bu/ac",
+   "level": "county"
+  },
+  {
+   "crop": "sorghum",
+   "practice": "non_irrigated",
+   "year": 2007,
+   "value": 79.0,
+   "unit": "bu/ac",
+   "level": "county"
+  },
+  {
+   "crop": "sorghum",
+   "practice": "non_irrigated",
+   "year": 2008,
+   "value": 77.0,
+   "unit": "bu/ac",
+   "level": "state"
+  },
+  {
+   "crop": "sorghum",
+   "practice": "non_irrigated",
+   "year": 2009,
+   "value": 79.0,
+   "unit": "bu/ac",
+   "level": "district"
+  },
+  {
+   "crop": "wheat",
+   "practice": "all",
+   "year": 2000,
+   "value": 38.0,
+   "unit": "bu/ac",
+   "level": "county"
+  },
+  {
+   "crop": "wheat",
+   "practice": "all",
+   "year": 2001,
+   "value": 41.0,
+   "unit": "bu/ac",
+   "level": "county"
+  },
+  {
+   "crop": "wheat",
+   "practice": "all",
+   "year": 2002,
+   "value": 33.0,
+   "unit": "bu/ac",
+   "level": "county"
+  },
+  {
+   "crop": "wheat",
+   "practice": "all",
+   "year": 2003,
+   "value": 40.0,
+   "unit": "bu/ac",
+   "level": "county"
+  },
+  {
+   "crop": "wheat",
+   "practice": "all",
+   "year": 2004,
+   "value": 33.0,
+   "unit": "bu/ac",
+   "level": "county"
+  },
+  {
+   "crop": "wheat",
+   "practice": "all",
+   "year": 2005,
+   "value": 46.0,
+   "unit": "bu/ac",
+   "level": "county"
+  },
+  {
+   "crop": "wheat",
+   "practice": "all",
+   "year": 2006,
+   "value": 26.0,
+   "unit": "bu/ac",
+   "level": "county"
+  },
+  {
+   "crop": "wheat",
+   "practice": "all",
+   "year": 2007,
+   "value": 50.0,
+   "unit": "bu/ac",
+   "level": "county"
+  },
+  {
+   "crop": "wheat",
+   "practice": "all",
+   "year": 2008,
+   "value": 43.5,
+   "unit": "bu/ac",
+   "level": "county"
+  },
+  {
+   "crop": "wheat",
+   "practice": "all",
+   "year": 2009,
+   "value": 51.0,
+   "unit": "bu/ac",
+   "level": "county"
+  },
+  {
+   "crop": "wheat",
+   "practice": "all",
+   "year": 2010,
+   "value": 55.9,
+   "unit": "bu/ac",
+   "level": "county"
+  },
+  {
+   "crop": "wheat",
+   "practice": "all",
+   "year": 2011,
+   "value": 27.3,
+   "unit": "bu/ac",
+   "level": "county"
+  },
+  {
+   "crop": "wheat",
+   "practice": "all",
+   "year": 2012,
+   "value": 29.1,
+   "unit": "bu/ac",
+   "level": "county"
+  },
+  {
+   "crop": "wheat",
+   "practice": "all",
+   "year": 2013,
+   "value": 23.9,
+   "unit": "bu/ac",
+   "level": "county"
+  },
+  {
+   "crop": "wheat",
+   "practice": "all",
+   "year": 2014,
+   "value": 25.5,
+   "unit": "bu/ac",
+   "level": "county"
+  },
+  {
+   "crop": "wheat",
+   "practice": "all",
+   "year": 2015,
+   "value": 41.0,
+   "unit": "bu/ac",
+   "level": "county"
+  },
+  {
+   "crop": "wheat",
+   "practice": "all",
+   "year": 2016,
+   "value": 62.0,
+   "unit": "bu/ac",
+   "level": "district"
+  },
+  {
+   "crop": "wheat",
+   "practice": "all",
+   "year": 2017,
+   "value": 45.4,
+   "unit": "bu/ac",
+   "level": "district"
+  },
+  {
+   "crop": "wheat",
+   "practice": "all",
+   "year": 2018,
+   "value": 38.6,
+   "unit": "bu/ac",
+   "level": "district"
+  },
+  {
+   "crop": "wheat",
+   "practice": "all",
+   "year": 2019,
+   "value": 57.9,
+   "unit": "bu/ac",
+   "level": "district"
+  },
+  {
+   "crop": "wheat",
+   "practice": "all",
+   "year": 2020,
+   "value": 40.7,
+   "unit": "bu/ac",
+   "level": "county"
+  },
+  {
+   "crop": "wheat",
+   "practice": "all",
+   "year": 2021,
+   "value": 66.5,
+   "unit": "bu/ac",
+   "level": "county"
+  },
+  {
+   "crop": "wheat",
+   "practice": "all",
+   "year": 2022,
+   "value": 30.6,
+   "unit": "bu/ac",
+   "level": "county"
+  },
+  {
+   "crop": "wheat",
+   "practice": "all",
+   "year": 2023,
+   "value": 35.0,
+   "unit": "bu/ac",
+   "level": "state"
+  },
+  {
+   "crop": "wheat",
+   "practice": "all",
+   "year": 2024,
+   "value": 43.0,
+   "unit": "bu/ac",
+   "level": "state"
+  },
+  {
+   "crop": "wheat",
+   "practice": "all",
+   "year": 2025,
+   "value": 51.0,
+   "unit": "bu/ac",
+   "level": "state"
+  },
+  {
+   "crop": "wheat",
+   "practice": "all",
+   "year": 2026,
+   "value": 34.0,
+   "unit": "bu/ac",
+   "level": "state"
+  },
+  {
+   "crop": "wheat",
+   "practice": "irrigated",
+   "year": 2000,
+   "value": 43.0,
+   "unit": "bu/ac",
+   "level": "county"
+  },
+  {
+   "crop": "wheat",
+   "practice": "irrigated",
+   "year": 2001,
+   "value": 58.0,
+   "unit": "bu/ac",
+   "level": "county"
+  },
+  {
+   "crop": "wheat",
+   "practice": "irrigated",
+   "year": 2002,
+   "value": 45.0,
+   "unit": "bu/ac",
+   "level": "county"
+  },
+  {
+   "crop": "wheat",
+   "practice": "irrigated",
+   "year": 2003,
+   "value": 52.0,
+   "unit": "bu/ac",
+   "level": "county"
+  },
+  {
+   "crop": "wheat",
+   "practice": "irrigated",
+   "year": 2004,
+   "value": 44.0,
+   "unit": "bu/ac",
+   "level": "county"
+  },
+  {
+   "crop": "wheat",
+   "practice": "irrigated",
+   "year": 2005,
+   "value": 62.0,
+   "unit": "bu/ac",
+   "level": "county"
+  },
+  {
+   "crop": "wheat",
+   "practice": "irrigated",
+   "year": 2006,
+   "value": 30.0,
+   "unit": "bu/ac",
+   "level": "county"
+  },
+  {
+   "crop": "wheat",
+   "practice": "irrigated",
+   "year": 2007,
+   "value": 57.0,
+   "unit": "bu/ac",
+   "level": "county"
+  },
+  {
+   "crop": "wheat",
+   "practice": "irrigated",
+   "year": 2008,
+   "value": 50.5,
+   "unit": "bu/ac",
+   "level": "county"
+  },
+  {
+   "crop": "wheat",
+   "practice": "irrigated",
+   "year": 2009,
+   "value": 57.0,
+   "unit": "bu/ac",
+   "level": "county"
+  },
+  {
+   "crop": "wheat",
+   "practice": "irrigated",
+   "year": 2010,
+   "value": 58.2,
+   "unit": "bu/ac",
+   "level": "district"
+  },
+  {
+   "crop": "wheat",
+   "practice": "irrigated",
+   "year": 2011,
+   "value": 43.2,
+   "unit": "bu/ac",
+   "level": "district"
+  },
+  {
+   "crop": "wheat",
+   "practice": "irrigated",
+   "year": 2012,
+   "value": 55.4,
+   "unit": "bu/ac",
+   "level": "county"
+  },
+  {
+   "crop": "wheat",
+   "practice": "irrigated",
+   "year": 2013,
+   "value": 37.4,
+   "unit": "bu/ac",
+   "level": "county"
+  },
+  {
+   "crop": "wheat",
+   "practice": "irrigated",
+   "year": 2014,
+   "value": 52.9,
+   "unit": "bu/ac",
+   "level": "district"
+  },
+  {
+   "crop": "wheat",
+   "practice": "irrigated",
+   "year": 2015,
+   "value": 62.0,
+   "unit": "bu/ac",
+   "level": "district"
+  },
+  {
+   "crop": "wheat",
+   "practice": "irrigated",
+   "year": 2016,
+   "value": 77.7,
+   "unit": "bu/ac",
+   "level": "district"
+  },
+  {
+   "crop": "wheat",
+   "practice": "irrigated",
+   "year": 2017,
+   "value": 58.4,
+   "unit": "bu/ac",
+   "level": "district"
+  },
+  {
+   "crop": "wheat",
+   "practice": "irrigated",
+   "year": 2018,
+   "value": 56.8,
+   "unit": "bu/ac",
+   "level": "district"
+  },
+  {
+   "crop": "wheat",
+   "practice": "irrigated",
+   "year": 2019,
+   "value": 66.8,
+   "unit": "bu/ac",
+   "level": "district"
+  },
+  {
+   "crop": "wheat",
+   "practice": "non_irrigated",
+   "year": 2000,
+   "value": 36.0,
+   "unit": "bu/ac",
+   "level": "county"
+  },
+  {
+   "crop": "wheat",
+   "practice": "non_irrigated",
+   "year": 2001,
+   "value": 34.0,
+   "unit": "bu/ac",
+   "level": "county"
+  },
+  {
+   "crop": "wheat",
+   "practice": "non_irrigated",
+   "year": 2002,
+   "value": 27.0,
+   "unit": "bu/ac",
+   "level": "county"
+  },
+  {
+   "crop": "wheat",
+   "practice": "non_irrigated",
+   "year": 2003,
+   "value": 36.0,
+   "unit": "bu/ac",
+   "level": "county"
+  },
+  {
+   "crop": "wheat",
+   "practice": "non_irrigated",
+   "year": 2004,
+   "value": 27.0,
+   "unit": "bu/ac",
+   "level": "county"
+  },
+  {
+   "crop": "wheat",
+   "practice": "non_irrigated",
+   "year": 2005,
+   "value": 38.0,
+   "unit": "bu/ac",
+   "level": "county"
+  },
+  {
+   "crop": "wheat",
+   "practice": "non_irrigated",
+   "year": 2006,
+   "value": 23.0,
+   "unit": "bu/ac",
+   "level": "county"
+  },
+  {
+   "crop": "wheat",
+   "practice": "non_irrigated",
+   "year": 2007,
+   "value": 47.0,
+   "unit": "bu/ac",
+   "level": "county"
+  },
+  {
+   "crop": "wheat",
+   "practice": "non_irrigated",
+   "year": 2008,
+   "value": 38.5,
+   "unit": "bu/ac",
+   "level": "county"
+  },
+  {
+   "crop": "wheat",
+   "practice": "non_irrigated",
+   "year": 2009,
+   "value": 48.0,
+   "unit": "bu/ac",
+   "level": "county"
+  },
+  {
+   "crop": "wheat",
+   "practice": "non_irrigated",
+   "year": 2010,
+   "value": 45.9,
+   "unit": "bu/ac",
+   "level": "district"
+  },
+  {
+   "crop": "wheat",
+   "practice": "non_irrigated",
+   "year": 2011,
+   "value": 21.0,
+   "unit": "bu/ac",
+   "level": "district"
+  },
+  {
+   "crop": "wheat",
+   "practice": "non_irrigated",
+   "year": 2012,
+   "value": 18.4,
+   "unit": "bu/ac",
+   "level": "county"
+  },
+  {
+   "crop": "wheat",
+   "practice": "non_irrigated",
+   "year": 2013,
+   "value": 17.8,
+   "unit": "bu/ac",
+   "level": "county"
+  },
+  {
+   "crop": "wheat",
+   "practice": "non_irrigated",
+   "year": 2014,
+   "value": 16.9,
+   "unit": "bu/ac",
+   "level": "district"
+  },
+  {
+   "crop": "wheat",
+   "practice": "non_irrigated",
+   "year": 2015,
+   "value": 28.4,
+   "unit": "bu/ac",
+   "level": "district"
+  },
+  {
+   "crop": "wheat",
+   "practice": "non_irrigated",
+   "year": 2016,
+   "value": 58.3,
+   "unit": "bu/ac",
+   "level": "district"
+  },
+  {
+   "crop": "wheat",
+   "practice": "non_irrigated",
+   "year": 2017,
+   "value": 42.3,
+   "unit": "bu/ac",
+   "level": "district"
+  },
+  {
+   "crop": "wheat",
+   "practice": "non_irrigated",
+   "year": 2018,
+   "value": 34.6,
+   "unit": "bu/ac",
+   "level": "district"
+  },
+  {
+   "crop": "wheat",
+   "practice": "non_irrigated",
+   "year": 2019,
+   "value": 56.3,
+   "unit": "bu/ac",
+   "level": "district"
+  },
+  {
+   "crop": "soybean",
+   "practice": "all",
+   "year": 2000,
+   "value": 47.0,
+   "unit": "bu/ac",
+   "level": "county"
+  },
+  {
+   "crop": "soybean",
+   "practice": "all",
+   "year": 2001,
+   "value": 50.0,
+   "unit": "bu/ac",
+   "level": "county"
+  },
+  {
+   "crop": "soybean",
+   "practice": "all",
+   "year": 2002,
+   "value": 54.0,
+   "unit": "bu/ac",
+   "level": "county"
+  },
+  {
+   "crop": "soybean",
+   "practice": "all",
+   "year": 2003,
+   "value": 57.0,
+   "unit": "bu/ac",
+   "level": "county"
+  },
+  {
+   "crop": "soybean",
+   "practice": "all",
+   "year": 2004,
+   "value": 55.0,
+   "unit": "bu/ac",
+   "level": "county"
+  },
+  {
+   "crop": "soybean",
+   "practice": "all",
+   "year": 2005,
+   "value": 53.0,
+   "unit": "bu/ac",
+   "level": "county"
+  },
+  {
+   "crop": "soybean",
+   "practice": "all",
+   "year": 2006,
+   "value": 47.0,
+   "unit": "bu/ac",
+   "level": "county"
+  },
+  {
+   "crop": "soybean",
+   "practice": "all",
+   "year": 2007,
+   "value": 55.0,
+   "unit": "bu/ac",
+   "level": "county"
+  },
+  {
+   "crop": "soybean",
+   "practice": "all",
+   "year": 2008,
+   "value": 44.0,
+   "unit": "bu/ac",
+   "level": "district"
+  },
+  {
+   "crop": "soybean",
+   "practice": "all",
+   "year": 2009,
+   "value": 61.5,
+   "unit": "bu/ac",
+   "level": "district"
+  },
+  {
+   "crop": "soybean",
+   "practice": "all",
+   "year": 2010,
+   "value": 50.5,
+   "unit": "bu/ac",
+   "level": "district"
+  },
+  {
+   "crop": "soybean",
+   "practice": "all",
+   "year": 2011,
+   "value": 43.5,
+   "unit": "bu/ac",
+   "level": "district"
+  },
+  {
+   "crop": "soybean",
+   "practice": "all",
+   "year": 2012,
+   "value": 42.1,
+   "unit": "bu/ac",
+   "level": "county"
+  },
+  {
+   "crop": "soybean",
+   "practice": "all",
+   "year": 2013,
+   "value": 55.2,
+   "unit": "bu/ac",
+   "level": "district"
+  },
+  {
+   "crop": "soybean",
+   "practice": "all",
+   "year": 2014,
+   "value": 55.6,
+   "unit": "bu/ac",
+   "level": "district"
+  },
+  {
+   "crop": "soybean",
+   "practice": "all",
+   "year": 2015,
+   "value": 64.0,
+   "unit": "bu/ac",
+   "level": "district"
+  },
+  {
+   "crop": "soybean",
+   "practice": "all",
+   "year": 2016,
+   "value": 68.2,
+   "unit": "bu/ac",
+   "level": "county"
+  },
+  {
+   "crop": "soybean",
+   "practice": "all",
+   "year": 2017,
+   "value": 63.1,
+   "unit": "bu/ac",
+   "level": "district"
+  },
+  {
+   "crop": "soybean",
+   "practice": "all",
+   "year": 2018,
+   "value": 61.9,
+   "unit": "bu/ac",
+   "level": "district"
+  },
+  {
+   "crop": "soybean",
+   "practice": "all",
+   "year": 2019,
+   "value": 56.2,
+   "unit": "bu/ac",
+   "level": "county"
+  },
+  {
+   "crop": "soybean",
+   "practice": "all",
+   "year": 2020,
+   "value": 41.0,
+   "unit": "bu/ac",
+   "level": "state"
+  },
+  {
+   "crop": "soybean",
+   "practice": "all",
+   "year": 2021,
+   "value": 40.0,
+   "unit": "bu/ac",
+   "level": "state"
+  },
+  {
+   "crop": "soybean",
+   "practice": "all",
+   "year": 2022,
+   "value": 27.5,
+   "unit": "bu/ac",
+   "level": "state"
+  },
+  {
+   "crop": "soybean",
+   "practice": "all",
+   "year": 2023,
+   "value": 26.0,
+   "unit": "bu/ac",
+   "level": "state"
+  },
+  {
+   "crop": "soybean",
+   "practice": "all",
+   "year": 2024,
+   "value": 35.0,
+   "unit": "bu/ac",
+   "level": "state"
+  },
+  {
+   "crop": "soybean",
+   "practice": "all",
+   "year": 2025,
+   "value": 48.5,
+   "unit": "bu/ac",
+   "level": "state"
+  },
+  {
+   "crop": "soybean",
+   "practice": "all",
+   "year": 2026,
+   "value": 30.0,
+   "unit": "bu/ac",
+   "level": "state"
+  },
+  {
+   "crop": "soybean",
+   "practice": "irrigated",
+   "year": 2000,
+   "value": 46.0,
+   "unit": "bu/ac",
+   "level": "district"
+  },
+  {
+   "crop": "soybean",
+   "practice": "irrigated",
+   "year": 2001,
+   "value": 58.0,
+   "unit": "bu/ac",
+   "level": "county"
+  },
+  {
+   "crop": "soybean",
+   "practice": "irrigated",
+   "year": 2002,
+   "value": 45.0,
+   "unit": "bu/ac",
+   "level": "district"
+  },
+  {
+   "crop": "soybean",
+   "practice": "irrigated",
+   "year": 2003,
+   "value": 59.0,
+   "unit": "bu/ac",
+   "level": "county"
+  },
+  {
+   "crop": "soybean",
+   "practice": "irrigated",
+   "year": 2004,
+   "value": 53.0,
+   "unit": "bu/ac",
+   "level": "district"
+  },
+  {
+   "crop": "soybean",
+   "practice": "irrigated",
+   "year": 2005,
+   "value": 56.0,
+   "unit": "bu/ac",
+   "level": "district"
+  },
+  {
+   "crop": "soybean",
+   "practice": "irrigated",
+   "year": 2006,
+   "value": 57.0,
+   "unit": "bu/ac",
+   "level": "district"
+  },
+  {
+   "crop": "soybean",
+   "practice": "irrigated",
+   "year": 2007,
+   "value": 50.0,
+   "unit": "bu/ac",
+   "level": "district"
+  },
+  {
+   "crop": "soybean",
+   "practice": "irrigated",
+   "year": 2008,
+   "value": 50.0,
+   "unit": "bu/ac",
+   "level": "state"
+  },
+  {
+   "crop": "soybean",
+   "practice": "irrigated",
+   "year": 2009,
+   "value": 59.5,
+   "unit": "bu/ac",
+   "level": "state"
+  },
+  {
+   "crop": "soybean",
+   "practice": "irrigated",
+   "year": 2014,
+   "value": 54.5,
+   "unit": "bu/ac",
+   "level": "state"
+  },
+  {
+   "crop": "soybean",
+   "practice": "irrigated",
+   "year": 2015,
+   "value": 58.9,
+   "unit": "bu/ac",
+   "level": "state"
+  },
+  {
+   "crop": "soybean",
+   "practice": "irrigated",
+   "year": 2016,
+   "value": 67.2,
+   "unit": "bu/ac",
+   "level": "district"
+  },
+  {
+   "crop": "soybean",
+   "practice": "non_irrigated",
+   "year": 2000,
+   "value": 31.0,
+   "unit": "bu/ac",
+   "level": "district"
+  },
+  {
+   "crop": "soybean",
+   "practice": "non_irrigated",
+   "year": 2001,
+   "value": 12.0,
+   "unit": "bu/ac",
+   "level": "county"
+  },
+  {
+   "crop": "soybean",
+   "practice": "non_irrigated",
+   "year": 2002,
+   "value": 18.0,
+   "unit": "bu/ac",
+   "level": "district"
+  },
+  {
+   "crop": "soybean",
+   "practice": "non_irrigated",
+   "year": 2003,
+   "value": 8.0,
+   "unit": "bu/ac",
+   "level": "county"
+  },
+  {
+   "crop": "soybean",
+   "practice": "non_irrigated",
+   "year": 2004,
+   "value": 10.0,
+   "unit": "bu/ac",
+   "level": "district"
+  },
+  {
+   "crop": "soybean",
+   "practice": "non_irrigated",
+   "year": 2005,
+   "value": 17.0,
+   "unit": "bu/ac",
+   "level": "district"
+  },
+  {
+   "crop": "soybean",
+   "practice": "non_irrigated",
+   "year": 2006,
+   "value": 18.0,
+   "unit": "bu/ac",
+   "level": "district"
+  },
+  {
+   "crop": "soybean",
+   "practice": "non_irrigated",
+   "year": 2007,
+   "value": 19.0,
+   "unit": "bu/ac",
+   "level": "district"
+  },
+  {
+   "crop": "soybean",
+   "practice": "non_irrigated",
+   "year": 2008,
+   "value": 35.0,
+   "unit": "bu/ac",
+   "level": "state"
+  },
+  {
+   "crop": "soybean",
+   "practice": "non_irrigated",
+   "year": 2009,
+   "value": 42.5,
+   "unit": "bu/ac",
+   "level": "state"
+  },
+  {
+   "crop": "soybean",
+   "practice": "non_irrigated",
+   "year": 2014,
+   "value": 33.3,
+   "unit": "bu/ac",
+   "level": "state"
+  },
+  {
+   "crop": "soybean",
+   "practice": "non_irrigated",
+   "year": 2015,
+   "value": 36.1,
+   "unit": "bu/ac",
+   "level": "state"
+  },
+  {
+   "crop": "soybean",
+   "practice": "non_irrigated",
+   "year": 2016,
+   "value": 33.2,
+   "unit": "bu/ac",
+   "level": "district"
+  },
+  {
+   "crop": "alfalfa",
+   "practice": "all",
+   "year": 2000,
+   "value": 7.0,
+   "unit": "tons/ac",
+   "level": "county"
+  },
+  {
+   "crop": "alfalfa",
+   "practice": "all",
+   "year": 2001,
+   "value": 8.0,
+   "unit": "tons/ac",
+   "level": "county"
+  },
+  {
+   "crop": "alfalfa",
+   "practice": "all",
+   "year": 2002,
+   "value": 6.3,
+   "unit": "tons/ac",
+   "level": "county"
+  },
+  {
+   "crop": "alfalfa",
+   "practice": "all",
+   "year": 2003,
+   "value": 6.0,
+   "unit": "tons/ac",
+   "level": "county"
+  },
+  {
+   "crop": "alfalfa",
+   "practice": "all",
+   "year": 2004,
+   "value": 6.7,
+   "unit": "tons/ac",
+   "level": "county"
+  },
+  {
+   "crop": "alfalfa",
+   "practice": "all",
+   "year": 2005,
+   "value": 5.3,
+   "unit": "tons/ac",
+   "level": "county"
+  },
+  {
+   "crop": "alfalfa",
+   "practice": "all",
+   "year": 2006,
+   "value": 6.2,
+   "unit": "tons/ac",
+   "level": "county"
+  },
+  {
+   "crop": "alfalfa",
+   "practice": "all",
+   "year": 2007,
+   "value": 5.4,
+   "unit": "tons/ac",
+   "level": "county"
+  },
+  {
+   "crop": "alfalfa",
+   "practice": "all",
+   "year": 2008,
+   "value": 5.1,
+   "unit": "tons/ac",
+   "level": "district"
+  },
+  {
+   "crop": "alfalfa",
+   "practice": "all",
+   "year": 2009,
+   "value": 5.8,
+   "unit": "tons/ac",
+   "level": "district"
+  },
+  {
+   "crop": "alfalfa",
+   "practice": "all",
+   "year": 2010,
+   "value": 5.3,
+   "unit": "tons/ac",
+   "level": "district"
+  },
+  {
+   "crop": "alfalfa",
+   "practice": "all",
+   "year": 2011,
+   "value": 3.9,
+   "unit": "tons/ac",
+   "level": "district"
+  },
+  {
+   "crop": "alfalfa",
+   "practice": "all",
+   "year": 2012,
+   "value": 4.9,
+   "unit": "tons/ac",
+   "level": "county"
+  },
+  {
+   "crop": "alfalfa",
+   "practice": "all",
+   "year": 2013,
+   "value": 4.3,
+   "unit": "tons/ac",
+   "level": "county"
+  },
+  {
+   "crop": "alfalfa",
+   "practice": "all",
+   "year": 2014,
+   "value": 5.7,
+   "unit": "tons/ac",
+   "level": "district"
+  },
+  {
+   "crop": "alfalfa",
+   "practice": "all",
+   "year": 2015,
+   "value": 5.5,
+   "unit": "tons/ac",
+   "level": "district"
+  },
+  {
+   "crop": "alfalfa",
+   "practice": "all",
+   "year": 2016,
+   "value": 6.0,
+   "unit": "tons/ac",
+   "level": "district"
+  },
+  {
+   "crop": "alfalfa",
+   "practice": "all",
+   "year": 2017,
+   "value": 5.2,
+   "unit": "tons/ac",
+   "level": "district"
+  },
+  {
+   "crop": "alfalfa",
+   "practice": "all",
+   "year": 2018,
+   "value": 5.2,
+   "unit": "tons/ac",
+   "level": "district"
+  },
+  {
+   "crop": "alfalfa",
+   "practice": "all",
+   "year": 2019,
+   "value": 4.0,
+   "unit": "tons/ac",
+   "level": "state"
+  },
+  {
+   "crop": "alfalfa",
+   "practice": "all",
+   "year": 2020,
+   "value": 3.7,
+   "unit": "tons/ac",
+   "level": "state"
+  },
+  {
+   "crop": "alfalfa",
+   "practice": "all",
+   "year": 2021,
+   "value": 3.6,
+   "unit": "tons/ac",
+   "level": "state"
+  },
+  {
+   "crop": "alfalfa",
+   "practice": "all",
+   "year": 2022,
+   "value": 3.1,
+   "unit": "tons/ac",
+   "level": "state"
+  },
+  {
+   "crop": "alfalfa",
+   "practice": "all",
+   "year": 2023,
+   "value": 3.0,
+   "unit": "tons/ac",
+   "level": "state"
+  },
+  {
+   "crop": "alfalfa",
+   "practice": "all",
+   "year": 2024,
+   "value": 2.6,
+   "unit": "tons/ac",
+   "level": "state"
+  },
+  {
+   "crop": "alfalfa",
+   "practice": "all",
+   "year": 2025,
+   "value": 3.6,
+   "unit": "tons/ac",
+   "level": "state"
+  },
+  {
+   "crop": "alfalfa",
+   "practice": "all",
+   "year": 2026,
+   "value": 3.7,
+   "unit": "tons/ac",
+   "level": "state"
+  },
+  {
+   "crop": "cotton",
+   "practice": "all",
+   "year": 2000,
+   "value": 288.0,
+   "unit": "lb/ac",
+   "level": "state"
+  },
+  {
+   "crop": "cotton",
+   "practice": "all",
+   "year": 2001,
+   "value": 517.0,
+   "unit": "lb/ac",
+   "level": "district"
+  },
+  {
+   "crop": "cotton",
+   "practice": "all",
+   "year": 2002,
+   "value": 494.0,
+   "unit": "lb/ac",
+   "level": "district"
+  },
+  {
+   "crop": "cotton",
+   "practice": "all",
+   "year": 2003,
+   "value": 568.0,
+   "unit": "lb/ac",
+   "level": "district"
+  },
+  {
+   "crop": "cotton",
+   "practice": "all",
+   "year": 2004,
+   "value": 334.0,
+   "unit": "lb/ac",
+   "level": "district"
+  },
+  {
+   "crop": "cotton",
+   "practice": "all",
+   "year": 2005,
+   "value": 858.0,
+   "unit": "lb/ac",
+   "level": "district"
+  },
+  {
+   "crop": "cotton",
+   "practice": "all",
+   "year": 2006,
+   "value": 634.0,
+   "unit": "lb/ac",
+   "level": "district"
+  },
+  {
+   "crop": "cotton",
+   "practice": "all",
+   "year": 2007,
+   "value": 826.0,
+   "unit": "lb/ac",
+   "level": "district"
+  },
+  {
+   "crop": "cotton",
+   "practice": "all",
+   "year": 2008,
+   "value": 763.0,
+   "unit": "lb/ac",
+   "level": "district"
+  },
+  {
+   "crop": "cotton",
+   "practice": "all",
+   "year": 2009,
+   "value": 735.0,
+   "unit": "lb/ac",
+   "level": "district"
+  },
+  {
+   "crop": "cotton",
+   "practice": "all",
+   "year": 2010,
+   "value": 888.0,
+   "unit": "lb/ac",
+   "level": "district"
+  },
+  {
+   "crop": "cotton",
+   "practice": "all",
+   "year": 2011,
+   "value": 621.0,
+   "unit": "lb/ac",
+   "level": "district"
+  },
+  {
+   "crop": "cotton",
+   "practice": "all",
+   "year": 2012,
+   "value": 772.0,
+   "unit": "lb/ac",
+   "level": "district"
+  },
+  {
+   "crop": "cotton",
+   "practice": "all",
+   "year": 2013,
+   "value": 687.0,
+   "unit": "lb/ac",
+   "level": "district"
+  },
+  {
+   "crop": "cotton",
+   "practice": "all",
+   "year": 2014,
+   "value": 794.0,
+   "unit": "lb/ac",
+   "level": "state"
+  },
+  {
+   "crop": "cotton",
+   "practice": "all",
+   "year": 2015,
+   "value": 1050.0,
+   "unit": "lb/ac",
+   "level": "state"
+  },
+  {
+   "crop": "cotton",
+   "practice": "all",
+   "year": 2016,
+   "value": 1099.0,
+   "unit": "lb/ac",
+   "level": "state"
+  },
+  {
+   "crop": "cotton",
+   "practice": "all",
+   "year": 2017,
+   "value": 1037.0,
+   "unit": "lb/ac",
+   "level": "district"
+  },
+  {
+   "crop": "cotton",
+   "practice": "all",
+   "year": 2018,
+   "value": 1188.0,
+   "unit": "lb/ac",
+   "level": "district"
+  },
+  {
+   "crop": "cotton",
+   "practice": "all",
+   "year": 2019,
+   "value": 1048.0,
+   "unit": "lb/ac",
+   "level": "district"
+  },
+  {
+   "crop": "cotton",
+   "practice": "all",
+   "year": 2020,
+   "value": 804.0,
+   "unit": "lb/ac",
+   "level": "state"
+  },
+  {
+   "crop": "cotton",
+   "practice": "all",
+   "year": 2021,
+   "value": 880.0,
+   "unit": "lb/ac",
+   "level": "state"
+  },
+  {
+   "crop": "cotton",
+   "practice": "all",
+   "year": 2022,
+   "value": 586.0,
+   "unit": "lb/ac",
+   "level": "state"
+  },
+  {
+   "crop": "cotton",
+   "practice": "all",
+   "year": 2023,
+   "value": 769.0,
+   "unit": "lb/ac",
+   "level": "state"
+  },
+  {
+   "crop": "cotton",
+   "practice": "all",
+   "year": 2024,
+   "value": 778.0,
+   "unit": "lb/ac",
+   "level": "state"
+  },
+  {
+   "crop": "cotton",
+   "practice": "all",
+   "year": 2025,
+   "value": 966.0,
+   "unit": "lb/ac",
+   "level": "state"
+  },
+  {
+   "crop": "cotton",
+   "practice": "all",
+   "year": 2026,
+   "value": 499.0,
+   "unit": "lb/ac",
+   "level": "state"
+  }
+ ],
+ "prices": [
+  {
+   "crop": "corn",
+   "year": 2015,
+   "value": 3.69,
+   "unit": "usd/bu",
+   "level": "state"
+  },
+  {
+   "crop": "corn",
+   "year": 2016,
+   "value": 3.2,
+   "unit": "usd/bu",
+   "level": "state"
+  },
+  {
+   "crop": "corn",
+   "year": 2017,
+   "value": 3.28,
+   "unit": "usd/bu",
+   "level": "state"
+  },
+  {
+   "crop": "corn",
+   "year": 2018,
+   "value": 3.58,
+   "unit": "usd/bu",
+   "level": "state"
+  },
+  {
+   "crop": "corn",
+   "year": 2019,
+   "value": 3.56,
+   "unit": "usd/bu",
+   "level": "state"
+  },
+  {
+   "crop": "corn",
+   "year": 2020,
+   "value": 4.35,
+   "unit": "usd/bu",
+   "level": "state"
+  },
+  {
+   "crop": "corn",
+   "year": 2021,
+   "value": 6.02,
+   "unit": "usd/bu",
+   "level": "state"
+  },
+  {
+   "crop": "corn",
+   "year": 2022,
+   "value": 7.04,
+   "unit": "usd/bu",
+   "level": "state"
+  },
+  {
+   "crop": "corn",
+   "year": 2023,
+   "value": 4.73,
+   "unit": "usd/bu",
+   "level": "state"
+  },
+  {
+   "crop": "corn",
+   "year": 2024,
+   "value": 4.28,
+   "unit": "usd/bu",
+   "level": "state"
+  },
+  {
+   "crop": "sorghum",
+   "year": 2015,
+   "value": 3.12,
+   "unit": "usd/bu",
+   "level": "state"
+  },
+  {
+   "crop": "sorghum",
+   "year": 2016,
+   "value": 2.62,
+   "unit": "usd/bu",
+   "level": "state"
+  },
+  {
+   "crop": "sorghum",
+   "year": 2017,
+   "value": 3.12,
+   "unit": "usd/bu",
+   "level": "state"
+  },
+  {
+   "crop": "sorghum",
+   "year": 2018,
+   "value": 3.13,
+   "unit": "usd/bu",
+   "level": "state"
+  },
+  {
+   "crop": "sorghum",
+   "year": 2019,
+   "value": 3.19,
+   "unit": "usd/bu",
+   "level": "state"
+  },
+  {
+   "crop": "sorghum",
+   "year": 2020,
+   "value": 4.96,
+   "unit": "usd/bu",
+   "level": "state"
+  },
+  {
+   "crop": "sorghum",
+   "year": 2021,
+   "value": 6.05,
+   "unit": "usd/bu",
+   "level": "state"
+  },
+  {
+   "crop": "sorghum",
+   "year": 2022,
+   "value": 6.89,
+   "unit": "usd/bu",
+   "level": "state"
+  },
+  {
+   "crop": "sorghum",
+   "year": 2023,
+   "value": 4.77,
+   "unit": "usd/bu",
+   "level": "state"
+  },
+  {
+   "crop": "sorghum",
+   "year": 2024,
+   "value": 4.0,
+   "unit": "usd/bu",
+   "level": "state"
+  },
+  {
+   "crop": "wheat",
+   "year": 2015,
+   "value": 4.74,
+   "unit": "usd/bu",
+   "level": "state"
+  },
+  {
+   "crop": "wheat",
+   "year": 2016,
+   "value": 3.2,
+   "unit": "usd/bu",
+   "level": "state"
+  },
+  {
+   "crop": "wheat",
+   "year": 2017,
+   "value": 4.07,
+   "unit": "usd/bu",
+   "level": "state"
+  },
+  {
+   "crop": "wheat",
+   "year": 2018,
+   "value": 4.93,
+   "unit": "usd/bu",
+   "level": "state"
+  },
+  {
+   "crop": "wheat",
+   "year": 2019,
+   "value": 4.08,
+   "unit": "usd/bu",
+   "level": "state"
+  },
+  {
+   "crop": "wheat",
+   "year": 2020,
+   "value": 4.53,
+   "unit": "usd/bu",
+   "level": "state"
+  },
+  {
+   "crop": "wheat",
+   "year": 2021,
+   "value": 6.74,
+   "unit": "usd/bu",
+   "level": "state"
+  },
+  {
+   "crop": "wheat",
+   "year": 2022,
+   "value": 8.71,
+   "unit": "usd/bu",
+   "level": "state"
+  },
+  {
+   "crop": "wheat",
+   "year": 2023,
+   "value": 7.14,
+   "unit": "usd/bu",
+   "level": "state"
+  },
+  {
+   "crop": "wheat",
+   "year": 2024,
+   "value": 5.43,
+   "unit": "usd/bu",
+   "level": "state"
+  },
+  {
+   "crop": "soybean",
+   "year": 2015,
+   "value": 8.56,
+   "unit": "usd/bu",
+   "level": "state"
+  },
+  {
+   "crop": "soybean",
+   "year": 2016,
+   "value": 9.26,
+   "unit": "usd/bu",
+   "level": "state"
+  },
+  {
+   "crop": "soybean",
+   "year": 2017,
+   "value": 9.0,
+   "unit": "usd/bu",
+   "level": "state"
+  },
+  {
+   "crop": "soybean",
+   "year": 2018,
+   "value": 7.93,
+   "unit": "usd/bu",
+   "level": "state"
+  },
+  {
+   "crop": "soybean",
+   "year": 2019,
+   "value": 8.28,
+   "unit": "usd/bu",
+   "level": "state"
+  },
+  {
+   "crop": "soybean",
+   "year": 2020,
+   "value": 10.7,
+   "unit": "usd/bu",
+   "level": "state"
+  },
+  {
+   "crop": "soybean",
+   "year": 2021,
+   "value": 12.9,
+   "unit": "usd/bu",
+   "level": "state"
+  },
+  {
+   "crop": "soybean",
+   "year": 2022,
+   "value": 14.3,
+   "unit": "usd/bu",
+   "level": "state"
+  },
+  {
+   "crop": "soybean",
+   "year": 2023,
+   "value": 12.3,
+   "unit": "usd/bu",
+   "level": "state"
+  },
+  {
+   "crop": "soybean",
+   "year": 2024,
+   "value": 9.65,
+   "unit": "usd/bu",
+   "level": "state"
+  },
+  {
+   "crop": "alfalfa",
+   "year": 2015,
+   "value": 116.0,
+   "unit": "usd/ton",
+   "level": "state"
+  },
+  {
+   "crop": "alfalfa",
+   "year": 2016,
+   "value": 95.0,
+   "unit": "usd/ton",
+   "level": "state"
+  },
+  {
+   "crop": "alfalfa",
+   "year": 2017,
+   "value": 128.0,
+   "unit": "usd/ton",
+   "level": "state"
+  },
+  {
+   "crop": "alfalfa",
+   "year": 2018,
+   "value": 170.0,
+   "unit": "usd/ton",
+   "level": "state"
+  },
+  {
+   "crop": "alfalfa",
+   "year": 2019,
+   "value": 140.0,
+   "unit": "usd/ton",
+   "level": "state"
+  },
+  {
+   "crop": "alfalfa",
+   "year": 2020,
+   "value": 147.0,
+   "unit": "usd/ton",
+   "level": "state"
+  },
+  {
+   "crop": "alfalfa",
+   "year": 2021,
+   "value": 178.0,
+   "unit": "usd/ton",
+   "level": "state"
+  },
+  {
+   "crop": "alfalfa",
+   "year": 2022,
+   "value": 245.0,
+   "unit": "usd/ton",
+   "level": "state"
+  },
+  {
+   "crop": "alfalfa",
+   "year": 2023,
+   "value": 240.0,
+   "unit": "usd/ton",
+   "level": "state"
+  },
+  {
+   "crop": "alfalfa",
+   "year": 2024,
+   "value": 139.0,
+   "unit": "usd/ton",
+   "level": "state"
+  },
+  {
+   "crop": "cotton",
+   "year": 2015,
+   "value": 0.56,
+   "unit": "usd/lb",
+   "level": "state"
+  },
+  {
+   "crop": "cotton",
+   "year": 2016,
+   "value": 0.69,
+   "unit": "usd/lb",
+   "level": "state"
+  },
+  {
+   "crop": "cotton",
+   "year": 2017,
+   "value": 0.69,
+   "unit": "usd/lb",
+   "level": "us"
+  },
+  {
+   "crop": "cotton",
+   "year": 2018,
+   "value": 0.6,
+   "unit": "usd/lb",
+   "level": "state"
+  },
+  {
+   "crop": "cotton",
+   "year": 2019,
+   "value": 0.6,
+   "unit": "usd/lb",
+   "level": "state"
+  },
+  {
+   "crop": "cotton",
+   "year": 2020,
+   "value": 0.58,
+   "unit": "usd/lb",
+   "level": "state"
+  },
+  {
+   "crop": "cotton",
+   "year": 2021,
+   "value": 0.97,
+   "unit": "usd/lb",
+   "level": "state"
+  },
+  {
+   "crop": "cotton",
+   "year": 2022,
+   "value": 0.86,
+   "unit": "usd/lb",
+   "level": "state"
+  },
+  {
+   "crop": "cotton",
+   "year": 2023,
+   "value": 0.7,
+   "unit": "usd/lb",
+   "level": "state"
+  },
+  {
+   "crop": "cotton",
+   "year": 2024,
+   "value": 0.6,
+   "unit": "usd/lb",
+   "level": "state"
+  }
+ ],
+ "acres": [
+  {
+   "crop": "corn",
+   "practice": "all",
+   "year": 2000,
+   "planted_ac": 100500,
+   "level": "county"
+  },
+  {
+   "crop": "corn",
+   "practice": "all",
+   "year": 2001,
+   "planted_ac": 88000,
+   "level": "county"
+  },
+  {
+   "crop": "corn",
+   "practice": "all",
+   "year": 2002,
+   "planted_ac": 78100,
+   "level": "county"
+  },
+  {
+   "crop": "corn",
+   "practice": "all",
+   "year": 2003,
+   "planted_ac": 74500,
+   "level": "county"
+  },
+  {
+   "crop": "corn",
+   "practice": "all",
+   "year": 2004,
+   "planted_ac": 77900,
+   "level": "county"
+  },
+  {
+   "crop": "corn",
+   "practice": "all",
+   "year": 2005,
+   "planted_ac": 85000,
+   "level": "county"
+  },
+  {
+   "crop": "corn",
+   "practice": "all",
+   "year": 2006,
+   "planted_ac": 75400,
+   "level": "county"
+  },
+  {
+   "crop": "corn",
+   "practice": "all",
+   "year": 2007,
+   "planted_ac": 99700,
+   "level": "county"
+  },
+  {
+   "crop": "corn",
+   "practice": "all",
+   "year": 2008,
+   "planted_ac": 97100,
+   "level": "county"
+  },
+  {
+   "crop": "corn",
+   "practice": "all",
+   "year": 2009,
+   "planted_ac": 97500,
+   "level": "county"
+  },
+  {
+   "crop": "corn",
+   "practice": "all",
+   "year": 2010,
+   "planted_ac": 122000,
+   "level": "county"
+  },
+  {
+   "crop": "corn",
+   "practice": "all",
+   "year": 2011,
+   "planted_ac": 110000,
+   "level": "county"
+  },
+  {
+   "crop": "corn",
+   "practice": "all",
+   "year": 2012,
+   "planted_ac": 103000,
+   "level": "county"
+  },
+  {
+   "crop": "corn",
+   "practice": "all",
+   "year": 2013,
+   "planted_ac": 718000,
+   "level": "district"
+  },
+  {
+   "crop": "corn",
+   "practice": "all",
+   "year": 2014,
+   "planted_ac": 78300,
+   "level": "county"
+  },
+  {
+   "crop": "corn",
+   "practice": "all",
+   "year": 2015,
+   "planted_ac": 711000,
+   "level": "district"
+  },
+  {
+   "crop": "corn",
+   "practice": "all",
+   "year": 2016,
+   "planted_ac": 848000,
+   "level": "district"
+  },
+  {
+   "crop": "corn",
+   "practice": "all",
+   "year": 2017,
+   "planted_ac": 1018000,
+   "level": "district"
+  },
+  {
+   "crop": "corn",
+   "practice": "all",
+   "year": 2018,
+   "planted_ac": 881000,
+   "level": "district"
+  },
+  {
+   "crop": "corn",
+   "practice": "all",
+   "year": 2019,
+   "planted_ac": 174500,
+   "level": "county"
+  },
+  {
+   "crop": "corn",
+   "practice": "all",
+   "year": 2020,
+   "planted_ac": 146000,
+   "level": "county"
+  },
+  {
+   "crop": "corn",
+   "practice": "all",
+   "year": 2022,
+   "planted_ac": 121000,
+   "level": "county"
+  },
+  {
+   "crop": "corn",
+   "practice": "irrigated",
+   "year": 2000,
+   "planted_ac": 95100,
+   "level": "county"
+  },
+  {
+   "crop": "corn",
+   "practice": "irrigated",
+   "year": 2001,
+   "planted_ac": 81200,
+   "level": "county"
+  },
+  {
+   "crop": "corn",
+   "practice": "irrigated",
+   "year": 2002,
+   "planted_ac": 74700,
+   "level": "county"
+  },
+  {
+   "crop": "corn",
+   "practice": "irrigated",
+   "year": 2003,
+   "planted_ac": 645000,
+   "level": "district"
+  },
+  {
+   "crop": "corn",
+   "practice": "irrigated",
+   "year": 2004,
+   "planted_ac": 689000,
+   "level": "district"
+  },
+  {
+   "crop": "corn",
+   "practice": "irrigated",
+   "year": 2005,
+   "planted_ac": 81000,
+   "level": "county"
+  },
+  {
+   "crop": "corn",
+   "practice": "irrigated",
+   "year": 2006,
+   "planted_ac": 69300,
+   "level": "county"
+  },
+  {
+   "crop": "corn",
+   "practice": "irrigated",
+   "year": 2007,
+   "planted_ac": 88000,
+   "level": "county"
+  },
+  {
+   "crop": "corn",
+   "practice": "irrigated",
+   "year": 2008,
+   "planted_ac": 730000,
+   "level": "district"
+  },
+  {
+   "crop": "corn",
+   "practice": "irrigated",
+   "year": 2009,
+   "planted_ac": 89000,
+   "level": "county"
+  },
+  {
+   "crop": "corn",
+   "practice": "irrigated",
+   "year": 2010,
+   "planted_ac": 100500,
+   "level": "county"
+  },
+  {
+   "crop": "corn",
+   "practice": "irrigated",
+   "year": 2011,
+   "planted_ac": 755000,
+   "level": "district"
+  },
+  {
+   "crop": "corn",
+   "practice": "irrigated",
+   "year": 2012,
+   "planted_ac": 700000,
+   "level": "district"
+  },
+  {
+   "crop": "corn",
+   "practice": "irrigated",
+   "year": 2013,
+   "planted_ac": 661000,
+   "level": "district"
+  },
+  {
+   "crop": "corn",
+   "practice": "irrigated",
+   "year": 2014,
+   "planted_ac": 642000,
+   "level": "district"
+  },
+  {
+   "crop": "corn",
+   "practice": "irrigated",
+   "year": 2015,
+   "planted_ac": 647000,
+   "level": "district"
+  },
+  {
+   "crop": "corn",
+   "practice": "irrigated",
+   "year": 2016,
+   "planted_ac": 699000,
+   "level": "district"
+  },
+  {
+   "crop": "corn",
+   "practice": "irrigated",
+   "year": 2017,
+   "planted_ac": 676000,
+   "level": "district"
+  },
+  {
+   "crop": "corn",
+   "practice": "irrigated",
+   "year": 2018,
+   "planted_ac": 668000,
+   "level": "district"
+  },
+  {
+   "crop": "corn",
+   "practice": "non_irrigated",
+   "year": 2000,
+   "planted_ac": 5400,
+   "level": "county"
+  },
+  {
+   "crop": "corn",
+   "practice": "non_irrigated",
+   "year": 2001,
+   "planted_ac": 6800,
+   "level": "county"
+  },
+  {
+   "crop": "corn",
+   "practice": "non_irrigated",
+   "year": 2002,
+   "planted_ac": 3400,
+   "level": "county"
+  },
+  {
+   "crop": "corn",
+   "practice": "non_irrigated",
+   "year": 2003,
+   "planted_ac": 25000,
+   "level": "district"
+  },
+  {
+   "crop": "corn",
+   "practice": "non_irrigated",
+   "year": 2004,
+   "planted_ac": 24000,
+   "level": "district"
+  },
+  {
+   "crop": "corn",
+   "practice": "non_irrigated",
+   "year": 2005,
+   "planted_ac": 4000,
+   "level": "county"
+  },
+  {
+   "crop": "corn",
+   "practice": "non_irrigated",
+   "year": 2006,
+   "planted_ac": 6100,
+   "level": "county"
+  },
+  {
+   "crop": "corn",
+   "practice": "non_irrigated",
+   "year": 2007,
+   "planted_ac": 11700,
+   "level": "county"
+  },
+  {
+   "crop": "corn",
+   "practice": "non_irrigated",
+   "year": 2008,
+   "planted_ac": 108000,
+   "level": "district"
+  },
+  {
+   "crop": "corn",
+   "practice": "non_irrigated",
+   "year": 2009,
+   "planted_ac": 8500,
+   "level": "county"
+  },
+  {
+   "crop": "corn",
+   "practice": "non_irrigated",
+   "year": 2010,
+   "planted_ac": 21500,
+   "level": "county"
+  },
+  {
+   "crop": "corn",
+   "practice": "non_irrigated",
+   "year": 2011,
+   "planted_ac": 95000,
+   "level": "district"
+  },
+  {
+   "crop": "corn",
+   "practice": "non_irrigated",
+   "year": 2012,
+   "planted_ac": 100000,
+   "level": "district"
+  },
+  {
+   "crop": "corn",
+   "practice": "non_irrigated",
+   "year": 2013,
+   "planted_ac": 57000,
+   "level": "district"
+  },
+  {
+   "crop": "corn",
+   "practice": "non_irrigated",
+   "year": 2014,
+   "planted_ac": 42000,
+   "level": "district"
+  },
+  {
+   "crop": "corn",
+   "practice": "non_irrigated",
+   "year": 2015,
+   "planted_ac": 64000,
+   "level": "district"
+  },
+  {
+   "crop": "corn",
+   "practice": "non_irrigated",
+   "year": 2016,
+   "planted_ac": 149000,
+   "level": "district"
+  },
+  {
+   "crop": "corn",
+   "practice": "non_irrigated",
+   "year": 2017,
+   "planted_ac": 342000,
+   "level": "district"
+  },
+  {
+   "crop": "corn",
+   "practice": "non_irrigated",
+   "year": 2018,
+   "planted_ac": 213000,
+   "level": "district"
+  },
+  {
+   "crop": "sorghum",
+   "practice": "all",
+   "year": 2000,
+   "planted_ac": 59400,
+   "level": "county"
+  },
+  {
+   "crop": "sorghum",
+   "practice": "all",
+   "year": 2001,
+   "planted_ac": 84300,
+   "level": "county"
+  },
+  {
+   "crop": "sorghum",
+   "practice": "all",
+   "year": 2002,
+   "planted_ac": 82400,
+   "level": "county"
+  },
+  {
+   "crop": "sorghum",
+   "practice": "all",
+   "year": 2003,
+   "planted_ac": 77100,
+   "level": "county"
+  },
+  {
+   "crop": "sorghum",
+   "practice": "all",
+   "year": 2004,
+   "planted_ac": 73300,
+   "level": "county"
+  },
+  {
+   "crop": "sorghum",
+   "practice": "all",
+   "year": 2005,
+   "planted_ac": 68400,
+   "level": "county"
+  },
+  {
+   "crop": "sorghum",
+   "practice": "all",
+   "year": 2006,
+   "planted_ac": 74400,
+   "level": "county"
+  },
+  {
+   "crop": "sorghum",
+   "practice": "all",
+   "year": 2007,
+   "planted_ac": 75900,
+   "level": "county"
+  },
+  {
+   "crop": "sorghum",
+   "practice": "all",
+   "year": 2008,
+   "planted_ac": 81900,
+   "level": "county"
+  },
+  {
+   "crop": "sorghum",
+   "practice": "all",
+   "year": 2009,
+   "planted_ac": 74000,
+   "level": "county"
+  },
+  {
+   "crop": "sorghum",
+   "practice": "all",
+   "year": 2010,
+   "planted_ac": 85000,
+   "level": "county"
+  },
+  {
+   "crop": "sorghum",
+   "practice": "all",
+   "year": 2011,
+   "planted_ac": 560000,
+   "level": "district"
+  },
+  {
+   "crop": "sorghum",
+   "practice": "all",
+   "year": 2012,
+   "planted_ac": 76000,
+   "level": "county"
+  },
+  {
+   "crop": "sorghum",
+   "practice": "all",
+   "year": 2013,
+   "planted_ac": 94000,
+   "level": "county"
+  },
+  {
+   "crop": "sorghum",
+   "practice": "all",
+   "year": 2014,
+   "planted_ac": 99200,
+   "level": "county"
+  },
+  {
+   "crop": "sorghum",
+   "practice": "all",
+   "year": 2015,
+   "planted_ac": 812000,
+   "level": "district"
+  },
+  {
+   "crop": "sorghum",
+   "practice": "all",
+   "year": 2016,
+   "planted_ac": 111000,
+   "level": "county"
+  },
+  {
+   "crop": "sorghum",
+   "practice": "all",
+   "year": 2017,
+   "planted_ac": 766000,
+   "level": "district"
+  },
+  {
+   "crop": "sorghum",
+   "practice": "all",
+   "year": 2018,
+   "planted_ac": 770000,
+   "level": "district"
+  },
+  {
+   "crop": "sorghum",
+   "practice": "all",
+   "year": 2019,
+   "planted_ac": 715000,
+   "level": "district"
+  },
+  {
+   "crop": "sorghum",
+   "practice": "all",
+   "year": 2020,
+   "planted_ac": 118000,
+   "level": "county"
+  },
+  {
+   "crop": "sorghum",
+   "practice": "irrigated",
+   "year": 2000,
+   "planted_ac": 4400,
+   "level": "county"
+  },
+  {
+   "crop": "sorghum",
+   "practice": "irrigated",
+   "year": 2001,
+   "planted_ac": 8400,
+   "level": "county"
+  },
+  {
+   "crop": "sorghum",
+   "practice": "irrigated",
+   "year": 2002,
+   "planted_ac": 13400,
+   "level": "county"
+  },
+  {
+   "crop": "sorghum",
+   "practice": "irrigated",
+   "year": 2003,
+   "planted_ac": 15300,
+   "level": "county"
+  },
+  {
+   "crop": "sorghum",
+   "practice": "irrigated",
+   "year": 2004,
+   "planted_ac": 12800,
+   "level": "county"
+  },
+  {
+   "crop": "sorghum",
+   "practice": "irrigated",
+   "year": 2005,
+   "planted_ac": 12000,
+   "level": "county"
+  },
+  {
+   "crop": "sorghum",
+   "practice": "irrigated",
+   "year": 2006,
+   "planted_ac": 12500,
+   "level": "county"
+  },
+  {
+   "crop": "sorghum",
+   "practice": "irrigated",
+   "year": 2007,
+   "planted_ac": 6900,
+   "level": "county"
+  },
+  {
+   "crop": "sorghum",
+   "practice": "irrigated",
+   "year": 2009,
+   "planted_ac": 85000,
+   "level": "district"
+  },
+  {
+   "crop": "sorghum",
+   "practice": "non_irrigated",
+   "year": 2000,
+   "planted_ac": 55000,
+   "level": "county"
+  },
+  {
+   "crop": "sorghum",
+   "practice": "non_irrigated",
+   "year": 2001,
+   "planted_ac": 75900,
+   "level": "county"
+  },
+  {
+   "crop": "sorghum",
+   "practice": "non_irrigated",
+   "year": 2002,
+   "planted_ac": 69000,
+   "level": "county"
+  },
+  {
+   "crop": "sorghum",
+   "practice": "non_irrigated",
+   "year": 2003,
+   "planted_ac": 61800,
+   "level": "county"
+  },
+  {
+   "crop": "sorghum",
+   "practice": "non_irrigated",
+   "year": 2004,
+   "planted_ac": 60500,
+   "level": "county"
+  },
+  {
+   "crop": "sorghum",
+   "practice": "non_irrigated",
+   "year": 2005,
+   "planted_ac": 56400,
+   "level": "county"
+  },
+  {
+   "crop": "sorghum",
+   "practice": "non_irrigated",
+   "year": 2006,
+   "planted_ac": 61900,
+   "level": "county"
+  },
+  {
+   "crop": "sorghum",
+   "practice": "non_irrigated",
+   "year": 2007,
+   "planted_ac": 69000,
+   "level": "county"
+  },
+  {
+   "crop": "sorghum",
+   "practice": "non_irrigated",
+   "year": 2009,
+   "planted_ac": 395000,
+   "level": "district"
+  },
+  {
+   "crop": "wheat",
+   "practice": "all",
+   "year": 2000,
+   "planted_ac": 175000,
+   "level": "county"
+  },
+  {
+   "crop": "wheat",
+   "practice": "all",
+   "year": 2001,
+   "planted_ac": 183000,
+   "level": "county"
+  },
+  {
+   "crop": "wheat",
+   "practice": "all",
+   "year": 2002,
+   "planted_ac": 166000,
+   "level": "county"
+  },
+  {
+   "crop": "wheat",
+   "practice": "all",
+   "year": 2003,
+   "planted_ac": 176500,
+   "level": "county"
+  },
+  {
+   "crop": "wheat",
+   "practice": "all",
+   "year": 2004,
+   "planted_ac": 164600,
+   "level": "county"
+  },
+  {
+   "crop": "wheat",
+   "practice": "all",
+   "year": 2005,
+   "planted_ac": 176000,
+   "level": "county"
+  },
+  {
+   "crop": "wheat",
+   "practice": "all",
+   "year": 2006,
+   "planted_ac": 170700,
+   "level": "county"
+  },
+  {
+   "crop": "wheat",
+   "practice": "all",
+   "year": 2007,
+   "planted_ac": 168800,
+   "level": "county"
+  },
+  {
+   "crop": "wheat",
+   "practice": "all",
+   "year": 2008,
+   "planted_ac": 160600,
+   "level": "county"
+  },
+  {
+   "crop": "wheat",
+   "practice": "all",
+   "year": 2009,
+   "planted_ac": 176500,
+   "level": "county"
+  },
+  {
+   "crop": "wheat",
+   "practice": "all",
+   "year": 2010,
+   "planted_ac": 157000,
+   "level": "county"
+  },
+  {
+   "crop": "wheat",
+   "practice": "all",
+   "year": 2011,
+   "planted_ac": 165500,
+   "level": "county"
+  },
+  {
+   "crop": "wheat",
+   "practice": "all",
+   "year": 2012,
+   "planted_ac": 192000,
+   "level": "county"
+  },
+  {
+   "crop": "wheat",
+   "practice": "all",
+   "year": 2013,
+   "planted_ac": 173500,
+   "level": "county"
+  },
+  {
+   "crop": "wheat",
+   "practice": "all",
+   "year": 2014,
+   "planted_ac": 177100,
+   "level": "county"
+  },
+  {
+   "crop": "wheat",
+   "practice": "all",
+   "year": 2015,
+   "planted_ac": 173300,
+   "level": "county"
+  },
+  {
+   "crop": "wheat",
+   "practice": "all",
+   "year": 2016,
+   "planted_ac": 1502000,
+   "level": "district"
+  },
+  {
+   "crop": "wheat",
+   "practice": "all",
+   "year": 2017,
+   "planted_ac": 1405500,
+   "level": "district"
+  },
+  {
+   "crop": "wheat",
+   "practice": "all",
+   "year": 2018,
+   "planted_ac": 1414000,
+   "level": "district"
+  },
+  {
+   "crop": "wheat",
+   "practice": "all",
+   "year": 2019,
+   "planted_ac": 1408500,
+   "level": "district"
+  },
+  {
+   "crop": "wheat",
+   "practice": "all",
+   "year": 2020,
+   "planted_ac": 104500,
+   "level": "county"
+  },
+  {
+   "crop": "wheat",
+   "practice": "all",
+   "year": 2021,
+   "planted_ac": 159500,
+   "level": "county"
+  },
+  {
+   "crop": "wheat",
+   "practice": "all",
+   "year": 2022,
+   "planted_ac": 139500,
+   "level": "county"
+  },
+  {
+   "crop": "wheat",
+   "practice": "irrigated",
+   "year": 2000,
+   "planted_ac": 54500,
+   "level": "county"
+  },
+  {
+   "crop": "wheat",
+   "practice": "irrigated",
+   "year": 2001,
+   "planted_ac": 45700,
+   "level": "county"
+  },
+  {
+   "crop": "wheat",
+   "practice": "irrigated",
+   "year": 2002,
+   "planted_ac": 51700,
+   "level": "county"
+  },
+  {
+   "crop": "wheat",
+   "practice": "irrigated",
+   "year": 2003,
+   "planted_ac": 47700,
+   "level": "county"
+  },
+  {
+   "crop": "wheat",
+   "practice": "irrigated",
+   "year": 2004,
+   "planted_ac": 56300,
+   "level": "county"
+  },
+  {
+   "crop": "wheat",
+   "practice": "irrigated",
+   "year": 2005,
+   "planted_ac": 55600,
+   "level": "county"
+  },
+  {
+   "crop": "wheat",
+   "practice": "irrigated",
+   "year": 2006,
+   "planted_ac": 62600,
+   "level": "county"
+  },
+  {
+   "crop": "wheat",
+   "practice": "irrigated",
+   "year": 2007,
+   "planted_ac": 56300,
+   "level": "county"
+  },
+  {
+   "crop": "wheat",
+   "practice": "irrigated",
+   "year": 2008,
+   "planted_ac": 60600,
+   "level": "county"
+  },
+  {
+   "crop": "wheat",
+   "practice": "irrigated",
+   "year": 2009,
+   "planted_ac": 55500,
+   "level": "county"
+  },
+  {
+   "crop": "wheat",
+   "practice": "irrigated",
+   "year": 2010,
+   "planted_ac": 320000,
+   "level": "district"
+  },
+  {
+   "crop": "wheat",
+   "practice": "irrigated",
+   "year": 2011,
+   "planted_ac": 350000,
+   "level": "district"
+  },
+  {
+   "crop": "wheat",
+   "practice": "irrigated",
+   "year": 2012,
+   "planted_ac": 57500,
+   "level": "county"
+  },
+  {
+   "crop": "wheat",
+   "practice": "irrigated",
+   "year": 2013,
+   "planted_ac": 58000,
+   "level": "county"
+  },
+  {
+   "crop": "wheat",
+   "practice": "irrigated",
+   "year": 2014,
+   "planted_ac": 326500,
+   "level": "district"
+  },
+  {
+   "crop": "wheat",
+   "practice": "irrigated",
+   "year": 2015,
+   "planted_ac": 325000,
+   "level": "district"
+  },
+  {
+   "crop": "wheat",
+   "practice": "irrigated",
+   "year": 2016,
+   "planted_ac": 286000,
+   "level": "district"
+  },
+  {
+   "crop": "wheat",
+   "practice": "irrigated",
+   "year": 2017,
+   "planted_ac": 269500,
+   "level": "district"
+  },
+  {
+   "crop": "wheat",
+   "practice": "irrigated",
+   "year": 2018,
+   "planted_ac": 249000,
+   "level": "district"
+  },
+  {
+   "crop": "wheat",
+   "practice": "irrigated",
+   "year": 2019,
+   "planted_ac": 221500,
+   "level": "district"
+  },
+  {
+   "crop": "wheat",
+   "practice": "non_irrigated",
+   "year": 2000,
+   "planted_ac": 120500,
+   "level": "county"
+  },
+  {
+   "crop": "wheat",
+   "practice": "non_irrigated",
+   "year": 2001,
+   "planted_ac": 137300,
+   "level": "county"
+  },
+  {
+   "crop": "wheat",
+   "practice": "non_irrigated",
+   "year": 2002,
+   "planted_ac": 114300,
+   "level": "county"
+  },
+  {
+   "crop": "wheat",
+   "practice": "non_irrigated",
+   "year": 2003,
+   "planted_ac": 128800,
+   "level": "county"
+  },
+  {
+   "crop": "wheat",
+   "practice": "non_irrigated",
+   "year": 2004,
+   "planted_ac": 108300,
+   "level": "county"
+  },
+  {
+   "crop": "wheat",
+   "practice": "non_irrigated",
+   "year": 2005,
+   "planted_ac": 120400,
+   "level": "county"
+  },
+  {
+   "crop": "wheat",
+   "practice": "non_irrigated",
+   "year": 2006,
+   "planted_ac": 108100,
+   "level": "county"
+  },
+  {
+   "crop": "wheat",
+   "practice": "non_irrigated",
+   "year": 2007,
+   "planted_ac": 112500,
+   "level": "county"
+  },
+  {
+   "crop": "wheat",
+   "practice": "non_irrigated",
+   "year": 2008,
+   "planted_ac": 100000,
+   "level": "county"
+  },
+  {
+   "crop": "wheat",
+   "practice": "non_irrigated",
+   "year": 2009,
+   "planted_ac": 121000,
+   "level": "county"
+  },
+  {
+   "crop": "wheat",
+   "practice": "non_irrigated",
+   "year": 2010,
+   "planted_ac": 1135000,
+   "level": "district"
+  },
+  {
+   "crop": "wheat",
+   "practice": "non_irrigated",
+   "year": 2011,
+   "planted_ac": 1160000,
+   "level": "district"
+  },
+  {
+   "crop": "wheat",
+   "practice": "non_irrigated",
+   "year": 2012,
+   "planted_ac": 134500,
+   "level": "county"
+  },
+  {
+   "crop": "wheat",
+   "practice": "non_irrigated",
+   "year": 2013,
+   "planted_ac": 115500,
+   "level": "county"
+  },
+  {
+   "crop": "wheat",
+   "practice": "non_irrigated",
+   "year": 2014,
+   "planted_ac": 1385000,
+   "level": "district"
+  },
+  {
+   "crop": "wheat",
+   "practice": "non_irrigated",
+   "year": 2015,
+   "planted_ac": 1318000,
+   "level": "district"
+  },
+  {
+   "crop": "wheat",
+   "practice": "non_irrigated",
+   "year": 2016,
+   "planted_ac": 1216000,
+   "level": "district"
+  },
+  {
+   "crop": "wheat",
+   "practice": "non_irrigated",
+   "year": 2017,
+   "planted_ac": 1136000,
+   "level": "district"
+  },
+  {
+   "crop": "wheat",
+   "practice": "non_irrigated",
+   "year": 2018,
+   "planted_ac": 1165000,
+   "level": "district"
+  },
+  {
+   "crop": "wheat",
+   "practice": "non_irrigated",
+   "year": 2019,
+   "planted_ac": 1187000,
+   "level": "district"
+  },
+  {
+   "crop": "soybean",
+   "practice": "all",
+   "year": 2000,
+   "planted_ac": 13500,
+   "level": "county"
+  },
+  {
+   "crop": "soybean",
+   "practice": "all",
+   "year": 2001,
+   "planted_ac": 17000,
+   "level": "county"
+  },
+  {
+   "crop": "soybean",
+   "practice": "all",
+   "year": 2002,
+   "planted_ac": 17500,
+   "level": "county"
+  },
+  {
+   "crop": "soybean",
+   "practice": "all",
+   "year": 2003,
+   "planted_ac": 17000,
+   "level": "county"
+  },
+  {
+   "crop": "soybean",
+   "practice": "all",
+   "year": 2004,
+   "planted_ac": 20200,
+   "level": "county"
+  },
+  {
+   "crop": "soybean",
+   "practice": "all",
+   "year": 2005,
+   "planted_ac": 18500,
+   "level": "county"
+  },
+  {
+   "crop": "soybean",
+   "practice": "all",
+   "year": 2006,
+   "planted_ac": 16400,
+   "level": "county"
+  },
+  {
+   "crop": "soybean",
+   "practice": "all",
+   "year": 2007,
+   "planted_ac": 7600,
+   "level": "county"
+  },
+  {
+   "crop": "soybean",
+   "practice": "all",
+   "year": 2008,
+   "planted_ac": 88000,
+   "level": "district"
+  },
+  {
+   "crop": "soybean",
+   "practice": "all",
+   "year": 2009,
+   "planted_ac": 75000,
+   "level": "district"
+  },
+  {
+   "crop": "soybean",
+   "practice": "all",
+   "year": 2010,
+   "planted_ac": 77000,
+   "level": "district"
+  },
+  {
+   "crop": "soybean",
+   "practice": "all",
+   "year": 2011,
+   "planted_ac": 66000,
+   "level": "district"
+  },
+  {
+   "crop": "soybean",
+   "practice": "all",
+   "year": 2012,
+   "planted_ac": 7800,
+   "level": "county"
+  },
+  {
+   "crop": "soybean",
+   "practice": "all",
+   "year": 2013,
+   "planted_ac": 39000,
+   "level": "district"
+  },
+  {
+   "crop": "soybean",
+   "practice": "all",
+   "year": 2014,
+   "planted_ac": 46300,
+   "level": "district"
+  },
+  {
+   "crop": "soybean",
+   "practice": "all",
+   "year": 2015,
+   "planted_ac": 46600,
+   "level": "district"
+  },
+  {
+   "crop": "soybean",
+   "practice": "all",
+   "year": 2016,
+   "planted_ac": 9100,
+   "level": "county"
+  },
+  {
+   "crop": "soybean",
+   "practice": "all",
+   "year": 2017,
+   "planted_ac": 137500,
+   "level": "district"
+  },
+  {
+   "crop": "soybean",
+   "practice": "all",
+   "year": 2018,
+   "planted_ac": 116500,
+   "level": "district"
+  },
+  {
+   "crop": "soybean",
+   "practice": "all",
+   "year": 2019,
+   "planted_ac": 6100,
+   "level": "county"
+  },
+  {
+   "crop": "soybean",
+   "practice": "irrigated",
+   "year": 2000,
+   "planted_ac": 83000,
+   "level": "district"
+  },
+  {
+   "crop": "soybean",
+   "practice": "irrigated",
+   "year": 2001,
+   "planted_ac": 14000,
+   "level": "county"
+  },
+  {
+   "crop": "soybean",
+   "practice": "irrigated",
+   "year": 2002,
+   "planted_ac": 75000,
+   "level": "district"
+  },
+  {
+   "crop": "soybean",
+   "practice": "irrigated",
+   "year": 2003,
+   "planted_ac": 16000,
+   "level": "county"
+  },
+  {
+   "crop": "soybean",
+   "practice": "irrigated",
+   "year": 2004,
+   "planted_ac": 111000,
+   "level": "district"
+  },
+  {
+   "crop": "soybean",
+   "practice": "irrigated",
+   "year": 2005,
+   "planted_ac": 96000,
+   "level": "district"
+  },
+  {
+   "crop": "soybean",
+   "practice": "irrigated",
+   "year": 2006,
+   "planted_ac": 94000,
+   "level": "district"
+  },
+  {
+   "crop": "soybean",
+   "practice": "irrigated",
+   "year": 2007,
+   "planted_ac": 50000,
+   "level": "district"
+  },
+  {
+   "crop": "soybean",
+   "practice": "irrigated",
+   "year": 2016,
+   "planted_ac": 48600,
+   "level": "district"
+  },
+  {
+   "crop": "soybean",
+   "practice": "non_irrigated",
+   "year": 2000,
+   "planted_ac": 6000,
+   "level": "district"
+  },
+  {
+   "crop": "soybean",
+   "practice": "non_irrigated",
+   "year": 2001,
+   "planted_ac": 3000,
+   "level": "county"
+  },
+  {
+   "crop": "soybean",
+   "practice": "non_irrigated",
+   "year": 2002,
+   "planted_ac": 2000,
+   "level": "district"
+  },
+  {
+   "crop": "soybean",
+   "practice": "non_irrigated",
+   "year": 2003,
+   "planted_ac": 1000,
+   "level": "county"
+  },
+  {
+   "crop": "soybean",
+   "practice": "non_irrigated",
+   "year": 2004,
+   "planted_ac": 4000,
+   "level": "district"
+  },
+  {
+   "crop": "soybean",
+   "practice": "non_irrigated",
+   "year": 2005,
+   "planted_ac": 4000,
+   "level": "district"
+  },
+  {
+   "crop": "soybean",
+   "practice": "non_irrigated",
+   "year": 2006,
+   "planted_ac": 3000,
+   "level": "district"
+  },
+  {
+   "crop": "soybean",
+   "practice": "non_irrigated",
+   "year": 2007,
+   "planted_ac": 3000,
+   "level": "district"
+  },
+  {
+   "crop": "soybean",
+   "practice": "non_irrigated",
+   "year": 2016,
+   "planted_ac": 2300,
+   "level": "district"
+  },
+  {
+   "crop": "cotton",
+   "practice": "all",
+   "year": 2001,
+   "planted_ac": 5100,
+   "level": "district"
+  },
+  {
+   "crop": "cotton",
+   "practice": "all",
+   "year": 2002,
+   "planted_ac": 44000,
+   "level": "district"
+  },
+  {
+   "crop": "cotton",
+   "practice": "all",
+   "year": 2003,
+   "planted_ac": 49500,
+   "level": "district"
+  },
+  {
+   "crop": "cotton",
+   "practice": "all",
+   "year": 2004,
+   "planted_ac": 42200,
+   "level": "district"
+  },
+  {
+   "crop": "cotton",
+   "practice": "all",
+   "year": 2005,
+   "planted_ac": 27300,
+   "level": "district"
+  },
+  {
+   "crop": "cotton",
+   "practice": "all",
+   "year": 2006,
+   "planted_ac": 43800,
+   "level": "district"
+  },
+  {
+   "crop": "cotton",
+   "practice": "all",
+   "year": 2007,
+   "planted_ac": 11000,
+   "level": "district"
+  },
+  {
+   "crop": "cotton",
+   "practice": "all",
+   "year": 2008,
+   "planted_ac": 11200,
+   "level": "district"
+  },
+  {
+   "crop": "cotton",
+   "practice": "all",
+   "year": 2009,
+   "planted_ac": 11000,
+   "level": "district"
+  },
+  {
+   "crop": "cotton",
+   "practice": "all",
+   "year": 2010,
+   "planted_ac": 17500,
+   "level": "district"
+  },
+  {
+   "crop": "cotton",
+   "practice": "all",
+   "year": 2011,
+   "planted_ac": 25600,
+   "level": "district"
+  },
+  {
+   "crop": "cotton",
+   "practice": "all",
+   "year": 2012,
+   "planted_ac": 17600,
+   "level": "district"
+  },
+  {
+   "crop": "cotton",
+   "practice": "all",
+   "year": 2013,
+   "planted_ac": 6100,
+   "level": "district"
+  },
+  {
+   "crop": "cotton",
+   "practice": "all",
+   "year": 2017,
+   "planted_ac": 26200,
+   "level": "district"
+  },
+  {
+   "crop": "cotton",
+   "practice": "all",
+   "year": 2018,
+   "planted_ac": 43200,
+   "level": "district"
+  },
+  {
+   "crop": "cotton",
+   "practice": "all",
+   "year": 2019,
+   "planted_ac": 40100,
+   "level": "district"
+  }
+ ]
+}

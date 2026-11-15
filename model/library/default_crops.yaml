@@ -1,0 +1,264 @@
+# Snapshot of U's content/crops.yaml (origin/role/content 7bf4197), used only when content/crops.yaml
+# is missing and the git ref cannot be read. U's file is the source of truth. # verify against content/
+# Field Shift crop traits (README 8.5). One entry per CropId.
+# Region: Finney County, Kansas = K-State planting Zone 2 (southwest/west-central). Zone from the county map in
+#   MF2227 Triticale in Kansas, https://bookstore.ksre.ksu.edu/pubs/mf2227.pdf  # verify zone for corn/sorghum/soybean table
+# Source keys used in `sources:` (full URLs here so every number is traceable):
+#   FAO-56 T11  stage lengths    https://www.fao.org/4/x0490e/x0490e0b.htm
+#   FAO-56 T12  Kc               https://www.fao.org/4/x0490e/x0490e0b.htm
+#   FAO-56 T22  root depth, p    https://www.fao.org/4/x0490e/x0490e0e.htm
+#   FAO-56 T24  Ky (from FAO-33) https://www.fao.org/4/x0490e/x0490e0e.htm
+#   FAO-33      https://www.fao.org/4/i2800e/i2800e.pdf
+#   L818        K-State Kansas Crop Planting Guide, Table 1  https://bookstore.ksre.ksu.edu/pubs/kansas-crop-planting-guide_L818.pdf
+#   MF2227      K-State Triticale in Kansas                   https://bookstore.ksre.ksu.edu/pubs/mf2227.pdf
+#   Research table: research/03_domain/crop_traits.csv (branch origin/research)
+# Harvest windows are NOT in L818. They are working values for the model's season timing and are marked # verify.
+# Where FAO-56 gives a range, the value used is noted. Root depths are table maxima; the model caps at its profile depth.
+# Heat and frost thresholds are working values from extension guidance (cited as K-State) and are marked # verify.
+
+corn:
+  name: { en: "Corn", es: "Maíz" }
+  family: poaceae
+  host_group: corn                    # corn rootworm and corn-specific diseases
+  season: summer
+  plant_window: { start: "04-15", end: "05-20" }       # L818 Table 5, Zone 2
+  harvest_window: { start: "09-20", end: "10-31" }     # verify
+  stage_days: { ini: 25, dev: 40, mid: 45, late: 30 }  # FAO-56 T11 maize grain, central US row, 140 d  # verify
+  kc: { ini: 0.30, mid: 1.20, end: 0.35 }              # FAO-56 T12; end 0.35 = field-dried grain
+  root_max_m: 1.7                                      # FAO-56 T22 (1.0 to 1.7 m)
+  p: 0.55                                              # FAO-56 T22
+  ky: 1.25                                             # FAO-56 T24 / FAO-33
+  heat: { stage: mid, tmax_c: 35 }                     # pollination heat; K-State guidance  # verify
+  frost_kill_c: -2                                     # about 28 F kills seedlings and late fill  # verify
+  requires_irrigation: false
+  n_fixing: false
+  residue: high
+  root_type: fibrous
+  forage: false
+  yield: { nass_commodity: "CORN", unit: "bu/ac", irrigated_default: null, dryland_default: null }   # M fills from NASS
+  price: { unit: "usd/bu", default: null }
+  equipment: []
+  sources:
+    - "FAO-56 Table 11, 12, 22, 24: https://www.fao.org/4/x0490e/x0490e0b.htm and https://www.fao.org/4/x0490e/x0490e0e.htm"
+    - "FAO-33: https://www.fao.org/4/i2800e/i2800e.pdf"
+    - "K-State L818 Kansas Crop Planting Guide: https://bookstore.ksre.ksu.edu/pubs/kansas-crop-planting-guide_L818.pdf"
+    - "Harvest window, heat and frost values: K-State Research and Extension working values # verify"
+
+sorghum:
+  name: { en: "Sorghum", es: "Sorgo" }
+  family: poaceae
+  host_group: sorghum                 # decision: separate from corn. They share some aphids and armyworms but not rootworm; M treats as a partial break  # verify
+  season: summer
+  plant_window: { start: "05-15", end: "06-20" }       # L818 Table 1, Zone 2
+  harvest_window: { start: "09-25", end: "11-15" }     # verify
+  stage_days: { ini: 20, dev: 35, mid: 40, late: 30 }  # FAO-56 T11 sorghum, USA row, 125 d
+  kc: { ini: 0.30, mid: 1.05, end: 0.55 }              # FAO-56 T12 (mid 1.00 to 1.10 -> 1.05)
+  root_max_m: 2.0                                      # FAO-56 T22 (1.0 to 2.0 m)
+  p: 0.55
+  ky: 0.90                                             # FAO-56 T24
+  heat: { stage: mid, tmax_c: 38 }                     # K-State guidance for flowering  # verify
+  frost_kill_c: -2                                     # verify
+  requires_irrigation: false
+  n_fixing: false
+  residue: high
+  root_type: fibrous
+  forage: false
+  yield: { nass_commodity: "SORGHUM", unit: "bu/ac", irrigated_default: null, dryland_default: null }
+  price: { unit: "usd/bu", default: null }
+  equipment: []
+  sources:
+    - "FAO-56 Table 11, 12, 22, 24: https://www.fao.org/4/x0490e/x0490e0b.htm and https://www.fao.org/4/x0490e/x0490e0e.htm"
+    - "K-State L818: https://bookstore.ksre.ksu.edu/pubs/kansas-crop-planting-guide_L818.pdf"
+    - "K-State sorghum planting date article: https://agronomy.k-state.edu/eupdates/2026/issue-1102-may-7/sorghum-planting-dates-hybrid-maturity-2026.html"
+    - "Harvest window, heat and frost values: K-State Research and Extension working values # verify"
+
+wheat:
+  name: { en: "Winter wheat", es: "Trigo de invierno" }
+  family: poaceae
+  host_group: small_grain             # wheat, triticale and rye share wheat curl mite, wheat streak mosaic and root rots
+  season: winter
+  plant_window: { start: "09-15", end: "10-20" }       # L818 Table 1, Zone 2; K-State BPMP date for best results
+  harvest_window: { start: "06-20", end: "07-15" }     # verify
+  stage_days: { ini: 30, dev: 140, mid: 40, late: 30 } # FAO-56 T11 winter wheat, Idaho USA row, 240 d  # verify
+  kc: { ini: 0.40, mid: 1.15, end: 0.30 }              # FAO-56 T12 winter wheat, frozen soils; end 0.25 to 0.40 -> 0.30
+  root_max_m: 1.5                                      # FAO-56 T22 (1.0 to 1.5 m)
+  p: 0.55
+  ky: 1.05                                             # FAO-56 T24 winter wheat (1.05)
+  heat: { stage: late, tmax_c: 32 }                    # grain fill heat; K-State guidance  # verify
+  frost_kill_c: -2                                     # spring freeze at heading; winter-hardy otherwise  # verify
+  requires_irrigation: false
+  n_fixing: false
+  residue: high
+  root_type: fibrous
+  forage: false
+  yield: { nass_commodity: "WHEAT", unit: "bu/ac", irrigated_default: null, dryland_default: null }   # class: winter
+  price: { unit: "usd/bu", default: null }
+  equipment: []
+  sources:
+    - "FAO-56 Table 11, 12, 22, 24: https://www.fao.org/4/x0490e/x0490e0b.htm and https://www.fao.org/4/x0490e/x0490e0e.htm"
+    - "K-State L818: https://bookstore.ksre.ksu.edu/pubs/kansas-crop-planting-guide_L818.pdf"
+    - "K-State wheat planting zones: https://agronomy.k-state.edu/eupdates/2026/issue-1118-august-27/planting-wheat-too-early.html"
+    - "Harvest window, heat and frost values: K-State Research and Extension working values # verify"
+
+soybean:
+  name: { en: "Soybean", es: "Soya" }
+  family: fabaceae
+  host_group: soybean                 # soybean cyst nematode, white mold
+  season: summer
+  plant_window: { start: "05-05", end: "06-10" }       # L818 Table 1, Zone 2
+  harvest_window: { start: "09-25", end: "10-31" }     # verify
+  stage_days: { ini: 20, dev: 30, mid: 60, late: 25 }  # FAO-56 T11 soybeans, central USA row, 135 d
+  kc: { ini: 0.40, mid: 1.15, end: 0.50 }              # FAO-56 T12
+  root_max_m: 1.3                                      # FAO-56 T22 (0.6 to 1.3 m)
+  p: 0.50
+  ky: 0.85                                             # FAO-56 T24
+  heat: { stage: mid, tmax_c: 35 }                     # flowering and pod set; K-State guidance  # verify
+  frost_kill_c: -2                                     # verify
+  requires_irrigation: false
+  n_fixing: true
+  residue: low
+  root_type: tap
+  forage: false
+  yield: { nass_commodity: "SOYBEANS", unit: "bu/ac", irrigated_default: null, dryland_default: null }
+  price: { unit: "usd/bu", default: null }
+  equipment: []
+  sources:
+    - "FAO-56 Table 11, 12, 22, 24: https://www.fao.org/4/x0490e/x0490e0b.htm and https://www.fao.org/4/x0490e/x0490e0e.htm"
+    - "K-State L818: https://bookstore.ksre.ksu.edu/pubs/kansas-crop-planting-guide_L818.pdf"
+    - "Nitrogen credit: https://cropwatch.unl.edu/giving-proper-nitrogen-credit-legumes-corn-and-milo-rotations/"
+    - "Harvest window, heat and frost values: K-State Research and Extension working values # verify"
+
+alfalfa:
+  name: { en: "Alfalfa", es: "Alfalfa" }
+  family: fabaceae
+  host_group: alfalfa
+  season: perennial
+  plant_window: { start: "08-15", end: "09-10" }       # L818 Table 1 fall seeding, Zone 2 (spring: 04-20 to 05-10)
+  harvest_window: { start: "05-15", end: "10-05" }     # cuttings through the season  # verify
+  stage_days: { ini: 10, dev: 30, mid: 130, late: 27 } # FAO-56 T11 gives 10 / 30 / variable; total set to last -4 C spring to first -4 C fall  # verify
+  kc: { ini: 0.40, mid: 0.95, end: 0.90 }              # FAO-56 T12 averaged over cuttings (per cutting: 0.40 / 1.20 / 1.15)
+  root_max_m: 2.0                                      # FAO-56 T22 (1.0 to 2.0 m)
+  p: 0.55
+  ky: 1.10                                             # FAO-56 T24
+  heat: { stage: null, tmax_c: null }                  # no sensitive stage used  # verify
+  frost_kill_c: -4                                     # FAO-56 T11 season definition (-4 C)
+  requires_irrigation: true                            # in Finney County a stand is not practical without irrigation  # verify
+  n_fixing: true
+  residue: medium
+  root_type: deep_tap
+  forage: true
+  yield: { nass_commodity: "HAY", unit: "tons/ac", irrigated_default: null, dryland_default: null }   # NASS short_desc: HAY, ALFALFA
+  price: { unit: "usd/ton", default: null }
+  equipment: [hay]
+  sources:
+    - "FAO-56 Table 11, 12, 22, 24: https://www.fao.org/4/x0490e/x0490e0b.htm and https://www.fao.org/4/x0490e/x0490e0e.htm"
+    - "K-State L818: https://bookstore.ksre.ksu.edu/pubs/kansas-crop-planting-guide_L818.pdf"
+    - "Alfalfa nitrogen credit: https://cropwatch.unl.edu/giving-proper-nitrogen-credit-legumes-corn-and-milo-rotations/"
+    - "Season water use 31 to 33 in: https://cropwatch.unl.edu/panhandle-seasonal-crop-water-requirements-2026/"
+
+triticale:
+  name: { en: "Triticale (forage)", es: "Triticale (forraje)" }
+  family: poaceae
+  host_group: small_grain
+  season: winter
+  plant_window: { start: "08-20", end: "09-25" }       # MF2227 Zone 2; L818 Table 1 says 08-20 to 09-25
+  harvest_window: { start: "05-10", end: "06-10" }     # cut at boot to dough stage  # verify
+  stage_days: { ini: 30, dev: 140, mid: 40, late: 20 } # no FAO-56 row; winter wheat row used as proxy, cut before full maturity  # verify
+  kc: { ini: 0.40, mid: 1.10, end: 0.40 }              # winter wheat proxy; end 0.40 when harvested green (FAO-56 T12)  # verify
+  root_max_m: 1.5                                      # winter wheat proxy  # verify
+  p: 0.55                                              # winter wheat proxy  # verify
+  ky: 1.05                                             # winter wheat proxy  # verify
+  heat: { stage: null, tmax_c: null }
+  frost_kill_c: -2                                     # verify
+  requires_irrigation: false
+  n_fixing: false
+  residue: medium
+  root_type: fibrous
+  forage: true
+  yield: { nass_commodity: null, unit: "tons/ac", irrigated_default: 3.0, dryland_default: 1.5 }   # Hays boot-stage study 2,200 to 9,200 lb/ac dry matter; central values  # verify
+  price: { unit: "usd/ton", default: null }            # no NASS series; M may use NASS hay price  # verify
+  equipment: [hay]
+  sources:
+    - "K-State MF2227 Triticale in Kansas (planting dates, forage yields, Table 2): https://bookstore.ksre.ksu.edu/pubs/mf2227.pdf"
+    - "K-State L818: https://bookstore.ksre.ksu.edu/pubs/kansas-crop-planting-guide_L818.pdf"
+    - "K-State small grain forage options: https://agronomy.k-state.edu/eupdates/2026/issue-1120-september-10/small-grain-forages-for-fall.html"
+    - "Kc, root, p, Ky use the FAO-56 winter wheat row as a proxy (no triticale row): https://www.fao.org/4/x0490e/x0490e0e.htm"
+
+rye_cover:
+  name: { en: "Cereal rye (cover)", es: "Centeno (cobertura)" }
+  family: poaceae
+  host_group: small_grain
+  season: cover
+  plant_window: { start: "09-15", end: "11-01" }       # K-State: plant no later than Nov 1 for most of Kansas
+  harvest_window: { start: "04-10", end: "05-10" }     # termination window, not harvest  # verify
+  stage_days: { ini: 30, dev: 100, mid: 50, late: 25 } # no FAO-56 row; assumed from planting to termination  # verify
+  kc: { ini: 0.40, mid: 1.00, end: 0.40 }              # cereal proxy (FAO-56 T12 small grain)  # verify
+  root_max_m: 1.0                                      # assumed  # verify
+  p: 0.55                                              # cereal proxy  # verify
+  ky: null                                             # cover crop, no yield modelled
+  heat: { stage: null, tmax_c: null }
+  frost_kill_c: null                                   # winter hardy  # verify
+  requires_irrigation: false
+  n_fixing: false
+  residue: high
+  root_type: fibrous
+  forage: false
+  yield: { nass_commodity: null, unit: null, irrigated_default: null, dryland_default: null }
+  price: { unit: null, default: null }
+  equipment: []
+  sources:
+    - "K-State, planting cereal rye after corn: https://agronomy.k-state.edu/eupdates/2026/issue-1122-september-24/planting-cereal-rye-after-corn-harvest.html"
+    - "SARE Managing Cover Crops Profitably, cereal rye: https://www.sare.org/publications/managing-cover-crops-profitably/nonlegume-cover-crops/cereal-rye/"
+    - "Cereal-group Kc and p from FAO-56 T12 and T22: https://www.fao.org/4/x0490e/x0490e0b.htm"
+
+cotton:
+  name: { en: "Cotton", es: "Algodón" }
+  family: malvaceae
+  host_group: cotton
+  season: summer
+  plant_window: { start: "05-05", end: "05-25" }       # not in L818  # verify
+  harvest_window: { start: "10-20", end: "12-10" }     # verify
+  stage_days: { ini: 30, dev: 50, mid: 60, late: 55 }  # FAO-56 T11 cotton, 195 d; long for Kansas  # verify
+  kc: { ini: 0.35, mid: 1.15, end: 0.60 }              # FAO-56 T12 (end 0.70 to 0.50 -> 0.60)
+  root_max_m: 1.7                                      # FAO-56 T22 (1.0 to 1.7 m)
+  p: 0.65
+  ky: 0.85                                             # FAO-56 T24
+  heat: { stage: mid, tmax_c: 38 }                     # verify
+  frost_kill_c: 0                                      # verify
+  requires_irrigation: false
+  n_fixing: false
+  residue: low
+  root_type: tap
+  forage: false
+  yield: { nass_commodity: "COTTON", unit: "lb/ac", irrigated_default: null, dryland_default: null }
+  price: { unit: "usd/lb", default: null }
+  equipment: [cotton]
+  sources:
+    - "FAO-56 Table 11, 12, 22, 24: https://www.fao.org/4/x0490e/x0490e0b.htm and https://www.fao.org/4/x0490e/x0490e0e.htm"
+    - "Planting and harvest windows, heat and frost: K-State Research and Extension working values # verify"
+
+fallow:
+  name: { en: "Fallow", es: "Barbecho" }
+  family: null
+  host_group: none
+  season: none
+  plant_window: { start: null, end: null }
+  harvest_window: { start: null, end: null }
+  stage_days: { ini: 0, dev: 0, mid: 0, late: 0 }
+  kc: { ini: 0.30, mid: 0.30, end: 0.30 }              # handover 5: bare soil evaporation
+  root_max_m: null
+  p: null
+  ky: null
+  heat: { stage: null, tmax_c: null }
+  frost_kill_c: null
+  requires_irrigation: false
+  n_fixing: false
+  residue: low                                         # depends on the previous crop; M may override
+  root_type: null
+  forage: false
+  yield: { nass_commodity: null, unit: null, irrigated_default: null, dryland_default: null }
+  price: { unit: null, default: null }
+  equipment: []
+  sources:
+    - "Handover 4 section 5 and model section 5.3 (bare soil evaporation): team contract"
+    - "FAO-56 Chapter 7 soil evaporation, bare soil: https://www.fao.org/4/x0490e/x0490e0c.htm"
