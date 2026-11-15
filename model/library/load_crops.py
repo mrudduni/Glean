@@ -79,6 +79,10 @@ def load_crops() -> tuple[dict, dict]:
     crops, prov = {}, {"crops_yaml": source, "nass": nass is not None, "yields": {}, "prices": {}}
     for cid in config.CROP_IDS:
         c = copy.deepcopy(raw[cid])
+        # crops.yaml may write a missing block as null; keep one shape for every caller
+        c["heat"] = c.get("heat") or {"stage": None, "tmax_c": None}
+        for w in ("plant_window", "harvest_window"):
+            c[w] = c.get(w) or {"start": None, "end": None}
         absent = [k for k in REQUIRED if k not in c]
         if absent:
             raise ValueError(f"crops.yaml {cid} lacks {absent}")
