@@ -7,14 +7,9 @@ import type { Field, Lang } from "@/lib/types";
 import type { TFunction } from "@/lib/i18n";
 import type { MapNeighbor } from "@/components/FieldMap";
 import { loc } from "@/lib/i18n";
-import { theme } from "@/lib/theme";
+import { kindColors } from "@/lib/theme";
 import { KIND_LABEL } from "@/lib/ui";
 
-export const kindColors: Record<Field["kind"], string> = {
-  irrigated_pivot: theme.crop.corn,
-  dryland: theme.crop.wheat,
-  sandy_wind: theme.risk.wind,
-};
 
 /** GeoJSON [lon, lat] rings → Leaflet [lat, lon]. */
 function ring(polygon: Field["geometry"]): LatLngExpression[][] {
@@ -42,7 +37,10 @@ export default function FieldMapCanvas({
   labels?: boolean;
 }) {
   const focus = selected ? fields.filter((field) => field.id === selected) : fields;
-  const points = [...focus, ...(selected ? neighbors : [])].flatMap((item) => item.geometry.coordinates[0].map(([lon, lat]) => [lat, lon] as [number, number]));
+  // With a selected field, frame it with its matched neighbours (the coloured ones), not the whole county pool.
+  const matched = neighbors.filter((item) => item.color);
+  const framed = selected ? (matched.length ? matched : neighbors) : [];
+  const points = [...focus, ...framed].flatMap((item) => item.geometry.coordinates[0].map(([lon, lat]) => [lat, lon] as [number, number]));
   const bounds: LatLngBoundsExpression = points.length ? points : [[37.9, -101], [38.1, -100.7]];
   return (
     <MapContainer center={[37.99, -100.87]} zoom={11} scrollWheelZoom={false} className="leaflet-map" zoomControl={false}>
@@ -55,9 +53,11 @@ export default function FieldMapCanvas({
         <Polygon
           key={neighbor.id}
           positions={ring(neighbor.geometry)}
-          pathOptions={{ color: neighbor.color ?? "#e8eadf", fillColor: neighbor.color ?? "#e8eadf", fillOpacity: neighbor.color ? 0.35 : 0.08, weight: 1 }}
+          pathOptions={neighbor.color
+            ? { color: neighbor.color, fillColor: neighbor.color, fillOpacity: 0.55, weight: 2 }
+            : { color: "#ffffff", opacity: 0.45, fill: false, weight: 1 }}
         >
-          <Tooltip sticky>{neighbor.rotation_class} · {Math.round(neighbor.similarity * 100)}%</Tooltip>
+          <Tooltip sticky>{neighbor.label ?? neighbor.rotation_class}</Tooltip>
         </Polygon>
       ))}
       {fields.map((field) => (

@@ -31,6 +31,11 @@ Generated from a grep of `t("…")` calls in `app/`, `components/` and `lib/`.
 | `overview.well_chart` | components/OverviewPanel.tsx | Depth to water at the nearest well ({km} km), metres below ground |
 | `overview.wells_deeper` | components/OverviewPanel.tsx | deeper each year |
 | `overview.wells_shallower` | components/OverviewPanel.tsx | shallower each year |
+| `neighbors.similarity` | components/NeighborsView.tsx | {pct}% similar |
+| `neighbors.matched_count` | components/NeighborsView.tsx | {matched} of {pool} nearby fields match on soil and irrigation. |
+| `neighbors.no_greenness` | components/NeighborsView.tsx | Drought-year greenness (MODIS) is not available for these fields yet. |
+| `neighbors.method` | components/NeighborsView.tsx | How these fields were matched |
+| `neighbors.your_field` | components/NeighborsView.tsx | Your field |
 | `assistant.own_key` | components/AssistantDrawer.tsx | Use my own key |
 | `assistant.own_key_on` | components/AssistantDrawer.tsx | on |
 | `assistant.own_key_toggle` | components/AssistantDrawer.tsx | Answer free-text questions with my key |
