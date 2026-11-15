@@ -6,6 +6,10 @@
 // - a 4-digit integer 1980-2035 is skipped only with no $ and no unit;
 // - without an explicit minus, magnitudes are compared (a fall of 0.86 cm matches -0.86);
 // - a unit may carry "/ac" (bu/ac, tons/ac); a bare "/ac" reads as usd.
+// Web-only (C8b), stricter than the Python port:
+// - an inch mark right after a number (11.8" or 11.8″) reads as inches;
+// - a number written without a unit or $ matches only count-like facts (unit null, days, years);
+// - a number with decimals never matches a whole-number fact that has no unit (a count).
 import type { AskResponse, Fact } from "@/lib/types";
 
 export type CheckedNumber = AskResponse["numbers"][number];
@@ -20,7 +24,7 @@ export interface FoundNumber {
 }
 
 const NUMBER = String.raw`\$?-?\d{1,3}(?:,\d{3})*(?:\.\d+)?(?!\d)|\$?-?\d+(?:\.\d+)?`;
-const UNITS = String.raw`mm|inches|in|%|°C|°F|days?|years?|cm|ft|m|acres|ac|bu|tons?|\/ac`;
+const UNITS = String.raw`"|″|mm|inches|in|%|°C|°F|days?|years?|cm|ft|m|acres|ac|bu|tons?|\/ac`;
 // The unit must not run into a following letter ("5 increase" is not "5 in").
 // The lookbehind keeps digits inside identifiers (R2, cap300) out; the Python port gets the same
 // effect because those never carry a unit and never match a fact by accident in the shared cases.
@@ -33,7 +37,7 @@ const M_PER_FT = 0.3048;
 
 const CANON: Record<string, string> = {
   mm: "mm", mm_per_yr: "mm", mm_per_day: "mm",
-  in: "in", inch: "in", inches: "in",
+  in: "in", inch: "in", inches: "in", '"': "in", "″": "in",
   ft: "ft", feet: "ft",
   cm: "cm", cm_per_yr: "cm",
   m: "m", m_per_yr: "m",
@@ -110,8 +114,11 @@ export function findNumbers(answer: string): FoundNumber[] {
   return found;
 }
 
-function compatible(a: string | null, b: string | null): boolean {
-  return a === null || b === null || a === b;
+const COUNT_LIKE = new Set<string | null>([null, "days", "years"]);
+
+function compatible(written: string | null, fact: string | null): boolean {
+  if (written === null) return COUNT_LIKE.has(fact);
+  return fact === null || written === fact;
 }
 
 /** README §9: verified when a fact with a compatible unit is within max(5 %, rounding step). First match wins. */
@@ -126,6 +133,7 @@ export function checkNumbers(answer: string, facts: Pick<Fact, "id" | "value" | 
     const step = found.step * scale;
     const hit = prepared.find((fact) => {
       if (!compatible(unit, fact.unit)) return false;
+      if (fact.unit === null && Number.isInteger(fact.value) && !Number.isInteger(found.value)) return false;
       const [x, y] = found.signed ? [value, fact.value] : [Math.abs(value), Math.abs(fact.value)];
       return Math.abs(x - y) <= Math.max(0.05 * Math.abs(fact.value), step) + 1e-9;
     });
