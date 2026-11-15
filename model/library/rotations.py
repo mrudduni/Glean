@@ -61,8 +61,10 @@ LIBRARY: dict[str, Rotation] = {
                    requires_equipment=("hay",), needs_forage_market=True),
     "R4": Rotation("R4", _s("alfalfa", "alfalfa", "alfalfa", "alfalfa", "corn", "wheat"), irrigated=True,
                    min_cap="cap300", requires_equipment=("hay",), needs_forage_market=True),
+    # corn-soybean in Finney County is mostly irrigated (NASS: 14,000 irrigated vs 3,000 dryland
+    # soybean acres in 2001; dryland soybean averages about 19 bu/ac in the district), so R5 needs a well
     "R5": Rotation("R5", (Step("corn"), Step("soybean"), Step("wheat", "rye_cover")), irrigated=True,
-                   min_cap="dryland"),
+                   min_cap="cap150"),
     "R6": Rotation("R6", _s("cotton", "wheat", "sorghum"), irrigated=False, min_cap="dryland",
                    requires_equipment=("cotton",), tier="could"),
 }
