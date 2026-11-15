@@ -1,0 +1,159 @@
+{
+  "_meta": {
+    "version": "0.1.0"
+  },
+  "rotations": {
+    "R0": {
+      "en": "Current baseline rotation sequence from satellite history.",
+      "es": "Secuencia de rotación de referencia a partir del historial satelital."
+    },
+    "R1": {
+      "en": "Adds a small grain break to the crop sequence.",
+      "es": "Añade un cereal pequeño a la secuencia."
+    },
+    "R2": {
+      "en": "Includes crops commonly considered for lower-water systems.",
+      "es": "Incluye cultivos que suelen considerarse en sistemas de menor consumo de agua."
+    },
+    "R3": {
+      "en": "Adds a winter cover period between cash crops.",
+      "es": "Añade cobertura de invierno entre cultivos comerciales."
+    },
+    "R4": {
+      "en": "Includes a forage year. Check market and equipment first.",
+      "es": "Incluye un año de forraje. Revise mercado y equipo primero."
+    },
+    "R5": {
+      "en": "A flexible sequence for a dryland planning discussion.",
+      "es": "Una secuencia flexible para conversar sobre secano."
+    }
+  },
+  "why": {
+    "water": {
+      "en": "Water use fits the priority you set.",
+      "es": "El uso de agua coincide con su prioridad."
+    },
+    "soil": {
+      "en": "Soil cover contributes to this score.",
+      "es": "La cobertura del suelo influye en esta puntuación."
+    },
+    "climate": {
+      "en": "The climate-fit estimate contributes to this score.",
+      "es": "La estimación climática influye en esta puntuación."
+    },
+    "market": {
+      "en": "The market-fit estimate contributes to this score.",
+      "es": "La estimación de mercado influye en esta puntuación."
+    },
+    "operations": {
+      "en": "The operations-fit estimate contributes to this score.",
+      "es": "La estimación operativa influye en esta puntuación."
+    }
+  },
+  "evidence": {
+    "water": {
+      "en": "Estimated seasonal irrigation need: {amount_mm}.",
+      "es": "Necesidad de riego estacional estimada: {amount_mm}."
+    },
+    "soil": {
+      "en": "This sequence includes a period of living cover.",
+      "es": "Esta secuencia incluye un periodo de cobertura viva."
+    },
+    "rotation": {
+      "en": "This crop sequence differs from the detected current rotation.",
+      "es": "Esta secuencia difiere de la rotación actual detectada."
+    }
+  },
+  "benefits": {
+    "cover": {
+      "en": "More months with a living crop may protect soil, depending on establishment and management.",
+      "es": "Más meses con un cultivo vivo pueden proteger el suelo, según su establecimiento y manejo."
+    },
+    "diversity": {
+      "en": "A different crop sequence may diversify planting and harvest windows.",
+      "es": "Una secuencia distinta puede diversificar las ventanas de siembra y cosecha."
+    },
+    "water": {
+      "en": "This sequence requires less seasonal irrigation than the current rotation.",
+      "es": "Esta secuencia requiere menos riego estacional que la rotación actual."
+    }
+  },
+  "gaps": {
+    "market": {
+      "en": "Local buyer demand and price are not verified.",
+      "es": "No se verificaron compradores ni precios locales."
+    },
+    "yield": {
+      "en": "Yield potentials incorporate regional county productivity indexes.",
+      "es": "El potencial de rendimiento incorpora índices regionales de productividad."
+    },
+    "soil": {
+      "en": "Map-based soil values need an on-field check.",
+      "es": "Los valores del mapa de suelo requieren verificación en el campo."
+    }
+  },
+  "risks": {
+    "equipment": {
+      "en": "Check planter, harvest and storage needs with your operator.",
+      "es": "Revise con su operador las necesidades de siembra, cosecha y almacenamiento."
+    },
+    "water": {
+      "en": "Confirm water rights, well capacity and delivery timing locally.",
+      "es": "Confirme localmente los derechos de agua, la capacidad del pozo y los turnos de riego."
+    },
+    "market": {
+      "en": "Confirm a buyer and a workable price before planting.",
+      "es": "Confirme comprador y precio viable antes de sembrar."
+    },
+    "no_local_market": {
+      "en": "Local market evidence is missing for at least one crop.",
+      "es": "Falta evidencia de mercado local para al menos un cultivo."
+    }
+  },
+  "infeasible": {
+    "needs_more_water": {
+      "en": "Needs more irrigation than the cap you set.",
+      "es": "Necesita más riego que el límite elegido."
+    },
+    "needs_equipment": {
+      "en": "Needs equipment that is not selected as available.",
+      "es": "Necesita equipo que no está marcado como disponible."
+    },
+    "needs_forage_market": {
+      "en": "Needs a forage market that is not selected as available.",
+      "es": "Necesita un mercado para forraje que no está marcado como disponible."
+    },
+    "lower_rank": {
+      "en": "Lower ranked for the priorities you selected.",
+      "es": "Menor puntuación con las prioridades elegidas."
+    }
+  },
+  "validation": {
+    "regional_context": {
+      "en": "Regional gridded observations from NASA POWER and GPM IMERG.",
+      "es": "Observaciones cuadriculadas regionales de NASA POWER y GPM IMERG."
+    },
+    "model_estimate": {
+      "en": "Model estimate. Check assumptions and local conditions.",
+      "es": "Estimación de modelo. Revise supuestos y condiciones locales."
+    },
+    "local_check": {
+      "en": "Local field check needed before decisions.",
+      "es": "Se requiere verificación local antes de decidir."
+    }
+  },
+  "headline": {
+    "soil": {
+      "en": "Soil texture is {texture} according to USDA SSURGO survey.",
+      "es": "La textura del suelo es {texture} según el estudio USDA SSURGO."
+    },
+    "water": {
+      "en": "Available water capacity estimate: {storage_mm}.",
+      "es": "Estimación de capacidad de almacenamiento de agua: {storage_mm}."
+    },
+    "climate": {
+      "en": "Recent multi-year climate records include {hot_days} hot days.",
+      "es": "Los registros climáticos recientes incluyen {hot_days} días calurosos."
+    }
+  }
+}

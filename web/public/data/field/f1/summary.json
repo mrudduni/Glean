@@ -1,0 +1,22 @@
+{
+  "_meta": { "version": "1.0.0" },
+  "field_id": "f1",
+  "current_rotation": { "id": "R0", "years": [2018, 2025], "steps": ["corn", "corn", "soy", "corn"] },
+  "soil": {
+    "texture": { "en": "Silt loam", "es": "Franco limoso" },
+    "water_storage_mm": 178,
+    "organic_matter_pct": 2.4,
+    "wind_erosion": { "en": "Moderate mapped susceptibility", "es": "Susceptibilidad cartografiada moderada" },
+    "source_ids": ["SOIL"]
+  },
+  "climate": {
+    "normal": { "frost_free_days": 168, "hot_days": 24, "precipitation_mm": 512 },
+    "recent": { "frost_free_days": 174, "hot_days": 31, "precipitation_mm": 486 },
+    "source_ids": ["POWER", "GPM"]
+  },
+  "headline_facts": [
+    { "text_id": "soil", "vars": { "texture": "silt loam" }, "source_ids": ["SOIL"] },
+    { "text_id": "water", "vars": { "storage_mm": 178 }, "source_ids": ["SOIL"] },
+    { "text_id": "climate", "vars": { "hot_days": 31 }, "source_ids": ["POWER"] }
+  ]
+}

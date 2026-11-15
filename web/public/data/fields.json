@@ -1,0 +1,27 @@
+{
+  "_meta": { "version": "1.0.0" },
+  "fields": [
+    {
+      "id": "f1", "name": { "en": "North Pivot", "es": "Pivote norte" }, "kind": "irrigated",
+      "area_ha": 64.7, "area_ac": 159.9, "soil_texture": { "en": "Silt loam", "es": "Franco limoso" },
+      "center": [37.99, -100.87], "polygon": [[37.996, -100.882], [37.996, -100.858], [37.984, -100.858], [37.984, -100.882]],
+      "current_rotation_id": "R0", "current_crops": ["corn", "corn", "soy", "corn"], "years": [2018, 2025]
+    },
+    {
+      "id": "f2", "name": { "en": "South Quarter", "es": "Cuartel sur" }, "kind": "irrigated",
+      "area_ha": 48.6, "area_ac": 120.1, "soil_texture": { "en": "Fine sandy loam", "es": "Franco arenoso fino" },
+      "center": [37.965, -100.89], "polygon": [[37.971, -100.902], [37.971, -100.878], [37.959, -100.878], [37.959, -100.902]],
+      "current_rotation_id": "R0", "current_crops": ["corn", "soy", "corn", "corn"], "years": [2018, 2025]
+    },
+    {
+      "id": "f3", "name": { "en": "West Dryland", "es": "Secano oeste" }, "kind": "dryland",
+      "area_ha": 72.4, "area_ac": 178.9, "soil_texture": { "en": "Sandy loam", "es": "Franco arenoso" },
+      "center": [38.012, -100.924], "polygon": [[38.018, -100.936], [38.018, -100.912], [38.006, -100.912], [38.006, -100.936]],
+      "current_rotation_id": "R0", "current_crops": ["wheat", "sorghum", "wheat", "sorghum"], "years": [2018, 2025]
+    }
+  ],
+  "neighbors": [
+    { "id": "n1", "polygon": [[38.025, -100.9], [38.025, -100.88], [38.015, -100.88], [38.015, -100.9]] },
+    { "id": "n2", "polygon": [[37.95, -100.86], [37.95, -100.84], [37.94, -100.84], [37.94, -100.86]] }
+  ]
+}

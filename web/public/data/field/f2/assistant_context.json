@@ -1,0 +1,9 @@
+{
+  "_meta": { "version": "1.0.0" },
+  "facts": [
+    { "id": "sample_rain", "text": "Seasonal precipitation estimate is 472 mm from historical climate records.", "source_ids": ["GPM", "POWER"] },
+    { "id": "soil_storage", "text": "Available water storage capacity estimate is 151 mm from USDA SSURGO survey.", "source_ids": ["SOIL"] },
+    { "id": "current_rotation", "text": "The detected rotation sequence is corn, soybeans, corn, corn.", "source_ids": ["CDL"] },
+    { "id": "data_status", "text": "Values are derived from Earth observation and agricultural survey databases.", "source_ids": [] }
+  ]
+}

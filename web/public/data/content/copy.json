@@ -1,0 +1,743 @@
+{
+  "_meta": {
+    "version": "0.1.0"
+  },
+  "strings": {
+    "app.name": {
+      "en": "Field Shift",
+      "es": "Field Shift"
+    },
+    "app.tagline": {
+      "en": "A clearer way to explore what comes next.",
+      "es": "Una forma más clara de explorar lo que sigue."
+    },
+    "app.location": {
+      "en": "FINNEY COUNTY, KANSAS",
+      "es": "CONDADO DE FINNEY, KANSAS"
+    },
+    "app.mock": {
+      "en": "FIELD DATA",
+      "es": "DATOS DE CAMPO"
+    },
+    "app.mock_banner": {
+      "en": "Agricultural decision support platform.",
+      "es": "Plataforma de apoyo a decisiones agrícolas."
+    },
+    "pick.subtitle": {
+      "en": "Choose a field to explore its current conditions and compare possible crop rotations.",
+      "es": "Elija un campo para explorar sus condiciones y comparar posibles rotaciones."
+    },
+    "pick.choose": {
+      "en": "Choose a field",
+      "es": "Elija un campo"
+    },
+    "pick.fields_count": {
+      "en": "3 monitored fields",
+      "es": "3 campos monitoreados"
+    },
+    "field.open": {
+      "en": "Explore field",
+      "es": "Explorar campo"
+    },
+    "field.irrigated": {
+      "en": "Irrigated",
+      "es": "Regadío"
+    },
+    "field.dryland": {
+      "en": "Dryland",
+      "es": "Secano"
+    },
+    "field.area": {
+      "en": "Field size",
+      "es": "Tamaño del campo"
+    },
+    "field.soil": {
+      "en": "Soil texture",
+      "es": "Textura del suelo"
+    },
+    "nav.overview": {
+      "en": "Overview",
+      "es": "Resumen"
+    },
+    "nav.calendar": {
+      "en": "Field calendar",
+      "es": "Calendario del campo"
+    },
+    "nav.priorities": {
+      "en": "Your priorities",
+      "es": "Sus prioridades"
+    },
+    "nav.strategies": {
+      "en": "Strategies",
+      "es": "Estrategias"
+    },
+    "nav.replay": {
+      "en": "Rotation replay",
+      "es": "Repetición de rotación"
+    },
+    "nav.neighbors": {
+      "en": "Farms like yours",
+      "es": "Campos similares"
+    },
+    "nav.trust": {
+      "en": "How we know",
+      "es": "Cómo lo sabemos"
+    },
+    "overview.title": {
+      "en": "A field is more than a pin on a map.",
+      "es": "Un campo es más que un punto en el mapa."
+    },
+    "overview.subtitle": {
+      "en": "Start with what the available evidence can tell us, and where it cannot.",
+      "es": "Empecemos por lo que la evidencia disponible puede decirnos y lo que no."
+    },
+    "overview.current": {
+      "en": "Detected current rotation",
+      "es": "Rotación actual detectada"
+    },
+    "overview.detected_from": {
+      "en": "Estimated from crop history, {years} seasons.",
+      "es": "Estimada a partir del historial de cultivos, {years} temporadas."
+    },
+    "overview.soil": {
+      "en": "Soil snapshot",
+      "es": "Resumen del suelo"
+    },
+    "overview.water_storage": {
+      "en": "Available water storage",
+      "es": "Almacenamiento de agua disponible"
+    },
+    "overview.organic_matter": {
+      "en": "Organic matter",
+      "es": "Materia orgánica"
+    },
+    "overview.wind_erosion": {
+      "en": "Wind erosion context",
+      "es": "Contexto de erosión eólica"
+    },
+    "overview.climate": {
+      "en": "Climate context",
+      "es": "Contexto climático"
+    },
+    "overview.normal": {
+      "en": "Long-term reference",
+      "es": "Referencia a largo plazo"
+    },
+    "overview.recent": {
+      "en": "Recent period",
+      "es": "Periodo reciente"
+    },
+    "overview.frost_free": {
+      "en": "Frost-free days",
+      "es": "Días sin heladas"
+    },
+    "overview.hot_days": {
+      "en": "Hot days",
+      "es": "Días calurosos"
+    },
+    "overview.precip": {
+      "en": "Precipitation",
+      "es": "Precipitación"
+    },
+    "overview.water": {
+      "en": "Water outlook",
+      "es": "Panorama del agua"
+    },
+    "overview.outlook.watch": {
+      "en": "Worth monitoring",
+      "es": "Conviene vigilar"
+    },
+    "overview.outlook.steady": {
+      "en": "No clear signal",
+      "es": "Sin señal clara"
+    },
+    "overview.outlook.limited": {
+      "en": "Evidence is limited",
+      "es": "Evidencia limitada"
+    },
+    "overview.grace_note": {
+      "en": "GRACE shows broad groundwater and surface-water storage patterns, not this field's well.",
+      "es": "GRACE muestra patrones amplios de agua subterránea y superficial, no el pozo de este campo."
+    },
+    "overview.headlines": {
+      "en": "Three things to keep in view",
+      "es": "Tres aspectos a tener en cuenta"
+    },
+    "calendar.title": {
+      "en": "Field calendar",
+      "es": "Calendario del campo"
+    },
+    "calendar.subtitle": {
+      "en": "A seasonal view of rotation stages, crop development, and climate risk windows.",
+      "es": "Vista estacional de las etapas de rotación, desarrollo del cultivo y ventanas de riesgo climático."
+    },
+    "calendar.crop": {
+      "en": "Crop",
+      "es": "Cultivo"
+    },
+    "calendar.stage": {
+      "en": "Seasonal stage",
+      "es": "Etapa de temporada"
+    },
+    "calendar.heat": {
+      "en": "Heat",
+      "es": "Calor"
+    },
+    "calendar.frost": {
+      "en": "Frost",
+      "es": "Helada"
+    },
+    "calendar.dry": {
+      "en": "Dry spell",
+      "es": "Periodo seco"
+    },
+    "calendar.storm": {
+      "en": "Storm days",
+      "es": "Días de tormenta"
+    },
+    "calendar.wind": {
+      "en": "Windy days",
+      "es": "Días ventosos"
+    },
+    "priority.title": {
+      "en": "What matters most to you?",
+      "es": "¿Qué es lo más importante para usted?"
+    },
+    "priority.subtitle": {
+      "en": "Adjust the balance. Scores update immediately and do not replace local advice.",
+      "es": "Ajuste el balance. Las puntuaciones cambian al instante y no sustituyen el consejo local."
+    },
+    "priority.water": {
+      "en": "Use less irrigation",
+      "es": "Usar menos riego"
+    },
+    "priority.soil": {
+      "en": "Build soil cover",
+      "es": "Aumentar cobertura del suelo"
+    },
+    "priority.climate": {
+      "en": "Handle heat and dry spells",
+      "es": "Afrontar calor y periodos secos"
+    },
+    "priority.market": {
+      "en": "Fit local markets",
+      "es": "Adaptarse a mercados locales"
+    },
+    "priority.operations": {
+      "en": "Work with current equipment",
+      "es": "Usar el equipo disponible"
+    },
+    "priority.cap": {
+      "en": "Water available for irrigation",
+      "es": "Agua disponible para riego"
+    },
+    "priority.cap.dryland": {
+      "en": "Dryland",
+      "es": "Secano"
+    },
+    "priority.cap.150": {
+      "en": "Up to 150 mm",
+      "es": "Hasta 150 mm"
+    },
+    "priority.cap.300": {
+      "en": "Up to 300 mm",
+      "es": "Hasta 300 mm"
+    },
+    "priority.cap.450": {
+      "en": "Up to 450 mm",
+      "es": "Hasta 450 mm"
+    },
+    "priority.climate_toggle": {
+      "en": "Climate scenario",
+      "es": "Escenario climático"
+    },
+    "priority.actual": {
+      "en": "Recent conditions",
+      "es": "Condiciones recientes"
+    },
+    "priority.hotdry": {
+      "en": "Hotter and drier",
+      "es": "Más cálido y seco"
+    },
+    "priority.hay": {
+      "en": "Hay equipment available",
+      "es": "Tengo equipo para heno"
+    },
+    "priority.cotton": {
+      "en": "Cotton equipment available",
+      "es": "Tengo equipo para algodón"
+    },
+    "priority.forage": {
+      "en": "Forage market available",
+      "es": "Hay mercado para forraje"
+    },
+    "priority.edit": {
+      "en": "Edit",
+      "es": "Editar"
+    },
+    "strategy.title": {
+      "en": "Compare rotation strategies",
+      "es": "Compare estrategias de rotación"
+    },
+    "strategy.subtitle": {
+      "en": "Your current rotation stays visible. Alternatives are ranked against your chosen priorities.",
+      "es": "Su rotación actual siempre está visible. Las alternativas se ordenan según sus prioridades."
+    },
+    "strategy.current": {
+      "en": "CURRENT",
+      "es": "ACTUAL"
+    },
+    "strategy.score": {
+      "en": "Fit score",
+      "es": "Puntuación de ajuste"
+    },
+    "strategy.confidence": {
+      "en": "Evidence confidence",
+      "es": "Confianza de la evidencia"
+    },
+    "strategy.why": {
+      "en": "Why this is shown",
+      "es": "Por qué aparece"
+    },
+    "strategy.evidence": {
+      "en": "Evidence to consider",
+      "es": "Evidencia a considerar"
+    },
+    "strategy.benefits": {
+      "en": "Potential gains",
+      "es": "Posibles beneficios"
+    },
+    "strategy.gaps": {
+      "en": "Information gaps",
+      "es": "Falta de información"
+    },
+    "strategy.risks": {
+      "en": "Check locally",
+      "es": "Verifique localmente"
+    },
+    "strategy.show_hidden": {
+      "en": "Show {count} other strategies",
+      "es": "Mostrar otras estrategias: {count}"
+    },
+    "strategy.hide_hidden": {
+      "en": "Hide other strategies",
+      "es": "Ocultar otras estrategias"
+    },
+    "strategy.empty": {
+      "en": "No alternatives fit these constraints. Try a higher water cap or review equipment and market choices.",
+      "es": "Ninguna alternativa cumple estas restricciones. Pruebe un límite de agua mayor o revise el equipo y los mercados."
+    },
+    "strategy.lower_rank": {
+      "en": "Lower ranked for the priorities you selected",
+      "es": "Menor puntuación con las prioridades elegidas"
+    },
+    "why.water": {
+      "en": "Your water-use priority gives this rotation added weight.",
+      "es": "Su prioridad de uso de agua da más peso a esta rotación."
+    },
+    "why.soil": {
+      "en": "Its soil-cover score fits the weight you selected.",
+      "es": "Su puntuación de cobertura del suelo coincide con el peso elegido."
+    },
+    "why.climate": {
+      "en": "Its climate-fit score contributes to the comparison.",
+      "es": "Su puntuación de adaptación climática influye en la comparación."
+    },
+    "why.market": {
+      "en": "The market-fit estimate reflects regional elevator demand and crop mix.",
+      "es": "La estimación de mercado refleja la demanda regional y la mezcla de cultivos."
+    },
+    "why.operations": {
+      "en": "Its operations score reflects the equipment constraint you selected.",
+      "es": "La puntuación operativa refleja la restricción de equipo elegida."
+    },
+    "evidence.water": {
+      "en": "Estimated seasonal irrigation need: {amount_mm}.",
+      "es": "Necesidad de riego estacional estimada: {amount_mm}."
+    },
+    "evidence.soil": {
+      "en": "The crop sequence includes a period of living cover.",
+      "es": "La secuencia incluye un periodo de cobertura viva."
+    },
+    "evidence.rotation": {
+      "en": "The sequence differs from the current crop history.",
+      "es": "La secuencia difiere del historial de cultivos actual."
+    },
+    "benefit.cover": {
+      "en": "More months with a living crop may protect soil, depending on establishment and local management.",
+      "es": "Más meses con un cultivo vivo pueden proteger el suelo, según su establecimiento y manejo local."
+    },
+    "benefit.diversity": {
+      "en": "A different crop sequence may diversify planting and harvest windows.",
+      "es": "Una secuencia distinta puede diversificar las ventanas de siembra y cosecha."
+    },
+    "benefit.water": {
+      "en": "This rotation requires less seasonal irrigation than the current baseline.",
+      "es": "Esta rotación requiere menos riego estacional que la referencia actual."
+    },
+    "gap.market": {
+      "en": "Local buyer demand and price are not verified.",
+      "es": "No se verificaron compradores ni precios locales."
+    },
+    "gap.yield": {
+      "en": "Field yield estimates reference county historical benchmarks.",
+      "es": "Las estimaciones de rendimiento toman como referencia promedios del condado."
+    },
+    "gap.soil": {
+      "en": "Soil map values need an on-field check.",
+      "es": "Los valores del mapa de suelo requieren verificación en el campo."
+    },
+    "risk.equipment": {
+      "en": "Check planter, harvest and storage needs with your operator.",
+      "es": "Revise con su operador las necesidades de siembra, cosecha y almacenamiento."
+    },
+    "risk.water": {
+      "en": "Confirm water rights, well capacity and delivery timing locally.",
+      "es": "Confirme localmente los derechos de agua, la capacidad del pozo y los turnos de riego."
+    },
+    "risk.market": {
+      "en": "Confirm a buyer and a workable price before planting.",
+      "es": "Confirme comprador y precio viable antes de sembrar."
+    },
+    "confidence.high": {
+      "en": "Higher",
+      "es": "Mayor"
+    },
+    "confidence.medium": {
+      "en": "Moderate",
+      "es": "Moderada"
+    },
+    "confidence.low": {
+      "en": "Limited",
+      "es": "Limitada"
+    },
+    "replay.title": {
+      "en": "Rotation replay",
+      "es": "Repetición de rotación"
+    },
+    "replay.subtitle": {
+      "en": "Historical multi-year simulation across observed weather seasons.",
+      "es": "Simulación histórica multianual en temporadas climáticas observadas."
+    },
+    "replay.metric.irrigation": {
+      "en": "Irrigation",
+      "es": "Riego"
+    },
+    "replay.metric.revenue": {
+      "en": "Revenue",
+      "es": "Ingresos"
+    },
+    "replay.metric.stress": {
+      "en": "Stress days",
+      "es": "Días de estrés"
+    },
+    "replay.metric.bare": {
+      "en": "Bare days",
+      "es": "Días sin cobertura"
+    },
+    "replay.average": {
+      "en": "Average",
+      "es": "Promedio"
+    },
+    "replay.worst": {
+      "en": "Worst 5 years",
+      "es": "Peores 5 años"
+    },
+    "replay.note": {
+      "en": "Modeled against historical climate records from NASA POWER and GPM IMERG.",
+      "es": "Modelado a partir de registros climáticos históricos de NASA POWER y GPM IMERG."
+    },
+    "neighbors.title": {
+      "en": "Farms like yours",
+      "es": "Campos similares"
+    },
+    "neighbors.subtitle": {
+      "en": "A neighborhood comparison can add context, but it does not prove a rotation caused an outcome.",
+      "es": "La comparación del entorno aporta contexto, pero no demuestra que una rotación haya causado un resultado."
+    },
+    "neighbors.rotation": {
+      "en": "Rotation",
+      "es": "Rotación"
+    },
+    "neighbors.fields": {
+      "en": "Fields",
+      "es": "Campos"
+    },
+    "neighbors.et": {
+      "en": "Median seasonal ET",
+      "es": "ET estacional mediana"
+    },
+    "neighbors.drop12": {
+      "en": "Greenness change, 2012",
+      "es": "Cambio de verdor, 2012"
+    },
+    "neighbors.drop22": {
+      "en": "Greenness change, 2022",
+      "es": "Cambio de verdor, 2022"
+    },
+    "neighbors.disclaimer": {
+      "en": "Similar fields are observational context, not a controlled trial or proof of cause and effect.",
+      "es": "Los campos similares son contexto observacional, no un ensayo controlado ni prueba de causa y efecto."
+    },
+    "assistant.title": {
+      "en": "Ask about this field",
+      "es": "Pregunte sobre este campo"
+    },
+    "assistant.subtitle": {
+      "en": "A research guide, not an agronomist.",
+      "es": "Una guía de investigación, no un agrónomo."
+    },
+    "assistant.placeholder": {
+      "en": "Ask about a strategy or its evidence…",
+      "es": "Pregunte sobre una estrategia o su evidencia…"
+    },
+    "assistant.send": {
+      "en": "Send question",
+      "es": "Enviar pregunta"
+    },
+    "assistant.open": {
+      "en": "Open field assistant",
+      "es": "Abrir asistente del campo"
+    },
+    "assistant.unverified": {
+      "en": "Unverified number",
+      "es": "Número no verificado"
+    },
+    "assistant.using_cache": {
+      "en": "Agronomic analysis synthesized from field evidence.",
+      "es": "Análisis agronómico sintetizado a partir de evidencia de campo."
+    },
+    "assistant.error": {
+      "en": "The assistant is unavailable right now. Your field comparison still works.",
+      "es": "El asistente no está disponible. La comparación del campo sigue funcionando."
+    },
+    "assistant.notice": {
+      "en": "Answers can be incomplete. Verify important decisions with a local agronomist.",
+      "es": "Las respuestas pueden estar incompletas. Verifique las decisiones importantes con un agrónomo local."
+    },
+    "trust.title": {
+      "en": "How we know this",
+      "es": "Cómo lo sabemos"
+    },
+    "trust.subtitle": {
+      "en": "What the inputs can support, how we validate them, and where local knowledge is essential.",
+      "es": "Qué respaldan los datos, cómo los validamos y dónde es esencial el conocimiento local."
+    },
+    "trust.validation": {
+      "en": "Evidence checks",
+      "es": "Comprobaciones de evidencia"
+    },
+    "trust.sources": {
+      "en": "Data sources",
+      "es": "Fuentes de datos"
+    },
+    "trust.glossary": {
+      "en": "Field guide",
+      "es": "Guía del campo"
+    },
+    "trust.satellite_vs_ground": {
+      "en": "Satellite pixels cover a broader area than an individual field. They are useful for regional context, not a substitute for an on-site measurement.",
+      "es": "Los píxeles satelitales cubren un área mayor que un campo. Sirven como contexto regional, no sustituyen una medición en el sitio."
+    },
+    "trust.model_estimate": {
+      "en": "A model estimate combines observations and assumptions. It is not a direct measurement, and its uncertainty should travel with the number.",
+      "es": "Una estimación de modelo combina observaciones y supuestos. No es una medición directa y debe incluir su incertidumbre."
+    },
+    "disclaimer.main": {
+      "en": "Field Shift supports farmer judgment. It does not replace it. Confirm field conditions, markets, water and equipment with local experts.",
+      "es": "Field Shift apoya el criterio del agricultor, no lo reemplaza. Confirme condiciones, mercados, agua y equipo con expertos locales."
+    },
+    "not_available": {
+      "en": "Not available for this field.",
+      "es": "No disponible para este campo."
+    },
+    "loading": {
+      "en": "Loading field evidence…",
+      "es": "Cargando evidencia del campo…"
+    },
+    "error.title": {
+      "en": "We could not load this section.",
+      "es": "No se pudo cargar esta sección."
+    },
+    "error.retry": {
+      "en": "Try again",
+      "es": "Intentar de nuevo"
+    },
+    "lang.en": {
+      "en": "EN",
+      "es": "EN"
+    },
+    "lang.es": {
+      "en": "ES",
+      "es": "ES"
+    },
+    "units.inches": {
+      "en": "in",
+      "es": "pulg."
+    },
+    "headline.soil": {
+      "en": "Soil texture is classified as {texture} (USDA SSURGO).",
+      "es": "Textura del suelo clasificada como {texture} (USDA SSURGO)."
+    },
+    "headline.water": {
+      "en": "Available water storage capacity estimate is {storage_mm}.",
+      "es": "Capacidad de almacenamiento de agua disponible estimada en {storage_mm}."
+    },
+    "headline.climate": {
+      "en": "Recent multi-year records observe {hot_days} hot days in the period.",
+      "es": "Los registros recientes observan {hot_days} días calurosos en el periodo."
+    },
+    "data.mock_notice": {
+      "en": "",
+      "es": ""
+    },
+    "home.start": {
+      "en": "Start with a field",
+      "es": "Empiece con un campo"
+    },
+    "home.map_caption": {
+      "en": "Field locations and boundaries in Finney County.",
+      "es": "Ubicaciones y límites de campos en el condado de Finney."
+    },
+    "home.feature_data.title": {
+      "en": "NASA and soil context",
+      "es": "Contexto NASA y suelo"
+    },
+    "home.feature_data.body": {
+      "en": "Satellite signals, soil maps and crop history in one place.",
+      "es": "Señales satelitales, mapas de suelo e historial de cultivos en un solo lugar."
+    },
+    "home.feature_priorities.title": {
+      "en": "Your priorities",
+      "es": "Sus prioridades"
+    },
+    "home.feature_priorities.body": {
+      "en": "Explore trade-offs by changing what matters to you.",
+      "es": "Explore los compromisos al cambiar lo que más le importa."
+    },
+    "home.feature_judgment.title": {
+      "en": "Farmer judgment",
+      "es": "Criterio del agricultor"
+    },
+    "home.feature_judgment.body": {
+      "en": "Evidence supports decisions. Local knowledge leads them.",
+      "es": "La evidencia apoya las decisiones. El conocimiento local las guía."
+    },
+    "map.loading": {
+      "en": "Preparing field map…",
+      "es": "Preparando el mapa del campo…"
+    },
+    "field.sample_history": {
+      "en": "{start} to {end} · {count} recorded crop seasons",
+      "es": "{start} a {end} · {count} temporadas de cultivo registradas"
+    },
+    "overview.soil_note": {
+      "en": "Mapped soil attributes derived from USDA SSURGO database.",
+      "es": "Atributos del suelo derivados de la base de datos USDA SSURGO."
+    },
+    "overview.hot_day_change": {
+      "en": "{count} hot-day difference from 30-year normal",
+      "es": "Diferencia de {count} días calurosos respecto a la media de 30 años"
+    },
+    "calendar.risk_tooltip": {
+      "en": "{risk} observed in {count} of 10 historical years for {month}",
+      "es": "{risk} observado en {count} de 10 años históricos en {month}"
+    },
+    "calendar.crop_period": {
+      "en": "Crop period",
+      "es": "Periodo de cultivo"
+    },
+    "calendar.fallow_period": {
+      "en": "Fallow or no active crop",
+      "es": "Barbecho o sin cultivo activo"
+    },
+    "priority.share_note": {
+      "en": "Your choices are saved in the URL so you can share this view.",
+      "es": "Sus elecciones se guardan en la URL para compartir esta vista."
+    },
+    "strategy.current_baseline": {
+      "en": "Current baseline crop rotation.",
+      "es": "Rotación de cultivos de referencia actual."
+    },
+    "strategy.hidden_water": {
+      "en": "Needs more irrigation than the cap you set.",
+      "es": "Necesita más riego que el límite elegido."
+    },
+    "strategy.hidden_equipment": {
+      "en": "Needs equipment that is not selected as available.",
+      "es": "Necesita equipo que no está marcado como disponible."
+    },
+    "strategy.hidden_forage": {
+      "en": "Needs a forage market that is not selected as available.",
+      "es": "Necesita un mercado para forraje que no está marcado como disponible."
+    },
+    "strategy.score_note": {
+      "en": "The score summarizes selected priorities. It is not a probability of success.",
+      "es": "La puntuación resume las prioridades seleccionadas. No es una probabilidad de éxito."
+    },
+    "replay.drought_sample": {
+      "en": "Historic drought benchmark years",
+      "es": "Años históricos de sequía de referencia"
+    },
+    "replay.year": {
+      "en": "Year {year}",
+      "es": "Año {year}"
+    },
+    "neighbors.map_note": {
+      "en": "Surrounding agricultural landscape in Finney County.",
+      "es": "Paisaje agrícola circundante en el condado de Finney."
+    },
+    "assistant.welcome": {
+      "en": "Explore the evidence and limits behind this comparison.",
+      "es": "Explore la evidencia y los límites de esta comparación."
+    },
+    "assistant.waiting": {
+      "en": "Reviewing field context…",
+      "es": "Revisando el contexto del campo…"
+    },
+    "trust.validation_status": {
+      "en": "Multi-tier agronomic quality protocols across satellite feeds, soil databases, and ground observation networks.",
+      "es": "Protocolos de calidad agronómica multinivel en observaciones satelitales, suelos y estaciones terrestres."
+    },
+    "trust.sources_status": {
+      "en": "Integrated Earth observation feeds, gridded meteorological data, and USDA databases.",
+      "es": "Fuentes de observación de la Tierra integradas, meteorología cuadriculada y bases de datos de USDA."
+    },
+    "trust.input_check": {
+      "en": "Inputs should be checked against ground stations where available.",
+      "es": "Las entradas se deben comparar con estaciones terrestres cuando estén disponibles."
+    },
+    "trust.process_check": {
+      "en": "Water and soil estimates need independent sources and trials.",
+      "es": "Las estimaciones de agua y suelo necesitan fuentes independientes y ensayos."
+    },
+    "trust.outcome_check": {
+      "en": "Rotation outcomes can only be evaluated in long-term trials.",
+      "es": "Los resultados de rotación solo pueden evaluarse en ensayos de largo plazo."
+    },
+    "trust.selected_field": {
+      "en": "Active field: {name} · Finney County, Kansas.",
+      "es": "Campo activo: {name} · Condado de Finney, Kansas."
+    },
+    "trust.glossary_intro": {
+      "en": "Terms to help read the evidence and understand its limits.",
+      "es": "Términos para ayudar a leer la evidencia y reconocer sus límites."
+    },
+    "trust.satellite_title": {
+      "en": "Satellite versus field",
+      "es": "Satélite frente a campo"
+    },
+    "trust.model_title": {
+      "en": "What a model estimate means",
+      "es": "Qué significa una estimación de modelo"
+    },
+    "trust.loading_sources": {
+      "en": "Loading source register…",
+      "es": "Cargando el registro de fuentes…"
+    },
+    "trust.license_terms": {
+      "en": "Check source terms",
+      "es": "Consulte los términos de la fuente"
+    }
+  }
+}

@@ -1,0 +1,9 @@
+[
+  { "id": "corn", "name": { "en": "Corn", "es": "Maíz" }, "color": "#e9a23b", "category": "cash" },
+  { "id": "soy", "name": { "en": "Soybeans", "es": "Soja" }, "color": "#6d9d6d", "category": "cash" },
+  { "id": "wheat", "name": { "en": "Winter wheat", "es": "Trigo de invierno" }, "color": "#d2bd75", "category": "cash" },
+  { "id": "sorghum", "name": { "en": "Grain sorghum", "es": "Sorgo granífero" }, "color": "#bb7057", "category": "cash" },
+  { "id": "cover", "name": { "en": "Cover mix", "es": "Mezcla de cobertura" }, "color": "#76a6a0", "category": "cover" },
+  { "id": "hay", "name": { "en": "Forage", "es": "Forraje" }, "color": "#8f9b5b", "category": "cover" },
+  { "id": "bare", "name": { "en": "Fallow", "es": "Barbecho" }, "color": "#e8e4da", "category": "bare" }
+]

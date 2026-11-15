@@ -1,0 +1,37 @@
+{
+  "_meta": {
+    "version": "1.0.0"
+  },
+  "questions": [
+    {
+      "id": "compare_water",
+      "en": "Which option uses the least irrigation?",
+      "es": "¿Qué opción usa menos riego?"
+    },
+    {
+      "id": "soil_cover",
+      "en": "How does a cover period change the calendar?",
+      "es": "¿Cómo cambia el calendario con una cobertura?"
+    },
+    {
+      "id": "market_check",
+      "en": "What should I check with a local buyer?",
+      "es": "¿Qué debo consultar con un comprador local?"
+    },
+    {
+      "id": "confidence",
+      "en": "Which parts of this comparison are least certain?",
+      "es": "¿Qué partes de esta comparación son menos seguras?"
+    },
+    {
+      "id": "hot_dry",
+      "en": "What changes in the hotter and drier scenario?",
+      "es": "¿Qué cambia en el escenario más cálido y seco?"
+    },
+    {
+      "id": "water_data",
+      "en": "What does the satellite water signal mean?",
+      "es": "¿Qué significa la señal satelital de agua?"
+    }
+  ]
+}

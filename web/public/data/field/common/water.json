@@ -1,0 +1,66 @@
+{
+  "_meta": {
+    "version": "0.1.0"
+  },
+  "grace": [
+    {
+      "month": "Jan",
+      "anomaly_mm": 4
+    },
+    {
+      "month": "Feb",
+      "anomaly_mm": 2
+    },
+    {
+      "month": "Mar",
+      "anomaly_mm": 1
+    },
+    {
+      "month": "Apr",
+      "anomaly_mm": -2
+    },
+    {
+      "month": "May",
+      "anomaly_mm": -5
+    },
+    {
+      "month": "Jun",
+      "anomaly_mm": -7
+    },
+    {
+      "month": "Jul",
+      "anomaly_mm": -8
+    },
+    {
+      "month": "Aug",
+      "anomaly_mm": -6
+    },
+    {
+      "month": "Sep",
+      "anomaly_mm": -4
+    },
+    {
+      "month": "Oct",
+      "anomaly_mm": -2
+    },
+    {
+      "month": "Nov",
+      "anomaly_mm": 0
+    },
+    {
+      "month": "Dec",
+      "anomaly_mm": 2
+    }
+  ],
+  "well": {
+    "name": {
+      "en": "Nearest public monitoring well",
+      "es": "Pozo público de monitoreo más cercano"
+    },
+    "trend_m_per_year": -0.3,
+    "source_ids": [
+      "SOIL"
+    ]
+  },
+  "outlook": "watch"
+}

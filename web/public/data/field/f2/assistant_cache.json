@@ -1,0 +1,29 @@
+{
+  "_meta": { "version": "1.0.0" },
+  "answers": {
+    "compare_water": {
+      "en": "Rotation models indicate R5 achieves the lowest seasonal irrigation requirement. Confirm site-specific water management planning. [POWER]",
+      "es": "Los modelos de rotación indican que R5 logra la menor necesidad de riego estacional. Confirme la planificación local del agua. [POWER]"
+    },
+    "soil_cover": {
+      "en": "R3 includes an overwinter cover period in the multi-season calendar. Establishment success depends on local planting timing, termination, and profile moisture. [NRCS]",
+      "es": "R3 incluye un período de cobertura invernal en el calendario multiestacional. El éxito del establecimiento depende del momento de siembra, terminación y humedad del perfil. [NRCS]"
+    },
+    "market_check": {
+      "en": "Consult local grain elevators and buyers regarding delivery windows, protein specifications, and contract terms.",
+      "es": "Consulte con acopiadores locales sobre ventanas de entrega, especificaciones de calidad y términos contractuales."
+    },
+    "confidence": {
+      "en": "Field boundaries, soil surveys, climate series, and rotation outcomes are synthesized from satellite and agricultural survey records. Review site-specific parameters before making capital commitments.",
+      "es": "Los límites de campo, estudios de suelo, series climáticas y resultados de rotación se sintetizan a partir de registros satelitales y agrícolas. Revise parámetros del sitio antes de tomar decisiones."
+    },
+    "hot_dry": {
+      "en": "The hotter and drier view simulates rotation performance under historical drought benchmarks and elevated evaporative demand.",
+      "es": "La vista más cálida y seca simula el rendimiento de la rotación bajo puntos de referencia históricos de sequía y mayor demanda evaporativa."
+    },
+    "water_data": {
+      "en": "SMAP observes surface soil moisture over a satellite pixel footprint. Root-zone products integrate land surface models. Treat the signal as regional hydrological context. [SMAP]",
+      "es": "SMAP observa humedad superficial en un píxel satelital. Los productos de zona radicular integran modelos de superficie terrestre como contexto hidrológico regional. [SMAP]"
+    }
+  }
+}

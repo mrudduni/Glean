@@ -1,0 +1,48 @@
+# Secrets
+.env
+.env.*
+.netrc
+_netrc
+*.pem
+*token*
+!web/styles/tokens.css
+!web/styles/tokens.json
+
+# Data caches and large rasters
+/data/
+/cache/
+*.tif
+*.tiff
+*.nc
+*.nc4
+*.h5
+*.he5
+*.hdf
+*.zarr/
+*.zip
+
+# Ensure web public assets and design tokens are tracked
+!web/public/
+!web/public/**
+!web/styles/
+!web/styles/**
+
+# Web dependencies and build outputs
+node_modules/
+.next/
+out/
+coverage/
+*.tsbuildinfo
+
+# Python
+__pycache__/
+*.pyc
+.venv/
+venv/
+
+# OS and editor
+.DS_Store
+Thumbs.db
+desktop.ini
+.vscode/
+.idea/

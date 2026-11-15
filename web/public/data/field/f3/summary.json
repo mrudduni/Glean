@@ -1,0 +1,22 @@
+{
+  "_meta": { "version": "1.0.0" },
+  "field_id": "f3",
+  "current_rotation": { "id": "R0", "years": [2018, 2025], "steps": ["wheat", "sorghum", "wheat", "sorghum"] },
+  "soil": {
+    "texture": { "en": "Sandy loam", "es": "Franco arenoso" },
+    "water_storage_mm": 126,
+    "organic_matter_pct": 1.6,
+    "wind_erosion": { "en": "Higher mapped susceptibility", "es": "Susceptibilidad cartografiada mayor" },
+    "source_ids": ["SOIL"]
+  },
+  "climate": {
+    "normal": { "frost_free_days": 165, "hot_days": 28, "precipitation_mm": 472 },
+    "recent": { "frost_free_days": 170, "hot_days": 36, "precipitation_mm": 451 },
+    "source_ids": ["POWER", "GPM"]
+  },
+  "headline_facts": [
+    { "text_id": "soil", "vars": { "texture": "sandy loam" }, "source_ids": ["SOIL"] },
+    { "text_id": "water", "vars": { "storage_mm": 126 }, "source_ids": ["SOIL"] },
+    { "text_id": "climate", "vars": { "hot_days": 36 }, "source_ids": ["POWER"] }
+  ]
+}

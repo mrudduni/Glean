@@ -1,0 +1,91 @@
+{
+  "_meta": {
+    "version": "0.1.0"
+  },
+  "sources": {
+    "POWER": {
+      "name": {
+        "en": "NASA POWER",
+        "es": "NASA POWER"
+      },
+      "url": "https://power.larc.nasa.gov/",
+      "role": {
+        "en": "Point weather, solar irradiance, and agro-climatological context.",
+        "es": "Contexto meteorológico, irradiancia solar y agroclimatológico puntual."
+      },
+      "license": "NASA POWER data use terms"
+    },
+    "SMAP": {
+      "name": {
+        "en": "NASA SMAP",
+        "es": "NASA SMAP"
+      },
+      "url": "https://smap.jpl.nasa.gov/",
+      "role": {
+        "en": "Satellite soil-moisture context. Pixel values are not field measurements.",
+        "es": "Contexto de humedad del suelo por satélite. Los valores de píxel no son mediciones del campo."
+      },
+      "license": "NASA data"
+    },
+    "GPM": {
+      "name": {
+        "en": "NASA GPM IMERG",
+        "es": "NASA GPM IMERG"
+      },
+      "url": "https://gpm.nasa.gov/data/imerg",
+      "role": {
+        "en": "Satellite precipitation context.",
+        "es": "Contexto de precipitación por satélite."
+      },
+      "license": "NASA data"
+    },
+    "SOIL": {
+      "name": {
+        "en": "USDA Soil Data Access",
+        "es": "USDA Soil Data Access"
+      },
+      "url": "https://www.nrcs.usda.gov/resources/data-and-reports/soil-survey-geographic-database-ssurgo",
+      "role": {
+        "en": "Soil survey attributes and map-unit context.",
+        "es": "Atributos de estudios de suelo y contexto de unidades cartográficas."
+      },
+      "license": "Public domain"
+    },
+    "CDL": {
+      "name": {
+        "en": "USDA Cropland Data Layer",
+        "es": "USDA Cropland Data Layer"
+      },
+      "url": "https://www.nass.usda.gov/Research_and_Science/Cropland/SARS1a.php",
+      "role": {
+        "en": "Crop-history context. Classification can be uncertain, especially for less common crops.",
+        "es": "Contexto del historial de cultivos. La clasificación puede ser incierta, en especial para cultivos menos comunes."
+      },
+      "license": "Public domain"
+    },
+    "MODIS": {
+      "name": {
+        "en": "NASA MODIS and VIIRS",
+        "es": "NASA MODIS y VIIRS"
+      },
+      "url": "https://lpdaac.usgs.gov/products/mod13q1v061/",
+      "role": {
+        "en": "Vegetation-index context at a much coarser scale than a field.",
+        "es": "Contexto de índices de vegetación a una escala mucho mayor que un campo."
+      },
+      "license": "NASA data"
+    },
+    "NRCS": {
+      "name": {
+        "en": "USDA NRCS",
+        "es": "USDA NRCS"
+      },
+      "url": "https://www.nrcs.usda.gov/",
+      "role": {
+        "en": "Conservation practice and soil interpretation references.",
+        "es": "Referencias para prácticas de conservación e interpretación del suelo."
+      },
+      "license": "Public domain"
+    }
+  }
+}
