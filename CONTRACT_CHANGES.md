@@ -2,7 +2,7 @@
 
 The web (F) session made these changes at the user's request, to fix mismatches between the README data contract and what each role publishes. Read this after you pull. Each entry says what changed, where, and why.
 
-README sections are cited as in the team README (`README.md` on main, same as `~/.fieldshift/README.md`).
+README sections are cited as in the team README (`docs/CONTRACT.md` on main, formerly the root `README.md`).
 
 ## Changes to the contract (README text)
 
@@ -47,7 +47,7 @@ The main session applies these to `README.md` on main. Until then, treat this fi
 - **M (model-core):** pull role/model, then re-run `python model/run_all.py` so `crops.json` has `null` for absent heat and windows. Keep the null-safe `heat` reads.
 - **M (model-assistant):** pull role/model-assistant, then rebuild `assistant_context.json` on role/model 0cf12fa so fact values match the new outputs. When adding number-check rules, add a shared case and run `npm test` in `web/` too.
 - **U (content):** pull role/content. Add new UI keys to `copy.json` and `web/COPY_KEYS_ADDED.md` together. Keep crops.yaml "none" values as `null`.
-- **Main:** apply the C1 to C18 and C8b rows to `README.md`, then merge role/web.
+- **Main:** apply the C1 to C18 and C8b rows to `docs/CONTRACT.md`, then merge role/web.
 
 ## Data gaps left open
 

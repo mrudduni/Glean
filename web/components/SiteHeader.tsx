@@ -3,19 +3,19 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { Moon, Sprout, Sun } from "lucide-react";
-import { useFieldShift } from "@/lib/state";
+import { useGlean } from "@/lib/state";
 import { useCopy } from "@/lib/useCopy";
 
 export function SiteHeader() {
   const pathname = usePathname();
-  const { lang, setLang, theme, setTheme } = useFieldShift();
+  const { lang, setLang, theme, setTheme } = useGlean();
   const t = useCopy();
   return (
     <header className="site-header">
       <div className="site-header-inner">
-        <Link className="brand" href="/" aria-label={t("app.name", "Stubble")}>
+        <Link className="brand" href="/" aria-label={t("app.name", "Glean")}>
           <span className="brand-mark"><Sprout size={19} strokeWidth={2.2} /></span>
-          <span className="brand-name">{t("app.name", "Stubble")}</span>
+          <span className="brand-name">{t("app.name", "Glean")}</span>
         </Link>
         <div className="header-location"><span className="location-dot" /> {t("app.location", "Finney County, Kansas")}</div>
         <nav className="header-nav" aria-label={t("nav.main", "Main navigation")}>

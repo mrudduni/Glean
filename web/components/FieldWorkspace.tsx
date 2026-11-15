@@ -12,7 +12,7 @@ import { ReplayChart } from "@/components/ReplayChart";
 import { NeighborsView } from "@/components/NeighborsView";
 import { AssistantDrawer } from "@/components/AssistantDrawer";
 import { CropChips } from "@/components/CropChips";
-import { useFieldShift } from "@/lib/state";
+import { useGlean } from "@/lib/state";
 import { getContent, getCrops, getFieldBundle, getFields, getRotations, getSources } from "@/lib/data";
 import { pickShown, sameRotation, weightsFromSliders } from "@/lib/score";
 import { loc, makeT, textureLabel, yearsLabel } from "@/lib/i18n";
@@ -42,7 +42,7 @@ const sections = [
 
 export function FieldWorkspace({ fieldId }: { fieldId: FieldId }) {
   const router = useRouter();
-  const state = useFieldShift();
+  const state = useGlean();
   const { lang, scenario } = state;
   const [data, setData] = useState<Loaded | null>(null);
   const [error, setError] = useState<string | null>(null);

@@ -1,7 +1,7 @@
 "use client";
 
 import { Coins, Droplets, Scale, Sprout, Wind } from "lucide-react";
-import { useFieldShift } from "@/lib/state";
+import { useGlean } from "@/lib/state";
 import { CAP_IDS } from "@/lib/schemas";
 import type { SliderId } from "@/lib/score";
 import type { TFunction } from "@/lib/i18n";
@@ -15,7 +15,7 @@ const sliders: { id: SliderId; icon: typeof Droplets }[] = [
 ];
 
 export function PrioritiesPanel({ t }: { t: TFunction }) {
-  const state = useFieldShift();
+  const state = useGlean();
   return (
     <section className="workspace-section priorities-section" id="priorities" aria-labelledby="priorities-heading">
       <div className="section-title-row">

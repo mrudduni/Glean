@@ -21,7 +21,7 @@ interface Values {
   theme: Theme;
 }
 
-export interface FieldShiftState extends Values {
+export interface GleanState extends Values {
   scenario: ScenarioKey;
   setField: (value: FieldId) => void;
   setCap: (value: CapId) => void;
@@ -39,13 +39,13 @@ const initial: Values = {
   hay: false, cotton: false, forage: false, lang: "en", theme: "light",
 };
 
-const StateContext = createContext<FieldShiftState | null>(null);
+const StateContext = createContext<GleanState | null>(null);
 
 function preferredTheme(params: URLSearchParams): Theme {
   const query = params.get("theme");
   if (query === "dark" || query === "light") return query;
   try {
-    const saved = localStorage.getItem("fieldshift_theme");
+    const saved = localStorage.getItem("glean_theme");
     if (saved === "dark" || saved === "light") return saved;
   } catch {
     // storage blocked: fall through to the system preference
@@ -110,7 +110,7 @@ export function AppProvider({ children }: { children: React.ReactNode }) {
   useEffect(() => {
     applyTheme(values.theme);
     try {
-      localStorage.setItem("fieldshift_theme", values.theme);
+      localStorage.setItem("glean_theme", values.theme);
     } catch {
       // ignore blocked storage
     }
@@ -138,7 +138,7 @@ export function AppProvider({ children }: { children: React.ReactNode }) {
     });
   }, []);
 
-  const state = useMemo<FieldShiftState>(() => ({
+  const state = useMemo<GleanState>(() => ({
     ...values,
     scenario: `${values.cap}|${values.climate}`,
     setField: (field) => update({ field }),
@@ -155,8 +155,8 @@ export function AppProvider({ children }: { children: React.ReactNode }) {
   return <StateContext.Provider value={state}>{children}</StateContext.Provider>;
 }
 
-export function useFieldShift(): FieldShiftState {
+export function useGlean(): GleanState {
   const state = useContext(StateContext);
-  if (!state) throw new Error("useFieldShift must be used inside AppProvider.");
+  if (!state) throw new Error("useGlean must be used inside AppProvider.");
   return state;
 }

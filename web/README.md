@@ -1,6 +1,6 @@
-# Stubble web app
+# Glean web app
 
-Next.js 15 frontend for Stubble (working name Field Shift). It shows one field's conditions, ranks crop rotations against the farmer's current one, and explains the evidence behind each number. It reads only the JSON files described in the team README, sections 7 to 9.
+Next.js 15 frontend for Glean. It shows one field's conditions, ranks crop rotations against the farmer's current one, and explains the evidence behind each number. It reads only the JSON files described in the team README, sections 7 to 9.
 
 ## Run locally
 

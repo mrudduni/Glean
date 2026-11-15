@@ -11,7 +11,7 @@ import { loc, type TFunction } from "@/lib/i18n";
 /** Bring your own key. Kept in this tab only (sessionStorage), sent per request in headers, never in the URL or body. */
 type OwnProvider = "groq" | "gemini" | "custom";
 interface OwnKey { on: boolean; provider: OwnProvider; baseUrl: string; model: string; key: string }
-const OWN_KEY_STORE = "stubble_own_llm";
+const OWN_KEY_STORE = "glean_own_llm";
 const PRESET_URL: Record<Exclude<OwnProvider, "custom">, string> = {
   groq: "https://api.groq.com/openai/v1",
   gemini: "https://generativelanguage.googleapis.com/v1beta/openai",

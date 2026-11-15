@@ -108,7 +108,7 @@
   },
   {
    "tag": "MODEL",
-   "name": "Stubble water-budget model (FAO-56)",
+   "name": "Glean water-budget model (FAO-56)",
    "provider": "Team Brackets (M)",
    "url": "https://github.com/mrudduni/Team-Brackets/blob/main/docs/METHODS.md",
    "what": "Simulated yield, water use and soil outputs built from the inputs above",

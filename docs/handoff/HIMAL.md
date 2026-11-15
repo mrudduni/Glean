@@ -21,7 +21,7 @@ Do not use `field-shift.vercel.app`: that belongs to another team.
 
 ## Read first
 
-- `README.md` sections 1 to 3 (what we built, the demo story, standout features)
+- `docs/CONTRACT.md` sections 1 to 3 (what we built, the demo story, standout features)
 - `docs/SUBMISSION.md` (draft text for the project page)
 - `docs/PITCH.md` (30-second video script)
 - `docs/METHODS.md` and `docs/DATA_SOURCES.md` (for the "how it works" and data sections)
@@ -29,7 +29,7 @@ Do not use `field-shift.vercel.app`: that belongs to another team.
 ## Your tasks, in order
 
 1. **Check the 2026 rules now.** Confirm the deadline time zone and the demo format: a video of 30 seconds or less, or at most 7 slides. Going over either removes the project from global judging. Tell Sarthak the answer.
-2. **The name is decided: Stubble.** Stubble is the crop residue that protects soil from wind, which ties to the Dust Bowl story. Use it on the slides, the video and the project page. The app is being renamed now; the live link moves to https://stubble.vercel.app once the alias is set.
+2. **The name is decided: Glean.** To glean is to gather what is left in a field after harvest. The app gathers what 25 years of NASA data already say about a field. Use it on the slides, the video and the project page. The app is being renamed now; the live link is https://field-shift-chi.vercel.app (https://glean-farms.vercel.app once it is made public).
 3. **Finish the deck** (if slides). Start from Parisha's PDF on branch `Parisha`. Seven slides max: problem, our tool, how it decides (data to model to cards), Rotation Replay, Farms Like Yours plus assistant, validation and honesty, impact and next steps. Use real screenshots once the real-data version is live. No NASA logos or meatball.
 4. **Record the video** (if video). Follow `docs/PITCH.md`. Record the live site at 1080p, burn in captions, 30 seconds or less. Watermark any AI-generated media.
 5. **Fill the Space Apps project page** from `docs/SUBMISSION.md`. Add the live URL, the repo link (https://github.com/mrudduni/Team-Brackets, public, Apache 2.0) and the video or slides. List every data source from `docs/DATA_SOURCES.md`. Use the AI disclosure from `docs/AI_USE.md` once it lands.
@@ -42,7 +42,7 @@ Do not use `field-shift.vercel.app`: that belongs to another team.
 
 - Work on branch `himal/pitch` (already created from `main`).
 - You may edit: `docs/handoff/`, `docs/PITCH.md`, `docs/SUBMISSION.md`, and add a `pitch/` folder for slides, video and screenshots (keep videos under 50 MB or link them instead).
-- Do not edit: `data-pipeline/`, `model/`, `scripts/`, `web/`, `content/`, `design/`, `README.md`. Sessions are writing there. Send changes for those to Sarthak.
+- Do not edit: `data-pipeline/`, `model/`, `scripts/`, `web/`, `content/`, `design/`, `README.md`, `docs/CONTRACT.md`. Sessions are writing there. Send changes for those to Sarthak.
 - Push often: `git push origin himal/pitch`. Sarthak merges it into `main`.
 - Never commit API keys or passwords.
 

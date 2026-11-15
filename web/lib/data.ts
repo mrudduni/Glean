@@ -17,7 +17,7 @@ const cache = new Map<string, Promise<unknown>>();
 const mockPaths = new Set<string>();
 const listeners = new Set<() => void>();
 
-export const MOCK_EVENT = "field-shift:mock-data";
+export const MOCK_EVENT = "glean:mock-data";
 
 /** Paths of every loaded file with `_meta.mock === true`. */
 export function mockFiles(): string[] {

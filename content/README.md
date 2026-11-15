@@ -1,6 +1,6 @@
 # content/
 
-Farmer-facing text and crop data for Stubble.
+Farmer-facing text and crop data for Glean.
 
 - `card_text.json`, `copy.json`, `glossary.json`, `assistant_questions.json`: text in English and Spanish. Placeholders and keys follow README sections 7.4 and 8.6 of the team contract.
 - `crops.yaml`: crop traits for the model, with sources. Lines marked `# verify` still need a check against K-State or FAO sources.

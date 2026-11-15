@@ -4,7 +4,7 @@ import { useMemo, useState } from "react";
 import { CartesianGrid, Line, LineChart, ReferenceArea, ResponsiveContainer, Tooltip, XAxis, YAxis } from "recharts";
 import type { ReplayFile, ReplayYear, RotationId, ScenarioKey } from "@/lib/types";
 import { formatVar, loc } from "@/lib/i18n";
-import { useFieldShift } from "@/lib/state";
+import { useGlean } from "@/lib/state";
 import { theme } from "@/lib/theme";
 import type { UI } from "@/lib/ui";
 
@@ -18,7 +18,7 @@ const HIGHER_IS_WORSE: Record<Metric, boolean> = { irrigation: true, revenue: fa
 
 export function ReplayChart({ replay, scenario, order, ui }: { replay: ReplayFile; scenario: ScenarioKey; order: RotationId[]; ui: UI }) {
   const { t, lang } = ui;
-  const { theme: mode } = useFieldShift();
+  const { theme: mode } = useGlean();
   const dark = mode === "dark";
   const [metric, setMetric] = useState<Metric>("irrigation");
   const runs = useMemo(() => replay.scenarios[scenario] ?? {}, [replay, scenario]);

@@ -4,7 +4,7 @@ import { useState } from "react";
 import { AlertTriangle, Check, ChevronDown, ChevronUp, Droplets, Info, Leaf, ListChecks, ShieldCheck } from "lucide-react";
 import type { CapId, CopyFile, CriterionId, EquipmentId, Rotation, RotationId, StrategyEntry, SummaryFile } from "@/lib/types";
 import { fill, formatVar, interpolate, loc } from "@/lib/i18n";
-import { useFieldShift } from "@/lib/state";
+import { useGlean } from "@/lib/state";
 import { CRITERION_IDS } from "@/lib/schemas";
 import { benefitsShown, scoreEntry, whyBullets, type Constraints, type ExclusionReason, type Picked, type Weights } from "@/lib/score";
 import { cardLine, cropLabel, type UI } from "@/lib/ui";
@@ -119,7 +119,7 @@ function StrategyCard({
   const es = lang === "es";   // Spanish fallbacks until these keys reach copy.json
   const why = unfair ? [] : whyBullets(entry, weights);
   const benefits = unfair ? [] : benefitsShown(entry);
-  const { cap, hay, cotton, forage } = useFieldShift();
+  const { cap, hay, cotton, forage } = useGlean();
   const unlock = reason ? unlockHint(entry, reason, rotations, t, { cap, hay, cotton, forage }) : null;
   const text = ui.cardText.rotations[id];
   const label = (k: CriterionId) => loc(ui.cardText.criteria_labels[k], lang) || k;

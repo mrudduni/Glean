@@ -612,7 +612,7 @@ def card_text() -> dict:
 
 
 COPY = {
-    "app.name": "Field Shift", "app.tagline": "Compare crop rotations for your field with NASA data",
+    "app.name": "Glean", "app.tagline": "Compare crop rotations for your field with NASA data",
     "disclaimer.main": "This tool supports your judgement. It does not replace it. Check water, markets and equipment with your local extension agent.",
     "banner.mock": "Mock data: some numbers on this page are placeholders.", "lang.en": "English", "lang.es": "Español",
     "nav.overview": "Overview", "nav.calendar": "Calendar", "nav.plan": "Plan", "nav.replay": "Replay", "nav.neighbors": "Farms like yours", "nav.trust": "How we know",
@@ -672,7 +672,7 @@ QUESTIONS = [
 ]
 
 PROMPT_SYSTEM = (
-    "You are the Field Shift assistant for {field_name}, a field in Finney County, Kansas. "
+    "You are the Glean assistant for {field_name}, a field in Finney County, Kansas. "
     "Answer in {lang_name}, in plain language a farmer would use. The scenario is {scenario_label}. "
     "The rotations on screen, best first, are {top_rotations}.\n\n"
     "Only use numbers from the facts below. After each number, add its source tag in square brackets, for example [POWER]. "

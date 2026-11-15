@@ -7,16 +7,16 @@
   },
   "strings": {
     "app.name": {
-      "en": "Stubble",
-      "es": "Stubble"
+      "en": "Glean",
+      "es": "Glean"
     },
     "app.tagline": {
-      "en": "Compare crop rotations that keep stubble on the ground to protect your soil and water.",
-      "es": "Compare rotaciones de cultivos que dejan rastrojo en el suelo para proteger su suelo y su agua."
+      "en": "Compare crop rotations for your field with 25 years of NASA data.",
+      "es": "Compare rotaciones de cultivos para su campo con 25 años de datos de la NASA."
     },
     "disclaimer.main": {
-      "en": "Stubble supports your judgement. It does not replace it or local expert advice. Results are estimates from satellites, models and past weather. Check with your K-State Research and Extension agent before you change your rotation.",
-      "es": "Stubble apoya su criterio, no lo reemplaza ni sustituye el consejo de expertos locales. Los resultados son estimaciones de satélites, modelos y clima del pasado. Consulte a su agente de K-State Research and Extension antes de cambiar su rotación."
+      "en": "Glean supports your judgement. It does not replace it or local expert advice. Results are estimates from satellites, models and past weather. Check with your K-State Research and Extension agent before you change your rotation.",
+      "es": "Glean apoya su criterio, no lo reemplaza ni sustituye el consejo de expertos locales. Los resultados son estimaciones de satélites, modelos y clima del pasado. Consulte a su agente de K-State Research and Extension antes de cambiar su rotación."
     },
     "banner.mock": {
       "en": "Showing sample data",
@@ -729,6 +729,70 @@
     "years.range": {
       "en": "{years_from}-{years_to}",
       "es": "{years_from}-{years_to}"
+    },
+    "assistant.busy": {
+      "en": "The assistant is busy right now. Try one of the suggested questions below. Their answers are ready.",
+      "es": "El asistente está ocupado ahora. Pruebe una de las preguntas sugeridas de abajo. Sus respuestas están listas."
+    },
+    "assistant.own_key": {
+      "en": "Use my own key",
+      "es": "Usar mi propia clave"
+    },
+    "assistant.own_key_on": {
+      "en": "on",
+      "es": "activa"
+    },
+    "assistant.own_key_toggle": {
+      "en": "Answer free-text questions with my key",
+      "es": "Responder preguntas escritas con mi clave"
+    },
+    "assistant.own_key_provider": {
+      "en": "Provider",
+      "es": "Proveedor"
+    },
+    "assistant.own_key_custom": {
+      "en": "Other (base URL)",
+      "es": "Otro (URL base)"
+    },
+    "assistant.own_key_url": {
+      "en": "Base URL (https)",
+      "es": "URL base (https)"
+    },
+    "assistant.own_key_model": {
+      "en": "Model id",
+      "es": "Nombre del modelo"
+    },
+    "assistant.own_key_key": {
+      "en": "API key",
+      "es": "Clave de API"
+    },
+    "assistant.own_key_note": {
+      "en": "Your key stays in this browser tab and is sent only with your questions. Suggested questions never use it.",
+      "es": "Su clave se queda en esta pestaña del navegador y solo se envía con sus preguntas. Las preguntas sugeridas nunca la usan."
+    },
+    "card.no_water_here": {
+      "en": "This field is not irrigated. These numbers assume no water, so they understate this rotation.",
+      "es": "Este campo no tiene riego. Estos números suponen que no hay agua, así que subestiman esta rotación."
+    },
+    "card.no_water_why": {
+      "en": "Not suggested here: it needs irrigation this field does not have.",
+      "es": "No se sugiere aquí: necesita riego y este campo no lo tiene."
+    },
+    "card.shown_at": {
+      "en": "Numbers shown with: {cap}.",
+      "es": "Números mostrados con: {cap}."
+    },
+    "card.unlock_tick": {
+      "en": "Tick \"{option}\" to include it.",
+      "es": "Marque \"{option}\" para incluirla."
+    },
+    "card.unlock_cap": {
+      "en": "Set the water limit to \"{option}\" or higher to include it.",
+      "es": "Ponga el límite de agua en \"{option}\" o más para incluirla."
+    },
+    "neighbors.fields_header": {
+      "en": "Nearby fields",
+      "es": "Campos cercanos"
     }
   }
 }

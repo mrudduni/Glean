@@ -80,7 +80,7 @@ CATALOG = {
                   url="https://www.fao.org/4/x0490e/x0490e00.htm",
                   what="Reference ET method and crop coefficients (Kc)", resolution="Method, not a dataset",
                   period="1998", used_for="Reference ET and crop water demand in the Replay"),
-    "MODEL": dict(name="Stubble water-budget model (FAO-56)", provider="Team Brackets (M)",
+    "MODEL": dict(name="Glean water-budget model (FAO-56)", provider="Team Brackets (M)",
                   url="https://github.com/mrudduni/Team-Brackets/blob/main/docs/METHODS.md",
                   what="Simulated yield, water use and soil outputs built from the inputs above",
                   resolution="Field, daily/annual", period="2016–2025",

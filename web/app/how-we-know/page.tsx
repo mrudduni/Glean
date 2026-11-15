@@ -4,7 +4,7 @@ import { useEffect, useMemo, useState } from "react";
 import Link from "next/link";
 import { ArrowUpRight, CheckCircle2, Database, Eye, Info } from "lucide-react";
 import { ValidationCards } from "@/components/TrustBadge";
-import { useFieldShift } from "@/lib/state";
+import { useGlean } from "@/lib/state";
 import { getContent, getCrops, getFields, getSources, getValidation } from "@/lib/data";
 import { loc, makeT } from "@/lib/i18n";
 import { cropNames, type UI } from "@/lib/ui";
@@ -13,7 +13,7 @@ import type { Content, CopyFile, Field, FieldId, SourcesFile, ValidationFile } f
 const NO_STRINGS: CopyFile["strings"] = {};
 
 export default function HowWeKnowPage() {
-  const { field: fieldId, lang } = useFieldShift();
+  const { field: fieldId, lang } = useGlean();
   const [sources, setSources] = useState<SourcesFile | null>(null);
   const [fields, setFields] = useState<Field[]>([]);
   const [content, setContent] = useState<Content | null>(null);

@@ -6,7 +6,7 @@ import { useRouter } from "next/navigation";
 import { ArrowDownRight, ArrowUpRight, Compass, Droplets, Layers3, MoveRight, Satellite, Sprout } from "lucide-react";
 import { FieldMap } from "@/components/FieldMap";
 import { CropChips } from "@/components/CropChips";
-import { useFieldShift } from "@/lib/state";
+import { useGlean } from "@/lib/state";
 import { getContent, getCrops, getFields, getSources } from "@/lib/data";
 import { formatVar, loc, makeT, textureLabel, yearsLabel } from "@/lib/i18n";
 import { cropNames, KIND_LABEL } from "@/lib/ui";
@@ -16,7 +16,7 @@ const NO_STRINGS: CopyFile["strings"] = {};
 
 export default function HomePage() {
   const router = useRouter();
-  const { lang, setField } = useFieldShift();
+  const { lang, setField } = useGlean();
   const [fields, setFields] = useState<Field[]>([]);
   const [crops, setCrops] = useState<CropsFile | null>(null);
   const [sources, setSources] = useState<SourcesFile | null>(null);

@@ -7,16 +7,16 @@
   },
   "strings": {
     "app.name": {
-      "en": "Stubble",
-      "es": "Stubble"
+      "en": "Glean",
+      "es": "Glean"
     },
     "app.tagline": {
-      "en": "Compare crop rotations that keep stubble on the ground to protect your soil and water.",
-      "es": "Compare rotaciones de cultivos que dejan rastrojo en el suelo para proteger su suelo y su agua."
+      "en": "Compare crop rotations for your field with 25 years of NASA data.",
+      "es": "Compare rotaciones de cultivos para su campo con 25 años de datos de la NASA."
     },
     "disclaimer.main": {
-      "en": "Stubble supports your judgement. It does not replace it or local expert advice. Results are estimates from satellites, models and past weather. Check with your K-State Research and Extension agent before you change your rotation.",
-      "es": "Stubble apoya su criterio, no lo reemplaza ni sustituye el consejo de expertos locales. Los resultados son estimaciones de satélites, modelos y clima del pasado. Consulte a su agente de K-State Research and Extension antes de cambiar su rotación."
+      "en": "Glean supports your judgement. It does not replace it or local expert advice. Results are estimates from satellites, models and past weather. Check with your K-State Research and Extension agent before you change your rotation.",
+      "es": "Glean apoya su criterio, no lo reemplaza ni sustituye el consejo de expertos locales. Los resultados son estimaciones de satélites, modelos y clima del pasado. Consulte a su agente de K-State Research and Extension antes de cambiar su rotación."
     },
     "banner.mock": {
       "en": "Showing sample data",

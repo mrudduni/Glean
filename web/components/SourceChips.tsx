@@ -14,7 +14,7 @@ export function SourceChips({ tags, sources }: { tags: SourceTag[]; sources: Sou
             {tag}
           </a>
         ) : (
-          <span className="source-chip" key={tag} title={tag === "MODEL" ? "Stubble model estimate" : tag}>{tag}</span>
+          <span className="source-chip" key={tag} title={tag === "MODEL" ? "Glean model estimate" : tag}>{tag}</span>
         );
       })}
     </span>

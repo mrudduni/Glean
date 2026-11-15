@@ -1,6 +1,6 @@
 # Handover 4 · Design + content (U)
 
-You own the **look, the words and the pitch** for Team Brackets' crop-rotation decision tool (NASA Space Apps 2026, "Adapting Farms with NASA Data"). Read the root [README.md](../README.md) first. It is the shared contract. §7.4 (placeholder formatting) and §8.5–§8.6 (your file formats and the full list of text keys) define exactly what you must produce. If this file and the README disagree, the README wins.
+You own the **look, the words and the pitch** for Team Brackets' crop-rotation decision tool (NASA Space Apps 2026, "Adapting Farms with NASA Data"). Read the team contract [docs/CONTRACT.md](../docs/CONTRACT.md) first (it was the root README.md; "README §N" below means its sections). It is the shared contract. §7.4 (placeholder formatting) and §8.5–§8.6 (your file formats and the full list of text keys) define exactly what you must produce. If this file and the README disagree, the README wins.
 
 ## 1. Your mission
 

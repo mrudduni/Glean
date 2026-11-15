@@ -198,7 +198,7 @@ def mock_context(fid: str) -> dict:
 
 def mock_cache(fid: str) -> dict:
     ans = {"answer_md": "This is a mock answer. The model estimates 380 mm of irrigation a year [MODEL].",
-           "citations": [{"tag": "MODEL", "name": "Field Shift model", "url": "https://github.com/mrudduni/Team-Brackets"}],
+           "citations": [{"tag": "MODEL", "name": "Glean model", "url": "https://github.com/mrudduni/Team-Brackets"}],
            "numbers": [{"text": "380 mm", "value": 380, "unit": "mm", "verified": True,
                         "fact_id": "replay.R0.cap300|actual.irrigation_mm_mean"}],
            "cached": True, "provider": "cache", "model": None}
