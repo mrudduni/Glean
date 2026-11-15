@@ -18,7 +18,7 @@ def season_outcome(s: Season, k: int, crops: dict, sidx: np.ndarray, stage: np.n
     water = max(0.0, 1.0 - ky * (1.0 - ratio))
 
     heat_days = 0
-    if c["heat"].get("stage") and c["heat"].get("tmax_c") is not None:
+    if (c["heat"] or {}).get("stage") and c["heat"].get("tmax_c") is not None:
         hs = STAGES.index(c["heat"]["stage"])
         window = np.flatnonzero((stage == hs) & mask)[: config.HEAT_WINDOW_DAYS]
         heat_days = int((tmax[window] > c["heat"]["tmax_c"]).sum())
