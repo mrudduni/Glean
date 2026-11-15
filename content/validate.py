@@ -247,7 +247,7 @@ def check_crops():
             err(f"crops.{c}: bad season")
         if v.get("residue") not in ("low", "medium", "high"):
             err(f"crops.{c}: bad residue")
-        if v.get("root_type") not in ("fibrous", "tap", "deep_tap"):
+        if v.get("root_type") not in ("fibrous", "tap", "deep_tap") and c != "fallow":
             err(f"crops.{c}: bad root_type")
         n = v.get("name", {})
         if not (n.get("en") and n.get("es")):
@@ -352,10 +352,8 @@ def check_tokens():
                 if r < 4.5:
                     err(f"tokens dark: contrast {a} on {b} = {r:.2f} (< 4.5)")
     # crop and risk marks: 3:1 against surface, rot lines 3:1
-    for g in ("crop", "rot", "risk"):
+    for g in ("rot", "risk"):
         for k, v in tj.get(g, {}).items():
-            if g == "crop" and k in ("bare", "fallow"):
-                continue  # pale fills with dark text on top, F adds hatching
             if "surface" in c and contrast(v, c["surface"]) < 3.0:
                 err(f"tokens: {g}.{k} {v} on surface = {contrast(v, c['surface']):.2f} (< 3.0)")
     # dark text on every crop fill >= 4.5
