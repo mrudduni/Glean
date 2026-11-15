@@ -46,4 +46,13 @@ export const ES_FALLBACK: Record<string, string> = {
   "summary.none_fit_title": "Nada encaja todavía con sus límites",
   "summary.unavailable": "{n} {n|opción se muestra|opciones se muestran} abajo; cada una necesita un cambio en sus límites.",
   "strategies.none_fit_dryland": "Ninguna otra rotación de secano encaja con estos límites. Marque el equipo o los compradores que tiene para ver más.",
+  "theme.system": "Igual que este dispositivo",
+  "priorities.summary_balanced": "Prioridades equilibradas",
+  "priorities.summary_most": "Más importante:",
+  "priorities.edit": "Cambiar",
+  "share.copy": "Copiar enlace a esta vista",
+  "share.copied": "Enlace copiado",
+  "share.copy_manual": "Copie este enlace",
+  "share.print": "Imprimir resumen",
+  "priorities.print_label": "Sus ajustes",
 };

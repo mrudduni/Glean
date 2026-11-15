@@ -13,6 +13,7 @@ import "@/styles/overview.css";
 import "@/styles/neighbors.css";
 import "@/styles/assistant.css";
 import "@/styles/trust.css";
+import "@/styles/print.css";
 import { AppProvider } from "@/lib/state";
 import { SiteFooter, SiteHeader } from "@/components/SiteHeader";
 import { MockBanner } from "@/components/MockBanner";
@@ -37,7 +38,7 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
         <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600&family=IBM+Plex+Mono:wght@500&family=Source+Sans+3:wght@400;600;700&display=swap" />
         <script
           dangerouslySetInnerHTML={{
-            __html: `(function(){try{var m=window.location.search.match(/[?&]theme=(dark|light)/);var t=m?m[1]:(localStorage.getItem('glean_theme')||localStorage.getItem('fieldshift_theme')||(window.matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light'));document.documentElement.setAttribute('data-theme',t);if(t==='dark')document.documentElement.classList.add('dark');}catch(e){}})();`,
+            __html: `(function(){try{var m=window.location.search.match(/[?&]theme=(dark|light)/);var s=localStorage.getItem('glean_theme')||localStorage.getItem('fieldshift_theme');var t=m?m[1]:((s==='dark'||s==='light')?s:(window.matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light'));document.documentElement.setAttribute('data-theme',t);if(t==='dark')document.documentElement.classList.add('dark');}catch(e){}})();`,
           }}
         />
       </head>

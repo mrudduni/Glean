@@ -3,7 +3,7 @@
 import { useEffect, useMemo, useRef, useState } from "react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
-import { ArrowDown, ArrowLeft, CircleHelp, MapPin, RotateCcw } from "lucide-react";
+import { ArrowDown, ArrowLeft, Check, CircleHelp, Link2, MapPin, MessageCircle, Printer, RotateCcw } from "lucide-react";
 import { OverviewPanel } from "@/components/OverviewPanel";
 import { PrioritiesPanel } from "@/components/PrioritiesPanel";
 import { FieldCalendar } from "@/components/FieldCalendar";
@@ -77,6 +77,32 @@ export function FieldWorkspace({ fieldId }: { fieldId: FieldId }) {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [irrigated, fieldId]);
 
+  // Section nav shows where the reader is.
+  const [activeSection, setActiveSection] = useState<string>("overview");
+  const loaded = Boolean(data);
+  useEffect(() => {
+    if (!loaded) return;
+    const nodes = sections.map(([id]) => document.getElementById(id)).filter((node): node is HTMLElement => Boolean(node));
+    const observer = new IntersectionObserver((entries) => {
+      const visible = entries.filter((entry) => entry.isIntersecting).sort((a, b) => a.boundingClientRect.top - b.boundingClientRect.top)[0];
+      if (visible) setActiveSection(visible.target.id);
+    }, { rootMargin: "-30% 0px -60% 0px" });
+    nodes.forEach((node) => observer.observe(node));
+    return () => observer.disconnect();
+  }, [loaded]);
+
+  // Share the exact view (field, priorities, limits and language are in the URL).
+  const [copied, setCopied] = useState(false);
+  const copyLink = async () => {
+    try {
+      await navigator.clipboard.writeText(window.location.href);
+      setCopied(true);
+      window.setTimeout(() => setCopied(false), 2500);
+    } catch {
+      window.prompt?.(t("share.copy_manual", "Copy this link"), window.location.href);
+    }
+  };
+
   const copy = data?.content.copy.strings ?? NO_STRINGS;
   const t = useMemo(() => makeT(copy, lang), [copy, lang]);
   const ui: UI | null = useMemo(() => (data ? {
@@ -149,6 +175,16 @@ export function FieldWorkspace({ fieldId }: { fieldId: FieldId }) {
     <div className="workspace-page">
       <div className="workspace-toolbar page-wrap">
         <Link href="/" className="back-link"><ArrowLeft size={16} aria-hidden="true" />{t("nav.all_fields", "All fields")}</Link>
+        <div className="toolbar-actions">
+          <button type="button" className="text-button" onClick={() => void copyLink()}>
+            {copied ? <Check size={16} aria-hidden="true" /> : <Link2 size={16} aria-hidden="true" />}
+            {copied ? t("share.copied", "Link copied") : t("share.copy", "Copy link to this view")}
+          </button>
+          <span className="sr-only" aria-live="polite">{copied ? t("share.copied", "Link copied") : ""}</span>
+          <button type="button" className="text-button" onClick={() => window.print()}>
+            <Printer size={16} aria-hidden="true" />{t("share.print", "Print summary")}
+          </button>
+        </div>
         <div className="field-switcher">
           <label htmlFor="field-switch"><MapPin size={15} aria-hidden="true" /><span>{t("nav.field", "Field")}</span></label>
           <select
@@ -219,8 +255,11 @@ export function FieldWorkspace({ fieldId }: { fieldId: FieldId }) {
 
       <nav className="section-nav" aria-label={t("nav.sections", "Field sections")}>
         <div className="section-nav-inner page-wrap">
-          {sections.map(([id, key]) => <a href={`#${id}`} key={id}>{t(key)}</a>)}
+          {sections.map(([id, key]) => <a href={`#${id}`} key={id} aria-current={activeSection === id ? "location" : undefined}>{t(key)}</a>)}
           <Link href="/how-we-know" className="trust-nav"><CircleHelp size={16} aria-hidden="true" />{t("nav.trust")}</Link>
+          <button type="button" className="nav-ask" onClick={() => window.dispatchEvent(new Event("glean:open-assistant"))}>
+            <MessageCircle size={16} aria-hidden="true" />{t("assistant.title")}
+          </button>
         </div>
       </nav>
 

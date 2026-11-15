@@ -2,13 +2,13 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { Moon, Sun } from "lucide-react";
+import { Monitor, Moon, Sun } from "lucide-react";
 import { useGlean } from "@/lib/state";
 import { useCopy } from "@/lib/useCopy";
 
 export function SiteHeader() {
   const pathname = usePathname();
-  const { lang, setLang, theme, setTheme } = useGlean();
+  const { lang, setLang, themeChoice, setTheme } = useGlean();
   const t = useCopy();
   return (
     <header className="site-header">
@@ -31,24 +31,11 @@ export function SiteHeader() {
         </nav>
         <div className="header-controls">
           <div className="theme-toggle" role="group" aria-label={t("theme.label", "Colour theme")}>
-            <button
-              type="button"
-              className={theme === "light" ? "active" : ""}
-              aria-pressed={theme === "light"}
-              onClick={() => setTheme("light")}
-              aria-label={t("theme.light", "Light theme")}
-            >
-              <Sun size={15} strokeWidth={2.2} />
-            </button>
-            <button
-              type="button"
-              className={theme === "dark" ? "active" : ""}
-              aria-pressed={theme === "dark"}
-              onClick={() => setTheme("dark")}
-              aria-label={t("theme.dark", "Dark theme")}
-            >
-              <Moon size={15} strokeWidth={2.2} />
-            </button>
+            {([["light", Sun, t("theme.light", "Light theme")], ["dark", Moon, t("theme.dark", "Dark theme")], ["system", Monitor, t("theme.system", "Match this device")]] as const).map(([value, Icon, label]) => (
+              <button key={value} type="button" aria-pressed={themeChoice === value} aria-label={label} title={label} onClick={() => setTheme(value)}>
+                <Icon size={15} strokeWidth={2.2} aria-hidden="true" />
+              </button>
+            ))}
           </div>
           <div className="lang-toggle" role="group" aria-label={t("lang.label", "Language")}>
             <button type="button" aria-pressed={lang === "en"} aria-label={t("lang.en")} onClick={() => setLang("en")}>EN</button>

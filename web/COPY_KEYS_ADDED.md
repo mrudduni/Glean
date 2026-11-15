@@ -56,6 +56,13 @@ Generated from a grep of `t("…")` calls in `app/`, `components/` and `lib/`.
 | `summary.none_fit_title` | components/FieldWorkspace.tsx | Nothing fits your limits yet |
 | `summary.unavailable` | components/FieldWorkspace.tsx | {n} {n\|option is\|options are} shown below, each needing a change to your limits. |
 | `strategies.none_fit_dryland` | components/StrategyPanel.tsx | No other dryland rotation fits these limits. Tick the equipment or buyers you have to see more. |
+| `theme.system` | components/SiteHeader.tsx | Match this device |
+| `priorities.summary_balanced` | components/PrioritiesPanel.tsx | Balanced priorities |
+| `priorities.summary_most` | components/PrioritiesPanel.tsx | Most: |
+| `priorities.edit` | components/PrioritiesPanel.tsx | Edit |
+| `share.copy` / `share.copied` / `share.copy_manual` | components/FieldWorkspace.tsx | Copy link to this view / Link copied / Copy this link |
+| `share.print` | components/FieldWorkspace.tsx | Print summary |
+| `priorities.print_label` | components/PrioritiesPanel.tsx | Your settings (print summary) |
 | `assistant.own_key` | components/AssistantDrawer.tsx | Use my own key |
 | `assistant.own_key_on` | components/AssistantDrawer.tsx | on |
 | `assistant.own_key_toggle` | components/AssistantDrawer.tsx | Answer free-text questions with my key |

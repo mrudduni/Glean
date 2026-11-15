@@ -8,6 +8,8 @@ import { CAP_IDS } from "@/lib/schemas";
 import { DEFAULT_SLIDERS, SLIDER_IDS, type SliderId, type Sliders } from "@/lib/score";
 
 export type Theme = "light" | "dark";
+/** What the viewer picked; "system" follows the device setting and keeps following it. */
+export type ThemeChoice = Theme | "system";
 
 interface Values {
   field: FieldId;
@@ -19,6 +21,7 @@ interface Values {
   forage: boolean;
   lang: Lang;
   theme: Theme;
+  themeChoice: ThemeChoice;
 }
 
 export interface GleanState extends Values {
@@ -31,29 +34,33 @@ export interface GleanState extends Values {
   setCotton: (value: boolean) => void;
   setForage: (value: boolean) => void;
   setLang: (value: Lang) => void;
-  setTheme: (value: Theme) => void;
+  setTheme: (value: ThemeChoice) => void;
 }
 
 export type FieldShiftState = GleanState;
 
 const initial: Values = {
   field: "f1", cap: "cap300", climate: "actual", sliders: DEFAULT_SLIDERS,
-  hay: false, cotton: false, forage: false, lang: "en", theme: "light",
+  hay: false, cotton: false, forage: false, lang: "en", theme: "light", themeChoice: "system",
 };
 
 const StateContext = createContext<GleanState | null>(null);
 
-function preferredTheme(params: URLSearchParams): Theme {
+const systemTheme = (): Theme => (window.matchMedia?.("(prefers-color-scheme: dark)").matches ? "dark" : "light");
+
+function preferredChoice(params: URLSearchParams): ThemeChoice {
   const query = params.get("theme");
   if (query === "dark" || query === "light") return query;
   try {
     const saved = localStorage.getItem("glean_theme") || localStorage.getItem("fieldshift_theme");
-    if (saved === "dark" || saved === "light") return saved;
+    if (saved === "dark" || saved === "light" || saved === "system") return saved;
   } catch {
-    // storage blocked: fall through to the system preference
+    // storage blocked: follow the device
   }
-  return window.matchMedia?.("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+  return "system";
 }
+
+const resolve = (choice: ThemeChoice): Theme => (choice === "system" ? systemTheme() : choice);
 
 function readState(): Values {
   const params = new URLSearchParams(window.location.search);
@@ -75,7 +82,8 @@ function readState(): Values {
     cotton: params.get("cotton") === "1",
     forage: params.get("forage") === "1",
     lang: params.get("lang") === "es" ? "es" : "en",
-    theme: preferredTheme(params),
+    themeChoice: preferredChoice(params),
+    theme: resolve(preferredChoice(params)),
   };
 }
 
@@ -111,12 +119,21 @@ export function AppProvider({ children }: { children: React.ReactNode }) {
 
   useEffect(() => {
     applyTheme(values.theme);
+  }, [values.theme]);
+
+  useEffect(() => {
     try {
-      localStorage.setItem("glean_theme", values.theme);
+      localStorage.setItem("glean_theme", values.themeChoice);
     } catch {
       // ignore blocked storage
     }
-  }, [values.theme]);
+    if (values.themeChoice !== "system") return;
+    // Following the device: switch when the device switches.
+    const media = window.matchMedia?.("(prefers-color-scheme: dark)");
+    const onChange = () => setValues((current) => (current.themeChoice === "system" ? { ...current, theme: systemTheme() } : current));
+    media?.addEventListener("change", onChange);
+    return () => media?.removeEventListener("change", onChange);
+  }, [values.themeChoice]);
 
   useEffect(() => {
     document.documentElement.lang = values.lang;
@@ -151,7 +168,7 @@ export function AppProvider({ children }: { children: React.ReactNode }) {
     setCotton: (cotton) => update({ cotton }),
     setForage: (forage) => update({ forage }),
     setLang: (lang) => update({ lang }),
-    setTheme: (theme) => update({ theme }),
+    setTheme: (choice) => update({ themeChoice: choice, theme: resolve(choice) }),
   }), [update, values]);
 
   return <StateContext.Provider value={state}>{children}</StateContext.Provider>;

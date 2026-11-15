@@ -56,15 +56,25 @@
   max-height: calc(100vh - 80px); overflow-y: auto;
   padding: var(--sp-4);
   border: 1px solid var(--rule); border-radius: var(--radius);
-  background: var(--color-surface);
+  /* Shadows show at the top or bottom edge only while there is more to scroll that way. */
+  background:
+    linear-gradient(var(--color-surface) 30%, transparent) center top / 100% 32px no-repeat local,
+    linear-gradient(transparent, var(--color-surface) 70%) center bottom / 100% 32px no-repeat local,
+    radial-gradient(farthest-side at 50% 0, rgb(0 0 0 / 0.16), transparent) center top / 100% 12px no-repeat scroll,
+    radial-gradient(farthest-side at 50% 100%, rgb(0 0 0 / 0.16), transparent) center bottom / 100% 12px no-repeat scroll,
+    var(--color-surface);
+  scrollbar-width: thin;
 }
-.priority-rail summary { display: flex; align-items: center; justify-content: space-between; list-style: none; cursor: default; }
+.priority-rail summary { display: flex; align-items: center; justify-content: space-between; gap: var(--sp-3); list-style: none; cursor: default; }
+.priority-rail-title { display: grid; gap: 2px; min-width: 0; }
+.priority-summary { color: var(--text-2); font-size: var(--fs-cap); }
+.priority-rail-edit { display: inline-flex; align-items: center; gap: var(--sp-1); color: var(--color-accent); font-weight: 600; font-size: var(--fs-cap); white-space: nowrap; }
 .priority-rail summary::-webkit-details-marker { display: none; }
 .priority-rail h3 { font-size: var(--fs-body); }
-.priority-rail-body { display: grid; gap: var(--sp-5); margin-top: var(--sp-2); }
+.priority-rail-body { display: grid; gap: var(--sp-4); margin-top: var(--sp-2); }
 .priority-rail-chevron { display: none; }
 .priority-hint { margin: 0; color: var(--text-3); font-size: var(--fs-cap); }
-.priority-sliders { display: grid; gap: var(--sp-3); }
+.priority-sliders { display: grid; gap: var(--sp-2); }
 .priority-slider { display: grid; grid-template-columns: 1fr auto; align-items: center; gap: 2px var(--sp-2); font-size: var(--fs-cap); color: var(--text-1); }
 .priority-slider input[type="range"] { grid-column: 1 / -1; width: 100%; margin: 0; min-height: 24px; }
 .slider-value { min-width: 1.5em; text-align: right; font-weight: 700; color: var(--text-1); }
@@ -84,4 +94,29 @@
 @media (max-width: 640px) {
   .masthead-brief { grid-template-columns: minmax(0, 1fr); }
   .brief-facts { grid-row: auto; }
+}
+
+.toolbar-actions { display: flex; flex-wrap: wrap; gap: var(--sp-2) var(--sp-4); margin-right: auto; margin-left: var(--sp-5); }
+.toolbar-actions .text-button { font-size: var(--fs-cap); }
+
+/* Current section in the sticky nav. */
+.section-nav a[aria-current="location"] { color: var(--text-1); box-shadow: inset 0 -2px 0 var(--color-accent); }
+
+/* On wide screens "Ask about this field" lives in the sticky nav, so nothing floats over the content. */
+.nav-ask {
+  display: none; flex: none; align-items: center; gap: var(--sp-1);
+  min-height: 34px; padding: 0 var(--sp-3);
+  border: 0; border-radius: 17px;
+  background: var(--color-accent); color: var(--on-accent);
+  font-size: var(--fs-cap); font-weight: 600; cursor: pointer;
+}
+.nav-ask:hover { background: color-mix(in oklab, var(--color-accent) 86%, var(--text-1)); }
+@media (min-width: 1024px) {
+  .nav-ask { display: inline-flex; }
+  .workspace-page .assistant-fab { display: none; }
+}
+/* Narrow screens keep the floating button; leave room so it never covers the last lines. */
+@media (max-width: 1023px) {
+  .workspace-content { padding-bottom: 88px; }
+  .toolbar-actions { order: 3; width: 100%; margin: 0; }
 }

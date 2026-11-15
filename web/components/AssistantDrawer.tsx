@@ -69,6 +69,13 @@ export function AssistantDrawer({
   const panelRef = useRef<HTMLElement>(null);
   const inputRef = useRef<HTMLTextAreaElement>(null);
   const fabRef = useRef<HTMLButtonElement>(null);
+  // Focus goes back to whichever button opened the drawer (floating button or the one in the section nav).
+  const openerRef = useRef<HTMLElement | null>(null);
+  useEffect(() => {
+    const openFromNav = () => { openerRef.current = document.activeElement as HTMLElement | null; setOpen(true); };
+    window.addEventListener("glean:open-assistant", openFromNav);
+    return () => window.removeEventListener("glean:open-assistant", openFromNav);
+  }, []);
   const chatEnd = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -101,7 +108,8 @@ export function AssistantDrawer({
     document.addEventListener("keydown", onKey);
     return () => {
       document.removeEventListener("keydown", onKey);
-      fab?.focus();
+      (openerRef.current ?? fab)?.focus();
+      openerRef.current = null;
     };
   }, [open]);
 

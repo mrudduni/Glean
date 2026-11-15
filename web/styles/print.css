@@ -1,0 +1,23 @@
+/* "Print summary": the decision, its evidence and the caveats on paper for the extension office. */
+.print-only { display: none; }
+@media print {
+  @page { margin: 14mm; }
+  :root { --color-bg: #fff; --color-surface: #fff; }
+  body { background: #fff; color: #000; font-size: 11pt; }
+  .print-only { display: block; }
+  .site-header .header-nav, .header-controls, .workspace-toolbar, .section-nav, .assistant-fab, .nav-ask,
+  .priority-rail summary, .priority-rail-body, .swipe-dots, .hidden-strategies, .neighbors-map,
+  .replay-toolbar, .calendar-section, .evidence-details summary svg { display: none !important; }
+  .field-masthead, .workspace-section { break-inside: auto; padding-block: 12pt; }
+  .masthead-brief { grid-template-columns: 1fr 1fr; }
+  .brief-best { border-color: #000; background: none; }
+  .compare-layout { grid-template-columns: 1fr; }
+  .priority-rail { position: static; max-height: none; overflow: visible; border: 0; padding: 0; background: none; }
+  .priority-print { margin: 0; font-weight: 600; }
+  .strategy-grid { grid-template-columns: repeat(2, minmax(0, 1fr)) !important; grid-auto-flow: row !important; overflow: visible !important; }
+  .strategy-card { break-inside: avoid; }
+  .evidence-details > :not(summary) { display: block; }
+  .chart-scroll { overflow: visible; }
+  .replay-chart-inner { min-width: 0; }
+  a { color: inherit; }
+}
