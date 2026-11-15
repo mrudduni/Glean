@@ -48,7 +48,6 @@ export default function HowWeKnowPage() {
   return (
     <div className="trust-page page-wrap">
       <section className="trust-hero">
-        <div className="eyebrow"><span className="eyebrow-rule" /> {t("trust.eyebrow", "Transparency before certainty")}</div>
         <h1>{t("trust.title")}</h1>
         <p>{t("trust.subtitle")}</p>
         <div className="trust-intro-note"><Info size={18} aria-hidden="true" /><span>{t("disclaimer.main")}</span></div>
@@ -93,9 +92,9 @@ export default function HowWeKnowPage() {
       <section className="trust-section glossary-section" aria-labelledby="glossary-heading">
         <div className="trust-section-heading"><span className="trust-section-icon"><Eye size={20} aria-hidden="true" /></span><div><h2 id="glossary-heading">{t("trust.glossary")}</h2></div></div>
         <div className="explainer-grid">
-          {["satellite_vs_ground", "model_estimate"].map((id, index) => {
+          {["satellite_vs_ground", "model_estimate"].map((id) => {
             const item = term(id);
-            return item ? <article key={id}><span>0{index + 1}</span><h3>{loc(item.term, lang)}</h3><p>{loc(item.long, lang)}</p></article> : null;
+            return item ? <article key={id}><h3>{loc(item.term, lang)}</h3><p>{loc(item.long, lang)}</p></article> : null;
           })}
         </div>
         <div className="glossary-grid">

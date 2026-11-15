@@ -297,21 +297,6 @@ button:focus:not(:focus-visible), a:focus:not(:focus-visible), input:focus:not(:
 /* ==========================================================================
    SHARED EYEBROWS & BUTTONS
    ========================================================================== */
-.eyebrow {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  color: #6f7b6b;
-  font-size: 12px;
-  line-height: 1.3;
-  font-weight: 700;
-  letter-spacing: 1.5px;
-}
-.eyebrow-rule {
-  width: 24px;
-  height: 1.5px;
-  background: linear-gradient(90deg, #bf9561, transparent);
-}
 
 /* World-Class Button Styles */
 .button-primary {
@@ -386,9 +371,7 @@ button:focus:not(:focus-visible), a:focus:not(:focus-visible), input:focus:not(:
 .hero-copy {
   max-width: 680px;
 }
-.hero-copy .eyebrow {
-  animation: fadeInUp 0.7s var(--ease-spring) backwards;
-}
+
 .hero-copy h1 {
   margin: 20px 0 16px;
   font: 400 clamp(42px, 5vw, 68px)/1.08 var(--font-serif);
@@ -573,12 +556,7 @@ button:focus:not(:focus-visible), a:focus:not(:focus-visible), input:focus:not(:
   border-color: #9cb893;
   box-shadow: 0 4px 14px rgba(33, 59, 42, 0.08);
 }
-.telemetry-field-index {
-  color: #8fa08e;
-  font-family: var(--font-serif);
-  font-size: 16px;
-  font-weight: 700;
-}
+
 .telemetry-field-info {
   display: flex;
   flex-direction: column;
@@ -739,7 +717,7 @@ button:focus:not(:focus-visible), a:focus:not(:focus-visible), input:focus:not(:
   opacity: 1;
 }
 .field-option-top { display: flex; align-items: center; gap: 10px; }
-.field-number { color: #9aa28c; font: 24px/1 var(--font-serif); }
+
 .field-kind {
   display: inline-flex;
   align-items: center;
@@ -1062,7 +1040,7 @@ button:focus:not(:focus-visible), a:focus:not(:focus-visible), input:focus:not(:
 .section-nav a:hover::after {
   transform: scaleX(1);
 }
-.section-nav a span { color: #a69f84; font-size: 11px; font-weight: 700; }
+
 .section-nav .trust-nav { margin-left: auto; color: var(--primary); font-weight: 700; }
 .section-nav .trust-nav:hover svg { transform: rotate(15deg); }
 .section-nav .trust-nav svg { transition: transform 0.3s ease; }
@@ -1071,7 +1049,6 @@ button:focus:not(:focus-visible), a:focus:not(:focus-visible), input:focus:not(:
 .workspace-section { padding: 0 0 54px; margin-bottom: 44px; border-bottom: 1px solid #dedfd5; scroll-margin-top: 75px; }
 .section-title-row { display: flex; justify-content: space-between; align-items: flex-end; gap: 24px; margin-bottom: 24px; }
 .section-title-row h2 { font-size: 36px; }
-.section-index { padding-bottom: 6px; color: #949581; font: 15px/1 var(--font-serif); white-space: nowrap; }
 
 /* ==========================================================================
    OVERVIEW CARDS
@@ -1160,7 +1137,7 @@ button:focus:not(:focus-visible), a:focus:not(:focus-visible), input:focus:not(:
   transform: translateX(3px);
   border-left-color: var(--primary);
 }
-.headline-number { color: #a9966b; font: 22px/1 var(--font-serif); }
+
 .headline-fact p { margin: 6px 0; color: #4e5a4b; font: 14px/1.55 var(--font-serif); }
 
 .source-chips { display: inline-flex; flex-wrap: wrap; align-items: center; gap: 6px; }
@@ -2011,7 +1988,7 @@ button:focus:not(:focus-visible), a:focus:not(:focus-visible), input:focus:not(:
   .workspace-content { padding-top: 16px; }
   .workspace-section { margin-bottom: 30px; padding-bottom: 34px; }
   .section-title-row { align-items: flex-start; margin-bottom: 18px; }
-  .section-index { padding-top: 12px; font-size: 12px; }
+  
   .overview-grid { grid-template-columns: 1fr 1fr; gap: 10px; }
   .overview-card { padding: 14px 12px; }
   .card-kicker { align-items: flex-start; font-size: 10px; }
@@ -2025,7 +2002,7 @@ button:focus:not(:focus-visible), a:focus:not(:focus-visible), input:focus:not(:
   .headline-title { margin-bottom: 6px; }
   .headline-title h3 { font-size: 18px; }
   .headline-fact { display: grid; grid-template-columns: 30px 1fr; gap: 0 8px; padding: 10px 8px; border-left: 0; border-top: 1px solid #dedfd5; }
-  .headline-number { grid-row: span 2; align-self: center; }
+  
   .headline-fact p { margin: 0 0 4px; }
   .climate-risk-strip { grid-template-columns: 1fr; gap: 10px; padding: 12px; overflow: hidden; }
   .climate-strip-title { display: flex; justify-content: space-between; }
@@ -2230,18 +2207,6 @@ button:focus:not(:focus-visible), a:focus:not(:focus-visible), input:focus:not(:
 .dark .section-title-row p,
 .dark .field-masthead p {
   color: #ffffff;
-}
-
-[data-theme="dark"] .eyebrow,
-.dark .eyebrow {
-  color: #ffffff;
-  font-weight: 600;
-  letter-spacing: 1.2px;
-}
-
-[data-theme="dark"] .eyebrow-rule,
-.dark .eyebrow-rule {
-  background: linear-gradient(90deg, #f5b875, transparent);
 }
 
 /* Dark Mode Hero Telemetry Hub & Feature Cards */
@@ -2524,11 +2489,6 @@ button:focus:not(:focus-visible), a:focus:not(:focus-visible), input:focus:not(:
   color: #52e396;
 }
 
-[data-theme="dark"] .section-nav a span,
-.dark .section-nav a span {
-  color: #f5b875;
-}
-
 /* Workspace Toolbar, Masthead & Overview in Dark Mode */
 [data-theme="dark"] .back-link,
 .dark .back-link {
@@ -2668,11 +2628,6 @@ button:focus:not(:focus-visible), a:focus:not(:focus-visible), input:focus:not(:
 [data-theme="dark"] .headline-fact p,
 .dark .headline-fact p {
   color: #ffffff;
-}
-
-[data-theme="dark"] .headline-number,
-.dark .headline-number {
-  color: #f5a65b;
 }
 
 [data-theme="dark"] .source-chip,

@@ -39,11 +39,9 @@ export function StrategyPanel({
     <section className="workspace-section strategies-section" id="strategies" aria-labelledby="strategies-heading">
       <div className="section-title-row">
         <div>
-          <div className="eyebrow"><span className="eyebrow-rule" /> {t("strategies.eyebrow", "Compare your options")}</div>
           <h2 id="strategies-heading">{t("nav.plan")}</h2>
           <p>{t("strategies.subtitle", "Your current rotation and the three that fit your priorities most closely.")}</p>
         </div>
-        <span className="section-index">04 / 06</span>
       </div>
       {picked.shown.length - 1 === Object.keys(picked.filled).length && <div className="empty-state"><Info size={17} aria-hidden="true" />{t("strategies.none_fit", "No other rotation fits these limits. Try a higher water cap or tick the equipment you have.")}</div>}
       <div className="strategy-grid">

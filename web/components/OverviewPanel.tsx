@@ -41,10 +41,8 @@ export function OverviewPanel({
     <section className="workspace-section" id="overview" aria-labelledby="overview-heading">
       <div className="section-title-row">
         <div>
-          <div className="eyebrow"><span className="eyebrow-rule" /> {t("overview.eyebrow", "Field snapshot")}</div>
           <h2 id="overview-heading">{t("nav.overview")}</h2>
         </div>
-        <span className="section-index">01 / 06</span>
       </div>
 
       <div className="overview-grid">
@@ -126,7 +124,6 @@ export function OverviewPanel({
         <div className="headline-title"><span>{t("overview.notes_kicker", "Field notes")}</span><h3>{t("overview.headlines", "What stands out")}</h3></div>
         {summary.headline_facts.map((fact, index) => (
           <article className="headline-fact" key={`${fact.text_id}-${index}`}>
-            <span className="headline-number">0{index + 1}</span>
             <p>{cardLine(ui, "headline", fact.text_id, fact.vars)}</p>
             <SourceChips tags={fact.sources} sources={ui.sources} />
           </article>

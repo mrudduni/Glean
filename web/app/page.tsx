@@ -58,7 +58,6 @@ export default function HomePage() {
     <div className="home-page">
       <section className="home-hero page-wrap">
         <div className="hero-copy">
-          <div className="eyebrow"><span className="eyebrow-rule" /> {t("app.name")}</div>
           <h1>{t("app.tagline")}</h1>
           <p>{t("pick.subtitle")}</p>
           <div className="hero-cta-group">
@@ -97,9 +96,8 @@ export default function HomePage() {
           <div className="telemetry-launcher">
             <div className="telemetry-launcher-head"><span>{t("pick.title")}</span><span className="launcher-counter">{fields.length} / 3</span></div>
             <div className="telemetry-field-chips">
-              {fields.map((field, index) => (
+              {fields.map((field) => (
                 <button type="button" key={field.id} className="telemetry-field-chip" onClick={() => openField(field.id)}>
-                  <span className="telemetry-field-index">0{index + 1}</span>
                   <div className="telemetry-field-info">
                     <strong>{loc(field.name, lang)}</strong>
                     <small>{field.area_ac.toFixed(0)} ac · {textureLabel(t, field.soil.texture, lang)}</small>
@@ -116,7 +114,6 @@ export default function HomePage() {
       <section className="picker-section page-wrap" id="field-picker" aria-labelledby="picker-heading">
         <div className="section-heading picker-heading">
           <div>
-            <div className="eyebrow"><span className="eyebrow-rule" /> {t("app.location", "Finney County, Kansas")}</div>
             <h2 id="picker-heading">{t("pick.title")}</h2>
             <p>{t("pick.subtitle")}</p>
           </div>
@@ -138,7 +135,6 @@ export default function HomePage() {
               {fields.map((field, index) => (
                 <Link className={`field-option field-option-${index + 1}`} href={`/field/${field.id}`} key={field.id} onClick={() => setField(field.id)}>
                   <div className="field-option-top">
-                    <span className="field-number">0{index + 1}</span>
                     <span className={`field-kind ${field.kind}`}>{t(`field.kind.${field.kind}`, KIND_LABEL[field.kind])}</span>
                     <ArrowUpRight className="field-arrow" size={20} aria-hidden="true" />
                   </div>

@@ -20,11 +20,9 @@ export function PrioritiesPanel({ t }: { t: TFunction }) {
     <section className="workspace-section priorities-section" id="priorities" aria-labelledby="priorities-heading">
       <div className="section-title-row">
         <div>
-          <div className="eyebrow"><span className="eyebrow-rule" /> {t("priorities.eyebrow", "Make it yours")}</div>
           <h2 id="priorities-heading">{t("priorities.title")}</h2>
           <p>{t("priorities.subtitle", "Move the sliders to say what matters most. The cards below re-rank instantly.")}</p>
         </div>
-        <span className="section-index">03 / 06</span>
       </div>
       <div className="priority-panel">
         <div className="priority-sliders">

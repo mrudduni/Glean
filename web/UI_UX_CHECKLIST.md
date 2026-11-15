@@ -10,13 +10,14 @@ Each item names its audit ID. Ticked items are committed and checked with `npm t
 
 ## P0
 
-- [ ] **#1** Assistant drawer renders above the site header (portal); title and close button visible on desktop and phone
-- [ ] **#2** Cached answers flag when they were written for a different set of cards than the ones on screen
+- [x] **#1** Assistant drawer renders above the site header (portal); title and close button visible on desktop and phone
+- [x] **#2** Cached answers flag when they were written for a different set of cards than the ones on screen
 
 ## Remove the generic chrome
 
-- [ ] **#7** No cursor glow, drifting orbs, particle canvas, fake "live" dot, pulsing assistant button or decorative blur
-- [ ] **#8** No eyebrow kicker above every heading, no `0N / 06` counters, no `01 02 03` numbering on non-sequences; Strategies is in the section nav
+- [x] **#7** No cursor glow, drifting orbs, particle canvas, fake "live" dot, pulsing assistant button or decorative blur
+- [x] **#8** No eyebrow kicker above every heading, no `0N / 06` counters, no `01 02 03` numbering on non-sequences
+- [ ] **#8b** Strategies is in the section nav (lands with #5, where priorities and cards merge)
 
 ## Foundation
 
@@ -37,7 +38,7 @@ Each item names its audit ID. Ticked items are committed and checked with `npm t
 - [ ] **#3** Replay: straight lines, theme-aware colours, direct end labels, neutral drought bands with labels
 - [ ] **#12** Calendar: rotations stacked so none hide off-screen; readable risk strip; legend instead of two-letter codes
 - [ ] **#16** Farms like yours: map zooms to matched fields; readable tooltips and table
-- [ ] **#14** Assistant: verified-number mark stays inline
+- [x] **#14** Assistant: verified-number mark stays inline
 
 ## Copy, states, i18n
 

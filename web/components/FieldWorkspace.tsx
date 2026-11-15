@@ -137,7 +137,6 @@ export function FieldWorkspace({ fieldId }: { fieldId: FieldId }) {
 
       <section className="field-masthead page-wrap">
         <div>
-          <div className="eyebrow"><span className="eyebrow-rule" /> {t("app.location", "Finney County, Kansas")} · {field.id.toUpperCase()}</div>
           <h1>{loc(field.name, lang)}<span className={`field-kind ${field.kind}`}>{t(`field.kind.${field.kind}`, KIND_LABEL[field.kind])}</span></h1>
           <p>{field.area_ha.toFixed(1)} ha <span>/</span> {field.area_ac.toFixed(1)} ac <span>/</span> {textureLabel(t, field.soil.texture, lang)} <span>/</span> {Math.round(field.terrain.elev_m)} m</p>
         </div>
@@ -152,7 +151,7 @@ export function FieldWorkspace({ fieldId }: { fieldId: FieldId }) {
 
       <nav className="section-nav" aria-label={t("nav.sections", "Field sections")}>
         <div className="section-nav-inner page-wrap">
-          {sections.map(([id, key], index) => <a href={`#${id}`} key={id}><span>0{index + 1}</span>{t(key)}</a>)}
+          {sections.map(([id, key]) => <a href={`#${id}`} key={id}>{t(key)}</a>)}
           <Link href="/how-we-know" className="trust-nav"><CircleHelp size={16} aria-hidden="true" />{t("nav.trust")}</Link>
         </div>
       </nav>

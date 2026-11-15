@@ -34,11 +34,9 @@ export function FieldCalendar({ calendar, order, ui }: { calendar: CalendarFile;
     <section className="workspace-section calendar-section" id="calendar" aria-labelledby="calendar-heading">
       <div className="section-title-row">
         <div>
-          <div className="eyebrow"><span className="eyebrow-rule" /> {t("calendar.eyebrow", "Plan across seasons")}</div>
           <h2 id="calendar-heading">{t("calendar.title")}</h2>
           <p>{t("calendar.subtitle")}</p>
         </div>
-        <span className="section-index">02 / 06</span>
       </div>
 
       <div className="calendar-scroll">

@@ -55,11 +55,9 @@ export function ReplayChart({ replay, scenario, order, ui }: { replay: ReplayFil
     <section className="workspace-section replay-section" id="replay" aria-labelledby="replay-heading">
       <div className="section-title-row">
         <div>
-          <div className="eyebrow"><span className="eyebrow-rule" /> {t("replay.eyebrow", "Look back before looking ahead")}</div>
           <h2 id="replay-heading">{t("replay.title")}</h2>
           <p>{t("replay.subtitle")}</p>
         </div>
-        <span className="section-index">05 / 06</span>
       </div>
       <div className="replay-panel">
         <div className="replay-toolbar">

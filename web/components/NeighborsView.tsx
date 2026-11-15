@@ -13,11 +13,9 @@ export function NeighborsView({ neighbors, field, ui }: { neighbors: NeighborsFi
   const heading = (
     <div className="section-title-row">
       <div>
-        <div className="eyebrow"><span className="eyebrow-rule" /> {t("neighbors.eyebrow", "Learn from the landscape")}</div>
         <h2 id="neighbors-heading">{t("neighbors.title")}</h2>
         <p>{t("neighbors.subtitle")}</p>
       </div>
-      <span className="section-index">06 / 06</span>
     </div>
   );
   if (!neighbors) {
