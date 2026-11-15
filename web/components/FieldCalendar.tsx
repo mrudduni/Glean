@@ -55,7 +55,7 @@ export function FieldCalendar({ calendar, order, ui }: { calendar: CalendarFile;
         <p>{t("calendar.subtitle")}</p>
       </div>
 
-      <div className="calendar-scroll">
+      <div className="calendar-scroll" tabIndex={0} role="region" aria-label={t("calendar.title")}>
         <div className="calendar-sheet">
           <div className="cal-row cal-head" aria-hidden="true">
             <span />

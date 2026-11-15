@@ -141,7 +141,7 @@ export function ReplayChart({ replay, scenario, order, ui }: { replay: ReplayFil
         </div>
 
         <p className="replay-unit" id="replay-unit">{t(`replay.unit.${metric}`, UNIT_FALLBACK[metric])}</p>
-        <div className="chart-scroll">
+        <div className="chart-scroll" tabIndex={0} role="region" aria-label={t("replay.title")}>
           <div className="replay-chart-inner" role="img" aria-labelledby="replay-unit" aria-describedby="replay-table-caption">
             <ResponsiveContainer width="100%" height={HEIGHT}>
               <LineChart data={data} margin={MARGIN}>
