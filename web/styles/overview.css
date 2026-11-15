@@ -37,3 +37,6 @@
 }
 .spark-plot { color: var(--color-accent); }
 .sparkline { display: block; }
+.climate-table thead th, .climate-table td { white-space: nowrap; }
+.climate-table th[scope="row"] { white-space: normal; }
+.climate-table thead th + th, .climate-table td { padding-left: var(--sp-3); }
