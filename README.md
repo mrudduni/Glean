@@ -178,7 +178,9 @@ Full table with resolutions, periods and access notes: [docs/DATA_SOURCES.md](do
 
 ## Team
 
-Team Brackets, NASA Space Apps Challenge 2026. Four roles: data (D), model and AI (M), frontend (F), and design and content (U). Captain: Himal.
+Team Brackets, NASA Space Apps Challenge 2026.
+
+Members: Himal Garg (Leader), Rishi Garg, Aditya, Khushal Goel, Mrudduni J. Modha, Parisha Gupta
 
 ## Disclaimer
 
