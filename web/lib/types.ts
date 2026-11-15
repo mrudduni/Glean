@@ -236,9 +236,10 @@ export interface PromptFile {
 
 // ---------- §8.5 U files ----------
 // CropTraits: the content/crops.yaml entry shape, as converted by M into crops.json.
+// family and root_type are nullable here because fallow has neither (U's crops.yaml).
 export interface CropTraits {
   name: Localized;
-  family: string;
+  family: string | null;
   host_group: string;
   season: "summer" | "winter" | "perennial" | "cover" | "none";
   plant_window: { start: string; end: string } | null;
@@ -253,7 +254,7 @@ export interface CropTraits {
   requires_irrigation: boolean;
   n_fixing: boolean;
   residue: "low" | "medium" | "high";
-  root_type: "fibrous" | "tap" | "deep_tap";
+  root_type: "fibrous" | "tap" | "deep_tap" | null;
   forage: boolean;
   yield: { nass_commodity: string | null; unit: string | null; irrigated_default: number | null; dryland_default: number | null } | null;
   price: { unit: string | null; default: number | null } | null;

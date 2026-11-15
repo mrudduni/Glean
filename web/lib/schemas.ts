@@ -127,16 +127,22 @@ export const neighborsSchema: Schema<T.NeighborsFile> = z.object({
 
 // ---------- §8.4 ----------
 const dateWindow = z.object({ start: z.string(), end: z.string() }).nullable();
+/** crops.yaml writes "none" as an object of nulls ({ start: null, end: null }); the contract type is null. */
+const nullObject = <S extends z.ZodTypeAny>(schema: S) => z.preprocess(
+  (value) => (value && typeof value === "object" && Object.values(value).every((item) => item === null) ? null : value),
+  schema,
+);
+
 export const cropTraitsSchema: Schema<T.CropTraits> = z.object({
-  name: localized, family: z.string(), host_group: z.string(),
+  name: localized, family: z.string().nullable(), host_group: z.string(),
   season: z.enum(["summer", "winter", "perennial", "cover", "none"]),
-  plant_window: dateWindow, harvest_window: dateWindow,
+  plant_window: nullObject(dateWindow), harvest_window: nullObject(dateWindow),
   stage_days: z.object({ ini: z.number(), dev: z.number(), mid: z.number(), late: z.number() }).nullable(),
   kc: z.object({ ini: z.number(), mid: z.number(), end: z.number() }).nullable(),
   root_max_m: z.number().nullable(), p: z.number().nullable(), ky: z.number().nullable(),
-  heat: z.object({ stage: z.enum(["ini", "dev", "mid", "late"]), tmax_c: z.number() }).nullable(),
+  heat: nullObject(z.object({ stage: z.enum(["ini", "dev", "mid", "late"]), tmax_c: z.number() }).nullable()),
   frost_kill_c: z.number().nullable(), requires_irrigation: z.boolean(), n_fixing: z.boolean(),
-  residue: z.enum(["low", "medium", "high"]), root_type: z.enum(["fibrous", "tap", "deep_tap"]),
+  residue: z.enum(["low", "medium", "high"]), root_type: z.enum(["fibrous", "tap", "deep_tap"]).nullable(),
   forage: z.boolean(),
   yield: z.object({
     nass_commodity: z.string().nullable(), unit: z.string().nullable(),

@@ -1,280 +1,280 @@
 {
- "_meta": {
-  "schema": "glossary@1",
-  "mock": true,
-  "generated_at": "2026-11-15T14:02:09Z",
-  "generator": "web/scripts/mocks/make_mocks.py"
- },
- "terms": [
-  {
-   "id": "et",
-   "term": {
-    "en": "Evapotranspiration (ET)",
-    "es": ""
-   },
-   "short": {
-    "en": "Water leaving the field through plants and soil.",
-    "es": ""
-   },
-   "long": {
-    "en": "Water leaving the field through plants and soil.",
-    "es": ""
-   }
+  "_meta": {
+    "schema": "glossary@1",
+    "mock": false,
+    "generated_at": "2026-11-15T12:00:00Z",
+    "generator": "content (U)"
   },
-  {
-   "id": "et0",
-   "term": {
-    "en": "Reference ET",
-    "es": ""
-   },
-   "short": {
-    "en": "How much water a short grass crop would use in this weather.",
-    "es": ""
-   },
-   "long": {
-    "en": "How much water a short grass crop would use in this weather.",
-    "es": ""
-   }
-  },
-  {
-   "id": "ndvi",
-   "term": {
-    "en": "NDVI",
-    "es": ""
-   },
-   "short": {
-    "en": "A satellite greenness index: higher means more living plants.",
-    "es": ""
-   },
-   "long": {
-    "en": "A satellite greenness index: higher means more living plants.",
-    "es": ""
-   }
-  },
-  {
-   "id": "soil_moisture_anomaly",
-   "term": {
-    "en": "Soil moisture anomaly",
-    "es": ""
-   },
-   "short": {
-    "en": "How wet the soil is compared with normal for that month.",
-    "es": ""
-   },
-   "long": {
-    "en": "How wet the soil is compared with normal for that month.",
-    "es": ""
-   }
-  },
-  {
-   "id": "root_zone",
-   "term": {
-    "en": "Root zone",
-    "es": ""
-   },
-   "short": {
-    "en": "The soil layer roots can reach, about the top metre.",
-    "es": ""
-   },
-   "long": {
-    "en": "The soil layer roots can reach, about the top metre.",
-    "es": ""
-   }
-  },
-  {
-   "id": "frost_risk",
-   "term": {
-    "en": "Frost risk",
-    "es": ""
-   },
-   "short": {
-    "en": "The chance of a damaging frost while a crop is young.",
-    "es": ""
-   },
-   "long": {
-    "en": "The chance of a damaging frost while a crop is young.",
-    "es": ""
-   }
-  },
-  {
-   "id": "gdd",
-   "term": {
-    "en": "Growing degree days",
-    "es": ""
-   },
-   "short": {
-    "en": "Accumulated warmth that drives crop growth.",
-    "es": ""
-   },
-   "long": {
-    "en": "Accumulated warmth that drives crop growth.",
-    "es": ""
-   }
-  },
-  {
-   "id": "water_balance",
-   "term": {
-    "en": "Water balance",
-    "es": ""
-   },
-   "short": {
-    "en": "Rain and irrigation in, crop use and drainage out.",
-    "es": ""
-   },
-   "long": {
-    "en": "Rain and irrigation in, crop use and drainage out.",
-    "es": ""
-   }
-  },
-  {
-   "id": "evaporative_stress",
-   "term": {
-    "en": "Evaporative stress",
-    "es": ""
-   },
-   "short": {
-    "en": "When crops use less water than the weather demands.",
-    "es": ""
-   },
-   "long": {
-    "en": "When crops use less water than the weather demands.",
-    "es": ""
-   }
-  },
-  {
-   "id": "aquifer",
-   "term": {
-    "en": "Aquifer",
-    "es": ""
-   },
-   "short": {
-    "en": "The underground water store wells pump from: here, the Ogallala.",
-    "es": ""
-   },
-   "long": {
-    "en": "The underground water store wells pump from: here, the Ogallala.",
-    "es": ""
-   }
-  },
-  {
-   "id": "rotation",
-   "term": {
-    "en": "Rotation",
-    "es": ""
-   },
-   "short": {
-    "en": "The order of crops grown on a field across years.",
-    "es": ""
-   },
-   "long": {
-    "en": "The order of crops grown on a field across years.",
-    "es": ""
-   }
-  },
-  {
-   "id": "cover_crop",
-   "term": {
-    "en": "Cover crop",
-    "es": ""
-   },
-   "short": {
-    "en": "A crop grown to protect and feed the soil, not to sell.",
-    "es": ""
-   },
-   "long": {
-    "en": "A crop grown to protect and feed the soil, not to sell.",
-    "es": ""
-   }
-  },
-  {
-   "id": "fallow",
-   "term": {
-    "en": "Fallow",
-    "es": ""
-   },
-   "short": {
-    "en": "A season with no crop to store soil water.",
-    "es": ""
-   },
-   "long": {
-    "en": "A season with no crop to store soil water.",
-    "es": ""
-   }
-  },
-  {
-   "id": "nitrogen_fixing",
-   "term": {
-    "en": "Nitrogen fixing",
-    "es": ""
-   },
-   "short": {
-    "en": "Legumes that add nitrogen to the soil.",
-    "es": ""
-   },
-   "long": {
-    "en": "Legumes that add nitrogen to the soil.",
-    "es": ""
-   }
-  },
-  {
-   "id": "wind_erosion",
-   "term": {
-    "en": "Wind erosion",
-    "es": ""
-   },
-   "short": {
-    "en": "Soil blown away from bare, dry ground.",
-    "es": ""
-   },
-   "long": {
-    "en": "Soil blown away from bare, dry ground.",
-    "es": ""
-   }
-  },
-  {
-   "id": "water_erosion",
-   "term": {
-    "en": "Water erosion",
-    "es": ""
-   },
-   "short": {
-    "en": "Soil washed away by heavy rain on bare ground.",
-    "es": ""
-   },
-   "long": {
-    "en": "Soil washed away by heavy rain on bare ground.",
-    "es": ""
-   }
-  },
-  {
-   "id": "satellite_vs_ground",
-   "term": {
-    "en": "Satellite versus ground",
-    "es": ""
-   },
-   "short": {
-    "en": "We compare satellite readings with ground records to see how far to trust them.",
-    "es": ""
-   },
-   "long": {
-    "en": "We compare satellite readings with ground records to see how far to trust them.",
-    "es": ""
-   }
-  },
-  {
-   "id": "model_estimate",
-   "term": {
-    "en": "Model estimate",
-    "es": ""
-   },
-   "short": {
-    "en": "A number we calculate from data, not one we measured on the field.",
-    "es": ""
-   },
-   "long": {
-    "en": "A number we calculate from data, not one we measured on the field.",
-    "es": ""
-   }
-  }
- ]
+  "terms": [
+    {
+      "id": "et",
+      "term": {
+        "en": "Evapotranspiration (ET)",
+        "es": "Evapotranspiración (ET)"
+      },
+      "short": {
+        "en": "ET is the water that leaves a field as vapor, from the soil and through the plants.",
+        "es": "El ET es el agua que sale del campo como vapor, desde el suelo y a través de las plantas."
+      },
+      "long": {
+        "en": "Think of it as the water your crop and soil use up each day. It is higher on hot, dry, windy days and when the crop is big and green. ET is the main reason irrigation is needed. Satellites such as the ones behind OpenET estimate it from heat and greenness.",
+        "es": "Piense en ella como el agua que su cultivo y su suelo gastan cada día. Es mayor en días calientes, secos y con viento, y cuando el cultivo está grande y verde. El ET es la razón principal por la que se necesita riego. Satélites como los que usa OpenET lo estiman a partir del calor y el verdor."
+      }
+    },
+    {
+      "id": "et0",
+      "term": {
+        "en": "Reference ET (ET0)",
+        "es": "ET de referencia (ET0)"
+      },
+      "short": {
+        "en": "ET0 is how much water a well-watered patch of short grass would use on a given day.",
+        "es": "La ET0 es cuánta agua usaría en un día un pasto corto bien regado."
+      },
+      "long": {
+        "en": "We use it as a yardstick for weather. A crop's water use is ET0 times a crop factor that changes as the crop grows. ET0 is worked out from temperature, sunshine, humidity and wind, using the FAO-56 method. Finney County has a high ET0 because summers are hot, dry and windy.",
+        "es": "La usamos como medida del clima. El uso de agua de un cultivo es la ET0 multiplicada por un factor del cultivo que cambia mientras crece. Se calcula con temperatura, sol, humedad y viento, con el método FAO-56. El condado de Finney tiene una ET0 alta porque los veranos son calientes, secos y con viento."
+      }
+    },
+    {
+      "id": "ndvi",
+      "term": {
+        "en": "Greenness index (NDVI)",
+        "es": "Índice de verdor (NDVI)"
+      },
+      "short": {
+        "en": "NDVI is a satellite score of how green and leafy the plants in a spot are.",
+        "es": "El NDVI es un puntaje satelital de qué tan verdes y frondosas están las plantas en un lugar."
+      },
+      "long": {
+        "en": "Healthy leaves reflect near-infrared light, and a satellite can measure that. Bare soil scores low and a thick green crop scores high. We use it to see when crops were growing, when ground was bare, and how fields held up in dry years. A satellite pixel is wider than a small patch, so it is an average.",
+        "es": "Las hojas sanas reflejan luz infrarroja cercana, y un satélite puede medirla. El suelo desnudo da un puntaje bajo y un cultivo verde y denso da uno alto. Lo usamos para ver cuándo crecían los cultivos, cuándo había suelo descubierto y cómo resistieron los campos en años secos. Un píxel de satélite es más ancho que un parche pequeño, así que es un promedio."
+      }
+    },
+    {
+      "id": "soil_moisture_anomaly",
+      "term": {
+        "en": "Soil moisture anomaly",
+        "es": "Anomalía de humedad del suelo"
+      },
+      "short": {
+        "en": "It shows how much wetter or drier the soil is than usual for that time of year.",
+        "es": "Muestra cuánto más húmedo o más seco está el suelo que lo normal para esa época del año."
+      },
+      "long": {
+        "en": "A positive number means wetter than the usual month. A negative number means drier. NASA's SMAP satellite measures soil water, and we compare each month with the 2015 to 2025 average. It helps show dry stretches, but SMAP squares are about 9 km wide, so it cannot see one field alone.",
+        "es": "Un número positivo significa más húmedo que el mes normal. Uno negativo significa más seco. El satélite SMAP de la NASA mide el agua del suelo y comparamos cada mes con el promedio de 2015 a 2025. Ayuda a ver rachas secas, pero los cuadros de SMAP miden unos 9 km, así que no ve un campo solo."
+      }
+    },
+    {
+      "id": "root_zone",
+      "term": {
+        "en": "Root zone",
+        "es": "Zona de raíces"
+      },
+      "short": {
+        "en": "The root zone is the layer of soil your crop's roots can reach for water.",
+        "es": "La zona de raíces es la capa de suelo de donde las raíces del cultivo pueden tomar agua."
+      },
+      "long": {
+        "en": "Deep-rooted crops such as alfalfa, corn and sorghum can pull water from about 1.5 m down. Shallow-rooted crops dry out the top layer first. How much water the root zone can hold depends on the soil, so a sandy field holds less than a clay loam.",
+        "es": "Los cultivos de raíz profunda, como la alfalfa, el maíz y el sorgo, pueden tomar agua desde unos 1.5 m de profundidad. Los de raíz corta secan primero la capa de arriba. Cuánta agua guarda la zona de raíces depende del suelo: un campo arenoso guarda menos que uno franco arcilloso."
+      }
+    },
+    {
+      "id": "frost_risk",
+      "term": {
+        "en": "Frost risk",
+        "es": "Riesgo de helada"
+      },
+      "short": {
+        "en": "Frost risk is the chance of freezing nights that can hurt a crop at a sensitive time.",
+        "es": "El riesgo de helada es la probabilidad de noches de congelación que pueden dañar un cultivo en una etapa sensible."
+      },
+      "long": {
+        "en": "We count how often past years had a freeze after planting or before harvest. A late spring frost can hurt young plants and an early fall frost can stop a crop before it matures. The numbers come from NASA POWER weather and are shown as a share of years.",
+        "es": "Contamos con qué frecuencia hubo congelación después de la siembra o antes de la cosecha en años pasados. Una helada tardía de primavera daña las plantas jóvenes y una helada temprana de otoño puede detener un cultivo antes de madurar. Los números vienen del clima de NASA POWER y se muestran como porcentaje de años."
+      }
+    },
+    {
+      "id": "gdd",
+      "term": {
+        "en": "Growing degree days (GDD)",
+        "es": "Días-grado de crecimiento (GDD)"
+      },
+      "short": {
+        "en": "GDD is a running count of useful warmth that tells you how fast a crop is developing.",
+        "es": "Los GDD son una cuenta de calor útil que indica qué tan rápido se desarrolla un cultivo."
+      },
+      "long": {
+        "en": "Each day adds the amount its average temperature is above a base, here 10 °C, with a top limit of 30 °C. Crops need a set number of GDD to reach maturity. A warmer climate gives more GDD per season, which can shift planting dates or crop choices.",
+        "es": "Cada día suma lo que su temperatura promedio supera una base, aquí 10 °C, con un tope de 30 °C. Los cultivos necesitan cierto número de GDD para madurar. Un clima más cálido da más GDD por temporada, lo que puede mover fechas de siembra o la elección de cultivos."
+      }
+    },
+    {
+      "id": "water_balance",
+      "term": {
+        "en": "Water balance",
+        "es": "Balance de agua"
+      },
+      "short": {
+        "en": "A water balance tracks the water going into and out of the soil, day by day.",
+        "es": "Un balance de agua sigue el agua que entra y sale del suelo, día por día."
+      },
+      "long": {
+        "en": "Rain and irrigation add water. Crop use, evaporation and runoff take it away. What is left in the root zone is the soil's stored water. Our model keeps this tally for 25 years of past weather, so we can see when a crop would run short.",
+        "es": "La lluvia y el riego agregan agua. El uso del cultivo, la evaporación y el escurrimiento la quitan. Lo que queda en la zona de raíces es el agua guardada en el suelo. Nuestro modelo lleva esta cuenta con 25 años de clima pasado, para ver cuándo a un cultivo le faltaría agua."
+      }
+    },
+    {
+      "id": "evaporative_stress",
+      "term": {
+        "en": "Evaporative stress",
+        "es": "Estrés evaporativo"
+      },
+      "short": {
+        "en": "It shows when plants are getting less water than they want, so they use less than a thirsty crop would.",
+        "es": "Muestra cuándo las plantas reciben menos agua de la que quieren y por eso usan menos que un cultivo sin sed."
+      },
+      "long": {
+        "en": "The Evaporative Stress Index compares actual water use with what plants would use if water was not short. A low value points to drought stress. ECOSTRESS and other satellites measure it from plant temperature. It is a warning sign, not a yield count.",
+        "es": "El Índice de Estrés Evaporativo compara el uso real de agua con el que tendrían las plantas si no faltara agua. Un valor bajo apunta a estrés por sequía. ECOSTRESS y otros satélites lo miden con la temperatura de la planta. Es una señal de alerta, no un conteo de rendimiento."
+      }
+    },
+    {
+      "id": "aquifer",
+      "term": {
+        "en": "Aquifer (Ogallala)",
+        "es": "Acuífero (Ogallala)"
+      },
+      "short": {
+        "en": "An aquifer is underground water stored in sand and gravel, and the Ogallala is the one under western Kansas.",
+        "es": "Un acuífero es agua subterránea guardada en arena y grava, y el Ogallala es el que está debajo del oeste de Kansas."
+      },
+      "long": {
+        "en": "Most irrigation in Finney County pumps from the Ogallala. It refills very slowly, so in many places farmers take out more than comes back. Wells and NASA's GRACE satellites both show the level changing, which is why saving irrigation water matters here.",
+        "es": "Casi todo el riego del condado de Finney sale del Ogallala. Se recarga muy despacio, así que en muchos lugares se saca más de lo que vuelve. Los pozos y los satélites GRACE de la NASA muestran que el nivel cambia, por eso aquí importa ahorrar agua de riego."
+      }
+    },
+    {
+      "id": "rotation",
+      "term": {
+        "en": "Crop rotation",
+        "es": "Rotación de cultivos"
+      },
+      "short": {
+        "en": "A rotation is the order in which different crops are grown on the same field over the years.",
+        "es": "Una rotación es el orden en que se siembran distintos cultivos en el mismo campo a lo largo de los años."
+      },
+      "long": {
+        "en": "A good rotation can spread out water use, break pest and weed cycles, and spread out market and weather risk. A cycle may last three years or more and can include a fallow year or a cover crop. Rotations still depend on your equipment, buyers and water.",
+        "es": "Una buena rotación puede repartir el uso de agua, romper ciclos de plagas y malezas, y repartir el riesgo de mercado y de clima. Un ciclo puede durar tres años o más y puede incluir un año de barbecho o un cultivo de cobertura. Aun así, depende de su equipo, sus compradores y su agua."
+      }
+    },
+    {
+      "id": "cover_crop",
+      "term": {
+        "en": "Cover crop",
+        "es": "Cultivo de cobertura"
+      },
+      "short": {
+        "en": "A cover crop is planted to protect and feed the soil, not to be sold.",
+        "es": "Un cultivo de cobertura se siembra para proteger y alimentar el suelo, no para venderlo."
+      },
+      "long": {
+        "en": "Rye is common in Kansas because it grows in cool weather. Roots hold soil in place and residue shades the ground. Cover crops also use soil water, which is a real cost in dry years. Plan when to plant it and when to end it.",
+        "es": "El centeno es común en Kansas porque crece con clima fresco. Las raíces sujetan el suelo y el residuo da sombra. Las coberturas también gastan agua del suelo, lo que cuesta en años secos. Planee cuándo sembrarla y cuándo terminarla."
+      }
+    },
+    {
+      "id": "fallow",
+      "term": {
+        "en": "Fallow",
+        "es": "Barbecho"
+      },
+      "short": {
+        "en": "Fallow means leaving a field without a crop for a season to let soil store water.",
+        "es": "Barbecho es dejar un campo sin cultivo durante una temporada para que el suelo guarde agua."
+      },
+      "long": {
+        "en": "In dryland wheat-sorghum-fallow, the fallow year lets rain soak in for the next crop. Only a part of that rain is saved, and bare ground can lose soil to wind. Leaving stubble standing helps protect the surface.",
+        "es": "En el trigo-sorgo-barbecho de secano, el año de barbecho deja que la lluvia se guarde para el siguiente cultivo. Solo una parte de esa lluvia se conserva, y el suelo descubierto puede perderse con el viento. Dejar rastrojo en pie ayuda a proteger la superficie."
+      }
+    },
+    {
+      "id": "nitrogen_fixing",
+      "term": {
+        "en": "Nitrogen fixing",
+        "es": "Fijación de nitrógeno"
+      },
+      "short": {
+        "en": "Legumes such as soybean and alfalfa can pull nitrogen from the air with help from soil bacteria.",
+        "es": "Las leguminosas como la soya y la alfalfa pueden tomar nitrógeno del aire con ayuda de bacterias del suelo."
+      },
+      "long": {
+        "en": "That nitrogen can partly feed the next crop and may lower the fertilizer you buy. The credit varies with the stand, soil and weather. Extension guides give a credit for soybean and alfalfa before corn. Ask your agronomist what to use on your soil.",
+        "es": "Ese nitrógeno puede alimentar en parte al siguiente cultivo y puede reducir el fertilizante que compra. El crédito varía según el cultivo, el suelo y el clima. Las guías de extensión dan un crédito para la soya y la alfalfa antes del maíz. Pregunte a su agrónomo qué usar en su suelo."
+      }
+    },
+    {
+      "id": "wind_erosion",
+      "term": {
+        "en": "Wind erosion",
+        "es": "Erosión por viento"
+      },
+      "short": {
+        "en": "Wind erosion is soil blown off a field, which is most likely on bare, dry, sandy ground.",
+        "es": "La erosión por viento es suelo que el viento se lleva del campo, y es más probable en suelo descubierto, seco y arenoso."
+      },
+      "long": {
+        "en": "This is the Dust Bowl problem, and it still matters in southwest Kansas. We estimate exposure from days with bare ground, strong wind, and the soil's wind erodibility group. Stubble, cover and windbreaks lower the risk. Real risk also depends on your tillage and soil moisture.",
+        "es": "Es el problema del Dust Bowl y todavía importa en el suroeste de Kansas. Estimamos la exposición con los días de suelo descubierto, el viento fuerte y el grupo de erodabilidad eólica del suelo. El rastrojo, las coberturas y los cortavientos bajan el riesgo. El riesgo real también depende de su labranza y de la humedad del suelo."
+      }
+    },
+    {
+      "id": "water_erosion",
+      "term": {
+        "en": "Water erosion",
+        "es": "Erosión por agua"
+      },
+      "short": {
+        "en": "Water erosion is soil washed away by rain running over the ground.",
+        "es": "La erosión por agua es suelo que la lluvia arrastra al escurrir sobre el terreno."
+      },
+      "long": {
+        "en": "It is worse on slopes and when heavy storms hit bare soil. In southwest Kansas it is usually smaller than wind erosion, so we count it separately. We estimate it from bare days with storms, soil type and slope.",
+        "es": "Es peor en pendientes y cuando tormentas fuertes caen sobre suelo descubierto. En el suroeste de Kansas suele ser menor que la erosión por viento, por eso la contamos aparte. La estimamos con los días descubiertos con tormenta, el tipo de suelo y la pendiente."
+      }
+    },
+    {
+      "id": "satellite_vs_ground",
+      "term": {
+        "en": "Satellite vs ground measurements",
+        "es": "Mediciones de satélite y de terreno"
+      },
+      "short": {
+        "en": "Satellites see a wide area from above, while ground tools measure one spot very closely.",
+        "es": "Los satélites ven un área amplia desde arriba, mientras que las herramientas de terreno miden un solo punto con mucho detalle."
+      },
+      "long": {
+        "en": "A satellite pixel can cover many acres and is an average, so it can miss what happens in one corner. A rain gauge or well is exact but covers a tiny spot. Each is useful. We compare them, and we show a trust badge when they agree, disagree, or when one is missing.",
+        "es": "Un píxel de satélite puede cubrir muchos acres y es un promedio, así que puede pasar por alto lo que ocurre en una esquina. Un pluviómetro o un pozo es exacto pero cubre un punto pequeño. Los dos sirven. Los comparamos y mostramos una insignia de confianza cuando coinciden, no coinciden o falta uno."
+      }
+    },
+    {
+      "id": "model_estimate",
+      "term": {
+        "en": "Model estimate",
+        "es": "Estimación de modelo"
+      },
+      "short": {
+        "en": "A model estimate is a calculation of what is likely to happen, not something we measured.",
+        "es": "Una estimación de modelo es un cálculo de lo que es probable que ocurra, no algo que midiéramos."
+      },
+      "long": {
+        "en": "Our model uses weather, soil and crop settings to work out water use and income for each rotation. It is simple on purpose and leaves out pests, hail and prices that change. We test it against satellite data. Treat results as a way to compare options, not as a promise of results.",
+        "es": "Nuestro modelo usa clima, suelo y valores de cultivos para calcular el uso de agua y el ingreso de cada rotación. Es sencillo a propósito y no incluye plagas, granizo ni precios que cambian. Lo comparamos con datos de satélite. Tome los resultados como una forma de comparar opciones, no como una promesa."
+      }
+    }
+  ]
 }

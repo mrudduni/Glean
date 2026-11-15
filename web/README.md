@@ -25,22 +25,26 @@ The map uses Esri World Imagery tiles and needs an internet connection.
 
 The app fetches everything from `public/data/`. It calls no live NASA, USDA, soil or weather APIs.
 
-| Files | Owner | Status |
+| Files | Owner | Branch |
 |---|---|---|
-| `fields.json`, `sources.json`, `field/*/{water,observed,neighbors}.json` | D (`role/data`) | Real |
-| `crops.json`, `rotations.json`, `field/*/{summary,calendar,replay,strategies,validation}.json`, `assistant/prompt.json`, `field/*/assistant_{context,cache}.json` | M (`role/model`, `role/model-assistant`) | Mock until M pushes |
-| `content/{copy,card_text,glossary,assistant_questions}.json`, `styles/tokens.{css,json}` | U (`role/content`) | Mock or placeholder until U pushes |
+| `fields.json`, `sources.json`, `field/*/{water,observed,neighbors}.json` | D | `role/data` |
+| `crops.json`, `rotations.json`, `field/*/{summary,calendar,replay,strategies,validation,assistant_context,assistant_cache}.json` | M | `role/model` |
+| `assistant/prompt.json`, `tests/fixtures/number_check_cases.json` | M (assistant) | `role/model-assistant` |
+| `content/{copy,card_text,glossary,assistant_questions}.json`, `styles/tokens.{css,json}` | U | `role/content` |
 
-Every mock file has `_meta.mock: true`. While any loaded file is a mock, a banner at the top of the page says so. To swap in real files, copy them over the mocks at the same paths; no code change is needed.
+To pull the latest files from all four branches and check them:
+
+```bash
+git fetch origin
+bash scripts/import_upstream.sh
+node scripts/validate_data.mts
+```
+
+A file with `_meta.mock: true` is a placeholder. While any such file is loaded in the browser, a banner at the top of the page says so.
 
 `lib/data.ts` validates each file with the zod schemas in `lib/schemas.ts`. A file that does not match the contract logs `[data] <path> does not match the contract` in the console and still renders. Optional files (`validation`, `water`, `observed`, `neighbors`, `glossary`, `assistant_questions`) show a "not available" note when missing.
 
-To rebuild the mocks from D's weather data (needs `git fetch` of `origin/role/data`):
-
-```bash
-python scripts/mocks/make_mocks.py
-node scripts/mocks/make_cache.mts
-```
+`scripts/mocks/` holds the generators used before the other roles pushed. Running them overwrites real files, so use them only for offline work.
 
 ## Assistant
 

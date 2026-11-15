@@ -17,8 +17,8 @@
 
 :root {
   color-scheme: light;
-  --font-sans: Arial, Helvetica, sans-serif;
-  --font-serif: Georgia, "Times New Roman", serif;
+  --font-sans: var(--font-body, Arial, Helvetica, sans-serif);
+  --font-serif: var(--font-display, Georgia, "Times New Roman", serif);
   --ease-spring: cubic-bezier(0.16, 1, 0.3, 1);
   --ease-bounce: cubic-bezier(0.34, 1.56, 0.64, 1);
 }

@@ -2,7 +2,7 @@
  "_meta": {
   "schema": "sources@1",
   "mock": false,
-  "generated_at": "2026-11-14T20:41:49Z",
+  "generated_at": "2026-11-15T14:19:56Z",
   "generator": "data-pipeline/process/build_sources.py"
  },
  "sources": [
@@ -25,6 +25,16 @@
    "resolution": "0.5° grid; ~300 km true resolution",
    "period": "2002-04 → latest (gap 2017-07 → 2018-05)",
    "used_for": "Regional aquifer / water-storage trend in the water outlook"
+  },
+  {
+   "tag": "SRTM",
+   "name": "SRTM Global 1 arc second DEM (SRTMGL1 v3)",
+   "provider": "NASA LP DAAC, via AppEEARS",
+   "url": "https://lpdaac.usgs.gov/products/srtmgl1v003/",
+   "what": "Elevation",
+   "resolution": "30 m",
+   "period": "February 2000",
+   "used_for": "Field slope and cold-air low-spot flag"
   },
   {
    "tag": "SSURGO",
@@ -84,7 +94,27 @@
    "what": "Depth to water below land surface at monitoring wells (USGS, KGS and Kansas DWR wells)",
    "resolution": "Individual wells",
    "period": "2000–2025",
-   "used_for": "Local aquifer trend near each field; also terrain (USGS 3DEP) until SRTM arrives"
+   "used_for": "Local aquifer trend near each field"
+  },
+  {
+   "tag": "FAO56",
+   "name": "FAO Irrigation and Drainage Paper 56 (Penman-Monteith, crop coefficients)",
+   "provider": "FAO",
+   "url": "https://www.fao.org/4/x0490e/x0490e00.htm",
+   "what": "Reference ET method and crop coefficients (Kc)",
+   "resolution": "Method, not a dataset",
+   "period": "1998",
+   "used_for": "Reference ET and crop water demand in the Replay"
+  },
+  {
+   "tag": "MODEL",
+   "name": "Field Shift Rotation Replay model",
+   "provider": "Team Brackets (M)",
+   "url": "https://github.com/mrudduni/Team-Brackets",
+   "what": "Simulated yield, water use and soil outputs built from the inputs above",
+   "resolution": "Field, daily/annual",
+   "period": "2016–2025",
+   "used_for": "Rotation Replay results and the calendar"
   }
  ]
 }
