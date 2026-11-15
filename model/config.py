@@ -60,6 +60,9 @@ BARE_KE = 0.30                        # bare soil evaporation coefficient (x ET0
 BARE_STAGE1_MM = 12.0                 # readily evaporable water before evaporation slows
 BARE_DECAY_FRAC = 0.4                 # f decays over 0.4 x TAW_profile beyond stage 1
 BARE_F_MIN = 0.1
+# On bare days evaporation draws from a surface layer of this depth (FAO-56 ch. 7, Ze 0.10-0.15 m,
+# https://www.fao.org/4/x0490e/x0490e0c.htm); water below it is stored for the next crop.
+BARE_EVAP_DEPTH_M = 0.15
 # SCS curve number, row crop, straight row, good condition (NRCS NEH 630 ch. 9, table 9-1)
 CN_BY_HYDGRP = {"A": 67, "B": 78, "C": 85, "D": 89}
 CN_BARE_ADD = 3
@@ -69,9 +72,24 @@ CN_IA_RATIO = 0.2                     # initial abstraction = 0.2 S
 MIN_GAP_DAYS = 5                      # days between one harvest and the next planting
 FALLOW_END_MMDD = "07-01"             # a fallow step lasts until this date of the following year
 ALFALFA_DORMANT_KC = 0.40             # Kc of an established alfalfa stand between seasons
+# R3 "flex fallow" grows spring triticale for forage in the fallow window of wheat-sorghum-fallow
+# (Holman et al. 2022, Crop Science 62:1-17, https://doi.org/10.1002/csc2.20670). crops.yaml lists a
+# fall-planted triticale, which cannot follow an October sorghum harvest, so the replay uses this
+# spring timing. Kc, p, Ky and roots stay as crops.yaml (winter wheat proxy).
+TRITICALE_SPRING = {
+    "plant_window": {"start": "03-10", "end": "04-05"},
+    "harvest_window": {"start": "05-25", "end": "06-15"},
+    "stage_days": {"ini": 15, "dev": 30, "mid": 20, "late": 12},
+}
 
 # ---------------------------------------------------------------- yield and revenue
 HEAT_LOSS_PER_DAY = 0.015
+# Heat days are counted only in the first 21 days of the crop's sensitive stage (corn pollination and
+# silking last about 2-3 weeks; K-State Corn Production Handbook C560,
+# https://bookstore.ksre.ksu.edu/pubs/C560.pdf). Counting the whole FAO mid stage (about 47 days for
+# corn) cut irrigated corn to about 58 % of the NASS mean yield, which double-counts heat already in
+# that mean.
+HEAT_WINDOW_DAYS = 21
 HEAT_FACTOR_MIN = 0.5
 FROST_FACTOR = 0.85
 NASS_RECENT_FROM, NASS_RECENT_TO = 2010, 2024   # prefer yields from this window
