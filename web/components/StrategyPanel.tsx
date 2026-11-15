@@ -13,7 +13,6 @@ import { TrustBadge } from "@/components/TrustBadge";
 import { CropChips } from "@/components/CropChips";
 import { AnimatedNumber } from "@/components/AnimatedNumber";
 import { SpotlightCard } from "@/components/SpotlightCard";
-import { BorderBeam } from "@/components/BorderBeam";
 import { rotColor } from "@/lib/theme";
 
 export function rotationSteps(id: RotationId, rotations: Rotation[], summary: SummaryFile) {
@@ -144,10 +143,7 @@ function StrategyCard({
       className={`strategy-card ${current ? "current-strategy" : ""} ${isTopRecommended ? "recommended-featured" : ""}`}
       style={{ "--rotation-color": rotColor(id) } as React.CSSProperties}
       aria-labelledby={`card-${id}`}
-      enableTilt={true}
-      tiltMax={3}
     >
-      {isTopRecommended && <BorderBeam size={220} duration={8} borderWidth={1.5} colorFrom="#34d399" colorTo="#df9a4f" />}
       <div className="strategy-card-head">
         <div className="strategy-id">{id}</div>
         <div className="strategy-heading">

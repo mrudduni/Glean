@@ -42,22 +42,13 @@ export function SpotlightCard({
       const x = e.clientX - rect.left;
       const y = e.clientY - rect.top;
 
-      // Update CSS variables directly on DOM node for 60/120fps performance without React re-renders
+      // Update CSS variables directly on DOM node for 120fps buttery performance without React re-renders
       cardRef.current.style.setProperty("--spotlight-x", `${x}px`);
       cardRef.current.style.setProperty("--spotlight-y", `${y}px`);
 
-      if (enableTilt && !prefersReducedMotion) {
-        const centerX = rect.width / 2;
-        const centerY = rect.height / 2;
-        const rotateX = ((y - centerY) / centerY) * -tiltMax;
-        const rotateY = ((x - centerX) / centerX) * tiltMax;
-        cardRef.current.style.setProperty("--card-rotate-x", `${rotateX.toFixed(2)}deg`);
-        cardRef.current.style.setProperty("--card-rotate-y", `${rotateY.toFixed(2)}deg`);
-      }
-
       onMouseMove?.(e);
     },
-    [enableTilt, tiltMax, prefersReducedMotion, onMouseMove]
+    [onMouseMove]
   );
 
   const handleMouseEnter = useCallback(
@@ -71,10 +62,6 @@ export function SpotlightCard({
   const handleMouseLeave = useCallback(
     (e: React.MouseEvent<HTMLDivElement>) => {
       setIsHovered(false);
-      if (cardRef.current) {
-        cardRef.current.style.setProperty("--card-rotate-x", "0deg");
-        cardRef.current.style.setProperty("--card-rotate-y", "0deg");
-      }
       onMouseLeave?.(e);
     },
     [onMouseLeave]

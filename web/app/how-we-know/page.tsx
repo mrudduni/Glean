@@ -58,14 +58,16 @@ export default function HowWeKnowPage() {
       {ui && (
         <section className="trust-section" aria-labelledby="validation-heading">
           <div className="trust-section-heading"><span className="trust-section-icon"><CheckCircle2 size={20} aria-hidden="true" /></span><div><h2 id="validation-heading">{t("trust.validation", "Checks against independent data")}</h2></div></div>
-          {fields.map((field) => (
-            <div key={field.id} className={field.id === fieldId ? "trust-field current" : "trust-field"}>
-              <h3>{loc(field.name, lang)}</h3>
-              {validation[field.id]
-                ? <ValidationCards validation={validation[field.id] as ValidationFile} ui={ui} />
-                : <p className="section-empty">{t("section.not_available", "Not available for this field yet.")}</p>}
-            </div>
-          ))}
+          <div className="trust-fields-grid">
+            {fields.map((field) => (
+              <div key={field.id} className={field.id === fieldId ? "trust-field current" : "trust-field"}>
+                <h3>{loc(field.name, lang)}</h3>
+                {validation[field.id]
+                  ? <ValidationCards validation={validation[field.id] as ValidationFile} ui={ui} />
+                  : <p className="section-empty">{t("section.not_available", "Not available for this field yet.")}</p>}
+              </div>
+            ))}
+          </div>
         </section>
       )}
 

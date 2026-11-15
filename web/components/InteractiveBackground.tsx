@@ -89,8 +89,8 @@ export function InteractiveBackground() {
     initCanvasSize();
     window.addEventListener("resize", initCanvasSize);
 
-    // Initialize 36 atmospheric particles
-    const particleCount = 36;
+    // Initialize 20 atmospheric prairie particles
+    const particleCount = 20;
     const particles: Particle[] = [];
     for (let i = 0; i < particleCount; i++) {
       const baseAlpha = 0.12 + Math.random() * 0.28;

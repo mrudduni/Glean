@@ -7,9 +7,6 @@ import { ArrowDownRight, ArrowUpRight, Compass, Droplets, Layers3, MoveRight, Sa
 import { FieldMap } from "@/components/FieldMap";
 import { CropChips } from "@/components/CropChips";
 import { SpotlightCard } from "@/components/SpotlightCard";
-import { BorderBeam } from "@/components/BorderBeam";
-import { MagneticButton } from "@/components/MagneticButton";
-import { useScrollParallax } from "@/lib/useScrollParallax";
 import { useGlean } from "@/lib/state";
 import { getContent, getCrops, getFields, getSources } from "@/lib/data";
 import { formatVar, loc, makeT, textureLabel, yearsLabel } from "@/lib/i18n";
@@ -57,34 +54,21 @@ export default function HomePage() {
   const years = fields.flatMap((field) => field.crop_history.map((item) => item.year));
   const historySpan = years.length ? yearsLabel(t, Math.min(...years), Math.max(...years)) : "";
   const awc = fields.map((field) => field.soil.aws_0_100_mm);
-  const { slowY, heroOpacity } = useScrollParallax();
-
   return (
     <div className="home-page">
       <section className="home-hero page-wrap">
-        <div
-          className="hero-copy parallax-hero-copy"
-          style={{
-            transform: `translate3d(0, ${slowY}px, 0)`,
-            opacity: heroOpacity,
-          }}
-        >
+        <div className="hero-copy">
           <div className="eyebrow"><span className="eyebrow-rule" /> <span className="text-shimmer">{t("app.name")}</span></div>
           <h1>{t("app.tagline")}</h1>
           <p>{t("pick.subtitle")}</p>
           <div className="hero-cta-group">
-            <MagneticButton strength={0.24} radius={55}>
-              <a className="button-primary" href="#field-picker"><span>{t("pick.title")}</span><ArrowDownRight size={17} aria-hidden="true" /></a>
-            </MagneticButton>
-            <MagneticButton strength={0.2} radius={55}>
-              <Link className="hero-scroll" href="/how-we-know"><span>{t("nav.trust")}</span><ArrowUpRight size={19} aria-hidden="true" /></Link>
-            </MagneticButton>
+            <a className="button-primary" href="#field-picker"><span>{t("pick.title")}</span><ArrowDownRight size={17} aria-hidden="true" /></a>
+            <Link className="hero-scroll" href="/how-we-know"><span>{t("nav.trust")}</span><ArrowUpRight size={19} aria-hidden="true" /></Link>
           </div>
         </div>
 
-        <div style={{ transform: `translate3d(0, ${Math.round(slowY * 0.45)}px, 0)` }}>
-          <SpotlightCard className="hero-telemetry-hub" enableTilt={true} tiltMax={3}>
-            <BorderBeam size={220} duration={10} borderWidth={1.2} />
+        <div>
+          <SpotlightCard className="hero-telemetry-hub">
             <div className="telemetry-topline">
               <span className="telemetry-live-badge"><span className="telemetry-live-dot" /><span className="text-shimmer">{t("home.data_in_use", "Data behind these fields")}</span></span>
               <span className="telemetry-coordinates">Finney County, KS · FIPS 20055</span>

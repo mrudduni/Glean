@@ -230,7 +230,7 @@ button:focus:not(:focus-visible), a:focus:not(:focus-visible), input:focus:not(:
   width: 560px;
   height: 560px;
   background: radial-gradient(circle, rgba(50, 122, 82, 0.22) 0%, rgba(42, 98, 66, 0.1) 45%, transparent 70%);
-  filter: blur(70px);
+  filter: blur(36px);
   opacity: 0;
 }
 
@@ -238,7 +238,7 @@ button:focus:not(:focus-visible), a:focus:not(:focus-visible), input:focus:not(:
   width: 480px;
   height: 480px;
   background: radial-gradient(circle, rgba(223, 154, 79, 0.19) 0%, rgba(206, 131, 50, 0.07) 45%, transparent 70%);
-  filter: blur(75px);
+  filter: blur(36px);
   opacity: 0;
 }
 
@@ -472,28 +472,36 @@ main {
   position: relative;
   overflow: hidden;
   box-shadow: 0 4px 14px rgba(36, 77, 55, 0.28), inset 0 1px 0 rgba(255, 255, 255, 0.22);
-  transition: transform 0.25s var(--ease-spring), box-shadow 0.25s var(--ease-spring);
+  transition: transform 0.2s cubic-bezier(0.2, 0.8, 0.2, 1), box-shadow 0.2s cubic-bezier(0.2, 0.8, 0.2, 1), background 0.2s ease;
+}
+.button-primary svg {
+  transition: transform 0.2s cubic-bezier(0.2, 0.8, 0.2, 1);
 }
 .button-primary::after {
   content: "";
   position: absolute;
   top: 0;
-  left: 0;
-  width: 40%;
+  left: -120%;
+  width: 50%;
   height: 100%;
-  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.25), transparent);
-  transform: skewX(-20deg) translateX(-150%);
-  transition: transform 0.6s ease;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.28), transparent);
+  transform: skewX(-20deg);
+  transition: none;
 }
 .button-primary:hover {
   transform: translateY(-2px);
   box-shadow: 0 8px 24px rgba(36, 77, 55, 0.38), inset 0 1px 0 rgba(255, 255, 255, 0.35);
 }
+.button-primary:hover svg {
+  transform: translate(2px, 2px);
+}
 .button-primary:hover::after {
-  transform: skewX(-20deg) translateX(350%);
+  left: 180%;
+  transition: left 0.75s cubic-bezier(0.2, 0.8, 0.2, 1);
 }
 .button-primary:active {
-  transform: translateY(1px) scale(0.98);
+  transform: translateY(0);
+  box-shadow: 0 2px 8px rgba(36, 77, 55, 0.3);
 }
 
 .text-button {
@@ -570,10 +578,10 @@ main {
   letter-spacing: 0.6px;
   text-decoration: none;
   box-shadow: 0 2px 8px rgba(33, 59, 42, 0.05);
-  transition: transform 0.25s var(--ease-spring), color 0.2s ease, background 0.2s ease, border-color 0.2s ease, box-shadow 0.25s var(--ease-spring);
+  transition: transform 0.2s cubic-bezier(0.2, 0.8, 0.2, 1), color 0.2s ease, background 0.2s ease, border-color 0.2s ease, box-shadow 0.2s cubic-bezier(0.2, 0.8, 0.2, 1);
 }
 .hero-scroll svg {
-  transition: transform 0.3s var(--ease-spring);
+  transition: transform 0.2s cubic-bezier(0.2, 0.8, 0.2, 1);
   color: currentColor;
 }
 .hero-scroll:hover {
@@ -584,7 +592,10 @@ main {
   box-shadow: 0 6px 18px rgba(33, 59, 42, 0.12);
 }
 .hero-scroll:hover svg {
-  transform: translate(3px, 3px) scale(1.15);
+  transform: translate(2px, -2px);
+}
+.hero-scroll:active {
+  transform: translateY(0);
 }
 
 /* Hero Telemetry Hub (Active Satellite Feeds & Quick Launch) */
@@ -2044,6 +2055,31 @@ main {
 .trust-section-icon { width: 34px; height: 34px; display: grid; place-items: center; border-radius: 50%; background: #e3ece0; color: #486e46; }
 .trust-section-heading h2 { margin: 0 0 5px; color: #334b39; font: 30px/1.15 var(--font-serif); }
 .trust-section-heading p { margin: 0; color: #6e7667; font-size: 14px; }
+.trust-fields-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 20px;
+  align-items: stretch;
+}
+.trust-fields-grid .trust-field {
+  margin-bottom: 0;
+  display: flex;
+  flex-direction: column;
+}
+.trust-fields-grid .validation-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  flex: 1;
+}
+.trust-fields-grid .validation-card {
+  height: 100%;
+}
+@media (max-width: 960px) {
+  .trust-fields-grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
 .validation-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 14px; }
 .validation-card {
   min-height: 140px;
@@ -3730,9 +3766,7 @@ fieldset legend.control-label { padding: 0; margin-bottom: 8px; }
 .spotlight-card {
   position: relative;
   overflow: hidden;
-  transform-style: preserve-3d;
-  will-change: transform, box-shadow;
-  transition: transform 0.28s cubic-bezier(0.2, 0.8, 0.2, 1), box-shadow 0.28s ease, border-color 0.25s ease;
+  transition: transform 0.22s cubic-bezier(0.2, 0.8, 0.2, 1), box-shadow 0.22s ease, border-color 0.2s ease;
 }
 
 .spotlight-card-content {
@@ -3748,7 +3782,7 @@ fieldset legend.control-label { padding: 0; margin-bottom: 8px; }
   pointer-events: none;
   border-radius: inherit;
   opacity: 0;
-  transition: opacity 0.4s ease;
+  transition: opacity 0.35s ease;
   background: radial-gradient(
     480px circle at var(--spotlight-x, 50%) var(--spotlight-y, 50%),
     var(--spotlight-color, rgba(55, 125, 85, 0.12)),
@@ -3768,7 +3802,7 @@ fieldset legend.control-label { padding: 0; margin-bottom: 8px; }
   pointer-events: none;
   border-radius: inherit;
   opacity: 0;
-  transition: opacity 0.4s ease;
+  transition: opacity 0.35s ease;
   border: 1px solid transparent;
   mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
   -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
@@ -3786,8 +3820,8 @@ fieldset legend.control-label { padding: 0; margin-bottom: 8px; }
 }
 
 .spotlight-card.is-hovered {
-  transform: perspective(1000px) rotateX(var(--card-rotate-x, 0deg)) rotateY(var(--card-rotate-y, 0deg)) translateY(-4px) scale3d(1.008, 1.008, 1.008);
-  box-shadow: 0 20px 48px -12px rgba(16, 42, 28, 0.18), 0 0 20px rgba(55, 125, 85, 0.08);
+  transform: translateY(-3px);
+  box-shadow: 0 16px 36px -8px rgba(16, 42, 28, 0.16), 0 0 18px rgba(55, 125, 85, 0.08);
 }
 
 [data-theme="dark"] .spotlight-card-glow,
@@ -3810,7 +3844,7 @@ fieldset legend.control-label { padding: 0; margin-bottom: 8px; }
 
 [data-theme="dark"] .spotlight-card.is-hovered,
 .dark .spotlight-card.is-hovered {
-  box-shadow: 0 24px 64px -12px rgba(0, 0, 0, 0.75), 0 0 28px rgba(52, 211, 153, 0.18);
+  box-shadow: 0 20px 48px -10px rgba(0, 0, 0, 0.75), 0 0 24px rgba(52, 211, 153, 0.16);
 }
 
 /* 3. Radiant Border Beam (21st.dev Component) */
@@ -3944,31 +3978,5 @@ fieldset legend.control-label { padding: 0; margin-bottom: 8px; }
   box-shadow: 0 20px 52px rgba(0, 0, 0, 0.65), 0 0 24px rgba(52, 211, 153, 0.22);
 }
 
-/* High-end glass reflection sheen on buttons */
-.button-primary {
-  position: relative;
-  overflow: hidden;
-}
 
-.button-primary::after {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: -120%;
-  width: 60%;
-  height: 100%;
-  background: linear-gradient(
-    90deg,
-    transparent 0%,
-    rgba(255, 255, 255, 0.22) 50%,
-    transparent 100%
-  );
-  transform: skewX(-20deg);
-  transition: none;
-}
-
-.button-primary:hover::after {
-  left: 180%;
-  transition: left 0.85s cubic-bezier(0.2, 0.8, 0.2, 1);
-}
 
