@@ -2,10 +2,11 @@
 
 import { useState } from "react";
 import { AlertTriangle, Check, ChevronDown, ChevronUp, Droplets, Info, Leaf, ListChecks, ShieldCheck } from "lucide-react";
-import type { CopyFile, CriterionId, Rotation, RotationId, StrategyEntry, SummaryFile } from "@/lib/types";
-import { fill, formatVar, loc } from "@/lib/i18n";
+import type { CapId, CopyFile, CriterionId, EquipmentId, Rotation, RotationId, StrategyEntry, SummaryFile } from "@/lib/types";
+import { fill, formatVar, interpolate, loc } from "@/lib/i18n";
+import { useFieldShift } from "@/lib/state";
 import { CRITERION_IDS } from "@/lib/schemas";
-import { benefitsShown, scoreEntry, whyBullets, type ExclusionReason, type Picked, type Weights } from "@/lib/score";
+import { benefitsShown, scoreEntry, whyBullets, type Constraints, type ExclusionReason, type Picked, type Weights } from "@/lib/score";
 import { cardLine, cropLabel, type UI } from "@/lib/ui";
 import { SourceChips } from "@/components/SourceChips";
 import { TrustBadge } from "@/components/TrustBadge";
@@ -45,7 +46,7 @@ export function StrategyPanel({
       {picked.shown.length - 1 === Object.keys(picked.filled).length && <div className="empty-state"><Info size={17} aria-hidden="true" />{t("strategies.none_fit", "No other rotation fits these limits. Try a higher water cap or tick the equipment you have.")}</div>}
       <div className="strategy-grid">
         {picked.shown.map((entry) => (
-          <StrategyCard key={entry.rotation_id} entry={entry} reason={picked.filled[entry.rotation_id]} weights={weights} steps={rotationSteps(entry.rotation_id, rotations, summary)} irrigation={irrigation[entry.rotation_id]} ui={ui} />
+          <StrategyCard key={entry.rotation_id} entry={entry} reason={picked.filled[entry.rotation_id]} rotations={rotations} weights={weights} steps={rotationSteps(entry.rotation_id, rotations, summary)} irrigation={irrigation[entry.rotation_id]} ui={ui} />
         ))}
       </div>
       {hiddenCount > 0 && (
@@ -79,12 +80,29 @@ export function StrategyPanel({
   );
 }
 
+const CAP_ORDER: CapId[] = ["dryland", "cap150", "cap300", "cap450"];
+
+/** What the farmer could change to include a rotation that is outside their limits. */
+function unlockHint(entry: StrategyEntry, reason: ExclusionReason, rotations: Rotation[], t: UI["t"], constraints: Constraints): string | null {
+  const tick = (label: string) => interpolate(t("card.unlock_tick", "Tick “{option}” to include it."), { option: label });
+  if (reason === "needs_equipment") {
+    const owned: Record<EquipmentId, boolean> = { hay: constraints.hay, cotton: constraints.cotton };
+    const missing = entry.requires_equipment.filter((item) => !owned[item]);
+    return missing.length ? missing.map((item) => tick(t(`constraints.${item}_equipment`))).join(" ") : null;
+  }
+  if (reason === "no_local_market") return constraints.forage ? null : tick(t("constraints.forage_buyer"));
+  const minCap = rotations.find((rotation) => rotation.id === entry.rotation_id)?.min_cap;
+  if (!minCap || CAP_ORDER.indexOf(minCap) <= CAP_ORDER.indexOf(constraints.cap)) return null;
+  return interpolate(t("card.unlock_cap", "Set the water limit to “{option}” or higher to include it."), { option: t(`constraints.cap.${minCap}`) });
+}
+
 function StrategyCard({
-  entry, reason, weights, steps, irrigation, ui,
+  entry, reason, weights, steps, rotations, irrigation, ui,
 }: {
   entry: StrategyEntry;
   reason?: ExclusionReason;
   weights: Weights;
+  rotations: Rotation[];
   steps: Rotation["steps"];
   irrigation: number | undefined;
   ui: UI;
@@ -93,6 +111,8 @@ function StrategyCard({
   const id = entry.rotation_id;
   const score = scoreEntry(entry, weights);
   const why = whyBullets(entry, weights);
+  const { cap, hay, cotton, forage } = useFieldShift();
+  const unlock = reason ? unlockHint(entry, reason, rotations, t, { cap, hay, cotton, forage }) : null;
   const text = ui.cardText.rotations[id];
   const current = id === "R0";
   const label = (k: CriterionId) => loc(ui.cardText.criteria_labels[k], lang) || k;
@@ -105,7 +125,12 @@ function StrategyCard({
             <h3 id={`card-${id}`}>{loc(text?.name, lang) || id}</h3>
             {current && <span className="current-pill"><Check size={11} aria-hidden="true" />{t("card.current_badge")}</span>}
           </div>
-          {reason && <p className="infeasible-badge"><AlertTriangle size={13} aria-hidden="true" />{cardLine(ui, "infeasible", reason)}</p>}
+          {reason && (
+            <p className="infeasible-badge">
+              <AlertTriangle size={13} aria-hidden="true" />
+              <span>{cardLine(ui, "infeasible", reason)}{unlock && <b> {unlock}</b>}</span>
+            </p>
+          )}
           <p>{loc(text?.tagline, lang)}</p>
         </div>
       </div>
