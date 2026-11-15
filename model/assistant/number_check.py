@@ -13,7 +13,7 @@ NUMBER = r"\$?-?\d{1,3}(?:,\d{3})*(?:\.\d+)?(?!\d)|\$?-?\d+(?:\.\d+)?"
 UNITS = r"mm|inches|in|%|°C|°F|days?|years?|cm|ft|m|acres|ac|bu|tons?|/ac"
 # unit must not run into a following letter ("5 increase" is not "5 in")
 PATTERN = re.compile(
-    rf"(?P<num>{NUMBER})(?:\s?(?P<unit>(?:{UNITS})(?:/ac)?)(?![A-Za-z]))?"
+    rf"(?<![A-Za-z0-9_.$])(?P<num>{NUMBER})(?:\s?(?P<unit>(?:{UNITS})(?:/ac)?)(?![A-Za-z]))?"
 )
 TAG_SPAN = re.compile(r"\[[A-Za-z0-9_]+\]")
 FACT_ID_SPAN = re.compile(r"\([A-Za-z0-9_|:-]+(?:\.[A-Za-z0-9_|:-]+)+\)")
@@ -25,6 +25,7 @@ REFINEMENTS = [
     "A 4-digit integer 1980-2035 is skipped only when it has no $ and no unit.",
     "Without an explicit minus the check compares magnitudes (a fall of 0.86 cm matches -0.86).",
     "A unit may carry '/ac' (bu/ac, tons/ac); a bare '/ac' reads as usd.",
+    "Digits glued to a letter, digit, underscore, dot or $ are part of an identifier (R2, cap300), not a number.",
 ]
 
 _MM_PER_IN = 25.4

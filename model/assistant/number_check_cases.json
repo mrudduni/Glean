@@ -1888,6 +1888,120 @@
      "fact_id": null
     }
    ]
+  },
+  {
+   "id": "rotation_id_not_a_number",
+   "description": "digits inside R2 are an identifier",
+   "answer": "R2 needs 305 mm.",
+   "facts": [
+    {
+     "id": "field.aws_mm",
+     "value": 305,
+     "unit": "mm"
+    },
+    {
+     "id": "replay.R2.cap300|actual.revenue_usd_ac_mean",
+     "value": 412,
+     "unit": "usd_ac"
+    },
+    {
+     "id": "clim.pct",
+     "value": 12,
+     "unit": "pct"
+    },
+    {
+     "id": "clim.days",
+     "value": 23,
+     "unit": "days"
+    },
+    {
+     "id": "water.grace",
+     "value": -0.86,
+     "unit": "cm_per_yr"
+    },
+    {
+     "id": "clim.tmax",
+     "value": 30,
+     "unit": "c"
+    },
+    {
+     "id": "field.area",
+     "value": 128.4,
+     "unit": "ac"
+    },
+    {
+     "id": "nass.yield",
+     "value": 180,
+     "unit": "bu_ac"
+    },
+    {
+     "id": "well.depth",
+     "value": 3.0,
+     "unit": "m"
+    }
+   ],
+   "expected": [
+    {
+     "text": "305 mm",
+     "value": 305.0,
+     "unit": "mm",
+     "verified": true,
+     "fact_id": "field.aws_mm"
+    }
+   ]
+  },
+  {
+   "id": "scenario_id_not_a_number",
+   "description": "digits inside cap300 are an identifier",
+   "answer": "Under cap300 the field is fine.",
+   "facts": [
+    {
+     "id": "field.aws_mm",
+     "value": 305,
+     "unit": "mm"
+    },
+    {
+     "id": "replay.R2.cap300|actual.revenue_usd_ac_mean",
+     "value": 412,
+     "unit": "usd_ac"
+    },
+    {
+     "id": "clim.pct",
+     "value": 12,
+     "unit": "pct"
+    },
+    {
+     "id": "clim.days",
+     "value": 23,
+     "unit": "days"
+    },
+    {
+     "id": "water.grace",
+     "value": -0.86,
+     "unit": "cm_per_yr"
+    },
+    {
+     "id": "clim.tmax",
+     "value": 30,
+     "unit": "c"
+    },
+    {
+     "id": "field.area",
+     "value": 128.4,
+     "unit": "ac"
+    },
+    {
+     "id": "nass.yield",
+     "value": 180,
+     "unit": "bu_ac"
+    },
+    {
+     "id": "well.depth",
+     "value": 3.0,
+     "unit": "m"
+    }
+   ],
+   "expected": []
   }
  ]
 }
