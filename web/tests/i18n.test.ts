@@ -1,5 +1,5 @@
 import { describe, expect, it, vi } from "vitest";
-import { fill, formatVar, makeT } from "@/lib/i18n";
+import { fill, formatVar, makeT, textureLabel, yearsLabel } from "@/lib/i18n";
 import type { Lang } from "@/lib/types";
 
 const crops = { sorghum: { en: "Sorghum", es: "Sorgo" }, triticale: { en: "Triticale", es: "" } };
@@ -58,5 +58,22 @@ describe("t", () => {
     expect(makeT(strings, "es")("c.d")).toBe("Only English");
     expect(makeT(strings, "en")("x.y", "Fallback")).toBe("Fallback");
     expect(makeT(strings, "en")("x.y")).toBe("x.y");
+  });
+});
+
+describe("copy before it loads, textures and years", () => {
+  it("shows nothing, not the raw key, before copy has loaded", () => {
+    expect(makeT({}, "en")("pick.title")).toBe("");
+    expect(makeT({}, "en")("pick.title", "Pick a field")).toBe("Pick a field");
+    expect(makeT({ a: { en: "A", es: "A" } }, "en")("pick.title")).toBe("pick.title");
+  });
+  it("translates soil textures: copy key first, then the built-in Spanish name", () => {
+    expect(textureLabel(makeT({}, "es"), "fine sand", "es")).toBe("arena fina");
+    expect(textureLabel(makeT({}, "en"), "fine sand", "en")).toBe("fine sand");
+    const t = makeT({ "soil.texture.silt_loam": { en: "Silt loam", es: "Limo franco" } }, "es");
+    expect(textureLabel(t, "silt loam", "es")).toBe("Limo franco");
+  });
+  it("formats a year span through years.range", () => {
+    expect(yearsLabel(makeT({}, "es"), 2018, 2025)).toBe("2018-2025");
   });
 });

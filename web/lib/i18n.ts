@@ -10,10 +10,32 @@ export function loc(value: Localized | undefined, lang: Lang): string {
   return value[lang] || value.en;
 }
 
-/** copy.strings[key][lang] → en → fallback → key */
+/** copy.strings[key][lang] → en → fallback → key. Before copy has loaded, a missing key reads as "" so raw keys never flash. */
 export function translate(strings: Strings, key: string, lang: Lang, fallback?: string): string {
   const entry = strings[key];
-  return entry?.[lang] || entry?.en || fallback || key;
+  return entry?.[lang] || entry?.en || fallback || (isEmpty(strings) ? "" : key);
+}
+
+function isEmpty(strings: Strings): boolean {
+  for (const _ in strings) return false;
+  return true;
+}
+
+const TEXTURE_ES: Record<string, string> = {
+  sand: "arena", "fine sand": "arena fina", "loamy sand": "arena franca", "loamy fine sand": "arena franca fina",
+  "sandy loam": "franco arenoso", "fine sandy loam": "franco arenoso fino", loam: "franco", "silt loam": "franco limoso",
+  "clay loam": "franco arcilloso", "silty clay loam": "franco arcillo limoso", "sandy clay loam": "franco arcillo arenoso", clay: "arcilla",
+};
+
+/** Soil texture from fields.json in the current language: copy key soil.texture.<snake_case>, then a built-in Spanish name, then as written. */
+export function textureLabel(t: TFunction, texture: string, lang: Lang): string {
+  const key = `soil.texture.${texture.trim().toLowerCase().replace(/\s+/g, "_")}`;
+  return t(key, lang === "es" ? TEXTURE_ES[texture.trim().toLowerCase()] ?? texture : texture);
+}
+
+/** A year span through copy years.range ("{years_from}-{years_to}"). */
+export function yearsLabel(t: TFunction, from: number, to: number): string {
+  return interpolate(t("years.range", "{years_from}-{years_to}"), { years_from: from, years_to: to });
 }
 
 export type TFunction = (key: string, fallback?: string) => string;

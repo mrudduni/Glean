@@ -22,6 +22,8 @@ export function FieldCalendar({ calendar, order, ui }: { calendar: CalendarFile;
   const { t, lang } = ui;
   const short = monthNames(lang, "short");
   const long = monthNames(lang, "long");
+  const oneDecimal = new Intl.NumberFormat(lang === "es" ? "es-ES" : "en-US", { maximumFractionDigits: 1 });
+  const days = (value: number) => oneDecimal.format(value);
   const blocks = order
     .map((id) => calendar.rotations.find((rotation) => rotation.rotation_id === id))
     .filter((block): block is CalendarFile["rotations"][number] => Boolean(block));
@@ -51,8 +53,8 @@ export function FieldCalendar({ calendar, order, ui }: { calendar: CalendarFile;
                 interpolate(t("calendar.odds", "{risk}: {count} of 10 years"), { risk: t("calendar.flag.heat"), count: odds(risk.p_heat) }),
                 interpolate(t("calendar.odds", "{risk}: {count} of 10 years"), { risk: t("calendar.flag.frost"), count: odds(risk.p_frost) }),
                 interpolate(t("calendar.odds", "{risk}: {count} of 10 years"), { risk: t("calendar.flag.dry"), count: odds(risk.p_dry_spell) }),
-                `${t("calendar.storm_days", "Storm days")}: ${risk.storm_days}`,
-                `${t("calendar.windy_days", "Windy days")}: ${risk.windy_days}`,
+                `${t("calendar.storm_days", "Storm days")}: ${days(risk.storm_days)}`,
+                `${t("calendar.windy_days", "Windy days")}: ${days(risk.windy_days)}`,
               ].join(". ");
               return (
                 <div className="climate-month" key={risk.month} title={`${long[m]}. ${title}`} aria-label={`${long[m]}. ${title}`} role="img">
@@ -60,7 +62,7 @@ export function FieldCalendar({ calendar, order, ui }: { calendar: CalendarFile;
                   <i className="risk-meter heat-meter" style={{ "--meter-value": `${risk.p_heat * 100}%` } as React.CSSProperties} />
                   <i className="risk-meter frost-meter" style={{ "--meter-value": `${risk.p_frost * 100}%` } as React.CSSProperties} />
                   <i className="risk-meter dry-meter" style={{ "--meter-value": `${risk.p_dry_spell * 100}%` } as React.CSSProperties} />
-                  <span className="risk-counts">{risk.storm_days}·{risk.windy_days}</span>
+                  <span className="risk-counts">{days(risk.storm_days)}·{days(risk.windy_days)}</span>
                 </div>
               );
             })}

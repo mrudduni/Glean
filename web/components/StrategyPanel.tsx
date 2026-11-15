@@ -18,13 +18,14 @@ export function rotationSteps(id: RotationId, rotations: Rotation[], summary: Su
 }
 
 export function StrategyPanel({
-  picked, weights, rotations, summary, irrigation, copy, ui,
+  picked, weights, rotations, summary, irrigation, shownAt = {}, copy, ui,
 }: {
   picked: Picked;
   weights: Weights;
   rotations: Rotation[];
   summary: SummaryFile;
   irrigation: Partial<Record<RotationId, number>>;
+  shownAt?: Partial<Record<RotationId, CapId | "none">>;
   copy: CopyFile["strings"];
   ui: UI;
 }) {
@@ -46,7 +47,7 @@ export function StrategyPanel({
       {picked.shown.length - 1 === Object.keys(picked.filled).length && <div className="empty-state"><Info size={17} aria-hidden="true" />{t("strategies.none_fit", "No other rotation fits these limits. Try a higher water cap or tick the equipment you have.")}</div>}
       <div className="strategy-grid">
         {picked.shown.map((entry) => (
-          <StrategyCard key={entry.rotation_id} entry={entry} reason={picked.filled[entry.rotation_id]} rotations={rotations} weights={weights} steps={rotationSteps(entry.rotation_id, rotations, summary)} irrigation={irrigation[entry.rotation_id]} ui={ui} />
+          <StrategyCard key={entry.rotation_id} entry={entry} reason={picked.filled[entry.rotation_id]} rotations={rotations} weights={weights} steps={rotationSteps(entry.rotation_id, rotations, summary)} irrigation={irrigation[entry.rotation_id]} shownAt={shownAt[entry.rotation_id]} ui={ui} />
         ))}
       </div>
       {hiddenCount > 0 && (
@@ -97,9 +98,10 @@ function unlockHint(entry: StrategyEntry, reason: ExclusionReason, rotations: Ro
 }
 
 function StrategyCard({
-  entry, reason, weights, steps, rotations, irrigation, ui,
+  entry, reason, weights, steps, rotations, irrigation, shownAt, ui,
 }: {
   entry: StrategyEntry;
+  shownAt?: CapId | "none";
   reason?: ExclusionReason;
   weights: Weights;
   rotations: Rotation[];
@@ -110,11 +112,16 @@ function StrategyCard({
   const { t, lang } = ui;
   const id = entry.rotation_id;
   const score = scoreEntry(entry, weights);
-  const why = whyBullets(entry, weights);
+  const current = id === "R0";
+  // R0 is the baseline: its why and benefit lines would compare it with itself.
+  // A rotation that cannot get the water it needs here has no fair why or benefit lines either.
+  const unfair = current || shownAt === "none";
+  const es = lang === "es";   // Spanish fallbacks until these keys reach copy.json
+  const why = unfair ? [] : whyBullets(entry, weights);
+  const benefits = unfair ? [] : benefitsShown(entry);
   const { cap, hay, cotton, forage } = useFieldShift();
   const unlock = reason ? unlockHint(entry, reason, rotations, t, { cap, hay, cotton, forage }) : null;
   const text = ui.cardText.rotations[id];
-  const current = id === "R0";
   const label = (k: CriterionId) => loc(ui.cardText.criteria_labels[k], lang) || k;
   return (
     <article className={`strategy-card ${current ? "current-strategy" : ""}`} style={{ "--rotation-color": rotColor(id) } as React.CSSProperties} aria-labelledby={`card-${id}`}>
@@ -131,6 +138,9 @@ function StrategyCard({
               <span>{cardLine(ui, "infeasible", reason)}{unlock && <b> {unlock}</b>}</span>
             </p>
           )}
+          {shownAt && <p className="shown-at">{shownAt === "none"
+            ? t("card.no_water_here", es ? "Este campo no tiene riego. Estas cifras suponen cero agua, así que subestiman esta rotación." : "This field is not irrigated. These numbers assume no water, so they understate this rotation.")
+            : interpolate(t("card.shown_at", es ? "Cifras mostradas con: {cap}." : "Numbers shown with: {cap}."), { cap: t(`constraints.cap.${shownAt}`) })}</p>}
           <p>{loc(text?.tagline, lang)}</p>
         </div>
       </div>
@@ -159,7 +169,7 @@ function StrategyCard({
       <CardSection title={t("card.why")} icon={<Leaf size={15} aria-hidden="true" />}>
         {why.length
           ? <ul>{why.map((k) => <li key={k}><b>{label(k)}.</b> {cardLine(ui, "why", k, entry.criteria[k].vars)}</li>)}</ul>
-          : <p className="section-empty">{current ? t("card.current_why", "This is your baseline. The other cards are compared against it.") : t("card.no_why", "No criterion stands out at these priorities.")}</p>}
+          : <p className="section-empty">{current ? t("card.current_why", "This is your baseline. The other cards are compared against it.") : shownAt === "none" ? t("card.no_water_why", es ? "No se sugiere aquí: necesita riego que este campo no tiene." : "Not suggested here: it needs irrigation this field does not have.") : t("card.no_why", "No criterion stands out at these priorities.")}</p>}
       </CardSection>
       <CardSection title={t("card.evidence")} icon={<ListChecks size={15} aria-hidden="true" />}>
         {entry.evidence.length ? entry.evidence.map((item, index) => (
@@ -170,8 +180,8 @@ function StrategyCard({
         )) : <p className="section-empty">{t("card.none", "Nothing listed.")}</p>}
       </CardSection>
       <CardSection title={t("card.benefits")} icon={<ShieldCheck size={15} aria-hidden="true" />}>
-        {benefitsShown(entry).length
-          ? <ul>{benefitsShown(entry).map((item, index) => <li key={`${item.text_id}-${index}`}>{cardLine(ui, "benefits", item.text_id, item.vars)}</li>)}</ul>
+        {benefits.length
+          ? <ul>{benefits.map((item, index) => <li key={`${item.text_id}-${index}`}>{cardLine(ui, "benefits", item.text_id, item.vars)}</li>)}</ul>
           : <p className="section-empty">{current ? t("card.current_benefits", "Benefits of the other rotations are measured against this one.") : t("card.none", "Nothing listed.")}</p>}
       </CardSection>
       <CardSection title={t("card.gaps")} icon={<Info size={15} aria-hidden="true" />} tone="gap">
