@@ -63,7 +63,7 @@ BARE_F_MIN = 0.1
 # On bare days evaporation draws from a surface layer of this depth (FAO-56 ch. 7, Ze 0.10-0.15 m,
 # https://www.fao.org/4/x0490e/x0490e0c.htm); water below it is stored for the next crop.
 BARE_EVAP_DEPTH_M = 0.15
-# SCS curve number, row crop, straight row, good condition (NRCS NEH 630 ch. 9, table 9-1)
+# SCS curve number, row crop, straight row, good condition (NRCS NEH 630 ch. 9, table 9-1, https://directives.nrcs.usda.gov/sites/default/files2/1720460895/Chapter%209%20-%20Hydrologic%20Soil-Cover%20Complexes.pdf)
 CN_BY_HYDGRP = {"A": 67, "B": 78, "C": 85, "D": 89}
 CN_BARE_ADD = 3
 CN_IA_RATIO = 0.2                     # initial abstraction = 0.2 S
