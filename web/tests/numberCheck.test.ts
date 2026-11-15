@@ -89,3 +89,10 @@ describe.skipIf(!shared.length)(`shared number check cases (${sharedPath ?? "non
     expect(got.map(({ text, value, unit, verified, fact_id }) => ({ text, value, unit, verified, fact_id }))).toEqual(c.expected);
   });
 });
+
+describe("text-only facts", () => {
+  it("never verifies a number against a fact with a null value", () => {
+    const got = checkNumbers("It is 0 mm.", [{ id: "field.irrigation", value: null, unit: null }]);
+    expect(got[0].verified).toBe(false);
+  });
+});

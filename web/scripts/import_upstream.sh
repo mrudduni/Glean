@@ -18,11 +18,14 @@ done; done
 # M: model outputs
 copy role/model model/out/web/crops.json public/data/crops.json
 copy role/model model/out/web/rotations.json public/data/rotations.json
-for id in f1 f2 f3; do for f in summary calendar replay strategies validation assistant_context assistant_cache; do
+for id in f1 f2 f3; do for f in summary calendar replay strategies validation assistant_cache; do
   copy role/model "model/out/web/field/$id/$f.json" "public/data/field/$id/$f.json"
 done; done
 
-# M (assistant): the built prompt and the shared number-check cases
+# M (assistant): the built prompt, the fact contexts and the shared number-check cases
+for id in f1 f2 f3; do
+  copy role/model-assistant "model/out/web/field/$id/assistant_context.json" "public/data/field/$id/assistant_context.json"
+done
 copy role/model-assistant model/out/web/assistant/prompt.json public/data/assistant/prompt.json
 copy role/model-assistant model/assistant/number_check_cases.json tests/fixtures/number_check_cases.json
 

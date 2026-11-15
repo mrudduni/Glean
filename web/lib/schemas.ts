@@ -240,7 +240,7 @@ export const validationSchema: Schema<T.ValidationFile> = z.object({
 });
 
 export const factSchema: Schema<T.Fact> = z.object({
-  id: z.string(), text: z.string(), value: z.number(), unit: z.string().nullable(), source: sourceTag,
+  id: z.string(), text: z.string(), value: z.number().nullable(), unit: z.string().nullable(), source: sourceTag,
   scenario: scenarioKey.optional(), rotation_id: rotationId.optional(),
 });
 export const assistantContextSchema: Schema<T.AssistantContext> = z.object({

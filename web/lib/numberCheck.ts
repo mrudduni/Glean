@@ -116,9 +116,10 @@ function compatible(a: string | null, b: string | null): boolean {
 
 /** README §9: verified when a fact with a compatible unit is within max(5 %, rounding step). First match wins. */
 export function checkNumbers(answer: string, facts: Pick<Fact, "id" | "value" | "unit">[]): CheckedNumber[] {
-  const prepared = facts.map((fact) => {
+  const prepared = facts.flatMap((fact) => {
+    if (typeof fact.value !== "number") return [];   // text-only facts have nothing to match
     const [value, unit] = toBase(fact.value, canonUnit(fact.unit));
-    return { id: fact.id, value, unit };
+    return [{ id: fact.id, value, unit }];
   });
   return findNumbers(answer).map((found) => {
     const [value, unit, scale] = toBase(found.value, found.unit);

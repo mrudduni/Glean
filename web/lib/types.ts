@@ -215,7 +215,7 @@ export interface AssistantContext {
 export interface Fact {
   id: string;                                      // e.g. "replay.R2.cap300|actual.irrigation_mm_mean"
   text: string;                                    // English sentence containing the number
-  value: number; unit: string | null;              // "mm", "usd_ac", "pct", "days", "cm_per_yr", ...
+  value: number | null; unit: string | null;       // null for text-only facts (M sends these); "mm", "usd_ac", ...
   source: SourceTag;
   scenario?: ScenarioKey;                          // omit = applies to all scenarios
   rotation_id?: RotationId;
