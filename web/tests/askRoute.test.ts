@@ -83,6 +83,49 @@ describe("POST /api/ask", () => {
     expect(system).not.toMatch(/\{(field_name|lang_name|scenario_label|top_rotations|facts_block)\}/);
   });
 
+  it("gives gpt-oss models room to reason and retries an empty answer once", async () => {
+    vi.stubEnv("LLM_MODEL", "openai/gpt-oss-120b");
+    const fetchSpy = vi.fn()
+      .mockResolvedValueOnce(Response.json({ choices: [{ message: { content: "" }, finish_reason: "length" }] }))
+      .mockResolvedValueOnce(Response.json({ choices: [{ message: { content: "Fine [POWER]." } }] }));
+    vi.stubGlobal("fetch", fetchSpy);
+    const response = await ask({ ...base, question: "Water?" });
+    expect(response.status).toBe(200);
+    expect(fetchSpy).toHaveBeenCalledTimes(2);
+    const sent = JSON.parse(fetchSpy.mock.calls[0][1].body);
+    expect(sent.reasoning_effort).toBe("low");
+    expect(sent.max_tokens).toBeGreaterThanOrEqual(1500);
+  });
+
+  it("does not send reasoning_effort to other models", async () => {
+    const fetchSpy = vi.fn().mockResolvedValue(Response.json({ choices: [{ message: { content: "Fine." } }] }));
+    vi.stubGlobal("fetch", fetchSpy);
+    await ask({ ...base, question: "Water?" });
+    expect(JSON.parse(fetchSpy.mock.calls[0][1].body).reasoning_effort).toBeUndefined();
+  });
+
+  it("answers with a busy note pointing to suggested questions when rate limited", async () => {
+    vi.stubGlobal("fetch", vi.fn().mockResolvedValue(new Response("slow down", { status: 429 })));
+    const response = await ask({ ...base, lang: "es", question: "Water?" });
+    const json = await response.json();
+    expect(response.status).toBe(200);
+    expect(json.cached).toBe(true);
+    expect(json.provider).toBe("cache");
+    expect(json.answer_md).toMatch(/pregunta/i);
+  });
+
+  it("sends only facts for R0 and the rotations on screen", async () => {
+    const fetchSpy = vi.fn().mockResolvedValue(Response.json({ choices: [{ message: { content: "Fine." } }] }));
+    vi.stubGlobal("fetch", fetchSpy);
+    await ask({ ...base, question: "Water?", top_rotations: ["R0", "R2"] });
+    const system: string = JSON.parse(fetchSpy.mock.calls[0][1].body).messages[0].content;
+    const rotationFacts = context.facts.filter((f) => f.rotation_id && f.scenario === "cap300|actual");
+    for (const fact of rotationFacts) {
+      const included = system.includes(`(${fact.id})`);
+      expect(included).toBe(fact.rotation_id === "R0" || fact.rotation_id === "R2");
+    }
+  });
+
   it("rate limits after 20 requests a minute from one IP", async () => {
     let last = 0;
     for (let i = 0; i < 21; i += 1) last = (await ask({ ...base, question_id: "q1" }, "same-ip")).status;

@@ -26,6 +26,7 @@ const DEFAULT_SCENARIO = "cap300|actual";
 const TIMEOUT_MS = 20_000;
 const RATE_LIMIT = 20;            // requests per minute per IP
 const RATE_WINDOW_MS = 60_000;
+const REASONING_MAX_TOKENS = 1500;
 
 /** Validate a bundled JSON file; log mismatches but keep serving so one stray field does not take the route down. */
 function parse<T>(path: string, value: unknown, schema: ZodType<T, ZodTypeDef, unknown>): T {
@@ -79,6 +80,16 @@ function fillTemplate(template: string, values: Record<string, string>): string 
   return template.replace(/\{([a-z_]+)\}/g, (match, key: string) => (key in values ? values[key] : match));
 }
 
+/** Shown when the provider is rate-limited: points to the suggested questions, whose answers are cached. */
+function busyText(lang: AskRequest["lang"]): string {
+  const key = "assistant.busy";
+  const fallback = {
+    en: "The assistant is busy right now. Try one of the suggested questions below. Their answers are ready.",
+    es: "El asistente está ocupado ahora. Pruebe una de las preguntas sugeridas abajo. Sus respuestas ya están listas.",
+  };
+  return copy.strings?.[key]?.[lang] ?? fallback[lang];
+}
+
 function citations(answer: string): AskResponse["citations"] {
   const tags = new Set([...answer.matchAll(/\[([A-Za-z0-9]+)\]/g)].map((match) => match[1]));
   return sources.sources.filter((source) => tags.has(source.tag)).map(({ tag, name, url }) => ({ tag, name, url }));
@@ -122,7 +133,11 @@ export async function POST(request: NextRequest) {
 
   // 2-3. Facts for this scenario, prompt template filled.
   const context = contexts[input.field_id];
-  const facts = context.facts.filter((fact) => !fact.scenario || fact.scenario === input.scenario);
+  // Keep the prompt small (free tiers allow ~8k tokens a minute): this scenario only, and only
+  // rotation facts for R0 and the rotations on screen.
+  const onScreen = new Set<string>(["R0", ...(input.top_rotations ?? [])]);
+  const facts = context.facts.filter((fact) => (!fact.scenario || fact.scenario === input.scenario)
+    && (!fact.rotation_id || !input.top_rotations?.length || onScreen.has(fact.rotation_id)));
   const factsBlock = facts.map((fact) => `- (${fact.id}) ${fact.text} [${fact.source}]`).join("\n");
   const system = fillTemplate(prompt.system, {
     field_name: context.field_name,
@@ -141,6 +156,8 @@ export async function POST(request: NextRequest) {
   const controller = new AbortController();
   const timer = setTimeout(() => controller.abort(), TIMEOUT_MS);
   try {
+    // Reasoning models (gpt-oss) spend max_tokens on hidden reasoning first; give them room and keep reasoning short.
+    const reasoning = LLM_MODEL.startsWith("openai/gpt-oss");
     const call = () => fetch(`${LLM_BASE_URL.replace(/\/+$/, "")}/chat/completions`, {
       method: "POST",
       headers: { "content-type": "application/json", authorization: `Bearer ${LLM_API_KEY}` },
@@ -148,22 +165,36 @@ export async function POST(request: NextRequest) {
         model: LLM_MODEL,
         messages: [{ role: "system", content: system }, ...(input.history ?? []).slice(-6), { role: "user", content: question }],
         temperature: prompt.temperature,
-        max_tokens: prompt.max_tokens,
+        max_tokens: reasoning ? Math.max(prompt.max_tokens, REASONING_MAX_TOKENS) : prompt.max_tokens,
+        ...(reasoning ? { reasoning_effort: "low" } : {}),
       }),
       signal: controller.signal,
     });
-    let upstream = await call();
-    // Free tiers rate-limit per minute; one retry when the provider asks for a short wait.
-    const wait = Number(upstream.headers.get("retry-after"));
-    if (upstream.status === 429 && wait > 0 && wait <= 8) {
-      await new Promise((resolve) => setTimeout(resolve, wait * 1000));
-      upstream = await call();
+
+    let answer: string | null = null;
+    let limited = false;
+    for (let attempt = 0; attempt < 2 && !answer; attempt += 1) {
+      const upstream = await call();
+      if (upstream.status === 429) {
+        limited = true;
+        // One retry when the provider asks for a short wait; otherwise give up now.
+        const wait = Number(upstream.headers.get("retry-after"));
+        if (attempt === 0 && wait > 0 && wait <= 8) { await new Promise((resolve) => setTimeout(resolve, wait * 1000)); continue; }
+        break;
+      }
+      limited = false;
+      if (!upstream.ok) {
+        console.warn(`[ask] provider returned ${upstream.status}`);
+        return fail(503, "llm_unavailable", "The assistant provider returned an error.");
+      }
+      answer = readAnswer(await upstream.json());   // empty content (reasoning ran out of tokens) → retry once
+      if (!answer) console.warn("[ask] provider returned an empty answer");
     }
-    if (!upstream.ok) {
-      console.warn(`[ask] provider returned ${upstream.status}`);
-      return fail(503, "llm_unavailable", "The assistant provider returned an error.");
+    if (!answer && limited) {
+      console.warn("[ask] provider rate limit; sending the busy answer");
+      const busy: AskResponse = { answer_md: busyText(input.lang), citations: [], numbers: [], cached: true, provider: "cache", model: "none" };
+      return NextResponse.json(busy);
     }
-    const answer = readAnswer(await upstream.json());
     if (!answer) return fail(503, "llm_unavailable", "The assistant provider returned an empty answer.");
 
     // 5. Number check and citations.

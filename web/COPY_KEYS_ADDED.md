@@ -2,13 +2,14 @@
 
 These keys are not in README §8.6. The web app calls each one as `t("key", "English fallback")`.
 
-Status: all of them were added to `content/copy.json` with `en` and `es` text in role/content 3c740c7 (2026-11-15). Add new keys here and to copy.json together. Added after that commit, not yet in copy.json: `neighbors.fields_header`.
+Status: all of them were added to `content/copy.json` with `en` and `es` text in role/content 3c740c7 (2026-11-15). Add new keys here and to copy.json together. Added after that commit, not yet in copy.json: `neighbors.fields_header`, `assistant.busy`.
 
 Generated from a grep of `t("…")` calls in `app/`, `components/` and `lib/`.
 
 | Key | Where used | English text |
 |---|---|---|
 | `app.location` | app/page.tsx | Finney County, Kansas |
+| `assistant.busy` | app/api/ask/route.ts | The assistant is busy right now. Try one of the suggested questions below. Their answers are ready. |
 | `assistant.close` | components/AssistantDrawer.tsx | Close |
 | `assistant.subtitle` | components/AssistantDrawer.tsx | Answers use only this field's data. Every number is checked. |
 | `assistant.waiting` | components/AssistantDrawer.tsx | Checking the field data |
