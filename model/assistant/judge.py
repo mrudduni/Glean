@@ -95,7 +95,7 @@ def judge_one(resp, lang, qtext, facts, facts_text, client, jenv, prompt, use_ll
     issues = rule_checks(resp, lang, facts)
     scores = None
     if use_llm:
-        scores = llm_judge(client, env, prompt, lang, qtext, resp["answer_md"], facts_text)
+        scores = llm_judge(client, jenv, prompt, lang, qtext, resp["answer_md"], facts_text)
         low = [k for k in CRITERIA if scores[k] < PASS_SCORE]
         issues += [f"judge: {i}" for i in scores["issues"]] + ([f"low score: {', '.join(low)}"] if low else [])
     return {"pass": not issues, "scores": scores, "issues": issues}
@@ -114,9 +114,11 @@ def main():
 
     use_llm = llm_ready() and not a.dry_run
     env, client = llm_env(), None
+    genv = llm_env(cache.gen_prefix())  # backend that regenerates failed answers
+    gclient = None
     if use_llm:
-        from openai import OpenAI
-        client = OpenAI(base_url=env["LLM_BASE_URL"], api_key=env["LLM_API_KEY"], timeout=60, max_retries=0)
+        client = cache.make_client(env)
+        gclient = cache.make_client(genv)
     jenv = {**env, "LLM_MODEL": os.environ.get("JUDGE_MODEL", "openai/gpt-oss-20b")}
     prompt = load(a.out / "assistant" / "prompt.json")
     qs = {q["id"]: q for q in load(CONTENT_DIR / "assistant_questions.json")["questions"]}
@@ -138,7 +140,7 @@ def main():
                     rounds += 1
                     regen_total += 1
                     time.sleep(a.sleep)
-                    new = cache.generate(fid, qid, lang, ctx, prompt, qs, top_ids, sources, client, env,
+                    new = cache.generate(fid, qid, lang, ctx, prompt, qs, top_ids, sources, gclient, genv,
                                          feedback=verdict["issues"])
                     v2 = judge_one(new, lang, qtext, facts, facts_text, client, jenv, prompt, use_llm)
                     if v2["pass"] or len(v2["issues"]) <= len(verdict["issues"]):
