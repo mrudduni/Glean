@@ -76,6 +76,15 @@ CATALOG = {
                  what="Depth to water below land surface at monitoring wells (USGS, KGS and Kansas DWR wells)",
                  resolution="Individual wells", period="2000–2025",
                  used_for="Local aquifer trend near each field"),
+    "FAO56": dict(name="FAO Irrigation and Drainage Paper 56 (Penman-Monteith, crop coefficients)", provider="FAO",
+                  url="https://www.fao.org/4/x0490e/x0490e00.htm",
+                  what="Reference ET method and crop coefficients (Kc)", resolution="Method, not a dataset",
+                  period="1998", used_for="Reference ET and crop water demand in the Replay"),
+    "MODEL": dict(name="Field Shift Rotation Replay model", provider="Team Brackets (M)",
+                  url="https://github.com/mrudduni/Team-Brackets",
+                  what="Simulated yield, water use and soil outputs built from the inputs above",
+                  resolution="Field, daily/annual", period="2016–2025",
+                  used_for="Rotation Replay results and the calendar"),
 }
 
 SKIPPED = [
@@ -105,10 +114,11 @@ def used_tags() -> tuple[list[str], dict[str, str]]:
         "POWER": has("weather_daily.csv"), "IMERG": has("precip_imerg_daily.csv"),
         "SMAP": has("smap_l4_daily.csv"), "MODIS": has("ndvi_modis.csv"), "ECOSTRESS": has("ecostress.csv"),
         "GRACE": has("grace_monthly.csv"), "SRTM": "SRTM" in t_src,
-        "SSURGO": (C.RAW / "ssurgo" / "fields_soil.json").exists(),
+        "SSURGO": (C.RAW / "ssurgo" / "fields_soil.json").exists() or (C.WEB / "fields.json").exists(),
         "CSB": (C.WEB / "fields.json").exists(), "NASS": (P / "nass.json").exists(),
         "OpenET": has("openet_monthly.csv"), "PRISM": has("prism_daily.csv"),
-        "USGS": (C.RAW / "wells" / "wells.json").exists(),
+        "USGS": (C.RAW / "wells" / "wells.json").exists() or (C.WEB / "field" / "f1" / "water.json").exists(),
+        "FAO56": True, "MODEL": True,
     }
     pending = {
         "IMERG": "needs an Earthdata login (or Giovanni CSVs in raw/imerg/)",
