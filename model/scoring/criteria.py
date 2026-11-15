@@ -85,7 +85,7 @@ def normalise(raws: dict[str, dict], feasible: dict[str, bool]) -> dict[str, dic
 
 
 def default_score(norms: dict[str, float], weights: dict[str, float] | None = None) -> float:
-    """README 8.7 score under slider weights (default 3 each)."""
+    """CONTRACT 8.7 score under slider weights (default 3 each)."""
     weights = weights or config.SLIDER_DEFAULT
     wk = {c: 0.0 for c in config.CRITERIA}
     for slider, val in weights.items():

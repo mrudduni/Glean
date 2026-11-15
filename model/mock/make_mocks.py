@@ -1,4 +1,4 @@
-"""Write schema-exact mock JSON (README 8.4) for every M file, f1-f3, with _meta.mock = true.
+"""Write schema-exact mock JSON (CONTRACT 8.4) for every M file, f1-f3, with _meta.mock = true.
 
 Run: python model/mock/make_mocks.py   (writes into model/out/web/)
 """

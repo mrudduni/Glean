@@ -1,4 +1,4 @@
-"""README section 8.6 text key catalog and shared JSON writer. M uses only these keys and vars."""
+"""CONTRACT section 8.6 text key catalog and shared JSON writer. M uses only these keys and vars."""
 from __future__ import annotations
 
 import json

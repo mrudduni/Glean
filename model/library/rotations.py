@@ -1,4 +1,4 @@
-"""Rotation library R1-R6 (README 7.2) and the per-field current rotation R0."""
+"""Rotation library R1-R6 (CONTRACT 7.2) and the per-field current rotation R0."""
 from __future__ import annotations
 
 from dataclasses import dataclass, field

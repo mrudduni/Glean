@@ -1,4 +1,4 @@
-"""Copy every producer's output into the web app, exactly the README 6.5 mapping. No transformation.
+"""Copy every producer's output into the web app, exactly the CONTRACT 6.5 mapping. No transformation.
 
 Usage: python scripts/sync_data.py [--root REPO] [--strict]
   --strict  exit 1 if any source is missing
