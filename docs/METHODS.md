@@ -83,7 +83,7 @@ Daily, then summed per calendar year (`model/replay/exposure.py`):
 - Cover multiplier: 1.0 on bare days, × residue factor for 120 days after each harvest or cover termination (high 0.5, medium 0.7, low 0.9).
 - Bare storm day: bare day with rain ≥ 12.7 mm (IMERG when delivered, POWER until then).
 - Bare windy day: bare day with POWER `ws10m_max` ≥ 11 m/s (about 25 mph).
-- `water_erosion_idx = Σ storm days × multiplier × rain/25.4 × K × S`, `S = 10.8 sin(atan(slope)) + 0.03`, with SSURGO K factor and the field's SRTM slope.
+- `water_erosion_idx = Σ storm days × multiplier × rain/25.4 × K × S`, `S = 10.8 sin(atan(slope)) + 0.03`, with SSURGO K factor and the SSURGO map-unit slope (SRTM 30 m slope is noisy on these flat fields: it reads 9.3% on f2, a 0 to 1% slope soil). The slope factor scales every rotation on a field equally, so it does not change scores.
 - `wind_erosion_idx = Σ windy days × multiplier × WEI/310` (310 t/ac/yr is the WEG 1 maximum).
 
 These are relative indices for comparing rotations on the same field. They are not tons of soil.

@@ -65,7 +65,8 @@ def simulate(tl: Timeline, w: Weather, field: dict, crops: dict, cap: str, irrig
     rev_season = np.array([k >= 0 and tl.seasons[k].revenue for k in tl.season.tolist()])
     stress = (tl.state == GROW) & rev_season & (res.ks < config.STRESS_KS)
     living = (tl.state == GROW) | (tl.state == COVER)
-    ex = exposure_daily(tl, crops, w.storm_p, df["ws10m_max_ms"].to_numpy(), soil, field["terrain"]["slope_pct"])
+    # SSURGO map-unit slope: SRTM 30 m slope is noisy on flat fields (f2 reads 9 % on a 0-1 % soil)
+    ex = exposure_daily(tl, crops, w.storm_p, df["ws10m_max_ms"].to_numpy(), soil, soil["slope_pct"])
 
     daily = pd.DataFrame({
         "year": year, "irrigation_mm": res.irr, "eta_mm": res.eta, "etc_mm": res.etc,
