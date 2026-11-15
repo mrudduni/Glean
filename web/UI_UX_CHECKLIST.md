@@ -53,9 +53,12 @@ Each item names its audit ID. Ticked items are committed and checked with `npm t
 
 ## Verification
 
-- [ ] Before/after screenshots at 1440, 768 and 375, light and dark
-- [ ] Keyboard run-through: section nav, sliders, toggles, drawer (focus trap, Escape)
-- [ ] `prefers-reduced-motion` honoured
+- [x] Before/after screenshots at 1440, 768 and 375, light and dark, every route, drawer and states (71 shots each; no route scrolls sideways at 375)
+- [x] Contrast: 0 text elements below WCAG AA across home, field and How we know, light and dark (874 checked)
+- [x] Keyboard: logical tab order; drawer moves focus to the question box, traps Tab, closes on Escape and returns focus to its button; a slider moved by keyboard re-ranks the cards; calendar and chart scroll regions are focusable
+- [x] `prefers-reduced-motion` honoured (animations and smooth scroll off)
+- [x] Hard-coded colours: 582 hex values in `globals.css` before; 4 deliberate literals after (ink on crop fills, labels over satellite imagery)
+- [x] `npm test` (134), `npm run typecheck`, `npm run build` pass on every commit
 
 ## Not changed here (owner decisions or other folders)
 
