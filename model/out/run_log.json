@@ -1,7 +1,7 @@
 {
- "generated_at": "2026-11-15T14:43:00Z",
+ "generated_at": "2026-11-15T14:45:53Z",
  "data_dir": "C:\\Users\\HP\\fieldshift-data\\data-pipeline\\out",
- "crops_yaml": "C:\\Users\\HP\\OneDrive\\fs-content-fix\\content\\crops.yaml",
+ "crops_yaml": "C:\\Users\\HP\\OneDrive\\RISHI GARG LAB\\NASA\\.claude\\worktrees\\model-core-60d590\\content\\crops.yaml",
  "yields": {
   "corn.irrigated": {
    "value": 203.22,
