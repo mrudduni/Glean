@@ -1,44 +1,115 @@
 {
-  "_meta": { "schema": "card_text@1", "mock": false, "generated_at": "2026-11-15T12:00:00Z", "generator": "content (U)" },
+  "_meta": {
+    "schema": "card_text@1",
+    "mock": false,
+    "generated_at": "2026-11-15T12:00:00Z",
+    "generator": "content (U)"
+  },
   "rotations": {
     "R0": {
-      "name": { "en": "Your current rotation", "es": "Su rotación actual" },
-      "tagline": { "en": "What this field has grown in recent years, seen from satellite crop maps", "es": "Lo que este campo ha sembrado en los últimos años, según mapas satelitales de cultivos" }
+      "name": {
+        "en": "Your current rotation",
+        "es": "Su rotación actual"
+      },
+      "tagline": {
+        "en": "What this field has grown in recent years, seen from satellite crop maps",
+        "es": "Lo que este campo ha sembrado en los últimos años, según mapas satelitales de cultivos"
+      }
     },
     "R1": {
-      "name": { "en": "Corn, wheat, sorghum", "es": "Maíz, trigo, sorgo" },
-      "tagline": { "en": "Three crops in three years, with irrigation kept for the thirstiest one", "es": "Tres cultivos en tres años, con el riego reservado para el que más agua pide" }
+      "name": {
+        "en": "Corn, wheat, sorghum",
+        "es": "Maíz, trigo, sorgo"
+      },
+      "tagline": {
+        "en": "Three crops in three years, with irrigation kept for the thirstiest one",
+        "es": "Tres cultivos en tres años, con el riego reservado para el que más agua pide"
+      }
     },
     "R2": {
-      "name": { "en": "Wheat, sorghum, fallow", "es": "Trigo, sorgo, barbecho" },
-      "tagline": { "en": "The dryland classic: the fallow year stores rain for the next crop", "es": "El clásico de secano: el año de barbecho guarda la lluvia para el siguiente cultivo" }
+      "name": {
+        "en": "Wheat, sorghum, fallow",
+        "es": "Trigo, sorgo, barbecho"
+      },
+      "tagline": {
+        "en": "The dryland classic: the fallow year stores rain for the next crop",
+        "es": "El clásico de secano: el año de barbecho guarda la lluvia para el siguiente cultivo"
+      }
     },
     "R3": {
-      "name": { "en": "Wheat, sorghum, forage triticale", "es": "Trigo, sorgo, triticale forrajero" },
-      "tagline": { "en": "Flex fallow: a forage crop grows where the fallow year used to be", "es": "Barbecho flexible: un cultivo forrajero ocupa el lugar del año de barbecho" }
+      "name": {
+        "en": "Wheat, sorghum, forage triticale",
+        "es": "Trigo, sorgo, triticale forrajero"
+      },
+      "tagline": {
+        "en": "Flex fallow: a forage crop grows where the fallow year used to be",
+        "es": "Barbecho flexible: un cultivo forrajero ocupa el lugar del año de barbecho"
+      }
     },
     "R4": {
-      "name": { "en": "Alfalfa, then corn and wheat", "es": "Alfalfa, luego maíz y trigo" },
-      "tagline": { "en": "Four years of alfalfa, then corn, then wheat. Deep roots, but it drinks a lot", "es": "Cuatro años de alfalfa, luego maíz y trigo. Raíces profundas, pero toma mucha agua" }
+      "name": {
+        "en": "Alfalfa, then corn and wheat",
+        "es": "Alfalfa, luego maíz y trigo"
+      },
+      "tagline": {
+        "en": "Four years of alfalfa, then corn, then wheat. Deep roots, but it drinks a lot",
+        "es": "Cuatro años de alfalfa, luego maíz y trigo. Raíces profundas, pero toma mucha agua"
+      }
     },
     "R5": {
-      "name": { "en": "Corn, soybean, wheat and rye cover", "es": "Maíz, soya, trigo y centeno de cobertura" },
-      "tagline": { "en": "Adds a legume and a winter cover crop to feed the soil", "es": "Suma una leguminosa y una cobertura de invierno para alimentar el suelo" }
+      "name": {
+        "en": "Corn, soybean, wheat and rye cover",
+        "es": "Maíz, soya, trigo y centeno de cobertura"
+      },
+      "tagline": {
+        "en": "Adds a legume and a winter cover crop to feed the soil",
+        "es": "Suma una leguminosa y una cobertura de invierno para alimentar el suelo"
+      }
     },
     "R6": {
-      "name": { "en": "Cotton, wheat, sorghum", "es": "Algodón, trigo, sorgo" },
-      "tagline": { "en": "A warm-climate option to explore. Check gin access first", "es": "Una opción para clima más cálido. Primero confirme si hay desmotadora cerca" }
+      "name": {
+        "en": "Cotton, wheat, sorghum",
+        "es": "Algodón, trigo, sorgo"
+      },
+      "tagline": {
+        "en": "A warm-climate option to explore. Check gin access first",
+        "es": "Una opción para clima más cálido. Primero confirme si hay desmotadora cerca"
+      }
     }
   },
   "criteria_labels": {
-    "water_use": { "en": "Saves water", "es": "Ahorra agua" },
-    "income_mean": { "en": "Average income", "es": "Ingreso promedio" },
-    "income_worst": { "en": "Income in bad years", "es": "Ingreso en años malos" },
-    "soil_health": { "en": "Builds soil", "es": "Cuida el suelo" },
-    "water_erosion": { "en": "Holds soil in rain", "es": "Frena la erosión por lluvia" },
-    "wind_erosion": { "en": "Holds soil in wind", "es": "Frena la erosión por viento" },
-    "pest_break": { "en": "Breaks pest cycles", "es": "Rompe ciclos de plagas" },
-    "heat_frost_risk": { "en": "Heat and frost risk", "es": "Riesgo de calor y helada" }
+    "water_use": {
+      "en": "Saves water",
+      "es": "Ahorra agua"
+    },
+    "income_mean": {
+      "en": "Average income",
+      "es": "Ingreso promedio"
+    },
+    "income_worst": {
+      "en": "Income in bad years",
+      "es": "Ingreso en años malos"
+    },
+    "soil_health": {
+      "en": "Builds soil",
+      "es": "Cuida el suelo"
+    },
+    "water_erosion": {
+      "en": "Holds soil in rain",
+      "es": "Frena la erosión por lluvia"
+    },
+    "wind_erosion": {
+      "en": "Holds soil in wind",
+      "es": "Frena la erosión por viento"
+    },
+    "pest_break": {
+      "en": "Breaks pest cycles",
+      "es": "Rompe ciclos de plagas"
+    },
+    "heat_frost_risk": {
+      "en": "Heat and frost risk",
+      "es": "Riesgo de calor y helada"
+    }
   },
   "why": {
     "water_use": {
@@ -148,8 +219,8 @@
       "es": "Los campos cercanos son parecidos, no idénticos. Las diferencias en el uso de agua pueden tener otras causas, como el manejo o el suelo."
     },
     "model_simplified": {
-      "en": "The water model is simple. It does not track pests, disease, hail, or exact planting dates.",
-      "es": "El modelo de agua es sencillo. No incluye plagas, enfermedades, granizo ni fechas de siembra exactas."
+      "en": "The water model is simple and runs on past weather. It does not track pests, disease, hail, or exact planting dates. Future weather may be different.",
+      "es": "El modelo de agua es sencillo y usa el clima del pasado. No incluye plagas, enfermedades, granizo ni fechas de siembra exactas. El clima futuro puede ser distinto."
     },
     "crop_params_generic": {
       "en": "Crop settings come from general tables, not from varieties grown here. Ask K-State Research and Extension about local varieties.",
@@ -162,16 +233,16 @@
       "es": "Algunos herbicidas del trigo pueden dañar el siguiente cultivo. Revise las etiquetas y los plazos de siembra con su agrónomo."
     },
     "buyer_availability": {
-      "en": "A crop with no nearby buyer can be hard to sell. Ask your elevator or co-op before planting.",
-      "es": "Un cultivo sin comprador cercano puede ser difícil de vender. Pregunte a su elevador o cooperativa antes de sembrar."
+      "en": "If few farms in the county grow this crop, there may be no nearby buyer. Ask your elevator or co-op before planting.",
+      "es": "Si pocas fincas del condado siembran este cultivo, puede que no haya comprador cercano. Pregunte a su elevador o cooperativa antes de sembrar."
     },
     "crop_insurance": {
       "en": "Insurance rules differ by crop and practice. Ask your insurance agent whether this rotation is covered and what it pays.",
       "es": "Las reglas del seguro cambian según el cultivo y la práctica. Pregunte a su agente de seguros si esta rotación está cubierta y cuánto paga."
     },
     "water_rights": {
-      "en": "Your water right may limit how much you can pump. Check your allocation with the Kansas Division of Water Resources.",
-      "es": "Su derecho de agua puede limitar cuánto puede bombear. Revise su asignación con la División de Recursos Hídricos de Kansas."
+      "en": "Your water right and local district rules may limit how much you can pump. Check with your groundwater management district and the Kansas Division of Water Resources.",
+      "es": "Su derecho de agua y las reglas del distrito local pueden limitar cuánto puede bombear. Consulte a su distrito de manejo de aguas subterráneas y a la División de Recursos Hídricos de Kansas."
     },
     "equipment_access": {
       "en": "This rotation may need machines you do not own, such as hay or cotton equipment. Check cost and who can do custom work.",
@@ -190,8 +261,8 @@
       "es": "El suelo en barbecho sin cobertura puede volar con el viento, sobre todo en suelo arenoso en primavera. Deje rastrojo en pie y consulte a su oficina de NRCS sobre prácticas contra la erosión eólica."
     },
     "new_crop_learning": {
-      "en": "A crop you have not grown before has a learning curve. Start on a small block and talk to neighbors who grow it.",
-      "es": "Un cultivo que no ha sembrado antes requiere aprender. Empiece con un lote pequeño y hable con vecinos que lo siembran."
+      "en": "A crop you have not grown before has a learning curve. Talk to growers and your extension agent about varieties, ginning or processing, and timing. Start on a small block.",
+      "es": "Un cultivo que no ha sembrado antes requiere aprender. Hable con productores y con su agente de extensión sobre variedades, desmotado o procesamiento y fechas. Empiece con un lote pequeño."
     },
     "seed_availability": {
       "en": "Seed for some crops is hard to find locally. Ask your seed dealer early.",
@@ -214,12 +285,12 @@
   },
   "headline": {
     "grace_trend": {
-      "en": "NASA GRACE satellites show groundwater storage in this area changing by {cm_per_yr} a year.",
-      "es": "Los satélites GRACE de la NASA muestran que el agua subterránea de esta zona cambia {cm_per_yr} al año."
+      "en": "NASA GRACE satellites show groundwater storage in this region changing by {cm_per_yr} a year since 2002.",
+      "es": "Los satélites GRACE de la NASA muestran que el agua subterránea de esta región cambia {cm_per_yr} al año desde 2002."
     },
     "well_trend": {
-      "en": "Nearby wells show the water level changing by {m_per_yr} a year.",
-      "es": "Los pozos cercanos muestran que el nivel del agua cambia {m_per_yr} al año."
+      "en": "Nearby wells show the depth to water changing by {m_per_yr}. A rising depth means the water table is dropping.",
+      "es": "Los pozos cercanos muestran que la profundidad del agua cambia {m_per_yr}. Si la profundidad sube, el nivel del agua está bajando."
     },
     "frost_free_change": {
       "en": "Compared with 1991 to 2020, the frost-free season in recent years is {days} days different.",
