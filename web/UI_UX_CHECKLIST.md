@@ -45,7 +45,7 @@ Each item names its audit ID. Ticked items are committed and checked with `npm t
 ## Copy, states, i18n
 
 - [ ] **#13** Plural-aware `fill()` (F side); wording issues reported to U
-- [ ] **#18** Loading skeleton shaped like the page; errors in plain words
+- [x] **#18** Loading skeleton shaped like the page; errors in plain words
 - [ ] **#20** No hard-coded English in TSX; numbers formatted per language
 - [x] **#21** Well trend states direction; units never wrap
 - [x] **#22** Disclaimer shown once per page

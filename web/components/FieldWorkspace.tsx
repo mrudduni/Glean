@@ -107,15 +107,29 @@ export function FieldWorkspace({ fieldId }: { fieldId: FieldId }) {
 
   if (error) {
     return (
-      <div className="page-wrap workspace-error" role="alert">
-        <h1>{t("error.title", "This field could not be loaded")}</h1>
-        <p>{error}</p>
-        <button type="button" className="button-primary" onClick={() => window.location.reload()}><RotateCcw size={15} aria-hidden="true" />{t("error.retry", "Try again")}</button>
+      <div className="page-wrap state-page" role="alert">
+        <h1>{t("error.field_title", "This field could not be loaded")}</h1>
+        <p>{t("error.check_connection", "Check your connection and try again.")}</p>
+        <div className="state-actions">
+          <button type="button" className="button-primary" onClick={() => window.location.reload()}><RotateCcw size={15} aria-hidden="true" />{t("error.retry", "Try again")}</button>
+          <Link href="/" className="text-button">{t("nav.all_fields", "All fields")}</Link>
+        </div>
+        <details className="state-detail"><summary>{t("error.detail", "Technical detail")}</summary><code>{error}</code></details>
       </div>
     );
   }
   if (!data || !ui) {
-    return <div className="workspace-loading page-wrap" aria-busy="true"><span className="map-spinner" /><div className="skeleton-grid"><i /><i /><i /></div></div>;
+    // Placeholder shaped like the page that is coming, so nothing jumps when it arrives.
+    return (
+      <div className="page-wrap workspace-skeleton" aria-busy="true" aria-live="polite">
+        <span className="sr-only">{t("state.loading_field", "Loading this field")}</span>
+        <div className="skeleton-block sk-title" />
+        <div className="skeleton-block sk-meta" />
+        <div className="sk-brief"><div className="skeleton-block" /><div className="skeleton-block" /><div className="skeleton-block" /></div>
+        <div className="skeleton-block sk-nav" />
+        <div className="skeleton-block sk-section" />
+      </div>
+    );
   }
 
   const { field, bundle } = data;

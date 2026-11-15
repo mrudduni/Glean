@@ -39,6 +39,9 @@ Generated from a grep of `t("…")` calls in `app/`, `components/` and `lib/`.
 | `trust.check` | app/how-we-know/page.tsx | What we checked |
 | `trust.match` | app/how-we-know/page.tsx | Match |
 | `trust.n` | app/how-we-know/page.tsx | Data points |
+| `error.field_title` | components/FieldWorkspace.tsx | This field could not be loaded |
+| `error.detail` | components/FieldWorkspace.tsx | Technical detail |
+| `state.loading_field` | components/FieldWorkspace.tsx | Loading this field (screen readers) |
 | `assistant.own_key` | components/AssistantDrawer.tsx | Use my own key |
 | `assistant.own_key_on` | components/AssistantDrawer.tsx | on |
 | `assistant.own_key_toggle` | components/AssistantDrawer.tsx | Answer free-text questions with my key |
