@@ -112,7 +112,7 @@ export function FieldWorkspace({ fieldId }: { fieldId: FieldId }) {
   const copy = data?.content.copy.strings ?? NO_STRINGS;
   const t = useMemo(() => makeT(copy, lang), [copy, lang]);
   const ui: UI | null = useMemo(() => (data ? {
-    lang, t, cardText: data.content.cardText, crops: cropNames(data.crops), sources: data.sources,
+    lang, t, cardText: data.content.cardText, crops: cropNames(data.crops), sources: data.sources, copy: data.content.copy.strings,
   } : null), [data, lang, t]);
 
   const weights = useMemo(() => weightsFromSliders(state.sliders), [state.sliders]);

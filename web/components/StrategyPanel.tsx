@@ -7,7 +7,7 @@ import { fill, formatVar, interpolate, loc } from "@/lib/i18n";
 import { useGlean } from "@/lib/state";
 import { CRITERION_IDS } from "@/lib/schemas";
 import { benefitsShown, scoreEntry, whyBullets, type Constraints, type ExclusionReason, type Picked, type Weights } from "@/lib/score";
-import { cardLine, cropLabel, type UI } from "@/lib/ui";
+import { cardLine, copyLine, cropLabel, type UI } from "@/lib/ui";
 import { SourceChips } from "@/components/SourceChips";
 import { TrustBadge } from "@/components/TrustBadge";
 import { CropChips } from "@/components/CropChips";
@@ -98,7 +98,7 @@ export function StrategyPanel({
       {hiddenCount > 0 && (
         <div className="hidden-strategies">
           <button type="button" className="hidden-toggle" aria-expanded={showHidden} aria-controls="hidden-strategy-list" onClick={() => setShowHidden((value) => !value)}>
-            <span>{showHidden ? <ChevronUp size={16} aria-hidden="true" /> : <ChevronDown size={16} aria-hidden="true" />}{fill(copy["card.hidden_count"], { n: hiddenCount }, lang)}</span>
+            <span>{showHidden ? <ChevronUp size={16} aria-hidden="true" /> : <ChevronDown size={16} aria-hidden="true" />}{copyLine(copy, "card.hidden_count", { n: hiddenCount }, lang, "{n} more {n|option is|options are} hidden by your limits")}</span>
             <span className="hidden-count">{hiddenCount}</span>
           </button>
           {showHidden && (
@@ -201,7 +201,7 @@ function StrategyCard({
           )}
           {shownAt && !noWaterHere && <p className="shown-at">{shownAt === "none"
             ? t("card.no_water_here", es ? "Este campo no tiene riego. Estas cifras suponen cero agua, así que subestiman esta rotación." : "This field is not irrigated. These numbers assume no water, so they understate this rotation.")
-            : interpolate(t("card.shown_at", es ? "Cifras mostradas con: {cap}." : "Numbers shown with: {cap}."), { cap: t(`constraints.cap.${shownAt}`) })}</p>}
+            : copyLine(ui.copy ?? {}, "card.shown_at", { cap: t(`constraints.cap.${shownAt}`) }, lang, es ? "Cifras mostradas con {cap}." : "Numbers shown at {cap}.")}</p>}
           <p className="strategy-tagline">{loc(text?.tagline, lang)}</p>
         </div>
       </div>
