@@ -25,6 +25,12 @@ Generated from a grep of `t("…")` calls in `app/`, `components/` and `lib/`.
 | `replay.unit.bare` | components/ReplayChart.tsx | Days of bare ground per year |
 | `calendar.years_in_10` | components/FieldCalendar.tsx | years in 10 |
 | `calendar.days_per_month` | components/FieldCalendar.tsx | days a month |
+| `overview.measure` | components/OverviewPanel.tsx | Measure (screen readers only) |
+| `overview.change` | components/OverviewPanel.tsx | Change |
+| `overview.grace_trend` | components/OverviewPanel.tsx | GRACE trend |
+| `overview.well_chart` | components/OverviewPanel.tsx | Depth to water at the nearest well ({km} km), metres below ground |
+| `overview.wells_deeper` | components/OverviewPanel.tsx | deeper each year |
+| `overview.wells_shallower` | components/OverviewPanel.tsx | shallower each year |
 | `assistant.own_key` | components/AssistantDrawer.tsx | Use my own key |
 | `assistant.own_key_on` | components/AssistantDrawer.tsx | on |
 | `assistant.own_key_toggle` | components/AssistantDrawer.tsx | Answer free-text questions with my key |

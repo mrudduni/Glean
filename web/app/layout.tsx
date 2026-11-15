@@ -9,6 +9,7 @@ import "@/styles/workspace.css";
 import "@/styles/cards.css";
 import "@/styles/replay.css";
 import "@/styles/calendar.css";
+import "@/styles/overview.css";
 import { AppProvider } from "@/lib/state";
 import { SiteFooter, SiteHeader } from "@/components/SiteHeader";
 import { MockBanner } from "@/components/MockBanner";

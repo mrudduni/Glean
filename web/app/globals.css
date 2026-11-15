@@ -95,72 +95,6 @@
 /* ==========================================================================
    OVERVIEW CARDS
    ========================================================================== */
-.overview-grid { display: grid; grid-template-columns: 1.05fr 1.2fr 1.15fr 1fr; gap: 14px; align-items: stretch; }
-.overview-card {
-  min-width: 0;
-  display: flex;
-  flex-direction: column;
-  height: 100%;
-  padding: 20px 18px;
-  background: rgba(255, 254, 250, 0.88);
-  border: 1px solid rgba(228, 230, 220, 0.95);
-  border-radius: 10px;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.02);
-  transition: transform 0.3s var(--ease-spring), box-shadow 0.3s var(--ease-spring), border-color 0.25s ease;
-}
-
-.overview-card:hover {
-  transform: translateY(-4px);
-  border-color: #bccbb5;
-  box-shadow: 0 16px 36px rgba(33, 59, 42, 0.09);
-}
-.card-kicker { display: flex; align-items: center; gap: 10px; color: #616e5f; font-size: 12px; font-weight: 700; letter-spacing: .6px; }
-.icon-disc {
-  width: 32px;
-  height: 32px;
-  display: grid;
-  place-items: center;
-  border-radius: 50%;
-  background: #edf1e8;
-  color: #476648;
-  transition: transform 0.35s var(--ease-bounce);
-}
-.overview-card:hover .icon-disc {
-  transform: scale(1.12) rotate(-6deg);
-}
-.icon-disc.sand { background: #f2eddd; color: #8e7845; }
-.icon-disc.orange { background: #f8ebdf; color: #b16c36; }
-.icon-disc.blue { background: #e6efee; color: #497a76; }
-
-.current-rotation-card h3 { margin: 18px 0 12px; color: #324c39; font: 22px/1.15 var(--font-serif); }
-
-.soil-texture { margin: 16px 0 14px; color: #344c3a; font: 24px/1.1 var(--font-serif); }
-.soil-metrics { display: flex; gap: 24px; }
-.soil-metrics div { display: grid; gap: 4px; }
-.soil-metrics small, .wind-note span { color: #798072; font-size: 12px; }
-.soil-metrics strong { color: #364b36; font-size: 16px; }
-.wind-note { display: flex; justify-content: space-between; gap: 10px; padding-top: 12px; margin-top: 14px; border-top: 1px solid #eff0e8; font-size: 13px; }
-.wind-note strong { color: #4e5e46; font-size: 13px; text-align: right; }
-
-.climate-legend { display: flex; gap: 14px; margin: 16px 0 10px; color: #767d70; font-size: 11px; }
-.climate-legend span { display: flex; align-items: center; gap: 5px; }
-.dot { width: 6px; height: 6px; display: inline-block; border-radius: 50%; }
-.dot.normal { background: #b9bcae; }
-.dot.recent { background: #d69658; }
-.climate-pair { margin: 12px 0; }
-.climate-pair-label { display: flex; justify-content: space-between; margin-bottom: 5px; color: #626c5e; font-size: 12px; }
-.climate-pair-label b { color: #3a4d3a; font-size: 13px; }
-.climate-track { position: relative; height: 6px; background: #edeee8; border-radius: 6px; overflow: hidden; }
-.climate-bar { position: absolute; top: 0; left: 0; height: 6px; border-radius: 6px; transition: width 0.7s var(--ease-spring); }
-.climate-bar.normal { background: #c4c6b8; }
-.climate-bar.recent { background: #dc9a55; opacity: .9; }
-.climate-values { display: flex; justify-content: space-between; margin-top: 4px; color: #8e9282; font-size: 10px; }
-.climate-delta { display: flex; align-items: center; gap: 4px; margin: 10px 0; font-size: 12px; font-weight: 600; }
-.climate-delta.up { color: #9c5936; }
-.climate-delta.down { color: #45755e; }
-.water-status { display: flex; align-items: center; gap: 8px; margin: 14px 0 0; color: #4c6b54; font-size: 13px; font-weight: 700; }
-.water-status-dot { width: 7px; height: 7px; border-radius: 50%; background: #d5a362; }
-.water-chart { margin: 6px -4px 0; height: 85px; }
 
 /* Headline Row */
 
@@ -509,7 +443,7 @@
   
   
   
-  .overview-grid { grid-template-columns: repeat(2,minmax(0,1fr)); }
+  
   
   
   
@@ -570,15 +504,15 @@
   
   
   
-  .overview-grid { grid-template-columns: 1fr 1fr; gap: 10px; }
-  .overview-card { padding: 14px 12px; }
-  .card-kicker { align-items: flex-start; font-size: 10px; }
-  .icon-disc { width: 26px; height: 26px; flex: 0 0 auto; }
-  .current-rotation-card h3, .soil-texture { font-size: 19px; }
-  .soil-metrics { gap: 14px; }.soil-metrics small { font-size: 10px; }.soil-metrics strong { font-size: 13px; }
-  .wind-note { flex-direction: column; gap: 4px; }.wind-note strong { text-align: left; }
-  .climate-legend { flex-wrap: wrap; gap: 8px; font-size: 10px; }
-  .climate-values { font-size: 9px; }
+  
+  
+  
+  
+  
+  
+  
+  
+  
   
   
   
@@ -666,13 +600,13 @@
 /* Dark Mode Hero Telemetry Hub & Feature Cards */
 
 /* Glassmorphic Surfaces & Cards */
-[data-theme="dark"] .overview-card, [data-theme="dark"] .validation-card, [data-theme="dark"] .glossary-card, .dark .overview-card, .dark .validation-card, .dark .glossary-card {
+[data-theme="dark"] .validation-card, [data-theme="dark"] .glossary-card, .dark .validation-card, .dark .glossary-card {
   background: rgba(18, 28, 22, 0.75);
   border-color: rgba(255, 255, 255, 0.09);
   box-shadow: 0 6px 24px rgba(0, 0, 0, 0.35), inset 0 1px 0 rgba(255, 255, 255, 0.08);
 }
 
-[data-theme="dark"] .overview-card:hover, [data-theme="dark"] .validation-card:hover, [data-theme="dark"] .glossary-card:hover, .dark .overview-card:hover, .dark .validation-card:hover, .dark .glossary-card:hover {
+[data-theme="dark"] .validation-card:hover, [data-theme="dark"] .glossary-card:hover, .dark .validation-card:hover, .dark .glossary-card:hover {
   border-color: rgba(78, 203, 135, 0.35);
   box-shadow: 0 16px 44px rgba(0, 0, 0, 0.45), 0 0 20px rgba(78, 203, 135, 0.12), inset 0 1px 0 rgba(255, 255, 255, 0.14);
 }
@@ -684,78 +618,6 @@
 /* Sticky Section Navigation in Dark Mode */
 
 /* Workspace Toolbar, Masthead & Overview in Dark Mode */
-
-[data-theme="dark"] .icon-disc,
-.dark .icon-disc {
-  background: #182c20;
-  color: #4ecb87;
-}
-
-[data-theme="dark"] .icon-disc.sand,
-.dark .icon-disc.sand {
-  background: #282114;
-  color: #f5a65b;
-}
-
-[data-theme="dark"] .icon-disc.orange,
-.dark .icon-disc.orange {
-  background: #2b1c14;
-  color: #e28a65;
-}
-
-[data-theme="dark"] .icon-disc.blue,
-.dark .icon-disc.blue {
-  background: #142525;
-  color: #62ab93;
-}
-
-[data-theme="dark"] .current-rotation-card h3, [data-theme="dark"] .soil-texture, .dark .current-rotation-card h3, .dark .soil-texture {
-  color: #ffffff;
-}
-
-[data-theme="dark"] .soil-metrics strong,
-.dark .soil-metrics strong {
-  color: #ffffff;
-}
-
-[data-theme="dark"] .soil-metrics small, .dark .soil-metrics small {
-  color: #ffffff;
-}
-
-[data-theme="dark"] .wind-note,
-.dark .wind-note {
-  border-top-color: rgba(255, 255, 255, 0.08);
-}
-
-[data-theme="dark"] .wind-note strong,
-.dark .wind-note strong {
-  color: #ffffff;
-}
-
-[data-theme="dark"] .climate-pair-label,
-.dark .climate-pair-label {
-  color: #ffffff;
-}
-
-[data-theme="dark"] .climate-pair-label b,
-.dark .climate-pair-label b {
-  color: #ffffff;
-}
-
-[data-theme="dark"] .climate-track,
-.dark .climate-track {
-  background: #17271e;
-}
-
-[data-theme="dark"] .climate-bar.normal,
-.dark .climate-bar.normal {
-  background: #395243;
-}
-
-[data-theme="dark"] .climate-bar.recent,
-.dark .climate-bar.recent {
-  background: #f5a65b;
-}
 
 [data-theme="dark"] .assistant-source-chip, .dark .assistant-source-chip {
   background: #16281e;
@@ -1001,14 +863,6 @@
 .mock-banner { display: none !important; }
 [data-theme="dark"] .mock-banner { display: none !important; }
 
-.water-facts { display: grid; gap: 6px; margin: 10px 0; }
-.water-facts div { display: flex; justify-content: space-between; gap: 12px; font-size: 13px; }
-.water-facts dt { color: var(--muted); }
-.water-facts dd { margin: 0; font-weight: 700; text-align: right; }
-.water-status.outlook-declining .water-status-dot { background: var(--color-limited); }
-.water-status.outlook-stable .water-status-dot { background: var(--color-fair); }
-.water-status.outlook-rising .water-status-dot { background: var(--color-good); }
-
 .verified-number { white-space: nowrap; }
 .verified-number svg { display: inline-block; margin-left: 2px; vertical-align: -1px; color: var(--color-good); }
 .trust-field { margin-bottom: 24px; }
@@ -1017,11 +871,6 @@
 .source-table td small { display: block; color: var(--muted); font-size: 12px; }
 .neighbor-rotation { display: inline-block; min-width: 28px; margin-right: 8px; padding: 1px 6px; border-radius: 4px; color: #fff; font-size: 11px; font-weight: 700; text-align: center; }
 .neighbors-table th[scope="row"] { font-weight: 600; text-align: left; }
-
-@media (max-width: 480px) {
-  .overview-grid { grid-template-columns: minmax(0, 1fr); }
-  
-}
 
 /* Excluded rotation shown to fill the row to R0 + 3 */
 
