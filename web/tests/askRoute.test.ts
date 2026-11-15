@@ -49,11 +49,11 @@ describe("POST /api/ask", () => {
     expect((await response.json()).error).toBe("llm_unavailable");
   });
 
-  it("returns 503 when the provider fails", async () => {
+  it("sends the busy note when the provider times out or fails", async () => {
     vi.stubGlobal("fetch", vi.fn().mockRejectedValue(Object.assign(new Error("aborted"), { name: "AbortError" })));
-    expect((await ask({ ...base, question: "Why not alfalfa?" })).status).toBe(503);
+    expect((await (await ask({ ...base, question: "Why not alfalfa?" })).json()).provider).toBe("cache");
     vi.stubGlobal("fetch", vi.fn().mockResolvedValue(new Response("nope", { status: 500 })));
-    expect((await ask({ ...base, question: "Why not alfalfa?" })).status).toBe(503);
+    expect((await (await ask({ ...base, question: "Why not alfalfa?" })).json()).provider).toBe("cache");
   });
 
   it("sends only this scenario's facts and number-checks the answer", async () => {

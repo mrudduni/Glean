@@ -107,7 +107,7 @@ describe("server fallback provider", () => {
   it("does not try the fallback after a 400 from the primary", async () => {
     const fetchSpy = vi.fn().mockResolvedValue(new Response("bad", { status: 400 }));
     vi.stubGlobal("fetch", fetchSpy);
-    expect((await ask({ ...base, question: "Water?" })).status).toBe(503);
+    expect((await (await ask({ ...base, question: "Water?" })).json()).provider).toBe("cache");
     expect(fetchSpy).toHaveBeenCalledTimes(1);
   });
 
@@ -115,5 +115,67 @@ describe("server fallback provider", () => {
     vi.stubGlobal("fetch", vi.fn().mockResolvedValue(new Response("cap", { status: 429 })));
     const json = await (await ask({ ...base, question: "Water?" })).json();
     expect(json.provider).toBe("cache");
+  });
+});
+
+describe("production layout: Gemini primary, Groq gpt-oss fallback", () => {
+  const prod = {
+    LLM_PROVIDER: "gemini", LLM_BASE_URL: "https://generativelanguage.googleapis.com/v1beta/openai", LLM_MODEL: "gemini-3.5-flash", LLM_API_KEY: "gemini-key",
+    LLM_FALLBACK_PROVIDER: "groq", LLM_FALLBACK_BASE_URL: "https://api.groq.com/openai/v1", LLM_FALLBACK_MODEL: "openai/gpt-oss-120b", LLM_FALLBACK_API_KEY: "groq-key",
+  };
+  beforeEach(() => { for (const [k, v] of Object.entries(prod)) vi.stubEnv(k, v); });
+  afterEach(() => { vi.unstubAllEnvs(); vi.unstubAllGlobals(); });
+  const body = { ...base, question: "Water?" };
+
+  it("primary ok: Gemini answers with low reasoning effort and room for thinking", async () => {
+    const fetchSpy = vi.fn().mockResolvedValue(ok());
+    vi.stubGlobal("fetch", fetchSpy);
+    const json = await (await ask(body)).json();
+    expect(fetchSpy).toHaveBeenCalledTimes(1);
+    expect(json).toMatchObject({ provider: "gemini", model: "gemini-3.5-flash", cached: false });
+    const sent = JSON.parse(fetchSpy.mock.calls[0][1].body);
+    expect(sent.reasoning_effort).toBe("low");
+    expect(sent.max_tokens).toBeGreaterThanOrEqual(1500);
+  });
+
+  it("primary 429: Groq answers and is reported as the provider", async () => {
+    const fetchSpy = vi.fn().mockResolvedValueOnce(new Response("quota", { status: 429 })).mockResolvedValueOnce(ok());
+    vi.stubGlobal("fetch", fetchSpy);
+    const json = await (await ask(body)).json();
+    expect(json).toMatchObject({ provider: "groq", model: "openai/gpt-oss-120b" });
+    expect(fetchSpy.mock.calls[1][0]).toBe("https://api.groq.com/openai/v1/chat/completions");
+    expect(JSON.parse(fetchSpy.mock.calls[1][1].body).reasoning_effort).toBe("low");
+  });
+
+  it("primary empty twice: Groq answers", async () => {
+    const empty = () => Response.json({ choices: [{ message: { content: "" }, finish_reason: "length" }] });
+    const fetchSpy = vi.fn().mockResolvedValueOnce(empty()).mockResolvedValueOnce(empty()).mockResolvedValueOnce(ok());
+    vi.stubGlobal("fetch", fetchSpy);
+    expect((await (await ask(body)).json()).provider).toBe("groq");
+    expect(fetchSpy).toHaveBeenCalledTimes(3);
+  });
+
+  it("primary timeout: Groq answers", async () => {
+    const fetchSpy = vi.fn()
+      .mockRejectedValueOnce(Object.assign(new Error("aborted"), { name: "AbortError" }))
+      .mockResolvedValueOnce(ok());
+    vi.stubGlobal("fetch", fetchSpy);
+    expect((await (await ask(body)).json()).provider).toBe("groq");
+  });
+
+  it("both fail with 429: busy note from the cache", async () => {
+    vi.stubGlobal("fetch", vi.fn().mockResolvedValue(new Response("quota", { status: 429 })));
+    const response = await ask(body);
+    expect(response.status).toBe(200);
+    expect(await response.json()).toMatchObject({ provider: "cache", cached: true, numbers: [] });
+  });
+
+  it("both fail with server errors: busy note, both tried", async () => {
+    const fetchSpy = vi.fn().mockResolvedValue(new Response("down", { status: 503 }));
+    vi.stubGlobal("fetch", fetchSpy);
+    const response = await ask(body);
+    expect(response.status).toBe(200);
+    expect((await response.json()).provider).toBe("cache");
+    expect(fetchSpy).toHaveBeenCalledTimes(2);
   });
 });

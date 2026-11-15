@@ -58,7 +58,7 @@ Copy `.env.example` to `.env.local` and fill it in. Never commit keys.
 | `LLM_FALLBACK_PROVIDER`, `LLM_FALLBACK_BASE_URL`, `LLM_FALLBACK_MODEL`, `LLM_FALLBACK_API_KEY` | Optional second provider (Gemini: `https://generativelanguage.googleapis.com/v1beta/openai`). Tried once when the primary returns 429 or 5xx, or times out. |
 | `ALLOW_CUSTOM_LLM_URL` | `1` lets users' own keys go to any https base URL. Off by default (SSRF guard). |
 
-For `openai/gpt-oss` models the route sends `reasoning_effort: "low"` and at least 1500 `max_tokens`. When every provider is rate-limited, the drawer shows a short "busy" answer pointing to the suggested questions. Each IP may ask 20 questions a minute.
+For `openai/gpt-oss` and Gemini models the route sends `reasoning_effort: "low"` and at least 1500 `max_tokens`. When no server provider answers (rate limit, error, empty answer or timeout), the drawer shows a short "busy" answer pointing to the suggested questions. Each IP may ask 20 questions a minute.
 
 ### Use my own key
 
