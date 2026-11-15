@@ -55,6 +55,9 @@ HOTDRY_P_FACTOR = 0.85                # precipitation multiplier
 ZMAX_M = 1.5                          # profile depth cap
 ROOT_INIT_M = 0.15                    # root depth at planting
 PIVOT_EFFICIENCY = 0.85               # fraction of applied water that reaches the root zone
+# When a full refill would pass the season cap, apply what is left of the cap (if at least this much).
+# The handover rule skipped the refill entirely, which let capped irrigation fall under hotdry.
+IRR_MIN_EVENT_MM = 5.0
 STRESS_KS = 0.8                       # stress day if Ks below this
 BARE_KE = 0.30                        # bare soil evaporation coefficient (x ET0)
 BARE_STAGE1_MM = 12.0                 # readily evaporable water before evaporation slows

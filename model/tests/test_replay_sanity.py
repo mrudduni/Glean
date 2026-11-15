@@ -126,6 +126,12 @@ def test_hotdry_raises_need_and_cuts_dryland_yield(fid, crops, weather):
                 out[cl + "_need"] = np.mean(need)
         assert out["hotdry"] < out["actual"], f"{fid} {rid} dryland rel_yield {out}"
         if rot.irrigated:
+            for cap in ("cap150", "cap300", "cap450"):
+                applied = {cl: R.average_phases([R.simulate(tl, weather[fid][cl], field, crops, cap, True, "irrigated")
+                                                 for tl in tls])["irrigation_mm"].mean() for cl in config.CLIMATE_IDS}
+                # at a binding cap both climates use it all; allow 1 mm (below output rounding)
+                assert applied["hotdry"] >= applied["actual"] - 1.0, f"{fid} {rid} {cap} applied {applied}"
+        if rot.irrigated:
             assert out["hotdry_need"] > out["actual_need"], f"{fid} {rid} need {out}"
 
 

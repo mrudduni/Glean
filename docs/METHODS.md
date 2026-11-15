@@ -53,7 +53,7 @@ Kc follows the FAO-56 piecewise-linear curve: flat at `kc.ini` through the initi
 - **Runoff:** SCS curve number on daily rain, CN by hydrologic group for row crops, straight row, good condition: A 67, B 78, C 85, D 89; +3 on bare days; dual groups use the drained letter ([NRCS NEH 630 ch. 9](https://directives.nrcs.usda.gov/sites/default/files2/1720460895/Chapter%209%20-%20Hydrologic%20Soil-Cover%20Complexes.pdf)). Initial abstraction 0.2 S.
 - **Crop and cover days:** `ETc = Kc × ET0`; `Ks = 1` if `Dr ≤ RAW`, else `(TAW_root − Dr)/(TAW_root − RAW)`; `ETa = Ks × ETc`. A stress day is a cash-crop day with `Ks < 0.8`.
 - **Bare days:** evaporation `E = 0.30 × ET0 × f`, with `f = 1` if `Dr < 12 mm`, else `max(0.1, 1 − (Dr − 12)/(0.4 × TAW_profile))`. On bare days the upper layer is a 0.15 m surface evaporation layer (`BARE_EVAP_DEPTH_M`, FAO-56 Ze 0.10 to 0.15 m, [FAO-56 ch. 7](https://www.fao.org/4/x0490e/x0490e0c.htm)): rain wets it first and evaporation draws only from it. We first let evaporation draw on the whole profile. That made fallow nearly 100% efficient: the profile was 85 to 90% full at every sorghum planting whatever came before, so the fallow benefit vanished. The surface layer fixed that (see [Sanity checks](#sanity-checks)).
-- **Irrigation** (cash-crop days of irrigated rotations, on fields with a well, cap above dryland): if `Dr > RAW` and the season total plus `I = Dr / 0.85` stays within the cap, apply `I` (pivot efficiency 0.85, refill to field capacity). Caps per crop season: 150, 300, 450 mm. If the refill does not fit in what is left of the cap, nothing is applied, exactly as the handover specifies.
+- **Irrigation** (cash-crop days of irrigated rotations, on fields with a well, cap above dryland): if `Dr > RAW` and the season total plus `I = Dr / 0.85` stays within the cap, apply `I` (pivot efficiency 0.85, refill to field capacity). Caps per crop season: 150, 300, 450 mm. If the full refill would pass the cap, the pivot applies what is left of the cap (when at least 5 mm, `IRR_MIN_EVENT_MM`). The handover rule skipped such a refill entirely; that let hotter weather (bigger refills) end up with less water applied under a cap, so we changed it.
 - **Update:** `Dr = Dr − P_eff − 0.85 × I + ETa`. Water above field capacity percolates to the lower layer, then drains out of the profile.
 - **Start:** 1999-10-01 at 50% depletion, so 2000 starts warmed up.
 
@@ -69,9 +69,9 @@ revenue      = rel_yield × Ym × price          (fallow and rye cover: 0)
 ```
 
 - `Ky` is the FAO-33 yield response factor ([FAO-33](https://www.fao.org/4/i2800e/i2800e.pdf), FAO-56 Table 24).
-- **Heat days** count days with Tmax above the crop's `heat.tmax_c` in the first 21 days (`HEAT_WINDOW_DAYS`) of its `heat.stage`. Corn pollination and silking last about 2 to 3 weeks ([K-State Corn Production Handbook C560](https://bookstore.ksre.ksu.edu/pubs/C560.pdf)). Counting the whole 47-day mid stage gave 20 to 39 heat days a year and cut fully irrigated corn to 58% of the NASS mean, which double-counts heat already in that mean. With the 21-day window, irrigated continuous corn at cap450 averages a relative yield of 0.71 (f1).
+- **Heat days** count days with Tmax above the crop's `heat.tmax_c` in the first 21 days (`HEAT_WINDOW_DAYS`) of its `heat.stage`. Corn pollination and silking last about 2 to 3 weeks ([K-State Corn Production Handbook C560](https://bookstore.ksre.ksu.edu/pubs/C560.pdf)). Counting the whole 47-day mid stage gave 20 to 39 heat days a year and cut fully irrigated corn to 58% of the NASS mean, which double-counts heat already in that mean. With the 21-day window, irrigated continuous corn at cap450 averages a relative yield of about 0.7 (f1).
 - **Frost window:** from the development stage to maturity for summer crops, from mid season (heading) to maturity for winter crops.
-- **Ym** is the NASS yield for the crop and practice: irrigated if the rotation is irrigated, the field has a well and the cap is above dryland; otherwise non-irrigated. We take the most local level (county, then district, then state) with at least 3 values in 2010 to 2024 and average the last 5. If no level has that, we use the most recent 5 values at any level. If the practice has no series, we fall back to "all practices", then to `crops.yaml`. The values used are in `model/out/run_log.json` (`yields`). Most come from the district level (corn, wheat, soybean, alfalfa, cotton), and sorghum by practice only from 2003 to 2007 county data, so most cards show the `county_yields` gap.
+- **Ym** is the NASS yield for the crop and practice: irrigated if the rotation is irrigated, the field has a well and the cap is above dryland; otherwise non-irrigated. We take the most local level (county, then district, then state) with at least 3 values in 2010 to 2024 and average the last 5. If no level has that, we use the most recent 5 values at any level. If the practice has no series, we fall back to "all practices", then to `crops.yaml`. The values used are in `model/out/run_log.json` (`yields`). Alfalfa and cotton have no practice split in NASS, so dryland and irrigated use the same "all practices" yield (5.52 t/ac alfalfa, mostly irrigated stands). Dryland alfalfa (R4) is infeasible in every scenario, but its dryland revenue is optimistic. Most come from the district level (corn, wheat, soybean, alfalfa, cotton), and sorghum by practice only from 2003 to 2007 county data, so most cards show the `county_yields` gap.
 - **Price** is the 2020 to 2024 mean Kansas price from NASS: corn 5.28 $/bu, sorghum 5.33 $/bu, wheat 6.51 $/bu, soybean 11.97 $/bu, alfalfa 189.8 $/ton, cotton 0.742 $/lb. Triticale has no NASS price, so it uses the alfalfa hay price. This likely overstates triticale forage income.
 - Triticale yields come from `crops.yaml` (1.5 t/ac dryland, 3.0 t/ac irrigated, K-State [MF2227](https://bookstore.ksre.ksu.edu/pubs/mf2227.pdf)).
 
@@ -104,7 +104,8 @@ All are pytest tests in [model/tests/test_replay_sanity.py](../model/tests/test_
 | Check | Result |
 |---|---|
 | Annual ET0 1200 to 1600 mm | about 1530 to 1540 mm on every field |
-| Irrigated continuous corn at cap450: 250 to 500 mm/yr | f1 399 mm, f3 402 mm (f2 tested with a well added) |
+| Irrigated continuous corn at cap450: 250 to 500 mm/yr | f1 438 mm, f3 431 mm (f2 tested with a well added) |
+| `hotdry` applies at least as much irrigation as actual weather at every cap | passes for every irrigated rotation at cap150, cap300, cap450 |
 | Dryland W-S-F sorghum beats sorghum planted straight after wheat harvest (no fallow) | relative yield f1 0.63 vs 0.55, f2 0.68 vs 0.55, f3 0.55 vs 0.52 |
 | W-S-F sorghum beats continuous sorghum | f1 0.63 vs 0.59, f2 0.68 vs 0.60, f3 0.55 vs 0.54 |
 | `hotdry` raises irrigation need (uncapped) and lowers dryland relative yield for every rotation | passes for R0 to R6 on all fields |
@@ -114,7 +115,7 @@ On the sand field (f3, 105 mm of water in 1.5 m) fallow stores little, so its fa
 
 The handover check reads "sorghum after fallow beats sorghum after wheat". In W-S-F the sorghum follows wheat after an 11-month stubble fallow, so we test fallow-stored water against no fallow (double-cropped sorghum, and continuous sorghum). A 20-month fallow scores almost the same as the 11-month one, because the profile is nearly refilled either way.
 
-**Capped irrigation can fall under `hotdry`.** Under a cap, applied irrigation can go down in `hotdry`: f1 continuous corn at cap300 applies 259 mm/yr (actual) vs 228 mm/yr (hotdry). Hotter weather drains the soil further between pivot passes, so each refill is larger and the seasonal cap fits fewer of them. Irrigation need without a cap does rise, and yields fall.
+Under cap150 and cap300 nearly every irrigated rotation uses its whole cap in both climates (f1 continuous corn: 299 vs 300 mm/yr at cap300), so the `hotdry` penalty shows up as lower yield and revenue, not more water. At cap450, `hotdry` uses 5 to 22 mm/yr more.
 
 ## Field Calendar
 
@@ -185,7 +186,7 @@ The README 8.7 default is all sliders at 3, with no hay or cotton equipment and 
 
 | Field | R0 | Top 3 | Why |
 |---|---|---|---|
-| f1 irrigated pivot | continuous corn | R5, R1, R2 | R5 adds soybean and a rye cover (legume, 245 living-root days vs 147, half the wind exposure). R1 breaks the 8-year corn run. R2 saves all 259 mm of irrigation. Continuous corn keeps the highest mean income ($623/ac). |
+| f1 irrigated pivot | continuous corn | R5, R1, R2 | R5 adds soybean and a rye cover (legume, 245 living-root days vs 147, half the wind exposure). R1 breaks the 8-year corn run. R2 saves all of the 299 mm of irrigation. Continuous corn keeps the highest mean income ($669/ac). |
 | f2 dryland | wheat-sorghum-fallow | R2 only | No well, so R1, R4 and R5 are infeasible, and R3 and R6 need hay or cotton equipment. R2 is the same sequence as R0. With hay equipment and a forage buyer, R3 (flex fallow) ranks first. |
 | f3 sandy | corn-wheat-sorghum | R5, R1, R2 | R5 halves wind-erosion exposure on this WEG 1 sand. R1 is the same sequence as R0. |
 
@@ -195,7 +196,7 @@ Under `dryland`, no irrigated rotation is feasible on any field (tested).
 
 - One soil profile per field, from the dominant SSURGO component.
 - A bucket model with daily time steps; no capillary rise, no salinity, no nitrogen.
-- Irrigation refills to field capacity and stops when a whole refill no longer fits the cap, so cap use is lumpy.
+- Irrigation refills to field capacity in one event, then tops up to the cap; real pivots apply about 25 mm per pass.
 - Yields scale a NASS mean by water, heat and frost factors; no cultivar, planting-date or management effects. Heat and frost factors are working values (`crops.yaml` marks them `# verify`).
 - Prices are constant 2020 to 2024 means; there are no costs, so income is gross revenue.
 - Erosion indices are relative and not calibrated to RUSLE2 or WEPS.
@@ -213,6 +214,7 @@ Under `dryland`, no irrigated rotation is feasible on any field (tested).
 | `ZMAX_M` | 1.5 m | handover 5.3 |
 | `ROOT_INIT_M` | 0.15 m | handover 5.3 |
 | `PIVOT_EFFICIENCY` | 0.85 | handover 5.3 |
+| `IRR_MIN_EVENT_MM` | 5 mm | model rule: smallest top-up applied at the cap |
 | `STRESS_KS` | 0.8 | handover 5.3 |
 | `BARE_KE`, `BARE_STAGE1_MM`, `BARE_DECAY_FRAC`, `BARE_F_MIN` | 0.30, 12 mm, 0.4, 0.1 | handover 5.3 |
 | `BARE_EVAP_DEPTH_M` | 0.15 m | [FAO-56 ch. 7](https://www.fao.org/4/x0490e/x0490e0c.htm) Ze 0.10 to 0.15 m |
