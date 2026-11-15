@@ -1,1 +1,350 @@
-{"_meta":{"schema":"assistant_cache@1","mock":true,"generated_at":"2026-11-15T13:59:43Z","generator":"model/mock/make_mocks.py"},"field_id":"f1","scenario":"cap300|actual","answers":{"q1":{"en":{"answer_md":"This is a mock answer. The model estimates 380 mm of irrigation a year [MODEL].","citations":[{"tag":"MODEL","name":"Glean model","url":"https://github.com/mrudduni/Team-Brackets"}],"numbers":[{"text":"380 mm","value":380,"unit":"mm","verified":true,"fact_id":"replay.R0.cap300|actual.irrigation_mm_mean"}],"cached":true,"provider":"cache","model":null},"es":{"answer_md":"This is a mock answer. The model estimates 380 mm of irrigation a year [MODEL].","citations":[{"tag":"MODEL","name":"Glean model","url":"https://github.com/mrudduni/Team-Brackets"}],"numbers":[{"text":"380 mm","value":380,"unit":"mm","verified":true,"fact_id":"replay.R0.cap300|actual.irrigation_mm_mean"}],"cached":true,"provider":"cache","model":null}},"q2":{"en":{"answer_md":"This is a mock answer. The model estimates 380 mm of irrigation a year [MODEL].","citations":[{"tag":"MODEL","name":"Glean model","url":"https://github.com/mrudduni/Team-Brackets"}],"numbers":[{"text":"380 mm","value":380,"unit":"mm","verified":true,"fact_id":"replay.R0.cap300|actual.irrigation_mm_mean"}],"cached":true,"provider":"cache","model":null},"es":{"answer_md":"This is a mock answer. The model estimates 380 mm of irrigation a year [MODEL].","citations":[{"tag":"MODEL","name":"Glean model","url":"https://github.com/mrudduni/Team-Brackets"}],"numbers":[{"text":"380 mm","value":380,"unit":"mm","verified":true,"fact_id":"replay.R0.cap300|actual.irrigation_mm_mean"}],"cached":true,"provider":"cache","model":null}},"q3":{"en":{"answer_md":"This is a mock answer. The model estimates 380 mm of irrigation a year [MODEL].","citations":[{"tag":"MODEL","name":"Glean model","url":"https://github.com/mrudduni/Team-Brackets"}],"numbers":[{"text":"380 mm","value":380,"unit":"mm","verified":true,"fact_id":"replay.R0.cap300|actual.irrigation_mm_mean"}],"cached":true,"provider":"cache","model":null},"es":{"answer_md":"This is a mock answer. The model estimates 380 mm of irrigation a year [MODEL].","citations":[{"tag":"MODEL","name":"Glean model","url":"https://github.com/mrudduni/Team-Brackets"}],"numbers":[{"text":"380 mm","value":380,"unit":"mm","verified":true,"fact_id":"replay.R0.cap300|actual.irrigation_mm_mean"}],"cached":true,"provider":"cache","model":null}},"q4":{"en":{"answer_md":"This is a mock answer. The model estimates 380 mm of irrigation a year [MODEL].","citations":[{"tag":"MODEL","name":"Glean model","url":"https://github.com/mrudduni/Team-Brackets"}],"numbers":[{"text":"380 mm","value":380,"unit":"mm","verified":true,"fact_id":"replay.R0.cap300|actual.irrigation_mm_mean"}],"cached":true,"provider":"cache","model":null},"es":{"answer_md":"This is a mock answer. The model estimates 380 mm of irrigation a year [MODEL].","citations":[{"tag":"MODEL","name":"Glean model","url":"https://github.com/mrudduni/Team-Brackets"}],"numbers":[{"text":"380 mm","value":380,"unit":"mm","verified":true,"fact_id":"replay.R0.cap300|actual.irrigation_mm_mean"}],"cached":true,"provider":"cache","model":null}},"q5":{"en":{"answer_md":"This is a mock answer. The model estimates 380 mm of irrigation a year [MODEL].","citations":[{"tag":"MODEL","name":"Glean model","url":"https://github.com/mrudduni/Team-Brackets"}],"numbers":[{"text":"380 mm","value":380,"unit":"mm","verified":true,"fact_id":"replay.R0.cap300|actual.irrigation_mm_mean"}],"cached":true,"provider":"cache","model":null},"es":{"answer_md":"This is a mock answer. The model estimates 380 mm of irrigation a year [MODEL].","citations":[{"tag":"MODEL","name":"Glean model","url":"https://github.com/mrudduni/Team-Brackets"}],"numbers":[{"text":"380 mm","value":380,"unit":"mm","verified":true,"fact_id":"replay.R0.cap300|actual.irrigation_mm_mean"}],"cached":true,"provider":"cache","model":null}},"q6":{"en":{"answer_md":"This is a mock answer. The model estimates 380 mm of irrigation a year [MODEL].","citations":[{"tag":"MODEL","name":"Glean model","url":"https://github.com/mrudduni/Team-Brackets"}],"numbers":[{"text":"380 mm","value":380,"unit":"mm","verified":true,"fact_id":"replay.R0.cap300|actual.irrigation_mm_mean"}],"cached":true,"provider":"cache","model":null},"es":{"answer_md":"This is a mock answer. The model estimates 380 mm of irrigation a year [MODEL].","citations":[{"tag":"MODEL","name":"Glean model","url":"https://github.com/mrudduni/Team-Brackets"}],"numbers":[{"text":"380 mm","value":380,"unit":"mm","verified":true,"fact_id":"replay.R0.cap300|actual.irrigation_mm_mean"}],"cached":true,"provider":"cache","model":null}}}}
+{
+ "_meta": {
+  "schema": "assistant_cache@1",
+  "mock": false,
+  "generated_at": "2026-11-15T15:09:46Z",
+  "generator": "model/assistant/cache.py"
+ },
+ "field_id": "f1",
+ "scenario": "cap300|actual",
+ "top_rotations": [
+  "R4",
+  "R5",
+  "R1",
+  "R0"
+ ],
+ "answers": {
+  "q1": {
+   "en": {
+    "answer_md": "The alfalfa, alfalfa, alfalfa, alfalfa, corn, wheat rotation may rank first due to strong soil health and erosion protection in model estimates based on 2000 to 2025 weather [MODEL].\n\nKey estimates from the model include:\n- A soil health score of 75.43 out of 100 [MODEL].\n- An average of 5 days per year with bare soil and strong wind [MODEL].\n- Average earnings of $567/ac per year while using an average of 291 mm of irrigation per year [MODEL].",
+    "citations": [
+     {
+      "tag": "MODEL",
+      "name": "Stubble water-budget model (FAO-56)",
+      "url": "https://github.com/mrudduni/Team-Brackets/blob/main/docs/METHODS.md"
+     }
+    ],
+    "numbers": [
+     {
+      "text": "75.43",
+      "value": 75.43,
+      "unit": null,
+      "verified": true,
+      "fact_id": "replay.R4.cap300|actual.soil_health_score"
+     },
+     {
+      "text": "100",
+      "value": 100.0,
+      "unit": null,
+      "verified": true,
+      "fact_id": "drought.2012.R4.stress_days"
+     },
+     {
+      "text": "5 days",
+      "value": 5.0,
+      "unit": "days",
+      "verified": true,
+      "fact_id": "field.weg"
+     },
+     {
+      "text": "$567/ac",
+      "value": 567.0,
+      "unit": "usd",
+      "verified": true,
+      "fact_id": "replay.R4.cap300|actual.revenue_usd_ac_mean"
+     },
+     {
+      "text": "291 mm",
+      "value": 291.0,
+      "unit": "mm",
+      "verified": true,
+      "fact_id": "scenario.cap300|actual.cap_mm"
+     }
+    ],
+    "cached": true,
+    "provider": "gemini",
+    "model": "gemini-3.5-flash"
+   },
+   "es": {
+    "answer_md": "La estrategia de alfalfa, alfalfa, alfalfa, alfalfa, maíz, trigo quedó en primer lugar principalmente por su salud del suelo y su protección contra la erosión:\n\n- Tuvo una puntuación estimada de salud del suelo de 75.43 de 100 [MODEL].\n- Tuvo un promedio estimado de solo 5 días por año con suelo descubierto y viento fuerte [MODEL].\n- Generó un ingreso promedio estimado de $567/ac por año en las simulaciones del modelo basadas en el clima de 2000 a 2025 [",
+    "citations": [
+     {
+      "tag": "MODEL",
+      "name": "Stubble water-budget model (FAO-56)",
+      "url": "https://github.com/mrudduni/Team-Brackets/blob/main/docs/METHODS.md"
+     }
+    ],
+    "numbers": [
+     {
+      "text": "75.43",
+      "value": 75.43,
+      "unit": null,
+      "verified": true,
+      "fact_id": "replay.R4.cap300|actual.soil_health_score"
+     },
+     {
+      "text": "100",
+      "value": 100.0,
+      "unit": null,
+      "verified": true,
+      "fact_id": "drought.2012.R4.stress_days"
+     },
+     {
+      "text": "5",
+      "value": 5.0,
+      "unit": null,
+      "verified": true,
+      "fact_id": "field.weg"
+     },
+     {
+      "text": "$567/ac",
+      "value": 567.0,
+      "unit": "usd",
+      "verified": true,
+      "fact_id": "replay.R4.cap300|actual.revenue_usd_ac_mean"
+     }
+    ],
+    "cached": true,
+    "provider": "gemini",
+    "model": "gemini-3.5-flash"
+   }
+  },
+  "q2": {
+   "en": {
+    "answer_md": "In past model replays from 2000 to 2025, crop strategies could use these average irrigation amounts per year:\n\n* Continuous corn (current): estimated 299 mm of irrigation per year [MODEL]\n* Corn, soybean, wheat: estimated",
+    "citations": [
+     {
+      "tag": "MODEL",
+      "name": "Stubble water-budget model (FAO-56)",
+      "url": "https://github.com/mrudduni/Team-Brackets/blob/main/docs/METHODS.md"
+     }
+    ],
+    "numbers": [
+     {
+      "text": "299 mm",
+      "value": 299.0,
+      "unit": "mm",
+      "verified": true,
+      "fact_id": "scenario.cap300|actual.cap_mm"
+     }
+    ],
+    "cached": true,
+    "provider": "gemini",
+    "model": "gemini-3.5-flash"
+   },
+   "es": {
+    "answer_md": "El uso de agua depende de la rotación elegida en este escenario con un límite de 300 mm de riego por temporada [MODEL]. Según las simulaciones del modelo para el periodo 2000 a 2025:\n\n* La rotación de continuous",
+    "citations": [
+     {
+      "tag": "MODEL",
+      "name": "Stubble water-budget model (FAO-56)",
+      "url": "https://github.com/mrudduni/Team-Brackets/blob/main/docs/METHODS.md"
+     }
+    ],
+    "numbers": [
+     {
+      "text": "300 mm",
+      "value": 300.0,
+      "unit": "mm",
+      "verified": true,
+      "fact_id": "scenario.cap300|actual.cap_mm"
+     }
+    ],
+    "cached": true,
+    "provider": "gemini",
+    "model": "gemini-3.5-flash"
+   }
+  },
+  "q3": {
+   "en": {
+    "answer_md": "An alfalfa, alfalfa, alfalfa, alfalfa, corn, wheat rotation shows potential drawbacks in water-budget model estimates based on past weather (2000 to 2025):\n\n* **High Water Stress:** This rotation had an estimated average of 81",
+    "citations": [],
+    "numbers": [
+     {
+      "text": "81",
+      "value": 81.0,
+      "unit": null,
+      "verified": true,
+      "fact_id": "replay.R4.cap300|actual.stress_days_mean"
+     }
+    ],
+    "cached": true,
+    "provider": "gemini",
+    "model": "gemini-3.5-flash"
+   },
+   "es": {
+    "answer_md": "La rotación de alfalfa, alfalfa, alfalfa, alfalfa, maíz, trigo podría presentar algunos retos bajo este escenario de riego:\n\n* **Alto estrés hídrico:** Se estiman 81 días al año de estrés hídrico en el cultivo [MODEL], que podrían aumentar a 102 días en un año seco como 2012 [MODEL].\n* **Alto consumo de agua:** En campos vecinos similares, la alfalfa usó una mediana estimada de 1124 mm de agua al año [OpenET].\n* **Ingresos menores al maíz continuo:** Esta rotación podría generar un promedio de $567/ac al año [MODEL], mientras que el maíz continuo podría generar $669/ac al año [MODEL].",
+    "citations": [
+     {
+      "tag": "MODEL",
+      "name": "Stubble water-budget model (FAO-56)",
+      "url": "https://github.com/mrudduni/Team-Brackets/blob/main/docs/METHODS.md"
+     },
+     {
+      "tag": "OpenET",
+      "name": "OpenET Ensemble",
+      "url": "https://etdata.org/"
+     }
+    ],
+    "numbers": [
+     {
+      "text": "81",
+      "value": 81.0,
+      "unit": null,
+      "verified": true,
+      "fact_id": "replay.R4.cap300|actual.stress_days_mean"
+     },
+     {
+      "text": "102",
+      "value": 102.0,
+      "unit": null,
+      "verified": true,
+      "fact_id": "drought.2012.R4.stress_days"
+     },
+     {
+      "text": "1124 mm",
+      "value": 1124.0,
+      "unit": "mm",
+      "verified": true,
+      "fact_id": "neighbors.alfalfa.et_mm_yr_median"
+     },
+     {
+      "text": "$567/ac",
+      "value": 567.0,
+      "unit": "usd",
+      "verified": true,
+      "fact_id": "replay.R4.cap300|actual.revenue_usd_ac_mean"
+     },
+     {
+      "text": "$669/ac",
+      "value": 669.0,
+      "unit": "usd",
+      "verified": true,
+      "fact_id": "replay.R0.cap300|actual.revenue_usd_ac_mean"
+     }
+    ],
+    "cached": true,
+    "provider": "gemini",
+    "model": "gemini-3.5-flash"
+   }
+  },
+  "q4": {
+   "en": {
+    "answer_md": "Model estimates from past weather show how each strategy could have performed in the 2012 drought [MODEL]:\n\n* **Alfalfa, alfalfa, alfalfa, alfalfa, corn, wheat:** estimated earnings of $324/ac with about 102 days of crop water",
+    "citations": [
+     {
+      "tag": "MODEL",
+      "name": "Stubble water-budget model (FAO-56)",
+      "url": "https://github.com/mrudduni/Team-Brackets/blob/main/docs/METHODS.md"
+     }
+    ],
+    "numbers": [
+     {
+      "text": "$324/ac",
+      "value": 324.0,
+      "unit": "usd",
+      "verified": true,
+      "fact_id": "replay.R1.cap300|actual.revenue_usd_ac_worst5"
+     },
+     {
+      "text": "102 days",
+      "value": 102.0,
+      "unit": "days",
+      "verified": true,
+      "fact_id": "drought.2012.R4.stress_days"
+     }
+    ],
+    "cached": true,
+    "provider": "gemini",
+    "model": "gemini-3.5-flash"
+   },
+   "es": {
+    "answer_md": "En la sequía de 2012, las estimaciones del modelo para cada opción muestran lo siguiente:\n\n* **Alfalfa, alfalfa, alfalfa, alfalfa, maíz, trigo:** Se estima que habría ganado unos $324/ac y tenido 102",
+    "citations": [],
+    "numbers": [
+     {
+      "text": "$324/ac",
+      "value": 324.0,
+      "unit": "usd",
+      "verified": true,
+      "fact_id": "replay.R1.cap300|actual.revenue_usd_ac_worst5"
+     },
+     {
+      "text": "102",
+      "value": 102.0,
+      "unit": null,
+      "verified": true,
+      "fact_id": "drought.2012.R4.stress_days"
+     }
+    ],
+    "cached": true,
+    "provider": "gemini",
+    "model": "gemini-3.5-flash"
+   }
+  },
+  "q5": {
+   "en": {
+    "answer_md": "Model confidence is good because model water use differed from OpenET satellite estimates by 0.9% [MODEL].\n\nThese numbers are estimates from a simplified water-budget model run on past weather from 2000 to 2025, not future forecasts [MODEL].",
+    "citations": [
+     {
+      "tag": "MODEL",
+      "name": "Stubble water-budget model (FAO-56)",
+      "url": "https://github.com/mrudduni/Team-Brackets/blob/main/docs/METHODS.md"
+     }
+    ],
+    "numbers": [
+     {
+      "text": "0.9%",
+      "value": 0.9,
+      "unit": "pct",
+      "verified": true,
+      "fact_id": "field.slope_pct"
+     }
+    ],
+    "cached": true,
+    "provider": "gemini",
+    "model": "gemini-3.5-flash"
+   },
+   "es": {
+    "answer_md": "Los números indicados como MODEL son estimaciones de un modelo simplificado basadas en el clima pasado de 2000 a 2025, no son pronósticos [MODEL].\n\nLa confianza en las estimaciones es buena [MODEL]. El uso de agua calculado por el modelo diferió de las estimaciones del satélite OpenET en un 0.9% [MODEL].",
+    "citations": [
+     {
+      "tag": "MODEL",
+      "name": "Stubble water-budget model (FAO-56)",
+      "url": "https://github.com/mrudduni/Team-Brackets/blob/main/docs/METHODS.md"
+     }
+    ],
+    "numbers": [
+     {
+      "text": "0.9%",
+      "value": 0.9,
+      "unit": "pct",
+      "verified": true,
+      "fact_id": "field.slope_pct"
+     }
+    ],
+    "cached": true,
+    "provider": "gemini",
+    "model": "gemini-3.5-flash"
+   }
+  },
+  "q6": {
+   "en": {
+    "answer_md": "I do not have information about specific steps or items to check before switching crop rotations. You could ask a K-State Research and Extension agent or a local agronomist for advice tailored to your field.",
+    "citations": [],
+    "numbers": [],
+    "cached": true,
+    "provider": "gemini",
+    "model": "gemini-3.5-flash"
+   },
+   "es": {
+    "answer_md": "No tengo esa información en los datos disponibles. Le sugiero consultar a un agente de K-State Research and Extension o a un agrónomo local para evaluar las recomendaciones específicas antes de cambiar la rotación de sus cultivos.",
+    "citations": [],
+    "numbers": [],
+    "cached": true,
+    "provider": "gemini",
+    "model": "gemini-3.5-flash"
+   }
+  }
+ }
+}
