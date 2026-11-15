@@ -1,0 +1,87 @@
+/* Field workspace shell: toolbar, masthead brief, sticky section nav, compare layout (wireframes s2 + s4). */
+.workspace-toolbar { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: var(--sp-3); padding-top: var(--sp-4); }
+.back-link { display: inline-flex; align-items: center; gap: var(--sp-1); color: var(--text-2); font-weight: 600; font-size: var(--fs-cap); }
+.back-link:hover { color: var(--text-1); }
+.field-switcher { display: flex; align-items: center; gap: var(--sp-2); }
+.field-switcher label { display: inline-flex; align-items: center; gap: var(--sp-1); color: var(--text-2); font-size: var(--fs-cap); font-weight: 600; }
+.field-switcher select {
+  min-height: 40px; padding: 0 var(--sp-6) 0 var(--sp-3);
+  border: 1px solid var(--rule-strong); border-radius: var(--radius-sm);
+  background: var(--color-surface); color: var(--text-1); font-weight: 600;
+}
+
+.field-masthead { padding: var(--sp-5) 0 var(--sp-6); }
+.masthead-title h1 { font-size: clamp(2rem, 1.6rem + 1.6vw, 2.75rem); }
+.masthead-meta { display: flex; flex-wrap: wrap; align-items: center; gap: var(--sp-1) var(--sp-4); margin: var(--sp-2) 0 0; color: var(--text-2); }
+
+.masthead-brief {
+  display: grid;
+  grid-template-columns: minmax(0, 1.05fr) minmax(0, 1.5fr) minmax(0, 0.8fr);
+  gap: var(--sp-5);
+  margin-top: var(--sp-5);
+  align-items: start;
+}
+.brief-label { color: var(--text-2); font-size: var(--fs-cap); font-weight: 600; }
+.brief-best {
+  display: grid; gap: var(--sp-2);
+  padding: var(--sp-4);
+  border: 1px solid var(--color-accent); border-radius: var(--radius);
+  background: var(--accent-wash);
+  color: var(--text-1);
+}
+.brief-best strong { font: 600 var(--fs-h3)/1.25 var(--font-body); }
+.brief-score { color: var(--text-2); }
+.brief-go { display: inline-flex; align-items: center; gap: var(--sp-1); color: var(--color-accent); font-weight: 600; font-size: var(--fs-cap); }
+.brief-best:hover .brief-go { text-decoration: underline; }
+.brief-facts h2 { margin-bottom: var(--sp-2); font-size: var(--fs-body); color: var(--text-2); }
+.brief-facts ul { display: grid; gap: var(--sp-3); margin: 0; padding: 0; list-style: none; }
+.brief-facts li { display: grid; gap: var(--sp-1); padding-left: var(--sp-3); border-left: 1px solid var(--rule-strong); }
+.brief-facts p { margin: 0; color: var(--text-1); max-width: 60ch; }
+.brief-current { display: grid; gap: var(--sp-2); }
+.brief-note { color: var(--text-3); font-size: var(--fs-cap); }
+
+.section-nav { position: sticky; top: 0; z-index: 15; background: var(--color-bg); border-block: 1px solid var(--rule); }
+.section-nav-inner { display: flex; align-items: center; gap: var(--sp-5); min-height: 48px; overflow-x: auto; scrollbar-width: none; }
+.section-nav-inner::-webkit-scrollbar { display: none; }
+.section-nav a { flex: none; padding: var(--sp-3) 0; color: var(--text-2); font-size: var(--fs-cap); font-weight: 600; white-space: nowrap; }
+.section-nav a:hover { color: var(--text-1); }
+.section-nav .trust-nav { margin-left: auto; display: inline-flex; align-items: center; gap: var(--sp-1); color: var(--color-accent); }
+
+.workspace-content > .workspace-section:first-child { border-top: 0; }
+
+/* Compare: priorities rail + cards. */
+.compare-layout { display: grid; grid-template-columns: 272px minmax(0, 1fr); gap: var(--sp-5); align-items: start; }
+.priority-rail {
+  position: sticky; top: 64px;
+  max-height: calc(100vh - 80px); overflow-y: auto;
+  padding: var(--sp-4);
+  border: 1px solid var(--rule); border-radius: var(--radius);
+  background: var(--color-surface);
+}
+.priority-rail summary { display: flex; align-items: center; justify-content: space-between; list-style: none; cursor: default; }
+.priority-rail summary::-webkit-details-marker { display: none; }
+.priority-rail h3 { font-size: var(--fs-body); }
+.priority-rail-body { display: grid; gap: var(--sp-5); margin-top: var(--sp-2); }
+.priority-rail-chevron { display: none; }
+.priority-hint { margin: 0; color: var(--text-3); font-size: var(--fs-cap); }
+.priority-sliders { display: grid; gap: var(--sp-3); }
+.priority-slider { display: grid; grid-template-columns: 1fr auto; align-items: center; gap: 2px var(--sp-2); font-size: var(--fs-cap); color: var(--text-1); }
+.priority-slider input[type="range"] { grid-column: 1 / -1; width: 100%; margin: 0; min-height: 24px; }
+.slider-value { min-width: 1.5em; text-align: right; font-weight: 700; color: var(--text-1); }
+.segmented-control.stacked { display: grid; }
+.segmented-control.stacked button { width: 100%; }
+
+@media (max-width: 1023px) {
+  .masthead-brief { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); }
+  .brief-facts { grid-column: 1 / -1; grid-row: 2; }
+  .compare-layout { grid-template-columns: minmax(0, 1fr); }
+  .priority-rail { position: static; max-height: none; }
+  .priority-rail summary { cursor: pointer; }
+  .priority-rail-chevron { display: block; transition: transform 150ms var(--ease-out); }
+  .priority-rail:not([open]) .priority-rail-chevron { transform: rotate(-90deg); }
+  .priority-sliders { grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: var(--sp-3) var(--sp-5); }
+}
+@media (max-width: 640px) {
+  .masthead-brief { grid-template-columns: minmax(0, 1fr); }
+  .brief-facts { grid-row: auto; }
+}

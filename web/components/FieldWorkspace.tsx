@@ -3,20 +3,21 @@
 import { useEffect, useMemo, useState } from "react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
-import { ArrowLeft, ArrowUpRight, CircleHelp, Info, MapPin, RotateCcw } from "lucide-react";
+import { ArrowDown, ArrowLeft, CircleHelp, MapPin, RotateCcw } from "lucide-react";
 import { OverviewPanel } from "@/components/OverviewPanel";
 import { PrioritiesPanel } from "@/components/PrioritiesPanel";
 import { FieldCalendar } from "@/components/FieldCalendar";
-import { StrategyPanel } from "@/components/StrategyPanel";
+import { rotationSteps, StrategyPanel } from "@/components/StrategyPanel";
+import { SourceChips } from "@/components/SourceChips";
 import { ReplayChart } from "@/components/ReplayChart";
 import { NeighborsView } from "@/components/NeighborsView";
 import { AssistantDrawer } from "@/components/AssistantDrawer";
 import { CropChips } from "@/components/CropChips";
 import { useGlean } from "@/lib/state";
 import { getContent, getCrops, getFieldBundle, getFields, getRotations, getSources } from "@/lib/data";
-import { pickShown, sameRotation, weightsFromSliders } from "@/lib/score";
-import { loc, makeT, textureLabel, yearsLabel } from "@/lib/i18n";
-import { cropNames, KIND_LABEL, type UI } from "@/lib/ui";
+import { pickShown, sameRotation, scoreEntry, weightsFromSliders } from "@/lib/score";
+import { formatVar, interpolate, loc, makeT, textureLabel, yearsLabel } from "@/lib/i18n";
+import { cardLine, cropNames, KIND_LABEL, type UI } from "@/lib/ui";
 import { FIELD_IDS } from "@/lib/schemas";
 import type { CapId, Content, CropsFile, Field, FieldBundle, FieldId, RotationId, RotationsFile, ScenarioKey, SourcesFile } from "@/lib/types";
 
@@ -35,7 +36,7 @@ const NO_STRINGS: Content["copy"]["strings"] = {};
 const sections = [
   ["overview", "nav.overview"],
   ["calendar", "nav.calendar"],
-  ["priorities", "nav.plan"],
+  ["strategies", "strategies.eyebrow"],
   ["replay", "nav.replay"],
   ["neighbors", "nav.neighbors"],
 ] as const;
@@ -101,6 +102,8 @@ export function FieldWorkspace({ fieldId }: { fieldId: FieldId }) {
     return { picked: { ...result, shown }, irrigationShown: water, shownAt: at };
   }, [data, scenario, weights, state.cap, state.hay, state.cotton, state.forage, irrigation, duplicates]);
   const order = useMemo(() => picked.shown.map((entry) => entry.rotation_id), [picked]);
+  const currentEntry = picked.shown.find((entry) => entry.rotation_id === "R0");
+  const best = picked.shown.find((entry) => entry.rotation_id !== "R0" && !picked.filled[entry.rotation_id]);
 
   if (error) {
     return (
@@ -135,16 +138,48 @@ export function FieldWorkspace({ fieldId }: { fieldId: FieldId }) {
         </div>
       </div>
 
-      <section className="field-masthead page-wrap">
-        <div>
-          <h1>{loc(field.name, lang)}<span className={`field-kind ${field.kind}`}>{t(`field.kind.${field.kind}`, KIND_LABEL[field.kind])}</span></h1>
-          <p>{field.area_ha.toFixed(1)} ha <span>/</span> {field.area_ac.toFixed(1)} ac <span>/</span> {textureLabel(t, field.soil.texture, lang)} <span>/</span> {Math.round(field.terrain.elev_m)} m</p>
+      <section className="field-masthead page-wrap" aria-labelledby="field-heading">
+        <div className="masthead-title">
+          <h1 id="field-heading">{loc(field.name, lang)}</h1>
+          <p className="masthead-meta">
+            <span className={`field-kind ${field.kind}`}>{t(`field.kind.${field.kind}`, KIND_LABEL[field.kind])}</span>
+            <span>{formatVar("area", field.area_ha, lang)} ha · {formatVar("area", field.area_ac, lang)} ac</span>
+            <span>{textureLabel(t, field.soil.texture, lang)}</span>
+            <span>{Math.round(field.terrain.elev_m)} m</span>
+          </p>
         </div>
-        <div className="masthead-cards">
-          <div className="detected-rotation">
-            <small>{t("overview.current_rotation")}</small>
+
+        <div className="masthead-brief">
+          <a className="brief-best" href="#strategies">
+            <span className="brief-label">{t("summary.best_fit", "Best fit for your priorities")}</span>
+            {best ? (
+              <>
+                <strong>{loc(data.content.cardText.rotations[best.rotation_id]?.name, lang) || best.rotation_id}</strong>
+                <CropChips steps={rotationSteps(best.rotation_id, data.rotations.rotations, bundle.summary)} ui={ui} />
+                <span className="brief-score">
+                  {interpolate(t("summary.vs_current", "Match score {score}, against {current} for your current rotation."), { score: scoreEntry(best, weights), current: currentEntry ? scoreEntry(currentEntry, weights) : "—" })}
+                </span>
+              </>
+            ) : <span className="brief-score">{t("strategies.none_fit")}</span>}
+            <span className="brief-go">{t("summary.see_options", "Compare all options")}<ArrowDown size={15} aria-hidden="true" /></span>
+          </a>
+
+          <div className="brief-facts">
+            <h2>{t("overview.headlines", "What stands out")}</h2>
+            <ul>
+              {bundle.summary.headline_facts.map((fact, index) => (
+                <li key={`${fact.text_id}-${index}`}>
+                  <p>{cardLine(ui, "headline", fact.text_id, fact.vars)}</p>
+                  <SourceChips tags={fact.sources} sources={ui.sources} />
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          <div className="brief-current">
+            <span className="brief-label">{t("overview.current_rotation")}</span>
             <CropChips steps={field.detected.sequence} ui={ui} />
-            <span>{yearsLabel(t, field.detected.years[0], field.detected.years[1])} · {t("card.confidence")}: {t(`trust.level.${field.detected.confidence}`)}</span>
+            <span className="brief-note">{yearsLabel(t, field.detected.years[0], field.detected.years[1])} · {t("card.confidence")}: {t(`trust.level.${field.detected.confidence}`)}</span>
           </div>
         </div>
       </section>
@@ -159,15 +194,18 @@ export function FieldWorkspace({ fieldId }: { fieldId: FieldId }) {
       <div className="workspace-content page-wrap">
         <OverviewPanel field={field} summary={bundle.summary} water={bundle.water} glossary={data.content.glossary} copy={copy} ui={ui} />
         <FieldCalendar calendar={bundle.calendar} order={order} ui={ui} />
-        <PrioritiesPanel t={t} />
-        <StrategyPanel picked={picked} weights={weights} rotations={data.rotations.rotations} summary={bundle.summary} irrigation={irrigationShown} shownAt={shownAt} copy={copy} ui={ui} />
+        <section className="workspace-section compare-section" id="strategies" aria-labelledby="strategies-heading">
+          <div className="section-title-row">
+            <h2 id="strategies-heading">{t("strategies.eyebrow", "Compare your options")}</h2>
+            <p>{t("strategies.subtitle", "Your current rotation and the three that fit your priorities most closely.")}</p>
+          </div>
+          <div className="compare-layout">
+            <PrioritiesPanel t={t} />
+            <StrategyPanel picked={picked} weights={weights} rotations={data.rotations.rotations} summary={bundle.summary} irrigation={irrigationShown} shownAt={shownAt} copy={copy} ui={ui} />
+          </div>
+        </section>
         <ReplayChart replay={bundle.replay} scenario={scenario} order={order} ui={ui} />
         <NeighborsView neighbors={bundle.neighbors} field={field} ui={ui} />
-        <div className="workspace-notice">
-          <span className="notice-icon"><Info size={18} aria-hidden="true" /></span>
-          <p>{t("disclaimer.main")}</p>
-          <Link href="/how-we-know">{t("nav.trust")} <ArrowUpRight size={15} aria-hidden="true" /></Link>
-        </div>
       </div>
       <AssistantDrawer fieldId={field.id} scenario={scenario} shownIds={order} questions={data.content.questions} sources={data.sources} t={t} lang={lang} />
     </div>

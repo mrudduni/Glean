@@ -17,21 +17,21 @@ Each item names its audit ID. Ticked items are committed and checked with `npm t
 
 - [x] **#7** No cursor glow, drifting orbs, particle canvas, fake "live" dot, pulsing assistant button or decorative blur
 - [x] **#8** No eyebrow kicker above every heading, no `0N / 06` counters, no `01 02 03` numbering on non-sequences
-- [ ] **#8b** Strategies is in the section nav (lands with #5, where priorities and cards merge)
+- [x] **#8b** Strategies is in the section nav (lands with #5, where priorities and cards merge)
 
 ## Foundation
 
 - [ ] **#10** Styles read only token variables; dark mode comes from the token swap, not a second hand-written stylesheet
   - [x] Foundation: `styles/base.css` (type scale, text/rule ramp, header, footer, buttons, chips, badges, form controls, states)
-  - [x] Home + map (`styles/home.css`, `styles/map.css`) · [ ] Field workspace · [ ] Overview · [ ] Calendar · [ ] Cards · [ ] Replay · [ ] Neighbours · [ ] Assistant · [ ] How we know
+  - [x] Home + map (`styles/home.css`, `styles/map.css`) · [x] Field workspace (`styles/workspace.css`) · [ ] Overview · [ ] Calendar · [ ] Cards · [ ] Replay · [ ] Neighbours · [ ] Assistant · [ ] How we know
 - [ ] **#11** Text meets WCAG AA (4.5:1) in light and dark; labels ≥ 14px, body 16px
 - [x] **#15** Tabular figures on every number (set once on `body`)
 
 ## Layout (wireframes)
 
 - [x] **#9** Home: the map is the hero, zoomed to the three fields with thick labelled outlines; one field list; no stats panel
-- [ ] **#4** Field page: headline facts and the best-fit summary sit in the masthead, above the fold
-- [ ] **#5** Priorities sit in a sticky rail beside the strategy cards, so a slider change visibly re-ranks them; collapsible on phones
+- [x] **#4** Field page: headline facts and the best-fit summary sit in the masthead, above the fold
+- [x] **#5** Priorities sit in a sticky rail beside the strategy cards, so a slider change visibly re-ranks them; collapsible on phones
 - [ ] **#6** Strategy cards: caveats shared by every card shown once; evidence collapsed; crop sequence as coloured blocks with arrows
 - [ ] **#17** Rotation names lead; R-codes are secondary
 
@@ -48,7 +48,7 @@ Each item names its audit ID. Ticked items are committed and checked with `npm t
 - [ ] **#18** Loading skeleton shaped like the page; errors in plain words
 - [ ] **#20** No hard-coded English in TSX; numbers formatted per language
 - [ ] **#21** Well trend states direction; units never wrap
-- [ ] **#22** Disclaimer shown once per page
+- [x] **#22** Disclaimer shown once per page
 - [ ] **#23** How-we-know: validation as a readable table
 
 ## Verification

@@ -120,15 +120,6 @@ export function OverviewPanel({
         </article>
       </div>
 
-      <div className="headline-row">
-        <div className="headline-title"><span>{t("overview.notes_kicker", "Field notes")}</span><h3>{t("overview.headlines", "What stands out")}</h3></div>
-        {summary.headline_facts.map((fact, index) => (
-          <article className="headline-fact" key={`${fact.text_id}-${index}`}>
-            <p>{cardLine(ui, "headline", fact.text_id, fact.vars)}</p>
-            <SourceChips tags={fact.sources} sources={ui.sources} />
-          </article>
-        ))}
-      </div>
     </section>
   );
 }
