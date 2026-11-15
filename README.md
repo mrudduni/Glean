@@ -840,3 +840,7 @@ Space Apps used these criteria in past years. Check the 2026 rules.
 ---
 
 *Plan date: 14 Nov 2026. Numbers in examples (thresholds, coordinates, crop parameters) are starting points to verify against the real data and sources.*
+
+## 16. Contract amendments (15 Nov 2026)
+
+The integration pass found mismatches between this contract and what each role publishes. Changes C1 to C12 in [CONTRACT_CHANGES.md](CONTRACT_CHANGES.md) are now part of this contract and override the sections they cite: text-only facts (`value: null`), nullable crop traits, well-trend sign, the tie-break source, dropping alternatives that equal R0, the `hidden_count` set, the 94 added copy keys, the number-check identifier rule, the 429 rate-limit response, when `notice` is sent, groups with no `is_current` row, and sources listed only when their data reached `out/`.
