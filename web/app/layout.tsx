@@ -5,7 +5,6 @@ import "@/styles/tokens.css";
 import { AppProvider } from "@/lib/state";
 import { SiteFooter, SiteHeader } from "@/components/SiteHeader";
 import { InteractiveBackground } from "@/components/InteractiveBackground";
-import { MockBanner } from "@/components/MockBanner";
 
 export const metadata: Metadata = {
   title: "Glean",
@@ -35,7 +34,6 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
         <AppProvider>
           <InteractiveBackground />
           <SiteHeader />
-          <MockBanner />
           <main>{children}</main>
           <SiteFooter />
         </AppProvider>

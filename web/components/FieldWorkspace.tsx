@@ -12,6 +12,7 @@ import { ReplayChart } from "@/components/ReplayChart";
 import { NeighborsView } from "@/components/NeighborsView";
 import { AssistantDrawer } from "@/components/AssistantDrawer";
 import { CropChips } from "@/components/CropChips";
+import { SpotlightCard } from "@/components/SpotlightCard";
 import { useGlean } from "@/lib/state";
 import { getContent, getCrops, getFieldBundle, getFields, getRotations, getSources } from "@/lib/data";
 import { pickShown, sameRotation, weightsFromSliders } from "@/lib/score";
@@ -142,11 +143,11 @@ export function FieldWorkspace({ fieldId }: { fieldId: FieldId }) {
           <p>{field.area_ha.toFixed(1)} ha <span>/</span> {field.area_ac.toFixed(1)} ac <span>/</span> {textureLabel(t, field.soil.texture, lang)} <span>/</span> {Math.round(field.terrain.elev_m)} m</p>
         </div>
         <div className="masthead-cards">
-          <div className="detected-rotation">
+          <SpotlightCard className="detected-rotation" enableTilt={true} tiltMax={2.5}>
             <small>{t("overview.current_rotation")}</small>
             <CropChips steps={field.detected.sequence} ui={ui} />
             <span>{yearsLabel(t, field.detected.years[0], field.detected.years[1])} · {t("card.confidence")}: {t(`trust.level.${field.detected.confidence}`)}</span>
-          </div>
+          </SpotlightCard>
         </div>
       </section>
 

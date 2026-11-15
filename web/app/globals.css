@@ -3859,6 +3859,12 @@ fieldset legend.control-label { padding: 0; margin-bottom: 8px; }
   height: 100%;
 }
 
+.detected-rotation .spotlight-card-content {
+  display: grid;
+  gap: 8px;
+  height: 100%;
+}
+
 .field-option:hover {
   transform: translateY(-5px) scale(1.01);
   box-shadow: 0 20px 48px rgba(33, 59, 42, 0.16), 0 2px 8px rgba(0, 0, 0, 0.04);
