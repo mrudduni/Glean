@@ -1,7 +1,7 @@
 """M entry point: library -> replay -> validation -> calendar -> scoring -> summary -> assistant.
 
 Run from the repo root:  python model/run_all.py [--fields f1 f2] [--skip-assistant]
-Writes model/out/web/** (README 8.4) and model/out/run_log.json (diagnostics for docs/METHODS.md).
+Writes model/out/web/** (CONTRACT 8.4) and model/out/run_log.json (diagnostics for docs/METHODS.md).
 """
 from __future__ import annotations
 

@@ -2,13 +2,15 @@
 from __future__ import annotations
 
 import numpy as np
+import pandas as pd
 
 from model import config
 from model.replay.crop_calendar import STAGES, Season
 
 
 def season_outcome(s: Season, k: int, crops: dict, sidx: np.ndarray, stage: np.ndarray, eta: np.ndarray,
-                   etc: np.ndarray, tmax: np.ndarray, tmin: np.ndarray, practice: str) -> dict:
+                   etc: np.ndarray, tmax: np.ndarray, tmin: np.ndarray, practice: str,
+                   dates: pd.DatetimeIndex) -> dict:
     """rel_yield, revenue and the stress counts for one revenue season (index k)."""
     c = crops[s.crop]
     mask = sidx == k
@@ -28,6 +30,11 @@ def season_outcome(s: Season, k: int, crops: dict, sidx: np.ndarray, stage: np.n
     if c["frost_kill_c"] is not None:
         first = 2 if c["season"] == "winter" else 1      # winter crops: heading onward; others: from dev
         frost = bool(((stage >= first) & mask & (tmin <= c["frost_kill_c"])).any())
+    if c["season"] in config.SPRING_FREEZE_SEASONS:
+        # after green-up the hardiness is gone: a spring freeze at boot/heading counts as a frost event
+        mmdd = dates.strftime("%m-%d")
+        spring = mask & (dates.year == s.harvest_year) & (mmdd >= config.SPRING_FREEZE_START)
+        frost = frost or bool((spring & (tmin <= config.SPRING_FREEZE_C)).any())
     frost_f = config.FROST_FACTOR if frost else 1.0
 
     rel = water * heat_f * frost_f

@@ -70,9 +70,10 @@ revenue      = rel_yield × Ym × price          (fallow and rye cover: 0)
 
 - `Ky` is the FAO-33 yield response factor ([FAO-33](https://www.fao.org/4/i2800e/i2800e.pdf), FAO-56 Table 24).
 - **Heat days** count days with Tmax above the crop's `heat.tmax_c` in the first 21 days (`HEAT_WINDOW_DAYS`) of its `heat.stage`. Corn pollination and silking last about 2 to 3 weeks ([K-State Corn Production Handbook C560](https://bookstore.ksre.ksu.edu/pubs/C560.pdf)). Counting the whole 47-day mid stage gave 20 to 39 heat days a year and cut fully irrigated corn to 58% of the NASS mean, which double-counts heat already in that mean. With the 21-day window, irrigated continuous corn at cap450 averages a relative yield of about 0.7 (f1).
-- **Frost window:** from the development stage to maturity for summer crops, from mid season (heading) to maturity for winter crops.
+- **Frost window:** from the development stage to maturity for summer crops, from mid season (heading) to maturity for winter crops, with U's `frost_kill_c` as the threshold. The final `crops.yaml` sets winter wheat to −18 °C, its winter hardiness while dormant.
+- **Spring freeze:** winter crops lose that hardiness after green-up. For winter and cover crops (wheat, triticale, rye cover), any day from 15 March of the harvest year to harvest with Tmin ≤ −2.2 °C also counts as a frost event. That is the 28 °F for 2 hours that kills florets at boot and heading ([K-State C646, Spring freeze injury to Kansas wheat](https://bookstore.ksre.ksu.edu/pubs/spring-freeze-injury-to-kansas-wheat_C646.pdf)). The same frost_factor applies, and the event counts toward `frost_events` and `heat_frost_risk`. Daily Tmin is a screen-height reading for the whole day, not the 2-hour duration K-State uses, so the rule can overcount mild freezes.
 - **Ym** is the NASS yield for the crop and practice: irrigated if the rotation is irrigated, the field has a well and the cap is above dryland; otherwise non-irrigated. We take the most local level (county, then district, then state) with at least 3 values in 2010 to 2024 and average the last 5. If no level has that, we use the most recent 5 values at any level. If the practice has no series, we fall back to "all practices", then to `crops.yaml`. The values used are in `model/out/run_log.json` (`yields`). Alfalfa and cotton have no practice split in NASS, so dryland and irrigated use the same "all practices" yield (5.52 t/ac alfalfa, mostly irrigated stands). Dryland alfalfa (R4) is infeasible in every scenario, but its dryland revenue is optimistic. Most come from the district level (corn, wheat, soybean, alfalfa, cotton), and sorghum by practice only from 2003 to 2007 county data, so most cards show the `county_yields` gap.
-- **Price** is the 2020 to 2024 mean Kansas price from NASS: corn 5.28 $/bu, sorghum 5.33 $/bu, wheat 6.51 $/bu, soybean 11.97 $/bu, alfalfa 189.8 $/ton, cotton 0.742 $/lb. Triticale has no NASS price, so it uses the alfalfa hay price. This likely overstates triticale forage income.
+- **Price** is the 2020 to 2024 mean Kansas price from NASS: corn 5.28 $/bu, sorghum 5.33 $/bu, wheat 6.51 $/bu, soybean 11.97 $/bu, alfalfa 189.8 $/ton, cotton 0.742 $/lb. Triticale has no NASS price series (`crops.yaml` price is null), so it uses the NASS Kansas alfalfa hay price, 2020 to 2024 mean, 189.8 $/ton (logged as `proxy: alfalfa` in `model/out/run_log.json`). Triticale forage usually sells below alfalfa hay, so R3 income is likely overstated. R3 cards carry the `prices_constant` gap, and the `county_yields` gap because triticale yields come from `crops.yaml` (K-State MF2227), not county NASS data. They also carry the `buyer_availability` risk, because NASS shows no Finney County triticale acres.
 - Triticale yields come from `crops.yaml` (1.5 t/ac dryland, 3.0 t/ac irrigated, K-State [MF2227](https://bookstore.ksre.ksu.edu/pubs/mf2227.pdf)).
 
 ### Exposure and erosion indices
@@ -122,7 +123,7 @@ Under cap150 and cap300 nearly every irrigated rotation uses its whole cap in bo
 `model/calendar/build.py`, from 2000 to 2025 daily weather:
 
 - `p_heat[m]`: share of years with ≥ 3 days Tmax ≥ 35 °C in month m.
-- `p_frost[m]`: share of years with any day Tmin ≤ −2 °C (PRISM Tmin where available).
+- `p_frost[m]`: share of years with any day Tmin ≤ −2 °C (PRISM Tmin where available). A crop cell gets the frost flag when `p_frost` ≥ 0.3. For winter and cover crops this applies only in March to May (after green-up); for other crops, in any month outside the November to February dormancy.
 - `p_dry_spell[m]`: share of years where a run of ≥ 21 days with < 2 mm/day overlaps month m.
 - `storm_days[m]`, `windy_days[m]`: mean days with rain ≥ 12.7 mm, and with `ws10m_max` ≥ 11 m/s.
 
@@ -143,13 +144,13 @@ Each rotation's calendar uses phase 0. The cycle length in years comes from the 
 | `pest_break` | longest run of the same `host_group` in the cycled sequence, cap 8 (fallow breaks a run; covers are not counted) | lower |
 | `heat_frost_risk` | heat days/yr + 2 × frost events/26 | lower |
 
-Soil health index: `40 × living_root_days/365 + 20 × residue_score + 15 × legume_share + 15 × min(1, families/4) + 10 × (1 − bare_days/365)`. Living-root days count days with a growing crop, cover or alfalfa stand. `residue_score` is the mean over cycle steps of high 1, medium 0.6, low 0.2, with fallow scored 0 because it produces no residue. `legume_share` is the share of steps with an `n_fixing` crop. Families are distinct botanical families among crops and covers. Sorghum and corn are separate pest host groups, as U's `crops.yaml` decides; wheat, triticale and rye share `small_grain`.
+Soil health index: `40 × living_root_days/365 + 20 × residue_score + 15 × legume_share + 15 × min(1, families/4) + 10 × (1 − bare_days/365)`. Living-root days count days with a growing crop, cover or alfalfa stand. `residue_score` is the mean over cycle steps of high 1, medium 0.6, low 0.2, with fallow scored 0 because it produces no residue. `legume_share` is the share of steps with an `n_fixing` crop. Families are distinct botanical families among crops and covers. Sorghum and corn are separate pest host groups, as U's `crops.yaml` decides, so corn followed by sorghum counts as a full break. That fits corn rootworm, which does not complete its life cycle on sorghum. The two share some aphids and armyworms, so the break is partial for those pests; we found no sourced way to weight that and kept the yaml's choice. Wheat, triticale and rye share `small_grain`.
 
 Normalisation within one field and scenario, across feasible rotations: `norm = 100 × (raw − worst)/(best − worst)`, inverted for lower-is-better, 50 when best equals worst. Infeasible rotations get the norm they would have had (clamped to 0 to 100).
 
 ## Card facts
 
-`model/scoring/facts.py` writes `strategies.json` using only README 8.6 keys:
+`model/scoring/facts.py` writes `strategies.json` using only CONTRACT 8.6 keys:
 
 - Benefits vs R0: `water_saved` (≥ 25 mm), `bare_days_reduced` (≥ 20 days), `legume_added`, `income_steadier` (worst-5 ≥ $10/ac better), `pest_cycle_broken`, `forage_income`.
 - Evidence: `replay_avg` always; `replay_drought` for 2012; `neighbors` when D's matching group (or, for R0, the `is_current` group) has n ≥ 3 and both groups have an OpenET median; `validation_et` when `et_vs_openet` exists.
@@ -182,7 +183,7 @@ Extra check, not a contract item: POWER monthly rain vs PRISM, 2000 to 2025 (n 3
 
 ## Results under default settings
 
-The README 8.7 default is all sliders at 3, with no hay or cotton equipment and no forage buyer, so R3, R4 and R6 are excluded. Top 3 (excluding R0) at `cap300|actual`:
+The CONTRACT 8.7 default is all sliders at 3, with no hay or cotton equipment and no forage buyer, so R3, R4 and R6 are excluded. Top 3 (excluding R0) at `cap300|actual`:
 
 | Field | R0 | Top 3 | Why |
 |---|---|---|---|
@@ -207,10 +208,10 @@ Under `dryland`, no irrigated rotation is feasible on any field (tested).
 
 | Constant | Value | Source or reason |
 |---|---|---|
-| `YEAR_FROM`, `YEAR_TO` | 2000, 2025 | README replay period |
+| `YEAR_FROM`, `YEAR_TO` | 2000, 2025 | CONTRACT replay period |
 | `SPINUP_START`, `SPINUP_DEPLETION_FRAC` | 1999-10-01, 0.5 | handover 5.3 |
-| `CAP_MM` | 0, 150, 300, 450 mm/season | README 7.2 |
-| `HOTDRY_DT_C`, `HOTDRY_P_FACTOR` | +1.5 °C, 0.85 | README 7.2 |
+| `CAP_MM` | 0, 150, 300, 450 mm/season | CONTRACT 7.2 |
+| `HOTDRY_DT_C`, `HOTDRY_P_FACTOR` | +1.5 °C, 0.85 | CONTRACT 7.2 |
 | `ZMAX_M` | 1.5 m | handover 5.3 |
 | `ROOT_INIT_M` | 0.15 m | handover 5.3 |
 | `PIVOT_EFFICIENCY` | 0.85 | handover 5.3 |
@@ -236,7 +237,7 @@ Under `dryland`, no irrigated rotation is feasible on any field (tested).
 | `SOIL_W`, `RESIDUE_SCORE`, `FAMILIES_FULL` | 40/20/15/15/10; 1 / 0.6 / 0.2 / 0; 4 | handover 5.5 (fallow 0 is ours) |
 | `PEST_RUN_CAP`, `FROST_WEIGHT` | 8, 2 | handover 5.5 |
 | `BENEFIT_WATER_MM`, `BENEFIT_BARE_DAYS`, `BENEFIT_WORST5_USD`, `NEIGHBOR_MIN_N` | 25 mm, 20 days, $10/ac, 3 | handover 5.5 |
-| `SLIDER_DEFAULT`, `SLIDER_SHARES` | 3 each; README 8.7 shares | README 8.7, web handover 4 (used only for the acceptance check) |
+| `SLIDER_DEFAULT`, `SLIDER_SHARES` | 3 each; CONTRACT 8.7 shares | CONTRACT 8.7, web handover 4 (used only for the acceptance check) |
 | `NORMAL_PERIOD`, `RECENT_PERIOD`, `FROST_C`, `GDD_BASE_C`, `GDD_CAP_C`, `HOT_DAY_C` | 1991 to 2020, 2016 to 2025, 0 °C, 10 °C, 30 °C, 35 °C | handover 5.6 |
 | `OUTLOOK_GRACE_CM`, `OUTLOOK_WELL_M` | 0.3 cm/yr, 0.1 m/yr | handover 5.6 |
 | `VALID_YEARS`, `VALID_MONTHS`, `ACTUAL_RUN_CAP`, `SMAP_YEARS`, `LEVELS` | 2016 to 2025 (clipped to crop history), Apr to Oct, cap450, 2015 to 2025, see Validation | handover 5.7 |

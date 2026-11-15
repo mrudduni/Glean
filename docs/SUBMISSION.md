@@ -1,14 +1,14 @@
-# Field Shift: Space Apps 2026 submission draft
+# Glean: Space Apps 2026 submission draft
 
 Paste each block into the matching field of the project page. Anything marked `TODO` needs a final value from the deployed app or from the other roles' docs (`docs/DATA_SOURCES.md` from D, `docs/AI_USE.md` and `docs/METHODS.md` from M). Check the 2026 rules before you submit, because field names and limits can change.
 
 ## Project name
 
-Field Shift
+Glean
 
 ## Challenge
 
-Field Shift: Adapting Farms with NASA Data
+Adapting Farms with NASA Data
 
 ## Team
 
@@ -18,17 +18,17 @@ Team Brackets. TODO: member names and roles (D data, M model and AI, F frontend,
 
 Western Kansas farms depend on the Ogallala aquifer, one of the largest underground water reserves in the world, and in many places it is running down. In southwest Kansas, water levels drop by more than 1.5 feet a year in some areas (TODO: cite KGS or USGS source). Many farmers keep the same irrigated rotations because they lack field-specific evidence for alternatives.
 
-Field Shift is a decision-support web tool that replays several crop rotations on 25 years of real daily weather for a farmer's actual field in Finney County, Kansas. It combines NASA POWER climate data, SMAP soil moisture, MODIS vegetation health, GPM IMERG rainfall, GRACE aquifer trends and USDA soil surveys into a side-by-side comparison. For each rotation it shows irrigation demand, stress days, income stability and wind-erosion exposure, including what happened in the 2012 and 2022 droughts.
+Glean is a decision-support web tool that replays several crop rotations on 25 years of real daily weather for a farmer's actual field in Finney County, Kansas. It combines NASA POWER climate data, SMAP soil moisture, MODIS vegetation health, GPM IMERG rainfall, GRACE aquifer trends and USDA soil surveys into a side-by-side comparison. For each rotation it shows irrigation demand, stress days, income stability and wind-erosion exposure, including what happened in the 2012 and 2022 droughts.
 
 A "Farms Like Yours" panel uses satellite observations from neighbouring fields that already farm differently. An AI assistant answers questions in plain English or Spanish, and every number it gives is checked against the source facts.
 
-Field Shift does not tell farmers what to plant. It shows what the data says and lets them decide.
+Glean does not tell farmers what to plant. It shows what the data says and lets them decide.
 
 ## Detailed description
 
 ### What does it do?
 
-Field Shift helps a western Kansas farmer compare their current crop rotation with three other options. The farmer picks a field on a map, sets priorities (save water, steady income, soil health, erosion control) and limits (for example, a seasonal pumping limit), and sees four strategy cards. Each card explains why it was suggested, what evidence supports it, its possible benefits, where information is missing, and the risks to check locally. No card is called a winner. Each one says here is the trade-off, you decide.
+Glean helps a western Kansas farmer compare their current crop rotation with three other options. The farmer picks a field on a map, sets priorities (save water, steady income, soil health, erosion control) and limits (for example, a seasonal pumping limit), and sees four strategy cards. Each card explains why it was suggested, what evidence supports it, its possible benefits, where information is missing, and the risks to check locally. No card is called a winner. Each one says here is the trade-off, you decide.
 
 Screens: pick a field, overview, Field Calendar, plan (priorities and cards), Rotation Replay, Farms Like Yours, assistant, and a "How we know" page with sources, trust badges and a glossary.
 
@@ -51,7 +51,7 @@ Screens: pick a field, overview, Field Calendar, plan (priorities and cards), Ro
 
 ### What is the intended impact?
 
-The Sheridan 6 Local Enhanced Management Area in Kansas reported that modest crop switching plus efficiency gains cut water use and slowed depletion (TODO: add the exact figures only after checking them against the Kansas Division of Water Resources or K-State source; do not quote numbers from memory). Farmers still need field-specific evidence to make a switch with confidence. Field Shift offers that evidence as a transparent comparison grounded in the farmer's own soil and weather, not as a mandate. TODO: add the final water-saving figure for each demo field once the real model run is in.
+The Sheridan 6 Local Enhanced Management Area in Kansas reported that modest crop switching plus efficiency gains cut water use and slowed depletion (TODO: add the exact figures only after checking them against the Kansas Division of Water Resources or K-State source; do not quote numbers from memory). Farmers still need field-specific evidence to make a switch with confidence. Glean offers that evidence as a transparent comparison grounded in the farmer's own soil and weather, not as a mandate. TODO: add the final water-saving figure for each demo field once the real model run is in.
 
 ### How is it creative?
 

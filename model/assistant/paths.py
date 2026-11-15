@@ -7,7 +7,9 @@ from pathlib import Path
 from dotenv import load_dotenv
 
 REPO = Path(__file__).resolve().parents[2]
-ENV_FILE = Path(os.environ.get("FIELDSHIFT_ENV", Path.home() / ".fieldshift" / ".env"))
+_glean_env = Path.home() / ".glean" / ".env"
+_fieldshift_env = Path.home() / ".fieldshift" / ".env"
+ENV_FILE = Path(os.environ.get("GLEAN_ENV", os.environ.get("FIELDSHIFT_ENV", _glean_env if _glean_env.exists() else _fieldshift_env)))
 load_dotenv(ENV_FILE)
 
 OUT_WEB = Path(os.environ.get("MODEL_OUT_WEB", REPO / "model" / "out" / "web"))

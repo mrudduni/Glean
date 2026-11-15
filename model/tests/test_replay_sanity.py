@@ -44,7 +44,7 @@ def _season_rel(rot_steps, crop, fid, crops, w, field, irrigate=False, cap="dryl
         for k, s in enumerate(tl.seasons):
             if s.crop == crop and s.revenue and config.YEAR_FROM <= s.harvest_year <= config.YEAR_TO:
                 o = season_outcome(s, k, crops, tl.season, tl.stage, res.eta, res.etc, df.tmax_c.to_numpy(),
-                                   df.tmin_c.to_numpy(), "non_irrigated")
+                                   df.tmin_c.to_numpy(), "non_irrigated", tl.index)
                 rels.append(o["rel_yield"])
     return float(np.mean(rels))
 
@@ -82,7 +82,7 @@ def _rel_from_timeline(tl, crop, crops, w, field):
     res = run_bucket(tl, df.et0_mm.to_numpy(), df.precip_mm.to_numpy(), field["soil"], 0.0, False,
                      profile_depth(field["soil"]))
     rels = [season_outcome(s, k, crops, tl.season, tl.stage, res.eta, res.etc, df.tmax_c.to_numpy(),
-                           df.tmin_c.to_numpy(), "non_irrigated")["rel_yield"]
+                           df.tmin_c.to_numpy(), "non_irrigated", tl.index)["rel_yield"]
             for k, s in enumerate(tl.seasons)
             if s.crop == crop and s.revenue and config.YEAR_FROM <= s.harvest_year <= config.YEAR_TO]
     return float(np.mean(rels))

@@ -2,7 +2,7 @@
  "_meta": {
   "schema": "sources@1",
   "mock": false,
-  "generated_at": "2026-11-15T14:19:56Z",
+  "generated_at": "2026-11-15T15:38:27Z",
   "generator": "data-pipeline/process/build_sources.py"
  },
  "sources": [
@@ -108,9 +108,9 @@
   },
   {
    "tag": "MODEL",
-   "name": "Field Shift Rotation Replay model",
+   "name": "Glean water-budget model (FAO-56)",
    "provider": "Team Brackets (M)",
-   "url": "https://github.com/mrudduni/Team-Brackets",
+   "url": "https://github.com/mrudduni/Team-Brackets/blob/main/docs/METHODS.md",
    "what": "Simulated yield, water use and soil outputs built from the inputs above",
    "resolution": "Field, daily/annual",
    "period": "2016–2025",

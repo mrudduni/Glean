@@ -98,7 +98,9 @@ def month_cells(tl: Timeline, year: int, crops: dict, risk: list[dict]) -> list[
             hs = (c["heat"] or {}).get("stage")
             if hs and (st == STAGES.index(hs)).any() and r["p_heat"] >= config.CAL_FLAG_P:
                 flags.append("heat")
-            if not dormant and r["p_frost"] >= config.CAL_FLAG_P:
+            # winter crops are hardy in fall and winter; flag only the spring-freeze months after green-up
+            frost_season = (m in config.SPRING_FREEZE_MONTHS) if c["season"] in config.SPRING_FREEZE_SEASONS else not dormant
+            if frost_season and r["p_frost"] >= config.CAL_FLAG_P:
                 flags.append("frost")
             if r["p_dry_spell"] >= config.CAL_FLAG_P:
                 flags.append("dry")

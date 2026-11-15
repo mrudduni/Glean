@@ -1,6 +1,6 @@
 # Model (role M)
 
-Python that turns D's data and U's crop traits into the static JSON the web app reads: crops, rotations, Rotation Replay, Field Calendar, strategy facts, summary and validation. The method, every constant and the validation results are in [docs/METHODS.md](../docs/METHODS.md). The file formats are README section 8.4.
+Python that turns D's data and U's crop traits into the static JSON the web app reads: crops, rotations, Rotation Replay, Field Calendar, strategy facts, summary and validation. The method, every constant and the validation results are in [docs/METHODS.md](../docs/METHODS.md). The file formats are section 8.4 of [docs/CONTRACT.md](../docs/CONTRACT.md).
 
 ## Setup
 
@@ -70,14 +70,14 @@ model/.venv/Scripts/python scripts/sync_data.py
 model/.venv/Scripts/python scripts/check_contract.py
 ```
 
-`sync_data.py` copies the README 6.5 mapping into `web/`. `check_contract.py` checks `web/public/data` and exits 1 on any error. Use `--allow-mock` to downgrade mock files to warnings, `--only-model --data-dir model/out/web` to check M's files alone, and `--data-dir` to point anywhere else.
+`sync_data.py` copies the CONTRACT 6.5 mapping into `web/`. `check_contract.py` checks `web/public/data` and exits 1 on any error. Use `--allow-mock` to downgrade mock files to warnings, `--only-model --data-dir model/out/web` to check M's files alone, and `--data-dir` to point anywhere else.
 
 ## Layout
 
 ```text
 model/
 ├─ config.py            every path and constant
-├─ contract.py          README 8.6 text keys, JSON writer (rejects NaN, _meta first)
+├─ contract.py          CONTRACT 8.6 text keys, JSON writer (rejects NaN, _meta first)
 ├─ inputs.py            readers for D's files
 ├─ run_all.py
 ├─ library/             load_crops.py, rotations.py, default_crops.yaml

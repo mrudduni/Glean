@@ -7,16 +7,16 @@
   },
   "strings": {
     "app.name": {
-      "en": "Field Shift",
-      "es": "Field Shift"
+      "en": "Glean",
+      "es": "Glean"
     },
     "app.tagline": {
-      "en": "Compare crop rotations for your field, using NASA data and your own priorities.",
-      "es": "Compare rotaciones de cultivos para su campo, con datos de la NASA y sus propias prioridades."
+      "en": "Compare crop rotations for your field with 25 years of NASA data.",
+      "es": "Compare rotaciones de cultivos para su campo con 25 años de datos de la NASA."
     },
     "disclaimer.main": {
-      "en": "Field Shift supports your judgement. It does not replace it or local expert advice. Results are estimates from satellites, models and past weather. Check with your K-State Research and Extension agent before you change your rotation.",
-      "es": "Field Shift apoya su criterio, no lo reemplaza ni sustituye el consejo de expertos locales. Los resultados son estimaciones de satélites, modelos y clima del pasado. Consulte a su agente de K-State Research and Extension antes de cambiar su rotación."
+      "en": "Glean supports your judgement. It does not replace it or local expert advice. Results are estimates from satellites, models and past weather. Check with your K-State Research and Extension agent before you change your rotation.",
+      "es": "Glean apoya su criterio, no lo reemplaza ni sustituye el consejo de expertos locales. Los resultados son estimaciones de satélites, modelos y clima del pasado. Consulte a su agente de K-State Research and Extension antes de cambiar su rotación."
     },
     "banner.mock": {
       "en": "Showing sample data",
@@ -203,8 +203,8 @@
       "es": "Confianza"
     },
     "card.hidden_count": {
-      "en": "{n} more options hidden by your limits",
-      "es": "{n} opciones más ocultas por sus límites"
+      "en": "Options hidden by your limits: {n}",
+      "es": "Opciones ocultas por sus límites: {n}"
     },
     "calendar.title": {
       "en": "Field calendar",
@@ -279,8 +279,8 @@
       "es": "Estos campos son parecidos, no idénticos. Las diferencias pueden tener otras causas, como el suelo, el manejo o el clima. Muestra lo que pasó, no lo que debe pasar."
     },
     "neighbors.n_fields": {
-      "en": "{n} fields",
-      "es": "{n} campos"
+      "en": "Fields compared: {n}",
+      "es": "Campos comparados: {n}"
     },
     "neighbors.water_use": {
       "en": "Water use seen from space",
@@ -349,6 +349,450 @@
     "assistant.error": {
       "en": "The assistant is not available right now. Try a suggested question.",
       "es": "El asistente no está disponible ahora. Pruebe una pregunta sugerida."
+    },
+    "app.location": {
+      "en": "Finney County, Kansas",
+      "es": "Condado de Finney, Kansas"
+    },
+    "assistant.close": {
+      "en": "Close",
+      "es": "Cerrar"
+    },
+    "assistant.subtitle": {
+      "en": "Answers use only this field's data. Every number is checked.",
+      "es": "Las respuestas usan solo los datos de este campo. Se revisa cada número."
+    },
+    "assistant.waiting": {
+      "en": "Checking the field data",
+      "es": "Revisando los datos del campo"
+    },
+    "calendar.counts_legend": {
+      "en": "Numbers: storm days · windy days",
+      "es": "Números: días de tormenta · días de viento"
+    },
+    "calendar.crop_period": {
+      "en": "Crop in the field",
+      "es": "Cultivo en el campo"
+    },
+    "calendar.eyebrow": {
+      "en": "Plan across seasons",
+      "es": "Planear por temporadas"
+    },
+    "calendar.odds": {
+      "en": "{risk}: {count} of 10 years",
+      "es": "{risk}: {count} de cada 10 años"
+    },
+    "calendar.risk_title": {
+      "en": "Climate odds by month, 2000 to 2025",
+      "es": "Probabilidades del clima por mes, 2000 a 2025"
+    },
+    "calendar.storm_days": {
+      "en": "Storm days",
+      "es": "Días de tormenta"
+    },
+    "calendar.windy_days": {
+      "en": "Windy days",
+      "es": "Días de viento"
+    },
+    "calendar.year": {
+      "en": "Year",
+      "es": "Año"
+    },
+    "card.current_benefits": {
+      "en": "Benefits of the other rotations are measured against this one.",
+      "es": "Los beneficios de las otras rotaciones se miden frente a esta."
+    },
+    "card.current_why": {
+      "en": "This is your baseline. The other cards are compared against it.",
+      "es": "Esta es su referencia. Las otras tarjetas se comparan con ella."
+    },
+    "card.lower_score": {
+      "en": "Fits your limits, but scores lower than the three shown.",
+      "es": "Cabe en sus límites, pero puntúa más bajo que las tres que se muestran."
+    },
+    "card.no_why": {
+      "en": "No criterion stands out at these priorities.",
+      "es": "Ningún criterio destaca con estas prioridades."
+    },
+    "card.none": {
+      "en": "Nothing listed.",
+      "es": "Nada en la lista."
+    },
+    "crop.other": {
+      "en": "Other",
+      "es": "Otro"
+    },
+    "error.retry": {
+      "en": "Try again",
+      "es": "Intentar de nuevo"
+    },
+    "error.title": {
+      "en": "The data could not be loaded",
+      "es": "No se pudieron cargar los datos"
+    },
+    "field.area": {
+      "en": "Area",
+      "es": "Superficie"
+    },
+    "home.crop_history": {
+      "en": "USDA crop history per field",
+      "es": "Historial de cultivos del USDA por campo"
+    },
+    "home.data_in_use": {
+      "en": "Data behind these fields",
+      "es": "Datos detrás de estos campos"
+    },
+    "home.map_caption": {
+      "en": "Click a field outline to open it.",
+      "es": "Haga clic en el contorno de un campo para abrirlo."
+    },
+    "home.rotations": {
+      "en": "Rotations",
+      "es": "Rotaciones"
+    },
+    "home.rotations_note": {
+      "en": "Current rotation against six alternatives",
+      "es": "Rotación actual frente a seis alternativas"
+    },
+    "home.soil_storage": {
+      "en": "Lowest soil water storage of the 3 fields",
+      "es": "Menor almacenamiento de agua del suelo de los 3 campos"
+    },
+    "lang.label": {
+      "en": "Language",
+      "es": "Idioma"
+    },
+    "map.area": {
+      "en": "Garden City area",
+      "es": "Zona de Garden City"
+    },
+    "map.boundaries": {
+      "en": "USDA field boundaries",
+      "es": "Límites de campos del USDA"
+    },
+    "nav.all_fields": {
+      "en": "All fields",
+      "es": "Todos los campos"
+    },
+    "nav.back_to_field": {
+      "en": "Back to the field",
+      "es": "Volver al campo"
+    },
+    "nav.field": {
+      "en": "Field",
+      "es": "Campo"
+    },
+    "nav.main": {
+      "en": "Main navigation",
+      "es": "Navegación principal"
+    },
+    "nav.sections": {
+      "en": "Field sections",
+      "es": "Secciones del campo"
+    },
+    "neighbors.eyebrow": {
+      "en": "Learn from the landscape",
+      "es": "Aprender del paisaje"
+    },
+    "neighbors.like_yours": {
+      "en": "Like yours",
+      "es": "Como el suyo"
+    },
+    "neighbors.matched_note": {
+      "en": "nearby fields matched on soil and irrigation",
+      "es": "campos cercanos parecidos en suelo y riego"
+    },
+    "neighbors.rotation": {
+      "en": "Rotation",
+      "es": "Rotación"
+    },
+    "overview.eyebrow": {
+      "en": "Field snapshot",
+      "es": "Resumen del campo"
+    },
+    "overview.frost_free": {
+      "en": "Frost-free days",
+      "es": "Días sin heladas"
+    },
+    "overview.grace_chart": {
+      "en": "GRACE water storage anomaly, cm",
+      "es": "Anomalía de almacenamiento de agua GRACE, cm"
+    },
+    "overview.headlines": {
+      "en": "What stands out",
+      "es": "Lo que destaca"
+    },
+    "overview.hot_days": {
+      "en": "Days at or above 35 °C",
+      "es": "Días a 35 °C o más"
+    },
+    "overview.nearest_well": {
+      "en": "Nearest well",
+      "es": "Pozo más cercano"
+    },
+    "overview.notes_kicker": {
+      "en": "Field notes",
+      "es": "Notas del campo"
+    },
+    "overview.organic_matter": {
+      "en": "Organic matter",
+      "es": "Materia orgánica"
+    },
+    "overview.precip": {
+      "en": "Rain per year",
+      "es": "Lluvia al año"
+    },
+    "overview.water_storage": {
+      "en": "Water storage, top metre",
+      "es": "Agua almacenada, primer metro"
+    },
+    "overview.wells_trend": {
+      "en": "Depth to water, nearby wells",
+      "es": "Profundidad del agua, pozos cercanos"
+    },
+    "overview.wind_erodibility": {
+      "en": "Wind erodibility",
+      "es": "Erosión por viento"
+    },
+    "priorities.eyebrow": {
+      "en": "Make it yours",
+      "es": "Ajústelo a su manera"
+    },
+    "priorities.subtitle": {
+      "en": "Move the sliders to say what matters most. The cards below re-rank instantly.",
+      "es": "Mueva los controles para indicar lo que más importa. Las tarjetas de abajo se reordenan al instante."
+    },
+    "replay.average": {
+      "en": "Average",
+      "es": "Promedio"
+    },
+    "replay.eyebrow": {
+      "en": "Look back before looking ahead",
+      "es": "Mirar atrás antes de mirar adelante"
+    },
+    "replay.metric_label": {
+      "en": "Choose what to plot",
+      "es": "Elija qué graficar"
+    },
+    "replay.not_feasible": {
+      "en": "over your water limit",
+      "es": "supera su límite de agua"
+    },
+    "replay.note": {
+      "en": "Average across every phase of the rotation, on this field's real weather.",
+      "es": "Promedio de todas las fases de la rotación, con el clima real de este campo."
+    },
+    "replay.rotation": {
+      "en": "Rotation",
+      "es": "Rotación"
+    },
+    "replay.summary_caption": {
+      "en": "Average and worst 5 years per rotation",
+      "es": "Promedio y 5 peores años por rotación"
+    },
+    "replay.worst5": {
+      "en": "Worst 5 years",
+      "es": "5 peores años"
+    },
+    "section.not_available": {
+      "en": "Not available for this field yet.",
+      "es": "Aún no disponible para este campo."
+    },
+    "strategies.eyebrow": {
+      "en": "Compare your options",
+      "es": "Compare sus opciones"
+    },
+    "strategies.none_fit": {
+      "en": "No other rotation fits these limits. Try a higher water cap or tick the equipment you have.",
+      "es": "Ninguna otra rotación cabe en estos límites. Pruebe un límite de agua más alto o marque el equipo que tiene."
+    },
+    "strategies.score_note": {
+      "en": "Scores are relative to the rotations compared here, 0 to 100. They are model estimates, not forecasts.",
+      "es": "Los puntajes son relativos a las rotaciones comparadas aquí, de 0 a 100. Son estimaciones del modelo, no pronósticos."
+    },
+    "strategies.subtitle": {
+      "en": "Your current rotation and the three that fit your priorities most closely.",
+      "es": "Su rotación actual y las tres que más se ajustan a sus prioridades."
+    },
+    "theme.dark": {
+      "en": "Dark theme",
+      "es": "Tema oscuro"
+    },
+    "theme.label": {
+      "en": "Colour theme",
+      "es": "Tema de color"
+    },
+    "theme.light": {
+      "en": "Light theme",
+      "es": "Tema claro"
+    },
+    "trust.coverage": {
+      "en": "Resolution and period",
+      "es": "Resolución y periodo"
+    },
+    "trust.eyebrow": {
+      "en": "Transparency before certainty",
+      "es": "Transparencia antes que certeza"
+    },
+    "trust.no_validation": {
+      "en": "No validation checks for this field yet.",
+      "es": "Aún no hay comprobaciones para este campo."
+    },
+    "trust.source": {
+      "en": "Source",
+      "es": "Fuente"
+    },
+    "trust.tag": {
+      "en": "Tag",
+      "es": "Etiqueta"
+    },
+    "trust.used_for": {
+      "en": "Used for",
+      "es": "Se usa para"
+    },
+    "trust.validation": {
+      "en": "Checks against independent data",
+      "es": "Comprobaciones con datos independientes"
+    },
+    "unit.days": {
+      "en": "days",
+      "es": "días"
+    },
+    "field.kind.irrigated_pivot": {
+      "en": "Irrigated pivot",
+      "es": "Pivote de riego"
+    },
+    "field.kind.dryland": {
+      "en": "Dryland",
+      "es": "Temporal"
+    },
+    "field.kind.sandy_wind": {
+      "en": "Sandy, wind-erodible",
+      "es": "Arenoso, erosionable por viento"
+    },
+    "rotation_class.continuous_corn": {
+      "en": "Continuous corn",
+      "es": "Maíz continuo"
+    },
+    "rotation_class.corn_wheat_sorghum": {
+      "en": "Corn, wheat, sorghum",
+      "es": "Maíz, trigo, sorgo"
+    },
+    "rotation_class.corn_soy": {
+      "en": "Corn and soybean",
+      "es": "Maíz y soya"
+    },
+    "rotation_class.wsf": {
+      "en": "Wheat, sorghum, fallow",
+      "es": "Trigo, sorgo, barbecho"
+    },
+    "rotation_class.wheat_fallow": {
+      "en": "Wheat and fallow",
+      "es": "Trigo y barbecho"
+    },
+    "rotation_class.alfalfa": {
+      "en": "Alfalfa",
+      "es": "Alfalfa"
+    },
+    "rotation_class.mixed": {
+      "en": "Mixed",
+      "es": "Mixta"
+    },
+    "overview.wind.high": {
+      "en": "Blows easily",
+      "es": "Se vuela fácilmente"
+    },
+    "overview.wind.moderate": {
+      "en": "Moderate",
+      "es": "Moderada"
+    },
+    "overview.wind.low": {
+      "en": "Low",
+      "es": "Baja"
+    },
+    "calendar.stage.ini": {
+      "en": "Establishing",
+      "es": "Establecimiento"
+    },
+    "calendar.stage.dev": {
+      "en": "Growing",
+      "es": "Crecimiento"
+    },
+    "calendar.stage.mid": {
+      "en": "Peak growth",
+      "es": "Máximo crecimiento"
+    },
+    "calendar.stage.late": {
+      "en": "Ripening",
+      "es": "Maduración"
+    },
+    "years.range": {
+      "en": "{years_from}-{years_to}",
+      "es": "{years_from}-{years_to}"
+    },
+    "assistant.busy": {
+      "en": "The assistant is busy right now. Try one of the suggested questions below. Their answers are ready.",
+      "es": "El asistente está ocupado ahora. Pruebe una de las preguntas sugeridas de abajo. Sus respuestas están listas."
+    },
+    "assistant.own_key": {
+      "en": "Use my own key",
+      "es": "Usar mi propia clave"
+    },
+    "assistant.own_key_on": {
+      "en": "on",
+      "es": "activa"
+    },
+    "assistant.own_key_toggle": {
+      "en": "Answer free-text questions with my key",
+      "es": "Responder preguntas escritas con mi clave"
+    },
+    "assistant.own_key_provider": {
+      "en": "Provider",
+      "es": "Proveedor"
+    },
+    "assistant.own_key_custom": {
+      "en": "Other (base URL)",
+      "es": "Otro (URL base)"
+    },
+    "assistant.own_key_url": {
+      "en": "Base URL (https)",
+      "es": "URL base (https)"
+    },
+    "assistant.own_key_model": {
+      "en": "Model id",
+      "es": "Nombre del modelo"
+    },
+    "assistant.own_key_key": {
+      "en": "API key",
+      "es": "Clave de API"
+    },
+    "assistant.own_key_note": {
+      "en": "Your key stays in this browser tab and is sent only with your questions. Suggested questions never use it.",
+      "es": "Su clave se queda en esta pestaña del navegador y solo se envía con sus preguntas. Las preguntas sugeridas nunca la usan."
+    },
+    "card.no_water_here": {
+      "en": "This field is not irrigated. These numbers assume no water, so they understate this rotation.",
+      "es": "Este campo no tiene riego. Estos números suponen que no hay agua, así que subestiman esta rotación."
+    },
+    "card.no_water_why": {
+      "en": "Not suggested here: it needs irrigation this field does not have.",
+      "es": "No se sugiere aquí: necesita riego y este campo no lo tiene."
+    },
+    "card.shown_at": {
+      "en": "Numbers shown with: {cap}.",
+      "es": "Números mostrados con: {cap}."
+    },
+    "card.unlock_tick": {
+      "en": "Tick \"{option}\" to include it.",
+      "es": "Marque \"{option}\" para incluirla."
+    },
+    "card.unlock_cap": {
+      "en": "Set the water limit to \"{option}\" or higher to include it.",
+      "es": "Ponga el límite de agua en \"{option}\" o más para incluirla."
+    },
+    "neighbors.fields_header": {
+      "en": "Nearby fields",
+      "es": "Campos cercanos"
     }
   }
 }

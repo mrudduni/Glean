@@ -10,6 +10,7 @@ MODEL_DIR = Path(__file__).resolve().parent
 REPO_DIR = MODEL_DIR.parent
 
 load_dotenv(MODEL_DIR / ".env")
+load_dotenv(Path.home() / ".glean" / ".env")
 load_dotenv(Path.home() / ".fieldshift" / ".env")
 
 
@@ -27,7 +28,7 @@ OUT_DIR = _path("MODEL_OUT_DIR", MODEL_DIR / "out" / "web")
 DEFAULT_CROPS_YAML = MODEL_DIR / "library" / "default_crops.yaml"
 CONTENT_GIT_REF = "origin/role/content"  # fallback source for content/crops.yaml
 
-# ---------------------------------------------------------------- ids (README 7.2)
+# ---------------------------------------------------------------- ids (CONTRACT 7.2)
 FIELD_IDS = ["f1", "f2", "f3"]
 CROP_IDS = ["corn", "sorghum", "wheat", "soybean", "alfalfa", "triticale", "rye_cover", "cotton", "fallow"]
 ROTATION_IDS = ["R0", "R1", "R2", "R3", "R4", "R5", "R6"]
@@ -95,6 +96,12 @@ HEAT_LOSS_PER_DAY = 0.015
 HEAT_WINDOW_DAYS = 21
 HEAT_FACTOR_MIN = 0.5
 FROST_FACTOR = 0.85
+# spring freeze for winter crops: winter-hardy (frost_kill_c) while dormant, but 28 F for 2 h kills florets at boot/heading
+# https://bookstore.ksre.ksu.edu/pubs/spring-freeze-injury-to-kansas-wheat_C646.pdf
+SPRING_FREEZE_SEASONS = ("winter", "cover")
+SPRING_FREEZE_START = "03-15"     # green-up
+SPRING_FREEZE_C = -2.2
+SPRING_FREEZE_MONTHS = {3, 4, 5}  # calendar frost flag months for winter crops
 NASS_RECENT_FROM, NASS_RECENT_TO = 2010, 2024   # prefer yields from this window
 NASS_N_YEARS = 5                                # mean of the most recent 5 values
 NASS_MIN_VALUES = 3
@@ -133,7 +140,7 @@ BENEFIT_WATER_MM = 25
 BENEFIT_BARE_DAYS = 20
 BENEFIT_WORST5_USD = 10
 NEIGHBOR_MIN_N = 3
-# default slider weights (web handover 4.x: 3 each) and README 8.7 mapping, used only for acceptance checks
+# default slider weights (web handover 4.x: 3 each) and CONTRACT 8.7 mapping, used only for acceptance checks
 SLIDER_DEFAULT = {"save_water": 3, "income": 3, "steady_income": 3, "soil_health": 3, "erosion": 3}
 SLIDER_SHARES = {
     "save_water": {"water_use": 1.0},

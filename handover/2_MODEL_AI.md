@@ -1,6 +1,6 @@
 # Handover 2 · Modeller + AI (M)
 
-You are building the **models, scoring facts and AI assistant data** for Team Brackets' crop-rotation decision tool (NASA Space Apps 2026, "Adapting Farms with NASA Data"). Read the root [README.md](../README.md) first. It is the shared contract. §7 (IDs, conventions, placeholder formatting) and §8–§9 (data contract, assistant API) define exactly what you must produce. If this file and the README disagree, the README wins.
+You are building the **models, scoring facts and AI assistant data** for Team Brackets' crop-rotation decision tool (NASA Space Apps 2026, "Adapting Farms with NASA Data"). Read the team contract [docs/CONTRACT.md](../docs/CONTRACT.md) first (it was the root README.md; "README §N" below means its sections). It is the shared contract. §7 (IDs, conventions, placeholder formatting) and §8–§9 (data contract, assistant API) define exactly what you must produce. If this file and the README disagree, the README wins.
 
 ## 1. Your mission
 

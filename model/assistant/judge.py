@@ -164,7 +164,7 @@ def write_report(path: Path, rows: list[dict], use_llm: bool, regen: int, dry: b
     L = ["# Assistant answer review", "",
          f"Generated {datetime.now(timezone.utc).strftime('%Y-%m-%d %H:%M UTC')} by `model/assistant/judge.py`.", ""]
     if not use_llm:
-        L += ["> **No LLM judge ran.** The LLM variables in `~/.fieldshift/.env` were empty or `--dry-run` was set.",
+        L += ["> **No LLM judge ran.** The LLM variables in `~/.glean/.env` (or `~/.fieldshift/.env`) were empty or `--dry-run` was set.",
               "> Only the rule checks ran (length, tags, verified numbers, banned words, language).", ""]
     if mock_cache:
         L += ["> **The cache under review is a dry-run cache** built from templates, not LLM output.", ""]

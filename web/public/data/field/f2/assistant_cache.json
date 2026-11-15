@@ -1,0 +1,554 @@
+{
+ "_meta": {
+  "schema": "assistant_cache@1",
+  "mock": false,
+  "generated_at": "2026-11-15T15:17:16Z",
+  "generator": "model/assistant/cache.py"
+ },
+ "field_id": "f2",
+ "scenario": "cap300|actual",
+ "top_rotations": [
+  "R3",
+  "R6",
+  "R0"
+ ],
+ "answers": {
+  "q1": {
+   "en": {
+    "answer_md": "The top strategy is wheat, sorghum, triticale. It ranks first because it may offer the best balance of income and soil protection for your dryland field.\n\n*   **Higher Income:** It earned an average of $163/ac per year, which is more than the current wheat, sorghum, fallow rotation at $121/ac [MODEL].\n*   **Soil Health:** It has a soil health score of 42.24 out of 100, compared to 34.91 for the current rotation [MODEL].\n*   **Wind Erosion:** It had 21 days of bare soil and strong wind, which is fewer than the 25 days in the current rotation [MODEL].\n\nNote that these are estimates from a water-budget model using past weather, not guarantees. You may want to discuss this with a local agronomist.",
+    "citations": [
+     {
+      "tag": "MODEL",
+      "name": "Stubble water-budget model (FAO-56)",
+      "url": "https://github.com/mrudduni/Team-Brackets/blob/main/docs/METHODS.md"
+     }
+    ],
+    "numbers": [
+     {
+      "text": "$163/ac",
+      "value": 163.0,
+      "unit": "usd",
+      "verified": true,
+      "fact_id": "replay.R3.cap300|actual.revenue_usd_ac_mean"
+     },
+     {
+      "text": "$121/ac",
+      "value": 121.0,
+      "unit": "usd",
+      "verified": true,
+      "fact_id": "replay.R0.cap300|actual.revenue_usd_ac_mean"
+     },
+     {
+      "text": "42.24",
+      "value": 42.24,
+      "unit": null,
+      "verified": true,
+      "fact_id": "replay.R3.cap300|actual.soil_health_score"
+     },
+     {
+      "text": "100",
+      "value": 100.0,
+      "unit": null,
+      "verified": true,
+      "fact_id": "replay.R3.cap300|actual.stress_days_mean"
+     },
+     {
+      "text": "34.91",
+      "value": 34.91,
+      "unit": null,
+      "verified": true,
+      "fact_id": "replay.R0.cap300|actual.soil_health_score"
+     },
+     {
+      "text": "21 days",
+      "value": 21.0,
+      "unit": "days",
+      "verified": true,
+      "fact_id": "replay.R3.cap300|actual.bare_windy_days_mean"
+     },
+     {
+      "text": "25 days",
+      "value": 25.0,
+      "unit": "days",
+      "verified": true,
+      "fact_id": "replay.R0.cap300|actual.bare_windy_days_mean"
+     }
+    ],
+    "cached": true,
+    "provider": "groq",
+    "model": "qwen/qwen3.8-27b"
+   },
+   "es": {
+    "answer_md": "La estrategia \"trigo, sorgo, triticale\" está en primer lugar porque ofrece el mejor equilibrio entre ingresos y salud del suelo en este escenario.\n\n*   **Ingresos:** Generó un promedio de $163 por acre al año, más que la rotación actual ($121/ac) [MODEL].\n*   **Salud del suelo:** Tiene una puntuación de 42.24 sobre 100, superior a la rotación actual (34.91) [MODEL].\n*   **Resistencia:** En el año de sequía 2012, habría ganado $92/ac, más que la rotación actual ($57/ac) [MODEL].\n\nAunque tiene más días de estrés hídrico (99 días) que la rotación actual (69 días), los beneficios económicos y de suelo la hacen la opción preferida según el modelo [MODEL].",
+    "citations": [
+     {
+      "tag": "MODEL",
+      "name": "Stubble water-budget model (FAO-56)",
+      "url": "https://github.com/mrudduni/Team-Brackets/blob/main/docs/METHODS.md"
+     }
+    ],
+    "numbers": [
+     {
+      "text": "$163",
+      "value": 163.0,
+      "unit": "usd",
+      "verified": true,
+      "fact_id": "replay.R3.cap300|actual.revenue_usd_ac_mean"
+     },
+     {
+      "text": "$121/ac",
+      "value": 121.0,
+      "unit": "usd",
+      "verified": true,
+      "fact_id": "replay.R0.cap300|actual.revenue_usd_ac_mean"
+     },
+     {
+      "text": "42.24",
+      "value": 42.24,
+      "unit": null,
+      "verified": true,
+      "fact_id": "replay.R3.cap300|actual.soil_health_score"
+     },
+     {
+      "text": "100",
+      "value": 100.0,
+      "unit": null,
+      "verified": true,
+      "fact_id": "replay.R3.cap300|actual.stress_days_mean"
+     },
+     {
+      "text": "$92/ac",
+      "value": 92.0,
+      "unit": "usd",
+      "verified": true,
+      "fact_id": "replay.R3.cap300|actual.revenue_usd_ac_worst5"
+     },
+     {
+      "text": "$57/ac",
+      "value": 57.0,
+      "unit": "usd",
+      "verified": true,
+      "fact_id": "drought.2012.R0.revenue_usd_ac"
+     },
+     {
+      "text": "99",
+      "value": 99.0,
+      "unit": null,
+      "verified": true,
+      "fact_id": "replay.R3.cap300|actual.stress_days_mean"
+     },
+     {
+      "text": "69",
+      "value": 69.0,
+      "unit": null,
+      "verified": true,
+      "fact_id": "replay.R0.cap300|actual.revenue_usd_ac_worst5"
+     }
+    ],
+    "cached": true,
+    "provider": "groq",
+    "model": "qwen/qwen3.8-27b"
+   }
+  },
+  "q2": {
+   "en": {
+    "answer_md": "You likely cannot save any irrigation water because the field is dryland and not irrigated [CSB]. The model replay for the current wheat, sorghum, fallow rotation shows an average of 0 mm of irrigation used per year from 2000 to 2025 [MODEL]. Other rotations like wheat, sorghum, triticale and cotton, wheat, sorghum also used 0 mm of irrigation in the model [MODEL]. Since no water is being applied, there is no irrigation water to save.",
+    "citations": [
+     {
+      "tag": "CSB",
+      "name": "Crop Sequence Boundaries 2018–2025 (rev23)",
+      "url": "https://www.nass.usda.gov/Research_and_Science/Crop-Sequence-Boundaries/"
+     },
+     {
+      "tag": "MODEL",
+      "name": "Stubble water-budget model (FAO-56)",
+      "url": "https://github.com/mrudduni/Team-Brackets/blob/main/docs/METHODS.md"
+     }
+    ],
+    "numbers": [
+     {
+      "text": "0 mm",
+      "value": 0.0,
+      "unit": "mm",
+      "verified": true,
+      "fact_id": "replay.R0.cap300|actual.irrigation_mm_mean"
+     },
+     {
+      "text": "0 mm",
+      "value": 0.0,
+      "unit": "mm",
+      "verified": true,
+      "fact_id": "replay.R0.cap300|actual.irrigation_mm_mean"
+     }
+    ],
+    "cached": true,
+    "provider": "groq",
+    "model": "qwen/qwen3.8-27b"
+   },
+   "es": {
+    "answer_md": "No tiene sentido hablar de ahorrar agua de riego porque su campo es de secano y no usa riego [CSB].\n\nEn el análisis de los últimos 25 años, la rotación actual de trigo, sorgo y barbecho usó un promedio de 0 mm de riego al año [MODEL]. Esto se debe a que el campo no cuenta con infraestructura para regar [CSB].",
+    "citations": [
+     {
+      "tag": "CSB",
+      "name": "Crop Sequence Boundaries 2018–2025 (rev23)",
+      "url": "https://www.nass.usda.gov/Research_and_Science/Crop-Sequence-Boundaries/"
+     },
+     {
+      "tag": "MODEL",
+      "name": "Stubble water-budget model (FAO-56)",
+      "url": "https://github.com/mrudduni/Team-Brackets/blob/main/docs/METHODS.md"
+     }
+    ],
+    "numbers": [
+     {
+      "text": "25",
+      "value": 25.0,
+      "unit": null,
+      "verified": true,
+      "fact_id": "replay.R0.cap300|actual.bare_windy_days_mean"
+     },
+     {
+      "text": "0 mm",
+      "value": 0.0,
+      "unit": "mm",
+      "verified": true,
+      "fact_id": "replay.R0.cap300|actual.irrigation_mm_mean"
+     }
+    ],
+    "cached": true,
+    "provider": "groq",
+    "model": "qwen/qwen3.8-27b"
+   }
+  },
+  "q3": {
+   "en": {
+    "answer_md": "The alfalfa, alfalfa, alfalfa, alfalfa, corn, wheat rotation is not feasible with this water limit. [MODEL]\n\nThis field is dryland and not irrigated. [CSB] The scenario allows up to 300 mm of irrigation per season, but the model shows this specific rotation cannot work within that limit. [MODEL]\n\nI do not have more details on why it failed the water check. You may want to ask a K-State Research and Extension agent or a local agronomist for more information.",
+    "citations": [
+     {
+      "tag": "MODEL",
+      "name": "Stubble water-budget model (FAO-56)",
+      "url": "https://github.com/mrudduni/Team-Brackets/blob/main/docs/METHODS.md"
+     },
+     {
+      "tag": "CSB",
+      "name": "Crop Sequence Boundaries 2018–2025 (rev23)",
+      "url": "https://www.nass.usda.gov/Research_and_Science/Crop-Sequence-Boundaries/"
+     }
+    ],
+    "numbers": [
+     {
+      "text": "300 mm",
+      "value": 300.0,
+      "unit": "mm",
+      "verified": true,
+      "fact_id": "scenario.cap300|actual.cap_mm"
+     }
+    ],
+    "cached": true,
+    "provider": "groq",
+    "model": "qwen/qwen3.8-27b"
+   },
+   "es": {
+    "answer_md": "La rotación de alfalfa, alfalfa, alfalfa, alfalfa, maíz y trigo no es viable con el límite de agua de este escenario [MODEL].\n\nEl campo es de secano y no tiene riego [CSB]. El modelo estima que esa combinación de cultivos necesita más agua de la que está disponible en el límite de 300 mm por temporada [MODEL]. Por eso, la herramienta no la muestra como una opción posible para este campo específico.",
+    "citations": [
+     {
+      "tag": "MODEL",
+      "name": "Stubble water-budget model (FAO-56)",
+      "url": "https://github.com/mrudduni/Team-Brackets/blob/main/docs/METHODS.md"
+     },
+     {
+      "tag": "CSB",
+      "name": "Crop Sequence Boundaries 2018–2025 (rev23)",
+      "url": "https://www.nass.usda.gov/Research_and_Science/Crop-Sequence-Boundaries/"
+     }
+    ],
+    "numbers": [
+     {
+      "text": "300 mm",
+      "value": 300.0,
+      "unit": "mm",
+      "verified": true,
+      "fact_id": "scenario.cap300|actual.cap_mm"
+     }
+    ],
+    "cached": true,
+    "provider": "groq",
+    "model": "qwen/qwen3.8-27b"
+   }
+  },
+  "q4": {
+   "en": {
+    "answer_md": "In the 2012 drought, model estimates show these results for each rotation:\n\n*   **Wheat, sorghum, fallow (current):** Earned about $57/ac with 121 days of water stress [MODEL].\n*   **Wheat, sorghum, triticale:** Earned about $92/ac with 141 days of water stress [MODEL].\n*   **Cotton, wheat, sorghum:** Earned about $128/ac with 163 days of water stress [MODEL].\n\nThese numbers are estimates from a simplified model using past weather, not forecasts [MODEL]. The cotton, wheat, sorghum option may have earned more but faced the most stress days. You might ask a local agronomist how these estimates fit your specific field conditions.",
+    "citations": [
+     {
+      "tag": "MODEL",
+      "name": "Stubble water-budget model (FAO-56)",
+      "url": "https://github.com/mrudduni/Team-Brackets/blob/main/docs/METHODS.md"
+     }
+    ],
+    "numbers": [
+     {
+      "text": "$57/ac",
+      "value": 57.0,
+      "unit": "usd",
+      "verified": true,
+      "fact_id": "drought.2012.R0.revenue_usd_ac"
+     },
+     {
+      "text": "121 days",
+      "value": 121.0,
+      "unit": "days",
+      "verified": true,
+      "fact_id": "drought.2012.R0.stress_days"
+     },
+     {
+      "text": "$92/ac",
+      "value": 92.0,
+      "unit": "usd",
+      "verified": true,
+      "fact_id": "replay.R3.cap300|actual.revenue_usd_ac_worst5"
+     },
+     {
+      "text": "141 days",
+      "value": 141.0,
+      "unit": "days",
+      "verified": true,
+      "fact_id": "drought.2012.R3.stress_days"
+     },
+     {
+      "text": "$128/ac",
+      "value": 128.0,
+      "unit": "usd",
+      "verified": true,
+      "fact_id": "drought.2012.R6.revenue_usd_ac"
+     },
+     {
+      "text": "163 days",
+      "value": 163.0,
+      "unit": "days",
+      "verified": true,
+      "fact_id": "drought.2012.R6.stress_days"
+     }
+    ],
+    "cached": true,
+    "provider": "groq",
+    "model": "qwen/qwen3.8-27b"
+   },
+   "es": {
+    "answer_md": "En 2012, la rotación actual de trigo, sorgo y barbecho habría ganado unos $57/ac y tenido 121 días de estrés hídrico [MODEL]. La rotación de trigo, sorgo y triticale habría ganado unos $92/ac, pero con 141 días de estrés [MODEL]. La rotación de algodón, trigo y sorgo habría ganado unos $128/ac, aunque con 163 días de estrés [MODEL]. Estos números son estimaciones del modelo, no garantías [MODEL].",
+    "citations": [
+     {
+      "tag": "MODEL",
+      "name": "Stubble water-budget model (FAO-56)",
+      "url": "https://github.com/mrudduni/Team-Brackets/blob/main/docs/METHODS.md"
+     }
+    ],
+    "numbers": [
+     {
+      "text": "$57/ac",
+      "value": 57.0,
+      "unit": "usd",
+      "verified": true,
+      "fact_id": "drought.2012.R0.revenue_usd_ac"
+     },
+     {
+      "text": "121",
+      "value": 121.0,
+      "unit": null,
+      "verified": true,
+      "fact_id": "replay.R0.cap300|actual.revenue_usd_ac_mean"
+     },
+     {
+      "text": "$92/ac",
+      "value": 92.0,
+      "unit": "usd",
+      "verified": true,
+      "fact_id": "replay.R3.cap300|actual.revenue_usd_ac_worst5"
+     },
+     {
+      "text": "141",
+      "value": 141.0,
+      "unit": null,
+      "verified": true,
+      "fact_id": "drought.2012.R3.stress_days"
+     },
+     {
+      "text": "$128/ac",
+      "value": 128.0,
+      "unit": "usd",
+      "verified": true,
+      "fact_id": "drought.2012.R6.revenue_usd_ac"
+     },
+     {
+      "text": "163",
+      "value": 163.0,
+      "unit": null,
+      "verified": true,
+      "fact_id": "field.area_ac"
+     }
+    ],
+    "cached": true,
+    "provider": "groq",
+    "model": "qwen/qwen3.8-27b"
+   }
+  },
+  "q5": {
+   "en": {
+    "answer_md": "These numbers are estimates, not guarantees. They come from a simplified water-budget model run on past weather from 2000 to 2025 [MODEL]. The model’s water use estimates differed from satellite data by -29.6%, which means the confidence is fair [MODEL]. Satellite data for nearby fields also provides context, but it is an estimate [OpenET]. You should treat these results as a guide to help your judgment, not as a prediction of future results. For specific advice on your field, consider talking to a K-State Research and Extension agent or a local agronomist.",
+    "citations": [
+     {
+      "tag": "MODEL",
+      "name": "Stubble water-budget model (FAO-56)",
+      "url": "https://github.com/mrudduni/Team-Brackets/blob/main/docs/METHODS.md"
+     },
+     {
+      "tag": "OpenET",
+      "name": "OpenET Ensemble",
+      "url": "https://etdata.org/"
+     }
+    ],
+    "numbers": [
+     {
+      "text": "-29.6%",
+      "value": -29.6,
+      "unit": "pct",
+      "verified": true,
+      "fact_id": "validation.et_vs_openet"
+     }
+    ],
+    "cached": true,
+    "provider": "groq",
+    "model": "qwen/qwen3.8-27b"
+   },
+   "es": {
+    "answer_md": "La confianza en los números del modelo es \"justa\" [MODEL]. Esto se debe a que el uso de agua estimado por el modelo difirió de las estimaciones satelitales de OpenET en un -29.6% [MODEL].\n\nRecuerde que estos valores son estimaciones basadas en el clima pasado (2000 a 2025), no son pronósticos futuros [MODEL]. Para una validación más precisa, podría consultar con un agente de K-State Research and Extension o un agrónomo local.",
+    "citations": [
+     {
+      "tag": "MODEL",
+      "name": "Stubble water-budget model (FAO-56)",
+      "url": "https://github.com/mrudduni/Team-Brackets/blob/main/docs/METHODS.md"
+     }
+    ],
+    "numbers": [
+     {
+      "text": "-29.6%",
+      "value": -29.6,
+      "unit": "pct",
+      "verified": true,
+      "fact_id": "validation.et_vs_openet"
+     }
+    ],
+    "cached": true,
+    "provider": "groq",
+    "model": "qwen/qwen3.8-27b"
+   }
+  },
+  "q6": {
+   "en": {
+    "answer_md": "Before switching crops, talk to your K-State Research and Extension agent about these key points:\n\n*   **Water Stress:** The model estimates 94 to 99 days of water stress per year for the wheat, sorghum, triticale and cotton, wheat, sorghum rotations, compared to 69 days for your current wheat, sorghum, fallow plan [MODEL]. Ask how to manage this higher risk.\n*   **Drought Resilience:** In the 2012 drought, the cotton, wheat, sorghum rotation had 163 stress days, while your current plan had 121 [MODEL]. Discuss if your field can handle these longer dry periods.\n*   **Soil Health:** The new rotations have higher soil health scores (42.24 to 42.27) than your current plan (34.91) [MODEL]. Ask how to maintain this improvement.\n*   **Local Conditions:** Confirm if local soil or weather trends differ from the 2000 to 2025 model data [MODEL].\n\nThese numbers are estimates from past weather, not guarantees [MODEL].",
+    "citations": [
+     {
+      "tag": "MODEL",
+      "name": "Stubble water-budget model (FAO-56)",
+      "url": "https://github.com/mrudduni/Team-Brackets/blob/main/docs/METHODS.md"
+     }
+    ],
+    "numbers": [
+     {
+      "text": "94",
+      "value": 94.0,
+      "unit": null,
+      "verified": true,
+      "fact_id": "replay.R6.cap300|actual.revenue_usd_ac_worst5"
+     },
+     {
+      "text": "99 days",
+      "value": 99.0,
+      "unit": "days",
+      "verified": true,
+      "fact_id": "replay.R3.cap300|actual.stress_days_mean"
+     },
+     {
+      "text": "69 days",
+      "value": 69.0,
+      "unit": "days",
+      "verified": true,
+      "fact_id": "replay.R0.cap300|actual.stress_days_mean"
+     },
+     {
+      "text": "163",
+      "value": 163.0,
+      "unit": null,
+      "verified": true,
+      "fact_id": "field.area_ac"
+     },
+     {
+      "text": "121",
+      "value": 121.0,
+      "unit": null,
+      "verified": true,
+      "fact_id": "replay.R0.cap300|actual.revenue_usd_ac_mean"
+     },
+     {
+      "text": "42.24",
+      "value": 42.24,
+      "unit": null,
+      "verified": true,
+      "fact_id": "replay.R3.cap300|actual.soil_health_score"
+     },
+     {
+      "text": "42.27",
+      "value": 42.27,
+      "unit": null,
+      "verified": true,
+      "fact_id": "replay.R3.cap300|actual.soil_health_score"
+     }
+    ],
+    "cached": true,
+    "provider": "groq",
+    "model": "qwen/qwen3.8-27b"
+   },
+   "es": {
+    "answer_md": "Antes de cambiar de rotación, consulte con su agente de extensión sobre el manejo específico de cultivos y el suelo.\n\n*   **Manejo de malezas y plagas:** Pida recomendaciones para controlar malezas y plagas en trigo, sorgo, triticale o algodón, ya que cada cultivo tiene necesidades distintas.\n*   **Salud del suelo:** Discuta cómo la rotación actual (trigo, sorgo, barbecho) afecta la salud del suelo, que tiene una puntuación de 34.91 de 100 [MODEL].\n*   **Riesgo de erosión:** Pregunte por prácticas para reducir la erosión por viento, dado que el campo tiene 25 días al año con suelo desnudo y viento fuerte [MODEL].\n*   **Uso del agua:** Aclare cómo la rotación elegida usará la lluvia, ya que el campo es de secano y no usa riego [CSB].\n\nEstas conversaciones le ayudarán a tomar una decisión informada basada en las condiciones locales.",
+    "citations": [
+     {
+      "tag": "MODEL",
+      "name": "Stubble water-budget model (FAO-56)",
+      "url": "https://github.com/mrudduni/Team-Brackets/blob/main/docs/METHODS.md"
+     },
+     {
+      "tag": "CSB",
+      "name": "Crop Sequence Boundaries 2018–2025 (rev23)",
+      "url": "https://www.nass.usda.gov/Research_and_Science/Crop-Sequence-Boundaries/"
+     }
+    ],
+    "numbers": [
+     {
+      "text": "34.91",
+      "value": 34.91,
+      "unit": null,
+      "verified": true,
+      "fact_id": "replay.R0.cap300|actual.soil_health_score"
+     },
+     {
+      "text": "100",
+      "value": 100.0,
+      "unit": null,
+      "verified": true,
+      "fact_id": "replay.R3.cap300|actual.stress_days_mean"
+     },
+     {
+      "text": "25",
+      "value": 25.0,
+      "unit": null,
+      "verified": true,
+      "fact_id": "replay.R0.cap300|actual.bare_windy_days_mean"
+     }
+    ],
+    "cached": true,
+    "provider": "groq",
+    "model": "qwen/qwen3.8-27b"
+   }
+  }
+ }
+}

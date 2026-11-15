@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Check U-role files against the Field Shift contract (README 7.4, 8.5, 8.6).
+"""Check U-role files against the Glean contract (README 7.4, 8.5, 8.6).
 
 Run from the repo root:  python content/validate.py
 Needs: pyyaml (only for crops.yaml).  Exit code 1 if any error.
@@ -94,7 +94,9 @@ trust.title trust.subtitle trust.level.good trust.level.fair trust.level.limited
 assistant.title assistant.placeholder assistant.send assistant.suggested assistant.verified assistant.unverified assistant.using_cache assistant.error
 """.split()
 # README gives no var list for copy keys. Only these two use a placeholder.
-COPY_VARS = {"card.hidden_count": {"n"}, "neighbors.n_fields": {"n"}}
+COPY_VARS = {"card.hidden_count": {"n"}, "neighbors.n_fields": {"n"}, "calendar.odds": {"risk", "count"},
+             "years.range": {"years_from", "years_to"}, "card.shown_at": {"cap"},
+             "card.unlock_tick": {"option"}, "card.unlock_cap": {"option"}}
 GLOSSARY_IDS = """et et0 ndvi soil_moisture_anomaly root_zone frost_risk gdd water_balance evaporative_stress
 aquifer rotation cover_crop fallow nitrogen_fixing wind_erosion water_erosion satellite_vs_ground model_estimate""".split()
 CROPS = "corn sorghum wheat soybean alfalfa triticale rye_cover cotton fallow".split()
@@ -191,8 +193,8 @@ def check_copy():
     check_keys("copy.strings", s, COPY_KEYS, extra_ok=True)
     for k, v in s.items():
         check_text(f"copy.{k}", v, COPY_VARS.get(k, set()))
-    if s.get("app.name", {}).get("en") != "Field Shift":
-        err("copy: app.name must be 'Field Shift'")
+    if s.get("app.name", {}).get("en") != "Glean":
+        err("copy: app.name must be 'Glean'")
 
 
 def check_glossary():

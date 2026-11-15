@@ -1,0 +1,143 @@
+/* Glean design tokens. Hand-tuned in web/; design/tokens.css is the older generated palette.
+   Fonts: load Fraunces, Source Sans 3 and IBM Plex Mono from Google Fonts; system fonts are the fallback.
+   Body text 16px or larger. Use font-variant-numeric: tabular-nums on numbers.
+   Crop fills are light on purpose: put --color-fg text on top. Rotation lines are for strokes on --color-surface.
+   Pair --color-good/fair/limited with a word, never colour alone. */
+:root {
+  --color-bg: #F6F2E9;
+  --color-surface: #FFFFFF;
+  --color-fg: #1E2A22;
+  --color-muted: #55615A;
+  --color-border: #D8D1BF;
+  --color-accent: #1B5E8C;
+  --color-good: #1B6E3C;
+  --color-fair: #8A5A00;
+  --color-limited: #A3362B;
+  --ink: #1E2A22;
+  --muted: #55615A;
+  --surface: #FFFFFF;
+  --canvas: #F6F2E9;
+  --line: #D8D1BF;
+  --primary: #1B6E3C;
+  --primary-light: #e7efe8;
+  --accent: #1B5E8C;
+  --crop-corn: #FBB012;
+  --crop-sorghum: #E97E5E;
+  --crop-wheat: #E6CFA1;
+  --crop-soybean: #B7E268;
+  --crop-soy: #7dc47d;
+  --crop-alfalfa: #28C073;
+  --crop-triticale: #D29EF0;
+  --crop-rye_cover: #68A1BA;
+  --crop-cover: #68A1BA;
+  --crop-cotton: #EEB1C4;
+  --crop-fallow: #9E9384;
+  --crop-bare: #F1EBDD;
+  --rot-R0: #4B4B4B;
+  --rot-R1: #7E2507;
+  --rot-R2: #5549EC;
+  --rot-R3: #6E207A;
+  --rot-R4: #B87DDA;
+  --rot-R5: #DF5E1A;
+  --rot-R6: #4DA271;
+  --risk-heat: #EF6F18;
+  --risk-frost: #4E9CCF;
+  --risk-dry: #6C3F0A;
+  --risk-storm: #791BC7;
+  --risk-wind: #40595D;
+  --font-display: 'Fraunces', 'Georgia', serif;
+  --font-body: 'Source Sans 3', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+  --font-mono: 'IBM Plex Mono', ui-monospace, 'SF Mono', Menlo, Consolas, monospace;
+  --radius: 10px;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --color-bg: #07100a;
+    --color-surface: #101c15;
+    --color-fg: #ffffff;
+    --color-muted: #eaf3ed;
+    --color-border: rgba(255, 255, 255, 0.12);
+    --color-accent: #52e396;
+    --color-good: #52e396;
+    --color-fair: #f5b875;
+    --color-limited: #f5897c;
+    --ink: #ffffff;
+    --muted: #eaf3ed;
+    --surface: #101c15;
+    --canvas: #07100a;
+    --line: rgba(255, 255, 255, 0.12);
+    --primary: #52e396;
+    --primary-light: rgba(82, 227, 150, 0.18);
+    --accent: #f5b875;
+    --crop-corn: #f5b756;
+    --crop-sorghum: #e97e5e;
+    --crop-wheat: #e6cfa1;
+    --crop-soybean: #b7e268;
+    --crop-soy: #7dc47d;
+    --crop-alfalfa: #28c073;
+    --crop-triticale: #d29ef0;
+    --crop-rye_cover: #68a1ba;
+    --crop-cover: #68a1ba;
+    --crop-cotton: #eeb1c4;
+    --crop-fallow: #9e9384;
+    --crop-bare: #233127;
+    --rot-R0: #bdbdbd;
+    --rot-R1: #64f1fb;
+    --rot-R2: #6eb7cd;
+    --rot-R3: #f1c090;
+    --rot-R4: #d495ed;
+    --rot-R5: #f1783e;
+    --rot-R6: #52e396;
+    --risk-heat: #ef6f18;
+    --risk-frost: #4e9ccf;
+    --risk-dry: #dfba55;
+    --risk-storm: #a86ee0;
+    --risk-wind: #7bb5b9;
+  }
+}
+
+[data-theme="dark"],
+.dark {
+  --color-bg: #07100a;
+  --color-surface: #101c15;
+  --color-fg: #ffffff;
+  --color-muted: #eaf3ed;
+  --color-border: rgba(255, 255, 255, 0.12);
+  --color-accent: #52e396;
+  --color-good: #52e396;
+  --color-fair: #f5b875;
+  --color-limited: #f5897c;
+  --ink: #ffffff;
+  --muted: #eaf3ed;
+  --surface: #101c15;
+  --canvas: #07100a;
+  --line: rgba(255, 255, 255, 0.12);
+  --primary: #52e396;
+  --primary-light: rgba(82, 227, 150, 0.18);
+  --accent: #f5b875;
+  --crop-corn: #f5b756;
+  --crop-sorghum: #e97e5e;
+  --crop-wheat: #e6cfa1;
+  --crop-soybean: #b7e268;
+  --crop-soy: #7dc47d;
+  --crop-alfalfa: #28c073;
+  --crop-triticale: #d29ef0;
+  --crop-rye_cover: #68a1ba;
+  --crop-cover: #68a1ba;
+  --crop-cotton: #eeb1c4;
+  --crop-fallow: #9e9384;
+  --crop-bare: #233127;
+  --rot-R0: #bdbdbd;
+  --rot-R1: #64f1fb;
+  --rot-R2: #6eb7cd;
+  --rot-R3: #f1c090;
+  --rot-R4: #d495ed;
+  --rot-R5: #f1783e;
+  --rot-R6: #52e396;
+  --risk-heat: #ef6f18;
+  --risk-frost: #4e9ccf;
+  --risk-dry: #dfba55;
+  --risk-storm: #a86ee0;
+  --risk-wind: #7bb5b9;
+}

@@ -1,4 +1,4 @@
-"""Copy every producer's output into the web app, exactly the README 6.5 mapping. No transformation.
+"""Copy every producer's output into the web app, exactly the CONTRACT 6.5 mapping. No transformation.
 
 Usage: python scripts/sync_data.py [--root REPO] [--strict]
   --strict  exit 1 if any source is missing
@@ -18,7 +18,6 @@ FILE_COPIES = [
     ("content/copy.json", "web/public/data/content/copy.json"),
     ("content/glossary.json", "web/public/data/content/glossary.json"),
     ("content/assistant_questions.json", "web/public/data/content/assistant_questions.json"),
-    ("design/tokens.css", "web/styles/tokens.css"),
     ("design/tokens.json", "web/styles/tokens.json"),
 ]
 

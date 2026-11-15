@@ -1,1 +1,1 @@
-{"_meta":{"schema":"validation@1","mock":false,"generated_at":"2026-11-15T14:43:17Z","generator":"model/validate/run.py"},"field_id":"f1","items":[{"id":"et_vs_openet","metric":"bias_pct","value":0.9,"n":56,"level":"good","vars":{"bias_pct":0.9},"sources":["MODEL","OpenET"]}]}
+{"_meta":{"schema":"validation@1","mock":false,"generated_at":"2026-11-15T15:40:54Z","generator":"model/validate/run.py"},"field_id":"f1","items":[{"id":"et_vs_openet","metric":"bias_pct","value":0.9,"n":56,"level":"good","vars":{"bias_pct":0.9},"sources":["MODEL","OpenET"]}]}

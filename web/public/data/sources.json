@@ -1,0 +1,120 @@
+{
+ "_meta": {
+  "schema": "sources@1",
+  "mock": false,
+  "generated_at": "2026-11-15T15:38:27Z",
+  "generator": "data-pipeline/process/build_sources.py"
+ },
+ "sources": [
+  {
+   "tag": "POWER",
+   "name": "NASA POWER daily (AG community)",
+   "provider": "NASA Langley Research Center",
+   "url": "https://power.larc.nasa.gov/",
+   "what": "Daily max/min/mean air temperature, humidity, wind at 2 m and 10 m, solar radiation, corrected precipitation",
+   "resolution": "0.5° × 0.625° grid, daily",
+   "period": "1981–2025 (solar from 1984)",
+   "used_for": "Rotation Replay weather, reference ET, heat, frost and wind days"
+  },
+  {
+   "tag": "GRACE",
+   "name": "JPL GRACE/GRACE-FO Mascon RL06.3 (CRI filtered)",
+   "provider": "NASA JPL / PO.DAAC",
+   "url": "https://podaac.jpl.nasa.gov/dataset/TELLUS_GRAC-GRFO_MASCON_CRI_GRID_RL06.3_V4",
+   "what": "Monthly terrestrial water storage anomaly (liquid water equivalent)",
+   "resolution": "0.5° grid; ~300 km true resolution",
+   "period": "2002-04 → latest (gap 2017-07 → 2018-05)",
+   "used_for": "Regional aquifer / water-storage trend in the water outlook"
+  },
+  {
+   "tag": "SRTM",
+   "name": "SRTM Global 1 arc second DEM (SRTMGL1 v3)",
+   "provider": "NASA LP DAAC, via AppEEARS",
+   "url": "https://lpdaac.usgs.gov/products/srtmgl1v003/",
+   "what": "Elevation",
+   "resolution": "30 m",
+   "period": "February 2000",
+   "used_for": "Field slope and cold-air low-spot flag"
+  },
+  {
+   "tag": "SSURGO",
+   "name": "SSURGO via Soil Data Access",
+   "provider": "USDA NRCS",
+   "url": "https://sdmdataaccess.sc.egov.usda.gov/",
+   "what": "Map units, components and horizons: AWC, AWS 0–100 cm, organic matter, K factor, hydrologic group, WEG/WEI, drainage, restrictions",
+   "resolution": "Map units at 1:12,000–1:24,000",
+   "period": "Current release",
+   "used_for": "Soil water holding, erodibility, soil-health inputs and neighbour matching"
+  },
+  {
+   "tag": "CSB",
+   "name": "Crop Sequence Boundaries 2018–2025 (rev23)",
+   "provider": "USDA NASS",
+   "url": "https://www.nass.usda.gov/Research_and_Science/Crop-Sequence-Boundaries/",
+   "what": "Field polygons with the Cropland Data Layer crop for each year",
+   "resolution": "Field polygons from 30 m CDL",
+   "period": "2018–2025",
+   "used_for": "Demo field outlines, crop history, detected rotation, neighbour pool"
+  },
+  {
+   "tag": "NASS",
+   "name": "Quick Stats",
+   "provider": "USDA NASS",
+   "url": "https://quickstats.nass.usda.gov/",
+   "what": "Survey yields (irrigated / non-irrigated), prices received, acres planted",
+   "resolution": "Finney County, SW Kansas district, Kansas",
+   "period": "2000–2025 (prices 2015–2024)",
+   "used_for": "Yields, prices and the local-market check"
+  },
+  {
+   "tag": "OpenET",
+   "name": "OpenET Ensemble",
+   "provider": "OpenET (NASA, USGS, DRI, EDF, Google and partners)",
+   "url": "https://etdata.org/",
+   "what": "Actual evapotranspiration, ensemble of 6 satellite models",
+   "resolution": "30 m, monthly",
+   "period": "2016 → latest",
+   "used_for": "Replay validation and neighbours' real water use"
+  },
+  {
+   "tag": "PRISM",
+   "name": "PRISM daily (4 km)",
+   "provider": "PRISM Climate Group, Oregon State University",
+   "url": "https://prism.oregonstate.edu/",
+   "what": "Daily min/max temperature and precipitation",
+   "resolution": "4 km, daily",
+   "period": "1991–2025",
+   "used_for": "1991–2020 climate normals vs 2016–2025, ground-based check of POWER"
+  },
+  {
+   "tag": "USGS",
+   "name": "USGS Water Data APIs — groundwater field measurements",
+   "provider": "U.S. Geological Survey",
+   "url": "https://api.waterdata.usgs.gov/",
+   "what": "Depth to water below land surface at monitoring wells (USGS, KGS and Kansas DWR wells)",
+   "resolution": "Individual wells",
+   "period": "2000–2025",
+   "used_for": "Local aquifer trend near each field"
+  },
+  {
+   "tag": "FAO56",
+   "name": "FAO Irrigation and Drainage Paper 56 (Penman-Monteith, crop coefficients)",
+   "provider": "FAO",
+   "url": "https://www.fao.org/4/x0490e/x0490e00.htm",
+   "what": "Reference ET method and crop coefficients (Kc)",
+   "resolution": "Method, not a dataset",
+   "period": "1998",
+   "used_for": "Reference ET and crop water demand in the Replay"
+  },
+  {
+   "tag": "MODEL",
+   "name": "Glean water-budget model (FAO-56)",
+   "provider": "Team Brackets (M)",
+   "url": "https://github.com/mrudduni/Team-Brackets/blob/main/docs/METHODS.md",
+   "what": "Simulated yield, water use and soil outputs built from the inputs above",
+   "resolution": "Field, daily/annual",
+   "period": "2016–2025",
+   "used_for": "Rotation Replay results and the calendar"
+  }
+ ]
+}
