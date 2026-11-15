@@ -138,7 +138,7 @@ alfalfa:
   root_max_m: 2.0                                      # FAO-56 T22 (1.0 to 2.0 m)
   p: 0.55
   ky: 1.10                                             # FAO-56 T24
-  heat: { stage: null, tmax_c: null }                  # no sensitive stage used  # verify
+  heat: null                  # no sensitive stage used  # verify
   frost_kill_c: -4                                     # FAO-56 T11 season definition (-4 C)
   requires_irrigation: true                            # in Finney County a stand is not practical without irrigation  # verify
   n_fixing: true
@@ -166,7 +166,7 @@ triticale:
   root_max_m: 1.5                                      # winter wheat proxy  # verify
   p: 0.55                                              # winter wheat proxy  # verify
   ky: 1.05                                             # winter wheat proxy  # verify
-  heat: { stage: null, tmax_c: null }
+  heat: null
   frost_kill_c: -15   # winter-hardy (value from Himal's draft)  # verify
   requires_irrigation: false
   n_fixing: false
@@ -194,7 +194,7 @@ rye_cover:
   root_max_m: 1.0                                      # assumed  # verify
   p: 0.55                                              # cereal proxy  # verify
   ky: null                                             # cover crop, no yield modelled
-  heat: { stage: null, tmax_c: null }
+  heat: null
   frost_kill_c: -25   # very winter-hardy (value from Himal's draft; SARE)  # verify
   requires_irrigation: false
   n_fixing: false
@@ -240,14 +240,14 @@ fallow:
   family: null
   host_group: none
   season: none
-  plant_window: { start: null, end: null }
-  harvest_window: { start: null, end: null }
+  plant_window: null
+  harvest_window: null
   stage_days: { ini: 0, dev: 0, mid: 0, late: 0 }
   kc: { ini: 0.30, mid: 0.30, end: 0.30 }              # handover 5: bare soil evaporation
   root_max_m: null
   p: null
   ky: null
-  heat: { stage: null, tmax_c: null }
+  heat: null
   frost_kill_c: null
   requires_irrigation: false
   n_fixing: false
