@@ -95,4 +95,21 @@ describe("text-only facts", () => {
     const got = checkNumbers("It is 0 mm.", [{ id: "field.irrigation", value: null, unit: null }]);
     expect(got[0].verified).toBe(false);
   });
+
+  it("does not match a bare decimal to a count, and reads an inch mark", () => {
+    const facts = [
+      { id: "neighbors.continuous_corn.n", value: 12, unit: null },
+      { id: "replay.R0.cap300|actual.irrigation_mm_mean", value: 299, unit: "mm" },
+    ];
+    const [mm, inches] = checkNumbers('Corn uses 299 mm (11.8") a season.', facts);
+    expect(mm.fact_id).toBe("replay.R0.cap300|actual.irrigation_mm_mean");
+    expect(inches).toMatchObject({ unit: "in", fact_id: "replay.R0.cap300|actual.irrigation_mm_mean" });
+    expect(checkNumbers("about 11.8 of them", facts)[0].verified).toBe(false);
+    expect(checkNumbers("12 fields", facts)[0].fact_id).toBe("neighbors.continuous_corn.n");
+  });
+
+  it("matches a number with no unit only to count-like facts", () => {
+    const got = checkNumbers("It needs 299 a season.", [{ id: "r.mm", value: 299, unit: "mm" }]);
+    expect(got[0].verified).toBe(false);
+  });
 });
