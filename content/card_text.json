@@ -125,24 +125,24 @@
       "es": "En los cinco peores años, el ingreso promedia unos {worst5_usd_ac}, frente a {r0_worst5_usd_ac} con su rotación actual."
     },
     "soil_health": {
-      "en": "Soil health score of {score} out of 100. Living roots are in the ground for about {living_root_days} days a year, and a legume grows in {legume_years} years of the cycle.",
-      "es": "Puntaje de salud del suelo: {score} de 100. Hay raíces vivas unos {living_root_days} días al año, y una leguminosa crece en {legume_years} años del ciclo."
+      "en": "Soil health score: {score} out of 100. Days a year with living roots in the ground: about {living_root_days}. Years with a legume in the cycle: {legume_years}.",
+      "es": "Puntaje de salud del suelo: {score} de 100. Días al año con raíces vivas en el suelo: unos {living_root_days}. Años con una leguminosa en el ciclo: {legume_years}."
     },
     "water_erosion": {
-      "en": "Leaves the ground bare on {bare_storm_days} stormy days a year, compared with {r0_bare_storm_days} now.",
-      "es": "Deja el suelo descubierto {bare_storm_days} días de tormenta al año, frente a {r0_bare_storm_days} ahora."
+      "en": "Stormy days a year with bare ground: {bare_storm_days}, compared with {r0_bare_storm_days} now.",
+      "es": "Días de tormenta al año con el suelo descubierto: {bare_storm_days}, frente a {r0_bare_storm_days} ahora."
     },
     "wind_erosion": {
-      "en": "Leaves the ground bare on {bare_windy_days} windy days a year, compared with {r0_bare_windy_days} now.",
-      "es": "Deja el suelo descubierto {bare_windy_days} días de viento al año, frente a {r0_bare_windy_days} ahora."
+      "en": "Windy days a year with bare ground: {bare_windy_days}, compared with {r0_bare_windy_days} now.",
+      "es": "Días de viento al año con el suelo descubierto: {bare_windy_days}, frente a {r0_bare_windy_days} ahora."
     },
     "pest_break": {
-      "en": "The same crop family never runs more than {max_run_years} years in a row, compared with {r0_max_run_years} now. That may help break pest and disease cycles.",
-      "es": "La misma familia de cultivos nunca se repite más de {max_run_years} años seguidos, frente a {r0_max_run_years} ahora. Eso puede ayudar a romper ciclos de plagas y enfermedades."
+      "en": "Years in a row with the same crop family: {max_run_years}, compared with {r0_max_run_years} now. Shorter runs may help break pest and disease cycles.",
+      "es": "Años seguidos con la misma familia de cultivos: {max_run_years}, frente a {r0_max_run_years} ahora. Rachas más cortas pueden ayudar a romper ciclos de plagas y enfermedades."
     },
     "heat_frost_risk": {
-      "en": "Crops are in a heat-sensitive stage on about {heat_days} hot days a year, compared with {r0_heat_days} now.",
-      "es": "Los cultivos están en una etapa sensible al calor unos {heat_days} días calurosos al año, frente a {r0_heat_days} ahora."
+      "en": "Hot days a year when crops are in a heat-sensitive stage: {heat_days}, compared with {r0_heat_days} now.",
+      "es": "Días calurosos al año con los cultivos en una etapa sensible al calor: {heat_days}, frente a {r0_heat_days} ahora."
     }
   },
   "benefits": {
@@ -151,20 +151,20 @@
       "es": "Puede reducir el riego en unos {saved_mm} al año frente a su rotación actual."
     },
     "bare_days_reduced": {
-      "en": "May keep the ground covered for about {days} more days a year.",
-      "es": "Puede mantener el suelo cubierto unos {days} días más al año."
+      "en": "Days a year with the ground covered may rise by about {days}.",
+      "es": "Los días al año con el suelo cubierto pueden aumentar en unos {days}."
     },
     "legume_added": {
-      "en": "Adds a legume in {legume_years} of every {cycle_years} years. Legumes can lower the nitrogen fertilizer the next crop needs.",
-      "es": "Incluye una leguminosa en {legume_years} de cada {cycle_years} años. Las leguminosas pueden reducir el nitrógeno que necesita el siguiente cultivo."
+      "en": "Legume years in the cycle: {legume_years} of {cycle_years}. Legumes can lower the nitrogen fertilizer the next crop needs.",
+      "es": "Años con leguminosa en el ciclo: {legume_years} de {cycle_years}. Las leguminosas pueden reducir el nitrógeno que necesita el siguiente cultivo."
     },
     "income_steadier": {
       "en": "Income in the five worst years may be about {worst5_gain_usd_ac} higher than with your current rotation.",
       "es": "El ingreso en los cinco peores años puede ser unos {worst5_gain_usd_ac} mayor que con su rotación actual."
     },
     "pest_cycle_broken": {
-      "en": "Changing crops often may help break pest cycles. The longest run of one crop family is {max_run_years} years.",
-      "es": "Cambiar de cultivo seguido puede ayudar a romper ciclos de plagas. La racha más larga de una misma familia es de {max_run_years} años."
+      "en": "Changing crops often may help break pest cycles. Longest run of one crop family, in years: {max_run_years}.",
+      "es": "Cambiar de cultivo seguido puede ayudar a romper ciclos de plagas. Racha más larga de una misma familia de cultivos, en años: {max_run_years}."
     },
     "forage_income": {
       "en": "Adds income from {forage_crop} sold as forage, if you have a buyer or your own livestock.",
@@ -181,8 +181,8 @@
       "es": "En el año seco {year}, esta rotación habría necesitado unos {irrigation_mm} de riego, frente a {r0_irrigation_mm} con la actual."
     },
     "neighbors": {
-      "en": "{n} nearby fields on similar soil already farm this way. Satellites show they used about {et_mm} of water a year, compared with {r0_et_mm} on fields like yours.",
-      "es": "{n} campos cercanos con suelo parecido ya trabajan así. Los satélites muestran que usaron unos {et_mm} de agua al año, frente a {r0_et_mm} en campos como el suyo."
+      "en": "Nearby fields on similar soil that already farm this way: {n}. Satellites show they used about {et_mm} of water a year, compared with {r0_et_mm} on fields like yours.",
+      "es": "Campos cercanos con suelo parecido que ya trabajan así: {n}. Los satélites muestran que usaron unos {et_mm} de agua al año, frente a {r0_et_mm} en campos como el suyo."
     },
     "validation_et": {
       "en": "Our water-use model differs from OpenET satellite estimates by about {bias_pct} on average, so treat the water numbers as estimates.",
@@ -293,12 +293,12 @@
       "es": "Los pozos cercanos muestran que la profundidad del agua cambia {m_per_yr}. Si la profundidad sube, el nivel del agua está bajando."
     },
     "frost_free_change": {
-      "en": "Compared with 1991 to 2020, the frost-free season in recent years is {days} days different.",
-      "es": "Frente a 1991 a 2020, la temporada sin heladas de los últimos años cambió {days} días."
+      "en": "Frost-free season, recent years versus 1991 to 2020, change in days: {days}.",
+      "es": "Temporada sin heladas, años recientes frente a 1991 a 2020, cambio en días: {days}."
     },
     "heat_days_change": {
-      "en": "Compared with 1991 to 2020, hot days (35 °C or higher) changed by {days} days a year.",
-      "es": "Frente a 1991 a 2020, los días muy calurosos (35 °C o más) cambiaron {days} días al año."
+      "en": "Hot days (35 °C or higher) a year, recent years versus 1991 to 2020, change in days: {days}.",
+      "es": "Días muy calurosos (35 °C o más) al año, años recientes frente a 1991 a 2020, cambio en días: {days}."
     },
     "current_rotation": {
       "en": "From {years_from} to {years_to}, satellite crop maps show this field in the rotation below.",

@@ -203,8 +203,8 @@
       "es": "Confianza"
     },
     "card.hidden_count": {
-      "en": "{n} more options hidden by your limits",
-      "es": "{n} opciones más ocultas por sus límites"
+      "en": "Options hidden by your limits: {n}",
+      "es": "Opciones ocultas por sus límites: {n}"
     },
     "calendar.title": {
       "en": "Field calendar",
@@ -279,8 +279,8 @@
       "es": "Estos campos son parecidos, no idénticos. Las diferencias pueden tener otras causas, como el suelo, el manejo o el clima. Muestra lo que pasó, no lo que debe pasar."
     },
     "neighbors.n_fields": {
-      "en": "{n} fields",
-      "es": "{n} campos"
+      "en": "Fields compared: {n}",
+      "es": "Campos comparados: {n}"
     },
     "neighbors.water_use": {
       "en": "Water use seen from space",
@@ -725,6 +725,10 @@
     "calendar.stage.late": {
       "en": "Ripening",
       "es": "Maduración"
+    },
+    "years.range": {
+      "en": "{years_from}-{years_to}",
+      "es": "{years_from}-{years_to}"
     }
   }
 }
