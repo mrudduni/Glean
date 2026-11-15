@@ -95,7 +95,7 @@ def month_cells(tl: Timeline, year: int, crops: dict, risk: list[dict]) -> list[
             c = crops[crop]
             dormant = c["season"] in ("winter", "cover", "perennial") and m in WINTER_DORMANT_MONTHS
             flags = []
-            hs = c["heat"].get("stage")
+            hs = (c["heat"] or {}).get("stage")
             if hs and (st == STAGES.index(hs)).any() and r["p_heat"] >= config.CAL_FLAG_P:
                 flags.append("heat")
             if not dormant and r["p_frost"] >= config.CAL_FLAG_P:
