@@ -100,10 +100,13 @@ def run_bucket(tl: Timeline, et0: np.ndarray, precip: np.ndarray, soil: dict, ca
             if irrigate and st == GROW and k >= 0 and seasons[k].revenue and d_r > raw:
                 used = season_irr.get(k, 0.0)
                 want = d_r / eff
-                if used + want <= cap_mm:
-                    app = want              # refill to field capacity before today's ET
-                    season_irr[k] = used + want
-                    ks = 1.0
+                left = cap_mm - used
+                if left >= config.IRR_MIN_EVENT_MM:
+                    # refill to field capacity, or apply what is left of the season cap
+                    app = min(want, left)
+                    season_irr[k] = used + app
+                    d_after = d_r - eff * app
+                    ks = 1.0 if d_after <= raw else max(0.0, (taw_r - d_after) / (taw_r - raw))
             e_a = ks * e_c
             etc[i] = e_c
             ksa[i] = ks
