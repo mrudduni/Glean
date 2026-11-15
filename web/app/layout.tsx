@@ -10,6 +10,11 @@ import { MockBanner } from "@/components/MockBanner";
 export const metadata: Metadata = {
   title: "Glean",
   description: "Compare crop rotations for three Finney County, Kansas fields with NASA Earth observations, soil data and your own priorities.",
+  icons: {
+    icon: "/icon.svg",
+    shortcut: "/icon.svg",
+    apple: "/icon.svg",
+  },
 };
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
