@@ -34,6 +34,8 @@ export interface GleanState extends Values {
   setTheme: (value: Theme) => void;
 }
 
+export type FieldShiftState = GleanState;
+
 const initial: Values = {
   field: "f1", cap: "cap300", climate: "actual", sliders: DEFAULT_SLIDERS,
   hay: false, cotton: false, forage: false, lang: "en", theme: "light",
@@ -45,7 +47,7 @@ function preferredTheme(params: URLSearchParams): Theme {
   const query = params.get("theme");
   if (query === "dark" || query === "light") return query;
   try {
-    const saved = localStorage.getItem("glean_theme");
+    const saved = localStorage.getItem("glean_theme") || localStorage.getItem("fieldshift_theme");
     if (saved === "dark" || saved === "light") return saved;
   } catch {
     // storage blocked: fall through to the system preference
@@ -160,3 +162,5 @@ export function useGlean(): GleanState {
   if (!state) throw new Error("useGlean must be used inside AppProvider.");
   return state;
 }
+
+export const useFieldShift = useGlean;
