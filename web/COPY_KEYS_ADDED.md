@@ -36,6 +36,9 @@ Generated from a grep of `t("…")` calls in `app/`, `components/` and `lib/`.
 | `neighbors.no_greenness` | components/NeighborsView.tsx | Drought-year greenness (MODIS) is not available for these fields yet. |
 | `neighbors.method` | components/NeighborsView.tsx | How these fields were matched |
 | `neighbors.your_field` | components/NeighborsView.tsx | Your field |
+| `trust.check` | app/how-we-know/page.tsx | What we checked |
+| `trust.match` | app/how-we-know/page.tsx | Match |
+| `trust.n` | app/how-we-know/page.tsx | Data points |
 | `assistant.own_key` | components/AssistantDrawer.tsx | Use my own key |
 | `assistant.own_key_on` | components/AssistantDrawer.tsx | on |
 | `assistant.own_key_toggle` | components/AssistantDrawer.tsx | Answer free-text questions with my key |

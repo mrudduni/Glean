@@ -1,0 +1,34 @@
+/* How we know this. */
+.trust-page { display: grid; gap: var(--sp-7); padding-top: var(--sp-6); }
+.trust-hero h1 { font-size: clamp(2rem, 1.6rem + 1.6vw, 2.75rem); }
+.trust-hero p { max-width: 68ch; margin: var(--sp-3) 0 0; color: var(--text-2); font-size: var(--fs-lead); }
+.trust-section { display: grid; gap: var(--sp-4); }
+.trust-table-wrap { overflow-x: auto; border: 1px solid var(--rule); border-radius: var(--radius); background: var(--color-surface); }
+.trust-table { width: 100%; border-collapse: collapse; font-size: var(--fs-cap); }
+.trust-table th, .trust-table td { padding: var(--sp-3); border-bottom: 1px solid var(--rule); text-align: left; vertical-align: top; }
+.trust-table tbody tr:last-child > * { border-bottom: 0; }
+.trust-table thead th { color: var(--text-2); font-weight: 600; white-space: nowrap; }
+.trust-table tbody th { color: var(--text-1); font-weight: 600; }
+.trust-table td { color: var(--text-1); }
+.trust-table td small { display: block; margin-top: 2px; color: var(--text-2); }
+.trust-table code { font-size: 0.8125rem; color: var(--text-2); }
+.source-table a { display: inline-flex; align-items: center; gap: 4px; color: var(--color-accent); font-weight: 600; }
+.source-table a:hover { text-decoration: underline; }
+.validation-table td:nth-child(4) { text-align: right; }
+.validation-table tr.current > th { box-shadow: inset 3px 0 0 transparent; }
+.validation-table tr.current { background: var(--accent-wash); }
+
+.explainer-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: var(--sp-5); }
+.explainer-grid article { display: grid; gap: var(--sp-2); }
+.explainer-grid h3 { font-size: var(--fs-body); }
+.explainer-grid p { margin: 0; color: var(--text-1); max-width: 65ch; }
+.glossary-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 0 var(--sp-5); }
+.glossary-card { border-bottom: 1px solid var(--rule); }
+.glossary-card summary { display: grid; gap: 2px; padding: var(--sp-3) 0; cursor: pointer; list-style: none; }
+.glossary-card summary::-webkit-details-marker { display: none; }
+.glossary-card summary span { color: var(--text-1); font-weight: 600; }
+.glossary-card summary span::after { content: " +"; color: var(--text-3); }
+.glossary-card[open] summary span::after { content: " −"; }
+.glossary-card summary small { color: var(--text-2); font-size: var(--fs-cap); }
+.glossary-card p { margin: 0 0 var(--sp-3); color: var(--text-1); font-size: var(--fs-cap); }
+.trust-back { margin: 0; }

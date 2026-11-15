@@ -12,6 +12,7 @@ import "@/styles/calendar.css";
 import "@/styles/overview.css";
 import "@/styles/neighbors.css";
 import "@/styles/assistant.css";
+import "@/styles/trust.css";
 import { AppProvider } from "@/lib/state";
 import { SiteFooter, SiteHeader } from "@/components/SiteHeader";
 import { MockBanner } from "@/components/MockBanner";
