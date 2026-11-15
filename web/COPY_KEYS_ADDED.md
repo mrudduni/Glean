@@ -1,6 +1,8 @@
 # Copy keys added by the web app
 
-These keys are not in README §8.6. The web app calls each one as `t("key", "English fallback")`, so it renders in English until U adds the key to `content/copy.json` with `en` and `es` text.
+These keys are not in README §8.6. The web app calls each one as `t("key", "English fallback")`.
+
+Status: all of them were added to `content/copy.json` with `en` and `es` text in role/content 3c740c7 (2026-11-15). Add new keys here and to copy.json together.
 
 Generated from a grep of `t("…")` calls in `app/`, `components/` and `lib/`.
 
@@ -13,7 +15,7 @@ Generated from a grep of `t("…")` calls in `app/`, `components/` and `lib/`.
 | `calendar.counts_legend` | components/FieldCalendar.tsx | Numbers: storm days · windy days |
 | `calendar.crop_period` | components/FieldCalendar.tsx | Crop in the field |
 | `calendar.eyebrow` | components/FieldCalendar.tsx | Plan across seasons |
-| `calendar.odds` | components/FieldCalendar.tsx | {risk} in {count} of 10 years |
+| `calendar.odds` | components/FieldCalendar.tsx | {risk}: {count} of 10 years |
 | `calendar.risk_title` | components/FieldCalendar.tsx | Climate odds by month, 2000 to 2025 |
 | `calendar.storm_days` | components/FieldCalendar.tsx | Storm days |
 | `calendar.windy_days` | components/FieldCalendar.tsx | Windy days |
@@ -71,7 +73,7 @@ Generated from a grep of `t("…")` calls in `app/`, `components/` and `lib/`.
 | `strategies.eyebrow` | components/StrategyPanel.tsx | Compare your options |
 | `strategies.none_fit` | components/StrategyPanel.tsx | No other rotation fits these limits. Try a higher water cap or tick the equipment you have. |
 | `strategies.score_note` | components/StrategyPanel.tsx | Scores are relative to the rotations compared here, 0 to 100. They are model estimates, not forecasts. |
-| `strategies.subtitle` | components/StrategyPanel.tsx | Your current rotation and the three that fit your priorities best. |
+| `strategies.subtitle` | components/StrategyPanel.tsx | Your current rotation and the three that fit your priorities most closely. |
 | `theme.dark` | components/SiteHeader.tsx | Dark theme |
 | `theme.label` | components/SiteHeader.tsx | Colour theme |
 | `theme.light` | components/SiteHeader.tsx | Light theme |

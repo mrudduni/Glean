@@ -48,9 +48,9 @@ export function FieldCalendar({ calendar, order, ui }: { calendar: CalendarFile;
             {calendar.climate_risk.map((risk) => {
               const m = risk.month - 1;
               const title = [
-                interpolate(t("calendar.odds", "{risk} in {count} of 10 years"), { risk: t("calendar.flag.heat"), count: odds(risk.p_heat) }),
-                interpolate(t("calendar.odds", "{risk} in {count} of 10 years"), { risk: t("calendar.flag.frost"), count: odds(risk.p_frost) }),
-                interpolate(t("calendar.odds", "{risk} in {count} of 10 years"), { risk: t("calendar.flag.dry"), count: odds(risk.p_dry_spell) }),
+                interpolate(t("calendar.odds", "{risk}: {count} of 10 years"), { risk: t("calendar.flag.heat"), count: odds(risk.p_heat) }),
+                interpolate(t("calendar.odds", "{risk}: {count} of 10 years"), { risk: t("calendar.flag.frost"), count: odds(risk.p_frost) }),
+                interpolate(t("calendar.odds", "{risk}: {count} of 10 years"), { risk: t("calendar.flag.dry"), count: odds(risk.p_dry_spell) }),
                 `${t("calendar.storm_days", "Storm days")}: ${risk.storm_days}`,
                 `${t("calendar.windy_days", "Windy days")}: ${risk.windy_days}`,
               ].join(". ");
@@ -95,7 +95,7 @@ export function FieldCalendar({ calendar, order, ui }: { calendar: CalendarFile;
                       cropLabel(ui, cell.state),
                       stageLabel(cell.stage),
                       ...cell.flags.map((flag) => t(`calendar.flag.${flag}`)),
-                      risk ? interpolate(t("calendar.odds", "{risk} in {count} of 10 years"), { risk: t("calendar.flag.heat"), count: odds(risk.p_heat) }) : "",
+                      risk ? interpolate(t("calendar.odds", "{risk}: {count} of 10 years"), { risk: t("calendar.flag.heat"), count: odds(risk.p_heat) }) : "",
                     ].filter(Boolean);
                     const bare = cell.state === "bare" || cell.state === "fallow";
                     return (

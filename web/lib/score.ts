@@ -88,18 +88,31 @@ export interface Picked {
  * shown = R0 always + top 3 non-excluded rotations by score (ties → lower irrigation_mm_mean).
  * `irrigation` comes from replay summaries; without it, criteria.water_use.raw is the tie-breaker.
  */
+type Step = { crop: string; cover_after: string | null };
+
+/** Same rotation, allowing a different starting year (wheat→sorghum→fallow equals sorghum→fallow→wheat). */
+export function sameRotation(a: readonly Step[], b: readonly Step[]): boolean {
+  if (a.length !== b.length || !a.length) return false;
+  const key = (steps: readonly Step[]) => steps.map((step) => `${step.crop}+${step.cover_after ?? ""}`);
+  const left = key(a);
+  const right = key(b);
+  return left.some((_, shift) => left.every((_, i) => left[(i + shift) % left.length] === right[i]));
+}
+
+/** duplicates: alternatives whose steps equal the current rotation; they are dropped, not listed as hidden. */
 export function pickShown(
   entries: StrategyEntry[],
   weights: Weights,
   constraints: Constraints,
   irrigation?: Partial<Record<RotationId, number>>,
+  duplicates?: ReadonlySet<RotationId>,
 ): Picked {
   const water = (entry: StrategyEntry) => irrigation?.[entry.rotation_id] ?? entry.criteria.water_use.raw;
   const current = entries.find((entry) => entry.rotation_id === "R0");
   const hidden: Picked["hidden"] = [];
   const candidates: { entry: StrategyEntry; score: number }[] = [];
   for (const entry of entries) {
-    if (entry.rotation_id === "R0") continue;
+    if (entry.rotation_id === "R0" || duplicates?.has(entry.rotation_id)) continue;
     const reason = excluded(entry, constraints);
     if (reason) hidden.push({ entry, reason });
     else candidates.push({ entry, score: rawScore(entry, weights) });

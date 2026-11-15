@@ -2,7 +2,7 @@
  "_meta": {
   "schema": "assistant_context@1",
   "mock": false,
-  "generated_at": "2026-11-15T14:26:06Z",
+  "generated_at": "2026-11-15T14:38:02Z",
   "generator": "model/assistant/context.py"
  },
  "field_id": "f2",
@@ -2288,24 +2288,6 @@
    "rotation_id": "R0"
   },
   {
-   "id": "drought.2022.R0.revenue_usd_ac",
-   "text": "In the drought year 2022, the wheat, sorghum, fallow (current) rotation would have earned about $63/ac.",
-   "value": 63,
-   "unit": "usd_ac",
-   "source": "MODEL",
-   "scenario": "cap300|actual",
-   "rotation_id": "R0"
-  },
-  {
-   "id": "drought.2022.R0.stress_days",
-   "text": "In 2022, the wheat, sorghum, fallow (current) rotation would have had about 124 days of crop water stress.",
-   "value": 124,
-   "unit": "days",
-   "source": "MODEL",
-   "scenario": "cap300|actual",
-   "rotation_id": "R0"
-  },
-  {
    "id": "drought.2012.R2.revenue_usd_ac",
    "text": "In the drought year 2012, the wheat, sorghum, fallow rotation would have earned about $57/ac.",
    "value": 57,
@@ -2318,24 +2300,6 @@
    "id": "drought.2012.R2.stress_days",
    "text": "In 2012, the wheat, sorghum, fallow rotation would have had about 121 days of crop water stress.",
    "value": 121,
-   "unit": "days",
-   "source": "MODEL",
-   "scenario": "cap300|actual",
-   "rotation_id": "R2"
-  },
-  {
-   "id": "drought.2022.R2.revenue_usd_ac",
-   "text": "In the drought year 2022, the wheat, sorghum, fallow rotation would have earned about $63/ac.",
-   "value": 63,
-   "unit": "usd_ac",
-   "source": "MODEL",
-   "scenario": "cap300|actual",
-   "rotation_id": "R2"
-  },
-  {
-   "id": "drought.2022.R2.stress_days",
-   "text": "In 2022, the wheat, sorghum, fallow rotation would have had about 124 days of crop water stress.",
-   "value": 124,
    "unit": "days",
    "source": "MODEL",
    "scenario": "cap300|actual",
@@ -2360,24 +2324,6 @@
    "rotation_id": "R3"
   },
   {
-   "id": "drought.2022.R3.revenue_usd_ac",
-   "text": "In the drought year 2022, the wheat, sorghum, triticale rotation would have earned about $83/ac.",
-   "value": 83,
-   "unit": "usd_ac",
-   "source": "MODEL",
-   "scenario": "cap300|actual",
-   "rotation_id": "R3"
-  },
-  {
-   "id": "drought.2022.R3.stress_days",
-   "text": "In 2022, the wheat, sorghum, triticale rotation would have had about 148 days of crop water stress.",
-   "value": 148,
-   "unit": "days",
-   "source": "MODEL",
-   "scenario": "cap300|actual",
-   "rotation_id": "R3"
-  },
-  {
    "id": "drought.2012.R6.revenue_usd_ac",
    "text": "In the drought year 2012, the cotton, wheat, sorghum rotation would have earned about $128/ac.",
    "value": 128,
@@ -2394,150 +2340,6 @@
    "source": "MODEL",
    "scenario": "cap300|actual",
    "rotation_id": "R6"
-  },
-  {
-   "id": "drought.2022.R6.revenue_usd_ac",
-   "text": "In the drought year 2022, the cotton, wheat, sorghum rotation would have earned about $88/ac.",
-   "value": 88,
-   "unit": "usd_ac",
-   "source": "MODEL",
-   "scenario": "cap300|actual",
-   "rotation_id": "R6"
-  },
-  {
-   "id": "drought.2022.R6.stress_days",
-   "text": "In 2022, the cotton, wheat, sorghum rotation would have had about 146 days of crop water stress.",
-   "value": 146,
-   "unit": "days",
-   "source": "MODEL",
-   "scenario": "cap300|actual",
-   "rotation_id": "R6"
-  },
-  {
-   "id": "glossary.et",
-   "text": "ET is the water that leaves a field as vapor, from the soil and through the plants.",
-   "value": null,
-   "unit": null,
-   "source": "MODEL"
-  },
-  {
-   "id": "glossary.et0",
-   "text": "ET0 is how much water a well-watered patch of short grass would use on a given day.",
-   "value": null,
-   "unit": null,
-   "source": "MODEL"
-  },
-  {
-   "id": "glossary.ndvi",
-   "text": "NDVI is a satellite score of how green and leafy the plants in a spot are.",
-   "value": null,
-   "unit": null,
-   "source": "MODEL"
-  },
-  {
-   "id": "glossary.soil_moisture_anomaly",
-   "text": "It shows how much wetter or drier the soil is than usual for that time of year.",
-   "value": null,
-   "unit": null,
-   "source": "MODEL"
-  },
-  {
-   "id": "glossary.root_zone",
-   "text": "The root zone is the layer of soil your crop's roots can reach for water.",
-   "value": null,
-   "unit": null,
-   "source": "MODEL"
-  },
-  {
-   "id": "glossary.frost_risk",
-   "text": "Frost risk is the chance of freezing nights that can hurt a crop at a sensitive time.",
-   "value": null,
-   "unit": null,
-   "source": "MODEL"
-  },
-  {
-   "id": "glossary.gdd",
-   "text": "GDD is a running count of useful warmth that tells you how fast a crop is developing.",
-   "value": null,
-   "unit": null,
-   "source": "MODEL"
-  },
-  {
-   "id": "glossary.water_balance",
-   "text": "A water balance tracks the water going into and out of the soil, day by day.",
-   "value": null,
-   "unit": null,
-   "source": "MODEL"
-  },
-  {
-   "id": "glossary.evaporative_stress",
-   "text": "It shows when plants are getting less water than they want, so they use less than a thirsty crop would.",
-   "value": null,
-   "unit": null,
-   "source": "MODEL"
-  },
-  {
-   "id": "glossary.aquifer",
-   "text": "An aquifer is underground water stored in sand and gravel, and the Ogallala is the one under western Kansas.",
-   "value": null,
-   "unit": null,
-   "source": "MODEL"
-  },
-  {
-   "id": "glossary.rotation",
-   "text": "A rotation is the order in which different crops are grown on the same field over the years.",
-   "value": null,
-   "unit": null,
-   "source": "MODEL"
-  },
-  {
-   "id": "glossary.cover_crop",
-   "text": "A cover crop is planted to protect and feed the soil, not to be sold.",
-   "value": null,
-   "unit": null,
-   "source": "MODEL"
-  },
-  {
-   "id": "glossary.fallow",
-   "text": "Fallow means leaving a field without a crop for a season to let soil store water.",
-   "value": null,
-   "unit": null,
-   "source": "MODEL"
-  },
-  {
-   "id": "glossary.nitrogen_fixing",
-   "text": "Legumes such as soybean and alfalfa can pull nitrogen from the air with help from soil bacteria.",
-   "value": null,
-   "unit": null,
-   "source": "MODEL"
-  },
-  {
-   "id": "glossary.wind_erosion",
-   "text": "Wind erosion is soil blown off a field, which is most likely on bare, dry, sandy ground.",
-   "value": null,
-   "unit": null,
-   "source": "MODEL"
-  },
-  {
-   "id": "glossary.water_erosion",
-   "text": "Water erosion is soil washed away by rain running over the ground.",
-   "value": null,
-   "unit": null,
-   "source": "MODEL"
-  },
-  {
-   "id": "glossary.satellite_vs_ground",
-   "text": "Satellites see a wide area from above, while ground tools measure one spot very closely.",
-   "value": null,
-   "unit": null,
-   "source": "MODEL"
-  },
-  {
-   "id": "glossary.model_estimate",
-   "text": "A model estimate is a calculation of what is likely to happen, not something we measured.",
-   "value": null,
-   "unit": null,
-   "source": "MODEL"
   }
  ]
 }

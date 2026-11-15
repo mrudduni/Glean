@@ -14,7 +14,7 @@ import { AssistantDrawer } from "@/components/AssistantDrawer";
 import { CropChips } from "@/components/CropChips";
 import { useFieldShift } from "@/lib/state";
 import { getContent, getCrops, getFieldBundle, getFields, getRotations, getSources } from "@/lib/data";
-import { pickShown, weightsFromSliders } from "@/lib/score";
+import { pickShown, sameRotation, weightsFromSliders } from "@/lib/score";
 import { loc, makeT } from "@/lib/i18n";
 import { cropNames, KIND_LABEL, type UI } from "@/lib/ui";
 import { FIELD_IDS } from "@/lib/schemas";
@@ -76,10 +76,14 @@ export function FieldWorkspace({ fieldId }: { fieldId: FieldId }) {
     const runs = data?.bundle.replay.scenarios[scenario] ?? {};
     return Object.fromEntries(Object.entries(runs).map(([id, run]) => [id, run?.summary.irrigation_mm_mean])) as Partial<Record<RotationId, number>>;
   }, [data, scenario]);
+  const duplicates = useMemo(() => {
+    const current = data?.bundle.summary.current_rotation.steps ?? [];
+    return new Set((data?.rotations.rotations ?? []).filter((rotation) => sameRotation(rotation.steps, current)).map((rotation) => rotation.id));
+  }, [data]);
   const picked = useMemo(() => {
     const entries = data?.bundle.strategies.scenarios[scenario] ?? [];
-    return pickShown(entries, weights, { cap: state.cap, hay: state.hay, cotton: state.cotton, forage: state.forage }, irrigation);
-  }, [data, scenario, weights, state.cap, state.hay, state.cotton, state.forage, irrigation]);
+    return pickShown(entries, weights, { cap: state.cap, hay: state.hay, cotton: state.cotton, forage: state.forage }, irrigation, duplicates);
+  }, [data, scenario, weights, state.cap, state.hay, state.cotton, state.forage, irrigation, duplicates]);
   const order = useMemo(() => picked.shown.map((entry) => entry.rotation_id), [picked]);
 
   if (error) {

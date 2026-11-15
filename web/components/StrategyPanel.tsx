@@ -38,7 +38,7 @@ export function StrategyPanel({
         <div>
           <div className="eyebrow"><span className="eyebrow-rule" /> {t("strategies.eyebrow", "Compare your options")}</div>
           <h2 id="strategies-heading">{t("nav.plan")}</h2>
-          <p>{t("strategies.subtitle", "Your current rotation and the three that fit your priorities best.")}</p>
+          <p>{t("strategies.subtitle", "Your current rotation and the three that fit your priorities most closely.")}</p>
         </div>
         <span className="section-index">04 / 06</span>
       </div>

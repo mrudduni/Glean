@@ -141,7 +141,7 @@ export async function POST(request: NextRequest) {
   const controller = new AbortController();
   const timer = setTimeout(() => controller.abort(), TIMEOUT_MS);
   try {
-    const upstream = await fetch(`${LLM_BASE_URL.replace(/\/+$/, "")}/chat/completions`, {
+    const call = () => fetch(`${LLM_BASE_URL.replace(/\/+$/, "")}/chat/completions`, {
       method: "POST",
       headers: { "content-type": "application/json", authorization: `Bearer ${LLM_API_KEY}` },
       body: JSON.stringify({
@@ -152,6 +152,13 @@ export async function POST(request: NextRequest) {
       }),
       signal: controller.signal,
     });
+    let upstream = await call();
+    // Free tiers rate-limit per minute; one retry when the provider asks for a short wait.
+    const wait = Number(upstream.headers.get("retry-after"));
+    if (upstream.status === 429 && wait > 0 && wait <= 8) {
+      await new Promise((resolve) => setTimeout(resolve, wait * 1000));
+      upstream = await call();
+    }
     if (!upstream.ok) {
       console.warn(`[ask] provider returned ${upstream.status}`);
       return fail(503, "llm_unavailable", "The assistant provider returned an error.");

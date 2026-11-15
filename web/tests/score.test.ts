@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { DEFAULT_SLIDERS, excluded, pickShown, scoreEntry, weightsFromSliders, whyBullets, type Constraints } from "@/lib/score";
+import { DEFAULT_SLIDERS, excluded, pickShown, scoreEntry, weightsFromSliders, whyBullets, type Constraints, sameRotation } from "@/lib/score";
 import { CRITERION_IDS } from "@/lib/schemas";
 import type { CriterionId, RotationId, StrategyEntry } from "@/lib/types";
 
@@ -86,5 +86,15 @@ describe("whyBullets", () => {
   it("skips criteria below 50", () => {
     const w = weightsFromSliders(DEFAULT_SLIDERS);
     expect(whyBullets(entry("R2", Object.fromEntries(CRITERION_IDS.map((k) => [k, 49]))), w)).toEqual([]);
+  });
+});
+
+describe("sameRotation", () => {
+  const s = (...crops: string[]) => crops.map((crop) => ({ crop, cover_after: null }));
+  it("matches equal and shifted cycles only", () => {
+    expect(sameRotation(s("wheat", "sorghum", "fallow"), s("wheat", "sorghum", "fallow"))).toBe(true);
+    expect(sameRotation(s("wheat", "sorghum", "fallow"), s("sorghum", "fallow", "wheat"))).toBe(true);
+    expect(sameRotation(s("wheat", "sorghum", "fallow"), s("wheat", "fallow", "sorghum"))).toBe(false);
+    expect(sameRotation(s("corn"), s("corn", "corn"))).toBe(false);
   });
 });
