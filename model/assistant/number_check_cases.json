@@ -1450,7 +1450,7 @@
   {
    "id": "hyphen_word",
    "description": "digit after a hyphenated word",
-   "answer": "Use the 3-year plan with 23 days.",
+   "answer": "Use the 7-year plan with 23 days.",
    "facts": [
     {
      "id": "field.aws_mm",
@@ -1500,8 +1500,8 @@
    ],
    "expected": [
     {
-     "text": "3",
-     "value": 3,
+     "text": "7",
+     "value": 7,
      "unit": null,
      "verified": false,
      "fact_id": null
