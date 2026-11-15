@@ -22,8 +22,10 @@ Each item names its audit ID. Ticked items are committed and checked with `npm t
 ## Foundation
 
 - [ ] **#10** Styles read only token variables; dark mode comes from the token swap, not a second hand-written stylesheet
+  - [x] Foundation: `styles/base.css` (type scale, text/rule ramp, header, footer, buttons, chips, badges, form controls, states)
+  - [ ] Home · [ ] Field workspace · [ ] Overview · [ ] Calendar · [ ] Cards · [ ] Replay · [ ] Neighbours · [ ] Assistant · [ ] How we know
 - [ ] **#11** Text meets WCAG AA (4.5:1) in light and dark; labels ≥ 14px, body 16px
-- [ ] **#15** Tabular figures on every number
+- [x] **#15** Tabular figures on every number (set once on `body`)
 
 ## Layout (wireframes)
 
