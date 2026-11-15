@@ -155,6 +155,24 @@ describe("production layout: Gemini primary, Groq gpt-oss fallback", () => {
     expect(fetchSpy).toHaveBeenCalledTimes(3);
   });
 
+  it("truncated answer (finish_reason length): retried at 3000 tokens, never shown cut off", async () => {
+    const cut = () => Response.json({ choices: [{ message: { content: "Corn uses an average of 299 mm (11.8" }, finish_reason: "length" }] });
+    const fetchSpy = vi.fn().mockResolvedValueOnce(cut()).mockResolvedValueOnce(ok("Corn uses 299 mm [WATER]."));
+    vi.stubGlobal("fetch", fetchSpy);
+    const json = await (await ask(body)).json();
+    expect(json).toMatchObject({ provider: "gemini", answer_md: "Corn uses 299 mm [WATER]." });
+    expect(JSON.parse(fetchSpy.mock.calls[0][1].body).max_tokens).toBe(1500);
+    expect(JSON.parse(fetchSpy.mock.calls[1][1].body).max_tokens).toBe(3000);
+  });
+
+  it("truncated twice: Groq answers", async () => {
+    const cut = () => Response.json({ choices: [{ message: { content: "La rotación se estima" }, finish_reason: "length" }] });
+    const fetchSpy = vi.fn().mockResolvedValueOnce(cut()).mockResolvedValueOnce(cut()).mockResolvedValueOnce(ok());
+    vi.stubGlobal("fetch", fetchSpy);
+    expect((await (await ask(body)).json()).provider).toBe("groq");
+    expect(fetchSpy).toHaveBeenCalledTimes(3);
+  });
+
   it("primary timeout: Groq answers", async () => {
     const fetchSpy = vi.fn()
       .mockRejectedValueOnce(Object.assign(new Error("aborted"), { name: "AbortError" }))

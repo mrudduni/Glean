@@ -28,6 +28,7 @@ const TIMEOUT_MS = 20_000;
 const RATE_LIMIT = 20;            // requests per minute per IP
 const RATE_WINDOW_MS = 60_000;
 const REASONING_MAX_TOKENS = 1500;
+const RETRY_MAX_TOKENS = 3000;   // second try after an empty or truncated answer
 
 /** Validate a bundled JSON file; log mismatches but keep serving so one stray field does not take the route down. */
 function parse<T>(path: string, value: unknown, schema: ZodType<T, ZodTypeDef, unknown>): T {
@@ -96,10 +97,13 @@ function citations(answer: string): AskResponse["citations"] {
   return sources.sources.filter((source) => tags.has(source.tag)).map(({ tag, name, url }) => ({ tag, name, url }));
 }
 
-function readAnswer(payload: unknown): string | null {
-  const choice = (payload as { choices?: { message?: { content?: unknown } }[] })?.choices?.[0];
+/** The answer text, or null when it is empty or was cut off at max_tokens (finish_reason "length"). */
+function readAnswer(payload: unknown): { answer: string | null; truncated: boolean } {
+  const choice = (payload as { choices?: { message?: { content?: unknown }; finish_reason?: unknown }[] })?.choices?.[0];
   const content = choice?.message?.content;
-  return typeof content === "string" && content.trim() ? content.trim() : null;
+  const truncated = choice?.finish_reason === "length";
+  const answer = !truncated && typeof content === "string" && content.trim() ? content.trim() : null;
+  return { answer, truncated };
 }
 
 export async function POST(request: NextRequest) {
@@ -230,18 +234,19 @@ function chooseProviders(headers: Headers): { providers: Provider[]; userKey: bo
 
 /** One OpenAI-compatible chat completion, retrying once on empty content or a short 429. Never logs keys. */
 async function callProvider(provider: Provider, messages: { role: string; content: string }[]): Promise<CallResult> {
-  // Thinking models (gpt-oss on Groq, Gemini) spend max_tokens on hidden reasoning first; give them room and keep reasoning short.
-  const reasoning = provider.model.startsWith("openai/gpt-oss") || provider.label === "gemini";
+  // Thinking models (gpt-oss, Gemini) spend max_tokens on hidden reasoning first; give them room and keep reasoning short.
+  const reasoning = /^(openai\/gpt-oss|gemini)/.test(provider.model) || provider.label === "gemini";
   const controller = new AbortController();
   const timer = setTimeout(() => controller.abort(), TIMEOUT_MS);
-  const call = () => fetch(`${provider.baseUrl.replace(/\/+$/, "")}/chat/completions`, {
+  const firstMax = reasoning ? Math.max(prompt.max_tokens, REASONING_MAX_TOKENS) : prompt.max_tokens;
+  const call = (maxTokens: number) => fetch(`${provider.baseUrl.replace(/\/+$/, "")}/chat/completions`, {
     method: "POST",
     headers: { "content-type": "application/json", authorization: `Bearer ${provider.key}` },
     body: JSON.stringify({
       model: provider.model,
       messages,
       temperature: prompt.temperature,
-      max_tokens: reasoning ? Math.max(prompt.max_tokens, REASONING_MAX_TOKENS) : prompt.max_tokens,
+      max_tokens: maxTokens,
       ...(reasoning ? { reasoning_effort: "low" } : {}),
     }),
     signal: controller.signal,
@@ -250,7 +255,7 @@ async function callProvider(provider: Provider, messages: { role: string; conten
   try {
     let result: CallResult = { kind: "error", status: 0 };
     for (let attempt = 0; attempt < 2; attempt += 1) {
-      const upstream = await call();
+      const upstream = await call(attempt === 0 ? firstMax : Math.max(firstMax, RETRY_MAX_TOKENS));
       if (upstream.status === 429) {
         result = { kind: "limited" };
         const wait = Number(upstream.headers.get("retry-after"));
@@ -261,9 +266,10 @@ async function callProvider(provider: Provider, messages: { role: string; conten
         console.warn(`[ask] ${provider.label} returned ${upstream.status}`);
         return { kind: "error", status: upstream.status };
       }
-      const answer = readAnswer(await upstream.json());   // empty content (reasoning ran out of tokens): retry once
+      // Empty or cut off at max_tokens (reasoning used the budget): retry once with more room, then move on.
+      const { answer, truncated } = readAnswer(await upstream.json());
       if (answer) return { kind: "answer", answer };
-      console.warn(`[ask] ${provider.label} returned an empty answer`);
+      console.warn(`[ask] ${provider.label} returned ${truncated ? "a truncated" : "an empty"} answer`);
       result = { kind: "error", status: 502 };
     }
     if (result.kind === "limited") console.warn(`[ask] ${provider.label} rate limit`);
