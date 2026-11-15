@@ -49,4 +49,4 @@ Please copy the rotation colours into `design/tokens.json` / `design/build_token
 ## D · data (`data-pipeline/`)
 
 1. `neighbors.json`: `ndvi_drop_2012_pct` and `ndvi_drop_2022_pct` are null for every group. The web hides both columns and shows "Drought-year greenness (MODIS) is not available for these fields yet." Filling them brings the columns back with no web change.
-2. `sources.json`: `used_for` and `what` are English only, so How we know shows English in the Spanish view. Adding `{ "en": …, "es": … }` objects (or `used_for_es` / `what_es`) would let the web translate them; tell F which shape you pick.
+2. `sources.json`: `used_for` and `what` are English only. The web shows Spanish from `web/lib/sourcesEs.ts` while the English text matches exactly. Please add Spanish to the file itself (e.g. `{ "en": …, "es": … }` objects) and tell F the shape, so new or edited sources are translated too.
