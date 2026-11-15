@@ -1,0 +1,11 @@
+{
+  "_meta": { "schema": "assistant_questions@1", "mock": false, "generated_at": "2026-11-15T00:00:00Z", "generator": "content (U)" },
+  "questions": [
+    { "id": "q1", "text": { "en": "Why is the top option ranked first for my field?", "es": "¿Por qué la primera opción está en primer lugar para mi campo?" } },
+    { "id": "q2", "text": { "en": "How much irrigation water could I save?", "es": "¿Cuánta agua de riego podría ahorrar?" } },
+    { "id": "q3", "text": { "en": "Why not alfalfa?", "es": "¿Por qué no alfalfa?" } },
+    { "id": "q4", "text": { "en": "What would a drought year like 2012 have done to each option?", "es": "¿Qué le habría hecho un año de sequía como 2012 a cada opción?" } },
+    { "id": "q5", "text": { "en": "How sure are you about these numbers?", "es": "¿Qué tan seguros están de estos números?" } },
+    { "id": "q6", "text": { "en": "What should I check with my extension agent before switching?", "es": "¿Qué debo revisar con mi agente de extensión antes de cambiar?" } }
+  ]
+}

@@ -1,0 +1,87 @@
+/*
+ * RootCycle design tokens (owner: U). Plain CSS custom properties; F maps them into Tailwind.
+ * Same values as tokens.json. Names are fixed by README §8.5. Change values, never names.
+ *
+ * Direction: a field notebook read outdoors. High-contrast ink on a cool, slightly green paper;
+ * one aquifer-blue accent for actions and links. Crop colours follow the USDA Cropland Data Layer
+ * (CropScape) legend so farmers and extension agents recognise them. Rotation colours use the
+ * Okabe–Ito colour-blind-safe set (two darkened, two swapped for contrast). Trust levels and
+ * risks are always paired with text or icons. Wheat and cotton are darkened/lightened versions of
+ * the CDL hues so cell text stays readable.
+ *
+ * Text on crop cells: use --color-fg on light crops (corn, sorghum, alfalfa, triticale, cotton,
+ * fallow, bare) and #FFFFFF on dark crops (wheat, soybean, rye_cover).
+ */
+
+:root {
+  /* Base */
+  --color-bg:      #F4F6F2;
+  --color-surface: #FFFFFF;
+  --color-fg:      #1A231E;
+  --color-muted:   #55615A;
+  --color-border:  #D3DAD2;
+  --color-accent:  #1D5D88;
+
+  /* Trust levels */
+  --color-good:    #2D7A4C;
+  --color-fair:    #A86400;
+  --color-limited: #B42318;
+
+  /* Crops (USDA CDL legend hues) */
+  --crop-corn:      #FFD300;
+  --crop-sorghum:   #FF9E0A;
+  --crop-wheat:     #8C5F00;
+  --crop-soybean:   #267000;
+  --crop-alfalfa:   #FFA5E2;
+  --crop-triticale: #D69EBC;
+  --crop-rye_cover: #AC007C;
+  --crop-cotton:    #FF5C5C;
+  --crop-fallow:    #BFBF77;
+  --crop-bare:      #E6DCC6;
+
+  /* Rotations (based on Okabe–Ito, darkened where needed for 3:1 against white; R0 neutral = baseline) */
+  --rot-R0: #4D4D4D;
+  --rot-R1: #0072B2;
+  --rot-R2: #B8780A;
+  --rot-R3: #009E73;
+  --rot-R4: #CC79A7;
+  --rot-R5: #882255;
+  --rot-R6: #5E5E00;
+
+  /* Calendar risk markers */
+  --risk-heat:  #C8323C;
+  --risk-frost: #3B8FD6;
+  --risk-dry:   #9A6A1E;
+  --risk-storm: #33507A;
+  --risk-wind:  #7B67B5;
+
+  /* Type: Archivo for headings, Atkinson Hyperlegible for body (designed for legibility), IBM Plex Mono for data */
+  --font-display: "Archivo", "Segoe UI", system-ui, -apple-system, sans-serif;
+  --font-body:    "Atkinson Hyperlegible", "Segoe UI", system-ui, -apple-system, sans-serif;
+  --font-mono:    "IBM Plex Mono", ui-monospace, "Cascadia Mono", Consolas, monospace;
+
+  /* Shape */
+  --radius: 8px;
+}
+
+[data-theme="dark"] {
+  --color-bg:      #111614;
+  --color-surface: #1A201D;
+  --color-fg:      #E7ECE6;
+  --color-muted:   #9EA9A1;
+  --color-border:  #2E3631;
+  --color-accent:  #7DBBE6;
+
+  --color-good:    #6CC893;
+  --color-fair:    #E8A94C;
+  --color-limited: #FF8A80;
+
+  --crop-bare:     #4A4234;
+
+  --rot-R0: #B8B8B8;
+
+  --risk-storm: #8FA9D6;
+}
+
+/* Google Fonts (F adds to <head>, or uses next/font/google with the same families):
+   https://fonts.googleapis.com/css2?family=Archivo:wght@600;700;800&family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400&family=IBM+Plex+Mono:wght@400;500&display=swap */

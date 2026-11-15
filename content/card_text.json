@@ -1,0 +1,265 @@
+{
+  "_meta": { "schema": "card_text@1", "mock": false, "generated_at": "2026-11-15T00:00:00Z", "generator": "content (U)" },
+
+  "rotations": {
+    "R0": {
+      "name":    { "en": "Your current rotation", "es": "Su rotación actual" },
+      "tagline": { "en": "What this field has grown in recent years", "es": "Lo que este campo ha sembrado en los últimos años" }
+    },
+    "R1": {
+      "name":    { "en": "Corn – wheat – sorghum", "es": "Maíz – trigo – sorgo" },
+      "tagline": { "en": "Keeps corn, but only one year in three, with less irrigation", "es": "Mantiene el maíz, pero solo un año de cada tres y con menos riego" }
+    },
+    "R2": {
+      "name":    { "en": "Wheat – sorghum – fallow", "es": "Trigo – sorgo – barbecho" },
+      "tagline": { "en": "The dryland classic: the fallow year stores rain for the next crop", "es": "El clásico de secano: el año de barbecho guarda la lluvia para el siguiente cultivo" }
+    },
+    "R3": {
+      "name":    { "en": "Wheat – sorghum – triticale forage", "es": "Trigo – sorgo – triticale forrajero" },
+      "tagline": { "en": "Replaces the fallow year with a forage crop you can cut or graze", "es": "Cambia el año de barbecho por un forraje que puede cortar o pastorear" }
+    },
+    "R4": {
+      "name":    { "en": "Alfalfa (4 years) – corn – wheat", "es": "Alfalfa (4 años) – maíz – trigo" },
+      "tagline": { "en": "Deep roots and free nitrogen, sold as hay, but it needs water", "es": "Raíces profundas y nitrógeno gratis, se vende como heno, pero necesita agua" }
+    },
+    "R5": {
+      "name":    { "en": "Corn – soybean – wheat + rye cover", "es": "Maíz – soya – trigo + centeno de cobertura" },
+      "tagline": { "en": "Adds a legume and a winter cover crop to build the soil", "es": "Agrega una leguminosa y un cultivo de cobertura de invierno para mejorar el suelo" }
+    },
+    "R6": {
+      "name":    { "en": "Cotton – wheat – sorghum", "es": "Algodón – trigo – sorgo" },
+      "tagline": { "en": "Tests whether warmer summers make cotton an option here", "es": "Prueba si los veranos más calurosos hacen del algodón una opción aquí" }
+    }
+  },
+
+  "criteria_labels": {
+    "water_use":       { "en": "Saves water",            "es": "Ahorra agua" },
+    "income_mean":     { "en": "Average income",         "es": "Ingreso promedio" },
+    "income_worst":    { "en": "Income in bad years",    "es": "Ingreso en años malos" },
+    "soil_health":     { "en": "Soil health",            "es": "Salud del suelo" },
+    "water_erosion":   { "en": "Protects from washouts", "es": "Protege contra el lavado del suelo" },
+    "wind_erosion":    { "en": "Protects from blowing soil", "es": "Protege contra la erosión por viento" },
+    "pest_break":      { "en": "Breaks pest cycles",     "es": "Rompe ciclos de plagas" },
+    "heat_frost_risk": { "en": "Avoids heat and frost damage", "es": "Evita daños por calor y helada" }
+  },
+
+  "why": {
+    "water_use": {
+      "en": "Needs about {irrigation_mm} of irrigation water a year on average, among the lowest of the options for this field.",
+      "es": "Necesita en promedio unos {irrigation_mm} de agua de riego al año, de los más bajos entre las opciones para este campo."
+    },
+    "income_mean": {
+      "en": "Brought in about {revenue_usd_ac} a year on average when run on this field's past weather (before costs).",
+      "es": "Generó en promedio unos {revenue_usd_ac} al año con el clima pasado de este campo (antes de costos)."
+    },
+    "income_worst": {
+      "en": "In its 5 worst years it averaged {worst5_usd_ac}. Your current rotation averaged {r0_worst5_usd_ac} over its 5 worst years.",
+      "es": "En sus 5 peores años promedió {worst5_usd_ac}. Su rotación actual promedió {r0_worst5_usd_ac} en sus 5 peores años."
+    },
+    "soil_health": {
+      "en": "Keeps living roots in the ground about {living_root_days} days a year and scores {score} out of 100 on our soil-health index.",
+      "es": "Mantiene raíces vivas en el suelo unos {living_root_days} días al año y obtiene {score} de 100 en nuestro índice de salud del suelo."
+    },
+    "water_erosion": {
+      "en": "Leaves the ground bare on about {bare_storm_days} heavy-rain days a year, compared with {r0_bare_storm_days} now.",
+      "es": "Deja el suelo descubierto unos {bare_storm_days} días de lluvia fuerte al año, frente a {r0_bare_storm_days} ahora."
+    },
+    "wind_erosion": {
+      "en": "Leaves the ground bare on about {bare_windy_days} strong-wind days a year, compared with {r0_bare_windy_days} now.",
+      "es": "Deja el suelo descubierto unos {bare_windy_days} días de viento fuerte al año, frente a {r0_bare_windy_days} ahora."
+    },
+    "pest_break": {
+      "en": "No crop that hosts the same pests is grown more than {max_run_years} years in a row (now: {r0_max_run_years}).",
+      "es": "Ningún cultivo que hospede las mismas plagas se siembra más de {max_run_years} años seguidos (ahora: {r0_max_run_years})."
+    },
+    "heat_frost_risk": {
+      "en": "About {heat_days} days a year of damaging heat during sensitive growth stages, compared with {r0_heat_days} now.",
+      "es": "Unos {heat_days} días al año de calor dañino en etapas sensibles del cultivo, frente a {r0_heat_days} ahora."
+    }
+  },
+
+  "benefits": {
+    "water_saved": {
+      "en": "Could save about {saved_mm} of irrigation water a year.",
+      "es": "Podría ahorrar unos {saved_mm} de agua de riego al año."
+    },
+    "bare_days_reduced": {
+      "en": "Bare ground on about {days} fewer days a year.",
+      "es": "Suelo descubierto unos {days} días menos al año."
+    },
+    "legume_added": {
+      "en": "Adds a nitrogen-fixing crop in {legume_years} of every {cycle_years} years.",
+      "es": "Agrega un cultivo que fija nitrógeno en {legume_years} de cada {cycle_years} años."
+    },
+    "income_steadier": {
+      "en": "Bad years were about {worst5_gain_usd_ac} better than with your current rotation.",
+      "es": "Los años malos fueron unos {worst5_gain_usd_ac} mejores que con su rotación actual."
+    },
+    "pest_cycle_broken": {
+      "en": "Breaks pest cycles: no host crop is grown more than {max_run_years} years in a row.",
+      "es": "Rompe ciclos de plagas: ningún cultivo hospedero se siembra más de {max_run_years} años seguidos."
+    },
+    "forage_income": {
+      "en": "{forage_crop} can be baled or grazed, a possible extra source of income or feed.",
+      "es": "{forage_crop} se puede empacar o pastorear, una posible fuente extra de ingreso o alimento."
+    }
+  },
+
+  "evidence": {
+    "replay_avg": {
+      "en": "Run on this field's real weather from {years_from} to {years_to}, it averaged about {irrigation_mm} of irrigation and {revenue_usd_ac} a year.",
+      "es": "Con el clima real de este campo de {years_from} a {years_to}, promedió unos {irrigation_mm} de riego y {revenue_usd_ac} al año."
+    },
+    "replay_drought": {
+      "en": "In the {year} drought, this rotation would have needed about {irrigation_mm} of irrigation, compared with {r0_irrigation_mm} for your current one.",
+      "es": "En la sequía de {year}, esta rotación habría necesitado unos {irrigation_mm} de riego, frente a {r0_irrigation_mm} con la actual."
+    },
+    "neighbors": {
+      "en": "{n} nearby fields on similar soil already farm this way. Satellites show they used about {et_mm} of water a year, compared with {r0_et_mm} on fields farmed like yours.",
+      "es": "{n} campos cercanos con suelo parecido ya trabajan así. Los satélites muestran que usaron unos {et_mm} de agua al año, frente a {r0_et_mm} en campos trabajados como el suyo."
+    },
+    "validation_et": {
+      "en": "For this field, our model's water-use estimate differed from satellite measurements (OpenET) by {bias_pct}.",
+      "es": "Para este campo, la estimación de uso de agua de nuestro modelo difirió de las mediciones satelitales (OpenET) en {bias_pct}."
+    }
+  },
+
+  "gaps": {
+    "no_pest_data": {
+      "en": "We have no pest counts for this field. The pest-cycle benefit is based on which crops host the same pests.",
+      "es": "No tenemos conteos de plagas para este campo. El beneficio contra plagas se basa en qué cultivos comparten las mismas plagas."
+    },
+    "costs_not_modelled": {
+      "en": "Income is before costs. Seed, fertilizer, fuel, pumping and labour are not included.",
+      "es": "El ingreso es antes de costos. No incluye semilla, fertilizante, combustible, bombeo ni mano de obra."
+    },
+    "prices_constant": {
+      "en": "Income uses the same average Kansas price every year. Real prices go up and down.",
+      "es": "El ingreso usa el mismo precio promedio de Kansas cada año. Los precios reales suben y bajan."
+    },
+    "openet_record_short": {
+      "en": "Satellite water-use data for individual fields only goes back to 2016.",
+      "es": "Los datos satelitales de uso de agua por campo solo existen desde 2016."
+    },
+    "smap_coarse": {
+      "en": "NASA's SMAP soil-moisture data covers about 9 km at a time, so it describes the area around your field, not the field itself.",
+      "es": "Los datos de humedad del suelo SMAP de la NASA cubren unos 9 km a la vez, así que describen la zona alrededor de su campo, no el campo exacto."
+    },
+    "county_yields": {
+      "en": "Yields come from county or district averages, not from your own yield records.",
+      "es": "Los rendimientos vienen de promedios del condado o distrito, no de sus propios registros."
+    },
+    "neighbors_observational": {
+      "en": "Nearby fields differ in more than their rotation (management, timing, equipment), so their results are a clue, not proof.",
+      "es": "Los campos cercanos se diferencian en más que la rotación (manejo, fechas, equipo), así que sus resultados son una pista, no una prueba."
+    },
+    "model_simplified": {
+      "en": "These numbers come from a simplified water-budget model run on past weather. Next year's weather will be different.",
+      "es": "Estos números vienen de un modelo simplificado del balance de agua con el clima pasado. El clima del próximo año será diferente."
+    },
+    "crop_params_generic": {
+      "en": "Crop water needs and growth stages use standard published values, not measurements from your field or your varieties.",
+      "es": "Las necesidades de agua y las etapas de los cultivos usan valores estándar publicados, no mediciones de su campo ni de sus variedades."
+    }
+  },
+
+  "risks": {
+    "herbicide_carryover": {
+      "en": "Some herbicides used on wheat or corn can hurt the next crop. Check labels and plant-back times with your agronomist.",
+      "es": "Algunos herbicidas del trigo o del maíz pueden dañar el siguiente cultivo. Revise las etiquetas y los plazos de siembra con su agrónomo."
+    },
+    "buyer_availability": {
+      "en": "Few or no farms in the county grow this crop, so there may be no nearby buyer. Ask your elevator or co-op before planting.",
+      "es": "Pocos o ningún campo del condado siembra este cultivo, así que puede no haber comprador cerca. Pregunte a su elevador o cooperativa antes de sembrar."
+    },
+    "crop_insurance": {
+      "en": "Check crop insurance coverage and rules for a new crop or practice with your agent.",
+      "es": "Consulte con su agente de seguros la cobertura y las reglas para un cultivo o práctica nueva."
+    },
+    "water_rights": {
+      "en": "Irrigation amounts depend on your water right and local district rules. Check with your groundwater management district.",
+      "es": "Las cantidades de riego dependen de su derecho de agua y de las reglas locales. Consulte con su distrito de manejo de aguas subterráneas."
+    },
+    "equipment_access": {
+      "en": "This rotation needs equipment you may not have. Consider custom hire or sharing with a neighbour.",
+      "es": "Esta rotación necesita equipo que quizá no tenga. Considere contratar el servicio o compartirlo con un vecino."
+    },
+    "cover_establishment": {
+      "en": "A cover crop needs some moisture in the fall to get started. In a dry fall it may not establish.",
+      "es": "Un cultivo de cobertura necesita algo de humedad en otoño para establecerse. En un otoño seco puede no nacer."
+    },
+    "alfalfa_stand_water": {
+      "en": "Alfalfa uses a lot of water and needs it for several years in a row. Make sure your well can keep up before planting.",
+      "es": "La alfalfa usa mucha agua y la necesita varios años seguidos. Asegúrese de que su pozo pueda mantenerla antes de sembrar."
+    },
+    "fallow_wind": {
+      "en": "Fallow ground can blow in spring winds. Keep wheat stubble standing and limit tillage.",
+      "es": "El suelo en barbecho puede volarse con los vientos de primavera. Deje el rastrojo de trigo en pie y limite la labranza."
+    },
+    "new_crop_learning": {
+      "en": "This crop is new to the area. Talk to growers and your extension agent about varieties, ginning or processing, and timing.",
+      "es": "Este cultivo es nuevo en la zona. Hable con productores y con su agente de extensión sobre variedades, desmote o procesamiento y fechas."
+    },
+    "seed_availability": {
+      "en": "Make sure seed of a suitable variety is available locally in time for planting.",
+      "es": "Asegúrese de que haya semilla de una variedad adecuada disponible en la zona a tiempo para sembrar."
+    }
+  },
+
+  "infeasible": {
+    "needs_more_water": {
+      "en": "Needs more irrigation water than the limit you set.",
+      "es": "Necesita más agua de riego que el límite que usted puso."
+    },
+    "needs_equipment": {
+      "en": "Needs equipment you said you don't have.",
+      "es": "Necesita equipo que usted dijo que no tiene."
+    },
+    "no_local_market": {
+      "en": "Includes a crop with no local buyer that you told us about.",
+      "es": "Incluye un cultivo sin comprador local según lo que usted indicó."
+    }
+  },
+
+  "headline": {
+    "grace_trend": {
+      "en": "NASA's GRACE satellites show the water stored underground in this region changing by about {cm_per_yr} since 2002.",
+      "es": "Los satélites GRACE de la NASA muestran que el agua guardada bajo tierra en esta región cambia unos {cm_per_yr} desde 2002."
+    },
+    "well_trend": {
+      "en": "The depth to water in nearby wells is changing by about {m_per_yr}. A rising number means the water table is dropping.",
+      "es": "La profundidad del agua en pozos cercanos cambia unos {m_per_yr}. Un número que sube significa que el nivel del agua baja."
+    },
+    "frost_free_change": {
+      "en": "Compared with the 1991–2020 normal, the frost-free season in 2016–2025 changed by {days} days.",
+      "es": "Comparada con la normal de 1991–2020, la temporada sin heladas de 2016–2025 cambió {days} días."
+    },
+    "heat_days_change": {
+      "en": "Compared with the 1991–2020 normal, days above 35 °C (95 °F) in 2016–2025 changed by {days} a year.",
+      "es": "Comparados con la normal de 1991–2020, los días de más de 35 °C (95 °F) en 2016–2025 cambiaron {days} al año."
+    },
+    "current_rotation": {
+      "en": "USDA crop maps show what this field grew each year from {years_from} to {years_to}.",
+      "es": "Los mapas de cultivos del USDA muestran lo que este campo sembró cada año de {years_from} a {years_to}."
+    }
+  },
+
+  "validation": {
+    "et_vs_openet": {
+      "en": "Our model's water use for this field differed from OpenET satellite estimates by {bias_pct}.",
+      "es": "El uso de agua de nuestro modelo para este campo difirió de las estimaciones satelitales de OpenET en {bias_pct}."
+    },
+    "sm_vs_smap": {
+      "en": "Our model's wet and dry spells match NASA SMAP soil-moisture data with a correlation of {r} (1.0 is a perfect match).",
+      "es": "Los periodos húmedos y secos de nuestro modelo coinciden con los datos de humedad SMAP de la NASA con una correlación de {r} (1.0 es coincidencia perfecta)."
+    },
+    "precip_power_vs_imerg": {
+      "en": "Rainfall from NASA POWER and NASA's GPM IMERG satellites differed by {bias_pct} for this field.",
+      "es": "La lluvia de NASA POWER y de los satélites GPM IMERG de la NASA difirió en {bias_pct} para este campo."
+    },
+    "precip_vs_cocorahs": {
+      "en": "Satellite rainfall differed from nearby volunteer rain gauges (CoCoRaHS) by {bias_pct}.",
+      "es": "La lluvia satelital difirió de los pluviómetros voluntarios cercanos (CoCoRaHS) en {bias_pct}."
+    }
+  }
+}

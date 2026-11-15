@@ -1,0 +1,113 @@
+{
+  "_meta": { "schema": "glossary@1", "mock": false, "generated_at": "2026-11-15T00:00:00Z", "generator": "content (U)" },
+  "terms": [
+    {
+      "id": "et",
+      "term":  { "en": "Evapotranspiration (ET)", "es": "Evapotranspiración (ET)" },
+      "short": { "en": "The water a field loses to the air: evaporation from the soil plus water the plants breathe out.", "es": "El agua que un campo pierde hacia el aire: la evaporación del suelo más el agua que las plantas transpiran." },
+      "long":  { "en": "ET is the best measure of how much water a crop actually uses. It is usually given in millimetres or inches of water over the field. Satellites estimate it from how warm and how green the field is.", "es": "La ET es la mejor medida de cuánta agua usa realmente un cultivo. Se expresa en milímetros o pulgadas de agua sobre el campo. Los satélites la estiman según qué tan caliente y qué tan verde está el campo." }
+    },
+    {
+      "id": "et0",
+      "term":  { "en": "Reference ET (ET0)", "es": "ET de referencia (ET0)" },
+      "short": { "en": "How much water a well-watered patch of grass would use given the day's sun, heat, wind and humidity.", "es": "Cuánta agua usaría un pasto bien regado según el sol, el calor, el viento y la humedad del día." },
+      "long":  { "en": "ET0 measures how 'thirsty' the weather is. Each crop's water use is calculated from it with a crop coefficient that changes as the crop grows. We calculate it with the standard FAO-56 method from NASA POWER weather data.", "es": "La ET0 mide qué tan 'sediento' está el clima. El uso de agua de cada cultivo se calcula a partir de ella con un coeficiente que cambia según crece el cultivo. La calculamos con el método estándar FAO-56 usando datos del clima de NASA POWER." }
+    },
+    {
+      "id": "ndvi",
+      "term":  { "en": "Greenness (NDVI)", "es": "Verdor (NDVI)" },
+      "short": { "en": "A satellite measure of how green and leafy a field is, from about 0 (bare soil) to about 0.9 (dense green crop).", "es": "Una medida satelital de qué tan verde y frondoso está un campo, de cerca de 0 (suelo desnudo) a cerca de 0.9 (cultivo verde y denso)." },
+      "long":  { "en": "Healthy plants reflect a lot of near-infrared light and absorb red light. NDVI compares the two. A drop in NDVI compared with normal years can show crop stress from drought or heat, and low NDVI shows when a field is bare.", "es": "Las plantas sanas reflejan mucha luz infrarroja cercana y absorben la luz roja. El NDVI compara las dos. Una caída del NDVI frente a años normales puede mostrar estrés por sequía o calor, y un NDVI bajo muestra cuándo el campo está descubierto." }
+    },
+    {
+      "id": "soil_moisture_anomaly",
+      "term":  { "en": "Soil moisture anomaly", "es": "Anomalía de humedad del suelo" },
+      "short": { "en": "How much wetter or drier the soil is than usual for that time of year.", "es": "Qué tanto más húmedo o más seco está el suelo de lo normal para esa época del año." },
+      "long":  { "en": "Soil is naturally drier in late summer than in spring, so we compare each month with the same month in other years. A negative anomaly means drier than normal. NASA's SMAP satellite measures soil moisture every 2–3 days.", "es": "El suelo es naturalmente más seco a fines del verano que en primavera, así que comparamos cada mes con el mismo mes de otros años. Una anomalía negativa significa más seco de lo normal. El satélite SMAP de la NASA mide la humedad del suelo cada 2–3 días." }
+    },
+    {
+      "id": "root_zone",
+      "term":  { "en": "Root zone", "es": "Zona de raíces" },
+      "short": { "en": "The layer of soil the crop's roots can reach and pull water from.", "es": "La capa de suelo a la que llegan las raíces del cultivo para tomar agua." },
+      "long":  { "en": "Deep-rooted crops like alfalfa can reach water that shallow-rooted crops cannot. How much water the root zone can hold depends on soil texture: sandy soils hold much less than silt loams.", "es": "Los cultivos de raíces profundas como la alfalfa alcanzan agua que los de raíces cortas no pueden. Cuánta agua guarda la zona de raíces depende de la textura: los suelos arenosos guardan mucho menos que los francos limosos." }
+    },
+    {
+      "id": "frost_risk",
+      "term":  { "en": "Frost risk", "es": "Riesgo de helada" },
+      "short": { "en": "The chance of temperatures low enough to damage a crop at a given time of year.", "es": "La probabilidad de temperaturas tan bajas que dañen un cultivo en cierta época del año." },
+      "long":  { "en": "We count how often past years had a damaging frost in each month. Low spots in a field can be colder than the rest because cold air settles there.", "es": "Contamos con qué frecuencia los años pasados tuvieron una helada dañina en cada mes. Las partes bajas de un campo pueden ser más frías porque ahí se acumula el aire frío." }
+    },
+    {
+      "id": "gdd",
+      "term":  { "en": "Growing degree days (GDD)", "es": "Grados día de crecimiento (GDD)" },
+      "short": { "en": "A running total of useful warmth that tells how fast a crop develops.", "es": "Un total acumulado de calor útil que indica qué tan rápido se desarrolla un cultivo." },
+      "long":  { "en": "Each day adds the amount the average temperature is above 10 °C (50 °F). A crop needs a certain total to reach maturity, so GDD shows whether the season is long enough for a crop.", "es": "Cada día suma lo que la temperatura promedio supera los 10 °C (50 °F). Un cultivo necesita cierto total para madurar, así que los GDD muestran si la temporada es suficientemente larga." }
+    },
+    {
+      "id": "water_balance",
+      "term":  { "en": "Water balance", "es": "Balance de agua" },
+      "short": { "en": "Keeping track of water coming into the soil (rain, irrigation) and going out (crop use, evaporation, runoff, drainage).", "es": "Llevar la cuenta del agua que entra al suelo (lluvia, riego) y la que sale (uso del cultivo, evaporación, escurrimiento, drenaje)." },
+      "long":  { "en": "Our replay keeps this balance for every day from 2000 to 2025. When the soil runs low, the crop gets stressed, and irrigation is added if your water limit allows.", "es": "Nuestra repetición lleva este balance para cada día de 2000 a 2025. Cuando el suelo se queda con poca agua, el cultivo se estresa, y se agrega riego si su límite de agua lo permite." }
+    },
+    {
+      "id": "evaporative_stress",
+      "term":  { "en": "Evaporative stress", "es": "Estrés evaporativo" },
+      "short": { "en": "When a crop uses less water than the weather demands, a sign that it is short of water.", "es": "Cuando un cultivo usa menos agua de la que exige el clima, señal de que le falta agua." },
+      "long":  { "en": "NASA's ECOSTRESS instrument on the Space Station measures plant temperature. Water-stressed plants run hotter because they can't cool themselves, which shows up as a high stress index.", "es": "El instrumento ECOSTRESS de la NASA en la Estación Espacial mide la temperatura de las plantas. Las plantas con falta de agua se calientan más porque no pueden enfriarse, lo que aparece como un índice de estrés alto." }
+    },
+    {
+      "id": "aquifer",
+      "term":  { "en": "Aquifer", "es": "Acuífero" },
+      "short": { "en": "Underground layers of sand and gravel that hold water wells pump from. Here, the High Plains (Ogallala) aquifer.", "es": "Capas subterráneas de arena y grava que guardan el agua que bombean los pozos. Aquí, el acuífero de las Altas Planicies (Ogallala)." },
+      "long":  { "en": "In western Kansas the aquifer refills very slowly, so pumping faster than it refills lowers the water table year after year. NASA's GRACE satellites measure changes in underground water by sensing tiny changes in gravity.", "es": "En el oeste de Kansas el acuífero se recarga muy lentamente, así que bombear más rápido de lo que se recarga baja el nivel del agua año tras año. Los satélites GRACE de la NASA miden los cambios del agua subterránea detectando cambios muy pequeños en la gravedad." }
+    },
+    {
+      "id": "rotation",
+      "term":  { "en": "Crop rotation", "es": "Rotación de cultivos" },
+      "short": { "en": "Growing different crops on the same field in a planned order over several years.", "es": "Sembrar distintos cultivos en el mismo campo en un orden planeado durante varios años." },
+      "long":  { "en": "Rotating crops can break pest and disease cycles, balance water use, add nitrogen, and keep the soil covered for more of the year.", "es": "Rotar cultivos puede romper ciclos de plagas y enfermedades, equilibrar el uso de agua, agregar nitrógeno y mantener el suelo cubierto más tiempo del año." }
+    },
+    {
+      "id": "cover_crop",
+      "term":  { "en": "Cover crop", "es": "Cultivo de cobertura" },
+      "short": { "en": "A crop grown mainly to protect and feed the soil between cash crops, such as cereal rye over winter.", "es": "Un cultivo sembrado sobre todo para proteger y alimentar el suelo entre cultivos comerciales, como el centeno en invierno." },
+      "long":  { "en": "Cover crops keep living roots in the ground, hold soil against wind and rain, and add organic matter. In dry areas they also use some water, so timing and termination matter.", "es": "Los cultivos de cobertura mantienen raíces vivas, sostienen el suelo contra el viento y la lluvia, y agregan materia orgánica. En zonas secas también usan algo de agua, así que importan las fechas y cuándo terminarlos." }
+    },
+    {
+      "id": "fallow",
+      "term":  { "en": "Fallow", "es": "Barbecho" },
+      "short": { "en": "Leaving a field unplanted for a season so it can store rain for the next crop.", "es": "Dejar un campo sin sembrar por una temporada para que guarde lluvia para el siguiente cultivo." },
+      "long":  { "en": "Fallow is common in dryland western Kansas. Keeping the previous crop's stubble standing helps the soil catch snow and protects it from wind; bare tilled fallow is the most likely to blow.", "es": "El barbecho es común en el secano del oeste de Kansas. Dejar en pie el rastrojo del cultivo anterior ayuda a atrapar nieve y protege el suelo del viento; el barbecho labrado y desnudo es el que más se vuela." }
+    },
+    {
+      "id": "nitrogen_fixing",
+      "term":  { "en": "Nitrogen-fixing crop", "es": "Cultivo fijador de nitrógeno" },
+      "short": { "en": "A legume, such as soybean or alfalfa, that takes nitrogen from the air and leaves some in the soil.", "es": "Una leguminosa, como la soya o la alfalfa, que toma nitrógeno del aire y deja parte en el suelo." },
+      "long":  { "en": "Bacteria in the roots of legumes turn nitrogen from the air into a form plants can use. The next crop may need less nitrogen fertilizer; your agronomist can estimate how much.", "es": "Las bacterias en las raíces de las leguminosas convierten el nitrógeno del aire en una forma que las plantas pueden usar. El siguiente cultivo puede necesitar menos fertilizante nitrogenado; su agrónomo puede estimar cuánto." }
+    },
+    {
+      "id": "wind_erosion",
+      "term":  { "en": "Wind erosion", "es": "Erosión por viento" },
+      "short": { "en": "Soil blown away by strong wind, mostly from bare, dry, sandy ground.", "es": "Suelo que se lleva el viento fuerte, sobre todo de terrenos desnudos, secos y arenosos." },
+      "long":  { "en": "Wind erosion caused the Dust Bowl of the 1930s in this region. The soil survey rates how easily each soil blows. Our index counts days when the ground is bare and the wind is strong, adjusted for your soil.", "es": "La erosión por viento causó el Dust Bowl de los años 30 en esta región. El estudio de suelos califica qué tan fácil se vuela cada suelo. Nuestro índice cuenta los días con suelo descubierto y viento fuerte, ajustado a su suelo." }
+    },
+    {
+      "id": "water_erosion",
+      "term":  { "en": "Water erosion", "es": "Erosión por agua" },
+      "short": { "en": "Soil washed away by heavy rain, mostly from bare ground on slopes.", "es": "Suelo que arrastra la lluvia fuerte, sobre todo de terrenos desnudos en pendiente." },
+      "long":  { "en": "Our index counts heavy-rain days when the ground is bare, adjusted for slope and how easily your soil washes. It compares options on the same field; it is not tons of soil lost.", "es": "Nuestro índice cuenta los días de lluvia fuerte con suelo descubierto, ajustado a la pendiente y a qué tan fácil se lava su suelo. Sirve para comparar opciones en el mismo campo; no son toneladas de suelo perdido." }
+    },
+    {
+      "id": "satellite_vs_ground",
+      "term":  { "en": "Satellite vs. ground measurements", "es": "Mediciones satelitales vs. en tierra" },
+      "short": { "en": "Satellites see every field every few days but estimate from a distance; ground instruments are exact but only at one spot.", "es": "Los satélites ven todos los campos cada pocos días pero estiman a distancia; los instrumentos en tierra son exactos pero solo en un punto." },
+      "long":  { "en": "A rain gauge measures exactly what fell in it, but rain can be very different a few miles away. A satellite covers the whole area but averages over many square kilometres. We use both and show how well they agree, so you can judge how much to trust each number.", "es": "Un pluviómetro mide exactamente lo que cayó en él, pero la lluvia puede ser muy distinta a unas millas. Un satélite cubre toda la zona pero promedia muchos kilómetros cuadrados. Usamos ambos y mostramos qué tanto coinciden, para que usted juzgue cuánto confiar en cada número." }
+    },
+    {
+      "id": "model_estimate",
+      "term":  { "en": "Model estimate", "es": "Estimación del modelo" },
+      "short": { "en": "A number calculated by our simplified water-budget model, not measured on your field.", "es": "Un número calculado por nuestro modelo simplificado del balance de agua, no medido en su campo." },
+      "long":  { "en": "The model uses published crop water needs, your soil and 25 years of real weather. We check it against satellite measurements where we can. It is good for comparing options with each other, less good for predicting an exact number for next year.", "es": "El modelo usa necesidades de agua de cultivos publicadas, su suelo y 25 años de clima real. Lo comparamos con mediciones satelitales cuando es posible. Sirve para comparar opciones entre sí, menos para predecir un número exacto para el próximo año." }
+    }
+  ]
+}

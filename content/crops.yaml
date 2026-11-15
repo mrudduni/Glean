@@ -1,0 +1,233 @@
+# Crop traits for the Rotation Replay model (read by M; schema in README §8.5).
+# Owner: U (design + content).
+#
+# STATUS: draft. Values are approximate starting points from the standard FAO tables plus
+# typical southwest Kansas timing. Every line marked "# verify" still needs checking against
+# the source named in `sources`. Use null rather than guessing; M fills yields and prices from
+# NASS where it can.
+#
+# Sources referred to below:
+#   FAO-56  = Allen et al. (1998), FAO Irrigation and Drainage Paper 56, Crop evapotranspiration.
+#             Table 11 (stage lengths), Table 12 (Kc), Table 22 (root depth, depletion fraction p).
+#   FAO-33  = Doorenbos & Kassam (1979), FAO Irrigation and Drainage Paper 33, Yield response to water (Ky).
+#   KSRE    = K-State Research and Extension crop production handbooks and planting-date guides.
+#   SARE    = SARE, Managing Cover Crops Profitably (3rd ed.).
+#
+# Dates are MM-DD for Finney County, Kansas. stage_days must add up to roughly the time from the
+# middle of plant_window to the middle of harvest_window.
+
+corn:
+  name: { en: "Corn", es: "Maíz" }
+  family: poaceae
+  host_group: corn                 # corn rootworm and other corn-specific pests
+  season: summer
+  plant_window:   { start: "04-20", end: "05-15" }    # verify (KSRE)
+  harvest_window: { start: "09-20", end: "10-31" }    # verify (KSRE)
+  stage_days: { ini: 30, dev: 40, mid: 50, late: 30 } # 150 days; FAO-56 Table 11 grain maize, verify for SW Kansas hybrids
+  kc: { ini: 0.30, mid: 1.20, end: 0.35 }             # FAO-56 Table 12 (end 0.35 = dried in field)
+  root_max_m: 1.5                                     # FAO-56 Table 22 range 1.0–1.7
+  p: 0.55                                             # FAO-56 Table 22
+  ky: 1.25                                            # FAO-33
+  heat: { stage: mid, tmax_c: 35 }                    # pollination; verify (KSRE)
+  frost_kill_c: -2                                    # verify
+  requires_irrigation: false
+  n_fixing: false
+  residue: high
+  root_type: fibrous
+  forage: false
+  yield: { nass_commodity: "CORN", unit: "bu/ac", irrigated_default: null, dryland_default: null }
+  price: { unit: "usd/bu", default: null }
+  equipment: []
+  sources: ["FAO-56 Table 11", "FAO-56 Table 12", "FAO-56 Table 22", "FAO-33", "KSRE"]
+
+sorghum:
+  name: { en: "Grain sorghum", es: "Sorgo de grano" }
+  family: poaceae
+  host_group: sorghum              # not a corn-rootworm host, so it breaks that cycle; shares some pests with corn (verify)
+  season: summer
+  plant_window:   { start: "05-20", end: "06-15" }    # verify (KSRE)
+  harvest_window: { start: "10-01", end: "11-10" }    # verify (KSRE)
+  stage_days: { ini: 20, dev: 35, mid: 40, late: 30 } # 125 days; FAO-56 Table 11, verify
+  kc: { ini: 0.30, mid: 1.05, end: 0.55 }             # FAO-56 Table 12 (mid 1.00–1.10)
+  root_max_m: 1.5                                     # FAO-56 Table 22 range 1.0–2.0
+  p: 0.55
+  ky: 0.90                                            # FAO-33
+  heat: { stage: mid, tmax_c: 38 }                    # flowering; verify
+  frost_kill_c: -2                                    # verify
+  requires_irrigation: false
+  n_fixing: false
+  residue: high
+  root_type: fibrous
+  forage: false
+  yield: { nass_commodity: "SORGHUM", unit: "bu/ac", irrigated_default: null, dryland_default: null }
+  price: { unit: "usd/bu", default: null }            # NASS sometimes reports $/cwt; M converts
+  equipment: []
+  sources: ["FAO-56 Table 11", "FAO-56 Table 12", "FAO-56 Table 22", "FAO-33", "KSRE"]
+
+wheat:
+  name: { en: "Winter wheat", es: "Trigo de invierno" }
+  family: poaceae
+  host_group: small_grain          # shares pests and diseases (e.g. wheat streak mosaic) with triticale and rye
+  season: winter
+  plant_window:   { start: "09-15", end: "10-15" }    # verify (KSRE)
+  harvest_window: { start: "06-20", end: "07-10" }    # verify (KSRE)
+  stage_days: { ini: 160, dev: 45, mid: 40, late: 20 } # ~265 days incl. winter dormancy in ini; verify
+  kc: { ini: 0.40, mid: 1.15, end: 0.30 }             # FAO-56 Table 12 (ini 0.7 if soil frozen; end 0.25–0.4)
+  root_max_m: 1.5                                     # FAO-56 Table 22 range 1.5–1.8
+  p: 0.55
+  ky: 1.00                                            # FAO-33 winter wheat
+  heat: { stage: late, tmax_c: 32 }                   # grain fill; verify (KSRE)
+  frost_kill_c: -18                                   # winter-hardy when dormant; spring freeze at heading is the real risk (verify)
+  requires_irrigation: false
+  n_fixing: false
+  residue: high                                       # standing stubble
+  root_type: fibrous
+  forage: false
+  yield: { nass_commodity: "WHEAT", unit: "bu/ac", irrigated_default: null, dryland_default: null }
+  price: { unit: "usd/bu", default: null }
+  equipment: []
+  sources: ["FAO-56 Table 11", "FAO-56 Table 12", "FAO-56 Table 22", "FAO-33", "KSRE"]
+
+soybean:
+  name: { en: "Soybean", es: "Soya" }
+  family: fabaceae
+  host_group: soybean
+  season: summer
+  plant_window:   { start: "05-10", end: "06-05" }    # verify (KSRE)
+  harvest_window: { start: "09-25", end: "10-25" }    # verify (KSRE)
+  stage_days: { ini: 20, dev: 30, mid: 60, late: 25 } # 135 days; FAO-56 Table 11 central USA
+  kc: { ini: 0.40, mid: 1.15, end: 0.50 }             # FAO-56 Table 12
+  root_max_m: 1.0                                     # FAO-56 Table 22 range 0.6–1.3
+  p: 0.50
+  ky: 0.85                                            # FAO-33
+  heat: { stage: mid, tmax_c: 35 }                    # flowering and pod set; verify
+  frost_kill_c: -2                                    # verify
+  requires_irrigation: false
+  n_fixing: true
+  residue: low
+  root_type: tap
+  forage: false
+  yield: { nass_commodity: "SOYBEANS", unit: "bu/ac", irrigated_default: null, dryland_default: null }
+  price: { unit: "usd/bu", default: null }
+  equipment: []
+  sources: ["FAO-56 Table 11", "FAO-56 Table 12", "FAO-56 Table 22", "FAO-33", "KSRE"]
+
+alfalfa:
+  name: { en: "Alfalfa", es: "Alfalfa" }
+  family: fabaceae
+  host_group: alfalfa
+  season: perennial                                   # one step = one growing season of an established stand
+  plant_window:   { start: "03-15", end: "03-31" }    # green-up of an established stand; new stands are often fall-seeded (verify)
+  harvest_window: { start: "10-15", end: "10-31" }    # last cutting; 4–5 cuttings a season (verify)
+  stage_days: { ini: 20, dev: 40, mid: 150, late: 20 } # ~230 days, averaged over cuttings; verify
+  kc: { ini: 0.40, mid: 0.95, end: 0.90 }             # FAO-56 Table 12, averaged cutting effects
+  root_max_m: 1.5                                     # FAO-56 Table 22 range 1.0–2.0 (model profile is capped at 1.5 m)
+  p: 0.55
+  ky: 1.10                                            # FAO-33
+  heat: null                                          # no single heat-sensitive stage
+  frost_kill_c: -15                                   # established, dormant stand; verify
+  requires_irrigation: false                          # dryland alfalfa exists but yields are low; rotations set min_cap
+  n_fixing: true
+  residue: medium
+  root_type: deep_tap
+  forage: true
+  yield: { nass_commodity: "HAY", unit: "tons/ac", irrigated_default: null, dryland_default: null }   # NASS class ALFALFA
+  price: { unit: "usd/ton", default: null }
+  equipment: [hay]
+  sources: ["FAO-56 Table 12", "FAO-56 Table 22", "FAO-33", "KSRE"]
+
+triticale:
+  name: { en: "Triticale (forage)", es: "Triticale (forraje)" }
+  family: poaceae
+  host_group: small_grain
+  season: winter
+  plant_window:   { start: "09-20", end: "10-15" }    # verify (KSRE forage guides)
+  harvest_window: { start: "05-01", end: "05-20" }    # cut at boot stage for forage; verify
+  stage_days: { ini: 150, dev: 45, mid: 25, late: 5 } # ~225 days incl. dormancy; verify
+  kc: { ini: 0.40, mid: 1.10, end: 0.40 }             # no FAO-56 entry; wheat-like values (verify)
+  root_max_m: 1.2                                     # verify
+  p: 0.55
+  ky: 1.00                                            # no FAO-33 entry; wheat value as proxy (verify)
+  heat: null                                          # harvested before summer heat
+  frost_kill_c: -15                                   # verify
+  requires_irrigation: false
+  n_fixing: false
+  residue: low                                        # forage removed
+  root_type: fibrous
+  forage: true
+  yield: { nass_commodity: null, unit: "tons/ac", irrigated_default: null, dryland_default: null }   # TODO: no NASS county data; fill from K-State forage trials
+  price: { unit: "usd/ton", default: null }           # TODO: forage price (verify; AMS hay reports or KSRE)
+  equipment: [hay]
+  sources: ["FAO-56 Table 12 (wheat as proxy)", "KSRE", "SARE"]
+
+rye_cover:
+  name: { en: "Cereal rye (cover crop)", es: "Centeno (cultivo de cobertura)" }
+  family: poaceae
+  host_group: small_grain
+  season: cover
+  plant_window:   { start: "10-05", end: "10-31" }    # after summer-crop harvest; verify
+  harvest_window: { start: "04-01", end: "04-20" }    # terminated before planting the next crop; verify
+  stage_days: { ini: 120, dev: 40, mid: 20, late: 2 } # ~182 days incl. dormancy; verify
+  kc: { ini: 0.40, mid: 1.00, end: 0.40 }             # no FAO-56 entry; small-grain values (verify)
+  root_max_m: 1.0                                     # verify
+  p: 0.55
+  ky: null                                            # not harvested
+  heat: null
+  frost_kill_c: -25                                   # very winter-hardy (verify, SARE)
+  requires_irrigation: false
+  n_fixing: false
+  residue: medium                                     # biomass left on the surface
+  root_type: fibrous
+  forage: false
+  yield: { nass_commodity: null, unit: null, irrigated_default: null, dryland_default: null }
+  price: { unit: null, default: null }
+  equipment: []
+  sources: ["SARE", "KSRE"]
+
+cotton:
+  name: { en: "Cotton", es: "Algodón" }
+  family: malvaceae
+  host_group: cotton
+  season: summer
+  plant_window:   { start: "05-10", end: "05-31" }    # verify (KSRE cotton guides)
+  harvest_window: { start: "10-20", end: "11-30" }    # verify
+  stage_days: { ini: 30, dev: 50, mid: 55, late: 45 } # 180 days; FAO-56 Table 11 (Texas), verify
+  kc: { ini: 0.35, mid: 1.15, end: 0.60 }             # FAO-56 Table 12 (mid 1.15–1.20, end 0.70–0.50)
+  root_max_m: 1.4                                     # FAO-56 Table 22 range 1.0–1.7
+  p: 0.65
+  ky: 0.85                                            # FAO-33
+  heat: { stage: mid, tmax_c: 38 }                    # boll set; verify
+  frost_kill_c: -1                                    # verify
+  requires_irrigation: false
+  n_fixing: false
+  residue: low
+  root_type: tap
+  forage: false
+  yield: { nass_commodity: "COTTON", unit: "lb/ac", irrigated_default: null, dryland_default: null }   # lint
+  price: { unit: "usd/lb", default: null }
+  equipment: [cotton]
+  sources: ["FAO-56 Table 11", "FAO-56 Table 12", "FAO-56 Table 22", "FAO-33", "KSRE"]
+
+fallow:
+  name: { en: "Fallow", es: "Barbecho" }
+  family: null
+  host_group: null
+  season: none
+  plant_window:   null
+  harvest_window: null
+  stage_days: { ini: 0, dev: 0, mid: 0, late: 0 }
+  kc: { ini: 0.30, mid: 0.30, end: 0.30 }             # bare-soil evaporation; M's model reduces it as the surface dries
+  root_max_m: 0
+  p: null
+  ky: null
+  heat: null
+  frost_kill_c: null
+  requires_irrigation: false
+  n_fixing: false
+  residue: low                                        # actual cover depends on the previous crop's stubble (M applies it)
+  root_type: null
+  forage: false
+  yield: { nass_commodity: null, unit: null, irrigated_default: null, dryland_default: null }
+  price: { unit: null, default: null }
+  equipment: []
+  sources: ["FAO-56 (bare soil evaporation)"]

@@ -1,0 +1,842 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>RootCycle Wireframes</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@600;700;800&family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<!-- Fallback copy of design/tokens.css so this page renders even when opened outside the repo.
+     The linked file below loads after it and wins whenever it's found. Keep values in sync. -->
+<style id="tokens-fallback">
+:root {
+  --color-bg:#F4F6F2; --color-surface:#FFFFFF; --color-fg:#1A231E; --color-muted:#55615A; --color-border:#D3DAD2; --color-accent:#1D5D88;
+  --color-good:#2D7A4C; --color-fair:#A86400; --color-limited:#B42318;
+  --crop-corn:#FFD300; --crop-sorghum:#FF9E0A; --crop-wheat:#8C5F00; --crop-soybean:#267000; --crop-alfalfa:#FFA5E2;
+  --crop-triticale:#D69EBC; --crop-rye_cover:#AC007C; --crop-cotton:#FF5C5C; --crop-fallow:#BFBF77; --crop-bare:#E6DCC6;
+  --rot-R0:#4D4D4D; --rot-R1:#0072B2; --rot-R2:#B8780A; --rot-R3:#009E73; --rot-R4:#CC79A7; --rot-R5:#882255; --rot-R6:#5E5E00;
+  --risk-heat:#C8323C; --risk-frost:#3B8FD6; --risk-dry:#9A6A1E; --risk-storm:#33507A; --risk-wind:#7B67B5;
+  --font-display:"Archivo","Segoe UI",system-ui,-apple-system,sans-serif;
+  --font-body:"Atkinson Hyperlegible","Segoe UI",system-ui,-apple-system,sans-serif;
+  --font-mono:"IBM Plex Mono",ui-monospace,"Cascadia Mono",Consolas,monospace;
+  --radius:8px;
+}
+</style>
+<link rel="stylesheet" href="../tokens.css">
+<style>
+/* ---------- wireframe chrome (not part of the app) ---------- */
+:root { --wf-ink:#20262b; --wf-paper:#e9ece8; --wf-note:#d9480f; --wf-note-bg:#fff4ec; }
+* { box-sizing: border-box; }
+html, body { margin: 0; }
+[hidden] { display: none !important; }
+body { background: var(--wf-paper); color: var(--color-fg); font-family: var(--font-body); font-size: 15px; line-height: 1.5; }
+.wf-bar { position: sticky; top: 0; z-index: 50; background: var(--wf-ink); color: #f1f3f1; padding: 10px max(16px, env(safe-area-inset-left)); display: flex; flex-wrap: wrap; gap: 10px 18px; align-items: center; }
+.wf-bar h1 { font: 700 15px/1.2 var(--font-display); margin: 0; letter-spacing: .01em; }
+.wf-bar h1 small { font: 400 12px var(--font-mono); opacity: .7; margin-left: 6px; }
+.wf-tabs, .wf-toggles { display: flex; flex-wrap: wrap; gap: 4px; }
+.wf-tabs button, .wf-toggles button { font: 500 12.5px var(--font-mono); background: transparent; color: #d7dcd8; border: 1px solid #4a535a; border-radius: 6px; padding: 5px 10px; cursor: pointer; }
+.wf-tabs button[aria-selected="true"], .wf-toggles button[aria-pressed="true"] { background: #f1f3f1; color: var(--wf-ink); border-color: #f1f3f1; }
+.wf-spacer { flex: 1; }
+.wf-stage { padding: 24px max(16px, env(safe-area-inset-left)) 48px; display: grid; gap: 20px; justify-items: center; }
+.wf-intro { max-width: 1280px; width: 100%; font-size: 14px; color: #3b4540; display: grid; gap: 4px; }
+.wf-intro b { color: var(--wf-ink); }
+.frame { width: 100%; max-width: 1280px; background: var(--color-bg); border-radius: 12px; box-shadow: 0 1px 0 #c9cfc9, 0 12px 40px rgba(20,30,25,.12); overflow: hidden; container-type: inline-size; transition: max-width .25s; }
+body.phone .frame { max-width: 390px; }
+.notes { width: 100%; max-width: 1280px; background: #fff; border: 1px solid #cfd5cf; border-radius: 10px; padding: 16px 20px; font-size: 14px; }
+.notes h2 { font: 700 14px var(--font-display); margin: 0 0 8px; text-transform: uppercase; letter-spacing: .06em; color: var(--wf-note); }
+.notes ul { margin: 0; padding-left: 18px; display: grid; gap: 4px; }
+.notes code { font-family: var(--font-mono); font-size: 12.5px; background: #eef1ee; padding: 0 4px; border-radius: 3px; }
+@media (prefers-reduced-motion: reduce) { * { transition: none !important; } }
+
+/* annotations */
+body.ann [data-note] { outline: 1.5px dashed var(--wf-note); outline-offset: 2px; position: relative; }
+body.ann [data-note]::before { content: attr(data-note); position: absolute; top: -9px; left: 8px; z-index: 20; pointer-events: none; font: 500 10.5px/1.3 var(--font-mono); color: #fff; background: var(--wf-note); padding: 1px 6px; border-radius: 3px; white-space: nowrap; max-width: calc(100% - 16px); overflow: hidden; text-overflow: ellipsis; }
+
+/* ---------- app styles (what F builds) ---------- */
+.app { min-height: 100%; }
+.mock { background: #fff3c4; color: #5c4400; font: 500 12.5px var(--font-mono); text-align: center; padding: 5px 12px; }
+.hdr { display: flex; align-items: center; gap: 16px; padding: 12px 24px; background: var(--color-surface); border-bottom: 1px solid var(--color-border); }
+.logo { font: 800 19px var(--font-display); letter-spacing: -.01em; display: flex; align-items: center; gap: 8px; }
+.logo i { width: 22px; height: 22px; border-radius: 50%; background: conic-gradient(var(--crop-wheat) 0 33%, var(--crop-sorghum) 0 66%, var(--crop-fallow) 0); display: inline-block; }
+.hdr nav { display: flex; gap: 2px; flex: 1; overflow-x: auto; }
+.hdr nav a { font-size: 14px; padding: 6px 10px; border-radius: 6px; color: var(--color-muted); text-decoration: none; white-space: nowrap; }
+.hdr nav a.on { color: var(--color-fg); background: var(--color-bg); font-weight: 700; }
+.lang { display: flex; border: 1px solid var(--color-border); border-radius: 999px; overflow: hidden; font-size: 13px; }
+.lang span { padding: 4px 10px; } .lang span.on { background: var(--color-fg); color: var(--color-surface); }
+.page { padding: 24px; display: grid; gap: 20px; }
+h2.t { font: 700 26px/1.2 var(--font-display); margin: 0; text-wrap: balance; }
+h3.t { font: 700 18px/1.25 var(--font-display); margin: 0; }
+.sub { color: var(--color-muted); margin: 0; max-width: 65ch; }
+.card { background: var(--color-surface); border: 1px solid var(--color-border); border-radius: var(--radius); padding: 16px; display: grid; gap: 10px; align-content: start; min-width: 0; }
+.eyebrow { font: 500 11.5px var(--font-mono); letter-spacing: .08em; text-transform: uppercase; color: var(--color-muted); }
+.chips { display: flex; flex-wrap: wrap; gap: 4px; align-items: center; }
+.chip { font-size: 12.5px; padding: 2px 8px; border-radius: 4px; font-weight: 700; line-height: 1.5; }
+.arrow { color: var(--color-muted); font-size: 12px; }
+.src { font: 500 10.5px var(--font-mono); padding: 1px 5px; border: 1px solid var(--color-border); border-radius: 3px; color: var(--color-accent); background: var(--color-bg); white-space: nowrap; }
+.btn { font: 700 14px var(--font-body); background: var(--color-accent); color: #fff; border: 0; border-radius: var(--radius); padding: 9px 14px; cursor: pointer; justify-self: start; }
+.btn.ghost { background: transparent; color: var(--color-accent); border: 1px solid var(--color-border); }
+.num { font-variant-numeric: tabular-nums; }
+.big { font: 700 22px var(--font-display); font-variant-numeric: tabular-nums; }
+.muted { color: var(--color-muted); }
+.pill { font-size: 12px; font-weight: 700; padding: 2px 8px; border-radius: 999px; border: 1.5px solid currentColor; display: inline-flex; gap: 4px; align-items: center; }
+.good { color: var(--color-good); } .fair { color: var(--color-fair); } .limited { color: var(--color-limited); }
+.foot { border-top: 1px solid var(--color-border); padding: 14px 24px; font-size: 13px; color: var(--color-muted); background: var(--color-surface); }
+
+/* screen 1 */
+.pick { display: grid; grid-template-columns: 1.3fr 1fr; gap: 20px; align-items: start; }
+.map { background: #dfe6d8; border-radius: var(--radius); border: 1px solid var(--color-border); overflow: hidden; }
+.map svg { display: block; width: 100%; height: auto; }
+.fcards { display: grid; gap: 12px; }
+.fcard { display: grid; grid-template-columns: 64px 1fr; gap: 12px; }
+.fcard .thumb { width: 64px; height: 64px; border-radius: 6px; background: #c9d3bf; display: grid; place-items: center; }
+
+/* screen 2 */
+.whead { display: flex; flex-wrap: wrap; gap: 8px 16px; align-items: baseline; }
+.secnav { display: flex; gap: 6px; overflow-x: auto; padding-bottom: 2px; }
+.secnav a { font-size: 13px; padding: 5px 10px; border-radius: 999px; border: 1px solid var(--color-border); color: var(--color-fg); text-decoration: none; white-space: nowrap; background: var(--color-surface); }
+.secnav a.on { background: var(--color-fg); color: var(--color-surface); border-color: var(--color-fg); }
+.ov { display: grid; grid-template-columns: repeat(4, minmax(0,1fr)); gap: 14px; }
+.kv { display: grid; grid-template-columns: 1fr auto; gap: 4px 10px; font-size: 14px; }
+.kv dt { color: var(--color-muted); } .kv dd { margin: 0; font-weight: 700; text-align: right; }
+.meter { height: 8px; border-radius: 4px; background: var(--color-bg); border: 1px solid var(--color-border); overflow: hidden; }
+.meter b { display: block; height: 100%; background: var(--risk-wind); }
+.pair { display: grid; gap: 4px; font-size: 13px; }
+.pair .row { display: grid; grid-template-columns: 64px 1fr 48px; gap: 8px; align-items: center; }
+.bar { height: 10px; border-radius: 3px; }
+.heads { display: grid; grid-template-columns: repeat(3, minmax(0,1fr)); gap: 14px; }
+.head { font-size: 15px; }
+
+/* screen 3 */
+.strip { display: grid; grid-template-columns: 96px repeat(12, minmax(36px,1fr)); gap: 3px; font-size: 11.5px; }
+.strip .h { font: 500 11px var(--font-mono); color: var(--color-muted); text-align: center; }
+.strip .rl { font-size: 12px; color: var(--color-muted); align-self: center; }
+.odds { display: grid; gap: 2px; align-content: end; height: 38px; }
+.odds i { display: block; height: 6px; border-radius: 2px; }
+.calwrap { overflow-x: auto; }
+.cal { display: grid; gap: 14px; min-width: 620px; }
+.calrot { display: grid; gap: 4px; }
+.calrot .name { font-weight: 700; font-size: 14px; display: flex; gap: 8px; align-items: center; }
+.calgrid { display: grid; grid-template-columns: 96px repeat(12, minmax(36px,1fr)); gap: 3px; }
+.cell { height: 34px; border-radius: 4px; position: relative; font: 700 10px var(--font-mono); display: flex; align-items: flex-start; justify-content: flex-start; padding: 3px 4px; overflow: hidden; }
+.cell.bare { background: repeating-linear-gradient(135deg, var(--crop-bare) 0 5px, #f3ecdc 5px 9px); color: var(--color-muted); }
+.cell .fl { position: absolute; right: 3px; bottom: 3px; display: flex; gap: 2px; }
+.cell .fl i { width: 9px; height: 9px; border-radius: 50%; border: 1.5px solid #fff; display: block; }
+.yl { font-size: 12px; color: var(--color-muted); align-self: center; }
+.legend { display: flex; flex-wrap: wrap; gap: 6px 14px; font-size: 12.5px; color: var(--color-muted); align-items: center; }
+.legend span { display: inline-flex; gap: 5px; align-items: center; }
+.sw { width: 14px; height: 14px; border-radius: 3px; display: inline-block; }
+.dot { width: 10px; height: 10px; border-radius: 50%; display: inline-block; }
+
+/* screen 4 */
+.plan { display: grid; grid-template-columns: 280px minmax(0,1fr); gap: 20px; align-items: start; }
+.pri { position: sticky; top: 12px; }
+.slider { display: grid; gap: 2px; font-size: 14px; }
+.slider label { display: flex; justify-content: space-between; }
+.slider input { width: 100%; accent-color: var(--color-accent); }
+.seg { display: grid; grid-template-columns: repeat(2, 1fr); gap: 4px; }
+.seg button { font: 400 13px var(--font-body); padding: 6px 4px; border-radius: 6px; border: 1px solid var(--color-border); background: var(--color-surface); color: var(--color-fg); cursor: pointer; }
+.seg button[aria-pressed="true"] { background: var(--color-fg); color: var(--color-surface); border-color: var(--color-fg); }
+.check { display: flex; gap: 8px; font-size: 14px; align-items: flex-start; }
+.check input { margin-top: 4px; accent-color: var(--color-accent); }
+.cards { display: grid; grid-template-columns: repeat(4, minmax(0,1fr)); gap: 12px; align-items: start; }
+.scard { border-top: 5px solid var(--c); }
+.scard.cur { background: #f8f9f7; }
+.scard .score { display: grid; grid-template-columns: 1fr auto; gap: 4px 8px; align-items: center; font-size: 13px; }
+.scard .score .meter b { background: var(--c); }
+.crit { display: grid; gap: 3px; font-size: 12px; }
+.crit .r { display: grid; grid-template-columns: 1fr 60px; gap: 6px; align-items: center; }
+.crit .meter { height: 6px; }
+.crit .meter b { background: var(--color-muted); }
+.sec { border-top: 1px solid var(--color-border); padding-top: 8px; display: grid; gap: 4px; }
+.sec h4 { font: 700 13px var(--font-body); margin: 0; display: flex; gap: 6px; align-items: center; }
+.sec ul { margin: 0; padding-left: 16px; font-size: 13.5px; display: grid; gap: 4px; }
+.sec.gap h4 { color: var(--color-fair); } .sec.risk h4 { color: var(--color-limited); }
+.hidden-list { font-size: 14px; }
+.hidden-list summary { cursor: pointer; color: var(--color-accent); font-weight: 700; }
+.tag { font: 700 11px var(--font-mono); background: var(--color-fg); color: var(--color-surface); padding: 1px 6px; border-radius: 3px; }
+
+/* screen 5 */
+.r5 { display: grid; grid-template-columns: minmax(0,1fr) 360px; gap: 20px; align-items: start; }
+.metric { display: flex; flex-wrap: wrap; gap: 4px; }
+.metric button { font: 400 13px var(--font-body); padding: 5px 10px; border-radius: 999px; border: 1px solid var(--color-border); background: var(--color-surface); color: var(--color-fg); cursor: pointer; }
+.metric button[aria-pressed="true"] { background: var(--color-fg); color: var(--color-surface); }
+.chart svg { width: 100%; height: auto; display: block; }
+.chart text { font: 11px var(--font-mono); fill: var(--color-muted); }
+.sumrow { display: grid; grid-template-columns: repeat(4, minmax(0,1fr)); gap: 8px; font-size: 13px; }
+.sumrow div { border-left: 4px solid var(--c); padding-left: 8px; }
+.nb { display: grid; grid-template-columns: 300px minmax(0,1fr); gap: 16px; align-items: start; }
+.tbl { overflow-x: auto; }
+table { border-collapse: collapse; width: 100%; font-size: 13.5px; font-variant-numeric: tabular-nums; }
+th, td { text-align: left; padding: 7px 8px; border-bottom: 1px solid var(--color-border); white-space: nowrap; }
+th { font: 500 11px var(--font-mono); text-transform: uppercase; letter-spacing: .05em; color: var(--color-muted); }
+tr.cur td { background: #f3f5f1; font-weight: 700; }
+.drawer { background: var(--color-surface); border: 1px solid var(--color-border); border-radius: var(--radius); box-shadow: 0 10px 30px rgba(0,0,0,.12); display: grid; grid-template-rows: auto auto 1fr auto; max-height: 820px; overflow: hidden; }
+.drawer .dh { padding: 12px 14px; border-bottom: 1px solid var(--color-border); display: flex; justify-content: space-between; align-items: center; }
+.qchips { padding: 10px 14px; display: flex; flex-wrap: wrap; gap: 6px; border-bottom: 1px solid var(--color-border); }
+.qchips button { font: 400 12.5px var(--font-body); padding: 5px 9px; border-radius: 999px; border: 1px solid var(--color-border); background: var(--color-bg); color: var(--color-fg); text-align: left; cursor: pointer; }
+.chat { padding: 12px 14px; display: grid; gap: 10px; align-content: start; overflow-y: auto; font-size: 14px; }
+.msg.u { justify-self: end; background: var(--color-fg); color: var(--color-surface); padding: 7px 11px; border-radius: 12px 12px 2px 12px; max-width: 85%; }
+.msg.a { background: var(--color-bg); padding: 10px 12px; border-radius: 12px 12px 12px 2px; display: grid; gap: 6px; }
+.v { text-decoration: underline dotted var(--color-good); text-underline-offset: 3px; text-decoration-thickness: 2px; }
+.uv { background: #fde7c7; border-radius: 3px; padding: 0 3px; }
+.uvb { font: 700 10.5px var(--font-mono); color: var(--color-fair); border: 1px solid var(--color-fair); border-radius: 3px; padding: 0 4px; margin-left: 3px; }
+.notice { font-size: 12px; color: var(--color-muted); background: #fff8e1; border-radius: 4px; padding: 4px 8px; }
+.ask { display: flex; gap: 6px; padding: 10px 14px; border-top: 1px solid var(--color-border); }
+.ask input { flex: 1; min-width: 0; font: 400 14px var(--font-body); padding: 8px 10px; border: 1px solid var(--color-border); border-radius: 6px; }
+.fab { display: none; }
+
+/* ---------- phone layout (container queries on the frame) ---------- */
+@container (max-width: 760px) {
+  .hdr { padding: 10px 14px; gap: 10px; flex-wrap: wrap; }
+  .hdr nav { order: 3; flex-basis: 100%; }
+  .page { padding: 16px 14px; gap: 16px; }
+  h2.t { font-size: 22px; }
+  .pick, .plan, .r5, .nb { grid-template-columns: 1fr; }
+  .ov { grid-template-columns: 1fr; }
+  .heads { grid-template-columns: 1fr; }
+  .pri { position: static; }
+  .cards { grid-template-columns: 82% 82% 82% 82%; overflow-x: auto; scroll-snap-type: x mandatory; padding-bottom: 6px; }
+  .cards > * { scroll-snap-align: start; }
+  .sumrow { grid-template-columns: repeat(2, 1fr); }
+  .drawer { position: relative; border-radius: 16px 16px 0 0; }
+  .fab { display: inline-flex; position: sticky; bottom: 12px; justify-self: end; }
+  .foot { padding: 12px 14px; }
+}
+</style>
+</head>
+<body class="ann">
+
+<div class="wf-bar" role="toolbar" aria-label="Wireframe controls">
+  <h1>RootCycle wireframes <small>for F · built from design/tokens.css + content/*.json</small></h1>
+  <div class="wf-tabs" role="tablist" aria-label="Screens">
+    <button role="tab" data-s="s1">1 · Pick a field</button>
+    <button role="tab" data-s="s2">2 · Overview</button>
+    <button role="tab" data-s="s3">3 · Field calendar</button>
+    <button role="tab" data-s="s4">4 · Priorities + cards</button>
+    <button role="tab" data-s="s5">5 · Replay, neighbours, assistant</button>
+  </div>
+  <span class="wf-spacer"></span>
+  <div class="wf-toggles">
+    <button id="t-desk" aria-pressed="true">Desktop</button>
+    <button id="t-phone" aria-pressed="false">Phone 390px</button>
+    <button id="t-ann" aria-pressed="true">Data notes</button>
+  </div>
+</div>
+
+<div class="wf-stage">
+  <div class="wf-intro">
+    <div><b>How to read this:</b> each orange dashed label names the data file and key that fills the element (README §8). Text comes from <code>content/copy.json</code> and <code>content/card_text.json</code>. All numbers are <b>sample values</b>, not results.</div>
+    <div>Screen 4 is live: move the sliders, change the water limit or tick equipment to see the cards re-rank with the README §8.7 scoring rules.</div>
+  </div>
+
+  <div class="frame" id="frame">
+    <div class="app">
+      <div class="mock" data-note="copy: banner.mock · shown while any _meta.mock = true">Showing sample data, not real results yet</div>
+      <header class="hdr">
+        <div class="logo" data-note="copy: app.name"><i aria-hidden="true"></i>RootCycle</div>
+        <nav aria-label="Sections" id="appnav">
+          <a href="#s2" data-s="s2">Your field</a><a href="#s3" data-s="s3">Field calendar</a><a href="#s4" data-s="s4">Compare options</a><a href="#s5" data-s="s5">Replay past years</a><a href="#s5" data-s="s5">Farms like yours</a><a href="#s5">How we know this</a>
+        </nav>
+        <div class="lang" data-note="LangToggle · lang.en / lang.es"><span class="on">EN</span><span>ES</span></div>
+      </header>
+
+      <!-- ===================== SCREEN 1 ===================== -->
+      <section class="page screen" id="s1" aria-label="Pick a field">
+        <div style="display:grid;gap:6px">
+          <h2 class="t" data-note="copy: pick.title">Pick a field</h2>
+          <p class="sub" data-note="copy: pick.subtitle">Three real fields near Garden City, Kansas: one irrigated, one dryland and one on sandy soil.</p>
+        </div>
+        <div class="pick">
+          <div class="map" data-note="FieldMap · fields.json geometry + neighbors.json fields (faint)">
+            <svg viewBox="0 0 640 440" role="img" aria-label="Map of Finney County with three demo fields">
+              <rect width="640" height="440" fill="#dde5d5"/>
+              <g stroke="#cdd6c4" stroke-width="1">
+                <path d="M0 110H640M0 220H640M0 330H640M160 0V440M320 0V440M480 0V440"/>
+              </g>
+              <path d="M30 30H610V410H30Z" fill="none" stroke="#7d8a7e" stroke-width="2" stroke-dasharray="6 4"/>
+              <text x="44" y="54" font-family="IBM Plex Mono" font-size="12" fill="#55615a">FINNEY COUNTY, KS</text>
+              <path d="M30 262 C140 240 210 280 320 258 S520 236 610 252" fill="none" stroke="#6aa7d6" stroke-width="4"/>
+              <text x="470" y="236" font-family="IBM Plex Mono" font-size="11" fill="#3b6f99">Arkansas River</text>
+              <circle cx="322" cy="214" r="7" fill="#1A231E"/><text x="334" y="210" font-family="Archivo" font-weight="700" font-size="13" fill="#1A231E">Garden City</text>
+              <g fill="#c4cdb9" opacity=".9">
+                <circle cx="230" cy="140" r="14"/><circle cx="262" cy="170" r="14"/><circle cx="300" cy="128" r="14"/><rect x="380" y="120" width="26" height="26"/><rect x="420" y="150" width="26" height="26"/><circle cx="190" cy="190" r="14"/><rect x="250" y="320" width="26" height="26"/><rect x="300" y="350" width="26" height="26"/><rect x="380" y="320" width="26" height="26"/><circle cx="460" cy="110" r="14"/>
+              </g>
+              <g>
+                <circle cx="250" cy="110" r="26" fill="#FFD300" stroke="#1A231E" stroke-width="3"/>
+                <text x="250" y="115" text-anchor="middle" font-family="Archivo" font-weight="800" font-size="15">f1</text>
+                <rect x="420" y="80" width="56" height="48" fill="#8C5F00" stroke="#1A231E" stroke-width="3"/>
+                <text x="448" y="109" text-anchor="middle" font-family="Archivo" font-weight="800" font-size="15" fill="#fff">f2</text>
+                <rect x="330" y="300" width="56" height="48" fill="#E6DCC6" stroke="#1A231E" stroke-width="3"/>
+                <text x="358" y="329" text-anchor="middle" font-family="Archivo" font-weight="800" font-size="15">f3</text>
+              </g>
+              <g font-family="Atkinson Hyperlegible" font-size="12" fill="#1A231E">
+                <rect x="470" y="372" width="150" height="54" rx="6" fill="#fff" opacity=".92"/>
+                <circle cx="486" cy="388" r="6" fill="#c4cdb9"/><text x="498" y="392">Neighbouring fields</text>
+                <rect x="480" y="402" width="12" height="12" fill="none" stroke="#1A231E" stroke-width="2.5"/><text x="498" y="413">Demo fields</text>
+              </g>
+            </svg>
+          </div>
+          <div class="fcards" data-note="fields.json → name, kind, area_ha/area_ac, detected.sequence, soil.texture">
+            <div class="card fcard">
+              <div class="thumb"><svg width="44" height="44" viewBox="0 0 44 44"><circle cx="22" cy="22" r="19" fill="var(--crop-corn)" stroke="#1A231E" stroke-width="2"/></svg></div>
+              <div style="display:grid;gap:6px">
+                <h3 class="t">North pivot (irrigated)</h3>
+                <div class="muted num" style="font-size:13px">51 ha · 126 ac · silt loam</div>
+                <div class="chips"><span class="chip" style="background:var(--crop-corn)">Corn</span><span class="arrow">every year</span></div>
+                <button class="btn" data-go="s2">Open this field</button>
+              </div>
+            </div>
+            <div class="card fcard">
+              <div class="thumb"><svg width="44" height="44" viewBox="0 0 44 44"><rect x="5" y="8" width="34" height="28" fill="var(--crop-wheat)" stroke="#1A231E" stroke-width="2"/></svg></div>
+              <div style="display:grid;gap:6px">
+                <h3 class="t">Dryland wheat field</h3>
+                <div class="muted num" style="font-size:13px">64 ha · 158 ac · silt loam</div>
+                <div class="chips"><span class="chip" style="background:var(--crop-wheat);color:#fff">Wheat</span><span class="arrow">→</span><span class="chip" style="background:var(--crop-sorghum)">Sorghum</span><span class="arrow">→</span><span class="chip" style="background:var(--crop-fallow)">Fallow</span></div>
+                <button class="btn ghost">Open this field</button>
+              </div>
+            </div>
+            <div class="card fcard">
+              <div class="thumb"><svg width="44" height="44" viewBox="0 0 44 44"><rect x="5" y="8" width="34" height="28" fill="var(--crop-bare)" stroke="#1A231E" stroke-width="2"/></svg></div>
+              <div style="display:grid;gap:6px">
+                <h3 class="t">Sandy field</h3>
+                <div class="muted num" style="font-size:13px">58 ha · 143 ac · loamy fine sand · blows easily</div>
+                <div class="chips"><span class="chip" style="background:var(--crop-sorghum)">Sorghum</span><span class="arrow">→</span><span class="chip" style="background:var(--crop-fallow)">Fallow</span><span class="arrow">→</span><span class="chip" style="background:var(--crop-wheat);color:#fff">Wheat</span></div>
+                <button class="btn ghost">Open this field</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ===================== SCREEN 2 ===================== -->
+      <section class="page screen" id="s2" aria-label="Field overview" hidden>
+        <div class="whead">
+          <h2 class="t" data-note="fields.json → name">North pivot (irrigated)</h2>
+          <span class="muted num">51 ha · 126 ac · Finney County</span>
+        </div>
+        <div class="secnav" data-note="sticky section nav · copy: nav.*"><a class="on">Your field</a><a>Field calendar</a><a>Compare options</a><a>Replay past years</a><a>Farms like yours</a></div>
+
+        <div class="heads" data-note="summary.json → headline_facts[] · card_text.headline[text_id] + vars">
+          <div class="card head"><span class="eyebrow">Groundwater</span><span>NASA's GRACE satellites show the water stored underground in this region changing by about <b class="num">−1.1 cm/yr</b> since 2002.</span><span class="chips"><span class="src">GRACE</span></span></div>
+          <div class="card head"><span class="eyebrow">Heat</span><span>Compared with the 1991–2020 normal, days above 35 °C (95 °F) in 2016–2025 changed by <b class="num">6</b> a year.</span><span class="chips"><span class="src">PRISM</span></span></div>
+          <div class="card head"><span class="eyebrow">Crop history</span><span>USDA crop maps show what this field grew each year from <b>2016</b> to <b>2023</b>.</span><span class="chips"><span class="src">CSB</span></span></div>
+        </div>
+
+        <div class="ov">
+          <div class="card" data-note="summary.current_rotation + fields.crop_history">
+            <span class="eyebrow">What you grow now</span>
+            <div class="chips">
+              <span class="chip" style="background:var(--crop-corn)">'16</span><span class="chip" style="background:var(--crop-corn)">'17</span><span class="chip" style="background:var(--crop-corn)">'18</span><span class="chip" style="background:var(--crop-wheat);color:#fff">'19</span><span class="chip" style="background:var(--crop-corn)">'20</span><span class="chip" style="background:var(--crop-corn)">'21</span><span class="chip" style="background:var(--crop-corn)">'22</span><span class="chip" style="background:var(--crop-corn)">'23</span>
+            </div>
+            <div class="big">Continuous corn</div>
+            <span class="muted" style="font-size:13px">Detected from USDA crop maps · <span class="pill good">● good match</span></span>
+          </div>
+          <div class="card" data-note="fields.json → soil · glossary short text in tooltips">
+            <span class="eyebrow">Your soil</span>
+            <dl class="kv">
+              <dt>Texture</dt><dd>Silt loam</dd>
+              <dt>Water it holds (top 1 m)</dt><dd class="num">185 mm · 7.3 in</dd>
+              <dt>Organic matter</dt><dd class="num">1.6%</dd>
+              <dt>Slope</dt><dd class="num">1%</dd>
+            </dl>
+            <div style="font-size:13px">How easily it blows</div>
+            <div class="meter" aria-label="Wind erodibility: moderate"><b style="width:38%"></b></div>
+            <span class="muted" style="font-size:12px">Moderate (wind group 6) · <span class="src">SSURGO</span></span>
+          </div>
+          <div class="card" data-note="summary.climate.normal vs recent">
+            <span class="eyebrow">How the climate has changed here</span>
+            <div class="pair">
+              <div class="muted">Frost-free days</div>
+              <div class="row"><span class="muted">1991–2020</span><span class="bar" style="background:var(--color-border);width:78%"></span><b class="num">168</b></div>
+              <div class="row"><span class="muted">2016–2025</span><span class="bar" style="background:var(--color-accent);width:83%"></span><b class="num">177</b></div>
+              <div class="muted" style="margin-top:6px">Days above 35 °C</div>
+              <div class="row"><span class="muted">1991–2020</span><span class="bar" style="background:var(--color-border);width:40%"></span><b class="num">14</b></div>
+              <div class="row"><span class="muted">2016–2025</span><span class="bar" style="background:var(--risk-heat);width:57%"></span><b class="num">20</b></div>
+            </div>
+            <span class="chips"><span class="src">PRISM</span><span class="src">POWER</span></span>
+          </div>
+          <div class="card" data-note="water.json → grace.series, wells · summary.water.outlook">
+            <span class="eyebrow">Groundwater outlook</span>
+            <span class="pill limited">▼ Declining</span>
+            <svg viewBox="0 0 220 70" style="width:100%;height:auto" aria-label="GRACE water storage 2002–2025, falling">
+              <path d="M0 18 L20 16 L40 22 L60 20 L80 28 L100 31 L120 30 L140 38 L160 44 L180 42 L200 52 L220 56" fill="none" stroke="var(--color-accent)" stroke-width="2.5"/>
+              <path d="M0 18 L20 16 L40 22 L60 20 L80 28 L100 31 L120 30 L140 38 L160 44 L180 42 L200 52 L220 56 V70 H0Z" fill="var(--color-accent)" opacity=".12"/>
+              <text x="0" y="68" font-size="10" font-family="IBM Plex Mono" fill="currentColor">2002</text><text x="190" y="68" font-size="10" font-family="IBM Plex Mono" fill="currentColor">2025</text>
+            </svg>
+            <dl class="kv"><dt>GRACE trend</dt><dd class="num">−1.1 cm/yr</dd><dt>Nearest well</dt><dd class="num">+0.4 m/yr deeper</dd></dl>
+            <span class="chips"><span class="src">GRACE</span><span class="src">USGS</span></span>
+          </div>
+        </div>
+      </section>
+
+      <!-- ===================== SCREEN 3 ===================== -->
+      <section class="page screen" id="s3" aria-label="Field calendar" hidden>
+        <div style="display:grid;gap:6px">
+          <h2 class="t" data-note="copy: calendar.title">Field calendar</h2>
+          <p class="sub" data-note="copy: calendar.subtitle">What's in the ground each month, and the risks this field has seen over 25 years</p>
+        </div>
+        <div class="card">
+          <div class="calwrap">
+            <div class="cal">
+              <div class="strip" id="strip" data-note="calendar.json → climate_risk[12] · p_heat, p_frost, p_dry_spell, storm_days, windy_days"></div>
+              <div id="calrots" data-note="calendar.json → rotations[].years[].months[] · state, stage, flags"></div>
+            </div>
+          </div>
+          <div class="legend" id="calleg" data-note="legend · copy: calendar.bare, calendar.flag.*"></div>
+        </div>
+      </section>
+
+      <!-- ===================== SCREEN 4 ===================== -->
+      <section class="page screen" id="s4" aria-label="Priorities and strategy cards" hidden>
+        <div style="display:grid;gap:6px">
+          <h2 class="t">Compare options</h2>
+          <p class="sub">Your current rotation and the three options that best fit what you told us.</p>
+        </div>
+        <div class="plan">
+          <aside class="card pri" data-note="PrioritiesPanel · state in URL params">
+            <h3 class="t" data-note="copy: priorities.title">What matters most to you?</h3>
+            <div id="sliders" style="display:grid;gap:10px"></div>
+            <div style="display:grid;gap:6px" data-note="copy: constraints.water_cap / cap.*">
+              <span class="eyebrow">Irrigation water available per season</span>
+              <div class="seg" id="caps"></div>
+            </div>
+            <div style="display:grid;gap:6px" data-note="copy: climate.*">
+              <span class="eyebrow">Weather to test against</span>
+              <div class="seg" id="clim"></div>
+            </div>
+            <div style="display:grid;gap:6px" data-note="copy: constraints.hay_equipment …">
+              <span class="eyebrow">What you have to work with</span>
+              <label class="check"><input type="checkbox" id="c-hay"> I have or can hire hay equipment</label>
+              <label class="check"><input type="checkbox" id="c-forage"> I have livestock or a buyer for hay and forage</label>
+              <label class="check"><input type="checkbox" id="c-cotton"> I have or can hire cotton equipment</label>
+            </div>
+          </aside>
+          <div style="display:grid;gap:12px;min-width:0">
+            <div class="cards" id="cards" data-note="StrategyCard × 4 · strategies.json[scenario] + card_text"></div>
+            <details class="hidden-list" id="hidden" data-note="copy: card.hidden_count · card_text.infeasible[reason]"></details>
+          </div>
+        </div>
+      </section>
+
+      <!-- ===================== SCREEN 5 ===================== -->
+      <section class="page screen" id="s5" aria-label="Replay, neighbours and assistant" hidden>
+        <div class="r5">
+          <div style="display:grid;gap:20px;min-width:0">
+            <div class="card" data-note="ReplayChart · replay.json scenarios[scenario][rotation].by_year">
+              <div style="display:grid;gap:4px">
+                <h3 class="t" data-note="copy: replay.title">Replay 2000–2025</h3>
+                <p class="sub" style="font-size:14px">Each option run on this field's real weather. Averaged across every phase of the rotation.</p>
+              </div>
+              <div class="metric" id="metric" data-note="copy: replay.metric.*"></div>
+              <div class="chart" id="chart"></div>
+              <div class="sumrow" id="sumrow" data-note="replay summary · average and worst 5 years"></div>
+            </div>
+            <div class="card" data-note="NeighborsView · neighbors.json">
+              <div style="display:grid;gap:4px">
+                <h3 class="t" data-note="copy: neighbors.title">Farms like yours</h3>
+                <p class="sub" style="font-size:14px">Nearby fields with similar soil and irrigation that already farm differently, seen from space</p>
+              </div>
+              <div class="nb">
+                <div class="map" id="nbmap" data-note="neighbors.fields[] · colour by matches_rotation"></div>
+                <div class="tbl" data-note="neighbors.groups[]">
+                  <table>
+                    <thead><tr><th>Rotation</th><th>Fields</th><th>Water used / yr</th><th>Greenness lost 2012</th><th>2022</th></tr></thead>
+                    <tbody id="nbrows"></tbody>
+                  </table>
+                </div>
+              </div>
+              <p class="notice" data-note="copy: neighbors.disclaimer">These fields are similar, not identical. Their results may also reflect other differences, such as management and timing.</p>
+            </div>
+          </div>
+
+          <aside class="drawer" aria-label="Assistant" data-note="AssistantDrawer · POST /api/ask (README §9)">
+            <div class="dh"><h3 class="t" data-note="copy: assistant.title">Ask about your field</h3><span class="muted" aria-hidden="true">✕</span></div>
+            <div class="qchips" data-note="assistant_questions.json q1–q6 → cached answers">
+              <button>Why is the top option ranked first for my field?</button>
+              <button>How much irrigation water could I save?</button>
+              <button>Why not alfalfa?</button>
+              <button>What would a drought year like 2012 have done to each option?</button>
+              <button>How sure are you about these numbers?</button>
+              <button>What should I check with my extension agent before switching?</button>
+            </div>
+            <div class="chat">
+              <div class="msg u">Why not alfalfa?</div>
+              <div class="msg a" data-note="answer_md · [TAG] → source chip · numbers[] verified / unverified">
+                <span>Alfalfa may be good for your soil: it scored <span class="v num" title="fact: replay.R4.cap300|actual.soil_health">88 out of 100</span> on soil health <span class="src">MODEL</span>.</span>
+                <span>But on this field it needed about <span class="v num" title="fact: replay.R4.cap300|actual.irrigation_mm_mean">470 mm (18.5 in)</span> of irrigation a year, more than your current rotation's <span class="v num">410 mm (16.1 in)</span> <span class="src">MODEL</span>. Underground water in this region is falling by about <span class="v num">1.1 cm a year</span> <span class="src">GRACE</span>.</span>
+                <span>A stand usually lasts <span class="uv num">4–5 years</span><span class="uvb">not found in the data</span>. Ask your K-State extension agent about stand life and your water right.</span>
+              </div>
+              <div class="notice" data-note="copy: assistant.using_cache (notice)">Showing a saved answer for the default settings (300 mm, past weather)</div>
+            </div>
+            <div class="ask"><input aria-label="Ask a question" placeholder="Type a question, for example: why not alfalfa?"><button class="btn">Ask</button></div>
+          </aside>
+        </div>
+      </section>
+
+      <footer class="foot" data-note="copy: disclaimer.main (every page)">This tool supports your judgement. It does not replace it. Results are estimates from satellite data, a simplified model and past weather. Check any change with your extension agent or agronomist.</footer>
+    </div>
+  </div>
+
+  <aside class="notes" id="notes" aria-live="polite"></aside>
+</div>
+
+<script>
+(function () {
+  /* ---------------- sample data (shapes follow README §8; numbers are invented) ---------------- */
+  const CROP = {
+    corn: "Corn", sorghum: "Sorghum", wheat: "Wheat", soybean: "Soybean", alfalfa: "Alfalfa",
+    triticale: "Triticale", rye_cover: "Rye cover", cotton: "Cotton", fallow: "Fallow"
+  };
+  const DARK_TEXT_CROPS = ["wheat", "soybean", "rye_cover"];
+  const ROT = {
+    R0: { name: "Your current rotation", tag: "What this field has grown in recent years", seq: ["corn"], minCap: "dryland", equip: [], forage: false },
+    R1: { name: "Corn – wheat – sorghum", tag: "Keeps corn, but only one year in three, with less irrigation", seq: ["corn", "wheat", "sorghum"], minCap: "cap150", equip: [], forage: false },
+    R2: { name: "Wheat – sorghum – fallow", tag: "The dryland classic: the fallow year stores rain for the next crop", seq: ["wheat", "sorghum", "fallow"], minCap: "dryland", equip: [], forage: false },
+    R3: { name: "Wheat – sorghum – triticale forage", tag: "Replaces the fallow year with a forage crop you can cut or graze", seq: ["wheat", "sorghum", "triticale"], minCap: "dryland", equip: ["hay"], forage: true },
+    R4: { name: "Alfalfa (4 years) – corn – wheat", tag: "Deep roots and free nitrogen, sold as hay, but it needs water", seq: ["alfalfa", "alfalfa", "alfalfa", "alfalfa", "corn", "wheat"], minCap: "cap300", equip: ["hay"], forage: true },
+    R5: { name: "Corn – soybean – wheat + rye cover", tag: "Adds a legume and a winter cover crop to build the soil", seq: ["corn", "soybean", "wheat"], cover: "rye_cover", minCap: "dryland", equip: [], forage: false }
+  };
+  // raw criteria for field f1, scenario cap300|actual
+  const RAW = {
+    R0: { water_use: 410, income_mean: 820, income_worst: 560, soil_health: 32, water_erosion: 2.1, wind_erosion: 6.5, pest_break: 8, heat_frost_risk: 9.0, living: 150, bare_storm: 6, bare_windy: 14, legume: 0 },
+    R1: { water_use: 240, income_mean: 640, income_worst: 520, soil_health: 58, water_erosion: 1.6, wind_erosion: 4.8, pest_break: 1, heat_frost_risk: 6.0, living: 210, bare_storm: 5, bare_windy: 11, legume: 0 },
+    R2: { water_use: 0, income_mean: 300, income_worst: 230, soil_health: 44, water_erosion: 2.6, wind_erosion: 8.9, pest_break: 1, heat_frost_risk: 3.5, living: 170, bare_storm: 8, bare_windy: 21, legume: 0 },
+    R3: { water_use: 90, income_mean: 380, income_worst: 300, soil_health: 70, water_erosion: 1.2, wind_erosion: 3.9, pest_break: 1, heat_frost_risk: 3.0, living: 260, bare_storm: 4, bare_windy: 9, legume: 0 },
+    R4: { water_use: 470, income_mean: 700, income_worst: 600, soil_health: 88, water_erosion: 0.6, wind_erosion: 1.5, pest_break: 4, heat_frost_risk: 4.0, living: 300, bare_storm: 1, bare_windy: 3, legume: 4 },
+    R5: { water_use: 300, income_mean: 600, income_worst: 470, soil_health: 76, water_erosion: 1.0, wind_erosion: 3.2, pest_break: 1, heat_frost_risk: 6.5, living: 270, bare_storm: 3, bare_windy: 7, legume: 1 }
+  };
+  const CRIT = ["water_use", "income_mean", "income_worst", "soil_health", "water_erosion", "wind_erosion", "pest_break", "heat_frost_risk"];
+  const HIGHER_BETTER = { income_mean: 1, income_worst: 1, soil_health: 1 };
+  const CRIT_LABEL = {
+    water_use: "Saves water", income_mean: "Average income", income_worst: "Income in bad years", soil_health: "Soil health",
+    water_erosion: "Protects from washouts", wind_erosion: "Protects from blowing soil", pest_break: "Breaks pest cycles", heat_frost_risk: "Avoids heat and frost damage"
+  };
+  const SLIDERS = [
+    { id: "save_water", label: "Save water", map: { water_use: 1 } },
+    { id: "income", label: "Income", map: { income_mean: 1 } },
+    { id: "steady_income", label: "Steady income in bad years", map: { income_worst: .7, heat_frost_risk: .3 } },
+    { id: "soil_health", label: "Soil health", map: { soil_health: .7, pest_break: .3 } },
+    { id: "erosion", label: "Stop soil blowing and washing away", map: { wind_erosion: .6, water_erosion: .4 } }
+  ];
+  const CAPS = [["dryland", "None (dryland)"], ["cap150", "Up to 150 mm (6 in)"], ["cap300", "Up to 300 mm (12 in)"], ["cap450", "Up to 450 mm (18 in)"]];
+  const CAP_ORDER = { dryland: 0, cap150: 1, cap300: 2, cap450: 3 };
+  const NEIGH = { R1: { n: 8, et: 520 }, R4: { n: 4, et: 790 }, R5: { n: 3, et: 560 } };
+  const R0_ET = 640;
+
+  const state = { w: { save_water: 3, income: 3, steady_income: 3, soil_health: 3, erosion: 3 }, cap: "cap300", climate: "actual", hay: false, forage: false, cotton: false };
+
+  /* ---------------- formatting (README §7.4) ---------------- */
+  const mm = v => `${Math.round(v)} mm (${(v / 25.4).toFixed(1)} in)`;
+  const usd = v => `$${Math.round(v)}/ac`;
+  const esc = s => String(s).replace(/[&<>"]/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
+  const chip = c => `<span class="chip" style="background:var(--crop-${c});${DARK_TEXT_CROPS.includes(c) ? "color:#fff" : ""}">${CROP[c]}</span>`;
+  const seqChips = r => ROT[r].seq.map(chip).join('<span class="arrow">→</span>') + (ROT[r].cover ? `<span class="arrow">+</span>${chip(ROT[r].cover)}` : "");
+  const src = t => `<span class="src">${t}</span>`;
+
+  /* ---------------- scoring (README §8.7) ---------------- */
+  function raw(r) {
+    const x = { ...RAW[r] };
+    if (state.climate === "hotdry") { x.water_use *= 1.15; x.income_mean *= 0.88; x.income_worst *= 0.8; x.heat_frost_risk *= 1.6; }
+    return x;
+  }
+  function norms() {
+    const ids = Object.keys(ROT), out = {};
+    ids.forEach(r => out[r] = {});
+    CRIT.forEach(k => {
+      const vals = ids.map(r => raw(r)[k]), lo = Math.min(...vals), hi = Math.max(...vals);
+      ids.forEach(r => {
+        const v = raw(r)[k];
+        let n = hi === lo ? 50 : 100 * (v - lo) / (hi - lo);
+        if (!HIGHER_BETTER[k]) n = 100 - n;
+        out[r][k] = n;
+      });
+    });
+    return out;
+  }
+  function weights() {
+    const w = {}; CRIT.forEach(k => w[k] = 0);
+    SLIDERS.forEach(s => Object.entries(s.map).forEach(([k, share]) => w[k] += state.w[s.id] * share));
+    const tot = CRIT.reduce((a, k) => a + w[k], 0);
+    if (tot === 0) CRIT.forEach(k => w[k] = 1);
+    return w;
+  }
+  function score(r, n, w) {
+    const tot = CRIT.reduce((a, k) => a + w[k], 0);
+    return CRIT.reduce((a, k) => a + w[k] * n[r][k], 0) / tot;
+  }
+  function excluded(r) {
+    const R = ROT[r];
+    if (r === "R0") return null;
+    if (CAP_ORDER[state.cap] < CAP_ORDER[R.minCap]) return "Needs more irrigation water than the limit you set.";
+    if (R.equip.includes("hay") && !state.hay) return "Needs equipment you said you don't have.";
+    if (R.equip.includes("cotton") && !state.cotton) return "Needs equipment you said you don't have.";
+    if (R.forage && !state.forage) return "Includes a crop with no local buyer that you told us about.";
+    return null;
+  }
+
+  /* ---------------- card text (from content/card_text.json, EN) ---------------- */
+  function why(r, k) {
+    const x = raw(r), z = raw("R0");
+    return {
+      water_use: `Needs about <b>${mm(x.water_use)}</b> of irrigation water a year on average, among the lowest of the options for this field.`,
+      income_mean: `Brought in about <b>${usd(x.income_mean)}</b> a year on average when run on this field's past weather (before costs).`,
+      income_worst: `In its 5 worst years it averaged <b>${usd(x.income_worst)}</b>. Your current rotation averaged ${usd(z.income_worst)} over its 5 worst years.`,
+      soil_health: `Keeps living roots in the ground about <b>${x.living} days</b> a year and scores <b>${x.soil_health}</b> out of 100 on our soil-health index.`,
+      water_erosion: `Leaves the ground bare on about <b>${x.bare_storm}</b> heavy-rain days a year, compared with ${z.bare_storm} now.`,
+      wind_erosion: `Leaves the ground bare on about <b>${x.bare_windy}</b> strong-wind days a year, compared with ${z.bare_windy} now.`,
+      pest_break: `No crop that hosts the same pests is grown more than <b>${x.pest_break}</b> years in a row (now: ${z.pest_break}).`,
+      heat_frost_risk: `About <b>${x.heat_frost_risk.toFixed(0)}</b> days a year of damaging heat during sensitive growth stages, compared with ${z.heat_frost_risk.toFixed(0)} now.`
+    }[k];
+  }
+  function benefits(r) {
+    if (r === "R0") return [];
+    const x = raw(r), z = raw("R0"), out = [];
+    if (z.water_use - x.water_use >= 25) out.push(`Could save about <b>${mm(z.water_use - x.water_use)}</b> of irrigation water a year.`);
+    if (x.legume > 0) out.push(`Adds a nitrogen-fixing crop in <b>${x.legume}</b> of every ${ROT[r].seq.length} years.`);
+    if (x.income_worst - z.income_worst >= 10) out.push(`Bad years were about <b>${usd(x.income_worst - z.income_worst)}</b> better than with your current rotation.`);
+    if (x.pest_break < z.pest_break) out.push(`Breaks pest cycles: no host crop is grown more than <b>${x.pest_break}</b> years in a row.`);
+    if (ROT[r].forage) out.push(`${CROP[ROT[r].seq.find(c => c === "triticale" || c === "alfalfa")]} can be baled or grazed, a possible extra source of income or feed.`);
+    return out;
+  }
+  function evidence(r) {
+    const x = raw(r), z = raw("R0");
+    const out = [`Run on this field's real weather from 2000 to 2025, it averaged about ${mm(x.water_use)} of irrigation and ${usd(x.income_mean)} a year. ${src("MODEL")} ${src("POWER")} ${src("SSURGO")}`];
+    if (r !== "R0") out.push(`In the 2012 drought, this rotation would have needed about ${mm(x.water_use * 1.35)} of irrigation, compared with ${mm(z.water_use * 1.35)} for your current one. ${src("MODEL")} ${src("POWER")}`);
+    if (NEIGH[r]) out.push(`${NEIGH[r].n} nearby fields on similar soil already farm this way. Satellites show they used about ${mm(NEIGH[r].et)} of water a year, compared with ${mm(R0_ET)} on fields farmed like yours. ${src("OpenET")} ${src("CSB")}`);
+    return out;
+  }
+  function gaps(r) {
+    const g = ["These numbers come from a simplified water-budget model run on past weather. Next year's weather will be different.", "Income is before costs. Seed, fertilizer, fuel, pumping and labour are not included."];
+    if (NEIGH[r]) g.push("Nearby fields differ in more than their rotation (management, timing, equipment), so their results are a clue, not proof.");
+    return g;
+  }
+  function risks(r) {
+    const s = ROT[r].seq, out = [];
+    if (r === "R0") return ["Irrigation amounts depend on your water right and local district rules. Check with your groundwater management district."];
+    if (s.includes("wheat") && s.includes("sorghum")) out.push("Some herbicides used on wheat or corn can hurt the next crop. Check labels and plant-back times with your agronomist.");
+    if (s.includes("fallow")) out.push("Fallow ground can blow in spring winds. Keep wheat stubble standing and limit tillage.");
+    if (s.includes("alfalfa")) out.push("Alfalfa uses a lot of water and needs it for several years in a row. Make sure your well can keep up before planting.");
+    if (ROT[r].cover) out.push("A cover crop needs some moisture in the fall to get started. In a dry fall it may not establish.");
+    if (ROT[r].equip.length) out.push("This rotation needs equipment you may not have. Consider custom hire or sharing with a neighbour.");
+    out.push("Check crop insurance coverage and rules for a new crop or practice with your agent.");
+    return out.slice(0, 3);
+  }
+
+  /* ---------------- render: screen 4 ---------------- */
+  function renderControls() {
+    document.getElementById("sliders").innerHTML = SLIDERS.map(s => `
+      <div class="slider"><label for="s-${s.id}"><span>${s.label}</span><b class="num" id="v-${s.id}">${state.w[s.id]}</b></label>
+      <input type="range" id="s-${s.id}" min="0" max="5" step="1" value="${state.w[s.id]}"></div>`).join("");
+    SLIDERS.forEach(s => document.getElementById(`s-${s.id}`).addEventListener("input", e => {
+      state.w[s.id] = +e.target.value; document.getElementById(`v-${s.id}`).textContent = e.target.value; renderCards();
+    }));
+    const caps = document.getElementById("caps");
+    caps.innerHTML = CAPS.map(([id, l]) => `<button aria-pressed="${state.cap === id}" data-cap="${id}">${l}</button>`).join("");
+    caps.onclick = e => { const b = e.target.closest("button"); if (!b) return; state.cap = b.dataset.cap; [...caps.children].forEach(x => x.setAttribute("aria-pressed", x === b)); renderCards(); };
+    const clim = document.getElementById("clim");
+    clim.innerHTML = `<button aria-pressed="true" data-c="actual">Past weather as it happened</button><button aria-pressed="false" data-c="hotdry">Hotter and drier (+1.5 °C, 15% less rain)</button>`;
+    clim.onclick = e => { const b = e.target.closest("button"); if (!b) return; state.climate = b.dataset.c; [...clim.children].forEach(x => x.setAttribute("aria-pressed", x === b)); renderCards(); renderChart(); };
+    ["hay", "forage", "cotton"].forEach(k => document.getElementById(`c-${k}`).addEventListener("change", e => { state[k] = e.target.checked; renderCards(); }));
+  }
+
+  function renderCards() {
+    const n = norms(), w = weights();
+    const others = Object.keys(ROT).filter(r => r !== "R0");
+    const hidden = others.map(r => ({ r, why: excluded(r) })).filter(x => x.why);
+    const ok = others.filter(r => !excluded(r)).sort((a, b) => score(b, n, w) - score(a, n, w) || raw(a).water_use - raw(b).water_use);
+    const shown = ["R0", ...ok.slice(0, 3)];
+    shownRots = shown;
+    document.getElementById("cards").innerHTML = shown.map(r => {
+      const sc = Math.round(score(r, n, w));
+      const top = CRIT.filter(k => n[r][k] >= 50).sort((a, b) => w[b] * n[r][b] - w[a] * n[r][a]).slice(0, 3);
+      const conf = r === "R1" ? ["good", "Good match"] : (NEIGH[r] ? ["fair", "Fair match"] : ["limited", "Limited"]);
+      const b = benefits(r);
+      return `<article class="card scard ${r === "R0" ? "cur" : ""}" style="--c:var(--rot-${r})">
+        <div style="display:flex;justify-content:space-between;gap:8px;align-items:start">
+          <div style="display:grid;gap:2px"><h3 class="t">${ROT[r].name}</h3><span class="muted" style="font-size:13px">${ROT[r].tag}</span></div>
+          ${r === "R0" ? '<span class="tag">Current</span>' : ""}
+        </div>
+        <div class="chips">${seqChips(r)}</div>
+        <div class="score"><span>Fit with your priorities</span><b class="num">${sc}</b><div class="meter" style="grid-column:1/-1"><b style="width:${sc}%"></b></div></div>
+        <span style="font-size:12.5px">Confidence <span class="pill ${conf[0]}">${conf[1]}</span></span>
+        <div class="crit">${CRIT.map(k => `<div class="r"><span>${CRIT_LABEL[k]}</span><div class="meter"><b style="width:${Math.max(3, n[r][k])}%"></b></div></div>`).join("")}</div>
+        <div class="sec"><h4>Why it's suggested</h4><ul>${(top.length ? top : CRIT.slice(0, 1)).map(k => `<li>${why(r, k)}</li>`).join("")}</ul></div>
+        <div class="sec"><h4>What the data shows</h4><ul>${evidence(r).map(x => `<li>${x}</li>`).join("")}</ul></div>
+        ${b.length ? `<div class="sec"><h4>Possible benefits</h4><ul>${b.map(x => `<li>${x}</li>`).join("")}</ul></div>` : ""}
+        <div class="sec gap"><h4>What we don't know</h4><ul>${gaps(r).map(x => `<li>${x}</li>`).join("")}</ul></div>
+        <div class="sec risk"><h4>Check locally before switching</h4><ul>${risks(r).map(x => `<li>${x}</li>`).join("")}</ul></div>
+      </article>`;
+    }).join("");
+    const h = document.getElementById("hidden");
+    h.hidden = hidden.length === 0;
+    h.innerHTML = `<summary>${hidden.length} more options hidden by your choices</summary><ul>${hidden.map(x => `<li><b>${ROT[x.r].name}:</b> ${x.why}</li>`).join("")}</ul>`;
+    renderCalendar(); renderChart();
+  }
+
+  /* ---------------- render: screen 3 ---------------- */
+  const MONTHS = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+  const RISK = [ // climate_risk sample
+    { p_heat: 0, p_frost: .95, p_dry: .25, storm: 0.1, windy: 3 }, { p_heat: 0, p_frost: .9, p_dry: .3, storm: 0.1, windy: 4 },
+    { p_heat: 0, p_frost: .75, p_dry: .3, storm: 0.3, windy: 6 }, { p_heat: .02, p_frost: .45, p_dry: .25, storm: 0.7, windy: 6 },
+    { p_heat: .15, p_frost: .08, p_dry: .15, storm: 1.6, windy: 4 }, { p_heat: .55, p_frost: 0, p_dry: .2, storm: 2.0, windy: 3 },
+    { p_heat: .8, p_frost: 0, p_dry: .35, storm: 1.5, windy: 2 }, { p_heat: .7, p_frost: 0, p_dry: .4, storm: 1.4, windy: 1 },
+    { p_heat: .25, p_frost: .02, p_dry: .35, storm: 0.9, windy: 2 }, { p_heat: 0, p_frost: .35, p_dry: .4, storm: 0.5, windy: 2 },
+    { p_heat: 0, p_frost: .85, p_dry: .35, storm: 0.2, windy: 3 }, { p_heat: 0, p_frost: .95, p_dry: .3, storm: 0.1, windy: 3 }
+  ];
+  // state per rotation-year (12 months), "b" = bare
+  const CAL = {
+    R0: [["b", "b", "b", "b", "corn", "corn", "corn", "corn", "corn", "corn", "b", "b"]],
+    R1: [["b", "b", "b", "b", "corn", "corn", "corn", "corn", "corn", "wheat", "wheat", "wheat"], ["wheat", "wheat", "wheat", "wheat", "wheat", "wheat", "b", "b", "b", "b", "b", "b"], ["b", "b", "b", "b", "b", "sorghum", "sorghum", "sorghum", "sorghum", "sorghum", "b", "b"]],
+    R2: [["wheat", "wheat", "wheat", "wheat", "wheat", "wheat", "b", "b", "b", "b", "b", "b"], ["b", "b", "b", "b", "b", "sorghum", "sorghum", "sorghum", "sorghum", "sorghum", "b", "b"], ["b", "b", "b", "b", "b", "b", "b", "b", "wheat", "wheat", "wheat", "wheat"]],
+    R3: [["wheat", "wheat", "wheat", "wheat", "wheat", "wheat", "b", "b", "b", "b", "b", "b"], ["b", "b", "b", "b", "b", "sorghum", "sorghum", "sorghum", "sorghum", "sorghum", "triticale", "triticale"], ["triticale", "triticale", "triticale", "triticale", "triticale", "b", "b", "b", "wheat", "wheat", "wheat", "wheat"]],
+    R4: [["alfalfa", "alfalfa", "alfalfa", "alfalfa", "alfalfa", "alfalfa", "alfalfa", "alfalfa", "alfalfa", "alfalfa", "alfalfa", "alfalfa"]],
+    R5: [["b", "b", "b", "b", "corn", "corn", "corn", "corn", "corn", "rye_cover", "rye_cover", "rye_cover"], ["rye_cover", "rye_cover", "rye_cover", "b", "soybean", "soybean", "soybean", "soybean", "soybean", "wheat", "wheat", "wheat"], ["wheat", "wheat", "wheat", "wheat", "wheat", "wheat", "b", "b", "b", "b", "b", "b"]]
+  };
+  const HEAT_MONTHS = { corn: [6, 7], sorghum: [7], soybean: [7], wheat: [5], cotton: [7] };
+  const FLAGC = { heat: "var(--risk-heat)", frost: "var(--risk-frost)", dry: "var(--risk-dry)", bare_storm: "var(--risk-storm)", bare_wind: "var(--risk-wind)" };
+  const FLAGL = { heat: "Damaging heat likely", frost: "Frost likely", dry: "Dry spell likely", bare_storm: "Bare ground in storm season", bare_wind: "Bare ground in windy season" };
+  let shownRots = ["R0", "R1", "R2", "R5"];
+
+  function flags(st, m) {
+    const f = [], k = RISK[m];
+    if (st === "b") { if (k.storm >= 1) f.push("bare_storm"); if (k.windy >= 4) f.push("bare_wind"); return f; }
+    if ((HEAT_MONTHS[st] || []).includes(m) && k.p_heat >= .3) f.push("heat");
+    if (st !== "wheat" && st !== "rye_cover" && st !== "triticale" && st !== "alfalfa" && k.p_frost >= .3) f.push("frost");
+    if (k.p_dry >= .35 && ["corn", "sorghum", "soybean"].includes(st)) f.push("dry");
+    return f;
+  }
+  function renderCalendar() {
+    const strip = document.getElementById("strip");
+    strip.innerHTML = `<span class="h"></span>${MONTHS.map(m => `<span class="h">${m}</span>`).join("")}
+      <span class="rl">Odds (25 yrs)</span>${RISK.map(k => `<div class="odds" title="Heat ${Math.round(k.p_heat * 100)}% · frost ${Math.round(k.p_frost * 100)}% · dry spell ${Math.round(k.p_dry * 100)}%">
+        <i style="width:${k.p_heat * 100}%;background:var(--risk-heat)"></i><i style="width:${k.p_frost * 100}%;background:var(--risk-frost)"></i><i style="width:${k.p_dry * 100}%;background:var(--risk-dry)"></i></div>`).join("")}
+      <span class="rl">Storm / windy days</span>${RISK.map(k => `<span class="h num">${k.storm.toFixed(1)} / ${k.windy}</span>`).join("")}`;
+    document.getElementById("calrots").innerHTML = `<div style="display:grid;gap:14px">${shownRots.map(r => `
+      <div class="calrot"><div class="name"><span class="sw" style="background:var(--rot-${r})"></span>${ROT[r].name}</div>
+      ${CAL[r].map((yr, i) => `<div class="calgrid"><span class="yl">Year ${i + 1}</span>${yr.map((st, m) => {
+        const f = flags(st, m);
+        const bg = st === "b" ? "" : `background:var(--crop-${st});${DARK_TEXT_CROPS.includes(st) ? "color:#fff" : ""}`;
+        return `<div class="cell ${st === "b" ? "bare" : ""}" style="${bg}" title="${MONTHS[m]}: ${st === "b" ? "Bare ground" : CROP[st]}${f.length ? " · " + f.map(x => FLAGL[x]).join(", ") : ""}">
+          ${st === "b" ? "" : CROP[st].slice(0, 4)}<span class="fl">${f.map(x => `<i style="background:${FLAGC[x]}"></i>`).join("")}</span></div>`;
+      }).join("")}</div>`).join("")}</div>`).join("")}</div>`;
+    document.getElementById("calleg").innerHTML =
+      ["corn", "wheat", "sorghum", "soybean", "alfalfa", "triticale", "rye_cover"].map(c => `<span><i class="sw" style="background:var(--crop-${c})"></i>${CROP[c]}</span>`).join("") +
+      `<span><i class="sw" style="background:repeating-linear-gradient(135deg,var(--crop-bare) 0 4px,#f3ecdc 4px 7px)"></i>Bare ground</span>` +
+      Object.keys(FLAGL).map(f => `<span><i class="dot" style="background:${FLAGC[f]}"></i>${FLAGL[f]}</span>`).join("");
+  }
+
+  /* ---------------- render: screen 5 ---------------- */
+  const YEARS = Array.from({ length: 26 }, (_, i) => 2000 + i);
+  const DROUGHT = [2002, 2011, 2012, 2022];
+  let seed = 7; const rnd = () => (seed = (seed * 9301 + 49297) % 233280) / 233280;
+  const DRY = YEARS.map(y => ({ 2002: .85, 2011: .95, 2012: 1, 2018: .6, 2020: .55, 2022: .9 }[y] ?? .2 + rnd() * .35));
+  const METRICS = [["irrigation", "Irrigation water"], ["revenue", "Income before costs"], ["stress", "Days of water stress"], ["bare", "Days of bare ground"]];
+  let metric = "irrigation";
+  function series(r, m) {
+    const x = raw(r);
+    return DRY.map((d, i) => {
+      if (m === "irrigation") return x.water_use * (0.7 + 0.6 * d);
+      if (m === "revenue") return x.income_mean * (1.15 - 0.55 * d);
+      if (m === "stress") return (r === "R2" ? 34 : r === "R3" ? 28 : 10 + x.water_use / 60) * (0.5 + d);
+      return 365 - x.living - 20 + 40 * ((i * 7) % 5) / 5;
+    });
+  }
+  function renderChart() {
+    const W = 760, H = 270, L = 54, R = 12, T = 12, B = 30;
+    const all = shownRots.flatMap(r => series(r, metric));
+    const max = Math.max(...all) * 1.1 || 1;
+    const X = i => L + (W - L - R) * i / (YEARS.length - 1), Y = v => T + (H - T - B) * (1 - v / max);
+    const fmt = v => metric === "irrigation" ? `${Math.round(v)} mm` : metric === "revenue" ? `$${Math.round(v)}` : `${Math.round(v)} d`;
+    const ticks = [0, .25, .5, .75, 1].map(f => f * max);
+    let svg = `<svg viewBox="0 0 ${W} ${H}" role="img" aria-label="Replay chart, ${metric}, 2000 to 2025">`;
+    DROUGHT.forEach(y => { const i = y - 2000; svg += `<rect x="${X(i) - 11}" y="${T}" width="22" height="${H - T - B}" fill="var(--risk-heat)" opacity=".1"/>`; });
+    ticks.forEach(t => svg += `<line x1="${L}" x2="${W - R}" y1="${Y(t)}" y2="${Y(t)}" stroke="var(--color-border)"/><text x="${L - 6}" y="${Y(t) + 4}" text-anchor="end">${fmt(t)}</text>`);
+    [2000, 2005, 2010, 2015, 2020, 2025].forEach(y => svg += `<text x="${X(y - 2000)}" y="${H - 10}" text-anchor="middle">${y}</text>`);
+    svg += `<text x="${X(12)}" y="${T + 12}" text-anchor="middle" style="fill:var(--risk-heat)">2012 drought</text>`;
+    shownRots.forEach(r => {
+      const s = series(r, metric);
+      svg += `<path d="${s.map((v, i) => `${i ? "L" : "M"}${X(i).toFixed(1)} ${Y(v).toFixed(1)}`).join("")}" fill="none" stroke="var(--rot-${r})" stroke-width="${r === "R0" ? 2.5 : 2.5}" ${r === "R0" ? 'stroke-dasharray="6 4"' : ""}/>`;
+      svg += `<circle cx="${X(25)}" cy="${Y(s[25])}" r="3.5" fill="var(--rot-${r})"/>`;
+    });
+    svg += `</svg>`;
+    document.getElementById("chart").innerHTML = svg;
+    document.getElementById("metric").innerHTML = METRICS.map(([id, l]) => `<button aria-pressed="${metric === id}" data-m="${id}">${l}</button>`).join("");
+    document.getElementById("sumrow").innerHTML = shownRots.map(r => {
+      const s = series(r, metric), avg = s.reduce((a, b) => a + b, 0) / s.length, worst = [...s].sort((a, b) => metric === "revenue" ? a - b : b - a).slice(0, 5);
+      const w5 = worst.reduce((a, b) => a + b, 0) / 5;
+      return `<div style="--c:var(--rot-${r})"><b>${ROT[r].name}</b><br><span class="muted">Average</span> <span class="num">${fmt(avg)}</span><br><span class="muted">Worst 5 years</span> <span class="num">${fmt(w5)}</span></div>`;
+    }).join("");
+  }
+  document.getElementById("metric").addEventListener("click", e => { const b = e.target.closest("button"); if (b) { metric = b.dataset.m; renderChart(); } });
+
+  function renderNeighbors() {
+    let svg = `<svg viewBox="0 0 300 220" role="img" aria-label="Map of similar nearby fields"><rect width="300" height="220" fill="#dde5d5"/>`;
+    const cls = [["R0", 12], ["R1", 8], ["R4", 4], ["R5", 3], ["", 3]];
+    let s2 = 11; const rr = () => (s2 = (s2 * 9301 + 49297) % 233280) / 233280;
+    cls.forEach(([r, n]) => { for (let i = 0; i < n; i++) { const x = 14 + rr() * 260, y = 14 + rr() * 180; if (Math.hypot(x - 150, y - 110) < 34) continue; svg += `<circle cx="${x.toFixed(0)}" cy="${y.toFixed(0)}" r="9" fill="${r ? `var(--rot-${r})` : "#b9c2b0"}" opacity=".9"/>`; } });
+    svg += `<circle cx="150" cy="110" r="22" fill="var(--crop-corn)" stroke="#1A231E" stroke-width="3"/><text x="150" y="115" text-anchor="middle" font-family="Archivo" font-weight="800" font-size="13">f1</text></svg>`;
+    document.getElementById("nbmap").innerHTML = svg;
+    const rows = [
+      ["R0", "Continuous corn (like yours)", 12, R0_ET, "−9%", "−12%", true],
+      ["R1", "Corn – wheat – sorghum", 8, 520, "−14%", "−15%"],
+      ["R4", "Alfalfa – corn – wheat", 4, 790, "−6%", "−8%"],
+      ["R5", "Corn – soybean – wheat", 3, 560, "−11%", "−13%"]
+    ];
+    document.getElementById("nbrows").innerHTML = rows.map(([r, l, n, et, a, b, cur]) => `<tr class="${cur ? "cur" : ""}"><td><span class="dot" style="background:var(--rot-${r})"></span> ${l}</td><td class="num">${n}</td><td class="num">${mm(et)}</td><td class="num">${a}</td><td class="num">${b}</td></tr>`).join("");
+  }
+
+  /* ---------------- notes per screen (for F) ---------------- */
+  const NOTES = {
+    s1: ["Route <code>/</code>. Map is <code>FieldMap</code> (react-leaflet, <code>ssr:false</code>), Esri World Imagery basemap; demo field outlines thick, neighbours faint.",
+      "Clicking a field on the map or its card goes to <code>/field/[id]</code>.",
+      "Phone: map on top (about 60% of screen height), cards stacked below.",
+      "Field thumbnails can be the field polygon drawn small in its main crop colour."],
+    s2: ["Route <code>/field/[id]</code>, one scrolling page with a sticky section nav (tabs on phone). This is its first section.",
+      "Headline facts sit at the top: they're the hook for the demo.",
+      "Soil terms (water it holds, wind group) get glossary tooltips (<code>glossary.json short</code>).",
+      "Outlook chip colour: declining = limited, stable = fair, rising = good, always with text.",
+      "Loading: skeleton per card; missing <code>water.json</code> → hide that card with a short note."],
+    s3: ["Blocks follow the current card order: R0 first, then the 3 shown strategies. Re-orders when the cards re-rank.",
+      "Cell = month; colour = crop (<code>--crop-*</code>), hatched = bare; dots = <code>flags</code> (colour + tooltip text, never colour alone).",
+      "Tooltip on a month header: the climate odds in words, e.g. \"Damaging heat in 8 of 10 Julys\".",
+      "Phone: grid scrolls sideways inside the card (min-width ~620px); the page itself never scrolls sideways.",
+      "Text on wheat, soybean and rye cells is white (<code>tokens.json crop_text</code>)."],
+    s4: ["Scoring runs in the browser (<code>lib/score.ts</code>, README §8.7). Sliders 0–5, default 3; state mirrored to URL params.",
+      "R0 always shown first; top 3 others by score. Excluded ones are listed under \"hidden\" with their reason.",
+      "Card sections keep the same order on every card so they line up across columns.",
+      "\"Why\" = the 3 criteria with highest weight × norm (norm ≥ 50), rendered from <code>card_text.why</code> + <code>criteria[k].vars</code>.",
+      "Phone: priorities panel on top (collapsible after first change), cards swipe sideways with scroll-snap.",
+      "Try it: tick hay equipment + forage buyer and set the water limit to 300 mm to see alfalfa and triticale appear."],
+    s5: ["Replay lines use <code>--rot-*</code>; R0 dashed. Shaded bands = <code>replay.drought_years</code>. The climate toggle on screen 4 changes this chart too.",
+      "Metric switcher: irrigation (mm + in), income before costs ($/ac), water-stress days, bare days.",
+      "Farms like yours: groups with <code>n &lt; 3</code> aren't shown; the current-like group is highlighted; always show the disclaimer.",
+      "Assistant: floating button on every field page opens a right drawer (desktop) or bottom sheet (phone). Chips answer instantly from cache.",
+      "In answers, <code>[TAG]</code> becomes a source chip; verified numbers get a dotted green underline with the fact id in a tooltip; unverified ones get the amber \"not found in the data\" badge."]
+  };
+
+  /* ---------------- wireframe controls ---------------- */
+  const tabs = [...document.querySelectorAll(".wf-tabs button")];
+  function show(id) {
+    if (!NOTES[id]) id = "s1";
+    document.querySelectorAll(".screen").forEach(s => s.hidden = s.id !== id);
+    tabs.forEach(t => t.setAttribute("aria-selected", t.dataset.s === id));
+    document.querySelectorAll("#appnav a").forEach(a => a.classList.toggle("on", a.dataset.s === id));
+    document.getElementById("notes").innerHTML = `<h2>Behaviour notes for F</h2><ul>${NOTES[id].map(n => `<li>${n}</li>`).join("")}</ul>`;
+    if (location.hash !== "#" + id) history.replaceState(null, "", "#" + id);
+  }
+  tabs.forEach(t => t.addEventListener("click", () => show(t.dataset.s)));
+  document.querySelectorAll("[data-go]").forEach(b => b.addEventListener("click", () => show(b.dataset.go)));
+  document.querySelectorAll("#appnav a[data-s]").forEach(a => a.addEventListener("click", e => { e.preventDefault(); show(a.dataset.s); }));
+  window.addEventListener("hashchange", () => show(location.hash.slice(1)));
+  const tDesk = document.getElementById("t-desk"), tPhone = document.getElementById("t-phone"), tAnn = document.getElementById("t-ann");
+  tDesk.onclick = () => { document.body.classList.remove("phone"); tDesk.setAttribute("aria-pressed", true); tPhone.setAttribute("aria-pressed", false); };
+  tPhone.onclick = () => { document.body.classList.add("phone"); tPhone.setAttribute("aria-pressed", true); tDesk.setAttribute("aria-pressed", false); };
+  tAnn.onclick = () => { const on = document.body.classList.toggle("ann"); tAnn.setAttribute("aria-pressed", on); };
+
+  renderControls(); renderCards(); renderNeighbors();
+  show(location.hash.slice(1) || "s1");
+})();
+</script>
+</body>
+</html>
