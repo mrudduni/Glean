@@ -202,7 +202,7 @@
 .legend-risk { width: 7px; height: 7px; border-radius: 50%; background: #d98057; }
 .legend-risk.dry { background: #b9965a; }
 
-.calendar-scroll, .chart-scroll, .neighbors-table-wrap { max-width: 100%; overflow-x: auto; overscroll-behavior-x: contain; scrollbar-color: #c5ccc0 transparent; scrollbar-width: thin; }
+.calendar-scroll, .neighbors-table-wrap { max-width: 100%; overflow-x: auto; overscroll-behavior-x: contain; scrollbar-color: #c5ccc0 transparent; scrollbar-width: thin; }
 .calendar-blocks { display: flex; gap: 14px; width: max-content; }
 .calendar-block {
   width: 460px;
@@ -268,66 +268,6 @@
 /* ==========================================================================
    REPLAY PANEL & NEIGHBORS VIEW
    ========================================================================== */
-.replay-panel {
-  padding: 20px;
-  background: rgba(255, 254, 250, 0.9);
-  border: 1px solid rgba(228, 230, 220, 0.95);
-  border-radius: 10px;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.02);
-}
-.replay-toolbar { display: flex; justify-content: space-between; align-items: center; gap: 16px; margin-bottom: 12px; }
-.replay-metric-switch { display: flex; flex-wrap: wrap; gap: 4px; padding: 4px; border-radius: 8px; background: #eff1ea; }
-.replay-metric-switch button {
-  padding: 8px 14px;
-  border: 0;
-  border-radius: 6px;
-  background: transparent;
-  color: #606a5b;
-  font-size: 12px;
-  font-weight: 600;
-  cursor: pointer;
-  transition: all 0.22s var(--ease-spring);
-}
-.replay-metric-switch button:hover:not([aria-pressed=true]) {
-  background: rgba(255, 255, 255, 0.6);
-  color: var(--primary);
-  transform: translateY(-1px);
-}
-.replay-metric-switch button[aria-pressed=true] {
-  background: white;
-  color: var(--primary);
-  font-weight: 700;
-  box-shadow: 0 2px 8px rgba(36, 55, 45, 0.14);
-  transform: translateY(-1px);
-}
-.scenario-chip { padding: 5px 10px; border-radius: 4px; background: #edf0e7; color: #53644b; font-size: 11px; font-weight: 700; }
-.scenario-chip.hotdry { background: #f4e9dc; color: #87552b; }
-.replay-chart-inner { min-width: 680px; height: 320px; }
-.replay-legend { display: flex; flex-wrap: wrap; align-items: center; gap: 16px; padding: 10px 0; border-bottom: 1px solid #eceee6; color: #687162; font-size: 12px; }
-.replay-legend span { display: inline-flex; align-items: center; gap: 6px; }
-.replay-legend i { width: 10px; height: 4px; display: inline-block; border-radius: 2px; }
-.drought-key { margin-left: auto; }
-.drought-key i { width: 11px; height: 10px; background: #e9c9b8; }
-.replay-summary-table { display: grid; grid-template-columns: repeat(4,1fr); gap: 10px; padding: 14px 0 6px; }
-.replay-summary-row {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 6px;
-  padding: 10px 12px;
-  border: 1px solid #eff0e9;
-  border-radius: 6px;
-  transition: transform 0.2s ease, border-color 0.2s;
-}
-.replay-summary-row:hover {
-  transform: translateY(-2px);
-  border-color: #bccbb5;
-}
-.summary-rotation { grid-column: 1/-1; display: flex; align-items: center; gap: 6px; color: #4e5f4c; font-size: 13px; font-weight: 700; }
-.summary-rotation i { width: 8px; height: 8px; border-radius: 50%; }
-.replay-summary-row span:not(.summary-rotation) { display: grid; gap: 3px; }
-.replay-summary-row small { color: #7f8678; font-size: 11px; }
-.replay-summary-row b { color: #455443; font-size: 14px; }
-.chart-note { margin: 10px 0 0; color: #777e70; font-size: 12px; }
 
 .neighbors-grid { display: grid; grid-template-columns: minmax(320px,.85fr) minmax(0,1.15fr); gap: 22px; align-items: start; }
 
@@ -737,12 +677,12 @@
   
   
   
-  .replay-panel { padding: 14px; }
-  .replay-toolbar { align-items: flex-start; flex-direction: column; }
-  .replay-metric-switch { width: 100%; display: grid; grid-template-columns: 1fr 1fr; }
-  .replay-metric-switch button { font-size: 11px; }
-  .replay-chart-inner { min-width: 620px; }
-  .replay-summary-table { grid-template-columns: 1fr 1fr; }
+  
+  
+  
+  
+  
+  
   .neighbors-grid { gap: 14px; }
   
   
@@ -791,7 +731,7 @@
 /* Dark Mode Hero Telemetry Hub & Feature Cards */
 
 /* Glassmorphic Surfaces & Cards */
-[data-theme="dark"] .overview-card, [data-theme="dark"] .calendar-block, [data-theme="dark"] .replay-panel, [data-theme="dark"] .validation-card, [data-theme="dark"] .glossary-card, .dark .overview-card, .dark .calendar-block, .dark .replay-panel, .dark .validation-card, .dark .glossary-card {
+[data-theme="dark"] .overview-card, [data-theme="dark"] .calendar-block, [data-theme="dark"] .validation-card, [data-theme="dark"] .glossary-card, .dark .overview-card, .dark .calendar-block, .dark .validation-card, .dark .glossary-card {
   background: rgba(18, 28, 22, 0.75);
   border-color: rgba(255, 255, 255, 0.09);
   box-shadow: 0 6px 24px rgba(0, 0, 0, 0.35), inset 0 1px 0 rgba(255, 255, 255, 0.08);
@@ -955,56 +895,6 @@
 /* Strategy Comparison in Dark Mode */
 
 /* Replay Panel in Dark Mode */
-[data-theme="dark"] .replay-metric-switch,
-.dark .replay-metric-switch {
-  background: rgba(10, 18, 14, 0.9);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-}
-
-[data-theme="dark"] .replay-metric-switch button,
-.dark .replay-metric-switch button {
-  color: #ffffff;
-}
-
-[data-theme="dark"] .replay-metric-switch button[aria-pressed=true],
-.dark .replay-metric-switch button[aria-pressed=true] {
-  background: #1b2e23;
-  color: #52e396;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
-}
-
-[data-theme="dark"] .scenario-chip,
-.dark .scenario-chip {
-  background: #192a20;
-  color: #52e396;
-}
-
-[data-theme="dark"] .scenario-chip.hotdry,
-.dark .scenario-chip.hotdry {
-  background: #2b2014;
-  color: #f5a65b;
-}
-
-[data-theme="dark"] .replay-summary-row,
-.dark .replay-summary-row {
-  border-color: rgba(255, 255, 255, 0.1);
-  background: rgba(12, 20, 15, 0.5);
-}
-
-[data-theme="dark"] .summary-rotation,
-.dark .summary-rotation {
-  color: #ffffff;
-}
-
-[data-theme="dark"] .replay-summary-row b,
-.dark .replay-summary-row b {
-  color: #ffffff;
-}
-
-[data-theme="dark"] .replay-summary-row small,
-.dark .replay-summary-row small {
-  color: #ffffff;
-}
 
 /* Neighbors Table & How We Know in Dark Mode */
 [data-theme="dark"] .neighbors-table,
@@ -1247,10 +1137,6 @@
 .water-status.outlook-stable .water-status-dot { background: var(--color-fair); }
 .water-status.outlook-rising .water-status-dot { background: var(--color-good); }
 
-.replay-summary-table { width: 100%; border-collapse: separate; }
-.replay-summary-table tbody { display: contents; }
-.replay-summary-row th, .replay-summary-row td { display: grid; gap: 3px; padding: 0; font-weight: inherit; text-align: left; }
-.replay-summary-row th.summary-rotation { display: flex; }
 .verified-number { white-space: nowrap; }
 .verified-number svg { display: inline-block; margin-left: 2px; vertical-align: -1px; color: var(--color-good); }
 .trust-field { margin-bottom: 24px; }
@@ -1264,7 +1150,7 @@
 
 @media (max-width: 480px) {
   .overview-grid { grid-template-columns: minmax(0, 1fr); }
-  .replay-summary-table { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); }
+  
 }
 
 /* Excluded rotation shown to fill the row to R0 + 3 */

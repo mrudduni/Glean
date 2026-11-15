@@ -1,0 +1,38 @@
+/* Rotation Replay (wireframe s5). Lines are 2px, the current rotation is dashed, every line is labelled at its end. */
+.replay-panel { display: grid; gap: var(--sp-4); }
+.replay-toolbar { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: var(--sp-3); }
+.scenario-chip { color: var(--text-2); font-size: var(--fs-cap); }
+.replay-unit { margin: 0; color: var(--text-2); font-size: var(--fs-cap); font-weight: 600; }
+.chart-scroll { overflow-x: auto; }
+.replay-chart-inner { position: relative; min-width: 640px; }
+.replay-end-labels { position: absolute; top: 0; right: 0; width: 206px; height: 100%; margin: 0; padding: 0; list-style: none; pointer-events: none; }
+.replay-end-labels li {
+  position: absolute; left: 0; right: 0; transform: translateY(-50%);
+  display: flex; align-items: center; gap: 6px;
+  color: var(--text-1); font-size: var(--fs-cap); font-weight: 600; line-height: 1.2;
+  white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+}
+/* Line key: same 2px stroke as the chart; dashed for the current rotation. */
+.replay-panel i, .chart-tooltip i { flex: none; display: inline-block; width: 18px; height: 3px; border-radius: 2px; background: var(--key); }
+.replay-panel i.dashed, .chart-tooltip i.dashed { background: repeating-linear-gradient(90deg, var(--key) 0 5px, transparent 5px 8px); }
+
+.replay-legend { display: flex; flex-wrap: wrap; gap: var(--sp-2) var(--sp-5); color: var(--text-1); font-size: var(--fs-cap); }
+.replay-legend span { display: inline-flex; align-items: center; gap: 6px; }
+.replay-legend .drought-key { color: var(--text-2); }
+.replay-legend .drought-key i { width: 14px; height: 14px; border-radius: 2px; background: color-mix(in oklab, var(--color-fg) 9%, var(--color-surface)); }
+
+.chart-tooltip { min-width: 220px; padding: var(--sp-2) var(--sp-3); border: 1px solid var(--rule-strong); border-radius: var(--radius-sm); background: var(--color-surface); color: var(--text-1); font-size: var(--fs-cap); box-shadow: 0 2px 8px rgb(0 0 0 / 0.12); }
+.chart-tooltip-title { margin: 0 0 var(--sp-1); font-weight: 700; }
+.chart-tooltip ul { display: grid; gap: 4px; margin: 0; padding: 0; list-style: none; }
+.chart-tooltip li { display: grid; grid-template-columns: auto 1fr auto; align-items: center; gap: var(--sp-2); }
+.chart-tooltip li span { color: var(--text-2); }
+
+.replay-summary-table { width: 100%; border-collapse: collapse; font-size: var(--fs-cap); }
+.replay-summary-table caption { text-align: left; padding-bottom: var(--sp-2); color: var(--text-2); font-weight: 600; caption-side: top; }
+.replay-summary-table th, .replay-summary-table td { padding: var(--sp-2) var(--sp-3); border-bottom: 1px solid var(--rule); text-align: right; }
+.replay-summary-table th:first-child { text-align: left; }
+.replay-summary-table thead th { color: var(--text-2); font-weight: 600; }
+.replay-summary-table tbody th { display: flex; flex-wrap: wrap; align-items: center; gap: 4px var(--sp-2); font-weight: 600; color: var(--text-1); }
+.replay-summary-table tbody th small { width: 100%; padding-left: 26px; color: var(--color-fair); font-weight: 500; }
+.replay-summary-table td { color: var(--text-1); }
+.chart-note { margin: 0; color: var(--text-3); font-size: var(--fs-cap); }

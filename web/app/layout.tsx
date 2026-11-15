@@ -7,6 +7,7 @@ import "@/styles/map.css";
 import "@/styles/home.css";
 import "@/styles/workspace.css";
 import "@/styles/cards.css";
+import "@/styles/replay.css";
 import { AppProvider } from "@/lib/state";
 import { SiteFooter, SiteHeader } from "@/components/SiteHeader";
 import { MockBanner } from "@/components/MockBanner";

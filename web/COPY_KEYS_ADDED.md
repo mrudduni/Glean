@@ -19,6 +19,10 @@ Generated from a grep of `t("…")` calls in `app/`, `components/` and `lib/`.
 | `card.shared_title` | components/StrategyPanel.tsx | Applies to every option above |
 | `card.shared_more` | components/StrategyPanel.tsx | Plus {n} that apply to every option, listed below the cards. |
 | `card.bars_hint` | components/StrategyPanel.tsx | Bars compare the options shown: 100 is the best of them on that point. |
+| `replay.unit.irrigation` | components/ReplayChart.tsx | Irrigation water, mm per year |
+| `replay.unit.revenue` | components/ReplayChart.tsx | Income before costs, $ per acre |
+| `replay.unit.stress` | components/ReplayChart.tsx | Days of crop water stress per year |
+| `replay.unit.bare` | components/ReplayChart.tsx | Days of bare ground per year |
 | `assistant.own_key` | components/AssistantDrawer.tsx | Use my own key |
 | `assistant.own_key_on` | components/AssistantDrawer.tsx | on |
 | `assistant.own_key_toggle` | components/AssistantDrawer.tsx | Answer free-text questions with my key |

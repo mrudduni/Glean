@@ -23,7 +23,7 @@ Each item names its audit ID. Ticked items are committed and checked with `npm t
 
 - [ ] **#10** Styles read only token variables; dark mode comes from the token swap, not a second hand-written stylesheet
   - [x] Foundation: `styles/base.css` (type scale, text/rule ramp, header, footer, buttons, chips, badges, form controls, states)
-  - [x] Home + map (`styles/home.css`, `styles/map.css`) · [x] Field workspace (`styles/workspace.css`) · [ ] Overview · [ ] Calendar · [x] Cards (`styles/cards.css`) · [ ] Replay · [ ] Neighbours · [ ] Assistant · [ ] How we know
+  - [x] Home + map (`styles/home.css`, `styles/map.css`) · [x] Field workspace (`styles/workspace.css`) · [ ] Overview · [ ] Calendar · [x] Cards (`styles/cards.css`) · [x] Replay (`styles/replay.css`) · [ ] Neighbours · [ ] Assistant · [ ] How we know
 - [ ] **#11** Text meets WCAG AA (4.5:1) in light and dark; labels ≥ 14px, body 16px
 - [x] **#15** Tabular figures on every number (set once on `body`)
 
@@ -37,7 +37,7 @@ Each item names its audit ID. Ticked items are committed and checked with `npm t
 
 ## Charts and data
 
-- [ ] **#3** Replay: straight lines, theme-aware colours, direct end labels, neutral drought bands with labels
+- [x] **#3** Replay: straight lines, theme-aware colours, direct end labels, neutral drought bands with labels
 - [ ] **#12** Calendar: rotations stacked so none hide off-screen; readable risk strip; legend instead of two-letter codes
 - [ ] **#16** Farms like yours: map zooms to matched fields; readable tooltips and table
 - [x] **#14** Assistant: verified-number mark stays inline
@@ -62,4 +62,4 @@ Each item names its audit ID. Ticked items are committed and checked with `npm t
 - **Mock banner** is switched off on `main` ("suppressed per production requirements"); left as is.
 - **M** (`model/`): `assistant_cache.json` was generated for top order R4, R5, R1, R0, but the default cards are R0, R5, R1, R2. Rebuild for the default order; round numbers such as 75.43.
 - **D** (`data-pipeline/`): `neighbors.json` NDVI drought columns are all null.
-- **U** (`content/`, `design/`): "changed by −3 days a year" is a period difference, not a rate; "−0.9 cm/yr a year" doubles the unit; plural workarounds read robotic ("in years: 1"); criterion label "Heat and frost risk" reads backwards (100 = least risk); `web/styles/tokens.css` has drifted from `design/tokens.css` (dark muted text #eaf3ed is nearly the body colour).
+- **U** (`content/`, `design/`): "changed by −3 days a year" is a period difference, not a rate; "−0.9 cm/yr a year" doubles the unit; plural workarounds read robotic ("in years: 1"); criterion label "Heat and frost risk" reads backwards (100 = least risk); the rotation palette fails the dataviz colour checks (light: R0↔R1 ΔE 12.9 normal vision, R1/R3 below the lightness band; dark, hand-tuned: R6↔R3 ΔE 3.6 deutan, R3↔R0 ΔE 9.4 normal) — the chart compensates with dashes, end labels, legend and table, but the tokens need a re-step; `web/styles/tokens.css` has drifted from `design/tokens.css` (dark muted text #eaf3ed is nearly the body colour).
