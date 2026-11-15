@@ -26,3 +26,14 @@
 @media (max-width: 767px) {
   .leaflet-map, .map-placeholder { height: 60vh; min-height: 320px; }
 }
+/* Zoom and "show my field" controls: plain, legible over imagery. */
+.leaflet-control-zoom.leaflet-bar { border: 1px solid rgb(0 0 0 / 0.2); box-shadow: 0 1px 3px rgb(0 0 0 / 0.25); }
+.leaflet-control-zoom a { width: 36px; height: 36px; line-height: 34px; color: #1E2A22; }
+.map-fit {
+  position: absolute; z-index: 500; top: 10px; left: 10px;
+  min-height: 36px; padding: 0 var(--sp-3);
+  border: 1px solid rgb(0 0 0 / 0.2); border-radius: var(--radius-sm);
+  background: #ffffff; color: #1E2A22; font: 600 var(--fs-cap)/1 var(--font-body);
+  box-shadow: 0 1px 3px rgb(0 0 0 / 0.25); cursor: pointer;
+}
+.map-fit:hover { background: #f1f1ee; }

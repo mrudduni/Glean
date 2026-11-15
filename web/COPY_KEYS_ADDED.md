@@ -63,6 +63,10 @@ Generated from a grep of `t("…")` calls in `app/`, `components/` and `lib/`.
 | `share.copy` / `share.copied` / `share.copy_manual` | components/FieldWorkspace.tsx | Copy link to this view / Link copied / Copy this link |
 | `share.print` | components/FieldWorkspace.tsx | Print summary |
 | `priorities.print_label` | components/PrioritiesPanel.tsx | Your settings (print summary) |
+| `map.fit_field` / `map.fit_all` | components/FieldMapCanvas.tsx | Show my field / Show all three fields |
+| `replay.no_irrigation` | components/ReplayChart.tsx | no irrigation |
+| `replay.worst_year_key` | components/ReplayChart.tsx | Worst year for each option |
+| `replay.no_irrigation_note` | components/ReplayChart.tsx | This field has no irrigation, so every option uses 0 mm. Income, stress days and bare ground still differ. |
 | `assistant.own_key` | components/AssistantDrawer.tsx | Use my own key |
 | `assistant.own_key_on` | components/AssistantDrawer.tsx | on |
 | `assistant.own_key_toggle` | components/AssistantDrawer.tsx | Answer free-text questions with my key |

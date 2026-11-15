@@ -58,3 +58,5 @@
   .cal-row > :first-child, .cal-block-title, .cal-risk caption { position: sticky; left: 0; z-index: 1; background: var(--color-surface); }
   .cal-block-title, .cal-risk caption { width: max-content; padding-right: var(--sp-2); }
 }
+.cal-head-repeat span { font-size: 0.875rem; font-weight: 500; color: var(--text-3); }
+.cal-best { margin-left: var(--sp-2); padding: 1px 8px; border: 1px solid var(--color-accent); border-radius: 3px; color: var(--color-accent); font-size: var(--fs-cap); font-weight: 600; }

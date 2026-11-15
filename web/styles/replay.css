@@ -36,3 +36,10 @@
 .replay-summary-table tbody th small { width: 100%; padding-left: 26px; color: var(--color-fair); font-weight: 500; }
 .replay-summary-table td { color: var(--text-1); }
 .chart-note { margin: 0; color: var(--text-3); font-size: var(--fs-cap); }
+.replay-legend .worst-key b { width: 10px; height: 10px; border: 2px solid var(--text-1); border-radius: 50%; background: var(--color-surface); }
+/* Phones: the numbers first, the scrollable chart after. */
+@media (max-width: 640px) {
+  .replay-summary-table { order: -1; }
+  .replay-toolbar { order: -2; }
+  .replay-unit { order: 0; }
+}

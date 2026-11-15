@@ -55,4 +55,9 @@ export const ES_FALLBACK: Record<string, string> = {
   "share.copy_manual": "Copie este enlace",
   "share.print": "Imprimir resumen",
   "priorities.print_label": "Sus ajustes",
+  "map.fit_field": "Mostrar mi campo",
+  "map.fit_all": "Mostrar los tres campos",
+  "replay.no_irrigation": "sin riego",
+  "replay.worst_year_key": "Peor año de cada opción",
+  "replay.no_irrigation_note": "Este campo no tiene riego, así que todas las opciones usan 0 mm. El ingreso, los días de estrés y el suelo descubierto sí cambian.",
 };

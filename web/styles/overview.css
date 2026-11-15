@@ -35,3 +35,5 @@
   .overview-grid { grid-template-columns: minmax(0, 1fr); }
   .overview-item + .overview-item { border-left: 0; border-top: 1px solid var(--rule); }
 }
+.spark-plot { color: var(--color-accent); }
+.sparkline { display: block; }

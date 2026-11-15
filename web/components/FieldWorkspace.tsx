@@ -9,7 +9,7 @@ import { PrioritiesPanel } from "@/components/PrioritiesPanel";
 import { FieldCalendar } from "@/components/FieldCalendar";
 import { rotationSteps, StrategyPanel } from "@/components/StrategyPanel";
 import { SourceChips } from "@/components/SourceChips";
-import { ReplayChart } from "@/components/ReplayChart";
+import dynamic from "next/dynamic";
 import { NeighborsView } from "@/components/NeighborsView";
 import { AssistantDrawer } from "@/components/AssistantDrawer";
 import { CropChips } from "@/components/CropChips";
@@ -20,6 +20,12 @@ import { formatVar, interpolate, loc, makeT, textureLabel, yearsLabel } from "@/
 import { cardLine, cropNames, KIND_LABEL, type UI } from "@/lib/ui";
 import { FIELD_IDS } from "@/lib/schemas";
 import type { CapId, Content, CropsFile, Field, FieldBundle, FieldId, RotationId, RotationsFile, ScenarioKey, SourcesFile } from "@/lib/types";
+
+// The chart library is only needed for Rotation Replay, further down the page: load it on its own.
+const ReplayChart = dynamic(() => import("@/components/ReplayChart").then((module) => module.ReplayChart), {
+  ssr: false,
+  loading: () => <div className="workspace-section"><div className="skeleton-block" style={{ height: 480 }} /></div>,
+});
 
 interface Loaded {
   field: Field;
@@ -265,7 +271,7 @@ export function FieldWorkspace({ fieldId }: { fieldId: FieldId }) {
 
       <div className="workspace-content page-wrap">
         <OverviewPanel field={field} summary={bundle.summary} water={bundle.water} glossary={data.content.glossary} copy={copy} ui={ui} />
-        <FieldCalendar calendar={bundle.calendar} order={order} ui={ui} />
+        <FieldCalendar calendar={bundle.calendar} order={order} ui={ui} bestId={best?.rotation_id} />
         <section className="workspace-section compare-section" id="strategies" aria-labelledby="strategies-heading">
           <div className="section-title-row">
             <h2 id="strategies-heading">{t("strategies.eyebrow", "Compare your options")}</h2>
