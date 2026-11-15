@@ -11,6 +11,7 @@ import { cardLine, cropLabel, type UI } from "@/lib/ui";
 import { SourceChips } from "@/components/SourceChips";
 import { TrustBadge } from "@/components/TrustBadge";
 import { CropChips } from "@/components/CropChips";
+import { AnimatedNumber } from "@/components/AnimatedNumber";
 import { rotColor } from "@/lib/theme";
 
 export function rotationSteps(id: RotationId, rotations: Rotation[], summary: SummaryFile) {
@@ -146,7 +147,7 @@ function StrategyCard({
       </div>
       <div className="strategy-crops"><CropChips steps={steps} ui={ui} /></div>
       <div className="score-row">
-        <div><small>{t("card.score")}</small><strong>{score}<span>/100</span></strong></div>
+        <div><small>{t("card.score")}</small><strong><AnimatedNumber value={score} /><span>/100</span></strong></div>
         <div className="score-meter" role="meter" aria-valuenow={score} aria-valuemin={0} aria-valuemax={100} aria-label={t("card.score")}>
           <i style={{ width: `${score}%` }} />
         </div>
