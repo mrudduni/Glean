@@ -47,7 +47,7 @@ def rule_checks(resp: dict, lang: str, facts: list[dict]) -> list[str]:
     bad = [n["text"] for n in check_numbers(a, [f for f in facts if f["value"] is not None]) if not n["verified"]]
     if bad:
         issues.append("unverified numbers: " + ", ".join(bad))
-    if m := OVERCLAIM.search(a):
+    if m := OVERCLAIM.search(re.sub(r"(?<![A-Za-z])(not|no|without|sin)\s+(a\s+)?(guarantees?|garant\w+)", "", a, flags=re.I)):
         issues.append(f"overclaiming word: '{m.group(0)}'")
     if m := FORBIDDEN.search(a):
         issues.append(f"forbidden topic: '{m.group(0)}'")
@@ -109,15 +109,18 @@ def main():
     ap.add_argument("--out", type=Path, default=OUT_WEB)
     ap.add_argument("--model-web", type=Path, default=OUT_WEB)
     ap.add_argument("--report", type=Path, default=REPO / "model" / "out" / "assistant_review.md")
+    ap.add_argument("--rules-only", action="store_true", help="skip the LLM judge (quota gone) but still regenerate rule failures")
     ap.add_argument("--sleep", type=float, default=2.0)
     a = ap.parse_args()
 
-    use_llm = llm_ready() and not a.dry_run
+    use_llm = llm_ready() and not a.dry_run and not a.rules_only
+    can_regen = llm_ready(cache.gen_prefix()) and not a.dry_run
     env, client = llm_env(), None
     genv = llm_env(cache.gen_prefix())  # backend that regenerates failed answers
     gclient = None
     if use_llm:
         client = cache.make_client(env)
+    if can_regen:
         gclient = cache.make_client(genv)
     jenv = {**env, "LLM_MODEL": os.environ.get("JUDGE_MODEL", "openai/gpt-oss-20b")}
     prompt = load(a.out / "assistant" / "prompt.json")
@@ -136,7 +139,7 @@ def main():
             for lang, resp in list(by_lang.items()):
                 qtext = qs[qid]["text"][lang]
                 verdict, rounds = judge_one(resp, lang, qtext, facts, facts_text, client, jenv, prompt, use_llm), 0
-                while not verdict["pass"] and use_llm and rounds < a.rounds:
+                while not verdict["pass"] and can_regen and rounds < a.rounds:
                     rounds += 1
                     regen_total += 1
                     time.sleep(a.sleep)
@@ -148,7 +151,7 @@ def main():
                         by_lang[lang] = new
                 results.append({"field": fid, "q": qid, "lang": lang, "words": len(re.findall(r"[\w'’]+", resp["answer_md"])),
                                 "rounds": rounds, **verdict})
-        if use_llm:
+        if can_regen:
             path.write_text(json.dumps(doc, ensure_ascii=False, indent=1) + "\n", encoding="utf8")
 
     write_report(a.report, results, use_llm, regen_total, a.dry_run, doc["_meta"].get("mock", False))

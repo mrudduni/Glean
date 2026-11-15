@@ -50,7 +50,7 @@ def _canon_unit(unit: str | None) -> str | None:
         "°f": "f", "f": "f", "degf": "f",
         "ac": "ac", "acre": "ac", "acres": "ac", "area_ac": "ac",
         "bu": "bu", "bu/ac": "bu", "bu_ac": "bu",
-        "ton": "tons", "tons": "tons", "tons/ac": "tons", "tons_ac": "tons",
+        "ton": "tons", "tons": "tons", "t_ac_yr": "tons", "tons/ac": "tons", "tons_ac": "tons",
     }
     return table.get(u, u)
 

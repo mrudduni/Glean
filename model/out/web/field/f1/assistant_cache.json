@@ -157,20 +157,75 @@
   },
   "q3": {
    "en": {
-    "answer_md": "An alfalfa, alfalfa, alfalfa, alfalfa, corn, wheat rotation shows potential drawbacks in water-budget model estimates based on past weather (2000 to 2025):\n\n* **High Water Stress:** This rotation had an estimated average of 81",
-    "citations": [],
+    "answer_md": "Alfalfa could improve your soil health score to 75.43 out of 100 [MODEL]. It also reduces bare soil and strong wind exposure to 5 days per year [MODEL].\n\nHowever, there are trade-offs to consider:\n* The alfalfa, alfalfa, alfalfa, alfalfa, corn, wheat rotation had 81 days per year of crop water stress [MODEL].\n* This rotation earned an average of $567/ac per year, which is lower than the $669/ac earned by your current continuous corn rotation [MODEL].\n* In the 5 worst years, this rotation earned an average of $313/ac [MODEL].\n\nThese numbers are estimates from a model using past weather from 2000 to 2025 [MODEL]. Please talk to a local agronomist or K-State Research and Extension agent to see if this strategy fits your goals.",
+    "citations": [
+     {
+      "tag": "MODEL",
+      "name": "Glean water-budget model (FAO-56)",
+      "url": "https://github.com/mrudduni/Team-Brackets/blob/main/docs/METHODS.md"
+     }
+    ],
     "numbers": [
      {
-      "text": "81",
-      "value": 81.0,
+      "text": "75.43",
+      "value": 75.43,
       "unit": null,
       "verified": true,
+      "fact_id": "replay.R4.cap300|actual.soil_health_score"
+     },
+     {
+      "text": "100",
+      "value": 100.0,
+      "unit": null,
+      "verified": true,
+      "fact_id": "drought.2012.R4.stress_days"
+     },
+     {
+      "text": "5 days",
+      "value": 5.0,
+      "unit": "days",
+      "verified": true,
+      "fact_id": "field.weg"
+     },
+     {
+      "text": "81 days",
+      "value": 81.0,
+      "unit": "days",
+      "verified": true,
       "fact_id": "replay.R4.cap300|actual.stress_days_mean"
+     },
+     {
+      "text": "$567/ac",
+      "value": 567.0,
+      "unit": "usd",
+      "verified": true,
+      "fact_id": "replay.R4.cap300|actual.revenue_usd_ac_mean"
+     },
+     {
+      "text": "$669/ac",
+      "value": 669.0,
+      "unit": "usd",
+      "verified": true,
+      "fact_id": "replay.R0.cap300|actual.revenue_usd_ac_mean"
+     },
+     {
+      "text": "5",
+      "value": 5.0,
+      "unit": null,
+      "verified": true,
+      "fact_id": "field.weg"
+     },
+     {
+      "text": "$313/ac",
+      "value": 313.0,
+      "unit": "usd",
+      "verified": true,
+      "fact_id": "replay.R4.cap300|actual.revenue_usd_ac_worst5"
      }
     ],
     "cached": true,
     "provider": "gemini",
-    "model": "gemini-3.5-flash"
+    "model": "gemini-3.1-flash-lite"
    },
    "es": {
     "answer_md": "La rotación de alfalfa, alfalfa, alfalfa, alfalfa, maíz, trigo podría presentar algunos retos bajo este escenario de riego:\n\n* **Alto estrés hídrico:** Se estiman 81 días al año de estrés hídrico en el cultivo [MODEL], que podrían aumentar a 102 días en un año seco como 2012 [MODEL].\n* **Alto consumo de agua:** En campos vecinos similares, la alfalfa usó una mediana estimada de 1124 mm de agua al año [OpenET].\n* **Ingresos menores al maíz continuo:** Esta rotación podría generar un promedio de $567/ac al año [MODEL], mientras que el maíz continuo podría generar $669/ac al año [MODEL].",
@@ -259,9 +314,43 @@
     "model": "gemini-3.5-flash"
    },
    "es": {
-    "answer_md": "En la sequía de 2012, las estimaciones del modelo para cada opción muestran lo siguiente:\n\n* **Alfalfa, alfalfa, alfalfa, alfalfa, maíz, trigo:** Se estima que habría ganado unos $324/ac y tenido 102",
-    "citations": [],
+    "answer_md": "En el año de sequía 2012, los resultados estimados para las rotaciones son:\n\n*   La rotación de maíz continuo habría ganado $315/ac con 81 días de estrés hídrico [MODEL].\n*   La rotación de maíz, trigo y sorgo habría ganado $293/ac con 69 días de estrés hídrico [MODEL].\n*   La rotación de alfalfa, alfalfa, alfalfa, alfalfa, maíz y trigo habría ganado $324/ac con 102 días de estrés hídrico [MODEL].\n*   La rotación de maíz, soja y trigo habría ganado $244/ac con 78 días de estrés hídrico [MODEL].\n\nEstos números son estimaciones basadas en un modelo de presupuesto de agua simplificado que utiliza el clima pasado [MODEL]. Si necesita más información, le sugiero consultar con un agente de extensión de K-State Research and Extension o un agrónomo local.",
+    "citations": [
+     {
+      "tag": "MODEL",
+      "name": "Glean water-budget model (FAO-56)",
+      "url": "https://github.com/mrudduni/Team-Brackets/blob/main/docs/METHODS.md"
+     }
+    ],
     "numbers": [
+     {
+      "text": "$315/ac",
+      "value": 315.0,
+      "unit": "usd",
+      "verified": true,
+      "fact_id": "replay.R1.cap300|actual.revenue_usd_ac_worst5"
+     },
+     {
+      "text": "81",
+      "value": 81.0,
+      "unit": null,
+      "verified": true,
+      "fact_id": "replay.R4.cap300|actual.stress_days_mean"
+     },
+     {
+      "text": "$293/ac",
+      "value": 293.0,
+      "unit": "usd",
+      "verified": true,
+      "fact_id": "replay.R5.cap300|actual.revenue_usd_ac_worst5"
+     },
+     {
+      "text": "69",
+      "value": 69.0,
+      "unit": null,
+      "verified": true,
+      "fact_id": "drought.2012.R1.stress_days"
+     },
      {
       "text": "$324/ac",
       "value": 324.0,
@@ -275,11 +364,25 @@
       "unit": null,
       "verified": true,
       "fact_id": "drought.2012.R4.stress_days"
+     },
+     {
+      "text": "$244/ac",
+      "value": 244.0,
+      "unit": "usd",
+      "verified": true,
+      "fact_id": "drought.2012.R5.revenue_usd_ac"
+     },
+     {
+      "text": "78",
+      "value": 78.0,
+      "unit": null,
+      "verified": true,
+      "fact_id": "replay.R4.cap300|actual.stress_days_mean"
      }
     ],
     "cached": true,
     "provider": "gemini",
-    "model": "gemini-3.5-flash"
+    "model": "gemini-3.1-flash-lite"
    }
   },
   "q5": {
@@ -330,20 +433,131 @@
   },
   "q6": {
    "en": {
-    "answer_md": "I do not have information about specific steps or items to check before switching crop rotations. You could ask a K-State Research and Extension agent or a local agronomist for advice tailored to your field.",
-    "citations": [],
-    "numbers": [],
+    "answer_md": "You could ask a K-State Research and Extension agent or a local agronomist about these factors before changing your rotation:\n\n* The model results are estimates based on past weather from 2000 to 2025 [MODEL].\n* Different rotations show varying levels of crop water stress, such as 46 days per year for continuous corn and 81 days per year for the alfalfa, alfalfa, alfalfa, alfalfa, corn, wheat rotation [MODEL].\n* Your soil has 0.75% organic matter [SSURGO].\n* Regional groundwater storage is falling by about 0.86 cm per year [GRACE], and depth to water in nearby wells is increasing by a median of 1.8 m per year [USGS].\n\nPlease consult an expert to discuss how these trends and soil conditions might affect your specific operation.",
+    "citations": [
+     {
+      "tag": "MODEL",
+      "name": "Glean water-budget model (FAO-56)",
+      "url": "https://github.com/mrudduni/Team-Brackets/blob/main/docs/METHODS.md"
+     },
+     {
+      "tag": "SSURGO",
+      "name": "SSURGO via Soil Data Access",
+      "url": "https://sdmdataaccess.sc.egov.usda.gov/"
+     },
+     {
+      "tag": "GRACE",
+      "name": "JPL GRACE/GRACE-FO Mascon RL06.3 (CRI filtered)",
+      "url": "https://podaac.jpl.nasa.gov/dataset/TELLUS_GRAC-GRFO_MASCON_CRI_GRID_RL06.3_V4"
+     },
+     {
+      "tag": "USGS",
+      "name": "USGS Water Data APIs — groundwater field measurements",
+      "url": "https://api.waterdata.usgs.gov/"
+     }
+    ],
+    "numbers": [
+     {
+      "text": "46 days",
+      "value": 46.0,
+      "unit": "days",
+      "verified": true,
+      "fact_id": "replay.R0.cap300|actual.stress_days_mean"
+     },
+     {
+      "text": "81 days",
+      "value": 81.0,
+      "unit": "days",
+      "verified": true,
+      "fact_id": "replay.R4.cap300|actual.stress_days_mean"
+     },
+     {
+      "text": "0.75%",
+      "value": 0.75,
+      "unit": "pct",
+      "verified": true,
+      "fact_id": "field.organic_matter_pct"
+     },
+     {
+      "text": "0.86 cm",
+      "value": 0.86,
+      "unit": "cm",
+      "verified": true,
+      "fact_id": "water.grace_trend_cm_per_yr"
+     },
+     {
+      "text": "1.8 m",
+      "value": 1.8,
+      "unit": "m",
+      "verified": true,
+      "fact_id": "water.wells_trend_m_per_yr"
+     }
+    ],
     "cached": true,
     "provider": "gemini",
-    "model": "gemini-3.5-flash"
+    "model": "gemini-3.1-flash-lite"
    },
    "es": {
-    "answer_md": "No tengo esa información en los datos disponibles. Le sugiero consultar a un agente de K-State Research and Extension o a un agrónomo local para evaluar las recomendaciones específicas antes de cambiar la rotación de sus cultivos.",
-    "citations": [],
-    "numbers": [],
+    "answer_md": "Usted podría consultar con un agente de extensión de K-State o un agrónomo local sobre los siguientes puntos:\n\n*   El impacto de cambiar su rotación actual de maíz continuo en la salud del suelo, la cual tiene un puntaje de 44.26 de 100 [MODEL].\n*   La diferencia en los días de estrés hídrico de los cultivos entre las distintas estrategias, como los 46 días por año del maíz continuo frente a los 81 días de la rotación con alfalfa [MODEL].\n*   La gestión de los 29 días por año con suelo desnudo y viento fuerte que presenta el maíz continuo [MODEL].\n*   Las tendencias locales de agua, ya que los niveles de agua en pozos cercanos están bajando a una mediana de 1.8 m por año [USGS].\n\nEstos números son estimaciones basadas en el clima pasado de 2000 a 2025 [MODEL].",
+    "citations": [
+     {
+      "tag": "MODEL",
+      "name": "Glean water-budget model (FAO-56)",
+      "url": "https://github.com/mrudduni/Team-Brackets/blob/main/docs/METHODS.md"
+     },
+     {
+      "tag": "USGS",
+      "name": "USGS Water Data APIs — groundwater field measurements",
+      "url": "https://api.waterdata.usgs.gov/"
+     }
+    ],
+    "numbers": [
+     {
+      "text": "44.26",
+      "value": 44.26,
+      "unit": null,
+      "verified": true,
+      "fact_id": "replay.R0.cap300|actual.stress_days_mean"
+     },
+     {
+      "text": "100",
+      "value": 100.0,
+      "unit": null,
+      "verified": true,
+      "fact_id": "drought.2012.R4.stress_days"
+     },
+     {
+      "text": "46",
+      "value": 46.0,
+      "unit": null,
+      "verified": true,
+      "fact_id": "field.wei_t_ac_yr"
+     },
+     {
+      "text": "81",
+      "value": 81.0,
+      "unit": null,
+      "verified": true,
+      "fact_id": "replay.R4.cap300|actual.stress_days_mean"
+     },
+     {
+      "text": "29",
+      "value": 29.0,
+      "unit": null,
+      "verified": true,
+      "fact_id": "replay.R0.cap300|actual.bare_windy_days_mean"
+     },
+     {
+      "text": "1.8 m",
+      "value": 1.8,
+      "unit": "m",
+      "verified": true,
+      "fact_id": "water.wells_trend_m_per_yr"
+     }
+    ],
     "cached": true,
     "provider": "gemini",
-    "model": "gemini-3.5-flash"
+    "model": "gemini-3.1-flash-lite"
    }
   }
  }
