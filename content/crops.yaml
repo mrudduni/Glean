@@ -1,4 +1,4 @@
-# Field Shift crop traits (README 8.5). One entry per CropId.
+# Stubble crop traits (README 8.5). One entry per CropId.
 # Region: Finney County, Kansas = K-State planting Zone 2 (southwest/west-central). Zone from the county map in
 #   MF2227 Triticale in Kansas, https://bookstore.ksre.ksu.edu/pubs/mf2227.pdf  # verify zone for corn/sorghum/soybean table
 # Source keys used in `sources:` (full URLs here so every number is traceable):
