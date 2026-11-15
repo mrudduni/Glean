@@ -58,3 +58,4 @@ raw/
 !design/tokens.json
 
 *.env
+*.tsbuildinfo
