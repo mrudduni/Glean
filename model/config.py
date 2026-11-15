@@ -27,7 +27,7 @@ OUT_DIR = _path("MODEL_OUT_DIR", MODEL_DIR / "out" / "web")
 DEFAULT_CROPS_YAML = MODEL_DIR / "library" / "default_crops.yaml"
 CONTENT_GIT_REF = "origin/role/content"  # fallback source for content/crops.yaml
 
-# ---------------------------------------------------------------- ids (README 7.2)
+# ---------------------------------------------------------------- ids (CONTRACT 7.2)
 FIELD_IDS = ["f1", "f2", "f3"]
 CROP_IDS = ["corn", "sorghum", "wheat", "soybean", "alfalfa", "triticale", "rye_cover", "cotton", "fallow"]
 ROTATION_IDS = ["R0", "R1", "R2", "R3", "R4", "R5", "R6"]
@@ -139,7 +139,7 @@ BENEFIT_WATER_MM = 25
 BENEFIT_BARE_DAYS = 20
 BENEFIT_WORST5_USD = 10
 NEIGHBOR_MIN_N = 3
-# default slider weights (web handover 4.x: 3 each) and README 8.7 mapping, used only for acceptance checks
+# default slider weights (web handover 4.x: 3 each) and CONTRACT 8.7 mapping, used only for acceptance checks
 SLIDER_DEFAULT = {"save_water": 3, "income": 3, "steady_income": 3, "soil_health": 3, "erosion": 3}
 SLIDER_SHARES = {
     "save_water": {"water_use": 1.0},

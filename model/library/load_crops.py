@@ -70,7 +70,7 @@ def county_market(nass: dict | None) -> dict[str, bool]:
 
 
 def load_crops() -> tuple[dict, dict]:
-    """Return (crops, provenance). crops[cid] has every README 8.5 field plus model-filled yields/prices."""
+    """Return (crops, provenance). crops[cid] has every CONTRACT 8.5 field plus model-filled yields/prices."""
     raw, source = read_crops_yaml()
     missing = [c for c in config.CROP_IDS if c not in raw]
     if missing:

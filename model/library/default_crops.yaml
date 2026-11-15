@@ -1,5 +1,5 @@
-# Snapshot of U's content/crops.yaml (origin/role/content 7bf4197), used only when content/crops.yaml
-# is missing and the git ref cannot be read. U's file is the source of truth. # verify against content/
+# Snapshot of U's content/crops.yaml (main 8c7e06f), used only when content/crops.yaml
+# is missing and the git ref cannot be read. U's file is the source of truth.
 # Glean crop traits (README 8.5). One entry per CropId.
 # Region: Finney County, Kansas = K-State planting Zone 2 (southwest/west-central). Zone from the county map in
 #   MF2227 Triticale in Kansas, https://bookstore.ksre.ksu.edu/pubs/mf2227.pdf  # verify zone for corn/sorghum/soybean table
@@ -85,7 +85,7 @@ wheat:
   p: 0.55
   ky: 1.05                                             # FAO-56 T24 winter wheat (1.05)
   heat: { stage: late, tmax_c: 32 }                    # grain fill heat; K-State guidance  # verify
-  frost_kill_c: -2                                     # spring freeze at heading; winter-hardy otherwise  # verify
+  frost_kill_c: -18   # winter-hardy when dormant (value from Himal's draft); spring freeze at heading is the real risk  # verify
   requires_irrigation: false
   n_fixing: false
   residue: high
@@ -140,7 +140,7 @@ alfalfa:
   root_max_m: 2.0                                      # FAO-56 T22 (1.0 to 2.0 m)
   p: 0.55
   ky: 1.10                                             # FAO-56 T24
-  heat: { stage: null, tmax_c: null }                  # no sensitive stage used  # verify
+  heat: null                  # no sensitive stage used  # verify
   frost_kill_c: -4                                     # FAO-56 T11 season definition (-4 C)
   requires_irrigation: true                            # in Finney County a stand is not practical without irrigation  # verify
   n_fixing: true
@@ -168,8 +168,8 @@ triticale:
   root_max_m: 1.5                                      # winter wheat proxy  # verify
   p: 0.55                                              # winter wheat proxy  # verify
   ky: 1.05                                             # winter wheat proxy  # verify
-  heat: { stage: null, tmax_c: null }
-  frost_kill_c: -2                                     # verify
+  heat: null
+  frost_kill_c: -15   # winter-hardy (value from Himal's draft)  # verify
   requires_irrigation: false
   n_fixing: false
   residue: medium
@@ -196,8 +196,8 @@ rye_cover:
   root_max_m: 1.0                                      # assumed  # verify
   p: 0.55                                              # cereal proxy  # verify
   ky: null                                             # cover crop, no yield modelled
-  heat: { stage: null, tmax_c: null }
-  frost_kill_c: null                                   # winter hardy  # verify
+  heat: null
+  frost_kill_c: -25   # very winter-hardy (value from Himal's draft; SARE)  # verify
   requires_irrigation: false
   n_fixing: false
   residue: high
@@ -242,14 +242,14 @@ fallow:
   family: null
   host_group: none
   season: none
-  plant_window: { start: null, end: null }
-  harvest_window: { start: null, end: null }
+  plant_window: null
+  harvest_window: null
   stage_days: { ini: 0, dev: 0, mid: 0, late: 0 }
   kc: { ini: 0.30, mid: 0.30, end: 0.30 }              # handover 5: bare soil evaporation
   root_max_m: null
   p: null
   ky: null
-  heat: { stage: null, tmax_c: null }
+  heat: null
   frost_kill_c: null
   requires_irrigation: false
   n_fixing: false

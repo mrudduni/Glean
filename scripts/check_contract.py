@@ -3,7 +3,7 @@
 Usage: python scripts/check_contract.py [--data-dir web/public/data] [--allow-mock] [--only-model]
   --allow-mock  mock files are warnings instead of errors
   --only-model  check only the files M produces (useful before D's and U's files are synced);
-                text keys fall back to the README 8.6 catalog if card_text.json is absent
+                text keys fall back to the CONTRACT 8.6 catalog if card_text.json is absent
 """
 from __future__ import annotations
 
@@ -32,7 +32,7 @@ M_FILES = ["crops.json", "rotations.json", "assistant/prompt.json"] + [
                                         "assistant_context", "assistant_cache")]
 U_FILES = [f"content/{n}.json" for n in ("card_text", "copy", "glossary", "assistant_questions")]
 
-# README 8.6, used only when card_text.json is not available (--only-model)
+# CONTRACT 8.6, used only when card_text.json is not available (--only-model)
 CATALOG = {
     "why": {k: [] for k in CRITERIA},
     "benefits": {k: [] for k in ("water_saved", "bare_days_reduced", "legume_added", "income_steadier",
@@ -172,7 +172,7 @@ def main(argv: list[str] | None = None) -> int:
         if not a.only_model:
             rep.err("content/card_text.json missing: text keys cannot be checked")
         else:
-            rep.warn("content/card_text.json not found: checking text ids against the README 8.6 catalog only")
+            rep.warn("content/card_text.json not found: checking text ids against the CONTRACT 8.6 catalog only")
         text = CATALOG
     sources_path = base / "sources.json"
     known_tags = None
@@ -182,7 +182,7 @@ def main(argv: list[str] | None = None) -> int:
     elif not a.only_model:
         rep.err("sources.json missing: source tags cannot be resolved")
     else:
-        rep.warn("sources.json not found: source tags checked against README 7.2 only")
+        rep.warn("sources.json not found: source tags checked against CONTRACT 7.2 only")
 
     if "rotations" in text:
         for rid in sorted(ROTATION_IDS):
@@ -268,7 +268,7 @@ def main(argv: list[str] | None = None) -> int:
 
     for t in sorted(used_tags):
         if t not in SOURCE_TAGS:
-            rep.err(f"source tag {t!r} is not a README 7.2 SourceTag")
+            rep.err(f"source tag {t!r} is not a CONTRACT 7.2 SourceTag")
         elif known_tags is not None and t not in known_tags:
             rep.err(f"source tag {t!r} is used but missing from sources.json")
 

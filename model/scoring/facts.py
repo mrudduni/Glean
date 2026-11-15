@@ -1,4 +1,4 @@
-"""Card facts per field x scenario x rotation -> strategies.json (handover 5.5, README 8.4)."""
+"""Card facts per field x scenario x rotation -> strategies.json (handover 5.5, CONTRACT 8.4)."""
 from __future__ import annotations
 
 from model import config
@@ -176,7 +176,7 @@ def build_strategies(fid: str, result: dict, rotations: dict[str, Rotation], cro
 
 
 def _why_rank(norm: dict) -> list[str]:
-    """README 8.7 why bullets under default weights: top 3 by w_k x norm_k with norm >= 50."""
+    """CONTRACT 8.7 why bullets under default weights: top 3 by w_k x norm_k with norm >= 50."""
     wk = {c: 0.0 for c in config.CRITERIA}
     for slider, val in config.SLIDER_DEFAULT.items():
         for c, share in config.SLIDER_SHARES[slider].items():
@@ -186,7 +186,7 @@ def _why_rank(norm: dict) -> list[str]:
 
 
 def top3(strategies_entries: list[dict], rotations: dict[str, Rotation], owned=(), forage_buyer=False) -> list[tuple[str, float]]:
-    """README 8.7 'shown' set under default sliders, excluding R0. Used for acceptance checks."""
+    """CONTRACT 8.7 'shown' set under default sliders, excluding R0. Used for acceptance checks."""
     scored = []
     for e in strategies_entries:
         rid = e["rotation_id"]

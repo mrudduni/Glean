@@ -150,7 +150,7 @@ Normalisation within one field and scenario, across feasible rotations: `norm = 
 
 ## Card facts
 
-`model/scoring/facts.py` writes `strategies.json` using only README 8.6 keys:
+`model/scoring/facts.py` writes `strategies.json` using only CONTRACT 8.6 keys:
 
 - Benefits vs R0: `water_saved` (≥ 25 mm), `bare_days_reduced` (≥ 20 days), `legume_added`, `income_steadier` (worst-5 ≥ $10/ac better), `pest_cycle_broken`, `forage_income`.
 - Evidence: `replay_avg` always; `replay_drought` for 2012; `neighbors` when D's matching group (or, for R0, the `is_current` group) has n ≥ 3 and both groups have an OpenET median; `validation_et` when `et_vs_openet` exists.
@@ -183,7 +183,7 @@ Extra check, not a contract item: POWER monthly rain vs PRISM, 2000 to 2025 (n 3
 
 ## Results under default settings
 
-The README 8.7 default is all sliders at 3, with no hay or cotton equipment and no forage buyer, so R3, R4 and R6 are excluded. Top 3 (excluding R0) at `cap300|actual`:
+The CONTRACT 8.7 default is all sliders at 3, with no hay or cotton equipment and no forage buyer, so R3, R4 and R6 are excluded. Top 3 (excluding R0) at `cap300|actual`:
 
 | Field | R0 | Top 3 | Why |
 |---|---|---|---|
@@ -208,10 +208,10 @@ Under `dryland`, no irrigated rotation is feasible on any field (tested).
 
 | Constant | Value | Source or reason |
 |---|---|---|
-| `YEAR_FROM`, `YEAR_TO` | 2000, 2025 | README replay period |
+| `YEAR_FROM`, `YEAR_TO` | 2000, 2025 | CONTRACT replay period |
 | `SPINUP_START`, `SPINUP_DEPLETION_FRAC` | 1999-10-01, 0.5 | handover 5.3 |
-| `CAP_MM` | 0, 150, 300, 450 mm/season | README 7.2 |
-| `HOTDRY_DT_C`, `HOTDRY_P_FACTOR` | +1.5 °C, 0.85 | README 7.2 |
+| `CAP_MM` | 0, 150, 300, 450 mm/season | CONTRACT 7.2 |
+| `HOTDRY_DT_C`, `HOTDRY_P_FACTOR` | +1.5 °C, 0.85 | CONTRACT 7.2 |
 | `ZMAX_M` | 1.5 m | handover 5.3 |
 | `ROOT_INIT_M` | 0.15 m | handover 5.3 |
 | `PIVOT_EFFICIENCY` | 0.85 | handover 5.3 |
@@ -237,7 +237,7 @@ Under `dryland`, no irrigated rotation is feasible on any field (tested).
 | `SOIL_W`, `RESIDUE_SCORE`, `FAMILIES_FULL` | 40/20/15/15/10; 1 / 0.6 / 0.2 / 0; 4 | handover 5.5 (fallow 0 is ours) |
 | `PEST_RUN_CAP`, `FROST_WEIGHT` | 8, 2 | handover 5.5 |
 | `BENEFIT_WATER_MM`, `BENEFIT_BARE_DAYS`, `BENEFIT_WORST5_USD`, `NEIGHBOR_MIN_N` | 25 mm, 20 days, $10/ac, 3 | handover 5.5 |
-| `SLIDER_DEFAULT`, `SLIDER_SHARES` | 3 each; README 8.7 shares | README 8.7, web handover 4 (used only for the acceptance check) |
+| `SLIDER_DEFAULT`, `SLIDER_SHARES` | 3 each; CONTRACT 8.7 shares | CONTRACT 8.7, web handover 4 (used only for the acceptance check) |
 | `NORMAL_PERIOD`, `RECENT_PERIOD`, `FROST_C`, `GDD_BASE_C`, `GDD_CAP_C`, `HOT_DAY_C` | 1991 to 2020, 2016 to 2025, 0 °C, 10 °C, 30 °C, 35 °C | handover 5.6 |
 | `OUTLOOK_GRACE_CM`, `OUTLOOK_WELL_M` | 0.3 cm/yr, 0.1 m/yr | handover 5.6 |
 | `VALID_YEARS`, `VALID_MONTHS`, `ACTUAL_RUN_CAP`, `SMAP_YEARS`, `LEVELS` | 2016 to 2025 (clipped to crop history), Apr to Oct, cap450, 2015 to 2025, see Validation | handover 5.7 |
