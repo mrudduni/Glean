@@ -8,6 +8,7 @@ import type { TFunction } from "@/lib/i18n";
 import type { MapNeighbor } from "@/components/FieldMap";
 import { loc } from "@/lib/i18n";
 import { theme } from "@/lib/theme";
+import { KIND_LABEL } from "@/lib/ui";
 
 export const kindColors: Record<Field["kind"], string> = {
   irrigated_pivot: theme.crop.corn,
@@ -70,7 +71,7 @@ export default function FieldMapCanvas({
           }}
           eventHandlers={{ click: () => onSelect?.(field.id) }}
         >
-          <Tooltip sticky>{loc(field.name, lang)} · {t(`field.kind.${field.kind}`, field.kind)}</Tooltip>
+          <Tooltip sticky>{loc(field.name, lang)} · {t(`field.kind.${field.kind}`, KIND_LABEL[field.kind])}</Tooltip>
         </Polygon>
       ))}
     </MapContainer>

@@ -161,11 +161,8 @@ export function AssistantDrawer({
 
 /** Markdown answer with [TAG] chips and number-check marks (README §9 step 5). */
 function Answer({ response, sources, t }: { response: AskResponse; sources: SourcesFile; t: TFunction }) {
-  const queue = [...response.numbers];
-  const take = (text: string) => {
-    const index = queue.findIndex((item) => item.text === text);
-    return index >= 0 ? queue.splice(index, 1)[0] : undefined;
-  };
+  // Stateless lookup: markdown renderers can run more than once (StrictMode), so never consume a queue.
+  const take = (text: string) => response.numbers.find((item) => item.text === text);
 
   const markText = (text: string, key: string): ReactNode[] => {
     const out: ReactNode[] = [];

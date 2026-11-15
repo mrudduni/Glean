@@ -9,7 +9,7 @@ import { CropChips } from "@/components/CropChips";
 import { useFieldShift } from "@/lib/state";
 import { getContent, getCrops, getFields, getSources } from "@/lib/data";
 import { formatVar, loc, makeT } from "@/lib/i18n";
-import { cropNames } from "@/lib/ui";
+import { cropNames, KIND_LABEL } from "@/lib/ui";
 import type { CopyFile, CropsFile, Field, FieldId, SourcesFile } from "@/lib/types";
 
 const NO_STRINGS: CopyFile["strings"] = {};
@@ -104,7 +104,7 @@ export default function HomePage() {
                     <strong>{loc(field.name, lang)}</strong>
                     <small>{field.area_ac.toFixed(0)} ac · {field.soil.texture}</small>
                   </div>
-                  <span className={`chip-kind-pill ${field.kind}`}>{t(`field.kind.${field.kind}`, field.kind)}</span>
+                  <span className={`chip-kind-pill ${field.kind}`}>{t(`field.kind.${field.kind}`, KIND_LABEL[field.kind])}</span>
                   <MoveRight size={14} className="telemetry-arrow" aria-hidden="true" />
                 </button>
               ))}
@@ -139,7 +139,7 @@ export default function HomePage() {
                 <Link className={`field-option field-option-${index + 1}`} href={`/field/${field.id}`} key={field.id} onClick={() => setField(field.id)}>
                   <div className="field-option-top">
                     <span className="field-number">0{index + 1}</span>
-                    <span className={`field-kind ${field.kind}`}>{t(`field.kind.${field.kind}`, field.kind)}</span>
+                    <span className={`field-kind ${field.kind}`}>{t(`field.kind.${field.kind}`, KIND_LABEL[field.kind])}</span>
                     <ArrowUpRight className="field-arrow" size={20} aria-hidden="true" />
                   </div>
                   <h3>{loc(field.name, lang)}</h3>

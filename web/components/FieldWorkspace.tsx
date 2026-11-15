@@ -16,7 +16,7 @@ import { useFieldShift } from "@/lib/state";
 import { getContent, getCrops, getFieldBundle, getFields, getRotations, getSources } from "@/lib/data";
 import { pickShown, weightsFromSliders } from "@/lib/score";
 import { loc, makeT } from "@/lib/i18n";
-import { cropNames, type UI } from "@/lib/ui";
+import { cropNames, KIND_LABEL, type UI } from "@/lib/ui";
 import { FIELD_IDS } from "@/lib/schemas";
 import type { Content, CropsFile, Field, FieldBundle, FieldId, RotationId, RotationsFile, SourcesFile } from "@/lib/types";
 
@@ -118,7 +118,7 @@ export function FieldWorkspace({ fieldId }: { fieldId: FieldId }) {
       <section className="field-masthead page-wrap">
         <div>
           <div className="eyebrow"><span className="eyebrow-rule" /> {t("app.location", "Finney County, Kansas")} · {field.id.toUpperCase()}</div>
-          <h1>{loc(field.name, lang)}<span className={`field-kind ${field.kind}`}>{t(`field.kind.${field.kind}`, field.kind)}</span></h1>
+          <h1>{loc(field.name, lang)}<span className={`field-kind ${field.kind}`}>{t(`field.kind.${field.kind}`, KIND_LABEL[field.kind])}</span></h1>
           <p>{field.area_ha.toFixed(1)} ha <span>/</span> {field.area_ac.toFixed(1)} ac <span>/</span> {field.soil.texture} <span>/</span> {Math.round(field.terrain.elev_m)} m</p>
         </div>
         <div className="masthead-cards">

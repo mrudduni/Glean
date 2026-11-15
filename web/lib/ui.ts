@@ -30,3 +30,11 @@ export function cardLine(ui: UI, section: Exclude<keyof CardText, "_meta" | "rot
   }
   return fill(template, vars, ui.lang, ui.crops);
 }
+
+export const KIND_LABEL: Record<string, string> = {
+  irrigated_pivot: "Irrigated pivot", dryland: "Dryland", sandy_wind: "Sandy, wind-erodible",
+};
+export const ROTATION_CLASS_LABEL: Record<string, string> = {
+  continuous_corn: "Continuous corn", corn_wheat_sorghum: "Corn, wheat, sorghum", corn_soy: "Corn and soybean",
+  wsf: "Wheat, sorghum, fallow", wheat_fallow: "Wheat and fallow", alfalfa: "Alfalfa", mixed: "Mixed",
+};

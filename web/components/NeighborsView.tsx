@@ -6,7 +6,7 @@ import { SourceChips } from "@/components/SourceChips";
 import type { Field, NeighborsFile, RotationClass } from "@/lib/types";
 import { formatVar, loc } from "@/lib/i18n";
 import { theme } from "@/lib/theme";
-import type { UI } from "@/lib/ui";
+import { ROTATION_CLASS_LABEL, type UI } from "@/lib/ui";
 
 export function NeighborsView({ neighbors, field, ui }: { neighbors: NeighborsFile | null; field: Field; ui: UI }) {
   const { t, lang } = ui;
@@ -33,7 +33,7 @@ export function NeighborsView({ neighbors, field, ui }: { neighbors: NeighborsFi
     const rid = matchFor.get(item.rotation_class);
     return { ...item, color: rid ? theme.rot[rid] : "#b8bab2" };
   });
-  const className = (rc: RotationClass) => t(`rotation_class.${rc}`, rc.replaceAll("_", " "));
+  const className = (rc: RotationClass) => t(`rotation_class.${rc}`, ROTATION_CLASS_LABEL[rc]);
   const pct = (value: number | null) => (value === null ? "—" : formatVar("drop_pct", value, lang));
 
   return (

@@ -3589,3 +3589,8 @@ fieldset legend.control-label { padding: 0; margin-bottom: 8px; }
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; transition-duration: 0.01ms !important; scroll-behavior: auto !important; }
 }
+@media (max-width: 480px) {
+  .overview-grid { grid-template-columns: minmax(0, 1fr); }
+  .replay-summary-table { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); }
+}
+.priority-slider input[type=range]:focus-visible { outline: 3px solid #d59a55; outline-offset: 4px; }

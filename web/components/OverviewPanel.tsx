@@ -4,7 +4,7 @@ import { ArrowDownRight, ArrowUpRight, Droplets, Leaf, MapPinned, ThermometerSun
 import { Area, AreaChart, ResponsiveContainer, Tooltip, YAxis } from "recharts";
 import type { CopyFile, Field, GlossaryFile, SummaryFile, WaterFile } from "@/lib/types";
 import { fill, formatVar } from "@/lib/i18n";
-import { cardLine, type UI } from "@/lib/ui";
+import { cardLine, ROTATION_CLASS_LABEL, type UI } from "@/lib/ui";
 import { SourceChips } from "@/components/SourceChips";
 import { CropChips } from "@/components/CropChips";
 import { theme } from "@/lib/theme";
@@ -50,7 +50,7 @@ export function OverviewPanel({
       <div className="overview-grid">
         <article className="overview-card current-rotation-card">
           <div className="card-kicker"><span className="icon-disc"><Leaf size={17} aria-hidden="true" /></span><span>{t("overview.current_rotation")}</span></div>
-          <h3>{t("rotation_class." + summary.current_rotation.rotation_class, summary.current_rotation.rotation_class.replaceAll("_", " "))}</h3>
+          <h3>{t(`rotation_class.${summary.current_rotation.rotation_class}`, ROTATION_CLASS_LABEL[summary.current_rotation.rotation_class])}</h3>
           <CropChips steps={summary.current_rotation.steps} ui={ui} />
           <p className="small-note">{fill(copy["overview.detected_from"], { years_from: from, years_to: to }, lang)}</p>
           <SourceChips tags={["CSB"]} sources={ui.sources} />
