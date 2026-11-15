@@ -3594,3 +3594,7 @@ fieldset legend.control-label { padding: 0; margin-bottom: 8px; }
   .replay-summary-table { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); }
 }
 .priority-slider input[type=range]:focus-visible { outline: 3px solid #d59a55; outline-offset: 4px; }
+
+/* Excluded rotation shown to fill the row to R0 + 3 */
+.infeasible-badge { display: flex; gap: 6px; align-items: flex-start; margin: 8px 0 0; padding: 6px 9px; border-radius: 6px; font-size: 13px; line-height: 1.35; color: var(--ink); background: color-mix(in srgb, var(--risk-heat) 14%, transparent); border: 1px solid color-mix(in srgb, var(--risk-heat) 40%, transparent); }
+.infeasible-badge svg { flex: none; margin-top: 2px; color: var(--risk-heat); }

@@ -5,7 +5,7 @@ import { AlertTriangle, Check, ChevronDown, ChevronUp, Droplets, Info, Leaf, Lis
 import type { CopyFile, CriterionId, Rotation, RotationId, StrategyEntry, SummaryFile } from "@/lib/types";
 import { fill, formatVar, loc } from "@/lib/i18n";
 import { CRITERION_IDS } from "@/lib/schemas";
-import { scoreEntry, whyBullets, type Picked, type Weights } from "@/lib/score";
+import { benefitsShown, scoreEntry, whyBullets, type ExclusionReason, type Picked, type Weights } from "@/lib/score";
 import { cardLine, cropLabel, type UI } from "@/lib/ui";
 import { SourceChips } from "@/components/SourceChips";
 import { TrustBadge } from "@/components/TrustBadge";
@@ -42,10 +42,10 @@ export function StrategyPanel({
         </div>
         <span className="section-index">04 / 06</span>
       </div>
-      {picked.shown.length <= 1 && <div className="empty-state"><Info size={17} aria-hidden="true" />{t("strategies.none_fit", "No other rotation fits these limits. Try a higher water cap or tick the equipment you have.")}</div>}
+      {picked.shown.length - 1 === Object.keys(picked.filled).length && <div className="empty-state"><Info size={17} aria-hidden="true" />{t("strategies.none_fit", "No other rotation fits these limits. Try a higher water cap or tick the equipment you have.")}</div>}
       <div className="strategy-grid">
         {picked.shown.map((entry) => (
-          <StrategyCard key={entry.rotation_id} entry={entry} weights={weights} steps={rotationSteps(entry.rotation_id, rotations, summary)} irrigation={irrigation[entry.rotation_id]} ui={ui} />
+          <StrategyCard key={entry.rotation_id} entry={entry} reason={picked.filled[entry.rotation_id]} weights={weights} steps={rotationSteps(entry.rotation_id, rotations, summary)} irrigation={irrigation[entry.rotation_id]} ui={ui} />
         ))}
       </div>
       {hiddenCount > 0 && (
@@ -80,9 +80,10 @@ export function StrategyPanel({
 }
 
 function StrategyCard({
-  entry, weights, steps, irrigation, ui,
+  entry, reason, weights, steps, irrigation, ui,
 }: {
   entry: StrategyEntry;
+  reason?: ExclusionReason;
   weights: Weights;
   steps: Rotation["steps"];
   irrigation: number | undefined;
@@ -104,6 +105,7 @@ function StrategyCard({
             <h3 id={`card-${id}`}>{loc(text?.name, lang) || id}</h3>
             {current && <span className="current-pill"><Check size={11} aria-hidden="true" />{t("card.current_badge")}</span>}
           </div>
+          {reason && <p className="infeasible-badge"><AlertTriangle size={13} aria-hidden="true" />{cardLine(ui, "infeasible", reason)}</p>}
           <p>{loc(text?.tagline, lang)}</p>
         </div>
       </div>
@@ -143,8 +145,8 @@ function StrategyCard({
         )) : <p className="section-empty">{t("card.none", "Nothing listed.")}</p>}
       </CardSection>
       <CardSection title={t("card.benefits")} icon={<ShieldCheck size={15} aria-hidden="true" />}>
-        {entry.benefits.length
-          ? <ul>{entry.benefits.map((item, index) => <li key={`${item.text_id}-${index}`}>{cardLine(ui, "benefits", item.text_id, item.vars)}</li>)}</ul>
+        {benefitsShown(entry).length
+          ? <ul>{benefitsShown(entry).map((item, index) => <li key={`${item.text_id}-${index}`}>{cardLine(ui, "benefits", item.text_id, item.vars)}</li>)}</ul>
           : <p className="section-empty">{current ? t("card.current_benefits", "Benefits of the other rotations are measured against this one.") : t("card.none", "Nothing listed.")}</p>}
       </CardSection>
       <CardSection title={t("card.gaps")} icon={<Info size={15} aria-hidden="true" />} tone="gap">

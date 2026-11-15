@@ -4,7 +4,7 @@ import { Info } from "lucide-react";
 import { FieldMap, type MapNeighbor } from "@/components/FieldMap";
 import { SourceChips } from "@/components/SourceChips";
 import type { Field, NeighborsFile, RotationClass } from "@/lib/types";
-import { formatVar, loc } from "@/lib/i18n";
+import { formatVar, interpolate, loc } from "@/lib/i18n";
 import { theme } from "@/lib/theme";
 import { ROTATION_CLASS_LABEL, type UI } from "@/lib/ui";
 
@@ -51,7 +51,7 @@ export function NeighborsView({ neighbors, field, ui }: { neighbors: NeighborsFi
             <thead>
               <tr>
                 <th scope="col">{t("neighbors.rotation", "Rotation")}</th>
-                <th scope="col">{t("neighbors.n_fields")}</th>
+                <th scope="col">{t("neighbors.fields_header", "Nearby fields")}</th>
                 <th scope="col">{t("neighbors.water_use")}</th>
                 <th scope="col">{t("neighbors.drought_greenness")} 2012</th>
                 <th scope="col">{t("neighbors.drought_greenness")} 2022</th>
@@ -65,7 +65,7 @@ export function NeighborsView({ neighbors, field, ui }: { neighbors: NeighborsFi
                     {group.matches_rotation ? loc(ui.cardText.rotations[group.matches_rotation]?.name, lang) : className(group.rotation_class)}
                     {group.is_current && <small>{t("neighbors.like_yours", "Like yours")}</small>}
                   </th>
-                  <td>{group.n}</td>
+                  <td>{interpolate(t("neighbors.n_fields", "{n} fields"), { n: group.n })}</td>
                   <td>{group.et_mm_yr_median === null ? "—" : formatVar("et_mm", group.et_mm_yr_median, lang)}</td>
                   <td>{pct(group.ndvi_drop_2012_pct)}</td>
                   <td>{pct(group.ndvi_drop_2022_pct)}</td>

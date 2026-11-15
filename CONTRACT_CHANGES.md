@@ -14,13 +14,16 @@ The main session applies these to `README.md` on main. Until then, treat this fi
 | C2 | 8.5 `CropTraits` | `family: string \| null`, `root_type: ... \| null`. "None" for `plant_window`, `harvest_window` and `heat` is written as `null`, not as an object of nulls. | Fallow has no family or root type. crops.yaml wrote `{ stage: null, tmax_c: null }`, which fails the type `{...} \| null`. |
 | C3 | 8.6 `headline.well_trend` | `m_per_yr` is the trend of depth to water, as in `water.json` wells. Positive means the water table is falling. Templates must read correctly for either sign. | The old template said "the water level changing by 1.8 m", which reads as a rise. |
 | C4 | 8.7 tie-break | "ties → lower irrigation_mm_mean" uses `replay.scenarios[scenario][rotation].summary.irrigation_mm_mean`. | `irrigation_mm_mean` is not in `StrategyEntry`. |
-| C5 | 8.7 shown | An alternative whose steps equal R0's steps, allowing a different starting year, is dropped. It is not shown and not counted as hidden. Fewer than 3 alternatives is valid; the UI shows a "none fit" note. | f2's R0 equals R2 and f3's R0 equals R1 (from model-core). Showing them as alternatives compares a rotation with itself. |
+| C5 | 8.7 shown | An alternative whose steps equal R0's steps, allowing a different starting year, is dropped. It is not shown and not counted as hidden. See C13 for filling the row to R0 + 3. | f2's R0 equals R2 and f3's R0 equals R1 (from model-core). Showing them as alternatives compares a rotation with itself. |
 | C6 | 8.6 `card.hidden_count` | `{n}` counts excluded alternatives plus feasible ones ranked below the top 3. Duplicates of R0 (C5) are not counted. | The README did not say which set `n` counts. |
 | C7 | 8.6 copy keys | The 94 keys in `web/COPY_KEYS_ADDED.md` are part of the catalog. `calendar.odds` takes `{risk}` and `{count}`. | The web app uses them. Spanish users saw English for all of them. |
 | C8 | 9 number check | The rules in `REFINEMENTS` in `model/assistant/number_check.py` are part of the contract, plus one new rule: digits glued to a letter, digit, underscore, dot or `$` are part of an identifier (R2, cap300), not a number. `number_check_cases.json` is the shared test. | The README regex alone splits "2016" into "201" and "6" and reads "R2" as the number 2. |
 | C9 | 9 errors | `POST /api/ask` may return `429 { error: "rate_limited", message }` after 20 requests a minute from one IP. On a provider 429 with `Retry-After` of 8 s or less, the route retries once. | Protects the shared free-tier LLM key. |
 | C10 | 9 `notice` | `using_cache` is not sent. A cached answer is marked by `cached: true` and `provider: "cache"`. `scenario_mismatch` is sent when a cached answer is served for a scenario other than `cap300\|actual`. | The README did not say when to send `using_cache`; `cached` already says it. |
 | C11 | 8.3 `neighbors.json` | `groups` may have no entry with `is_current: true` when no nearby field matches the field's rotation class. The UI then marks no row "Like yours". | f3 (corn, wheat, sorghum) has no matched neighbours in that class. |
+| C13 | 8.7 shown | The card row always shows R0 + 3. When fewer than 3 alternatives fit, the best-scoring excluded ones fill the row (ties: lower irrigation). Each filled card shows its `card_text.infeasible` reason as a badge. Filled cards are not counted in `card.hidden_count`. | Rule from main: every field shows at least 3 strategies. f2 had only R0 after C5. |
+| C14 | 8.7 why bullets, 8.6 benefits | `why.water_use` is never a why bullet when its `saved_mm` < 0 (the next criterion is used). `benefits.water_saved` is not shown when `saved_mm` < 0. | The templates say "saved"; a negative value would read as a saving. Rule from the content session. |
+| C15 | 8.6 copy | `neighbors.n_fields` (`{n} fields`) is rendered per row with `{n}`. The column header uses a new key, `neighbors.fields_header`. `card.hidden_count` is rendered with `{n}`. | Both keys contain `{n}`; as a header the placeholder showed raw. |
 | C12 | 8.3 `sources.json` | Lists only sources whose data reached `out/`. A tag cited elsewhere but absent from `sources.json` renders as a plain chip with no link. | D's design: MODIS, SMAP and IMERG are listed once data-earthdata lands them. |
 
 ## Changes made in each role's branch
@@ -40,7 +43,7 @@ The main session applies these to `README.md` on main. Until then, treat this fi
 - **M (model-core):** pull role/model, then re-run `python model/run_all.py` so `crops.json` has `null` for absent heat and windows. Keep the null-safe `heat` reads.
 - **M (model-assistant):** pull role/model-assistant, then rebuild `assistant_context.json` on role/model 0cf12fa so fact values match the new outputs. When adding number-check rules, add a shared case and run `npm test` in `web/` too.
 - **U (content):** pull role/content. Add new UI keys to `copy.json` and `web/COPY_KEYS_ADDED.md` together. Keep crops.yaml "none" values as `null`.
-- **Main:** apply the C1 to C12 rows to `README.md`, then merge role/web.
+- **Main:** apply the C1 to C15 rows to `README.md`, then merge role/web.
 
 ## Data gaps left open
 
