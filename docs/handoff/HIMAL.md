@@ -15,7 +15,7 @@ You own the human-facing finish: the demo, the project page and testing the live
 | Web app (F) | `role/web` | Being rewritten to the README contract. Not yet on `main` |
 | Pitch deck | `Parisha` | Draft PDF; slides 5 and 7 need work |
 
-Live app (fallback version, sample data): https://field-shift-chi.vercel.app
+Live app (fallback version, sample data): https://glean-farms.vercel.app
 The real-data version replaces it at the same URL, target about 22:30 IST.
 Do not use `field-shift.vercel.app`: that belongs to another team.
 
@@ -29,7 +29,7 @@ Do not use `field-shift.vercel.app`: that belongs to another team.
 ## Your tasks, in order
 
 1. **Check the 2026 rules now.** Confirm the deadline time zone and the demo format: a video of 30 seconds or less, or at most 7 slides. Going over either removes the project from global judging. Tell Sarthak the answer.
-2. **The name is decided: Glean.** To glean is to gather what is left in a field after harvest. The app gathers what 25 years of NASA data already say about a field. Use it on the slides, the video and the project page. The app is being renamed now; the live link is https://field-shift-chi.vercel.app (https://glean-farms.vercel.app once it is made public).
+2. **The name is decided: Glean.** To glean is to gather what is left in a field after harvest. The app gathers what 25 years of NASA data already say about a field. Use it on the slides, the video and the project page. The app is being renamed now; the live link is https://glean-farms.vercel.app.
 3. **Finish the deck** (if slides). Start from Parisha's PDF on branch `Parisha`. Seven slides max: problem, our tool, how it decides (data to model to cards), Rotation Replay, Farms Like Yours plus assistant, validation and honesty, impact and next steps. Use real screenshots once the real-data version is live. No NASA logos or meatball.
 4. **Record the video** (if video). Follow `docs/PITCH.md`. Record the live site at 1080p, burn in captions, 30 seconds or less. Watermark any AI-generated media.
 5. **Fill the Space Apps project page** from `docs/SUBMISSION.md`. Add the live URL, the repo link (https://github.com/mrudduni/Team-Brackets, public, Apache 2.0) and the video or slides. List every data source from `docs/DATA_SOURCES.md`. Use the AI disclosure from `docs/AI_USE.md` once it lands.

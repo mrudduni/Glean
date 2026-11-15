@@ -4,13 +4,13 @@
 
 # Glean
 
-### Compare crop rotations for a western Kansas field with 25 years of NASA data
+### Find the crop rotation that fits your field, backed by 25 years of NASA data
 
-Replay your current rotation and six alternatives on your field's real weather, soil and water since 2000, then see why each one was suggested, what backs it up and what to check locally.
+Glean runs your rotation and six alternatives through every season since 2000 on your field's own weather, soil and water. Each option shows why it fits, the evidence behind it and what to confirm locally.
 
 <br />
 
-[![Live demo](https://img.shields.io/badge/Live%20demo-field--shift--chi.vercel.app-2F7A4E?style=for-the-badge&logo=vercel&logoColor=white)](https://field-shift-chi.vercel.app)
+[![Live demo](https://img.shields.io/badge/Live%20demo-glean--farms.vercel.app-2F7A4E?style=for-the-badge&logo=vercel&logoColor=white)](https://glean-farms.vercel.app)
 [![NASA Space Apps 2026](https://img.shields.io/badge/NASA%20Space%20Apps-2026-0B3D91?style=for-the-badge&logo=nasa&logoColor=white)](https://www.spaceappschallenge.org/)
 
 ![Challenge](https://img.shields.io/badge/Challenge-Adapting%20Farms%20with%20NASA%20Data-0B3D91?style=flat-square)
@@ -36,9 +36,9 @@ Replay your current rotation and six alternatives on your field's real weather, 
 
 ## Overview
 
-Farms in southwest Kansas pump from the Ogallala aquifer, and in much of the region it is dropping. July heat hurts corn at pollination, and the sandy soils that blew away in the Dust Bowl still blow when they lie bare in spring. Farmers already weigh irrigated corn against dryland wheat, sorghum and fallow, but they rarely get evidence for their own field.
+Southwest Kansas farms pump from the Ogallala aquifer, and across much of the region the water table is falling. July heat hurts corn at pollination. The sandy soils that blew away in the Dust Bowl still blow when they lie bare in spring. Farmers already weigh irrigated corn against dryland wheat, sorghum and fallow, but they rarely see evidence for their own field.
 
-Glean takes one field and replays every candidate rotation on its daily weather from 2000 to 2025. A daily soil-water model built on FAO-56 tracks how much water the crop gets, how much the pivot must pump, how many days the soil lies bare and what the harvest is worth. The farmer sets priorities and a pumping limit, and Glean shows the current rotation next to the three that fit best. Each card says why it was suggested, what evidence supports it, its benefits, where data is missing and what to check with a local agent.
+Glean replays every candidate rotation on one field's daily weather from 2000 to 2025. A soil-water model built on FAO-56 tracks the water each crop gets, the water the pivot pumps, the days the soil lies bare and the value of each harvest. The farmer sets priorities and a pumping limit. Glean then puts the current rotation next to the three that fit best.
 
 To glean is to gather what is left in a field after harvest. Glean gathers what satellites, soil surveys and crop maps have already recorded about a field.
 
@@ -73,11 +73,11 @@ flowchart LR
 | **Model** | Rotation Replay | Runs each rotation on 26 seasons of daily weather with FAO-56 Penman-Monteith reference ET, crop coefficients, a daily soil-water bucket, SCS curve-number runoff and a seasonal irrigation cap. Yield follows the FAO-33 water response, with heat and frost penalties |
 | **Model** | Scenarios | 4 pumping caps (0, 150, 300 and 450 mm a season) times 2 climates (the actual record and a hotter, drier version), so the sliders never wait on a server |
 | **Model** | Validation | Model ET against OpenET satellite ET for every field, and POWER rain against PRISM station-based rain |
-| **Content** | `content/` | Crop traits with citations, and every sentence the farmer reads, in English and Spanish, as templates with placeholders so no number is typed by hand |
+| **Content** | `content/` | Crop traits with citations, and every sentence the farmer reads, in English and Spanish. The text uses placeholders, so nobody types a number by hand |
 | **Web** | `web/` | Reads the precomputed JSON, scores rotations in the browser and draws the calendar, charts and map |
 | **Assistant** | `/api/ask` | Sends the model only the computed facts for the chosen field and scenario. A number check marks each number in the reply as verified or not |
 
-Nothing is fetched live while the app runs. The only live call is the assistant, and it has judged cached answers for the suggested questions if the model is busy.
+The app fetches no data at run time. The assistant makes the only live call, and if the model is busy it falls back to cached answers that an LLM judge has already graded.
 
 ## Features
 
@@ -88,18 +88,18 @@ Nothing is fetched live while the app runs. The only live call is the assistant,
 
 <br />
 
-- **Rotation Replay.** Irrigation needed, stress days, yield, revenue and bare-soil days for every year from 2000 to 2025, with the average and the worst year. The 2011 to 2012 and 2022 droughts show up on their own.
-- **Strategy cards.** The current rotation plus the top 3 for the farmer's priorities and limits. Each card has five parts: why, evidence, benefits, information gaps and risks to check locally. No card is called the winner.
-- **Priorities and limits.** Five sliders (save water, income, steady income, soil health and erosion) and a seasonal pumping cap. Rotations that need hay or cotton equipment or a forage buyer stay hidden until the farmer says they have them, with a hint that tells them so.
+- **Rotation Replay.** Irrigation needed, stress days, yield, revenue and bare-soil days for every year from 2000 to 2025, with the average and the worst year. The 2011 to 2012 and 2022 droughts stand out in the chart.
+- **Strategy cards.** The current rotation plus the top 3 for the farmer's priorities and limits. Each card has five parts: why, evidence, benefits, information gaps and risks to check locally. Glean never names a winner.
+- **Priorities and limits.** Five sliders (save water, income, steady income, soil health and erosion) and a seasonal pumping cap. Rotations that need hay or cotton equipment or a forage buyer stay hidden until the farmer has them, and a hint says what would unlock each one.
 - **Field Calendar.** Months by rotation year, coloured by crop or bare soil, with 25-year odds of heat, frost, dry spells and strong wind.
-- **Farms Like Yours.** Neighbouring Finney County fields on similar soil that already run a different rotation, with their real water use from OpenET. It always shows how many fields it found and says the comparison is observational.
+- **Farms Like Yours.** Neighbouring Finney County fields on similar soil that already run a different rotation, with their real water use from OpenET. It always shows how many fields matched and labels the comparison as observational.
 - **Field assistant.** Plain-language answers in English or Spanish. Every number in a reply is checked against the field's facts and tagged with its source.
 - **Trust badges.** Key numbers carry an agreement badge, for example model ET against OpenET, so the farmer can see how far to trust them.
 - **How we know.** Sources, methods, validation results and a glossary on one page.
 
 ## Using Glean
 
-Open **[field-shift-chi.vercel.app](https://field-shift-chi.vercel.app)**, pick one of the three fields and work through the tabs: Overview, Field calendar, Plan, Rotation replay and Farms like yours. The **Ask about this field** button opens the assistant. The **ES** switch in the header changes the whole app to Spanish.
+Open **[glean-farms.vercel.app](https://glean-farms.vercel.app)**, pick one of the three fields and work through the tabs: Overview, Field calendar, Plan, Rotation replay and Farms like yours. The **Ask about this field** button opens the assistant. The **ES** switch in the header changes the whole app to Spanish.
 
 To run it locally:
 
@@ -158,7 +158,7 @@ Model ET against OpenET ensemble ET, April to October, 2018 to 2025:
 | `f2` dryland | −29.6% | 0.34 | fair |
 | `f3` sandy | +4.7% | 0.57 | fair |
 
-The dryland field under-predicts water use in fallow years, most likely because weeds, volunteer wheat and residue use more water than a bare soil layer. POWER rain runs 12 to 15% wetter than PRISM on all three fields, so dryland yields may read a little high. Both points are in the app and in [docs/METHODS.md](docs/METHODS.md#validation).
+On the dryland field the model under-predicts water use in fallow years. The likely cause is weeds, volunteer wheat and residue, which use more water than the model's bare soil layer. POWER rain runs 12 to 15% wetter than PRISM on all three fields, so dryland yields may read a little high. The app shows both caveats, and [docs/METHODS.md](docs/METHODS.md#validation) has the details.
 
 ## Data and credits
 
@@ -171,7 +171,7 @@ The dryland field under-predicts water use in fallow years, most likely because 
 - **NASS Quick Stats.** County yields and Kansas prices, USDA NASS.
 - **PRISM.** 4 km daily climate, PRISM Climate Group, Oregon State University.
 - **USGS groundwater.** Well levels near each field, USGS Water Data APIs.
-- **Planned.** MODIS NDVI, SMAP soil moisture, ECOSTRESS and GPM IMERG. The pipeline has the fetchers, and the app shows these as missing until the data lands.
+- **Planned.** MODIS NDVI, SMAP soil moisture, ECOSTRESS and GPM IMERG. The fetchers exist, and the app marks these as missing until the data arrives.
 - **Map tiles.** © OpenStreetMap contributors, ODbL.
 
 Full table with resolutions, periods and access notes: [docs/DATA_SOURCES.md](docs/DATA_SOURCES.md). How the team used AI tools: [docs/AI_USE.md](docs/AI_USE.md).
@@ -182,7 +182,7 @@ Team Brackets, NASA Space Apps Challenge 2026. Four roles: data (D), model and A
 
 ## Disclaimer
 
-Glean supports a farmer's judgement. It does not replace it or local expert advice. Results are estimates from satellites, models and past weather, and income is gross revenue with no costs. Check with your K-State Research and Extension agent before you change a rotation.
+Glean supports a farmer's judgement. It does not replace that judgement or local expert advice. Results are estimates from satellites, models and past weather. Income is gross revenue, before costs. Check with your K-State Research and Extension agent before you change a rotation.
 
 ## References
 
