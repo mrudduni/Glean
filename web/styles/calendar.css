@@ -1,0 +1,60 @@
+/* Field Calendar: one 13-column sheet. Hairlines and the hatched bare-ground fill follow the survey-sheet direction. */
+.calendar-scroll { overflow-x: auto; padding-bottom: var(--sp-2); }
+.calendar-sheet {
+  --cal-cols: 11.5rem repeat(12, minmax(2.5rem, 1fr));
+  min-width: 720px;
+  display: grid; gap: var(--sp-1);
+  padding: var(--sp-4);
+  border: 1px solid var(--rule); border-radius: var(--radius);
+  background: var(--color-surface);
+}
+.cal-row { display: grid; grid-template-columns: var(--cal-cols); gap: 3px; align-items: stretch; }
+.cal-head span { color: var(--text-2); font-size: var(--fs-cap); font-weight: 600; text-align: center; }
+
+.cal-risk { display: block; border-collapse: separate; margin-bottom: var(--sp-3); }
+.cal-risk tbody { display: grid; gap: 3px; }
+.cal-risk caption { display: block; margin: var(--sp-2) 0; text-align: left; color: var(--text-1); font-size: var(--fs-cap); font-weight: 700; }
+.cal-risk th { display: flex; flex-direction: column; justify-content: center; text-align: left; color: var(--text-1); font-size: var(--fs-cap); font-weight: 600; line-height: 1.2; }
+.cal-risk th small { color: var(--text-3); font-weight: 400; font-size: 0.8125rem; }
+.cal-risk td {
+  display: grid; place-items: center; min-height: 30px;
+  border-radius: 3px;
+  color: var(--text-1); font-size: var(--fs-cap); font-weight: 600;
+  background: color-mix(in oklab, var(--risk-c) calc(var(--p) * 42%), var(--color-surface));
+}
+.risk-heat { --risk-c: var(--risk-heat); }
+.risk-frost { --risk-c: var(--risk-frost); }
+.risk-dry { --risk-c: var(--risk-dry); }
+.risk-storm { --risk-c: var(--risk-storm); }
+.risk-wind { --risk-c: var(--risk-wind); }
+
+.cal-block { display: grid; gap: 3px; padding-top: var(--sp-3); border-top: 1px solid var(--rule); }
+.cal-block + .cal-block { margin-top: var(--sp-2); }
+.cal-block-title { display: flex; align-items: center; gap: var(--sp-2); margin-bottom: var(--sp-1); font-size: var(--fs-body); }
+.cal-block-title i { flex: none; width: 18px; height: 3px; border-radius: 2px; background: var(--key); }
+.cal-block-title i.dashed { background: repeating-linear-gradient(90deg, var(--key) 0 5px, transparent 5px 8px); }
+.cal-year-label { display: flex; flex-direction: column; justify-content: center; min-width: 0; font-size: var(--fs-cap); line-height: 1.25; }
+.cal-year-label b { color: var(--text-1); font-weight: 600; }
+.cal-year-label span { color: var(--text-2); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.cal-cell {
+  min-height: 36px;
+  display: flex; align-items: flex-end; justify-content: center; gap: 1px; padding-bottom: 3px;
+  border-radius: 3px;
+  background: var(--cell-color);
+}
+.cal-cell.bare {
+  background: repeating-linear-gradient(135deg, var(--rule) 0 1.5px, transparent 1.5px 6px), var(--sunken);
+}
+.cal-cell svg { filter: drop-shadow(0 0 1px var(--color-surface)); }
+
+.calendar-legend { display: flex; flex-wrap: wrap; gap: var(--sp-2) var(--sp-5); margin-top: var(--sp-3); color: var(--text-2); font-size: var(--fs-cap); }
+.calendar-legend span { display: inline-flex; align-items: center; gap: 6px; }
+.legend-crop { width: 16px; height: 16px; border-radius: 3px; background: var(--cell-color); }
+.legend-crop.bare { background: repeating-linear-gradient(135deg, var(--rule-strong) 0 1.5px, transparent 1.5px 5px), var(--sunken); }
+
+/* Phones: the label column stays put while the months scroll under it. */
+@media (max-width: 767px) {
+  .calendar-sheet { --cal-cols: 8.5rem repeat(12, minmax(2.5rem, 1fr)); min-width: 640px; padding: var(--sp-3); }
+  .cal-row > :first-child, .cal-block-title, .cal-risk caption { position: sticky; left: 0; z-index: 1; background: var(--color-surface); }
+  .cal-block-title, .cal-risk caption { width: max-content; padding-right: var(--sp-2); }
+}

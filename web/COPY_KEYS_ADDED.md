@@ -23,6 +23,8 @@ Generated from a grep of `t("…")` calls in `app/`, `components/` and `lib/`.
 | `replay.unit.revenue` | components/ReplayChart.tsx | Income before costs, $ per acre |
 | `replay.unit.stress` | components/ReplayChart.tsx | Days of crop water stress per year |
 | `replay.unit.bare` | components/ReplayChart.tsx | Days of bare ground per year |
+| `calendar.years_in_10` | components/FieldCalendar.tsx | years in 10 |
+| `calendar.days_per_month` | components/FieldCalendar.tsx | days a month |
 | `assistant.own_key` | components/AssistantDrawer.tsx | Use my own key |
 | `assistant.own_key_on` | components/AssistantDrawer.tsx | on |
 | `assistant.own_key_toggle` | components/AssistantDrawer.tsx | Answer free-text questions with my key |

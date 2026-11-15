@@ -23,7 +23,7 @@ Each item names its audit ID. Ticked items are committed and checked with `npm t
 
 - [ ] **#10** Styles read only token variables; dark mode comes from the token swap, not a second hand-written stylesheet
   - [x] Foundation: `styles/base.css` (type scale, text/rule ramp, header, footer, buttons, chips, badges, form controls, states)
-  - [x] Home + map (`styles/home.css`, `styles/map.css`) · [x] Field workspace (`styles/workspace.css`) · [ ] Overview · [ ] Calendar · [x] Cards (`styles/cards.css`) · [x] Replay (`styles/replay.css`) · [ ] Neighbours · [ ] Assistant · [ ] How we know
+  - [x] Home + map (`styles/home.css`, `styles/map.css`) · [x] Field workspace (`styles/workspace.css`) · [ ] Overview · [x] Calendar (`styles/calendar.css`) · [x] Cards (`styles/cards.css`) · [x] Replay (`styles/replay.css`) · [ ] Neighbours · [ ] Assistant · [ ] How we know
 - [ ] **#11** Text meets WCAG AA (4.5:1) in light and dark; labels ≥ 14px, body 16px
 - [x] **#15** Tabular figures on every number (set once on `body`)
 
@@ -33,12 +33,12 @@ Each item names its audit ID. Ticked items are committed and checked with `npm t
 - [x] **#4** Field page: headline facts and the best-fit summary sit in the masthead, above the fold
 - [x] **#5** Priorities sit in a sticky rail beside the strategy cards, so a slider change visibly re-ranks them; collapsible on phones
 - [x] **#6** Strategy cards: caveats shared by every card shown once; evidence collapsed; crop sequence as coloured blocks with arrows
-- [ ] **#17** Rotation names lead; R-codes are secondary (done in cards; calendar, replay, neighbours to follow)
+- [ ] **#17** Rotation names lead; R-codes are secondary (done in cards, calendar and replay; neighbours to follow)
 
 ## Charts and data
 
 - [x] **#3** Replay: straight lines, theme-aware colours, direct end labels, neutral drought bands with labels
-- [ ] **#12** Calendar: rotations stacked so none hide off-screen; readable risk strip; legend instead of two-letter codes
+- [x] **#12** Calendar: rotations stacked so none hide off-screen; readable risk strip; legend instead of two-letter codes
 - [ ] **#16** Farms like yours: map zooms to matched fields; readable tooltips and table
 - [x] **#14** Assistant: verified-number mark stays inline
 

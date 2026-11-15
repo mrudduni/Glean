@@ -187,73 +187,8 @@
 /* ==========================================================================
    CLIMATE RISK STRIP & CALENDAR
    ========================================================================== */
-.climate-risk-strip { display: grid; grid-template-columns: 190px 1fr; gap: 8px 20px; padding: 16px 20px 12px; margin-bottom: 18px; background: #fbfaf5; border: 1px solid #e3e2d6; border-radius: 8px; }
-.climate-strip-title { display: grid; align-content: center; gap: 4px; color: #586353; font-size: 12px; font-weight: 700; letter-spacing: .8px; }
-.climate-strip-title small { color: #818576; font-size: 11px; font-weight: 400; letter-spacing: 0; }
-.climate-months { display: grid; grid-template-columns: repeat(12,minmax(24px,1fr)); gap: 6px; }
-.climate-month { display: grid; grid-template-rows: 14px 6px 6px 14px; gap: 4px; text-align: center; }
-.climate-month > span:first-child { color: #6f7767; font-size: 11px; font-weight: 600; }
-.risk-meter { position: relative; display: block; height: 6px; overflow: hidden; border-radius: 9px; background: #e7e7de; }
-.risk-meter::before { content: ""; display: block; width: var(--meter-value); height: 100%; border-radius: inherit; background: #d98057; }
-.dry-meter::before { background: #b9965a; }
-.risk-counts { color: #7f8577; font-size: 10px; }
-.risk-strip-legend { grid-column: 2; display: flex; gap: 16px; color: #7b8173; font-size: 11px; font-weight: 500; }
-.risk-strip-legend span { display: inline-flex; align-items: center; gap: 5px; }
-.legend-risk { width: 7px; height: 7px; border-radius: 50%; background: #d98057; }
-.legend-risk.dry { background: #b9965a; }
 
-.calendar-scroll, .neighbors-table-wrap { max-width: 100%; overflow-x: auto; overscroll-behavior-x: contain; scrollbar-color: #c5ccc0 transparent; scrollbar-width: thin; }
-.calendar-blocks { display: flex; gap: 14px; width: max-content; }
-.calendar-block {
-  width: 460px;
-  padding: 16px;
-  background: rgba(255, 254, 250, 0.9);
-  border: 1px solid rgba(228, 230, 220, 0.95);
-  border-radius: 8px;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.02);
-  transition: transform 0.25s var(--ease-spring), box-shadow 0.25s ease;
-}
-.calendar-block:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 8px 24px rgba(33, 59, 42, 0.06);
-}
-.calendar-block-heading { display: flex; align-items: center; gap: 10px; margin-bottom: 12px; color: #3b5037; font: 16px/1.2 var(--font-serif); }
-.rotation-id { color: var(--rotation-color, #557a56); font: 700 13px/1 var(--font-sans); }
-.calendar-block-heading small { margin-left: auto; color: #897950; font: 700 10px/1 var(--font-sans); letter-spacing: .9px; }
-.calendar-month-head, .calendar-row { display: grid; grid-template-columns: 32px repeat(12,minmax(28px,1fr)); gap: 3px; }
-.calendar-month-head { margin-bottom: 6px; color: #7f8473; font-size: 10px; font-weight: 600; text-align: center; }
-.calendar-month-head span:first-child { text-align: left; }
-.calendar-row { margin: 4px 0; }
-.calendar-year { align-self: center; color: #7a8070; font-size: 11px; font-weight: 600; }
-
-.calendar-cell {
-  position: relative;
-  min-width: 0;
-  height: 32px;
-  overflow: hidden;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border-radius: 3px;
-  transition: transform 0.2s var(--ease-bounce), box-shadow 0.2s ease, filter 0.2s ease;
-}
-.calendar-cell.occupied {
-  background: color-mix(in srgb, var(--cell-color) 40%, white);
-  border: 1px solid color-mix(in srgb, var(--cell-color) 52%, white);
-}
-.calendar-cell.occupied:hover {
-  transform: scale(1.18);
-  z-index: 10;
-  box-shadow: 0 6px 16px rgba(0,0,0,0.18);
-  filter: brightness(1.06);
-}
-.calendar-cell.bare { background-color: #f6f5f0; background-image: repeating-linear-gradient(135deg,#e9e7df 0,#e9e7df 1px,transparent 1px,transparent 5px); }
-.cell-crop { color: #364431; font-size: 10px; font-weight: 700; text-transform: uppercase; }
-.cell-flags { position: absolute; right: 2px; bottom: 2px; display: flex; color: #624e33; }
-.calendar-legend { display: flex; align-items: center; flex-wrap: wrap; gap: 16px; margin-top: 14px; color: #6e7667; font-size: 12px; }
-.calendar-legend span { display: inline-flex; align-items: center; gap: 6px; }
-.legend-crop { width: 12px; height: 10px; border: 1px solid color-mix(in srgb,var(--cell-color) 50%,white); background: color-mix(in srgb,var(--cell-color) 35%,white); border-radius: 2px; }
-.bare-legend { --cell-color: #e8e4da; background: repeating-linear-gradient(135deg,#eeece4 0,#eeece4 1px,#fff 1px,#fff 4px); }
+.neighbors-table-wrap { max-width: 100%; overflow-x: auto; overscroll-behavior-x: contain; scrollbar-color: #c5ccc0 transparent; scrollbar-width: thin; }
 
 /* ==========================================================================
    PRIORITIES SECTION
@@ -650,14 +585,14 @@
   
   
   
-  .climate-risk-strip { grid-template-columns: 1fr; gap: 10px; padding: 12px; overflow: hidden; }
-  .climate-strip-title { display: flex; justify-content: space-between; }
-  .climate-months { grid-template-columns: repeat(12,minmax(24px,1fr)); overflow-x: auto; padding-bottom: 4px; }
-  .risk-strip-legend { grid-column: 1; flex-wrap: wrap; }
-  .calendar-block { width: 420px; padding: 12px; }
-  .calendar-month-head, .calendar-row { grid-template-columns: 28px repeat(12,minmax(25px,1fr)); gap: 2px; }
-  .calendar-cell { height: 28px; }
-  .calendar-legend { gap: 10px; font-size: 10px; }
+  
+  
+  
+  
+  
+  
+  
+  
   
   
   
@@ -731,13 +666,13 @@
 /* Dark Mode Hero Telemetry Hub & Feature Cards */
 
 /* Glassmorphic Surfaces & Cards */
-[data-theme="dark"] .overview-card, [data-theme="dark"] .calendar-block, [data-theme="dark"] .validation-card, [data-theme="dark"] .glossary-card, .dark .overview-card, .dark .calendar-block, .dark .validation-card, .dark .glossary-card {
+[data-theme="dark"] .overview-card, [data-theme="dark"] .validation-card, [data-theme="dark"] .glossary-card, .dark .overview-card, .dark .validation-card, .dark .glossary-card {
   background: rgba(18, 28, 22, 0.75);
   border-color: rgba(255, 255, 255, 0.09);
   box-shadow: 0 6px 24px rgba(0, 0, 0, 0.35), inset 0 1px 0 rgba(255, 255, 255, 0.08);
 }
 
-[data-theme="dark"] .overview-card:hover, [data-theme="dark"] .calendar-block:hover, [data-theme="dark"] .validation-card:hover, [data-theme="dark"] .glossary-card:hover, .dark .overview-card:hover, .dark .calendar-block:hover, .dark .validation-card:hover, .dark .glossary-card:hover {
+[data-theme="dark"] .overview-card:hover, [data-theme="dark"] .validation-card:hover, [data-theme="dark"] .glossary-card:hover, .dark .overview-card:hover, .dark .validation-card:hover, .dark .glossary-card:hover {
   border-color: rgba(78, 203, 135, 0.35);
   box-shadow: 0 16px 44px rgba(0, 0, 0, 0.45), 0 0 20px rgba(78, 203, 135, 0.12), inset 0 1px 0 rgba(255, 255, 255, 0.14);
 }
@@ -835,60 +770,6 @@
 }
 
 /* Climate Risk Strip & Calendar Blocks in Dark Mode */
-[data-theme="dark"] .climate-risk-strip,
-.dark .climate-risk-strip {
-  background: rgba(18, 28, 22, 0.7);
-  border: 1px solid rgba(255, 255, 255, 0.08);
-}
-
-[data-theme="dark"] .climate-strip-title,
-.dark .climate-strip-title {
-  color: #ffffff;
-}
-
-[data-theme="dark"] .climate-strip-title small,
-.dark .climate-strip-title small {
-  color: #ffffff;
-}
-
-[data-theme="dark"] .climate-month > span:first-child,
-.dark .climate-month > span:first-child {
-  color: #ffffff;
-}
-
-[data-theme="dark"] .risk-meter,
-.dark .risk-meter {
-  background: #17271e;
-}
-
-[data-theme="dark"] .calendar-block-heading,
-.dark .calendar-block-heading {
-  color: #ffffff;
-}
-
-[data-theme="dark"] .calendar-month-head,
-[data-theme="dark"] .calendar-year,
-.dark .calendar-month-head,
-.dark .calendar-year {
-  color: #ffffff;
-}
-
-[data-theme="dark"] .calendar-cell.occupied,
-.dark .calendar-cell.occupied {
-  background: color-mix(in srgb, var(--cell-color) 45%, #121c16);
-  border: 1px solid color-mix(in srgb, var(--cell-color) 65%, transparent);
-}
-
-[data-theme="dark"] .calendar-cell.occupied .cell-crop,
-.dark .calendar-cell.occupied .cell-crop {
-  color: #ffffff;
-}
-
-[data-theme="dark"] .calendar-cell.bare,
-.dark .calendar-cell.bare {
-  background-color: #121b15;
-  background-image: repeating-linear-gradient(135deg, rgba(255,255,255,0.04) 0, rgba(255,255,255,0.04) 1px, transparent 1px, transparent 5px);
-}
 
 /* Priorities Section in Dark Mode */
 
@@ -1120,15 +1001,6 @@
 .mock-banner { display: none !important; }
 [data-theme="dark"] .mock-banner { display: none !important; }
 
-.climate-month { grid-template-rows: 14px 6px 6px 6px 14px; }
-.frost-meter::before { background: var(--risk-frost); }
-.heat-meter::before { background: var(--risk-heat); }
-.dry-meter::before { background: var(--risk-dry); }
-.legend-risk.heat { background: var(--risk-heat); }
-.legend-risk.frost { background: var(--risk-frost); }
-.legend-risk.dry { background: var(--risk-dry); }
-.risk-strip-legend { flex-wrap: wrap; }
-
 .water-facts { display: grid; gap: 6px; margin: 10px 0; }
 .water-facts div { display: flex; justify-content: space-between; gap: 12px; font-size: 13px; }
 .water-facts dt { color: var(--muted); }
@@ -1145,8 +1017,6 @@
 .source-table td small { display: block; color: var(--muted); font-size: 12px; }
 .neighbor-rotation { display: inline-block; min-width: 28px; margin-right: 8px; padding: 1px 6px; border-radius: 4px; color: #fff; font-size: 11px; font-weight: 700; text-align: center; }
 .neighbors-table th[scope="row"] { font-weight: 600; text-align: left; }
-
-.calendar-scroll { overflow-x: auto; max-width: 100%; }
 
 @media (max-width: 480px) {
   .overview-grid { grid-template-columns: minmax(0, 1fr); }
