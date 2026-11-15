@@ -35,6 +35,9 @@ Do not use `field-shift.vercel.app`: that belongs to another team.
 5. **Fill the Space Apps project page** from `docs/SUBMISSION.md`. Add the live URL, the repo link (https://github.com/mrudduni/Team-Brackets, public, Apache 2.0) and the video or slides. List every data source from `docs/DATA_SOURCES.md`. Use the AI disclosure from `docs/AI_USE.md` once it lands.
 6. **Test the live app** once the real-data version is up. For each of f1, f2, f3, on a phone (375 px) and a laptop: pick the field, read the overview, move every slider, switch water cap and climate, open every card section, the Replay chart, Farms Like Yours, the assistant (one suggested question, one free question, English and Spanish). Write what breaks in `docs/handoff/QA_NOTES.md` on your branch (one line each: field, screen, what you did, what went wrong).
 
+7. **Spanish check (if anyone on the team reads Spanish well).** All Spanish was written with AI help and no native speaker has read it. Read `content/card_text.json` and `content/copy.json` on `main`. Send fixes to Sarthak as a list (key, current text, better text); do not edit `content/` yourself.
+8. **Crop timing caveat.** `content/crops.yaml` has 47 lines marked `# verify` (harvest dates, heat and frost thresholds, triticale and rye borrowing wheat values). If a judge asks, say the crop timing uses FAO-56 tables and K-State planting guides, with some working values still to verify.
+
 ## Branch and folders
 
 - Work on branch `himal/pitch` (already created from `main`).
