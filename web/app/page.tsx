@@ -6,6 +6,10 @@ import { useRouter } from "next/navigation";
 import { ArrowDownRight, ArrowUpRight, Compass, Droplets, Layers3, MoveRight, Satellite, Sprout } from "lucide-react";
 import { FieldMap } from "@/components/FieldMap";
 import { CropChips } from "@/components/CropChips";
+import { SpotlightCard } from "@/components/SpotlightCard";
+import { BorderBeam } from "@/components/BorderBeam";
+import { MagneticButton } from "@/components/MagneticButton";
+import { useScrollParallax } from "@/lib/useScrollParallax";
 import { useGlean } from "@/lib/state";
 import { getContent, getCrops, getFields, getSources } from "@/lib/data";
 import { formatVar, loc, makeT, textureLabel, yearsLabel } from "@/lib/i18n";
@@ -53,63 +57,77 @@ export default function HomePage() {
   const years = fields.flatMap((field) => field.crop_history.map((item) => item.year));
   const historySpan = years.length ? yearsLabel(t, Math.min(...years), Math.max(...years)) : "";
   const awc = fields.map((field) => field.soil.aws_0_100_mm);
+  const { slowY, heroOpacity } = useScrollParallax();
 
   return (
     <div className="home-page">
       <section className="home-hero page-wrap">
-        <div className="hero-copy">
-          <div className="eyebrow"><span className="eyebrow-rule" /> {t("app.name")}</div>
+        <div
+          className="hero-copy parallax-hero-copy"
+          style={{
+            transform: `translate3d(0, ${slowY}px, 0)`,
+            opacity: heroOpacity,
+          }}
+        >
+          <div className="eyebrow"><span className="eyebrow-rule" /> <span className="text-shimmer">{t("app.name")}</span></div>
           <h1>{t("app.tagline")}</h1>
           <p>{t("pick.subtitle")}</p>
           <div className="hero-cta-group">
-            <a className="button-primary" href="#field-picker"><span>{t("pick.title")}</span><ArrowDownRight size={17} aria-hidden="true" /></a>
-            <Link className="hero-scroll" href="/how-we-know"><span>{t("nav.trust")}</span><ArrowUpRight size={19} aria-hidden="true" /></Link>
+            <MagneticButton strength={0.24} radius={55}>
+              <a className="button-primary" href="#field-picker"><span>{t("pick.title")}</span><ArrowDownRight size={17} aria-hidden="true" /></a>
+            </MagneticButton>
+            <MagneticButton strength={0.2} radius={55}>
+              <Link className="hero-scroll" href="/how-we-know"><span>{t("nav.trust")}</span><ArrowUpRight size={19} aria-hidden="true" /></Link>
+            </MagneticButton>
           </div>
         </div>
 
-        <div className="hero-telemetry-hub">
-          <div className="telemetry-topline">
-            <span className="telemetry-live-badge"><span className="telemetry-live-dot" /><span>{t("home.data_in_use", "Data behind these fields")}</span></span>
-            <span className="telemetry-coordinates">Finney County, KS · FIPS 20055</span>
-          </div>
-          <div className="telemetry-grid">
-            <div className="telemetry-item">
-              <div className="telemetry-item-head"><Satellite size={15} aria-hidden="true" /><span>CSB</span></div>
-              <strong>{historySpan || "—"}</strong>
-              <small>{t("home.crop_history", "USDA crop history per field")}</small>
+        <div style={{ transform: `translate3d(0, ${Math.round(slowY * 0.45)}px, 0)` }}>
+          <SpotlightCard className="hero-telemetry-hub" enableTilt={true} tiltMax={3}>
+            <BorderBeam size={220} duration={10} borderWidth={1.2} />
+            <div className="telemetry-topline">
+              <span className="telemetry-live-badge"><span className="telemetry-live-dot" /><span className="text-shimmer">{t("home.data_in_use", "Data behind these fields")}</span></span>
+              <span className="telemetry-coordinates">Finney County, KS · FIPS 20055</span>
             </div>
-            <div className="telemetry-item">
-              <div className="telemetry-item-head"><Droplets size={15} aria-hidden="true" /><span>SSURGO</span></div>
-              <strong>{awc.length ? `${formatVar("min_mm", Math.min(...awc), lang)}` : "—"}</strong>
-              <small>{t("home.soil_storage", "Lowest soil water storage of the 3 fields")}</small>
+            <div className="telemetry-grid">
+              <div className="telemetry-item">
+                <div className="telemetry-item-head"><Satellite size={15} aria-hidden="true" /><span>CSB</span></div>
+                <strong>{historySpan || "—"}</strong>
+                <small>{t("home.crop_history", "USDA crop history per field")}</small>
+              </div>
+              <div className="telemetry-item">
+                <div className="telemetry-item-head"><Droplets size={15} aria-hidden="true" /><span>SSURGO</span></div>
+                <strong>{awc.length ? `${formatVar("min_mm", Math.min(...awc), lang)}` : "—"}</strong>
+                <small>{t("home.soil_storage", "Lowest soil water storage of the 3 fields")}</small>
+              </div>
+              <div className="telemetry-item">
+                <div className="telemetry-item-head"><Layers3 size={15} aria-hidden="true" /><span>{t("trust.sources")}</span></div>
+                <strong>{sources?.sources.length ?? "—"}</strong>
+                <small>{sources ? sources.sources.map((item) => item.tag).join(", ") : ""}</small>
+              </div>
+              <div className="telemetry-item">
+                <div className="telemetry-item-head"><Sprout size={15} aria-hidden="true" /><span>{t("home.rotations", "Rotations")}</span></div>
+                <strong>R0 + 6</strong>
+                <small>{t("home.rotations_note", "Current rotation against six alternatives")}</small>
+              </div>
             </div>
-            <div className="telemetry-item">
-              <div className="telemetry-item-head"><Layers3 size={15} aria-hidden="true" /><span>{t("trust.sources")}</span></div>
-              <strong>{sources?.sources.length ?? "—"}</strong>
-              <small>{sources ? sources.sources.map((item) => item.tag).join(", ") : ""}</small>
+            <div className="telemetry-launcher">
+              <div className="telemetry-launcher-head"><span>{t("pick.title")}</span><span className="launcher-counter">{fields.length} / 3</span></div>
+              <div className="telemetry-field-chips">
+                {fields.map((field, index) => (
+                  <button type="button" key={field.id} className="telemetry-field-chip" onClick={() => openField(field.id)}>
+                    <span className="telemetry-field-index">0{index + 1}</span>
+                    <div className="telemetry-field-info">
+                      <strong>{loc(field.name, lang)}</strong>
+                      <small>{field.area_ac.toFixed(0)} ac · {textureLabel(t, field.soil.texture, lang)}</small>
+                    </div>
+                    <span className={`chip-kind-pill ${field.kind}`}>{t(`field.kind.${field.kind}`, KIND_LABEL[field.kind])}</span>
+                    <MoveRight size={14} className="telemetry-arrow" aria-hidden="true" />
+                  </button>
+                ))}
+              </div>
             </div>
-            <div className="telemetry-item">
-              <div className="telemetry-item-head"><Sprout size={15} aria-hidden="true" /><span>{t("home.rotations", "Rotations")}</span></div>
-              <strong>R0 + 6</strong>
-              <small>{t("home.rotations_note", "Current rotation against six alternatives")}</small>
-            </div>
-          </div>
-          <div className="telemetry-launcher">
-            <div className="telemetry-launcher-head"><span>{t("pick.title")}</span><span className="launcher-counter">{fields.length} / 3</span></div>
-            <div className="telemetry-field-chips">
-              {fields.map((field, index) => (
-                <button type="button" key={field.id} className="telemetry-field-chip" onClick={() => openField(field.id)}>
-                  <span className="telemetry-field-index">0{index + 1}</span>
-                  <div className="telemetry-field-info">
-                    <strong>{loc(field.name, lang)}</strong>
-                    <small>{field.area_ac.toFixed(0)} ac · {textureLabel(t, field.soil.texture, lang)}</small>
-                  </div>
-                  <span className={`chip-kind-pill ${field.kind}`}>{t(`field.kind.${field.kind}`, KIND_LABEL[field.kind])}</span>
-                  <MoveRight size={14} className="telemetry-arrow" aria-hidden="true" />
-                </button>
-              ))}
-            </div>
-          </div>
+          </SpotlightCard>
         </div>
       </section>
 
@@ -136,23 +154,35 @@ export default function HomePage() {
             </div>
             <div className="field-list">
               {fields.map((field, index) => (
-                <Link className={`field-option field-option-${index + 1}`} href={`/field/${field.id}`} key={field.id} onClick={() => setField(field.id)}>
-                  <div className="field-option-top">
-                    <span className="field-number">0{index + 1}</span>
-                    <span className={`field-kind ${field.kind}`}>{t(`field.kind.${field.kind}`, KIND_LABEL[field.kind])}</span>
-                    <ArrowUpRight className="field-arrow" size={20} aria-hidden="true" />
-                  </div>
-                  <h3>{loc(field.name, lang)}</h3>
-                  <div className="field-meta">
-                    <span><small>{t("field.area", "Area")}</small>{field.area_ha.toFixed(1)} ha <i>/</i> {field.area_ac.toFixed(1)} ac</span>
-                    <span><small>{t("overview.soil")}</small>{textureLabel(t, field.soil.texture, lang)}</span>
-                  </div>
-                  <div className="crop-chip-line">
-                    <small>{t("overview.current_rotation")}</small>
-                    <CropChips steps={field.detected.sequence} ui={ui} />
-                  </div>
-                  <span className="field-option-bottom"><span>{t("pick.open_field")}</span><MoveRight size={17} aria-hidden="true" /></span>
-                </Link>
+                <SpotlightCard
+                  key={field.id}
+                  as="div"
+                  className={`field-option field-option-${index + 1}`}
+                  enableTilt={true}
+                  tiltMax={3.5}
+                >
+                  <Link
+                    href={`/field/${field.id}`}
+                    onClick={() => setField(field.id)}
+                    style={{ display: "contents", color: "inherit", textDecoration: "none" }}
+                  >
+                    <div className="field-option-top">
+                      <span className="field-number">0{index + 1}</span>
+                      <span className={`field-kind ${field.kind}`}>{t(`field.kind.${field.kind}`, KIND_LABEL[field.kind])}</span>
+                      <ArrowUpRight className="field-arrow" size={20} aria-hidden="true" />
+                    </div>
+                    <h3>{loc(field.name, lang)}</h3>
+                    <div className="field-meta">
+                      <span><small>{t("field.area", "Area")}</small>{field.area_ha.toFixed(1)} ha <i>/</i> {field.area_ac.toFixed(1)} ac</span>
+                      <span><small>{t("overview.soil")}</small>{textureLabel(t, field.soil.texture, lang)}</span>
+                    </div>
+                    <div className="crop-chip-line">
+                      <small>{t("overview.current_rotation")}</small>
+                      <CropChips steps={field.detected.sequence} ui={ui} />
+                    </div>
+                    <span className="field-option-bottom"><span>{t("pick.open_field")}</span><MoveRight size={17} aria-hidden="true" /></span>
+                  </Link>
+                </SpotlightCard>
               ))}
             </div>
           </div>

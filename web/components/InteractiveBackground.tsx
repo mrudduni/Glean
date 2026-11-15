@@ -17,6 +17,7 @@ export function InteractiveBackground() {
   const primaryGlowRef = useRef<HTMLDivElement>(null);
   const secondaryGlowRef = useRef<HTMLDivElement>(null);
   const canvasRef = useRef<HTMLCanvasElement>(null);
+  const meshRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
@@ -33,7 +34,17 @@ export function InteractiveBackground() {
     let mouseVy = 0;
     let lastMouseX = targetX;
     let lastMouseY = targetY;
+    let targetScrollY = window.scrollY || 0;
+    let currentScrollY = targetScrollY;
+    let scrollVy = 0;
+    let lastScrollY = targetScrollY;
     let animFrameId: number;
+
+    const handleScroll = () => {
+      targetScrollY = window.scrollY || 0;
+      scrollVy = (targetScrollY - lastScrollY) * 0.15;
+      lastScrollY = targetScrollY;
+    };
 
     const handleMouseMove = (event: MouseEvent) => {
       mouseVx = (event.clientX - lastMouseX) * 0.25;
@@ -106,6 +117,10 @@ export function InteractiveBackground() {
       currentX2 += (targetX - currentX2) * 0.045;
       currentY2 += (targetY - currentY2) * 0.045;
 
+      // Smooth scroll parallax lerp
+      currentScrollY += (targetScrollY - currentScrollY) * 0.09;
+      scrollVy *= 0.88;
+
       // Dampen mouse velocity
       mouseVx *= 0.9;
       mouseVy *= 0.9;
@@ -116,17 +131,21 @@ export function InteractiveBackground() {
       if (secondaryGlowRef.current) {
         secondaryGlowRef.current.style.transform = `translate3d(${currentX2 - 240}px, ${currentY2 - 200}px, 0)`;
       }
+      if (meshRef.current) {
+        meshRef.current.style.transform = `translate3d(0, ${-currentScrollY * 0.07}px, 0)`;
+      }
 
       // Render prairie breeze particles
       if (ctx && canvas) {
         ctx.clearRect(0, 0, width, height);
+        canvas.style.transform = `translate3d(0, ${-currentScrollY * 0.12}px, 0)`;
 
         for (let i = 0; i < particles.length; i++) {
           const p = particles[i];
 
-          // Gentle sinusoidal vertical drift simulating atmospheric wave
+          // Gentle sinusoidal vertical drift simulating atmospheric wave with scroll gust
           p.x += p.vx;
-          p.y += p.vy + Math.sin(tick + p.pulsePhase) * 0.25;
+          p.y += p.vy + Math.sin(tick + p.pulsePhase) * 0.25 - scrollVy * 0.12;
 
           // Mouse wind interaction: subtle push if cursor is within 140px
           const dx = p.x - currentX1;
@@ -160,11 +179,13 @@ export function InteractiveBackground() {
     };
 
     window.addEventListener("mousemove", handleMouseMove, { passive: true });
+    window.addEventListener("scroll", handleScroll, { passive: true });
     document.addEventListener("mouseleave", handleMouseLeave);
     animFrameId = requestAnimationFrame(updateScene);
 
     return () => {
       window.removeEventListener("mousemove", handleMouseMove);
+      window.removeEventListener("scroll", handleScroll);
       document.removeEventListener("mouseleave", handleMouseLeave);
       window.removeEventListener("resize", initCanvasSize);
       cancelAnimationFrame(animFrameId);
@@ -173,10 +194,12 @@ export function InteractiveBackground() {
 
   return (
     <div className="interactive-bg-container" aria-hidden="true">
-      {/* Autonomous breathing ambient waves */}
-      <div className="ambient-drift-mesh drift-orb-1" />
-      <div className="ambient-drift-mesh drift-orb-2" />
-      <div className="ambient-drift-mesh drift-orb-3" />
+      {/* Autonomous breathing ambient waves with parallax */}
+      <div ref={meshRef} style={{ position: "absolute", inset: 0, pointerEvents: "none" }}>
+        <div className="ambient-drift-mesh drift-orb-1" />
+        <div className="ambient-drift-mesh drift-orb-2" />
+        <div className="ambient-drift-mesh drift-orb-3" />
+      </div>
 
       {/* Atmospheric Wind Vector Canvas */}
       <canvas

@@ -7,6 +7,7 @@ import { fill, formatVar, textureLabel } from "@/lib/i18n";
 import { cardLine, ROTATION_CLASS_LABEL, type UI } from "@/lib/ui";
 import { SourceChips } from "@/components/SourceChips";
 import { CropChips } from "@/components/CropChips";
+import { SpotlightCard } from "@/components/SpotlightCard";
 import { theme } from "@/lib/theme";
 
 /** SSURGO wind erodibility group → plain words key (1 and 2 blow most easily). */
@@ -48,15 +49,15 @@ export function OverviewPanel({
       </div>
 
       <div className="overview-grid">
-        <article className="overview-card current-rotation-card">
+        <SpotlightCard as="article" className="overview-card current-rotation-card" enableTilt={true} tiltMax={2.5}>
           <div className="card-kicker"><span className="icon-disc"><Leaf size={17} aria-hidden="true" /></span><span>{t("overview.current_rotation")}</span></div>
           <h3>{t(`rotation_class.${summary.current_rotation.rotation_class}`, ROTATION_CLASS_LABEL[summary.current_rotation.rotation_class])}</h3>
           <CropChips steps={summary.current_rotation.steps} ui={ui} />
           <p className="small-note">{fill(copy["overview.detected_from"], { years_from: from, years_to: to }, lang)}</p>
           <SourceChips tags={["CSB"]} sources={ui.sources} />
-        </article>
+        </SpotlightCard>
 
-        <article className="overview-card soil-card">
+        <SpotlightCard as="article" className="overview-card soil-card" enableTilt={true} tiltMax={2.5}>
           <div className="card-kicker"><span className="icon-disc sand"><MapPinned size={17} aria-hidden="true" /></span><span>{t("overview.soil")}</span></div>
           <div className="soil-texture">{textureLabel(t, soil.texture, lang)}</div>
           <p className="micro-note">{soil.map_unit_name}</p>
@@ -72,9 +73,9 @@ export function OverviewPanel({
           )}
           {windTerm && <p className="micro-note">{windTerm.short[lang] || windTerm.short.en}</p>}
           <SourceChips tags={["SSURGO"]} sources={ui.sources} />
-        </article>
+        </SpotlightCard>
 
-        <article className="overview-card climate-card">
+        <SpotlightCard as="article" className="overview-card climate-card" enableTilt={true} tiltMax={2.5}>
           <div className="card-kicker"><span className="icon-disc orange"><ThermometerSun size={17} aria-hidden="true" /></span><span>{t("overview.climate_shift")}</span></div>
           <div className="climate-legend">
             <span><i className="dot normal" />{summary.climate.normal_period}</span>
@@ -88,9 +89,9 @@ export function OverviewPanel({
             {cardLine(ui, "headline", "heat_days_change", { days: heatDelta })}
           </span>
           <SourceChips tags={summary.climate.sources} sources={ui.sources} />
-        </article>
+        </SpotlightCard>
 
-        <article className="overview-card water-card">
+        <SpotlightCard as="article" className="overview-card water-card" enableTilt={true} tiltMax={2.5}>
           <div className="card-kicker"><span className="icon-disc blue"><Droplets size={17} aria-hidden="true" /></span><span>{t("overview.water_outlook")}</span></div>
           <div className={`water-status outlook-${summary.water.outlook}`}><span className="water-status-dot" />{t(`overview.outlook.${summary.water.outlook}`)}</div>
           {grace.length > 0 && (
@@ -119,7 +120,7 @@ export function OverviewPanel({
             {nearestWell && <div><dt>{t("overview.nearest_well", "Nearest well")}</dt><dd>{nearestWell.name}, {nearestWell.distance_km} km</dd></div>}
           </dl>
           <SourceChips tags={["GRACE", "USGS"]} sources={ui.sources} />
-        </article>
+        </SpotlightCard>
       </div>
 
       <div className="headline-row">

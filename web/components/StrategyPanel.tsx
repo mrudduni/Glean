@@ -12,6 +12,8 @@ import { SourceChips } from "@/components/SourceChips";
 import { TrustBadge } from "@/components/TrustBadge";
 import { CropChips } from "@/components/CropChips";
 import { AnimatedNumber } from "@/components/AnimatedNumber";
+import { SpotlightCard } from "@/components/SpotlightCard";
+import { BorderBeam } from "@/components/BorderBeam";
 import { rotColor } from "@/lib/theme";
 
 export function rotationSteps(id: RotationId, rotations: Rotation[], summary: SummaryFile) {
@@ -47,8 +49,19 @@ export function StrategyPanel({
       </div>
       {picked.shown.length - 1 === Object.keys(picked.filled).length && <div className="empty-state"><Info size={17} aria-hidden="true" />{t("strategies.none_fit", "No other rotation fits these limits. Try a higher water cap or tick the equipment you have.")}</div>}
       <div className="strategy-grid">
-        {picked.shown.map((entry) => (
-          <StrategyCard key={entry.rotation_id} entry={entry} reason={picked.filled[entry.rotation_id]} rotations={rotations} weights={weights} steps={rotationSteps(entry.rotation_id, rotations, summary)} irrigation={irrigation[entry.rotation_id]} shownAt={shownAt[entry.rotation_id]} ui={ui} />
+        {picked.shown.map((entry, idx) => (
+          <StrategyCard
+            key={entry.rotation_id}
+            entry={entry}
+            isTopRecommended={idx === 1 && entry.rotation_id !== "R0"}
+            reason={picked.filled[entry.rotation_id]}
+            rotations={rotations}
+            weights={weights}
+            steps={rotationSteps(entry.rotation_id, rotations, summary)}
+            irrigation={irrigation[entry.rotation_id]}
+            shownAt={shownAt[entry.rotation_id]}
+            ui={ui}
+          />
         ))}
       </div>
       {hiddenCount > 0 && (
@@ -99,7 +112,7 @@ function unlockHint(entry: StrategyEntry, reason: ExclusionReason, rotations: Ro
 }
 
 function StrategyCard({
-  entry, reason, weights, steps, rotations, irrigation, shownAt, ui,
+  entry, reason, weights, steps, rotations, irrigation, shownAt, ui, isTopRecommended = false,
 }: {
   entry: StrategyEntry;
   shownAt?: CapId | "none";
@@ -109,6 +122,7 @@ function StrategyCard({
   steps: Rotation["steps"];
   irrigation: number | undefined;
   ui: UI;
+  isTopRecommended?: boolean;
 }) {
   const { t, lang } = ui;
   const id = entry.rotation_id;
@@ -125,7 +139,15 @@ function StrategyCard({
   const text = ui.cardText.rotations[id];
   const label = (k: CriterionId) => loc(ui.cardText.criteria_labels[k], lang) || k;
   return (
-    <article className={`strategy-card ${current ? "current-strategy" : ""}`} style={{ "--rotation-color": rotColor(id) } as React.CSSProperties} aria-labelledby={`card-${id}`}>
+    <SpotlightCard
+      as="article"
+      className={`strategy-card ${current ? "current-strategy" : ""} ${isTopRecommended ? "recommended-featured" : ""}`}
+      style={{ "--rotation-color": rotColor(id) } as React.CSSProperties}
+      aria-labelledby={`card-${id}`}
+      enableTilt={true}
+      tiltMax={3}
+    >
+      {isTopRecommended && <BorderBeam size={220} duration={8} borderWidth={1.5} colorFrom="#34d399" colorTo="#df9a4f" />}
       <div className="strategy-card-head">
         <div className="strategy-id">{id}</div>
         <div className="strategy-heading">
@@ -196,7 +218,7 @@ function StrategyCard({
           )}
         </ul>
       </CardSection>
-    </article>
+    </SpotlightCard>
   );
 }
 

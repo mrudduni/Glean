@@ -3648,3 +3648,265 @@ fieldset legend.control-label { padding: 0; margin-bottom: 8px; }
 .own-key-body p { margin: 0; color: var(--muted); font-size: 13px; }
 
 .strategy-heading .shown-at { margin: 4px 0 0; font-size: 13px; color: var(--muted); }
+
+/* ==========================================================================
+   EXPENSIVE 21ST.DEV & MOTION DESIGN SYSTEM
+   - 3D Spotlight Cards with Reactive Specular Lighting & Depth
+   - Animated Radiant Border Beam
+   - Magnetic Elastic Interactions
+   - Shimmering Metallic Typography
+   - Organic Film Micro-Grain Texture
+   - Smooth Parallax & Staggered Scroll Motion
+   ========================================================================== */
+
+/* 1. Organic Film Micro-Grain Texture Overlay */
+.ambient-noise-layer {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 2;
+  opacity: 0.022;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+  background-repeat: repeat;
+}
+
+[data-theme="dark"] .ambient-noise-layer,
+.dark .ambient-noise-layer {
+  opacity: 0.038;
+  mix-blend-mode: overlay;
+}
+
+/* 2. Spotlight Card (21st.dev Signature Component) */
+.spotlight-card {
+  position: relative;
+  overflow: hidden;
+  transform-style: preserve-3d;
+  will-change: transform, box-shadow;
+  transition: transform 0.28s cubic-bezier(0.2, 0.8, 0.2, 1), box-shadow 0.28s ease, border-color 0.25s ease;
+}
+
+.spotlight-card-content {
+  position: relative;
+  z-index: 2;
+  height: 100%;
+}
+
+.spotlight-card-glow {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  border-radius: inherit;
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  background: radial-gradient(
+    480px circle at var(--spotlight-x, 50%) var(--spotlight-y, 50%),
+    var(--spotlight-color, rgba(55, 125, 85, 0.12)),
+    transparent 80%
+  );
+}
+
+.spotlight-card.is-hovered .spotlight-card-glow {
+  opacity: 1;
+}
+
+/* Dynamic illuminated border highlight that follows cursor proximity */
+.spotlight-card-border {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  border-radius: inherit;
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  border: 1px solid transparent;
+  mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  mask-composite: exclude;
+  -webkit-mask-composite: xor;
+  background: radial-gradient(
+    320px circle at var(--spotlight-x, 50%) var(--spotlight-y, 50%),
+    rgba(62, 138, 97, 0.45),
+    transparent 75%
+  );
+}
+
+.spotlight-card.is-hovered .spotlight-card-border {
+  opacity: 1;
+}
+
+.spotlight-card.is-hovered {
+  transform: perspective(1000px) rotateX(var(--card-rotate-x, 0deg)) rotateY(var(--card-rotate-y, 0deg)) translateY(-4px) scale3d(1.008, 1.008, 1.008);
+  box-shadow: 0 20px 48px -12px rgba(16, 42, 28, 0.18), 0 0 20px rgba(55, 125, 85, 0.08);
+}
+
+[data-theme="dark"] .spotlight-card-glow,
+.dark .spotlight-card-glow {
+  background: radial-gradient(
+    520px circle at var(--spotlight-x, 50%) var(--spotlight-y, 50%),
+    var(--spotlight-color, rgba(52, 211, 153, 0.15)),
+    transparent 75%
+  );
+}
+
+[data-theme="dark"] .spotlight-card-border,
+.dark .spotlight-card-border {
+  background: radial-gradient(
+    320px circle at var(--spotlight-x, 50%) var(--spotlight-y, 50%),
+    rgba(74, 222, 128, 0.55),
+    transparent 70%
+  );
+}
+
+[data-theme="dark"] .spotlight-card.is-hovered,
+.dark .spotlight-card.is-hovered {
+  box-shadow: 0 24px 64px -12px rgba(0, 0, 0, 0.75), 0 0 28px rgba(52, 211, 153, 0.18);
+}
+
+/* 3. Radiant Border Beam (21st.dev Component) */
+.border-beam-container {
+  position: absolute;
+  inset: -1px;
+  border-radius: inherit;
+  pointer-events: none;
+  padding: var(--beam-border-width, 1.5px);
+  mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  mask-composite: exclude;
+  -webkit-mask-composite: xor;
+  z-index: 10;
+  overflow: hidden;
+}
+
+.border-beam-tracer {
+  position: absolute;
+  inset: -200%;
+  background: conic-gradient(
+    from 0deg,
+    transparent 0deg 280deg,
+    var(--beam-color-from, #34d399) 325deg,
+    var(--beam-color-to, #df9a4f) 360deg
+  );
+  animation: borderBeamRotate var(--beam-duration, 8s) linear infinite;
+  animation-delay: var(--beam-delay, 0s);
+  will-change: transform;
+}
+
+@keyframes borderBeamRotate {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* 4. Magnetic Interactive Wrapper (21st.dev Component) */
+.magnetic-container {
+  display: inline-block;
+}
+
+.magnetic-inner {
+  display: inline-block;
+  will-change: transform;
+}
+
+/* 5. Shimmering Typography / Badges (21st.dev Component) */
+.text-shimmer {
+  background: linear-gradient(
+    115deg,
+    currentColor 0%,
+    currentColor 35%,
+    rgba(255, 255, 255, 0.98) 50%,
+    currentColor 65%,
+    currentColor 100%
+  );
+  background-size: 260% 100%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: textShine 8s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+  display: inline-block;
+}
+
+@keyframes textShine {
+  0% { background-position: 180% 0; }
+  100% { background-position: -180% 0; }
+}
+
+/* 6. Parallax Hero Elements */
+.parallax-hero-copy {
+  will-change: transform, opacity;
+}
+
+/* 7. Enhanced Card & Section Depth Transitions */
+.field-option {
+  position: relative;
+  transition: transform 0.3s cubic-bezier(0.2, 0.8, 0.2, 1), box-shadow 0.3s ease, border-color 0.25s ease;
+}
+
+.field-option .spotlight-card-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+}
+
+.strategy-card .spotlight-card-content {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.overview-card .spotlight-card-content {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.field-option:hover {
+  transform: translateY(-5px) scale(1.01);
+  box-shadow: 0 20px 48px rgba(33, 59, 42, 0.16), 0 2px 8px rgba(0, 0, 0, 0.04);
+}
+
+[data-theme="dark"] .field-option:hover,
+.dark .field-option:hover {
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.7), 0 0 24px rgba(52, 211, 153, 0.15);
+  border-color: rgba(82, 227, 150, 0.45);
+}
+
+/* Recommended Strategy Glow & Floating Badge */
+.strategy-card.recommended-featured {
+  border-color: rgba(82, 227, 150, 0.55);
+  box-shadow: 0 16px 44px rgba(33, 59, 42, 0.14), 0 0 0 1px rgba(82, 227, 150, 0.3);
+}
+
+[data-theme="dark"] .strategy-card.recommended-featured,
+.dark .strategy-card.recommended-featured {
+  border-color: rgba(82, 227, 150, 0.6);
+  box-shadow: 0 20px 52px rgba(0, 0, 0, 0.65), 0 0 24px rgba(52, 211, 153, 0.22);
+}
+
+/* High-end glass reflection sheen on buttons */
+.button-primary {
+  position: relative;
+  overflow: hidden;
+}
+
+.button-primary::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -120%;
+  width: 60%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(255, 255, 255, 0.22) 50%,
+    transparent 100%
+  );
+  transform: skewX(-20deg);
+  transition: none;
+}
+
+.button-primary:hover::after {
+  left: 180%;
+  transition: left 0.85s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
