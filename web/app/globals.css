@@ -3610,7 +3610,8 @@ main {
 .replay-summary-table tbody { display: contents; }
 .replay-summary-row th, .replay-summary-row td { display: grid; gap: 3px; padding: 0; font-weight: inherit; text-align: left; }
 .replay-summary-row th.summary-rotation { display: flex; }
-.verified-number svg { margin-left: 2px; vertical-align: -1px; color: #3e7e5b; }
+.verified-number { white-space: nowrap; }
+.verified-number svg { display: inline-block; margin-left: 2px; vertical-align: -1px; color: var(--color-good); }
 .trust-field { margin-bottom: 24px; }
 .trust-field h3 { margin: 0 0 10px; font-size: 16px; }
 .trust-field.current h3::after { content: " \2022"; color: var(--color-accent); }
