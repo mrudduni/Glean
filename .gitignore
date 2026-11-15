@@ -1,0 +1,13 @@
+.env
+*.env
+!.env.example
+raw/
+.venv/
+node_modules/
+__pycache__/
+*.pyc
+.pytest_cache/
+.env.local
+.env.*.local
+.vercel/
+.claude/worktrees/

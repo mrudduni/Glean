@@ -1,0 +1,13 @@
+requests
+pandas
+numpy
+geopandas
+shapely
+pyproj
+xarray
+netCDF4
+rasterio
+python-dotenv
+earthaccess
+tqdm
+pyogrio

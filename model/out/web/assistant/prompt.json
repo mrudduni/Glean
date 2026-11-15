@@ -1,0 +1,1 @@
+{"_meta":{"schema":"prompt@1","mock":true,"generated_at":"2026-11-15T13:59:43Z","generator":"model/mock/make_mocks.py"},"version":"mock-1","system":"Mock prompt for {field_name} in {lang_name}. Scenario: {scenario_label}. Top: {top_rotations}.\nFACTS:\n{facts_block}","temperature":0.2,"max_tokens":600}

@@ -1,0 +1,8 @@
+# downloads and caches (README §6.2 rule 5)
+raw/
+# secrets
+.env
+# local environment
+.venv/
+__pycache__/
+*.pyc
