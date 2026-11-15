@@ -12,12 +12,7 @@
   --on-accent: var(--color-surface);
   --accent-wash: color-mix(in oklab, var(--color-accent) 12%, var(--color-surface));
 
-  --font-sans: var(--font-body);
-  --font-serif: var(--font-display);
   --ease-out: cubic-bezier(0.25, 1, 0.5, 1);
-  /* Older rules still reference these two names. */
-  --ease-spring: var(--ease-out);
-  --ease-bounce: var(--ease-out);
 
   /* Type: fixed rem scale, ~1.2 ratio. 14px is the floor for any label. */
   --fs-cap: 0.875rem;
