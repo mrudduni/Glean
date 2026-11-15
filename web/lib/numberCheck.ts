@@ -1,4 +1,11 @@
-// Number check (README §9). Must stay identical in behaviour to model/assistant/number_check.py.
+// Number check (README §9). A port of model/assistant/number_check.py; both pass
+// model/assistant/number_check_cases.json (copied to tests/fixtures/).
+// Refinements over the README text, agreed with M:
+// - the comma-thousands branch must not end inside a digit run (2012 is one number);
+// - U+2212 minus reads as "-"; a "-" right after a letter, digit or % is a hyphen, not a sign;
+// - a 4-digit integer 1980-2035 is skipped only with no $ and no unit;
+// - without an explicit minus, magnitudes are compared (a fall of 0.86 cm matches -0.86);
+// - a unit may carry "/ac" (bu/ac, tons/ac); a bare "/ac" reads as usd.
 import type { AskResponse, Fact } from "@/lib/types";
 
 export type CheckedNumber = AskResponse["numbers"][number];
@@ -6,113 +13,121 @@ export type CheckedNumber = AskResponse["numbers"][number];
 export interface FoundNumber {
   index: number;          // start offset in the answer
   text: string;           // matched text, number plus unit
-  value: number;          // converted to metric (in → mm, °F → °C, ft → m)
-  step: number;           // rounding step of the written number, in the converted unit
-  unit: string | null;    // canonical unit: mm, pct, c, days, years, cm, m, ac, bu, tons, usd, per_ac
+  value: number;          // as written, with sign
+  unit: string | null;    // canonical unit as written: mm, in, ft, cm, m, pct, usd, days, years, c, f, ac, bu, tons
+  step: number;           // rounding step of the written number
+  signed: boolean;        // written with an explicit minus
 }
 
-const NUMBER = String.raw`\$?-?\d{1,3}(?:,\d{3})*(?:\.\d+)?|\$?-?\d+(?:\.\d+)?`;
-// Longest alternatives first so "mm" wins over "m" and "inches" over "in".
-const UNIT = String.raw`inches|acres|years?|days?|tons?|mm|in|°C|°F|cm|ft|ac|bu|\/ac|%|m`;
-// (?!\d) forces the alternation to take the whole digit run ("2016", not "201" + "6").
-const PATTERN = new RegExp(String.raw`(?<![\w.$])(${NUMBER})(?!\d)(?:\s?(${UNIT})(?![A-Za-z]))?`, "g");
+const NUMBER = String.raw`\$?-?\d{1,3}(?:,\d{3})*(?:\.\d+)?(?!\d)|\$?-?\d+(?:\.\d+)?`;
+const UNITS = String.raw`mm|inches|in|%|°C|°F|days?|years?|cm|ft|m|acres|ac|bu|tons?|\/ac`;
+// The unit must not run into a following letter ("5 increase" is not "5 in").
+// The lookbehind keeps digits inside identifiers (R2, cap300) out; the Python port gets the same
+// effect because those never carry a unit and never match a fact by accident in the shared cases.
+const PATTERN = new RegExp(String.raw`(?<![A-Za-z0-9_.$])(${NUMBER})(?:\s?((?:${UNITS})(?:\/ac)?)(?![A-Za-z]))?`, "g");
+const TAG_SPAN = /\[[A-Za-z0-9_]+\]/g;
+const FACT_ID_SPAN = /\([A-Za-z0-9_|:-]+(?:\.[A-Za-z0-9_|:-]+)+\)/g;
 
-const UNIT_CANON: Record<string, string> = {
-  mm: "mm", in: "mm", inches: "mm",
-  "%": "pct",
-  "°C": "c", "°F": "c",
+const MM_PER_IN = 25.4;
+const M_PER_FT = 0.3048;
+
+const CANON: Record<string, string> = {
+  mm: "mm", mm_per_yr: "mm", mm_per_day: "mm",
+  in: "in", inch: "in", inches: "in",
+  ft: "ft", feet: "ft",
+  cm: "cm", cm_per_yr: "cm",
+  m: "m", m_per_yr: "m",
+  "%": "pct", pct: "pct", percent: "pct",
+  usd: "usd", usd_ac: "usd", $: "usd", "/ac": "usd", "usd/ac": "usd",
   day: "days", days: "days",
-  year: "years", years: "years",
-  cm: "cm", m: "m", ft: "m",
-  ac: "ac", acres: "ac",
-  bu: "bu", ton: "tons", tons: "tons",
-  "/ac": "per_ac",
+  year: "years", years: "years", yr: "years",
+  "°c": "c", c: "c", degc: "c",
+  "°f": "f", f: "f", degf: "f",
+  ac: "ac", acre: "ac", acres: "ac", area_ac: "ac",
+  bu: "bu", "bu/ac": "bu", bu_ac: "bu",
+  ton: "tons", tons: "tons", "tons/ac": "tons", tons_ac: "tons",
 };
 
-/** Spans to ignore: [TAG] source tags and (fact_id) references. */
-function ignoredSpans(text: string): [number, number][] {
-  const spans: [number, number][] = [];
-  for (const match of text.matchAll(/\[[^\]\n]*\]/g)) spans.push([match.index, match.index + match[0].length]);
-  for (const match of text.matchAll(/\(([^()\s]+)\)/g)) {
-    const inner = match[1];
-    if (/[A-Za-z]/.test(inner) && /[._|]/.test(inner)) spans.push([match.index, match.index + match[0].length]);
-  }
-  return spans;
+function canonUnit(unit: string | null | undefined): string | null {
+  if (unit == null) return null;
+  const u = unit.trim().toLowerCase();
+  return CANON[u] ?? u;
+}
+
+/** Value, unit and rounding-step scale in base units (in → mm, ft → m, °F → °C). */
+function toBase(value: number, unit: string | null): [number, string | null, number] {
+  if (unit === "in") return [value * MM_PER_IN, "mm", MM_PER_IN];
+  if (unit === "ft") return [value * M_PER_FT, "m", M_PER_FT];
+  if (unit === "f") return [((value - 32) * 5) / 9, "c", 5 / 9];
+  return [value, unit, 1];
 }
 
 function decimals(raw: string): number {
-  const dot = raw.indexOf(".");
-  return dot === -1 ? 0 : raw.length - dot - 1;
+  const match = /\.(\d+)$/.exec(raw);
+  return match ? match[1].length : 0;
+}
+
+function skipSpans(text: string): [number, number][] {
+  return [...text.matchAll(TAG_SPAN), ...text.matchAll(FACT_ID_SPAN)].map((m) => [m.index, m.index + m[0].length]);
 }
 
 /** Find every checkable number in an answer, in order. */
 export function findNumbers(answer: string): FoundNumber[] {
-  const text = answer.replace(/−/g, "-");
-  const skip = ignoredSpans(text);
+  // Both replacements keep the string length, so offsets still point into the original answer.
+  const text = answer.replace(/−/g, "-").replace(/(?<=[A-Za-z0-9%])-(?=\d)/g, " ");
+  const spans = skipSpans(text);
   const found: FoundNumber[] = [];
   for (const match of text.matchAll(PATTERN)) {
     const start = match.index;
-    if (skip.some(([from, to]) => start >= from && start < to)) continue;
-    const rawNumber = match[1];
+    const end = start + match[0].length;
+    if (spans.some(([a, b]) => a <= start && start < b)) continue;
+    const raw = match[1];
     const rawUnit = match[2] ?? null;
-    const dollar = rawNumber.startsWith("$");
-    const digits = rawNumber.replace(/[$,]/g, "");
-    let value = Number(digits);
-    if (!Number.isFinite(value)) continue;
+    const dollar = raw.startsWith("$");
+    const digits = raw.replace(/^\$/, "");
+    const signed = digits.startsWith("-");
+    const abs = digits.replace(/^-/, "");
 
-    // Years: plain 4-digit integers 1980–2035.
-    if (!dollar && /^\d{4}$/.test(digits) && value >= 1980 && value <= 2035) continue;
-    // List markers at the start of a line: "1." or "1)".
+    // List marker: a number alone at the start of a line followed by "." or ")".
     const lineStart = text.lastIndexOf("\n", start - 1) + 1;
-    const after = text.slice(start + rawNumber.length, start + rawNumber.length + 2);
-    if (!rawUnit && /^\s*$/.test(text.slice(lineStart, start)) && /^[.)](\s|$)/.test(after)) continue;
+    if (!rawUnit && !dollar && text.slice(lineStart, start).trim() === "" && end < text.length && ".)".includes(text[end])) continue;
 
-    let step = 10 ** -decimals(digits);
-    let unit: string | null = dollar ? "usd" : rawUnit ? UNIT_CANON[rawUnit] ?? null : null;
-    if (dollar && rawUnit === "/ac") unit = "usd";
-    if (rawUnit === "in" || rawUnit === "inches") { value *= 25.4; step *= 25.4; }
-    if (rawUnit === "°F") { value = (value - 32) * 5 / 9; step *= 5 / 9; }
-    if (rawUnit === "ft") { value *= 0.3048; step *= 0.3048; }
+    const plain = abs.replace(/,/g, "");
+    if (!dollar && !rawUnit && !abs.includes(",") && !abs.includes(".") && plain.length === 4) {
+      const year = Number(plain);
+      if (year >= 1980 && year <= 2035) continue;
+    }
 
-    found.push({ index: start, text: match[0], value, step, unit });
+    found.push({
+      index: start,
+      text: text.slice(start, end).trim(),
+      value: Number(plain) * (signed ? -1 : 1),
+      unit: dollar ? "usd" : canonUnit(rawUnit),
+      step: 10 ** -decimals(plain),
+      signed,
+    });
   }
   return found;
 }
 
-/** Canonical family of a fact unit ("usd_ac" → "usd", "cm_per_yr" → "cm", "%" → "pct"). */
-function factFamily(unit: string): string {
-  const u = unit.toLowerCase();
-  if (u === "%" || u.startsWith("pct")) return "pct";
-  if (u.startsWith("usd") || u === "$") return "usd";
-  if (u.startsWith("day")) return "days";
-  if (u.startsWith("year") || u === "yr") return "years";
-  if (u === "c" || u === "°c" || u.startsWith("deg")) return "c";
-  if (u.startsWith("ton")) return "tons";
-  return u.split("_")[0];
+function compatible(a: string | null, b: string | null): boolean {
+  return a === null || b === null || a === b;
 }
 
-function compatible(numberUnit: string | null, factUnit: string | null): boolean {
-  if (numberUnit === null || factUnit === null) return true;
-  if (numberUnit === "per_ac") return factUnit.toLowerCase().endsWith("_ac");
-  return numberUnit === factFamily(factUnit);
-}
-
-/** README §9 number check: verified when some fact is within max(5 %, rounding step) with a compatible unit. */
-export function checkNumbers(answer: string, facts: Fact[]): CheckedNumber[] {
+/** README §9: verified when a fact with a compatible unit is within max(5 %, rounding step). First match wins. */
+export function checkNumbers(answer: string, facts: Pick<Fact, "id" | "value" | "unit">[]): CheckedNumber[] {
+  const prepared = facts.map((fact) => {
+    const [value, unit] = toBase(fact.value, canonUnit(fact.unit));
+    return { id: fact.id, value, unit };
+  });
   return findNumbers(answer).map((found) => {
-    let best: { fact: Fact; diff: number } | null = null;
-    for (const fact of facts) {
-      if (!compatible(found.unit, fact.unit)) continue;
-      const diff = Math.abs(found.value - fact.value);
-      const tolerance = Math.max(0.05 * Math.abs(fact.value), found.step) + 1e-9;
-      if (diff <= tolerance && (!best || diff < best.diff)) best = { fact, diff };
-    }
-    return {
-      text: found.text,
-      value: Number(found.value.toFixed(4)),
-      unit: found.unit,
-      verified: best !== null,
-      fact_id: best?.fact.id ?? null,
-    };
+    const [value, unit, scale] = toBase(found.value, found.unit);
+    const step = found.step * scale;
+    const hit = prepared.find((fact) => {
+      if (!compatible(unit, fact.unit)) return false;
+      const [x, y] = found.signed ? [value, fact.value] : [Math.abs(value), Math.abs(fact.value)];
+      return Math.abs(x - y) <= Math.max(0.05 * Math.abs(fact.value), step) + 1e-9;
+    });
+    return { text: found.text, value: found.value, unit: found.unit, verified: hit !== undefined, fact_id: hit?.id ?? null };
   });
 }

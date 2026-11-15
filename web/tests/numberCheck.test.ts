@@ -73,7 +73,7 @@ describe("checkNumbers (README 9 steps 3-4)", () => {
 // Shared cases with model/assistant/number_check.py (README 9: both implementations must agree).
 interface SharedCase {
   name?: string; id?: string; answer?: string; text?: string; facts: Fact[];
-  expected: { text: string; verified: boolean; fact_id?: string | null }[];
+  expected: { text: string; value: number; unit: string | null; verified: boolean; fact_id: string | null }[];
 }
 const sharedPaths = [
   resolve(__dirname, "../../model/assistant/number_check_cases.json"),
@@ -86,11 +86,6 @@ const shared: SharedCase[] = raw ? (Array.isArray(raw) ? raw : raw.cases ?? []) 
 describe.skipIf(!shared.length)(`shared number check cases (${sharedPath ?? "none found"})`, () => {
   it.each(shared.map((c, i) => [c.name ?? c.id ?? `case ${i + 1}`, c] as const))("%s", (_name, c) => {
     const got = checkNumbers(c.answer ?? c.text ?? "", c.facts);
-    expect(got.map((n) => ({ text: n.text, verified: n.verified }))).toEqual(
-      c.expected.map((n) => ({ text: n.text, verified: n.verified })),
-    );
-    c.expected.forEach((n, i) => {
-      if (n.fact_id !== undefined) expect(got[i]?.fact_id).toBe(n.fact_id);
-    });
+    expect(got.map(({ text, value, unit, verified, fact_id }) => ({ text, value, unit, verified, fact_id }))).toEqual(c.expected);
   });
 });

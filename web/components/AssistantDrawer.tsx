@@ -181,8 +181,8 @@ function Answer({ response, sources, t }: { response: AskResponse; sources: Sour
         if (!item) continue;
         out.push(part.slice(cursor, found.index));
         out.push(item.verified
-          ? <span key={`${key}-${i}-${found.index}`} className="verified-number" title={`${t("assistant.verified")}: ${item.fact_id}`}>{found.text}<CircleCheck size={11} aria-label={t("assistant.verified")} /></span>
-          : <span key={`${key}-${i}-${found.index}`} className="unverified-number">{found.text}<small>{t("assistant.unverified")}</small></span>);
+          ? <span key={`${key}-${i}-${found.index}`} className="verified-number" title={`${t("assistant.verified")}: ${item.fact_id}`}>{part.slice(found.index, found.index + found.text.length)}<CircleCheck size={11} aria-label={t("assistant.verified")} /></span>
+          : <span key={`${key}-${i}-${found.index}`} className="unverified-number">{part.slice(found.index, found.index + found.text.length)}<small>{t("assistant.unverified")}</small></span>);
         cursor = found.index + found.text.length;
       }
       out.push(part.slice(cursor));

@@ -57,8 +57,10 @@ describe("POST /api/ask", () => {
   });
 
   it("sends only this scenario's facts and number-checks the answer", async () => {
-    const r2 = context.facts.find((fact) => fact.id === "replay.R2.cap300|actual.irrigation_mm_mean");
-    const fetchSpy = vi.fn().mockResolvedValue(Response.json({ choices: [{ message: { content: `R2 needs ${r2?.value} mm [MODEL] and 9999 mm [POWER].` } }] }));
+    const fact = context.facts.find((item) => item.scenario === "cap300|actual" && item.unit === "mm");
+    const other = context.facts.find((item) => item.scenario && item.scenario !== "cap300|actual");
+    expect(fact).toBeDefined();
+    const fetchSpy = vi.fn().mockResolvedValue(Response.json({ choices: [{ message: { content: `It needs ${fact?.value} mm [MODEL] and 9999 mm [POWER].` } }] }));
     vi.stubGlobal("fetch", fetchSpy);
     const response = await ask({ ...base, question: "Water?", top_rotations: ["R0", "R2"], history: [{ role: "user", content: "hi" }] });
     const json = await response.json();
@@ -66,8 +68,8 @@ describe("POST /api/ask", () => {
     expect(json.cached).toBe(false);
     expect(json.provider).toBe("groq");
     expect(json.model).toBe("test-model");
-    expect(json.numbers.map((n: { text: string; verified: boolean }) => [n.text, n.verified])).toEqual([[`${r2?.value} mm`, true], ["9999 mm", false]]);
-    expect(json.citations.map((c: { tag: string }) => c.tag)).toEqual(["POWER"]);
+    expect(json.numbers.map((n: { text: string; verified: boolean }) => [n.text, n.verified])).toEqual([[`${fact?.value} mm`, true], ["9999 mm", false]]);
+    expect(json.citations.map((c: { tag: string }) => c.tag).sort()).toEqual(["MODEL", "POWER"]);
 
     const [url, init] = fetchSpy.mock.calls[0];
     expect(url).toBe("https://llm.test/v1/chat/completions");
@@ -75,8 +77,8 @@ describe("POST /api/ask", () => {
     const sent = JSON.parse(init.body);
     expect(sent.messages.map((m: { role: string }) => m.role)).toEqual(["system", "user", "user"]);
     const system: string = sent.messages[0].content;
-    expect(system).toContain("(replay.R2.cap300|actual.irrigation_mm_mean)");
-    expect(system).not.toContain("dryland|hotdry.irrigation_mm_mean");
+    expect(system).toContain(`(${fact?.id})`);
+    if (other) expect(system).not.toContain(`(${other.id})`);
     expect(system).toMatch(/R2 \(/);
     expect(system).not.toMatch(/\{(field_name|lang_name|scenario_label|top_rotations|facts_block)\}/);
   });
