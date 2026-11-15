@@ -83,7 +83,7 @@ wheat:
   p: 0.55
   ky: 1.05                                             # FAO-56 T24 winter wheat (1.05)
   heat: { stage: late, tmax_c: 32 }                    # grain fill heat; K-State guidance  # verify
-  frost_kill_c: -2                                     # spring freeze at heading; winter-hardy otherwise  # verify
+  frost_kill_c: -18   # winter-hardy when dormant (value from Himal's draft); spring freeze at heading is the real risk  # verify
   requires_irrigation: false
   n_fixing: false
   residue: high
@@ -167,7 +167,7 @@ triticale:
   p: 0.55                                              # winter wheat proxy  # verify
   ky: 1.05                                             # winter wheat proxy  # verify
   heat: { stage: null, tmax_c: null }
-  frost_kill_c: -2                                     # verify
+  frost_kill_c: -15   # winter-hardy (value from Himal's draft)  # verify
   requires_irrigation: false
   n_fixing: false
   residue: medium
@@ -195,7 +195,7 @@ rye_cover:
   p: 0.55                                              # cereal proxy  # verify
   ky: null                                             # cover crop, no yield modelled
   heat: { stage: null, tmax_c: null }
-  frost_kill_c: null                                   # winter hardy  # verify
+  frost_kill_c: -25   # very winter-hardy (value from Himal's draft; SARE)  # verify
   requires_irrigation: false
   n_fixing: false
   residue: high
