@@ -88,7 +88,7 @@ def simulate(tl: Timeline, w: Weather, field: dict, crops: dict, cap: str, irrig
         hy = s.harvest_year
         if hy not in out.index:
             continue
-        o = season_outcome(s, k, crops, tl.season, tl.stage, res.eta, res.etc, tmax, tmin, practice)
+        o = season_outcome(s, k, crops, tl.season, tl.stage, res.eta, res.etc, tmax, tmin, practice, tl.index)
         out.loc[hy, "revenue_usd_ac"] += o["revenue"]
         out.loc[hy, "heat_days"] += o["heat_days"]
         out.loc[hy, "frost_events"] += int(o["frost"])
