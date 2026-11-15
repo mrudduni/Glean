@@ -3,6 +3,8 @@ import "leaflet/dist/leaflet.css";
 import "./globals.css";
 import "@/styles/tokens.css";
 import "@/styles/base.css";
+import "@/styles/map.css";
+import "@/styles/home.css";
 import { AppProvider } from "@/lib/state";
 import { SiteFooter, SiteHeader } from "@/components/SiteHeader";
 import { MockBanner } from "@/components/MockBanner";

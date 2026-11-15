@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect } from "react";
+import { Fragment, useEffect } from "react";
 import { MapContainer, Polygon, TileLayer, Tooltip, useMap } from "react-leaflet";
 import type { LatLngBoundsExpression, LatLngExpression } from "leaflet";
 import type { Field, Lang } from "@/lib/types";
@@ -24,14 +24,14 @@ function ring(polygon: Field["geometry"]): LatLngExpression[][] {
 function FitBounds({ bounds, signature }: { bounds: LatLngBoundsExpression; signature: string }) {
   const map = useMap();
   useEffect(() => {
-    map.fitBounds(bounds, { padding: [24, 24] });
+    map.fitBounds(bounds, { paddingTopLeft: [90, 56], paddingBottomRight: [90, 96] });
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [map, signature]);
   return null;
 }
 
 export default function FieldMapCanvas({
-  fields, neighbors, selected, onSelect, lang, t,
+  fields, neighbors, selected, onSelect, lang, t, labels = false,
 }: {
   fields: Field[];
   neighbors: MapNeighbor[];
@@ -39,6 +39,7 @@ export default function FieldMapCanvas({
   onSelect?: (id: string) => void;
   lang: Lang;
   t: TFunction;
+  labels?: boolean;
 }) {
   const focus = selected ? fields.filter((field) => field.id === selected) : fields;
   const points = [...focus, ...(selected ? neighbors : [])].flatMap((item) => item.geometry.coordinates[0].map(([lon, lat]) => [lat, lon] as [number, number]));
@@ -60,19 +61,19 @@ export default function FieldMapCanvas({
         </Polygon>
       ))}
       {fields.map((field) => (
-        <Polygon
-          key={field.id}
-          positions={ring(field.geometry)}
-          pathOptions={{
-            color: selected === field.id ? "#ffffff" : kindColors[field.kind],
-            fillColor: kindColors[field.kind],
-            fillOpacity: selected === field.id ? 0.5 : 0.3,
-            weight: selected === field.id ? 3 : 2,
-          }}
-          eventHandlers={{ click: () => onSelect?.(field.id) }}
-        >
-          <Tooltip sticky>{loc(field.name, lang)} · {t(`field.kind.${field.kind}`, KIND_LABEL[field.kind])}</Tooltip>
-        </Polygon>
+        <Fragment key={field.id}>
+          {/* White halo under the outline so it reads on any imagery. */}
+          <Polygon positions={ring(field.geometry)} interactive={false} pathOptions={{ color: "#ffffff", weight: 6, opacity: 0.9, fill: false }} />
+          <Polygon
+            positions={ring(field.geometry)}
+            pathOptions={{ color: kindColors[field.kind], fillColor: kindColors[field.kind], fillOpacity: 0.35, weight: 3 }}
+            eventHandlers={{ click: () => onSelect?.(field.id) }}
+          >
+            {labels
+              ? <Tooltip permanent direction="top" offset={[0, -8]} className="field-label">{loc(field.name, lang)}</Tooltip>
+              : <Tooltip sticky>{loc(field.name, lang)} · {t(`field.kind.${field.kind}`, KIND_LABEL[field.kind])}</Tooltip>}
+          </Polygon>
+        </Fragment>
       ))}
     </MapContainer>
   );

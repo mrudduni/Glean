@@ -3,12 +3,13 @@
 import { useEffect, useMemo, useState } from "react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
-import { ArrowDownRight, ArrowUpRight, Compass, Droplets, Layers3, MoveRight, Satellite, Sprout } from "lucide-react";
+import { MoveRight } from "lucide-react";
 import { FieldMap } from "@/components/FieldMap";
 import { CropChips } from "@/components/CropChips";
+import { SourceChips } from "@/components/SourceChips";
 import { useGlean } from "@/lib/state";
 import { getContent, getCrops, getFields, getSources } from "@/lib/data";
-import { formatVar, loc, makeT, textureLabel, yearsLabel } from "@/lib/i18n";
+import { loc, makeT, textureLabel, yearsLabel } from "@/lib/i18n";
 import { cropNames, KIND_LABEL } from "@/lib/ui";
 import type { CopyFile, CropsFile, Field, FieldId, SourcesFile } from "@/lib/types";
 
@@ -52,108 +53,67 @@ export default function HomePage() {
   };
   const years = fields.flatMap((field) => field.crop_history.map((item) => item.year));
   const historySpan = years.length ? yearsLabel(t, Math.min(...years), Math.max(...years)) : "";
-  const awc = fields.map((field) => field.soil.aws_0_100_mm);
+  const area = (field: Field) => `${field.area_ha.toLocaleString(lang === "es" ? "es-ES" : "en-US", { maximumFractionDigits: 0 })} ha · ${field.area_ac.toLocaleString(lang === "es" ? "es-ES" : "en-US", { maximumFractionDigits: 0 })} ac`;
 
   return (
-    <div className="home-page">
-      <section className="home-hero page-wrap">
-        <div className="hero-copy">
-          <h1>{t("app.tagline")}</h1>
-          <p>{t("pick.subtitle")}</p>
-          <div className="hero-cta-group">
-            <a className="button-primary" href="#field-picker"><span>{t("pick.title")}</span><ArrowDownRight size={17} aria-hidden="true" /></a>
-            <Link className="hero-scroll" href="/how-we-know"><span>{t("nav.trust")}</span><ArrowUpRight size={19} aria-hidden="true" /></Link>
-          </div>
-        </div>
+    <div className="home-page page-wrap">
+      <header className="home-intro">
+        <h1>{t("app.tagline")}</h1>
+        <p>{t("pick.subtitle")}</p>
+      </header>
 
-        <div className="hero-telemetry-hub">
-          <div className="telemetry-topline">
-            <span className="telemetry-live-badge"><span className="telemetry-live-dot" /><span>{t("home.data_in_use", "Data behind these fields")}</span></span>
-            <span className="telemetry-coordinates">Finney County, KS · FIPS 20055</span>
-          </div>
-          <div className="telemetry-grid">
-            <div className="telemetry-item">
-              <div className="telemetry-item-head"><Satellite size={15} aria-hidden="true" /><span>CSB</span></div>
-              <strong>{historySpan || "—"}</strong>
-              <small>{t("home.crop_history", "USDA crop history per field")}</small>
-            </div>
-            <div className="telemetry-item">
-              <div className="telemetry-item-head"><Droplets size={15} aria-hidden="true" /><span>SSURGO</span></div>
-              <strong>{awc.length ? `${formatVar("min_mm", Math.min(...awc), lang)}` : "—"}</strong>
-              <small>{t("home.soil_storage", "Lowest soil water storage of the 3 fields")}</small>
-            </div>
-            <div className="telemetry-item">
-              <div className="telemetry-item-head"><Layers3 size={15} aria-hidden="true" /><span>{t("trust.sources")}</span></div>
-              <strong>{sources?.sources.length ?? "—"}</strong>
-              <small>{sources ? sources.sources.map((item) => item.tag).join(", ") : ""}</small>
-            </div>
-            <div className="telemetry-item">
-              <div className="telemetry-item-head"><Sprout size={15} aria-hidden="true" /><span>{t("home.rotations", "Rotations")}</span></div>
-              <strong>R0 + 6</strong>
-              <small>{t("home.rotations_note", "Current rotation against six alternatives")}</small>
-            </div>
-          </div>
-          <div className="telemetry-launcher">
-            <div className="telemetry-launcher-head"><span>{t("pick.title")}</span><span className="launcher-counter">{fields.length} / 3</span></div>
-            <div className="telemetry-field-chips">
-              {fields.map((field) => (
-                <button type="button" key={field.id} className="telemetry-field-chip" onClick={() => openField(field.id)}>
-                  <div className="telemetry-field-info">
-                    <strong>{loc(field.name, lang)}</strong>
-                    <small>{field.area_ac.toFixed(0)} ac · {textureLabel(t, field.soil.texture, lang)}</small>
-                  </div>
-                  <span className={`chip-kind-pill ${field.kind}`}>{t(`field.kind.${field.kind}`, KIND_LABEL[field.kind])}</span>
-                  <MoveRight size={14} className="telemetry-arrow" aria-hidden="true" />
-                </button>
-              ))}
-            </div>
-          </div>
+      {loading && (
+        <div className="home-grid" aria-busy="true" aria-label={t("pick.title")}>
+          <div className="skeleton-block home-map-skeleton" />
+          <div className="home-fields">{[0, 1, 2].map((i) => <div className="skeleton-block home-field-skeleton" key={i} />)}</div>
         </div>
-      </section>
+      )}
+      {error && (
+        <div className="error-panel" role="alert">
+          <strong>{t("error.title", "The data could not be loaded")}</strong>
+          <span>{t("error.check_connection", "Check your connection and try again.")}</span>
+          <button type="button" className="text-button" onClick={() => window.location.reload()}>{t("error.retry", "Try again")}</button>
+        </div>
+      )}
 
-      <section className="picker-section page-wrap" id="field-picker" aria-labelledby="picker-heading">
-        <div className="section-heading picker-heading">
-          <div>
+      {!loading && !error && (
+        <section className="home-grid" aria-labelledby="picker-heading">
+          <div className="home-map">
+            <FieldMap fields={fields} onSelect={openField} t={t} lang={lang} labels />
+            <p className="map-caption">{t("home.map_caption", "Click a field outline to open it.")}</p>
+          </div>
+
+          <div className="home-fields">
             <h2 id="picker-heading">{t("pick.title")}</h2>
-            <p>{t("pick.subtitle")}</p>
-          </div>
-        </div>
-        {loading && <div className="loading-panel" aria-busy="true"><span className="map-spinner" /><div className="skeleton-line" /></div>}
-        {error && (
-          <div className="error-panel" role="alert">
-            <strong>{t("error.title", "The data could not be loaded")}</strong><span>{error}</span>
-            <button type="button" className="text-button" onClick={() => window.location.reload()}>{t("error.retry", "Try again")}</button>
-          </div>
-        )}
-        {!loading && !error && (
-          <div className="field-picker-grid">
-            <div className="map-column">
-              <FieldMap fields={fields} onSelect={openField} t={t} lang={lang} />
-              <div className="map-caption"><Compass size={16} aria-hidden="true" /> <span>{t("home.map_caption", "Click a field outline to open it.")}</span></div>
-            </div>
-            <div className="field-list">
-              {fields.map((field, index) => (
-                <Link className={`field-option field-option-${index + 1}`} href={`/field/${field.id}`} key={field.id} onClick={() => setField(field.id)}>
-                  <div className="field-option-top">
-                    <span className={`field-kind ${field.kind}`}>{t(`field.kind.${field.kind}`, KIND_LABEL[field.kind])}</span>
-                    <ArrowUpRight className="field-arrow" size={20} aria-hidden="true" />
-                  </div>
-                  <h3>{loc(field.name, lang)}</h3>
-                  <div className="field-meta">
-                    <span><small>{t("field.area", "Area")}</small>{field.area_ha.toFixed(1)} ha <i>/</i> {field.area_ac.toFixed(1)} ac</span>
-                    <span><small>{t("overview.soil")}</small>{textureLabel(t, field.soil.texture, lang)}</span>
-                  </div>
-                  <div className="crop-chip-line">
-                    <small>{t("overview.current_rotation")}</small>
-                    <CropChips steps={field.detected.sequence} ui={ui} />
-                  </div>
-                  <span className="field-option-bottom"><span>{t("pick.open_field")}</span><MoveRight size={17} aria-hidden="true" /></span>
-                </Link>
+            <ul className="field-list">
+              {fields.map((field) => (
+                <li key={field.id}>
+                  <Link className="field-option" href={`/field/${field.id}`} onClick={() => setField(field.id)}>
+                    <span className="field-option-head">
+                      <span className="field-option-name">{loc(field.name, lang)}</span>
+                      <span className={`field-kind ${field.kind}`}>{t(`field.kind.${field.kind}`, KIND_LABEL[field.kind])}</span>
+                    </span>
+                    <span className="field-option-meta">{area(field)} · {textureLabel(t, field.soil.texture, lang)}</span>
+                    <span className="field-option-rotation">
+                      <span className="field-option-label">{t("overview.current_rotation")}</span>
+                      <CropChips steps={field.detected.sequence} ui={ui} />
+                    </span>
+                    <span className="field-option-go">{t("pick.open_field")}<MoveRight size={16} aria-hidden="true" /></span>
+                  </Link>
+                </li>
               ))}
-            </div>
+            </ul>
           </div>
-        )}
-      </section>
+        </section>
+      )}
+
+      {sources && (
+        <p className="home-sources">
+          <span>{t("home.data_in_use", "Data behind these fields")}{historySpan ? ` (${historySpan})` : ""}:</span>
+          <SourceChips tags={sources.sources.map((item) => item.tag)} sources={sources} />
+          <Link href="/how-we-know">{t("nav.trust")}</Link>
+        </p>
+      )}
     </div>
   );
 }

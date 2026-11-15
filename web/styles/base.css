@@ -164,10 +164,9 @@ input[type="range"], input[type="checkbox"] { accent-color: var(--color-accent);
   min-height: 26px; padding: 0 var(--sp-2);
   border-radius: 4px;
   background: var(--chip-color);
-  color: var(--color-fg);
+  color: #1E2A22; /* crop fills stay light in both themes (tokens.json crop_text), so the ink stays dark */
   font-size: var(--fs-cap); font-weight: 600; line-height: 1.2;
 }
-[data-theme="dark"] .crop-chip { color: var(--text-1); }
 .crop-chip.cover { background: transparent; box-shadow: inset 0 0 0 1.5px var(--chip-color); color: var(--text-2); font-weight: 500; }
 
 .source-chips { display: flex; flex-wrap: wrap; gap: var(--sp-1); }
@@ -231,3 +230,11 @@ a.source-chip:hover { color: var(--color-accent); border-color: var(--color-acce
   html { scroll-behavior: auto; }
   *, *::before, *::after { animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; transition-duration: 0.01ms !important; }
 }
+
+/* Field kind label (home list, field masthead). Text carries the meaning; the swatch repeats the map colour. */
+.field-kind { display: inline-flex; align-items: center; gap: 6px; color: var(--text-2); font: 600 var(--fs-cap)/1.2 var(--font-body); white-space: nowrap; }
+.field-kind::before { content: ""; width: 10px; height: 10px; border-radius: 2px; background: var(--crop-corn); box-shadow: inset 0 0 0 1px color-mix(in oklab, var(--color-fg) 25%, transparent); }
+.field-kind.dryland::before { background: var(--crop-wheat); }
+.field-kind.sandy_wind::before { background: var(--risk-wind); }
+
+.skeleton-block { border-radius: var(--radius); background: var(--sunken); }

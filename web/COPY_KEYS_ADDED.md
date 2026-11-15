@@ -11,6 +11,7 @@ Generated from a grep of `t("…")` calls in `app/`, `components/` and `lib/`.
 | `app.location` | app/page.tsx | Finney County, Kansas |
 | `assistant.busy` | app/api/ask/route.ts | The assistant is busy right now. Try one of the suggested questions below. Their answers are ready. |
 | `assistant.cache_mismatch` | components/AssistantDrawer.tsx | Saved answer, written for different settings than the cards on screen. Ask in your own words for an answer that matches them. |
+| `error.check_connection` | app/page.tsx | Check your connection and try again. |
 | `assistant.own_key` | components/AssistantDrawer.tsx | Use my own key |
 | `assistant.own_key_on` | components/AssistantDrawer.tsx | on |
 | `assistant.own_key_toggle` | components/AssistantDrawer.tsx | Answer free-text questions with my key |

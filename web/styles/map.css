@@ -1,0 +1,28 @@
+/* Satellite map shared by the home page and Farms like yours. */
+.map-shell { position: relative; overflow: hidden; border: 1px solid var(--rule); border-radius: var(--radius); background: var(--sunken); }
+.leaflet-map { height: 520px; width: 100%; background: #6f7a5f; }
+.map-placeholder { height: 520px; display: grid; place-items: center; }
+.map-legend {
+  position: absolute; z-index: 500; left: var(--sp-3); bottom: var(--sp-3);
+  display: flex; flex-wrap: wrap; align-items: center; gap: var(--sp-2) var(--sp-4);
+  max-width: calc(100% - 2 * var(--sp-3));
+  padding: var(--sp-2) var(--sp-3);
+  border-radius: var(--radius-sm);
+  background: var(--color-surface); color: var(--text-1);
+  font-size: var(--fs-cap); font-weight: 600;
+  box-shadow: 0 1px 2px rgb(0 0 0 / 0.2);
+}
+.map-legend span { display: inline-flex; align-items: center; gap: 6px; }
+.map-legend small { color: var(--text-3); font-size: 0.75rem; font-weight: 400; }
+.legend-dot { width: 12px; height: 12px; border-radius: 2px; box-shadow: inset 0 0 0 1px rgb(0 0 0 / 0.25); }
+.legend-dot.irrigated { background: var(--crop-corn); }
+.legend-dot.dryland { background: var(--crop-wheat); }
+.legend-dot.sandy { background: var(--risk-wind); }
+.map-caption { margin: var(--sp-2) 0 0; color: var(--text-3); font-size: var(--fs-cap); }
+.leaflet-container { font-family: var(--font-body); }
+.leaflet-control-attribution { font-size: 11px; }
+.leaflet-tooltip { border-radius: var(--radius-sm); border-color: var(--rule); color: #1E2A22; font-size: var(--fs-cap); }
+.leaflet-tooltip.field-label { padding: 2px 8px; border: 0; background: #ffffff; color: #1E2A22; font-weight: 700; box-shadow: 0 1px 3px rgb(0 0 0 / 0.35); }
+@media (max-width: 767px) {
+  .leaflet-map, .map-placeholder { height: 60vh; min-height: 320px; }
+}
