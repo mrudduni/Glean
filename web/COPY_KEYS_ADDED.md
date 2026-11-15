@@ -16,6 +16,9 @@ Generated from a grep of `t("…")` calls in `app/`, `components/` and `lib/`.
 | `summary.best_fit` | components/FieldWorkspace.tsx | Best fit for your priorities |
 | `summary.vs_current` | components/FieldWorkspace.tsx | Match score {score}, against {current} for your current rotation. |
 | `summary.see_options` | components/FieldWorkspace.tsx | Compare all options |
+| `card.shared_title` | components/StrategyPanel.tsx | Applies to every option above |
+| `card.shared_more` | components/StrategyPanel.tsx | Plus {n} that apply to every option, listed below the cards. |
+| `card.bars_hint` | components/StrategyPanel.tsx | Bars compare the options shown: 100 is the best of them on that point. |
 | `assistant.own_key` | components/AssistantDrawer.tsx | Use my own key |
 | `assistant.own_key_on` | components/AssistantDrawer.tsx | on |
 | `assistant.own_key_toggle` | components/AssistantDrawer.tsx | Answer free-text questions with my key |

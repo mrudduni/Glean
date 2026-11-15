@@ -23,7 +23,7 @@ Each item names its audit ID. Ticked items are committed and checked with `npm t
 
 - [ ] **#10** Styles read only token variables; dark mode comes from the token swap, not a second hand-written stylesheet
   - [x] Foundation: `styles/base.css` (type scale, text/rule ramp, header, footer, buttons, chips, badges, form controls, states)
-  - [x] Home + map (`styles/home.css`, `styles/map.css`) · [x] Field workspace (`styles/workspace.css`) · [ ] Overview · [ ] Calendar · [ ] Cards · [ ] Replay · [ ] Neighbours · [ ] Assistant · [ ] How we know
+  - [x] Home + map (`styles/home.css`, `styles/map.css`) · [x] Field workspace (`styles/workspace.css`) · [ ] Overview · [ ] Calendar · [x] Cards (`styles/cards.css`) · [ ] Replay · [ ] Neighbours · [ ] Assistant · [ ] How we know
 - [ ] **#11** Text meets WCAG AA (4.5:1) in light and dark; labels ≥ 14px, body 16px
 - [x] **#15** Tabular figures on every number (set once on `body`)
 
@@ -32,8 +32,8 @@ Each item names its audit ID. Ticked items are committed and checked with `npm t
 - [x] **#9** Home: the map is the hero, zoomed to the three fields with thick labelled outlines; one field list; no stats panel
 - [x] **#4** Field page: headline facts and the best-fit summary sit in the masthead, above the fold
 - [x] **#5** Priorities sit in a sticky rail beside the strategy cards, so a slider change visibly re-ranks them; collapsible on phones
-- [ ] **#6** Strategy cards: caveats shared by every card shown once; evidence collapsed; crop sequence as coloured blocks with arrows
-- [ ] **#17** Rotation names lead; R-codes are secondary
+- [x] **#6** Strategy cards: caveats shared by every card shown once; evidence collapsed; crop sequence as coloured blocks with arrows
+- [ ] **#17** Rotation names lead; R-codes are secondary (done in cards; calendar, replay, neighbours to follow)
 
 ## Charts and data
 
