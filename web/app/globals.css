@@ -3598,3 +3598,16 @@ fieldset legend.control-label { padding: 0; margin-bottom: 8px; }
 /* Excluded rotation shown to fill the row to R0 + 3 */
 .infeasible-badge { display: flex; gap: 6px; align-items: flex-start; margin: 8px 0 0; padding: 6px 9px; border-radius: 6px; font-size: 13px; line-height: 1.35; color: var(--ink); background: color-mix(in srgb, var(--risk-heat) 14%, transparent); border: 1px solid color-mix(in srgb, var(--risk-heat) 40%, transparent); }
 .infeasible-badge svg { flex: none; margin-top: 2px; color: var(--risk-heat); }
+
+
+/* Bring your own key, inside the assistant drawer */
+.own-key { margin: 0 18px; border-top: 1px solid var(--line); font-size: 14px; }
+.own-key summary { display: flex; align-items: center; gap: 6px; padding: 8px 0; cursor: pointer; color: var(--muted); }
+.own-key summary:focus-visible { outline: 2px solid var(--primary); outline-offset: 2px; }
+.own-key-body { display: grid; gap: 8px; padding: 0 0 10px; }
+.own-key-body label { display: grid; gap: 3px; color: var(--muted); }
+.own-key-body input[type="text"], .own-key-body input[type="url"], .own-key-body input[type="password"], .own-key-body select {
+  width: 100%; min-height: 36px; padding: 6px 8px; border: 1px solid var(--line); border-radius: 6px; background: var(--surface); color: var(--ink); font: inherit;
+}
+.own-key-body .own-key-toggle { display: flex; align-items: center; gap: 8px; color: var(--ink); }
+.own-key-body p { margin: 0; color: var(--muted); font-size: 13px; }

@@ -2,7 +2,7 @@
 
 These keys are not in README §8.6. The web app calls each one as `t("key", "English fallback")`.
 
-Status: all of them were added to `content/copy.json` with `en` and `es` text in role/content 3c740c7 (2026-11-15). Add new keys here and to copy.json together. Added after that commit, not yet in copy.json: `neighbors.fields_header`, `assistant.busy`, `card.unlock_tick` (Tick “{option}” to include it.), `card.unlock_cap` (Set the water limit to “{option}” or higher to include it.).
+Status: all of them were added to `content/copy.json` with `en` and `es` text in role/content 3c740c7 (2026-11-15). Add new keys here and to copy.json together. Added after that commit, not yet in copy.json: `neighbors.fields_header`, `assistant.busy`, `card.unlock_tick` (Tick “{option}” to include it.), `assistant.own_key*` (9 keys), `card.unlock_cap` (Set the water limit to “{option}” or higher to include it.).
 
 Generated from a grep of `t("…")` calls in `app/`, `components/` and `lib/`.
 
@@ -10,6 +10,15 @@ Generated from a grep of `t("…")` calls in `app/`, `components/` and `lib/`.
 |---|---|---|
 | `app.location` | app/page.tsx | Finney County, Kansas |
 | `assistant.busy` | app/api/ask/route.ts | The assistant is busy right now. Try one of the suggested questions below. Their answers are ready. |
+| `assistant.own_key` | components/AssistantDrawer.tsx | Use my own key |
+| `assistant.own_key_on` | components/AssistantDrawer.tsx | on |
+| `assistant.own_key_toggle` | components/AssistantDrawer.tsx | Answer free-text questions with my key |
+| `assistant.own_key_provider` | components/AssistantDrawer.tsx | Provider |
+| `assistant.own_key_custom` | components/AssistantDrawer.tsx | Other (base URL) |
+| `assistant.own_key_url` | components/AssistantDrawer.tsx | Base URL (https) |
+| `assistant.own_key_model` | components/AssistantDrawer.tsx | Model id |
+| `assistant.own_key_key` | components/AssistantDrawer.tsx | API key |
+| `assistant.own_key_note` | components/AssistantDrawer.tsx | Your key stays in this browser tab and is sent only with your questions. Suggested questions never use it. |
 | `assistant.close` | components/AssistantDrawer.tsx | Close |
 | `assistant.subtitle` | components/AssistantDrawer.tsx | Answers use only this field's data. Every number is checked. |
 | `assistant.waiting` | components/AssistantDrawer.tsx | Checking the field data |

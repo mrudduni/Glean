@@ -254,7 +254,7 @@ export const askResponseSchema: Schema<T.AskResponse> = z.object({
     text: z.string(), value: z.number(), unit: z.string().nullable(), verified: z.boolean(), fact_id: z.string().nullable(),
   })),
   cached: z.boolean(),
-  provider: z.enum(["gemini", "groq", "cache"]),
+  provider: z.enum(["gemini", "groq", "custom", "cache"]),
   model: z.string().nullable(),
   notice: z.enum(["using_cache", "scenario_mismatch"]).optional(),
 });

@@ -52,14 +52,17 @@ Suggested questions are answered from `field/{id}/assistant_cache.json` without 
 
 Copy `.env.example` to `.env.local` and fill it in. Never commit keys.
 
-| Variable | Groq | Gemini |
-|---|---|---|
-| `LLM_PROVIDER` | `groq` | `gemini` |
-| `LLM_BASE_URL` | `https://api.groq.com/openai/v1` | `https://generativelanguage.googleapis.com/v1beta/openai` |
-| `LLM_MODEL` | model id from the Groq console | Gemini Flash model id |
-| `LLM_API_KEY` | Groq key | AI Studio key |
+| Variable | Use |
+|---|---|
+| `LLM_PROVIDER`, `LLM_BASE_URL`, `LLM_MODEL`, `LLM_API_KEY` | Primary provider (Groq: `https://api.groq.com/openai/v1`). |
+| `LLM_FALLBACK_PROVIDER`, `LLM_FALLBACK_BASE_URL`, `LLM_FALLBACK_MODEL`, `LLM_FALLBACK_API_KEY` | Optional second provider (Gemini: `https://generativelanguage.googleapis.com/v1beta/openai`). Tried once when the primary returns 429 or 5xx, or times out. |
+| `ALLOW_CUSTOM_LLM_URL` | `1` lets users' own keys go to any https base URL. Off by default (SSRF guard). |
 
-Without a key the route returns 503 `llm_unavailable` and the drawer falls back to the suggested questions. The route also limits each IP to 20 questions a minute.
+For `openai/gpt-oss` models the route sends `reasoning_effort: "low"` and at least 1500 `max_tokens`. When every provider is rate-limited, the drawer shows a short "busy" answer pointing to the suggested questions. Each IP may ask 20 questions a minute.
+
+### Use my own key
+
+The assistant drawer has a "Use my own key" panel (Groq, Gemini, or another base URL if the server allows it). The key stays in the browser tab (sessionStorage) and goes to `/api/ask` in the `x-user-llm-key`, `x-user-llm-base-url` and `x-user-llm-model` headers, never in the URL or body. The server uses it only for free-text questions, with the same prompt, facts and number check. It never logs or returns the key, and never falls back to the server key: if the user's provider rejects the key or is rate-limited, the drawer shows why.
 
 ## Code map
 
