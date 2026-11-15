@@ -7,16 +7,16 @@
   },
   "strings": {
     "app.name": {
-      "en": "Field Shift",
-      "es": "Field Shift"
+      "en": "Stubble",
+      "es": "Stubble"
     },
     "app.tagline": {
-      "en": "Compare crop rotations for your field, using NASA data and your own priorities.",
-      "es": "Compare rotaciones de cultivos para su campo, con datos de la NASA y sus propias prioridades."
+      "en": "Compare crop rotations that keep stubble on the ground to protect your soil and water.",
+      "es": "Compare rotaciones de cultivos que dejan rastrojo en el suelo para proteger su suelo y su agua."
     },
     "disclaimer.main": {
-      "en": "Field Shift supports your judgement. It does not replace it or local expert advice. Results are estimates from satellites, models and past weather. Check with your K-State Research and Extension agent before you change your rotation.",
-      "es": "Field Shift apoya su criterio, no lo reemplaza ni sustituye el consejo de expertos locales. Los resultados son estimaciones de satélites, modelos y clima del pasado. Consulte a su agente de K-State Research and Extension antes de cambiar su rotación."
+      "en": "Stubble supports your judgement. It does not replace it or local expert advice. Results are estimates from satellites, models and past weather. Check with your K-State Research and Extension agent before you change your rotation.",
+      "es": "Stubble apoya su criterio, no lo reemplaza ni sustituye el consejo de expertos locales. Los resultados son estimaciones de satélites, modelos y clima del pasado. Consulte a su agente de K-State Research and Extension antes de cambiar su rotación."
     },
     "banner.mock": {
       "en": "Showing sample data",

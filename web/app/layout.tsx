@@ -8,7 +8,7 @@ import { InteractiveBackground } from "@/components/InteractiveBackground";
 import { MockBanner } from "@/components/MockBanner";
 
 export const metadata: Metadata = {
-  title: "Field Shift",
+  title: "Stubble",
   description: "Compare crop rotations for three Finney County, Kansas fields with NASA Earth observations, soil data and your own priorities.",
 };
 

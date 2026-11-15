@@ -13,9 +13,9 @@ export function SiteHeader() {
   return (
     <header className="site-header">
       <div className="site-header-inner">
-        <Link className="brand" href="/" aria-label={t("app.name")}>
+        <Link className="brand" href="/" aria-label={t("app.name", "Stubble")}>
           <span className="brand-mark"><Sprout size={19} strokeWidth={2.2} /></span>
-          <span className="brand-name">field<span>shift</span></span>
+          <span className="brand-name">{t("app.name", "Stubble")}</span>
         </Link>
         <div className="header-location"><span className="location-dot" /> {t("app.location", "Finney County, Kansas")}</div>
         <nav className="header-nav" aria-label={t("nav.main", "Main navigation")}>
