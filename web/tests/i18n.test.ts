@@ -1,5 +1,5 @@
 import { describe, expect, it, vi } from "vitest";
-import { fill, formatVar, makeT, textureLabel, yearsLabel } from "@/lib/i18n";
+import { fill, formatVar, interpolate, makeT, textureLabel, yearsLabel } from "@/lib/i18n";
 import type { Lang } from "@/lib/types";
 
 const crops = { sorghum: { en: "Sorghum", es: "Sorgo" }, triticale: { en: "Triticale", es: "" } };
@@ -48,6 +48,20 @@ describe("fill", () => {
     expect(fill({ en: "In {year}: {irrigation_mm}", es: "" }, { year: 2012 }, "en")).toBe("In 2012: —");
     expect(warn).toHaveBeenCalled();
     warn.mockRestore();
+  });
+});
+
+describe("plural selector {name|one|other}", () => {
+  it("picks the singular or plural word for the value, per language", () => {
+    const template = { en: "Longest run: {years} {years|year|years}.", es: "Racha más larga: {years} {years|año|años}." };
+    expect(fill(template, { years: 1 }, "en")).toBe("Longest run: 1 year.");
+    expect(fill(template, { years: 3 }, "en")).toBe("Longest run: 3 years.");
+    expect(fill(template, { years: 1 }, "es")).toBe("Racha más larga: 1 año.");
+    expect(fill(template, { years: 0 }, "es")).toBe("Racha más larga: 0 años.");
+  });
+  it("works in interpolate too", () => {
+    expect(interpolate("{n} {n|field|fields}", { n: 1 })).toBe("1 field");
+    expect(interpolate("{n} {n|field|fields}", { n: 12 })).toBe("12 fields");
   });
 });
 

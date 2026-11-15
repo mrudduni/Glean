@@ -44,9 +44,9 @@ Each item names its audit ID. Ticked items are committed and checked with `npm t
 
 ## Copy, states, i18n
 
-- [ ] **#13** Plural-aware `fill()` (F side); wording issues reported to U
+- [x] **#13** Plural-aware `fill()` and `interpolate()`: templates can write `{years} {years|year|years}` (F side); wording issues reported to U
 - [x] **#18** Loading skeleton shaped like the page; errors in plain words
-- [ ] **#20** No hard-coded English in TSX; numbers formatted per language
+- [x] **#20** No hard-coded English in TSX; numbers formatted per language; new keys have Spanish fallbacks in `lib/copyFallbacks.ts` until they reach `copy.json`
 - [x] **#21** Well trend states direction; units never wrap
 - [x] **#22** Disclaimer shown once per page
 - [x] **#23** How-we-know: validation as a readable table
@@ -61,5 +61,5 @@ Each item names its audit ID. Ticked items are committed and checked with `npm t
 
 - **Mock banner** is switched off on `main` ("suppressed per production requirements"); left as is.
 - **M** (`model/`): `assistant_cache.json` was generated for top order R4, R5, R1, R0, but the default cards are R0, R5, R1, R2. Rebuild for the default order; round numbers such as 75.43.
-- **D** (`data-pipeline/`): `neighbors.json` NDVI drought columns are all null.
-- **U** (`content/`, `design/`): "changed by −3 days a year" is a period difference, not a rate; "−0.9 cm/yr a year" doubles the unit; plural workarounds read robotic ("in years: 1"); criterion label "Heat and frost risk" reads backwards (100 = least risk); the rotation palette fails the dataviz colour checks (light: R0↔R1 ΔE 12.9 normal vision, R1/R3 below the lightness band; dark, hand-tuned: R6↔R3 ΔE 3.6 deutan, R3↔R0 ΔE 9.4 normal) — the chart compensates with dashes, end labels, legend and table, but the tokens need a re-step; `web/styles/tokens.css` has drifted from `design/tokens.css` (dark muted text #eaf3ed is nearly the body colour).
+- **D** (`data-pipeline/`): `neighbors.json` NDVI drought columns are all null; `sources.json` `used_for` / `what` text has no Spanish.
+- **U** (`content/`, `design/`): `fill()` now supports `{n|one|other}` plurals, so templates like "in years: 1" can become "{years} {years|year|years}"; please add the keys and Spanish from `COPY_KEYS_ADDED.md` / `lib/copyFallbacks.ts` to `copy.json`; "changed by −3 days a year" is a period difference, not a rate; "−0.9 cm/yr a year" doubles the unit; plural workarounds read robotic ("in years: 1"); criterion label "Heat and frost risk" reads backwards (100 = least risk); the rotation palette fails the dataviz colour checks (light: R0↔R1 ΔE 12.9 normal vision, R1/R3 below the lightness band; dark, hand-tuned: R6↔R3 ΔE 3.6 deutan, R3↔R0 ΔE 9.4 normal) — the chart compensates with dashes, end labels, legend and table, but the tokens need a re-step; `web/styles/tokens.css` has drifted from `design/tokens.css` (dark muted text #eaf3ed is nearly the body colour).

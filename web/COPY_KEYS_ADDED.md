@@ -4,6 +4,8 @@ These keys are not in README §8.6. The web app calls each one as `t("key", "Eng
 
 Status: all of them were added to `content/copy.json` with `en` and `es` text in role/content 3c740c7 (2026-11-15). Add new keys here and to copy.json together. Added after that commit, not yet in copy.json: `neighbors.fields_header`, `assistant.busy`, `card.unlock_tick` (Tick “{option}” to include it.), `assistant.own_key*` (9 keys), `card.unlock_cap` (Set the water limit to “{option}” or higher to include it.), `assistant.cache_mismatch` (Saved answer, written for different settings than the cards on screen. Ask in your own words for an answer that matches them.).
 
+Spanish for every key added on role/web-ui-polish is in `lib/copyFallbacks.ts` (used only until the key is in copy.json). Templates may use `{name|one|other}` for plurals, e.g. `{years} {years|year|years}`.
+
 Generated from a grep of `t("…")` calls in `app/`, `components/` and `lib/`.
 
 | Key | Where used | English text |
