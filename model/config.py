@@ -95,6 +95,12 @@ HEAT_LOSS_PER_DAY = 0.015
 HEAT_WINDOW_DAYS = 21
 HEAT_FACTOR_MIN = 0.5
 FROST_FACTOR = 0.85
+# spring freeze for winter crops: winter-hardy (frost_kill_c) while dormant, but 28 F for 2 h kills florets at boot/heading
+# https://bookstore.ksre.ksu.edu/pubs/spring-freeze-injury-to-kansas-wheat_C646.pdf
+SPRING_FREEZE_SEASONS = ("winter", "cover")
+SPRING_FREEZE_START = "03-15"     # green-up
+SPRING_FREEZE_C = -2.2
+SPRING_FREEZE_MONTHS = {3, 4, 5}  # calendar frost flag months for winter crops
 NASS_RECENT_FROM, NASS_RECENT_TO = 2010, 2024   # prefer yields from this window
 NASS_N_YEARS = 5                                # mean of the most recent 5 values
 NASS_MIN_VALUES = 3
