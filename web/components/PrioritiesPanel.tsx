@@ -12,7 +12,7 @@ const SLIDERS: SliderId[] = ["save_water", "income", "steady_income", "soil_heal
  * Priorities and limits, shown as a sticky rail beside the strategy cards (wireframe s4)
  * so every change visibly re-ranks the cards next to it. On phones it collapses above the cards.
  */
-export function PrioritiesPanel({ t }: { t: TFunction }) {
+export function PrioritiesPanel({ t, irrigated = true }: { t: TFunction; irrigated?: boolean }) {
   const state = useGlean();
   return (
     <details className="priority-rail" open aria-labelledby="priorities-heading">
@@ -46,11 +46,12 @@ export function PrioritiesPanel({ t }: { t: TFunction }) {
           <legend className="control-label">{t("constraints.water_cap")}</legend>
           <div className="segmented-control stacked">
             {CAP_IDS.map((cap) => (
-              <button type="button" key={cap} aria-pressed={state.cap === cap} onClick={() => state.setCap(cap)}>
+              <button type="button" key={cap} aria-pressed={state.cap === cap} disabled={!irrigated && cap !== "dryland"} onClick={() => state.setCap(cap)}>
                 {t(`constraints.cap.${cap}`)}
               </button>
             ))}
           </div>
+          {!irrigated && <p className="control-note">{t("constraints.no_irrigation_note", "This field has no irrigation, so only dryland options apply.")}</p>}
         </fieldset>
 
         <fieldset className="control-group">

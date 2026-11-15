@@ -249,3 +249,5 @@ a.source-chip:hover { color: var(--color-accent); border-color: var(--color-acce
 .sk-nav { height: 48px; }
 .sk-section { height: 420px; }
 @media (max-width: 640px) { .sk-brief { grid-template-columns: 1fr; } .sk-brief .skeleton-block { height: 120px; } }
+.segmented-control button:disabled { opacity: 0.45; cursor: not-allowed; }
+.control-note { margin: var(--sp-2) 0 0; color: var(--text-2); font-size: var(--fs-cap); }

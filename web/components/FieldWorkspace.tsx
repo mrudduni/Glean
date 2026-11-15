@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { ArrowDown, ArrowLeft, CircleHelp, MapPin, RotateCcw } from "lucide-react";
@@ -66,6 +66,17 @@ export function FieldWorkspace({ fieldId }: { fieldId: FieldId }) {
     return () => { active = false; };
   }, [fieldId]);
 
+  // A field without irrigation can only run dryland options: start there, and give the 300 mm default back
+  // when the farmer moves on to an irrigated field.
+  const forcedDryland = useRef(false);
+  const irrigated = data?.field.irrigated;
+  useEffect(() => {
+    if (irrigated === undefined) return;
+    if (!irrigated && state.cap !== "dryland") { forcedDryland.current = true; state.setCap("dryland"); }
+    if (irrigated && forcedDryland.current) { forcedDryland.current = false; if (state.cap === "dryland") state.setCap("cap300"); }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [irrigated, fieldId]);
+
   const copy = data?.content.copy.strings ?? NO_STRINGS;
   const t = useMemo(() => makeT(copy, lang), [copy, lang]);
   const ui: UI | null = useMemo(() => (data ? {
@@ -104,6 +115,7 @@ export function FieldWorkspace({ fieldId }: { fieldId: FieldId }) {
   const order = useMemo(() => picked.shown.map((entry) => entry.rotation_id), [picked]);
   const currentEntry = picked.shown.find((entry) => entry.rotation_id === "R0");
   const best = picked.shown.find((entry) => entry.rotation_id !== "R0" && !picked.filled[entry.rotation_id]);
+  const unavailableCount = Object.keys(picked.filled).length;
 
   if (error) {
     return (
@@ -174,7 +186,14 @@ export function FieldWorkspace({ fieldId }: { fieldId: FieldId }) {
                   {interpolate(t("summary.vs_current", "Match score {score}, against {current} for your current rotation."), { score: scoreEntry(best, weights), current: currentEntry ? scoreEntry(currentEntry, weights) : "—" })}
                 </span>
               </>
-            ) : <span className="brief-score">{t("strategies.none_fit")}</span>}
+            ) : (
+              <>
+                <strong>{t("summary.none_fit_title", "Nothing fits your limits yet")}</strong>
+                <span className="brief-score">
+                  {interpolate(t("summary.unavailable", "{n} {n|option is|options are} shown below, each needing a change to your limits."), { n: unavailableCount }, lang)}
+                </span>
+              </>
+            )}
             <span className="brief-go">{t("summary.see_options", "Compare all options")}<ArrowDown size={15} aria-hidden="true" /></span>
           </a>
 
@@ -214,8 +233,8 @@ export function FieldWorkspace({ fieldId }: { fieldId: FieldId }) {
             <p>{t("strategies.subtitle", "Your current rotation and the three that fit your priorities most closely.")}</p>
           </div>
           <div className="compare-layout">
-            <PrioritiesPanel t={t} />
-            <StrategyPanel picked={picked} weights={weights} rotations={data.rotations.rotations} summary={bundle.summary} irrigation={irrigationShown} shownAt={shownAt} copy={copy} ui={ui} />
+            <PrioritiesPanel t={t} irrigated={field.irrigated} />
+            <StrategyPanel picked={picked} weights={weights} rotations={data.rotations.rotations} summary={bundle.summary} irrigation={irrigationShown} shownAt={shownAt} copy={copy} ui={ui} irrigated={field.irrigated} />
           </div>
         </section>
         <ReplayChart replay={bundle.replay} scenario={scenario} order={order} ui={ui} />
