@@ -73,6 +73,12 @@ function scenarioLabel(scenario: ScenarioKey): string {
   return `${en(`constraints.cap.${cap}`)}, ${en(`climate.${climate}`)}`;
 }
 
+/** Same rotations regardless of order (R0 is always on screen, so it is ignored). */
+function sameIds(a: readonly string[], b: readonly string[]): boolean {
+  const norm = (ids: readonly string[]) => [...new Set(ids.filter((id) => id !== "R0"))].sort().join(",");
+  return norm(a) === norm(b);
+}
+
 function topRotations(ids: AskRequest["top_rotations"]): string {
   if (!ids?.length) return "not given";
   return ids.map((id) => `${id} (${cardText.rotations?.[id]?.name.en ?? id})`).join(", ");
@@ -124,13 +130,17 @@ export async function POST(request: NextRequest) {
 
   // 1. Suggested question → cached answer, never the LLM.
   if (input.question_id) {
-    const cached = caches[input.field_id].answers?.[input.question_id]?.[input.lang];
+    const cache = caches[input.field_id];
+    const cached = cache.answers?.[input.question_id]?.[input.lang];
     if (!cached) return fail(400, "bad_request", `Unknown question_id ${input.question_id}.`);
+    // The saved answer only fits if the farmer sees the same scenario and the same cards it was written for.
+    const otherCards = Boolean(input.top_rotations?.length && cache.top_rotations?.length)
+      && !sameIds(input.top_rotations ?? [], cache.top_rotations ?? []);
     const response: AskResponse = {
       ...cached,
       cached: true,
       provider: "cache",
-      ...(input.scenario !== DEFAULT_SCENARIO ? { notice: "scenario_mismatch" as const } : {}),
+      ...(input.scenario !== DEFAULT_SCENARIO || otherCards ? { notice: "scenario_mismatch" as const } : {}),
     };
     return NextResponse.json(response);
   }

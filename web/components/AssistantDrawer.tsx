@@ -162,7 +162,13 @@ export function AssistantDrawer({
                   <article className={`chat-message ${message.role}`} key={message.id}>
                     {message.role === "assistant" && <span className="chat-avatar"><Bot size={13} aria-hidden="true" /></span>}
                     <div className="chat-bubble">
-                      {message.response?.notice && <div className="assistant-notice" role="status">{t("assistant.using_cache")}</div>}
+                      {message.response?.notice && (
+                        <div className="assistant-notice" role="status">
+                          {message.response.notice === "scenario_mismatch"
+                            ? t("assistant.cache_mismatch", "Saved answer, written for different settings than the cards on screen. Ask in your own words for an answer that matches them.")
+                            : t("assistant.using_cache")}
+                        </div>
+                      )}
                       {message.response ? <Answer response={message.response} sources={sources} t={t} /> : <p>{message.content}</p>}
                     </div>
                   </article>

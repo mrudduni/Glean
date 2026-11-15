@@ -42,6 +42,14 @@ describe("POST /api/ask", () => {
     expect(json.notice).toBe("scenario_mismatch");
   });
 
+  it("flags scenario_mismatch when the cache was written for other cards", async () => {
+    // f1's cache was generated with R4, R5, R1, R0 on screen.
+    const other = await (await ask({ ...base, question_id: "q1", top_rotations: ["R0", "R5", "R1", "R2"] })).json();
+    expect(other.notice).toBe("scenario_mismatch");
+    const same = await (await ask({ ...base, question_id: "q1", top_rotations: ["R0", "R4", "R5", "R1"] })).json();
+    expect(same.notice).toBeUndefined();
+  });
+
   it("returns 503 when the LLM is not configured", async () => {
     vi.stubEnv("LLM_API_KEY", "");
     const response = await ask({ ...base, question: "Why not alfalfa?" });
