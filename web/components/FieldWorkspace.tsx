@@ -15,10 +15,10 @@ import { CropChips } from "@/components/CropChips";
 import { useFieldShift } from "@/lib/state";
 import { getContent, getCrops, getFieldBundle, getFields, getRotations, getSources } from "@/lib/data";
 import { pickShown, sameRotation, weightsFromSliders } from "@/lib/score";
-import { loc, makeT } from "@/lib/i18n";
+import { loc, makeT, textureLabel, yearsLabel } from "@/lib/i18n";
 import { cropNames, KIND_LABEL, type UI } from "@/lib/ui";
 import { FIELD_IDS } from "@/lib/schemas";
-import type { Content, CropsFile, Field, FieldBundle, FieldId, RotationId, RotationsFile, SourcesFile } from "@/lib/types";
+import type { CapId, Content, CropsFile, Field, FieldBundle, FieldId, RotationId, RotationsFile, ScenarioKey, SourcesFile } from "@/lib/types";
 
 interface Loaded {
   field: Field;
@@ -80,9 +80,25 @@ export function FieldWorkspace({ fieldId }: { fieldId: FieldId }) {
     const current = data?.bundle.summary.current_rotation.steps ?? [];
     return new Set((data?.rotations.rotations ?? []).filter((rotation) => sameRotation(rotation.steps, current)).map((rotation) => rotation.id));
   }, [data]);
-  const picked = useMemo(() => {
+  const { picked, irrigationShown, shownAt } = useMemo(() => {
     const entries = data?.bundle.strategies.scenarios[scenario] ?? [];
-    return pickShown(entries, weights, { cap: state.cap, hay: state.hay, cotton: state.cotton, forage: state.forage }, irrigation, duplicates);
+    const result = pickShown(entries, weights, { cap: state.cap, hay: state.hay, cotton: state.cotton, forage: state.forage }, irrigation, duplicates);
+    // A filler that needs more water is shown with its numbers at its own minimum cap, not at a cap it cannot run under.
+    const climate = scenario.split("|")[1];
+    const at: Partial<Record<RotationId, CapId | "none">> = {};
+    const water = { ...irrigation };
+    const shown = result.shown.map((entry) => {
+      if (result.filled[entry.rotation_id] !== "needs_more_water") return entry;
+      const minCap = data?.rotations.rotations.find((rotation) => rotation.id === entry.rotation_id)?.min_cap;
+      const key = `${minCap}|${climate}` as ScenarioKey;
+      const better = minCap ? data?.bundle.strategies.scenarios[key]?.find((other) => other.rotation_id === entry.rotation_id) : undefined;
+      // No cap makes it feasible here (a field without irrigation): keep the numbers, flag that they assume no water.
+      if (!minCap || !better?.feasible) { at[entry.rotation_id] = "none"; return entry; }
+      at[entry.rotation_id] = minCap;
+      water[entry.rotation_id] = data?.bundle.replay.scenarios[key]?.[entry.rotation_id]?.summary.irrigation_mm_mean;
+      return better;
+    });
+    return { picked: { ...result, shown }, irrigationShown: water, shownAt: at };
   }, [data, scenario, weights, state.cap, state.hay, state.cotton, state.forage, irrigation, duplicates]);
   const order = useMemo(() => picked.shown.map((entry) => entry.rotation_id), [picked]);
 
@@ -123,13 +139,13 @@ export function FieldWorkspace({ fieldId }: { fieldId: FieldId }) {
         <div>
           <div className="eyebrow"><span className="eyebrow-rule" /> {t("app.location", "Finney County, Kansas")} · {field.id.toUpperCase()}</div>
           <h1>{loc(field.name, lang)}<span className={`field-kind ${field.kind}`}>{t(`field.kind.${field.kind}`, KIND_LABEL[field.kind])}</span></h1>
-          <p>{field.area_ha.toFixed(1)} ha <span>/</span> {field.area_ac.toFixed(1)} ac <span>/</span> {field.soil.texture} <span>/</span> {Math.round(field.terrain.elev_m)} m</p>
+          <p>{field.area_ha.toFixed(1)} ha <span>/</span> {field.area_ac.toFixed(1)} ac <span>/</span> {textureLabel(t, field.soil.texture, lang)} <span>/</span> {Math.round(field.terrain.elev_m)} m</p>
         </div>
         <div className="masthead-cards">
           <div className="detected-rotation">
             <small>{t("overview.current_rotation")}</small>
             <CropChips steps={field.detected.sequence} ui={ui} />
-            <span>{field.detected.years[0]} to {field.detected.years[1]} · {t("card.confidence")}: {t(`trust.level.${field.detected.confidence}`)}</span>
+            <span>{yearsLabel(t, field.detected.years[0], field.detected.years[1])} · {t("card.confidence")}: {t(`trust.level.${field.detected.confidence}`)}</span>
           </div>
         </div>
       </section>
@@ -145,7 +161,7 @@ export function FieldWorkspace({ fieldId }: { fieldId: FieldId }) {
         <OverviewPanel field={field} summary={bundle.summary} water={bundle.water} glossary={data.content.glossary} copy={copy} ui={ui} />
         <FieldCalendar calendar={bundle.calendar} order={order} ui={ui} />
         <PrioritiesPanel t={t} />
-        <StrategyPanel picked={picked} weights={weights} rotations={data.rotations.rotations} summary={bundle.summary} irrigation={irrigation} copy={copy} ui={ui} />
+        <StrategyPanel picked={picked} weights={weights} rotations={data.rotations.rotations} summary={bundle.summary} irrigation={irrigationShown} shownAt={shownAt} copy={copy} ui={ui} />
         <ReplayChart replay={bundle.replay} scenario={scenario} order={order} ui={ui} />
         <NeighborsView neighbors={bundle.neighbors} field={field} ui={ui} />
         <div className="workspace-notice">

@@ -8,7 +8,7 @@ import { FieldMap } from "@/components/FieldMap";
 import { CropChips } from "@/components/CropChips";
 import { useFieldShift } from "@/lib/state";
 import { getContent, getCrops, getFields, getSources } from "@/lib/data";
-import { formatVar, loc, makeT } from "@/lib/i18n";
+import { formatVar, loc, makeT, textureLabel, yearsLabel } from "@/lib/i18n";
 import { cropNames, KIND_LABEL } from "@/lib/ui";
 import type { CopyFile, CropsFile, Field, FieldId, SourcesFile } from "@/lib/types";
 
@@ -51,7 +51,7 @@ export default function HomePage() {
     router.push(`/field/${fid}`);
   };
   const years = fields.flatMap((field) => field.crop_history.map((item) => item.year));
-  const historySpan = years.length ? `${Math.min(...years)} to ${Math.max(...years)}` : "";
+  const historySpan = years.length ? yearsLabel(t, Math.min(...years), Math.max(...years)) : "";
   const awc = fields.map((field) => field.soil.aws_0_100_mm);
 
   return (
@@ -102,7 +102,7 @@ export default function HomePage() {
                   <span className="telemetry-field-index">0{index + 1}</span>
                   <div className="telemetry-field-info">
                     <strong>{loc(field.name, lang)}</strong>
-                    <small>{field.area_ac.toFixed(0)} ac · {field.soil.texture}</small>
+                    <small>{field.area_ac.toFixed(0)} ac · {textureLabel(t, field.soil.texture, lang)}</small>
                   </div>
                   <span className={`chip-kind-pill ${field.kind}`}>{t(`field.kind.${field.kind}`, KIND_LABEL[field.kind])}</span>
                   <MoveRight size={14} className="telemetry-arrow" aria-hidden="true" />
@@ -145,7 +145,7 @@ export default function HomePage() {
                   <h3>{loc(field.name, lang)}</h3>
                   <div className="field-meta">
                     <span><small>{t("field.area", "Area")}</small>{field.area_ha.toFixed(1)} ha <i>/</i> {field.area_ac.toFixed(1)} ac</span>
-                    <span><small>{t("overview.soil")}</small>{field.soil.texture}</span>
+                    <span><small>{t("overview.soil")}</small>{textureLabel(t, field.soil.texture, lang)}</span>
                   </div>
                   <div className="crop-chip-line">
                     <small>{t("overview.current_rotation")}</small>

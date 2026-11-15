@@ -3,7 +3,7 @@
 import { ArrowDownRight, ArrowUpRight, Droplets, Leaf, MapPinned, ThermometerSun } from "lucide-react";
 import { Area, AreaChart, ResponsiveContainer, Tooltip, YAxis } from "recharts";
 import type { CopyFile, Field, GlossaryFile, SummaryFile, WaterFile } from "@/lib/types";
-import { fill, formatVar } from "@/lib/i18n";
+import { fill, formatVar, textureLabel } from "@/lib/i18n";
 import { cardLine, ROTATION_CLASS_LABEL, type UI } from "@/lib/ui";
 import { SourceChips } from "@/components/SourceChips";
 import { CropChips } from "@/components/CropChips";
@@ -58,7 +58,7 @@ export function OverviewPanel({
 
         <article className="overview-card soil-card">
           <div className="card-kicker"><span className="icon-disc sand"><MapPinned size={17} aria-hidden="true" /></span><span>{t("overview.soil")}</span></div>
-          <div className="soil-texture">{soil.texture}</div>
+          <div className="soil-texture">{textureLabel(t, soil.texture, lang)}</div>
           <p className="micro-note">{soil.map_unit_name}</p>
           <div className="soil-metrics">
             <div><small>{t("overview.water_storage", "Water storage, top metre")}</small><strong>{formatVar("aws_mm", soil.aws_0_100_mm, lang)}</strong></div>
@@ -140,7 +140,7 @@ function ClimatePair({ label, normal, recent, format }: { label: string; normal:
   const max = Math.max(normal, recent, 1);
   return (
     <div className="climate-pair">
-      <div className="climate-pair-label"><span>{label}</span><b>{format(recent)}</b></div>
+      <div className="climate-pair-label"><span>{label}</span></div>
       <div className="climate-track" aria-hidden="true">
         <span className="climate-bar normal" style={{ width: `${(normal / max) * 100}%` }} />
         <span className="climate-bar recent" style={{ width: `${(recent / max) * 100}%` }} />

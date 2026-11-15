@@ -115,3 +115,9 @@ Generated from a grep of `t("…")` calls in `app/`, `components/` and `lib/`.
 | `calendar.stage.late` | FieldCalendar | Ripening |
 
 `calendar.odds` takes `{risk}` and `{count}`. All other added keys take no vars.
+| `card.shown_at` | StrategyPanel | Numbers shown with: {cap}. |
+| `soil.texture.<snake_case>` | lib/i18n textureLabel | Optional. Without it, Spanish uses a built-in name (fine sand: arena fina, silt loam: franco limoso, clay loam: franco arcilloso). |
+| `card.no_water_here` | StrategyPanel | This field is not irrigated. These numbers assume no water, so they understate this rotation. |
+| `card.no_water_why` | StrategyPanel | Not suggested here: it needs irrigation this field does not have. |
+
+Spanish for card.shown_at, card.no_water_here and card.no_water_why is in the code fallbacks in StrategyPanel.tsx; copy it into copy.json.
