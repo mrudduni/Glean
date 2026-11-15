@@ -2,7 +2,7 @@
  "_meta": {
   "schema": "sources@1",
   "mock": false,
-  "generated_at": "2026-11-15T14:36:47Z",
+  "generated_at": "2026-11-15T14:55:28Z",
   "generator": "data-pipeline/process/build_sources.py"
  },
  "sources": [
@@ -108,7 +108,7 @@
   },
   {
    "tag": "MODEL",
-   "name": "Field Shift water-budget model (FAO-56)",
+   "name": "Stubble water-budget model (FAO-56)",
    "provider": "Team Brackets (M)",
    "url": "https://github.com/mrudduni/Team-Brackets/blob/main/docs/METHODS.md",
    "what": "Simulated yield, water use and soil outputs built from the inputs above",
