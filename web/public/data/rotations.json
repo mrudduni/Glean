@@ -1,51 +1,158 @@
-[
+{
+ "_meta": {
+  "schema": "rotations@1",
+  "mock": true,
+  "generated_at": "2026-11-15T14:02:09Z",
+  "generator": "web/scripts/mocks/make_mocks.py"
+ },
+ "rotations": [
   {
-    "id": "R0", "name": { "en": "Your current rotation", "es": "Su rotación actual" }, "tags": ["current"],
-    "steps": [
-      { "crop_id": "corn", "months": [4, 5, 6, 7, 8, 9], "stage": { "en": "Planting to harvest", "es": "Siembra a cosecha" } },
-      { "crop_id": "corn", "months": [4, 5, 6, 7, 8, 9], "stage": { "en": "Planting to harvest", "es": "Siembra a cosecha" } },
-      { "crop_id": "soy", "months": [4, 5, 6, 7, 8, 9], "stage": { "en": "Planting to harvest", "es": "Siembra a cosecha" } },
-      { "crop_id": "corn", "months": [4, 5, 6, 7, 8, 9], "stage": { "en": "Planting to harvest", "es": "Siembra a cosecha" } }
-    ]
+   "id": "R1",
+   "steps": [
+    {
+     "crop": "corn",
+     "cover_after": null
+    },
+    {
+     "crop": "wheat",
+     "cover_after": null
+    },
+    {
+     "crop": "sorghum",
+     "cover_after": null
+    }
+   ],
+   "irrigated": true,
+   "min_cap": "cap150",
+   "requires_equipment": [],
+   "needs_forage_market": false,
+   "tier": "must"
   },
   {
-    "id": "R1", "name": { "en": "Prairie rotation", "es": "Rotación de pradera" }, "tags": ["diversified"],
-    "steps": [
-      { "crop_id": "corn", "months": [4, 5, 6, 7, 8, 9], "stage": { "en": "Planting to harvest", "es": "Siembra a cosecha" } },
-      { "crop_id": "soy", "months": [4, 5, 6, 7, 8, 9], "stage": { "en": "Planting to harvest", "es": "Siembra a cosecha" } },
-      { "crop_id": "wheat", "months": [3, 4, 5, 6, 7], "stage": { "en": "Spring growth to harvest", "es": "Crecimiento de primavera a cosecha" } }
-    ]
+   "id": "R2",
+   "steps": [
+    {
+     "crop": "wheat",
+     "cover_after": null
+    },
+    {
+     "crop": "sorghum",
+     "cover_after": null
+    },
+    {
+     "crop": "fallow",
+     "cover_after": null
+    }
+   ],
+   "irrigated": false,
+   "min_cap": "dryland",
+   "requires_equipment": [],
+   "needs_forage_market": false,
+   "tier": "must"
   },
   {
-    "id": "R2", "name": { "en": "Water-wise grain", "es": "Granos eficientes en agua" }, "tags": ["lower-water"],
-    "steps": [
-      { "crop_id": "sorghum", "months": [4, 5, 6, 7, 8, 9], "stage": { "en": "Planting to harvest", "es": "Siembra a cosecha" } },
-      { "crop_id": "wheat", "months": [3, 4, 5, 6, 7], "stage": { "en": "Spring growth to harvest", "es": "Crecimiento de primavera a cosecha" } },
-      { "crop_id": "soy", "months": [4, 5, 6, 7, 8, 9], "stage": { "en": "Planting to harvest", "es": "Siembra a cosecha" } }
-    ]
+   "id": "R3",
+   "steps": [
+    {
+     "crop": "wheat",
+     "cover_after": null
+    },
+    {
+     "crop": "sorghum",
+     "cover_after": null
+    },
+    {
+     "crop": "triticale",
+     "cover_after": null
+    }
+   ],
+   "irrigated": false,
+   "min_cap": "dryland",
+   "requires_equipment": [],
+   "needs_forage_market": true,
+   "tier": "must"
   },
   {
-    "id": "R3", "name": { "en": "Soil-cover rotation", "es": "Rotación con cobertura del suelo" }, "tags": ["soil-cover"],
-    "steps": [
-      { "crop_id": "corn", "months": [4, 5, 6, 7, 8, 9], "stage": { "en": "Planting to harvest", "es": "Siembra a cosecha" } },
-      { "crop_id": "cover", "months": [10, 11, 12, 1, 2, 3], "stage": { "en": "Overwinter cover", "es": "Cobertura de invierno" } },
-      { "crop_id": "soy", "months": [4, 5, 6, 7, 8, 9], "stage": { "en": "Planting to harvest", "es": "Siembra a cosecha" } }
-    ]
+   "id": "R4",
+   "steps": [
+    {
+     "crop": "alfalfa",
+     "cover_after": null
+    },
+    {
+     "crop": "alfalfa",
+     "cover_after": null
+    },
+    {
+     "crop": "alfalfa",
+     "cover_after": null
+    },
+    {
+     "crop": "alfalfa",
+     "cover_after": null
+    },
+    {
+     "crop": "corn",
+     "cover_after": null
+    },
+    {
+     "crop": "wheat",
+     "cover_after": null
+    }
+   ],
+   "irrigated": true,
+   "min_cap": "cap450",
+   "requires_equipment": [
+    "hay"
+   ],
+   "needs_forage_market": true,
+   "tier": "must"
   },
   {
-    "id": "R4", "name": { "en": "Forage break", "es": "Pausa con forraje" }, "tags": ["forage"],
-    "steps": [
-      { "crop_id": "corn", "months": [4, 5, 6, 7, 8, 9], "stage": { "en": "Planting to harvest", "es": "Siembra a cosecha" } },
-      { "crop_id": "hay", "months": [3, 4, 5, 6, 7, 8, 9], "stage": { "en": "Cut and regrow", "es": "Corte y rebrote" } },
-      { "crop_id": "soy", "months": [4, 5, 6, 7, 8, 9], "stage": { "en": "Planting to harvest", "es": "Siembra a cosecha" } }
-    ]
+   "id": "R5",
+   "steps": [
+    {
+     "crop": "corn",
+     "cover_after": null
+    },
+    {
+     "crop": "soybean",
+     "cover_after": null
+    },
+    {
+     "crop": "wheat",
+     "cover_after": "rye_cover"
+    }
+   ],
+   "irrigated": true,
+   "min_cap": "cap300",
+   "requires_equipment": [],
+   "needs_forage_market": false,
+   "tier": "must"
   },
   {
-    "id": "R5", "name": { "en": "Flexible dryland", "es": "Secano flexible" }, "tags": ["dryland"],
-    "steps": [
-      { "crop_id": "sorghum", "months": [4, 5, 6, 7, 8, 9], "stage": { "en": "Planting to harvest", "es": "Siembra a cosecha" } },
-      { "crop_id": "cover", "months": [10, 11, 12, 1, 2, 3], "stage": { "en": "Overwinter cover", "es": "Cobertura de invierno" } },
-      { "crop_id": "wheat", "months": [3, 4, 5, 6, 7], "stage": { "en": "Spring growth to harvest", "es": "Crecimiento de primavera a cosecha" } }
-    ]
+   "id": "R6",
+   "steps": [
+    {
+     "crop": "cotton",
+     "cover_after": null
+    },
+    {
+     "crop": "wheat",
+     "cover_after": null
+    },
+    {
+     "crop": "sorghum",
+     "cover_after": null
+    }
+   ],
+   "irrigated": false,
+   "min_cap": "dryland",
+   "requires_equipment": [
+    "cotton"
+   ],
+   "needs_forage_market": false,
+   "tier": "could"
   }
-]
+ ]
+}

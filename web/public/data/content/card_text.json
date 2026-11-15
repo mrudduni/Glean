@@ -1,159 +1,326 @@
 {
-  "_meta": {
-    "version": "0.1.0"
+ "_meta": {
+  "schema": "card_text@1",
+  "mock": true,
+  "generated_at": "2026-11-15T14:02:09Z",
+  "generator": "web/scripts/mocks/make_mocks.py"
+ },
+ "rotations": {
+  "R0": {
+   "name": {
+    "en": "Your current rotation",
+    "es": ""
+   },
+   "tagline": {
+    "en": "What the field has grown in recent years",
+    "es": ""
+   }
   },
-  "rotations": {
-    "R0": {
-      "en": "Current baseline rotation sequence from satellite history.",
-      "es": "Secuencia de rotación de referencia a partir del historial satelital."
-    },
-    "R1": {
-      "en": "Adds a small grain break to the crop sequence.",
-      "es": "Añade un cereal pequeño a la secuencia."
-    },
-    "R2": {
-      "en": "Includes crops commonly considered for lower-water systems.",
-      "es": "Incluye cultivos que suelen considerarse en sistemas de menor consumo de agua."
-    },
-    "R3": {
-      "en": "Adds a winter cover period between cash crops.",
-      "es": "Añade cobertura de invierno entre cultivos comerciales."
-    },
-    "R4": {
-      "en": "Includes a forage year. Check market and equipment first.",
-      "es": "Incluye un año de forraje. Revise mercado y equipo primero."
-    },
-    "R5": {
-      "en": "A flexible sequence for a dryland planning discussion.",
-      "es": "Una secuencia flexible para conversar sobre secano."
-    }
+  "R1": {
+   "name": {
+    "en": "Corn, wheat, sorghum",
+    "es": ""
+   },
+   "tagline": {
+    "en": "Limited irrigation, three crops",
+    "es": ""
+   }
   },
-  "why": {
-    "water": {
-      "en": "Water use fits the priority you set.",
-      "es": "El uso de agua coincide con su prioridad."
-    },
-    "soil": {
-      "en": "Soil cover contributes to this score.",
-      "es": "La cobertura del suelo influye en esta puntuación."
-    },
-    "climate": {
-      "en": "The climate-fit estimate contributes to this score.",
-      "es": "La estimación climática influye en esta puntuación."
-    },
-    "market": {
-      "en": "The market-fit estimate contributes to this score.",
-      "es": "La estimación de mercado influye en esta puntuación."
-    },
-    "operations": {
-      "en": "The operations-fit estimate contributes to this score.",
-      "es": "La estimación operativa influye en esta puntuación."
-    }
+  "R2": {
+   "name": {
+    "en": "Wheat, sorghum, fallow",
+    "es": ""
+   },
+   "tagline": {
+    "en": "The dryland classic",
+    "es": ""
+   }
   },
-  "evidence": {
-    "water": {
-      "en": "Estimated seasonal irrigation need: {amount_mm}.",
-      "es": "Necesidad de riego estacional estimada: {amount_mm}."
-    },
-    "soil": {
-      "en": "This sequence includes a period of living cover.",
-      "es": "Esta secuencia incluye un periodo de cobertura viva."
-    },
-    "rotation": {
-      "en": "This crop sequence differs from the detected current rotation.",
-      "es": "Esta secuencia difiere de la rotación actual detectada."
-    }
+  "R3": {
+   "name": {
+    "en": "Wheat, sorghum, forage triticale",
+    "es": ""
+   },
+   "tagline": {
+    "en": "Flex fallow: forage instead of bare ground",
+    "es": ""
+   }
   },
-  "benefits": {
-    "cover": {
-      "en": "More months with a living crop may protect soil, depending on establishment and management.",
-      "es": "Más meses con un cultivo vivo pueden proteger el suelo, según su establecimiento y manejo."
-    },
-    "diversity": {
-      "en": "A different crop sequence may diversify planting and harvest windows.",
-      "es": "Una secuencia distinta puede diversificar las ventanas de siembra y cosecha."
-    },
-    "water": {
-      "en": "This sequence requires less seasonal irrigation than the current rotation.",
-      "es": "Esta secuencia requiere menos riego estacional que la rotación actual."
-    }
+  "R4": {
+   "name": {
+    "en": "Alfalfa, then corn and wheat",
+    "es": ""
+   },
+   "tagline": {
+    "en": "Forage, deep roots, high water use",
+    "es": ""
+   }
   },
-  "gaps": {
-    "market": {
-      "en": "Local buyer demand and price are not verified.",
-      "es": "No se verificaron compradores ni precios locales."
-    },
-    "yield": {
-      "en": "Yield potentials incorporate regional county productivity indexes.",
-      "es": "El potencial de rendimiento incorpora índices regionales de productividad."
-    },
-    "soil": {
-      "en": "Map-based soil values need an on-field check.",
-      "es": "Los valores del mapa de suelo requieren verificación en el campo."
-    }
+  "R5": {
+   "name": {
+    "en": "Corn, soybean, wheat with rye cover",
+    "es": ""
+   },
+   "tagline": {
+    "en": "Soil health and nitrogen",
+    "es": ""
+   }
   },
-  "risks": {
-    "equipment": {
-      "en": "Check planter, harvest and storage needs with your operator.",
-      "es": "Revise con su operador las necesidades de siembra, cosecha y almacenamiento."
-    },
-    "water": {
-      "en": "Confirm water rights, well capacity and delivery timing locally.",
-      "es": "Confirme localmente los derechos de agua, la capacidad del pozo y los turnos de riego."
-    },
-    "market": {
-      "en": "Confirm a buyer and a workable price before planting.",
-      "es": "Confirme comprador y precio viable antes de sembrar."
-    },
-    "no_local_market": {
-      "en": "Local market evidence is missing for at least one crop.",
-      "es": "Falta evidencia de mercado local para al menos un cultivo."
-    }
-  },
-  "infeasible": {
-    "needs_more_water": {
-      "en": "Needs more irrigation than the cap you set.",
-      "es": "Necesita más riego que el límite elegido."
-    },
-    "needs_equipment": {
-      "en": "Needs equipment that is not selected as available.",
-      "es": "Necesita equipo que no está marcado como disponible."
-    },
-    "needs_forage_market": {
-      "en": "Needs a forage market that is not selected as available.",
-      "es": "Necesita un mercado para forraje que no está marcado como disponible."
-    },
-    "lower_rank": {
-      "en": "Lower ranked for the priorities you selected.",
-      "es": "Menor puntuación con las prioridades elegidas."
-    }
-  },
-  "validation": {
-    "regional_context": {
-      "en": "Regional gridded observations from NASA POWER and GPM IMERG.",
-      "es": "Observaciones cuadriculadas regionales de NASA POWER y GPM IMERG."
-    },
-    "model_estimate": {
-      "en": "Model estimate. Check assumptions and local conditions.",
-      "es": "Estimación de modelo. Revise supuestos y condiciones locales."
-    },
-    "local_check": {
-      "en": "Local field check needed before decisions.",
-      "es": "Se requiere verificación local antes de decidir."
-    }
-  },
-  "headline": {
-    "soil": {
-      "en": "Soil texture is {texture} according to USDA SSURGO survey.",
-      "es": "La textura del suelo es {texture} según el estudio USDA SSURGO."
-    },
-    "water": {
-      "en": "Available water capacity estimate: {storage_mm}.",
-      "es": "Estimación de capacidad de almacenamiento de agua: {storage_mm}."
-    },
-    "climate": {
-      "en": "Recent multi-year climate records include {hot_days} hot days.",
-      "es": "Los registros climáticos recientes incluyen {hot_days} días calurosos."
-    }
+  "R6": {
+   "name": {
+    "en": "Cotton, wheat, sorghum",
+    "es": ""
+   },
+   "tagline": {
+    "en": "An option for a warmer climate",
+    "es": ""
+   }
   }
+ },
+ "criteria_labels": {
+  "water_use": {
+   "en": "Water use",
+   "es": ""
+  },
+  "income_mean": {
+   "en": "Average income",
+   "es": ""
+  },
+  "income_worst": {
+   "en": "Income in bad years",
+   "es": ""
+  },
+  "soil_health": {
+   "en": "Soil health",
+   "es": ""
+  },
+  "water_erosion": {
+   "en": "Water erosion",
+   "es": ""
+  },
+  "wind_erosion": {
+   "en": "Wind erosion",
+   "es": ""
+  },
+  "pest_break": {
+   "en": "Pest break",
+   "es": ""
+  },
+  "heat_frost_risk": {
+   "en": "Heat and frost risk",
+   "es": ""
+  }
+ },
+ "why": {
+  "water_use": {
+   "en": "Needs about {irrigation_mm} of irrigation a year, {saved_mm} less than your current rotation.",
+   "es": ""
+  },
+  "income_mean": {
+   "en": "Averages {revenue_usd_ac} a year, {diff_usd_ac} compared with your current rotation.",
+   "es": ""
+  },
+  "income_worst": {
+   "en": "In its 5 worst years it still averages {worst5_usd_ac}, against {r0_worst5_usd_ac} now.",
+   "es": ""
+  },
+  "soil_health": {
+   "en": "Soil health score {score}, with {living_root_days} days of living roots and {legume_years} legume years.",
+   "es": ""
+  },
+  "water_erosion": {
+   "en": "Bare soil meets heavy rain on about {bare_storm_days} days a year, against {r0_bare_storm_days} now.",
+   "es": ""
+  },
+  "wind_erosion": {
+   "en": "Bare soil meets strong wind on about {bare_windy_days} days a year, against {r0_bare_windy_days} now.",
+   "es": ""
+  },
+  "pest_break": {
+   "en": "The same host crop runs at most {max_run_years} years in a row, against {r0_max_run_years} now.",
+   "es": ""
+  },
+  "heat_frost_risk": {
+   "en": "Sensitive crop stages meet about {heat_days} hot days a year, against {r0_heat_days} now.",
+   "es": ""
+  }
+ },
+ "benefits": {
+  "water_saved": {
+   "en": "Saves about {saved_mm} of irrigation a year.",
+   "es": ""
+  },
+  "bare_days_reduced": {
+   "en": "About {days} fewer bare-soil days a year.",
+   "es": ""
+  },
+  "legume_added": {
+   "en": "Adds {legume_years} legume years in a {cycle_years}-year cycle.",
+   "es": ""
+  },
+  "income_steadier": {
+   "en": "Bad years pay about {worst5_gain_usd_ac} more.",
+   "es": ""
+  },
+  "pest_cycle_broken": {
+   "en": "Breaks pest cycles: no host crop runs more than {max_run_years} years.",
+   "es": ""
+  },
+  "forage_income": {
+   "en": "Adds forage income from {forage_crop}.",
+   "es": ""
+  }
+ },
+ "evidence": {
+  "replay_avg": {
+   "en": "Replayed on this field's weather {years_from} to {years_to}: {irrigation_mm} of irrigation and {revenue_usd_ac} a year on average.",
+   "es": ""
+  },
+  "replay_drought": {
+   "en": "In {year} it needed {irrigation_mm} of irrigation, against {r0_irrigation_mm} for your current rotation.",
+   "es": ""
+  },
+  "neighbors": {
+   "en": "{n} similar nearby fields that grow this use about {et_mm} of water a year, against {r0_et_mm} for fields like yours.",
+   "es": ""
+  },
+  "validation_et": {
+   "en": "Our water model is within {bias_pct} of satellite ET for this field.",
+   "es": ""
+  }
+ },
+ "gaps": {
+  "no_pest_data": {
+   "en": "We have no local pest or disease data.",
+   "es": ""
+  },
+  "costs_not_modelled": {
+   "en": "Input and machinery costs are not modelled.",
+   "es": ""
+  },
+  "prices_constant": {
+   "en": "Prices are held constant across years.",
+   "es": ""
+  },
+  "openet_record_short": {
+   "en": "The OpenET record starts in 2016.",
+   "es": ""
+  },
+  "smap_coarse": {
+   "en": "SMAP soil moisture is a 9 km average, coarser than the field.",
+   "es": ""
+  },
+  "county_yields": {
+   "en": "Yields are county averages, not this field's.",
+   "es": ""
+  },
+  "neighbors_observational": {
+   "en": "Neighbour comparisons are observational, not experiments.",
+   "es": ""
+  },
+  "model_simplified": {
+   "en": "The water model is a simplified daily budget.",
+   "es": ""
+  },
+  "crop_params_generic": {
+   "en": "Crop parameters are generic, not tuned to local varieties.",
+   "es": ""
+  }
+ },
+ "risks": {
+  "herbicide_carryover": {
+   "en": "Check herbicide carryover between crops.",
+   "es": ""
+  },
+  "buyer_availability": {
+   "en": "Check that a local buyer will take this crop.",
+   "es": ""
+  },
+  "crop_insurance": {
+   "en": "Check crop insurance rules for this rotation.",
+   "es": ""
+  },
+  "water_rights": {
+   "en": "Check your water right and any local limits.",
+   "es": ""
+  },
+  "equipment_access": {
+   "en": "Check access to the equipment this rotation needs.",
+   "es": ""
+  },
+  "cover_establishment": {
+   "en": "Cover crops can be hard to establish in a dry fall.",
+   "es": ""
+  },
+  "alfalfa_stand_water": {
+   "en": "Alfalfa stands need water every year to stay productive.",
+   "es": ""
+  },
+  "fallow_wind": {
+   "en": "Fallow ground can blow in windy springs.",
+   "es": ""
+  },
+  "new_crop_learning": {
+   "en": "A new crop takes time to learn.",
+   "es": ""
+  },
+  "seed_availability": {
+   "en": "Check seed availability for this crop.",
+   "es": ""
+  }
+ },
+ "infeasible": {
+  "needs_more_water": {
+   "en": "Needs more water than your irrigation limit.",
+   "es": ""
+  },
+  "needs_equipment": {
+   "en": "Needs equipment you do not have.",
+   "es": ""
+  },
+  "no_local_market": {
+   "en": "Needs a local buyer for forage or a crop with no county market.",
+   "es": ""
+  }
+ },
+ "headline": {
+  "grace_trend": {
+   "en": "Satellite gravity data show the regional water store changing by {cm_per_yr}.",
+   "es": ""
+  },
+  "well_trend": {
+   "en": "Nearby wells show the water table changing by {m_per_yr}.",
+   "es": ""
+  },
+  "frost_free_change": {
+   "en": "The frost-free season has changed by {days} days.",
+   "es": ""
+  },
+  "heat_days_change": {
+   "en": "Recent summers bring {days} more days above 35 °C than the 1991 to 2020 normal.",
+   "es": ""
+  },
+  "current_rotation": {
+   "en": "USDA crop maps show this rotation from {years_from} to {years_to}.",
+   "es": ""
+  }
+ },
+ "validation": {
+  "et_vs_openet": {
+   "en": "Modelled water use is within {bias_pct} of OpenET satellite estimates.",
+   "es": ""
+  },
+  "sm_vs_smap": {
+   "en": "Modelled soil moisture tracks SMAP with a correlation of {r}.",
+   "es": ""
+  },
+  "precip_power_vs_imerg": {
+   "en": "POWER rainfall differs from IMERG by {bias_pct}.",
+   "es": ""
+  },
+  "precip_vs_cocorahs": {
+   "en": "POWER rainfall differs from local rain gauges by {bias_pct}.",
+   "es": ""
+  }
+ }
 }

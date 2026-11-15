@@ -1,37 +1,52 @@
 {
-  "_meta": {
-    "version": "1.0.0"
+ "_meta": {
+  "schema": "assistant_questions@1",
+  "mock": true,
+  "generated_at": "2026-11-15T14:02:09Z",
+  "generator": "web/scripts/mocks/make_mocks.py"
+ },
+ "questions": [
+  {
+   "id": "q1",
+   "text": {
+    "en": "Which rotation saves the most water on my field?",
+    "es": ""
+   }
   },
-  "questions": [
-    {
-      "id": "compare_water",
-      "en": "Which option uses the least irrigation?",
-      "es": "¿Qué opción usa menos riego?"
-    },
-    {
-      "id": "soil_cover",
-      "en": "How does a cover period change the calendar?",
-      "es": "¿Cómo cambia el calendario con una cobertura?"
-    },
-    {
-      "id": "market_check",
-      "en": "What should I check with a local buyer?",
-      "es": "¿Qué debo consultar con un comprador local?"
-    },
-    {
-      "id": "confidence",
-      "en": "Which parts of this comparison are least certain?",
-      "es": "¿Qué partes de esta comparación son menos seguras?"
-    },
-    {
-      "id": "hot_dry",
-      "en": "What changes in the hotter and drier scenario?",
-      "es": "¿Qué cambia en el escenario más cálido y seco?"
-    },
-    {
-      "id": "water_data",
-      "en": "What does the satellite water signal mean?",
-      "es": "¿Qué significa la señal satelital de agua?"
-    }
-  ]
+  {
+   "id": "q2",
+   "text": {
+    "en": "How did my current rotation do in the 2012 drought?",
+    "es": ""
+   }
+  },
+  {
+   "id": "q3",
+   "text": {
+    "en": "Why not alfalfa?",
+    "es": ""
+   }
+  },
+  {
+   "id": "q4",
+   "text": {
+    "en": "Is my aquifer declining?",
+    "es": ""
+   }
+  },
+  {
+   "id": "q5",
+   "text": {
+    "en": "How hot are summers getting here?",
+    "es": ""
+   }
+  },
+  {
+   "id": "q6",
+   "text": {
+    "en": "What should I check with the K-State extension agent?",
+    "es": ""
+   }
+  }
+ ]
 }

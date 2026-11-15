@@ -1,9 +1,482 @@
-[
-  { "id": "corn", "name": { "en": "Corn", "es": "Maíz" }, "color": "#e9a23b", "category": "cash" },
-  { "id": "soy", "name": { "en": "Soybeans", "es": "Soja" }, "color": "#6d9d6d", "category": "cash" },
-  { "id": "wheat", "name": { "en": "Winter wheat", "es": "Trigo de invierno" }, "color": "#d2bd75", "category": "cash" },
-  { "id": "sorghum", "name": { "en": "Grain sorghum", "es": "Sorgo granífero" }, "color": "#bb7057", "category": "cash" },
-  { "id": "cover", "name": { "en": "Cover mix", "es": "Mezcla de cobertura" }, "color": "#76a6a0", "category": "cover" },
-  { "id": "hay", "name": { "en": "Forage", "es": "Forraje" }, "color": "#8f9b5b", "category": "cover" },
-  { "id": "bare", "name": { "en": "Fallow", "es": "Barbecho" }, "color": "#e8e4da", "category": "bare" }
-]
+{
+ "_meta": {
+  "schema": "crops@1",
+  "mock": true,
+  "generated_at": "2026-11-15T14:02:09Z",
+  "generator": "web/scripts/mocks/make_mocks.py"
+ },
+ "crops": {
+  "corn": {
+   "name": {
+    "en": "Corn",
+    "es": "Maíz"
+   },
+   "family": "poaceae",
+   "host_group": "corn",
+   "season": "summer",
+   "plant_window": {
+    "start": "04-20",
+    "end": "05-15"
+   },
+   "harvest_window": {
+    "start": "09-20",
+    "end": "10-31"
+   },
+   "stage_days": {
+    "ini": 25,
+    "dev": 40,
+    "mid": 50,
+    "late": 30
+   },
+   "kc": {
+    "ini": 0.3,
+    "mid": 1.15,
+    "end": 0.4
+   },
+   "root_max_m": 1.2,
+   "p": 0.55,
+   "ky": 1.0,
+   "heat": {
+    "stage": "mid",
+    "tmax_c": 35
+   },
+   "frost_kill_c": -2,
+   "requires_irrigation": false,
+   "n_fixing": false,
+   "residue": "high",
+   "root_type": "fibrous",
+   "forage": false,
+   "yield": {
+    "nass_commodity": "CORN",
+    "unit": "bu/ac",
+    "irrigated_default": null,
+    "dryland_default": null
+   },
+   "price": {
+    "unit": "usd/bu",
+    "default": null
+   },
+   "equipment": [],
+   "sources": [
+    "FAO-56 Table 12",
+    "K-State Research and Extension"
+   ]
+  },
+  "sorghum": {
+   "name": {
+    "en": "Sorghum",
+    "es": "Sorgo"
+   },
+   "family": "poaceae",
+   "host_group": "sorghum",
+   "season": "summer",
+   "plant_window": {
+    "start": "04-20",
+    "end": "05-15"
+   },
+   "harvest_window": {
+    "start": "09-20",
+    "end": "10-31"
+   },
+   "stage_days": {
+    "ini": 25,
+    "dev": 40,
+    "mid": 50,
+    "late": 30
+   },
+   "kc": {
+    "ini": 0.3,
+    "mid": 1.15,
+    "end": 0.4
+   },
+   "root_max_m": 1.2,
+   "p": 0.55,
+   "ky": 1.0,
+   "heat": null,
+   "frost_kill_c": -2,
+   "requires_irrigation": false,
+   "n_fixing": false,
+   "residue": "high",
+   "root_type": "fibrous",
+   "forage": false,
+   "yield": {
+    "nass_commodity": "SORGHUM",
+    "unit": "bu/ac",
+    "irrigated_default": null,
+    "dryland_default": null
+   },
+   "price": {
+    "unit": "usd/bu",
+    "default": null
+   },
+   "equipment": [],
+   "sources": [
+    "FAO-56 Table 12",
+    "K-State Research and Extension"
+   ]
+  },
+  "wheat": {
+   "name": {
+    "en": "Wheat",
+    "es": "Trigo"
+   },
+   "family": "poaceae",
+   "host_group": "wheat",
+   "season": "winter",
+   "plant_window": {
+    "start": "04-20",
+    "end": "05-15"
+   },
+   "harvest_window": {
+    "start": "09-20",
+    "end": "10-31"
+   },
+   "stage_days": {
+    "ini": 25,
+    "dev": 40,
+    "mid": 50,
+    "late": 30
+   },
+   "kc": {
+    "ini": 0.3,
+    "mid": 1.15,
+    "end": 0.4
+   },
+   "root_max_m": 1.2,
+   "p": 0.55,
+   "ky": 1.0,
+   "heat": null,
+   "frost_kill_c": -2,
+   "requires_irrigation": false,
+   "n_fixing": false,
+   "residue": "high",
+   "root_type": "fibrous",
+   "forage": false,
+   "yield": {
+    "nass_commodity": "WHEAT",
+    "unit": "bu/ac",
+    "irrigated_default": null,
+    "dryland_default": null
+   },
+   "price": {
+    "unit": "usd/bu",
+    "default": null
+   },
+   "equipment": [],
+   "sources": [
+    "FAO-56 Table 12",
+    "K-State Research and Extension"
+   ]
+  },
+  "soybean": {
+   "name": {
+    "en": "Soybean",
+    "es": "Soya"
+   },
+   "family": "fabaceae",
+   "host_group": "soybean",
+   "season": "summer",
+   "plant_window": {
+    "start": "04-20",
+    "end": "05-15"
+   },
+   "harvest_window": {
+    "start": "09-20",
+    "end": "10-31"
+   },
+   "stage_days": {
+    "ini": 25,
+    "dev": 40,
+    "mid": 50,
+    "late": 30
+   },
+   "kc": {
+    "ini": 0.3,
+    "mid": 1.15,
+    "end": 0.4
+   },
+   "root_max_m": 1.2,
+   "p": 0.55,
+   "ky": 1.0,
+   "heat": {
+    "stage": "mid",
+    "tmax_c": 35
+   },
+   "frost_kill_c": -2,
+   "requires_irrigation": false,
+   "n_fixing": true,
+   "residue": "low",
+   "root_type": "tap",
+   "forage": false,
+   "yield": {
+    "nass_commodity": "SOYBEAN",
+    "unit": "bu/ac",
+    "irrigated_default": null,
+    "dryland_default": null
+   },
+   "price": {
+    "unit": "usd/bu",
+    "default": null
+   },
+   "equipment": [],
+   "sources": [
+    "FAO-56 Table 12",
+    "K-State Research and Extension"
+   ]
+  },
+  "alfalfa": {
+   "name": {
+    "en": "Alfalfa",
+    "es": "Alfalfa"
+   },
+   "family": "fabaceae",
+   "host_group": "alfalfa",
+   "season": "perennial",
+   "plant_window": {
+    "start": "04-20",
+    "end": "05-15"
+   },
+   "harvest_window": {
+    "start": "09-20",
+    "end": "10-31"
+   },
+   "stage_days": {
+    "ini": 25,
+    "dev": 40,
+    "mid": 50,
+    "late": 30
+   },
+   "kc": {
+    "ini": 0.3,
+    "mid": 1.15,
+    "end": 0.4
+   },
+   "root_max_m": 1.2,
+   "p": 0.55,
+   "ky": 1.0,
+   "heat": null,
+   "frost_kill_c": -2,
+   "requires_irrigation": false,
+   "n_fixing": true,
+   "residue": "high",
+   "root_type": "deep_tap",
+   "forage": true,
+   "yield": {
+    "nass_commodity": "ALFALFA",
+    "unit": "bu/ac",
+    "irrigated_default": null,
+    "dryland_default": null
+   },
+   "price": {
+    "unit": "usd/bu",
+    "default": null
+   },
+   "equipment": [
+    "hay"
+   ],
+   "sources": [
+    "FAO-56 Table 12",
+    "K-State Research and Extension"
+   ]
+  },
+  "triticale": {
+   "name": {
+    "en": "Triticale (forage)",
+    "es": "Triticale (forraje)"
+   },
+   "family": "poaceae",
+   "host_group": "wheat",
+   "season": "winter",
+   "plant_window": {
+    "start": "04-20",
+    "end": "05-15"
+   },
+   "harvest_window": {
+    "start": "09-20",
+    "end": "10-31"
+   },
+   "stage_days": {
+    "ini": 25,
+    "dev": 40,
+    "mid": 50,
+    "late": 30
+   },
+   "kc": {
+    "ini": 0.3,
+    "mid": 1.15,
+    "end": 0.4
+   },
+   "root_max_m": 1.2,
+   "p": 0.55,
+   "ky": 1.0,
+   "heat": null,
+   "frost_kill_c": -2,
+   "requires_irrigation": false,
+   "n_fixing": false,
+   "residue": "high",
+   "root_type": "fibrous",
+   "forage": true,
+   "yield": {
+    "nass_commodity": "TRITICALE",
+    "unit": "bu/ac",
+    "irrigated_default": null,
+    "dryland_default": null
+   },
+   "price": {
+    "unit": "usd/bu",
+    "default": null
+   },
+   "equipment": [],
+   "sources": [
+    "FAO-56 Table 12",
+    "K-State Research and Extension"
+   ]
+  },
+  "rye_cover": {
+   "name": {
+    "en": "Cereal rye cover",
+    "es": "Centeno de cobertura"
+   },
+   "family": "poaceae",
+   "host_group": "wheat",
+   "season": "cover",
+   "plant_window": {
+    "start": "04-20",
+    "end": "05-15"
+   },
+   "harvest_window": {
+    "start": "09-20",
+    "end": "10-31"
+   },
+   "stage_days": {
+    "ini": 25,
+    "dev": 40,
+    "mid": 50,
+    "late": 30
+   },
+   "kc": {
+    "ini": 0.3,
+    "mid": 1.15,
+    "end": 0.4
+   },
+   "root_max_m": 1.2,
+   "p": 0.55,
+   "ky": 1.0,
+   "heat": null,
+   "frost_kill_c": -2,
+   "requires_irrigation": false,
+   "n_fixing": false,
+   "residue": "high",
+   "root_type": "fibrous",
+   "forage": false,
+   "yield": {
+    "nass_commodity": "RYE_COVER",
+    "unit": "bu/ac",
+    "irrigated_default": null,
+    "dryland_default": null
+   },
+   "price": {
+    "unit": "usd/bu",
+    "default": null
+   },
+   "equipment": [],
+   "sources": [
+    "FAO-56 Table 12",
+    "K-State Research and Extension"
+   ]
+  },
+  "cotton": {
+   "name": {
+    "en": "Cotton",
+    "es": "Algodón"
+   },
+   "family": "malvaceae",
+   "host_group": "cotton",
+   "season": "summer",
+   "plant_window": {
+    "start": "04-20",
+    "end": "05-15"
+   },
+   "harvest_window": {
+    "start": "09-20",
+    "end": "10-31"
+   },
+   "stage_days": {
+    "ini": 25,
+    "dev": 40,
+    "mid": 50,
+    "late": 30
+   },
+   "kc": {
+    "ini": 0.3,
+    "mid": 1.15,
+    "end": 0.4
+   },
+   "root_max_m": 1.2,
+   "p": 0.55,
+   "ky": 1.0,
+   "heat": null,
+   "frost_kill_c": -2,
+   "requires_irrigation": false,
+   "n_fixing": false,
+   "residue": "low",
+   "root_type": "tap",
+   "forage": false,
+   "yield": {
+    "nass_commodity": "COTTON",
+    "unit": "bu/ac",
+    "irrigated_default": null,
+    "dryland_default": null
+   },
+   "price": {
+    "unit": "usd/bu",
+    "default": null
+   },
+   "equipment": [
+    "cotton"
+   ],
+   "sources": [
+    "FAO-56 Table 12",
+    "K-State Research and Extension"
+   ]
+  },
+  "fallow": {
+   "name": {
+    "en": "Fallow",
+    "es": "Barbecho"
+   },
+   "family": "none",
+   "host_group": "none",
+   "season": "none",
+   "plant_window": null,
+   "harvest_window": null,
+   "stage_days": null,
+   "kc": null,
+   "root_max_m": null,
+   "p": null,
+   "ky": null,
+   "heat": null,
+   "frost_kill_c": null,
+   "requires_irrigation": false,
+   "n_fixing": false,
+   "residue": "low",
+   "root_type": "fibrous",
+   "forage": false,
+   "yield": {
+    "nass_commodity": null,
+    "unit": "bu/ac",
+    "irrigated_default": null,
+    "dryland_default": null
+   },
+   "price": {
+    "unit": "usd/bu",
+    "default": null
+   },
+   "equipment": [],
+   "sources": [
+    "FAO-56 Table 12",
+    "K-State Research and Extension"
+   ]
+  }
+ }
+}

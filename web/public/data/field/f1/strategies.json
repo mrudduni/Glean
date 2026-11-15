@@ -1,0 +1,8273 @@
+{
+ "_meta": {
+  "schema": "strategies@1",
+  "mock": true,
+  "generated_at": "2026-11-15T14:02:09Z",
+  "generator": "web/scripts/mocks/make_mocks.py"
+ },
+ "field_id": "f1",
+ "scenarios": {
+  "dryland|actual": [
+   {
+    "rotation_id": "R0",
+    "feasible": true,
+    "infeasible_reason_id": null,
+    "criteria": {
+     "water_use": {
+      "raw": 0,
+      "unit": "mm",
+      "norm": 58,
+      "vars": {
+       "irrigation_mm": 0,
+       "saved_mm": 0
+      }
+     },
+     "income_mean": {
+      "raw": 116,
+      "unit": "usd_ac",
+      "norm": 65,
+      "vars": {
+       "revenue_usd_ac": 116,
+       "diff_usd_ac": 0
+      }
+     },
+     "income_worst": {
+      "raw": 68,
+      "unit": "usd_ac",
+      "norm": 65,
+      "vars": {
+       "worst5_usd_ac": 68,
+       "r0_worst5_usd_ac": 68
+      }
+     },
+     "soil_health": {
+      "raw": 33,
+      "unit": "score",
+      "norm": 25,
+      "vars": {
+       "score": 33,
+       "living_root_days": 165,
+       "legume_years": 0
+      }
+     },
+     "water_erosion": {
+      "raw": 3,
+      "unit": "days",
+      "norm": 43,
+      "vars": {
+       "bare_storm_days": 3,
+       "r0_bare_storm_days": 3
+      }
+     },
+     "wind_erosion": {
+      "raw": 13,
+      "unit": "days",
+      "norm": 32,
+      "vars": {
+       "bare_windy_days": 13,
+       "r0_bare_windy_days": 13
+      }
+     },
+     "pest_break": {
+      "raw": 8,
+      "unit": "years",
+      "norm": 15,
+      "vars": {
+       "max_run_years": 8,
+       "r0_max_run_years": 8
+      }
+     },
+     "heat_frost_risk": {
+      "raw": 44,
+      "unit": "days",
+      "norm": 15,
+      "vars": {
+       "heat_days": 44,
+       "r0_heat_days": 44
+      }
+     }
+    },
+    "requires_equipment": [],
+    "needs_forage_market": false,
+    "crops_without_local_market": [],
+    "benefits": [],
+    "evidence": [
+     {
+      "text_id": "replay_avg",
+      "vars": {
+       "years_from": 2000,
+       "years_to": 2025,
+       "irrigation_mm": 0,
+       "revenue_usd_ac": 116
+      },
+      "sources": [
+       "POWER",
+       "SSURGO",
+       "FAO56",
+       "NASS"
+      ]
+     },
+     {
+      "text_id": "replay_drought",
+      "vars": {
+       "year": 2012,
+       "irrigation_mm": 0,
+       "r0_irrigation_mm": 0
+      },
+      "sources": [
+       "POWER",
+       "FAO56"
+      ]
+     },
+     {
+      "text_id": "validation_et",
+      "vars": {
+       "bias_pct": -31
+      },
+      "sources": [
+       "OpenET",
+       "MODEL"
+      ]
+     }
+    ],
+    "gap_ids": [
+     "costs_not_modelled",
+     "prices_constant",
+     "model_simplified"
+    ],
+    "risk_ids": [
+     "water_rights",
+     "crop_insurance"
+    ],
+    "confidence": "good"
+   },
+   {
+    "rotation_id": "R1",
+    "feasible": false,
+    "infeasible_reason_id": "needs_more_water",
+    "criteria": {
+     "water_use": {
+      "raw": 0,
+      "unit": "mm",
+      "norm": 58,
+      "vars": {
+       "irrigation_mm": 0,
+       "saved_mm": 0
+      }
+     },
+     "income_mean": {
+      "raw": 121,
+      "unit": "usd_ac",
+      "norm": 72,
+      "vars": {
+       "revenue_usd_ac": 121,
+       "diff_usd_ac": 5
+      }
+     },
+     "income_worst": {
+      "raw": 70,
+      "unit": "usd_ac",
+      "norm": 70,
+      "vars": {
+       "worst5_usd_ac": 70,
+       "r0_worst5_usd_ac": 68
+      }
+     },
+     "soil_health": {
+      "raw": 34,
+      "unit": "score",
+      "norm": 27,
+      "vars": {
+       "score": 34,
+       "living_root_days": 172,
+       "legume_years": 0
+      }
+     },
+     "water_erosion": {
+      "raw": 3,
+      "unit": "days",
+      "norm": 43,
+      "vars": {
+       "bare_storm_days": 3,
+       "r0_bare_storm_days": 3
+      }
+     },
+     "wind_erosion": {
+      "raw": 12,
+      "unit": "days",
+      "norm": 40,
+      "vars": {
+       "bare_windy_days": 12,
+       "r0_bare_windy_days": 13
+      }
+     },
+     "pest_break": {
+      "raw": 1,
+      "unit": "years",
+      "norm": 100,
+      "vars": {
+       "max_run_years": 1,
+       "r0_max_run_years": 8
+      }
+     },
+     "heat_frost_risk": {
+      "raw": 24,
+      "unit": "days",
+      "norm": 70,
+      "vars": {
+       "heat_days": 24,
+       "r0_heat_days": 44
+      }
+     }
+    },
+    "requires_equipment": [],
+    "needs_forage_market": false,
+    "crops_without_local_market": [],
+    "benefits": [
+     {
+      "text_id": "pest_cycle_broken",
+      "vars": {
+       "max_run_years": 1
+      }
+     }
+    ],
+    "evidence": [
+     {
+      "text_id": "replay_avg",
+      "vars": {
+       "years_from": 2000,
+       "years_to": 2025,
+       "irrigation_mm": 0,
+       "revenue_usd_ac": 121
+      },
+      "sources": [
+       "POWER",
+       "SSURGO",
+       "FAO56",
+       "NASS"
+      ]
+     },
+     {
+      "text_id": "replay_drought",
+      "vars": {
+       "year": 2012,
+       "irrigation_mm": 0,
+       "r0_irrigation_mm": 0
+      },
+      "sources": [
+       "POWER",
+       "FAO56"
+      ]
+     },
+     {
+      "text_id": "neighbors",
+      "vars": {
+       "n": 11,
+       "et_mm": 849,
+       "r0_et_mm": 932
+      },
+      "sources": [
+       "OpenET",
+       "CSB",
+       "SSURGO"
+      ]
+     }
+    ],
+    "gap_ids": [
+     "costs_not_modelled",
+     "prices_constant",
+     "county_yields"
+    ],
+    "risk_ids": [
+     "herbicide_carryover",
+     "crop_insurance"
+    ],
+    "confidence": "good"
+   },
+   {
+    "rotation_id": "R2",
+    "feasible": true,
+    "infeasible_reason_id": null,
+    "criteria": {
+     "water_use": {
+      "raw": 0,
+      "unit": "mm",
+      "norm": 58,
+      "vars": {
+       "irrigation_mm": 0,
+       "saved_mm": 0
+      }
+     },
+     "income_mean": {
+      "raw": 82,
+      "unit": "usd_ac",
+      "norm": 15,
+      "vars": {
+       "revenue_usd_ac": 82,
+       "diff_usd_ac": -34
+      }
+     },
+     "income_worst": {
+      "raw": 48,
+      "unit": "usd_ac",
+      "norm": 15,
+      "vars": {
+       "worst5_usd_ac": 48,
+       "r0_worst5_usd_ac": 68
+      }
+     },
+     "soil_health": {
+      "raw": 27,
+      "unit": "score",
+      "norm": 15,
+      "vars": {
+       "score": 27,
+       "living_root_days": 128,
+       "legume_years": 0
+      }
+     },
+     "water_erosion": {
+      "raw": 4,
+      "unit": "days",
+      "norm": 15,
+      "vars": {
+       "bare_storm_days": 4,
+       "r0_bare_storm_days": 3
+      }
+     },
+     "wind_erosion": {
+      "raw": 15,
+      "unit": "days",
+      "norm": 15,
+      "vars": {
+       "bare_windy_days": 15,
+       "r0_bare_windy_days": 13
+      }
+     },
+     "pest_break": {
+      "raw": 1,
+      "unit": "years",
+      "norm": 100,
+      "vars": {
+       "max_run_years": 1,
+       "r0_max_run_years": 8
+      }
+     },
+     "heat_frost_risk": {
+      "raw": 13,
+      "unit": "days",
+      "norm": 100,
+      "vars": {
+       "heat_days": 13,
+       "r0_heat_days": 44
+      }
+     }
+    },
+    "requires_equipment": [],
+    "needs_forage_market": false,
+    "crops_without_local_market": [],
+    "benefits": [
+     {
+      "text_id": "pest_cycle_broken",
+      "vars": {
+       "max_run_years": 1
+      }
+     }
+    ],
+    "evidence": [
+     {
+      "text_id": "replay_avg",
+      "vars": {
+       "years_from": 2000,
+       "years_to": 2025,
+       "irrigation_mm": 0,
+       "revenue_usd_ac": 82
+      },
+      "sources": [
+       "POWER",
+       "SSURGO",
+       "FAO56",
+       "NASS"
+      ]
+     },
+     {
+      "text_id": "replay_drought",
+      "vars": {
+       "year": 2012,
+       "irrigation_mm": 0,
+       "r0_irrigation_mm": 0
+      },
+      "sources": [
+       "POWER",
+       "FAO56"
+      ]
+     }
+    ],
+    "gap_ids": [
+     "costs_not_modelled",
+     "county_yields",
+     "openet_record_short"
+    ],
+    "risk_ids": [
+     "fallow_wind",
+     "herbicide_carryover"
+    ],
+    "confidence": "good"
+   },
+   {
+    "rotation_id": "R3",
+    "feasible": true,
+    "infeasible_reason_id": null,
+    "criteria": {
+     "water_use": {
+      "raw": 0,
+      "unit": "mm",
+      "norm": 58,
+      "vars": {
+       "irrigation_mm": 0,
+       "saved_mm": 0
+      }
+     },
+     "income_mean": {
+      "raw": 116,
+      "unit": "usd_ac",
+      "norm": 65,
+      "vars": {
+       "revenue_usd_ac": 116,
+       "diff_usd_ac": 0
+      }
+     },
+     "income_worst": {
+      "raw": 68,
+      "unit": "usd_ac",
+      "norm": 65,
+      "vars": {
+       "worst5_usd_ac": 68,
+       "r0_worst5_usd_ac": 68
+      }
+     },
+     "soil_health": {
+      "raw": 36,
+      "unit": "score",
+      "norm": 31,
+      "vars": {
+       "score": 36,
+       "living_root_days": 182,
+       "legume_years": 0
+      }
+     },
+     "water_erosion": {
+      "raw": 3,
+      "unit": "days",
+      "norm": 43,
+      "vars": {
+       "bare_storm_days": 3,
+       "r0_bare_storm_days": 3
+      }
+     },
+     "wind_erosion": {
+      "raw": 12,
+      "unit": "days",
+      "norm": 40,
+      "vars": {
+       "bare_windy_days": 12,
+       "r0_bare_windy_days": 13
+      }
+     },
+     "pest_break": {
+      "raw": 2,
+      "unit": "years",
+      "norm": 88,
+      "vars": {
+       "max_run_years": 2,
+       "r0_max_run_years": 8
+      }
+     },
+     "heat_frost_risk": {
+      "raw": 13,
+      "unit": "days",
+      "norm": 100,
+      "vars": {
+       "heat_days": 13,
+       "r0_heat_days": 44
+      }
+     }
+    },
+    "requires_equipment": [],
+    "needs_forage_market": true,
+    "crops_without_local_market": [
+     "triticale"
+    ],
+    "benefits": [
+     {
+      "text_id": "pest_cycle_broken",
+      "vars": {
+       "max_run_years": 2
+      }
+     },
+     {
+      "text_id": "forage_income",
+      "vars": {
+       "forage_crop": "triticale"
+      }
+     }
+    ],
+    "evidence": [
+     {
+      "text_id": "replay_avg",
+      "vars": {
+       "years_from": 2000,
+       "years_to": 2025,
+       "irrigation_mm": 0,
+       "revenue_usd_ac": 116
+      },
+      "sources": [
+       "POWER",
+       "SSURGO",
+       "FAO56",
+       "NASS"
+      ]
+     },
+     {
+      "text_id": "replay_drought",
+      "vars": {
+       "year": 2012,
+       "irrigation_mm": 0,
+       "r0_irrigation_mm": 0
+      },
+      "sources": [
+       "POWER",
+       "FAO56"
+      ]
+     }
+    ],
+    "gap_ids": [
+     "crop_params_generic",
+     "prices_constant",
+     "county_yields"
+    ],
+    "risk_ids": [
+     "buyer_availability",
+     "new_crop_learning"
+    ],
+    "confidence": "fair"
+   },
+   {
+    "rotation_id": "R4",
+    "feasible": false,
+    "infeasible_reason_id": "needs_more_water",
+    "criteria": {
+     "water_use": {
+      "raw": 0,
+      "unit": "mm",
+      "norm": 58,
+      "vars": {
+       "irrigation_mm": 0,
+       "saved_mm": 0
+      }
+     },
+     "income_mean": {
+      "raw": 140,
+      "unit": "usd_ac",
+      "norm": 100,
+      "vars": {
+       "revenue_usd_ac": 140,
+       "diff_usd_ac": 24
+      }
+     },
+     "income_worst": {
+      "raw": 82,
+      "unit": "usd_ac",
+      "norm": 100,
+      "vars": {
+       "worst5_usd_ac": 82,
+       "r0_worst5_usd_ac": 68
+      }
+     },
+     "soil_health": {
+      "raw": 76,
+      "unit": "score",
+      "norm": 100,
+      "vars": {
+       "score": 76,
+       "living_root_days": 285,
+       "legume_years": 4
+      }
+     },
+     "water_erosion": {
+      "raw": 1,
+      "unit": "days",
+      "norm": 100,
+      "vars": {
+       "bare_storm_days": 1,
+       "r0_bare_storm_days": 3
+      }
+     },
+     "wind_erosion": {
+      "raw": 5,
+      "unit": "days",
+      "norm": 100,
+      "vars": {
+       "bare_windy_days": 5,
+       "r0_bare_windy_days": 13
+      }
+     },
+     "pest_break": {
+      "raw": 4,
+      "unit": "years",
+      "norm": 64,
+      "vars": {
+       "max_run_years": 4,
+       "r0_max_run_years": 8
+      }
+     },
+     "heat_frost_risk": {
+      "raw": 18,
+      "unit": "days",
+      "norm": 86,
+      "vars": {
+       "heat_days": 18,
+       "r0_heat_days": 44
+      }
+     }
+    },
+    "requires_equipment": [
+     "hay"
+    ],
+    "needs_forage_market": true,
+    "crops_without_local_market": [],
+    "benefits": [
+     {
+      "text_id": "bare_days_reduced",
+      "vars": {
+       "days": 120
+      }
+     },
+     {
+      "text_id": "legume_added",
+      "vars": {
+       "legume_years": 4,
+       "cycle_years": 6
+      }
+     },
+     {
+      "text_id": "income_steadier",
+      "vars": {
+       "worst5_gain_usd_ac": 14
+      }
+     },
+     {
+      "text_id": "pest_cycle_broken",
+      "vars": {
+       "max_run_years": 4
+      }
+     },
+     {
+      "text_id": "forage_income",
+      "vars": {
+       "forage_crop": "alfalfa"
+      }
+     }
+    ],
+    "evidence": [
+     {
+      "text_id": "replay_avg",
+      "vars": {
+       "years_from": 2000,
+       "years_to": 2025,
+       "irrigation_mm": 0,
+       "revenue_usd_ac": 140
+      },
+      "sources": [
+       "POWER",
+       "SSURGO",
+       "FAO56",
+       "NASS"
+      ]
+     },
+     {
+      "text_id": "replay_drought",
+      "vars": {
+       "year": 2012,
+       "irrigation_mm": 0,
+       "r0_irrigation_mm": 0
+      },
+      "sources": [
+       "POWER",
+       "FAO56"
+      ]
+     },
+     {
+      "text_id": "neighbors",
+      "vars": {
+       "n": 4,
+       "et_mm": 1124,
+       "r0_et_mm": 932
+      },
+      "sources": [
+       "OpenET",
+       "CSB",
+       "SSURGO"
+      ]
+     }
+    ],
+    "gap_ids": [
+     "crop_params_generic",
+     "costs_not_modelled",
+     "no_pest_data"
+    ],
+    "risk_ids": [
+     "alfalfa_stand_water",
+     "equipment_access",
+     "buyer_availability"
+    ],
+    "confidence": "limited"
+   },
+   {
+    "rotation_id": "R5",
+    "feasible": false,
+    "infeasible_reason_id": "needs_more_water",
+    "criteria": {
+     "water_use": {
+      "raw": 0,
+      "unit": "mm",
+      "norm": 58,
+      "vars": {
+       "irrigation_mm": 0,
+       "saved_mm": 0
+      }
+     },
+     "income_mean": {
+      "raw": 100,
+      "unit": "usd_ac",
+      "norm": 41,
+      "vars": {
+       "revenue_usd_ac": 100,
+       "diff_usd_ac": -16
+      }
+     },
+     "income_worst": {
+      "raw": 54,
+      "unit": "usd_ac",
+      "norm": 30,
+      "vars": {
+       "worst5_usd_ac": 54,
+       "r0_worst5_usd_ac": 68
+      }
+     },
+     "soil_health": {
+      "raw": 55,
+      "unit": "score",
+      "norm": 64,
+      "vars": {
+       "score": 55,
+       "living_root_days": 208,
+       "legume_years": 1
+      }
+     },
+     "water_erosion": {
+      "raw": 3,
+      "unit": "days",
+      "norm": 43,
+      "vars": {
+       "bare_storm_days": 3,
+       "r0_bare_storm_days": 3
+      }
+     },
+     "wind_erosion": {
+      "raw": 10,
+      "unit": "days",
+      "norm": 58,
+      "vars": {
+       "bare_windy_days": 10,
+       "r0_bare_windy_days": 13
+      }
+     },
+     "pest_break": {
+      "raw": 1,
+      "unit": "years",
+      "norm": 100,
+      "vars": {
+       "max_run_years": 1,
+       "r0_max_run_years": 8
+      }
+     },
+     "heat_frost_risk": {
+      "raw": 34,
+      "unit": "days",
+      "norm": 42,
+      "vars": {
+       "heat_days": 34,
+       "r0_heat_days": 44
+      }
+     }
+    },
+    "requires_equipment": [],
+    "needs_forage_market": false,
+    "crops_without_local_market": [],
+    "benefits": [
+     {
+      "text_id": "bare_days_reduced",
+      "vars": {
+       "days": 43
+      }
+     },
+     {
+      "text_id": "legume_added",
+      "vars": {
+       "legume_years": 1,
+       "cycle_years": 3
+      }
+     },
+     {
+      "text_id": "pest_cycle_broken",
+      "vars": {
+       "max_run_years": 1
+      }
+     }
+    ],
+    "evidence": [
+     {
+      "text_id": "replay_avg",
+      "vars": {
+       "years_from": 2000,
+       "years_to": 2025,
+       "irrigation_mm": 0,
+       "revenue_usd_ac": 100
+      },
+      "sources": [
+       "POWER",
+       "SSURGO",
+       "FAO56",
+       "NASS"
+      ]
+     },
+     {
+      "text_id": "replay_drought",
+      "vars": {
+       "year": 2012,
+       "irrigation_mm": 0,
+       "r0_irrigation_mm": 0
+      },
+      "sources": [
+       "POWER",
+       "FAO56"
+      ]
+     },
+     {
+      "text_id": "neighbors",
+      "vars": {
+       "n": 3,
+       "et_mm": 906,
+       "r0_et_mm": 932
+      },
+      "sources": [
+       "OpenET",
+       "CSB",
+       "SSURGO"
+      ]
+     }
+    ],
+    "gap_ids": [
+     "county_yields",
+     "crop_params_generic",
+     "neighbors_observational"
+    ],
+    "risk_ids": [
+     "cover_establishment",
+     "seed_availability"
+    ],
+    "confidence": "fair"
+   },
+   {
+    "rotation_id": "R6",
+    "feasible": true,
+    "infeasible_reason_id": null,
+    "criteria": {
+     "water_use": {
+      "raw": 0,
+      "unit": "mm",
+      "norm": 58,
+      "vars": {
+       "irrigation_mm": 0,
+       "saved_mm": 0
+      }
+     },
+     "income_mean": {
+      "raw": 130,
+      "unit": "usd_ac",
+      "norm": 85,
+      "vars": {
+       "revenue_usd_ac": 130,
+       "diff_usd_ac": 14
+      }
+     },
+     "income_worst": {
+      "raw": 76,
+      "unit": "usd_ac",
+      "norm": 85,
+      "vars": {
+       "worst5_usd_ac": 76,
+       "r0_worst5_usd_ac": 68
+      }
+     },
+     "soil_health": {
+      "raw": 39,
+      "unit": "score",
+      "norm": 36,
+      "vars": {
+       "score": 39,
+       "living_root_days": 162,
+       "legume_years": 0
+      }
+     },
+     "water_erosion": {
+      "raw": 3,
+      "unit": "days",
+      "norm": 43,
+      "vars": {
+       "bare_storm_days": 3,
+       "r0_bare_storm_days": 3
+      }
+     },
+     "wind_erosion": {
+      "raw": 13,
+      "unit": "days",
+      "norm": 32,
+      "vars": {
+       "bare_windy_days": 13,
+       "r0_bare_windy_days": 13
+      }
+     },
+     "pest_break": {
+      "raw": 1,
+      "unit": "years",
+      "norm": 100,
+      "vars": {
+       "max_run_years": 1,
+       "r0_max_run_years": 8
+      }
+     },
+     "heat_frost_risk": {
+      "raw": 13,
+      "unit": "days",
+      "norm": 100,
+      "vars": {
+       "heat_days": 13,
+       "r0_heat_days": 44
+      }
+     }
+    },
+    "requires_equipment": [
+     "cotton"
+    ],
+    "needs_forage_market": false,
+    "crops_without_local_market": [
+     "cotton"
+    ],
+    "benefits": [
+     {
+      "text_id": "pest_cycle_broken",
+      "vars": {
+       "max_run_years": 1
+      }
+     }
+    ],
+    "evidence": [
+     {
+      "text_id": "replay_avg",
+      "vars": {
+       "years_from": 2000,
+       "years_to": 2025,
+       "irrigation_mm": 0,
+       "revenue_usd_ac": 130
+      },
+      "sources": [
+       "POWER",
+       "SSURGO",
+       "FAO56",
+       "NASS"
+      ]
+     },
+     {
+      "text_id": "replay_drought",
+      "vars": {
+       "year": 2012,
+       "irrigation_mm": 0,
+       "r0_irrigation_mm": 0
+      },
+      "sources": [
+       "POWER",
+       "FAO56"
+      ]
+     }
+    ],
+    "gap_ids": [
+     "crop_params_generic",
+     "county_yields",
+     "model_simplified"
+    ],
+    "risk_ids": [
+     "equipment_access",
+     "buyer_availability",
+     "new_crop_learning"
+    ],
+    "confidence": "limited"
+   }
+  ],
+  "dryland|hotdry": [
+   {
+    "rotation_id": "R0",
+    "feasible": true,
+    "infeasible_reason_id": null,
+    "criteria": {
+     "water_use": {
+      "raw": 0,
+      "unit": "mm",
+      "norm": 58,
+      "vars": {
+       "irrigation_mm": 0,
+       "saved_mm": 0
+      }
+     },
+     "income_mean": {
+      "raw": 102,
+      "unit": "usd_ac",
+      "norm": 64,
+      "vars": {
+       "revenue_usd_ac": 102,
+       "diff_usd_ac": 0
+      }
+     },
+     "income_worst": {
+      "raw": 60,
+      "unit": "usd_ac",
+      "norm": 64,
+      "vars": {
+       "worst5_usd_ac": 60,
+       "r0_worst5_usd_ac": 60
+      }
+     },
+     "soil_health": {
+      "raw": 33,
+      "unit": "score",
+      "norm": 25,
+      "vars": {
+       "score": 33,
+       "living_root_days": 165,
+       "legume_years": 0
+      }
+     },
+     "water_erosion": {
+      "raw": 3,
+      "unit": "days",
+      "norm": 43,
+      "vars": {
+       "bare_storm_days": 3,
+       "r0_bare_storm_days": 3
+      }
+     },
+     "wind_erosion": {
+      "raw": 13,
+      "unit": "days",
+      "norm": 32,
+      "vars": {
+       "bare_windy_days": 13,
+       "r0_bare_windy_days": 13
+      }
+     },
+     "pest_break": {
+      "raw": 8,
+      "unit": "years",
+      "norm": 15,
+      "vars": {
+       "max_run_years": 8,
+       "r0_max_run_years": 8
+      }
+     },
+     "heat_frost_risk": {
+      "raw": 52,
+      "unit": "days",
+      "norm": 15,
+      "vars": {
+       "heat_days": 52,
+       "r0_heat_days": 52
+      }
+     }
+    },
+    "requires_equipment": [],
+    "needs_forage_market": false,
+    "crops_without_local_market": [],
+    "benefits": [],
+    "evidence": [
+     {
+      "text_id": "replay_avg",
+      "vars": {
+       "years_from": 2000,
+       "years_to": 2025,
+       "irrigation_mm": 0,
+       "revenue_usd_ac": 102
+      },
+      "sources": [
+       "POWER",
+       "SSURGO",
+       "FAO56",
+       "NASS"
+      ]
+     },
+     {
+      "text_id": "replay_drought",
+      "vars": {
+       "year": 2012,
+       "irrigation_mm": 0,
+       "r0_irrigation_mm": 0
+      },
+      "sources": [
+       "POWER",
+       "FAO56"
+      ]
+     },
+     {
+      "text_id": "validation_et",
+      "vars": {
+       "bias_pct": -31
+      },
+      "sources": [
+       "OpenET",
+       "MODEL"
+      ]
+     }
+    ],
+    "gap_ids": [
+     "costs_not_modelled",
+     "prices_constant",
+     "model_simplified"
+    ],
+    "risk_ids": [
+     "water_rights",
+     "crop_insurance"
+    ],
+    "confidence": "good"
+   },
+   {
+    "rotation_id": "R1",
+    "feasible": false,
+    "infeasible_reason_id": "needs_more_water",
+    "criteria": {
+     "water_use": {
+      "raw": 0,
+      "unit": "mm",
+      "norm": 58,
+      "vars": {
+       "irrigation_mm": 0,
+       "saved_mm": 0
+      }
+     },
+     "income_mean": {
+      "raw": 106,
+      "unit": "usd_ac",
+      "norm": 71,
+      "vars": {
+       "revenue_usd_ac": 106,
+       "diff_usd_ac": 4
+      }
+     },
+     "income_worst": {
+      "raw": 62,
+      "unit": "usd_ac",
+      "norm": 70,
+      "vars": {
+       "worst5_usd_ac": 62,
+       "r0_worst5_usd_ac": 60
+      }
+     },
+     "soil_health": {
+      "raw": 34,
+      "unit": "score",
+      "norm": 27,
+      "vars": {
+       "score": 34,
+       "living_root_days": 172,
+       "legume_years": 0
+      }
+     },
+     "water_erosion": {
+      "raw": 3,
+      "unit": "days",
+      "norm": 43,
+      "vars": {
+       "bare_storm_days": 3,
+       "r0_bare_storm_days": 3
+      }
+     },
+     "wind_erosion": {
+      "raw": 12,
+      "unit": "days",
+      "norm": 40,
+      "vars": {
+       "bare_windy_days": 12,
+       "r0_bare_windy_days": 13
+      }
+     },
+     "pest_break": {
+      "raw": 1,
+      "unit": "years",
+      "norm": 100,
+      "vars": {
+       "max_run_years": 1,
+       "r0_max_run_years": 8
+      }
+     },
+     "heat_frost_risk": {
+      "raw": 28,
+      "unit": "days",
+      "norm": 72,
+      "vars": {
+       "heat_days": 28,
+       "r0_heat_days": 52
+      }
+     }
+    },
+    "requires_equipment": [],
+    "needs_forage_market": false,
+    "crops_without_local_market": [],
+    "benefits": [
+     {
+      "text_id": "pest_cycle_broken",
+      "vars": {
+       "max_run_years": 1
+      }
+     }
+    ],
+    "evidence": [
+     {
+      "text_id": "replay_avg",
+      "vars": {
+       "years_from": 2000,
+       "years_to": 2025,
+       "irrigation_mm": 0,
+       "revenue_usd_ac": 106
+      },
+      "sources": [
+       "POWER",
+       "SSURGO",
+       "FAO56",
+       "NASS"
+      ]
+     },
+     {
+      "text_id": "replay_drought",
+      "vars": {
+       "year": 2012,
+       "irrigation_mm": 0,
+       "r0_irrigation_mm": 0
+      },
+      "sources": [
+       "POWER",
+       "FAO56"
+      ]
+     },
+     {
+      "text_id": "neighbors",
+      "vars": {
+       "n": 11,
+       "et_mm": 849,
+       "r0_et_mm": 932
+      },
+      "sources": [
+       "OpenET",
+       "CSB",
+       "SSURGO"
+      ]
+     }
+    ],
+    "gap_ids": [
+     "costs_not_modelled",
+     "prices_constant",
+     "county_yields"
+    ],
+    "risk_ids": [
+     "herbicide_carryover",
+     "crop_insurance"
+    ],
+    "confidence": "good"
+   },
+   {
+    "rotation_id": "R2",
+    "feasible": true,
+    "infeasible_reason_id": null,
+    "criteria": {
+     "water_use": {
+      "raw": 0,
+      "unit": "mm",
+      "norm": 58,
+      "vars": {
+       "irrigation_mm": 0,
+       "saved_mm": 0
+      }
+     },
+     "income_mean": {
+      "raw": 72,
+      "unit": "usd_ac",
+      "norm": 15,
+      "vars": {
+       "revenue_usd_ac": 72,
+       "diff_usd_ac": -30
+      }
+     },
+     "income_worst": {
+      "raw": 42,
+      "unit": "usd_ac",
+      "norm": 15,
+      "vars": {
+       "worst5_usd_ac": 42,
+       "r0_worst5_usd_ac": 60
+      }
+     },
+     "soil_health": {
+      "raw": 27,
+      "unit": "score",
+      "norm": 15,
+      "vars": {
+       "score": 27,
+       "living_root_days": 128,
+       "legume_years": 0
+      }
+     },
+     "water_erosion": {
+      "raw": 4,
+      "unit": "days",
+      "norm": 15,
+      "vars": {
+       "bare_storm_days": 4,
+       "r0_bare_storm_days": 3
+      }
+     },
+     "wind_erosion": {
+      "raw": 15,
+      "unit": "days",
+      "norm": 15,
+      "vars": {
+       "bare_windy_days": 15,
+       "r0_bare_windy_days": 13
+      }
+     },
+     "pest_break": {
+      "raw": 1,
+      "unit": "years",
+      "norm": 100,
+      "vars": {
+       "max_run_years": 1,
+       "r0_max_run_years": 8
+      }
+     },
+     "heat_frost_risk": {
+      "raw": 16,
+      "unit": "days",
+      "norm": 100,
+      "vars": {
+       "heat_days": 16,
+       "r0_heat_days": 52
+      }
+     }
+    },
+    "requires_equipment": [],
+    "needs_forage_market": false,
+    "crops_without_local_market": [],
+    "benefits": [
+     {
+      "text_id": "pest_cycle_broken",
+      "vars": {
+       "max_run_years": 1
+      }
+     }
+    ],
+    "evidence": [
+     {
+      "text_id": "replay_avg",
+      "vars": {
+       "years_from": 2000,
+       "years_to": 2025,
+       "irrigation_mm": 0,
+       "revenue_usd_ac": 72
+      },
+      "sources": [
+       "POWER",
+       "SSURGO",
+       "FAO56",
+       "NASS"
+      ]
+     },
+     {
+      "text_id": "replay_drought",
+      "vars": {
+       "year": 2012,
+       "irrigation_mm": 0,
+       "r0_irrigation_mm": 0
+      },
+      "sources": [
+       "POWER",
+       "FAO56"
+      ]
+     }
+    ],
+    "gap_ids": [
+     "costs_not_modelled",
+     "county_yields",
+     "openet_record_short"
+    ],
+    "risk_ids": [
+     "fallow_wind",
+     "herbicide_carryover"
+    ],
+    "confidence": "good"
+   },
+   {
+    "rotation_id": "R3",
+    "feasible": true,
+    "infeasible_reason_id": null,
+    "criteria": {
+     "water_use": {
+      "raw": 0,
+      "unit": "mm",
+      "norm": 58,
+      "vars": {
+       "irrigation_mm": 0,
+       "saved_mm": 0
+      }
+     },
+     "income_mean": {
+      "raw": 102,
+      "unit": "usd_ac",
+      "norm": 64,
+      "vars": {
+       "revenue_usd_ac": 102,
+       "diff_usd_ac": 0
+      }
+     },
+     "income_worst": {
+      "raw": 60,
+      "unit": "usd_ac",
+      "norm": 64,
+      "vars": {
+       "worst5_usd_ac": 60,
+       "r0_worst5_usd_ac": 60
+      }
+     },
+     "soil_health": {
+      "raw": 36,
+      "unit": "score",
+      "norm": 31,
+      "vars": {
+       "score": 36,
+       "living_root_days": 182,
+       "legume_years": 0
+      }
+     },
+     "water_erosion": {
+      "raw": 3,
+      "unit": "days",
+      "norm": 43,
+      "vars": {
+       "bare_storm_days": 3,
+       "r0_bare_storm_days": 3
+      }
+     },
+     "wind_erosion": {
+      "raw": 12,
+      "unit": "days",
+      "norm": 40,
+      "vars": {
+       "bare_windy_days": 12,
+       "r0_bare_windy_days": 13
+      }
+     },
+     "pest_break": {
+      "raw": 2,
+      "unit": "years",
+      "norm": 88,
+      "vars": {
+       "max_run_years": 2,
+       "r0_max_run_years": 8
+      }
+     },
+     "heat_frost_risk": {
+      "raw": 16,
+      "unit": "days",
+      "norm": 100,
+      "vars": {
+       "heat_days": 16,
+       "r0_heat_days": 52
+      }
+     }
+    },
+    "requires_equipment": [],
+    "needs_forage_market": true,
+    "crops_without_local_market": [
+     "triticale"
+    ],
+    "benefits": [
+     {
+      "text_id": "pest_cycle_broken",
+      "vars": {
+       "max_run_years": 2
+      }
+     },
+     {
+      "text_id": "forage_income",
+      "vars": {
+       "forage_crop": "triticale"
+      }
+     }
+    ],
+    "evidence": [
+     {
+      "text_id": "replay_avg",
+      "vars": {
+       "years_from": 2000,
+       "years_to": 2025,
+       "irrigation_mm": 0,
+       "revenue_usd_ac": 102
+      },
+      "sources": [
+       "POWER",
+       "SSURGO",
+       "FAO56",
+       "NASS"
+      ]
+     },
+     {
+      "text_id": "replay_drought",
+      "vars": {
+       "year": 2012,
+       "irrigation_mm": 0,
+       "r0_irrigation_mm": 0
+      },
+      "sources": [
+       "POWER",
+       "FAO56"
+      ]
+     }
+    ],
+    "gap_ids": [
+     "crop_params_generic",
+     "prices_constant",
+     "county_yields"
+    ],
+    "risk_ids": [
+     "buyer_availability",
+     "new_crop_learning"
+    ],
+    "confidence": "fair"
+   },
+   {
+    "rotation_id": "R4",
+    "feasible": false,
+    "infeasible_reason_id": "needs_more_water",
+    "criteria": {
+     "water_use": {
+      "raw": 0,
+      "unit": "mm",
+      "norm": 58,
+      "vars": {
+       "irrigation_mm": 0,
+       "saved_mm": 0
+      }
+     },
+     "income_mean": {
+      "raw": 124,
+      "unit": "usd_ac",
+      "norm": 100,
+      "vars": {
+       "revenue_usd_ac": 124,
+       "diff_usd_ac": 22
+      }
+     },
+     "income_worst": {
+      "raw": 73,
+      "unit": "usd_ac",
+      "norm": 100,
+      "vars": {
+       "worst5_usd_ac": 73,
+       "r0_worst5_usd_ac": 60
+      }
+     },
+     "soil_health": {
+      "raw": 76,
+      "unit": "score",
+      "norm": 100,
+      "vars": {
+       "score": 76,
+       "living_root_days": 285,
+       "legume_years": 4
+      }
+     },
+     "water_erosion": {
+      "raw": 1,
+      "unit": "days",
+      "norm": 100,
+      "vars": {
+       "bare_storm_days": 1,
+       "r0_bare_storm_days": 3
+      }
+     },
+     "wind_erosion": {
+      "raw": 5,
+      "unit": "days",
+      "norm": 100,
+      "vars": {
+       "bare_windy_days": 5,
+       "r0_bare_windy_days": 13
+      }
+     },
+     "pest_break": {
+      "raw": 4,
+      "unit": "years",
+      "norm": 64,
+      "vars": {
+       "max_run_years": 4,
+       "r0_max_run_years": 8
+      }
+     },
+     "heat_frost_risk": {
+      "raw": 22,
+      "unit": "days",
+      "norm": 86,
+      "vars": {
+       "heat_days": 22,
+       "r0_heat_days": 52
+      }
+     }
+    },
+    "requires_equipment": [
+     "hay"
+    ],
+    "needs_forage_market": true,
+    "crops_without_local_market": [],
+    "benefits": [
+     {
+      "text_id": "bare_days_reduced",
+      "vars": {
+       "days": 120
+      }
+     },
+     {
+      "text_id": "legume_added",
+      "vars": {
+       "legume_years": 4,
+       "cycle_years": 6
+      }
+     },
+     {
+      "text_id": "income_steadier",
+      "vars": {
+       "worst5_gain_usd_ac": 13
+      }
+     },
+     {
+      "text_id": "pest_cycle_broken",
+      "vars": {
+       "max_run_years": 4
+      }
+     },
+     {
+      "text_id": "forage_income",
+      "vars": {
+       "forage_crop": "alfalfa"
+      }
+     }
+    ],
+    "evidence": [
+     {
+      "text_id": "replay_avg",
+      "vars": {
+       "years_from": 2000,
+       "years_to": 2025,
+       "irrigation_mm": 0,
+       "revenue_usd_ac": 124
+      },
+      "sources": [
+       "POWER",
+       "SSURGO",
+       "FAO56",
+       "NASS"
+      ]
+     },
+     {
+      "text_id": "replay_drought",
+      "vars": {
+       "year": 2012,
+       "irrigation_mm": 0,
+       "r0_irrigation_mm": 0
+      },
+      "sources": [
+       "POWER",
+       "FAO56"
+      ]
+     },
+     {
+      "text_id": "neighbors",
+      "vars": {
+       "n": 4,
+       "et_mm": 1124,
+       "r0_et_mm": 932
+      },
+      "sources": [
+       "OpenET",
+       "CSB",
+       "SSURGO"
+      ]
+     }
+    ],
+    "gap_ids": [
+     "crop_params_generic",
+     "costs_not_modelled",
+     "no_pest_data"
+    ],
+    "risk_ids": [
+     "alfalfa_stand_water",
+     "equipment_access",
+     "buyer_availability"
+    ],
+    "confidence": "limited"
+   },
+   {
+    "rotation_id": "R5",
+    "feasible": false,
+    "infeasible_reason_id": "needs_more_water",
+    "criteria": {
+     "water_use": {
+      "raw": 0,
+      "unit": "mm",
+      "norm": 58,
+      "vars": {
+       "irrigation_mm": 0,
+       "saved_mm": 0
+      }
+     },
+     "income_mean": {
+      "raw": 87,
+      "unit": "usd_ac",
+      "norm": 40,
+      "vars": {
+       "revenue_usd_ac": 87,
+       "diff_usd_ac": -15
+      }
+     },
+     "income_worst": {
+      "raw": 47,
+      "unit": "usd_ac",
+      "norm": 29,
+      "vars": {
+       "worst5_usd_ac": 47,
+       "r0_worst5_usd_ac": 60
+      }
+     },
+     "soil_health": {
+      "raw": 55,
+      "unit": "score",
+      "norm": 64,
+      "vars": {
+       "score": 55,
+       "living_root_days": 208,
+       "legume_years": 1
+      }
+     },
+     "water_erosion": {
+      "raw": 3,
+      "unit": "days",
+      "norm": 43,
+      "vars": {
+       "bare_storm_days": 3,
+       "r0_bare_storm_days": 3
+      }
+     },
+     "wind_erosion": {
+      "raw": 10,
+      "unit": "days",
+      "norm": 58,
+      "vars": {
+       "bare_windy_days": 10,
+       "r0_bare_windy_days": 13
+      }
+     },
+     "pest_break": {
+      "raw": 1,
+      "unit": "years",
+      "norm": 100,
+      "vars": {
+       "max_run_years": 1,
+       "r0_max_run_years": 8
+      }
+     },
+     "heat_frost_risk": {
+      "raw": 40,
+      "unit": "days",
+      "norm": 43,
+      "vars": {
+       "heat_days": 40,
+       "r0_heat_days": 52
+      }
+     }
+    },
+    "requires_equipment": [],
+    "needs_forage_market": false,
+    "crops_without_local_market": [],
+    "benefits": [
+     {
+      "text_id": "bare_days_reduced",
+      "vars": {
+       "days": 43
+      }
+     },
+     {
+      "text_id": "legume_added",
+      "vars": {
+       "legume_years": 1,
+       "cycle_years": 3
+      }
+     },
+     {
+      "text_id": "pest_cycle_broken",
+      "vars": {
+       "max_run_years": 1
+      }
+     }
+    ],
+    "evidence": [
+     {
+      "text_id": "replay_avg",
+      "vars": {
+       "years_from": 2000,
+       "years_to": 2025,
+       "irrigation_mm": 0,
+       "revenue_usd_ac": 87
+      },
+      "sources": [
+       "POWER",
+       "SSURGO",
+       "FAO56",
+       "NASS"
+      ]
+     },
+     {
+      "text_id": "replay_drought",
+      "vars": {
+       "year": 2012,
+       "irrigation_mm": 0,
+       "r0_irrigation_mm": 0
+      },
+      "sources": [
+       "POWER",
+       "FAO56"
+      ]
+     },
+     {
+      "text_id": "neighbors",
+      "vars": {
+       "n": 3,
+       "et_mm": 906,
+       "r0_et_mm": 932
+      },
+      "sources": [
+       "OpenET",
+       "CSB",
+       "SSURGO"
+      ]
+     }
+    ],
+    "gap_ids": [
+     "county_yields",
+     "crop_params_generic",
+     "neighbors_observational"
+    ],
+    "risk_ids": [
+     "cover_establishment",
+     "seed_availability"
+    ],
+    "confidence": "fair"
+   },
+   {
+    "rotation_id": "R6",
+    "feasible": true,
+    "infeasible_reason_id": null,
+    "criteria": {
+     "water_use": {
+      "raw": 0,
+      "unit": "mm",
+      "norm": 58,
+      "vars": {
+       "irrigation_mm": 0,
+       "saved_mm": 0
+      }
+     },
+     "income_mean": {
+      "raw": 115,
+      "unit": "usd_ac",
+      "norm": 85,
+      "vars": {
+       "revenue_usd_ac": 115,
+       "diff_usd_ac": 13
+      }
+     },
+     "income_worst": {
+      "raw": 68,
+      "unit": "usd_ac",
+      "norm": 86,
+      "vars": {
+       "worst5_usd_ac": 68,
+       "r0_worst5_usd_ac": 60
+      }
+     },
+     "soil_health": {
+      "raw": 39,
+      "unit": "score",
+      "norm": 36,
+      "vars": {
+       "score": 39,
+       "living_root_days": 162,
+       "legume_years": 0
+      }
+     },
+     "water_erosion": {
+      "raw": 3,
+      "unit": "days",
+      "norm": 43,
+      "vars": {
+       "bare_storm_days": 3,
+       "r0_bare_storm_days": 3
+      }
+     },
+     "wind_erosion": {
+      "raw": 13,
+      "unit": "days",
+      "norm": 32,
+      "vars": {
+       "bare_windy_days": 13,
+       "r0_bare_windy_days": 13
+      }
+     },
+     "pest_break": {
+      "raw": 1,
+      "unit": "years",
+      "norm": 100,
+      "vars": {
+       "max_run_years": 1,
+       "r0_max_run_years": 8
+      }
+     },
+     "heat_frost_risk": {
+      "raw": 16,
+      "unit": "days",
+      "norm": 100,
+      "vars": {
+       "heat_days": 16,
+       "r0_heat_days": 52
+      }
+     }
+    },
+    "requires_equipment": [
+     "cotton"
+    ],
+    "needs_forage_market": false,
+    "crops_without_local_market": [
+     "cotton"
+    ],
+    "benefits": [
+     {
+      "text_id": "pest_cycle_broken",
+      "vars": {
+       "max_run_years": 1
+      }
+     }
+    ],
+    "evidence": [
+     {
+      "text_id": "replay_avg",
+      "vars": {
+       "years_from": 2000,
+       "years_to": 2025,
+       "irrigation_mm": 0,
+       "revenue_usd_ac": 115
+      },
+      "sources": [
+       "POWER",
+       "SSURGO",
+       "FAO56",
+       "NASS"
+      ]
+     },
+     {
+      "text_id": "replay_drought",
+      "vars": {
+       "year": 2012,
+       "irrigation_mm": 0,
+       "r0_irrigation_mm": 0
+      },
+      "sources": [
+       "POWER",
+       "FAO56"
+      ]
+     }
+    ],
+    "gap_ids": [
+     "crop_params_generic",
+     "county_yields",
+     "model_simplified"
+    ],
+    "risk_ids": [
+     "equipment_access",
+     "buyer_availability",
+     "new_crop_learning"
+    ],
+    "confidence": "limited"
+   }
+  ],
+  "cap150|actual": [
+   {
+    "rotation_id": "R0",
+    "feasible": true,
+    "infeasible_reason_id": null,
+    "criteria": {
+     "water_use": {
+      "raw": 150,
+      "unit": "mm",
+      "norm": 15,
+      "vars": {
+       "irrigation_mm": 150,
+       "saved_mm": 0
+      }
+     },
+     "income_mean": {
+      "raw": 286,
+      "unit": "usd_ac",
+      "norm": 73,
+      "vars": {
+       "revenue_usd_ac": 286,
+       "diff_usd_ac": 0
+      }
+     },
+     "income_worst": {
+      "raw": 181,
+      "unit": "usd_ac",
+      "norm": 27,
+      "vars": {
+       "worst5_usd_ac": 181,
+       "r0_worst5_usd_ac": 181
+      }
+     },
+     "soil_health": {
+      "raw": 33,
+      "unit": "score",
+      "norm": 25,
+      "vars": {
+       "score": 33,
+       "living_root_days": 165,
+       "legume_years": 0
+      }
+     },
+     "water_erosion": {
+      "raw": 3,
+      "unit": "days",
+      "norm": 43,
+      "vars": {
+       "bare_storm_days": 3,
+       "r0_bare_storm_days": 3
+      }
+     },
+     "wind_erosion": {
+      "raw": 13,
+      "unit": "days",
+      "norm": 32,
+      "vars": {
+       "bare_windy_days": 13,
+       "r0_bare_windy_days": 13
+      }
+     },
+     "pest_break": {
+      "raw": 8,
+      "unit": "years",
+      "norm": 15,
+      "vars": {
+       "max_run_years": 8,
+       "r0_max_run_years": 8
+      }
+     },
+     "heat_frost_risk": {
+      "raw": 44,
+      "unit": "days",
+      "norm": 15,
+      "vars": {
+       "heat_days": 44,
+       "r0_heat_days": 44
+      }
+     }
+    },
+    "requires_equipment": [],
+    "needs_forage_market": false,
+    "crops_without_local_market": [],
+    "benefits": [],
+    "evidence": [
+     {
+      "text_id": "replay_avg",
+      "vars": {
+       "years_from": 2000,
+       "years_to": 2025,
+       "irrigation_mm": 150,
+       "revenue_usd_ac": 286
+      },
+      "sources": [
+       "POWER",
+       "SSURGO",
+       "FAO56",
+       "NASS"
+      ]
+     },
+     {
+      "text_id": "replay_drought",
+      "vars": {
+       "year": 2012,
+       "irrigation_mm": 150,
+       "r0_irrigation_mm": 150
+      },
+      "sources": [
+       "POWER",
+       "FAO56"
+      ]
+     },
+     {
+      "text_id": "validation_et",
+      "vars": {
+       "bias_pct": -31
+      },
+      "sources": [
+       "OpenET",
+       "MODEL"
+      ]
+     }
+    ],
+    "gap_ids": [
+     "costs_not_modelled",
+     "prices_constant",
+     "model_simplified"
+    ],
+    "risk_ids": [
+     "water_rights",
+     "crop_insurance"
+    ],
+    "confidence": "good"
+   },
+   {
+    "rotation_id": "R1",
+    "feasible": true,
+    "infeasible_reason_id": null,
+    "criteria": {
+     "water_use": {
+      "raw": 148,
+      "unit": "mm",
+      "norm": 18,
+      "vars": {
+       "irrigation_mm": 148,
+       "saved_mm": 2
+      }
+     },
+     "income_mean": {
+      "raw": 304,
+      "unit": "usd_ac",
+      "norm": 87,
+      "vars": {
+       "revenue_usd_ac": 304,
+       "diff_usd_ac": 18
+      }
+     },
+     "income_worst": {
+      "raw": 228,
+      "unit": "usd_ac",
+      "norm": 67,
+      "vars": {
+       "worst5_usd_ac": 228,
+       "r0_worst5_usd_ac": 181
+      }
+     },
+     "soil_health": {
+      "raw": 34,
+      "unit": "score",
+      "norm": 27,
+      "vars": {
+       "score": 34,
+       "living_root_days": 172,
+       "legume_years": 0
+      }
+     },
+     "water_erosion": {
+      "raw": 3,
+      "unit": "days",
+      "norm": 43,
+      "vars": {
+       "bare_storm_days": 3,
+       "r0_bare_storm_days": 3
+      }
+     },
+     "wind_erosion": {
+      "raw": 12,
+      "unit": "days",
+      "norm": 40,
+      "vars": {
+       "bare_windy_days": 12,
+       "r0_bare_windy_days": 13
+      }
+     },
+     "pest_break": {
+      "raw": 1,
+      "unit": "years",
+      "norm": 100,
+      "vars": {
+       "max_run_years": 1,
+       "r0_max_run_years": 8
+      }
+     },
+     "heat_frost_risk": {
+      "raw": 24,
+      "unit": "days",
+      "norm": 70,
+      "vars": {
+       "heat_days": 24,
+       "r0_heat_days": 44
+      }
+     }
+    },
+    "requires_equipment": [],
+    "needs_forage_market": false,
+    "crops_without_local_market": [],
+    "benefits": [
+     {
+      "text_id": "income_steadier",
+      "vars": {
+       "worst5_gain_usd_ac": 47
+      }
+     },
+     {
+      "text_id": "pest_cycle_broken",
+      "vars": {
+       "max_run_years": 1
+      }
+     }
+    ],
+    "evidence": [
+     {
+      "text_id": "replay_avg",
+      "vars": {
+       "years_from": 2000,
+       "years_to": 2025,
+       "irrigation_mm": 148,
+       "revenue_usd_ac": 304
+      },
+      "sources": [
+       "POWER",
+       "SSURGO",
+       "FAO56",
+       "NASS"
+      ]
+     },
+     {
+      "text_id": "replay_drought",
+      "vars": {
+       "year": 2012,
+       "irrigation_mm": 150,
+       "r0_irrigation_mm": 150
+      },
+      "sources": [
+       "POWER",
+       "FAO56"
+      ]
+     },
+     {
+      "text_id": "neighbors",
+      "vars": {
+       "n": 11,
+       "et_mm": 849,
+       "r0_et_mm": 932
+      },
+      "sources": [
+       "OpenET",
+       "CSB",
+       "SSURGO"
+      ]
+     }
+    ],
+    "gap_ids": [
+     "costs_not_modelled",
+     "prices_constant",
+     "county_yields"
+    ],
+    "risk_ids": [
+     "herbicide_carryover",
+     "crop_insurance"
+    ],
+    "confidence": "good"
+   },
+   {
+    "rotation_id": "R2",
+    "feasible": true,
+    "infeasible_reason_id": null,
+    "criteria": {
+     "water_use": {
+      "raw": 98,
+      "unit": "mm",
+      "norm": 100,
+      "vars": {
+       "irrigation_mm": 98,
+       "saved_mm": 52
+      }
+     },
+     "income_mean": {
+      "raw": 209,
+      "unit": "usd_ac",
+      "norm": 15,
+      "vars": {
+       "revenue_usd_ac": 209,
+       "diff_usd_ac": -77
+      }
+     },
+     "income_worst": {
+      "raw": 167,
+      "unit": "usd_ac",
+      "norm": 15,
+      "vars": {
+       "worst5_usd_ac": 167,
+       "r0_worst5_usd_ac": 181
+      }
+     },
+     "soil_health": {
+      "raw": 27,
+      "unit": "score",
+      "norm": 15,
+      "vars": {
+       "score": 27,
+       "living_root_days": 128,
+       "legume_years": 0
+      }
+     },
+     "water_erosion": {
+      "raw": 4,
+      "unit": "days",
+      "norm": 15,
+      "vars": {
+       "bare_storm_days": 4,
+       "r0_bare_storm_days": 3
+      }
+     },
+     "wind_erosion": {
+      "raw": 15,
+      "unit": "days",
+      "norm": 15,
+      "vars": {
+       "bare_windy_days": 15,
+       "r0_bare_windy_days": 13
+      }
+     },
+     "pest_break": {
+      "raw": 1,
+      "unit": "years",
+      "norm": 100,
+      "vars": {
+       "max_run_years": 1,
+       "r0_max_run_years": 8
+      }
+     },
+     "heat_frost_risk": {
+      "raw": 13,
+      "unit": "days",
+      "norm": 100,
+      "vars": {
+       "heat_days": 13,
+       "r0_heat_days": 44
+      }
+     }
+    },
+    "requires_equipment": [],
+    "needs_forage_market": false,
+    "crops_without_local_market": [],
+    "benefits": [
+     {
+      "text_id": "water_saved",
+      "vars": {
+       "saved_mm": 52
+      }
+     },
+     {
+      "text_id": "pest_cycle_broken",
+      "vars": {
+       "max_run_years": 1
+      }
+     }
+    ],
+    "evidence": [
+     {
+      "text_id": "replay_avg",
+      "vars": {
+       "years_from": 2000,
+       "years_to": 2025,
+       "irrigation_mm": 98,
+       "revenue_usd_ac": 209
+      },
+      "sources": [
+       "POWER",
+       "SSURGO",
+       "FAO56",
+       "NASS"
+      ]
+     },
+     {
+      "text_id": "replay_drought",
+      "vars": {
+       "year": 2012,
+       "irrigation_mm": 100,
+       "r0_irrigation_mm": 150
+      },
+      "sources": [
+       "POWER",
+       "FAO56"
+      ]
+     }
+    ],
+    "gap_ids": [
+     "costs_not_modelled",
+     "county_yields",
+     "openet_record_short"
+    ],
+    "risk_ids": [
+     "fallow_wind",
+     "herbicide_carryover"
+    ],
+    "confidence": "good"
+   },
+   {
+    "rotation_id": "R3",
+    "feasible": true,
+    "infeasible_reason_id": null,
+    "criteria": {
+     "water_use": {
+      "raw": 134,
+      "unit": "mm",
+      "norm": 41,
+      "vars": {
+       "irrigation_mm": 134,
+       "saved_mm": 16
+      }
+     },
+     "income_mean": {
+      "raw": 309,
+      "unit": "usd_ac",
+      "norm": 91,
+      "vars": {
+       "revenue_usd_ac": 309,
+       "diff_usd_ac": 23
+      }
+     },
+     "income_worst": {
+      "raw": 267,
+      "unit": "usd_ac",
+      "norm": 100,
+      "vars": {
+       "worst5_usd_ac": 267,
+       "r0_worst5_usd_ac": 181
+      }
+     },
+     "soil_health": {
+      "raw": 36,
+      "unit": "score",
+      "norm": 31,
+      "vars": {
+       "score": 36,
+       "living_root_days": 182,
+       "legume_years": 0
+      }
+     },
+     "water_erosion": {
+      "raw": 3,
+      "unit": "days",
+      "norm": 43,
+      "vars": {
+       "bare_storm_days": 3,
+       "r0_bare_storm_days": 3
+      }
+     },
+     "wind_erosion": {
+      "raw": 12,
+      "unit": "days",
+      "norm": 40,
+      "vars": {
+       "bare_windy_days": 12,
+       "r0_bare_windy_days": 13
+      }
+     },
+     "pest_break": {
+      "raw": 2,
+      "unit": "years",
+      "norm": 88,
+      "vars": {
+       "max_run_years": 2,
+       "r0_max_run_years": 8
+      }
+     },
+     "heat_frost_risk": {
+      "raw": 13,
+      "unit": "days",
+      "norm": 100,
+      "vars": {
+       "heat_days": 13,
+       "r0_heat_days": 44
+      }
+     }
+    },
+    "requires_equipment": [],
+    "needs_forage_market": true,
+    "crops_without_local_market": [
+     "triticale"
+    ],
+    "benefits": [
+     {
+      "text_id": "income_steadier",
+      "vars": {
+       "worst5_gain_usd_ac": 86
+      }
+     },
+     {
+      "text_id": "pest_cycle_broken",
+      "vars": {
+       "max_run_years": 2
+      }
+     },
+     {
+      "text_id": "forage_income",
+      "vars": {
+       "forage_crop": "triticale"
+      }
+     }
+    ],
+    "evidence": [
+     {
+      "text_id": "replay_avg",
+      "vars": {
+       "years_from": 2000,
+       "years_to": 2025,
+       "irrigation_mm": 134,
+       "revenue_usd_ac": 309
+      },
+      "sources": [
+       "POWER",
+       "SSURGO",
+       "FAO56",
+       "NASS"
+      ]
+     },
+     {
+      "text_id": "replay_drought",
+      "vars": {
+       "year": 2012,
+       "irrigation_mm": 148,
+       "r0_irrigation_mm": 150
+      },
+      "sources": [
+       "POWER",
+       "FAO56"
+      ]
+     }
+    ],
+    "gap_ids": [
+     "crop_params_generic",
+     "prices_constant",
+     "county_yields"
+    ],
+    "risk_ids": [
+     "buyer_availability",
+     "new_crop_learning"
+    ],
+    "confidence": "fair"
+   },
+   {
+    "rotation_id": "R4",
+    "feasible": false,
+    "infeasible_reason_id": "needs_more_water",
+    "criteria": {
+     "water_use": {
+      "raw": 149,
+      "unit": "mm",
+      "norm": 17,
+      "vars": {
+       "irrigation_mm": 149,
+       "saved_mm": 1
+      }
+     },
+     "income_mean": {
+      "raw": 296,
+      "unit": "usd_ac",
+      "norm": 81,
+      "vars": {
+       "revenue_usd_ac": 296,
+       "diff_usd_ac": 10
+      }
+     },
+     "income_worst": {
+      "raw": 197,
+      "unit": "usd_ac",
+      "norm": 40,
+      "vars": {
+       "worst5_usd_ac": 197,
+       "r0_worst5_usd_ac": 181
+      }
+     },
+     "soil_health": {
+      "raw": 76,
+      "unit": "score",
+      "norm": 100,
+      "vars": {
+       "score": 76,
+       "living_root_days": 285,
+       "legume_years": 4
+      }
+     },
+     "water_erosion": {
+      "raw": 1,
+      "unit": "days",
+      "norm": 100,
+      "vars": {
+       "bare_storm_days": 1,
+       "r0_bare_storm_days": 3
+      }
+     },
+     "wind_erosion": {
+      "raw": 5,
+      "unit": "days",
+      "norm": 100,
+      "vars": {
+       "bare_windy_days": 5,
+       "r0_bare_windy_days": 13
+      }
+     },
+     "pest_break": {
+      "raw": 4,
+      "unit": "years",
+      "norm": 64,
+      "vars": {
+       "max_run_years": 4,
+       "r0_max_run_years": 8
+      }
+     },
+     "heat_frost_risk": {
+      "raw": 18,
+      "unit": "days",
+      "norm": 86,
+      "vars": {
+       "heat_days": 18,
+       "r0_heat_days": 44
+      }
+     }
+    },
+    "requires_equipment": [
+     "hay"
+    ],
+    "needs_forage_market": true,
+    "crops_without_local_market": [],
+    "benefits": [
+     {
+      "text_id": "bare_days_reduced",
+      "vars": {
+       "days": 120
+      }
+     },
+     {
+      "text_id": "legume_added",
+      "vars": {
+       "legume_years": 4,
+       "cycle_years": 6
+      }
+     },
+     {
+      "text_id": "income_steadier",
+      "vars": {
+       "worst5_gain_usd_ac": 16
+      }
+     },
+     {
+      "text_id": "pest_cycle_broken",
+      "vars": {
+       "max_run_years": 4
+      }
+     },
+     {
+      "text_id": "forage_income",
+      "vars": {
+       "forage_crop": "alfalfa"
+      }
+     }
+    ],
+    "evidence": [
+     {
+      "text_id": "replay_avg",
+      "vars": {
+       "years_from": 2000,
+       "years_to": 2025,
+       "irrigation_mm": 149,
+       "revenue_usd_ac": 296
+      },
+      "sources": [
+       "POWER",
+       "SSURGO",
+       "FAO56",
+       "NASS"
+      ]
+     },
+     {
+      "text_id": "replay_drought",
+      "vars": {
+       "year": 2012,
+       "irrigation_mm": 150,
+       "r0_irrigation_mm": 150
+      },
+      "sources": [
+       "POWER",
+       "FAO56"
+      ]
+     },
+     {
+      "text_id": "neighbors",
+      "vars": {
+       "n": 4,
+       "et_mm": 1124,
+       "r0_et_mm": 932
+      },
+      "sources": [
+       "OpenET",
+       "CSB",
+       "SSURGO"
+      ]
+     }
+    ],
+    "gap_ids": [
+     "crop_params_generic",
+     "costs_not_modelled",
+     "no_pest_data"
+    ],
+    "risk_ids": [
+     "alfalfa_stand_water",
+     "equipment_access",
+     "buyer_availability"
+    ],
+    "confidence": "limited"
+   },
+   {
+    "rotation_id": "R5",
+    "feasible": false,
+    "infeasible_reason_id": "needs_more_water",
+    "criteria": {
+     "water_use": {
+      "raw": 148,
+      "unit": "mm",
+      "norm": 18,
+      "vars": {
+       "irrigation_mm": 148,
+       "saved_mm": 2
+      }
+     },
+     "income_mean": {
+      "raw": 279,
+      "unit": "usd_ac",
+      "norm": 68,
+      "vars": {
+       "revenue_usd_ac": 279,
+       "diff_usd_ac": -7
+      }
+     },
+     "income_worst": {
+      "raw": 198,
+      "unit": "usd_ac",
+      "norm": 41,
+      "vars": {
+       "worst5_usd_ac": 198,
+       "r0_worst5_usd_ac": 181
+      }
+     },
+     "soil_health": {
+      "raw": 55,
+      "unit": "score",
+      "norm": 64,
+      "vars": {
+       "score": 55,
+       "living_root_days": 208,
+       "legume_years": 1
+      }
+     },
+     "water_erosion": {
+      "raw": 3,
+      "unit": "days",
+      "norm": 43,
+      "vars": {
+       "bare_storm_days": 3,
+       "r0_bare_storm_days": 3
+      }
+     },
+     "wind_erosion": {
+      "raw": 10,
+      "unit": "days",
+      "norm": 58,
+      "vars": {
+       "bare_windy_days": 10,
+       "r0_bare_windy_days": 13
+      }
+     },
+     "pest_break": {
+      "raw": 1,
+      "unit": "years",
+      "norm": 100,
+      "vars": {
+       "max_run_years": 1,
+       "r0_max_run_years": 8
+      }
+     },
+     "heat_frost_risk": {
+      "raw": 34,
+      "unit": "days",
+      "norm": 42,
+      "vars": {
+       "heat_days": 34,
+       "r0_heat_days": 44
+      }
+     }
+    },
+    "requires_equipment": [],
+    "needs_forage_market": false,
+    "crops_without_local_market": [],
+    "benefits": [
+     {
+      "text_id": "bare_days_reduced",
+      "vars": {
+       "days": 43
+      }
+     },
+     {
+      "text_id": "legume_added",
+      "vars": {
+       "legume_years": 1,
+       "cycle_years": 3
+      }
+     },
+     {
+      "text_id": "income_steadier",
+      "vars": {
+       "worst5_gain_usd_ac": 17
+      }
+     },
+     {
+      "text_id": "pest_cycle_broken",
+      "vars": {
+       "max_run_years": 1
+      }
+     }
+    ],
+    "evidence": [
+     {
+      "text_id": "replay_avg",
+      "vars": {
+       "years_from": 2000,
+       "years_to": 2025,
+       "irrigation_mm": 148,
+       "revenue_usd_ac": 279
+      },
+      "sources": [
+       "POWER",
+       "SSURGO",
+       "FAO56",
+       "NASS"
+      ]
+     },
+     {
+      "text_id": "replay_drought",
+      "vars": {
+       "year": 2012,
+       "irrigation_mm": 150,
+       "r0_irrigation_mm": 150
+      },
+      "sources": [
+       "POWER",
+       "FAO56"
+      ]
+     },
+     {
+      "text_id": "neighbors",
+      "vars": {
+       "n": 3,
+       "et_mm": 906,
+       "r0_et_mm": 932
+      },
+      "sources": [
+       "OpenET",
+       "CSB",
+       "SSURGO"
+      ]
+     }
+    ],
+    "gap_ids": [
+     "county_yields",
+     "crop_params_generic",
+     "neighbors_observational"
+    ],
+    "risk_ids": [
+     "cover_establishment",
+     "seed_availability"
+    ],
+    "confidence": "fair"
+   },
+   {
+    "rotation_id": "R6",
+    "feasible": true,
+    "infeasible_reason_id": null,
+    "criteria": {
+     "water_use": {
+      "raw": 148,
+      "unit": "mm",
+      "norm": 18,
+      "vars": {
+       "irrigation_mm": 148,
+       "saved_mm": 2
+      }
+     },
+     "income_mean": {
+      "raw": 321,
+      "unit": "usd_ac",
+      "norm": 100,
+      "vars": {
+       "revenue_usd_ac": 321,
+       "diff_usd_ac": 35
+      }
+     },
+     "income_worst": {
+      "raw": 249,
+      "unit": "usd_ac",
+      "norm": 85,
+      "vars": {
+       "worst5_usd_ac": 249,
+       "r0_worst5_usd_ac": 181
+      }
+     },
+     "soil_health": {
+      "raw": 39,
+      "unit": "score",
+      "norm": 36,
+      "vars": {
+       "score": 39,
+       "living_root_days": 162,
+       "legume_years": 0
+      }
+     },
+     "water_erosion": {
+      "raw": 3,
+      "unit": "days",
+      "norm": 43,
+      "vars": {
+       "bare_storm_days": 3,
+       "r0_bare_storm_days": 3
+      }
+     },
+     "wind_erosion": {
+      "raw": 13,
+      "unit": "days",
+      "norm": 32,
+      "vars": {
+       "bare_windy_days": 13,
+       "r0_bare_windy_days": 13
+      }
+     },
+     "pest_break": {
+      "raw": 1,
+      "unit": "years",
+      "norm": 100,
+      "vars": {
+       "max_run_years": 1,
+       "r0_max_run_years": 8
+      }
+     },
+     "heat_frost_risk": {
+      "raw": 13,
+      "unit": "days",
+      "norm": 100,
+      "vars": {
+       "heat_days": 13,
+       "r0_heat_days": 44
+      }
+     }
+    },
+    "requires_equipment": [
+     "cotton"
+    ],
+    "needs_forage_market": false,
+    "crops_without_local_market": [
+     "cotton"
+    ],
+    "benefits": [
+     {
+      "text_id": "income_steadier",
+      "vars": {
+       "worst5_gain_usd_ac": 68
+      }
+     },
+     {
+      "text_id": "pest_cycle_broken",
+      "vars": {
+       "max_run_years": 1
+      }
+     }
+    ],
+    "evidence": [
+     {
+      "text_id": "replay_avg",
+      "vars": {
+       "years_from": 2000,
+       "years_to": 2025,
+       "irrigation_mm": 148,
+       "revenue_usd_ac": 321
+      },
+      "sources": [
+       "POWER",
+       "SSURGO",
+       "FAO56",
+       "NASS"
+      ]
+     },
+     {
+      "text_id": "replay_drought",
+      "vars": {
+       "year": 2012,
+       "irrigation_mm": 150,
+       "r0_irrigation_mm": 150
+      },
+      "sources": [
+       "POWER",
+       "FAO56"
+      ]
+     }
+    ],
+    "gap_ids": [
+     "crop_params_generic",
+     "county_yields",
+     "model_simplified"
+    ],
+    "risk_ids": [
+     "equipment_access",
+     "buyer_availability",
+     "new_crop_learning"
+    ],
+    "confidence": "limited"
+   }
+  ],
+  "cap150|hotdry": [
+   {
+    "rotation_id": "R0",
+    "feasible": true,
+    "infeasible_reason_id": null,
+    "criteria": {
+     "water_use": {
+      "raw": 150,
+      "unit": "mm",
+      "norm": 15,
+      "vars": {
+       "irrigation_mm": 150,
+       "saved_mm": 0
+      }
+     },
+     "income_mean": {
+      "raw": 237,
+      "unit": "usd_ac",
+      "norm": 60,
+      "vars": {
+       "revenue_usd_ac": 237,
+       "diff_usd_ac": 0
+      }
+     },
+     "income_worst": {
+      "raw": 141,
+      "unit": "usd_ac",
+      "norm": 15,
+      "vars": {
+       "worst5_usd_ac": 141,
+       "r0_worst5_usd_ac": 141
+      }
+     },
+     "soil_health": {
+      "raw": 33,
+      "unit": "score",
+      "norm": 25,
+      "vars": {
+       "score": 33,
+       "living_root_days": 165,
+       "legume_years": 0
+      }
+     },
+     "water_erosion": {
+      "raw": 3,
+      "unit": "days",
+      "norm": 43,
+      "vars": {
+       "bare_storm_days": 3,
+       "r0_bare_storm_days": 3
+      }
+     },
+     "wind_erosion": {
+      "raw": 13,
+      "unit": "days",
+      "norm": 32,
+      "vars": {
+       "bare_windy_days": 13,
+       "r0_bare_windy_days": 13
+      }
+     },
+     "pest_break": {
+      "raw": 8,
+      "unit": "years",
+      "norm": 15,
+      "vars": {
+       "max_run_years": 8,
+       "r0_max_run_years": 8
+      }
+     },
+     "heat_frost_risk": {
+      "raw": 52,
+      "unit": "days",
+      "norm": 15,
+      "vars": {
+       "heat_days": 52,
+       "r0_heat_days": 52
+      }
+     }
+    },
+    "requires_equipment": [],
+    "needs_forage_market": false,
+    "crops_without_local_market": [],
+    "benefits": [],
+    "evidence": [
+     {
+      "text_id": "replay_avg",
+      "vars": {
+       "years_from": 2000,
+       "years_to": 2025,
+       "irrigation_mm": 150,
+       "revenue_usd_ac": 237
+      },
+      "sources": [
+       "POWER",
+       "SSURGO",
+       "FAO56",
+       "NASS"
+      ]
+     },
+     {
+      "text_id": "replay_drought",
+      "vars": {
+       "year": 2012,
+       "irrigation_mm": 150,
+       "r0_irrigation_mm": 150
+      },
+      "sources": [
+       "POWER",
+       "FAO56"
+      ]
+     },
+     {
+      "text_id": "validation_et",
+      "vars": {
+       "bias_pct": -31
+      },
+      "sources": [
+       "OpenET",
+       "MODEL"
+      ]
+     }
+    ],
+    "gap_ids": [
+     "costs_not_modelled",
+     "prices_constant",
+     "model_simplified"
+    ],
+    "risk_ids": [
+     "water_rights",
+     "crop_insurance"
+    ],
+    "confidence": "good"
+   },
+   {
+    "rotation_id": "R1",
+    "feasible": true,
+    "infeasible_reason_id": null,
+    "criteria": {
+     "water_use": {
+      "raw": 150,
+      "unit": "mm",
+      "norm": 15,
+      "vars": {
+       "irrigation_mm": 150,
+       "saved_mm": 0
+      }
+     },
+     "income_mean": {
+      "raw": 264,
+      "unit": "usd_ac",
+      "norm": 83,
+      "vars": {
+       "revenue_usd_ac": 264,
+       "diff_usd_ac": 27
+      }
+     },
+     "income_worst": {
+      "raw": 189,
+      "unit": "usd_ac",
+      "norm": 58,
+      "vars": {
+       "worst5_usd_ac": 189,
+       "r0_worst5_usd_ac": 141
+      }
+     },
+     "soil_health": {
+      "raw": 34,
+      "unit": "score",
+      "norm": 27,
+      "vars": {
+       "score": 34,
+       "living_root_days": 172,
+       "legume_years": 0
+      }
+     },
+     "water_erosion": {
+      "raw": 3,
+      "unit": "days",
+      "norm": 43,
+      "vars": {
+       "bare_storm_days": 3,
+       "r0_bare_storm_days": 3
+      }
+     },
+     "wind_erosion": {
+      "raw": 12,
+      "unit": "days",
+      "norm": 40,
+      "vars": {
+       "bare_windy_days": 12,
+       "r0_bare_windy_days": 13
+      }
+     },
+     "pest_break": {
+      "raw": 1,
+      "unit": "years",
+      "norm": 100,
+      "vars": {
+       "max_run_years": 1,
+       "r0_max_run_years": 8
+      }
+     },
+     "heat_frost_risk": {
+      "raw": 28,
+      "unit": "days",
+      "norm": 72,
+      "vars": {
+       "heat_days": 28,
+       "r0_heat_days": 52
+      }
+     }
+    },
+    "requires_equipment": [],
+    "needs_forage_market": false,
+    "crops_without_local_market": [],
+    "benefits": [
+     {
+      "text_id": "income_steadier",
+      "vars": {
+       "worst5_gain_usd_ac": 48
+      }
+     },
+     {
+      "text_id": "pest_cycle_broken",
+      "vars": {
+       "max_run_years": 1
+      }
+     }
+    ],
+    "evidence": [
+     {
+      "text_id": "replay_avg",
+      "vars": {
+       "years_from": 2000,
+       "years_to": 2025,
+       "irrigation_mm": 150,
+       "revenue_usd_ac": 264
+      },
+      "sources": [
+       "POWER",
+       "SSURGO",
+       "FAO56",
+       "NASS"
+      ]
+     },
+     {
+      "text_id": "replay_drought",
+      "vars": {
+       "year": 2012,
+       "irrigation_mm": 150,
+       "r0_irrigation_mm": 150
+      },
+      "sources": [
+       "POWER",
+       "FAO56"
+      ]
+     },
+     {
+      "text_id": "neighbors",
+      "vars": {
+       "n": 11,
+       "et_mm": 849,
+       "r0_et_mm": 932
+      },
+      "sources": [
+       "OpenET",
+       "CSB",
+       "SSURGO"
+      ]
+     }
+    ],
+    "gap_ids": [
+     "costs_not_modelled",
+     "prices_constant",
+     "county_yields"
+    ],
+    "risk_ids": [
+     "herbicide_carryover",
+     "crop_insurance"
+    ],
+    "confidence": "good"
+   },
+   {
+    "rotation_id": "R2",
+    "feasible": true,
+    "infeasible_reason_id": null,
+    "criteria": {
+     "water_use": {
+      "raw": 100,
+      "unit": "mm",
+      "norm": 100,
+      "vars": {
+       "irrigation_mm": 100,
+       "saved_mm": 50
+      }
+     },
+     "income_mean": {
+      "raw": 185,
+      "unit": "usd_ac",
+      "norm": 15,
+      "vars": {
+       "revenue_usd_ac": 185,
+       "diff_usd_ac": -52
+      }
+     },
+     "income_worst": {
+      "raw": 142,
+      "unit": "usd_ac",
+      "norm": 16,
+      "vars": {
+       "worst5_usd_ac": 142,
+       "r0_worst5_usd_ac": 141
+      }
+     },
+     "soil_health": {
+      "raw": 27,
+      "unit": "score",
+      "norm": 15,
+      "vars": {
+       "score": 27,
+       "living_root_days": 128,
+       "legume_years": 0
+      }
+     },
+     "water_erosion": {
+      "raw": 4,
+      "unit": "days",
+      "norm": 15,
+      "vars": {
+       "bare_storm_days": 4,
+       "r0_bare_storm_days": 3
+      }
+     },
+     "wind_erosion": {
+      "raw": 15,
+      "unit": "days",
+      "norm": 15,
+      "vars": {
+       "bare_windy_days": 15,
+       "r0_bare_windy_days": 13
+      }
+     },
+     "pest_break": {
+      "raw": 1,
+      "unit": "years",
+      "norm": 100,
+      "vars": {
+       "max_run_years": 1,
+       "r0_max_run_years": 8
+      }
+     },
+     "heat_frost_risk": {
+      "raw": 16,
+      "unit": "days",
+      "norm": 100,
+      "vars": {
+       "heat_days": 16,
+       "r0_heat_days": 52
+      }
+     }
+    },
+    "requires_equipment": [],
+    "needs_forage_market": false,
+    "crops_without_local_market": [],
+    "benefits": [
+     {
+      "text_id": "water_saved",
+      "vars": {
+       "saved_mm": 50
+      }
+     },
+     {
+      "text_id": "pest_cycle_broken",
+      "vars": {
+       "max_run_years": 1
+      }
+     }
+    ],
+    "evidence": [
+     {
+      "text_id": "replay_avg",
+      "vars": {
+       "years_from": 2000,
+       "years_to": 2025,
+       "irrigation_mm": 100,
+       "revenue_usd_ac": 185
+      },
+      "sources": [
+       "POWER",
+       "SSURGO",
+       "FAO56",
+       "NASS"
+      ]
+     },
+     {
+      "text_id": "replay_drought",
+      "vars": {
+       "year": 2012,
+       "irrigation_mm": 100,
+       "r0_irrigation_mm": 150
+      },
+      "sources": [
+       "POWER",
+       "FAO56"
+      ]
+     }
+    ],
+    "gap_ids": [
+     "costs_not_modelled",
+     "county_yields",
+     "openet_record_short"
+    ],
+    "risk_ids": [
+     "fallow_wind",
+     "herbicide_carryover"
+    ],
+    "confidence": "good"
+   },
+   {
+    "rotation_id": "R3",
+    "feasible": true,
+    "infeasible_reason_id": null,
+    "criteria": {
+     "water_use": {
+      "raw": 143,
+      "unit": "mm",
+      "norm": 27,
+      "vars": {
+       "irrigation_mm": 143,
+       "saved_mm": 7
+      }
+     },
+     "income_mean": {
+      "raw": 284,
+      "unit": "usd_ac",
+      "norm": 100,
+      "vars": {
+       "revenue_usd_ac": 284,
+       "diff_usd_ac": 47
+      }
+     },
+     "income_worst": {
+      "raw": 237,
+      "unit": "usd_ac",
+      "norm": 100,
+      "vars": {
+       "worst5_usd_ac": 237,
+       "r0_worst5_usd_ac": 141
+      }
+     },
+     "soil_health": {
+      "raw": 36,
+      "unit": "score",
+      "norm": 31,
+      "vars": {
+       "score": 36,
+       "living_root_days": 182,
+       "legume_years": 0
+      }
+     },
+     "water_erosion": {
+      "raw": 3,
+      "unit": "days",
+      "norm": 43,
+      "vars": {
+       "bare_storm_days": 3,
+       "r0_bare_storm_days": 3
+      }
+     },
+     "wind_erosion": {
+      "raw": 12,
+      "unit": "days",
+      "norm": 40,
+      "vars": {
+       "bare_windy_days": 12,
+       "r0_bare_windy_days": 13
+      }
+     },
+     "pest_break": {
+      "raw": 2,
+      "unit": "years",
+      "norm": 88,
+      "vars": {
+       "max_run_years": 2,
+       "r0_max_run_years": 8
+      }
+     },
+     "heat_frost_risk": {
+      "raw": 16,
+      "unit": "days",
+      "norm": 100,
+      "vars": {
+       "heat_days": 16,
+       "r0_heat_days": 52
+      }
+     }
+    },
+    "requires_equipment": [],
+    "needs_forage_market": true,
+    "crops_without_local_market": [
+     "triticale"
+    ],
+    "benefits": [
+     {
+      "text_id": "income_steadier",
+      "vars": {
+       "worst5_gain_usd_ac": 96
+      }
+     },
+     {
+      "text_id": "pest_cycle_broken",
+      "vars": {
+       "max_run_years": 2
+      }
+     },
+     {
+      "text_id": "forage_income",
+      "vars": {
+       "forage_crop": "triticale"
+      }
+     }
+    ],
+    "evidence": [
+     {
+      "text_id": "replay_avg",
+      "vars": {
+       "years_from": 2000,
+       "years_to": 2025,
+       "irrigation_mm": 143,
+       "revenue_usd_ac": 284
+      },
+      "sources": [
+       "POWER",
+       "SSURGO",
+       "FAO56",
+       "NASS"
+      ]
+     },
+     {
+      "text_id": "replay_drought",
+      "vars": {
+       "year": 2012,
+       "irrigation_mm": 150,
+       "r0_irrigation_mm": 150
+      },
+      "sources": [
+       "POWER",
+       "FAO56"
+      ]
+     }
+    ],
+    "gap_ids": [
+     "crop_params_generic",
+     "prices_constant",
+     "county_yields"
+    ],
+    "risk_ids": [
+     "buyer_availability",
+     "new_crop_learning"
+    ],
+    "confidence": "fair"
+   },
+   {
+    "rotation_id": "R4",
+    "feasible": false,
+    "infeasible_reason_id": "needs_more_water",
+    "criteria": {
+     "water_use": {
+      "raw": 150,
+      "unit": "mm",
+      "norm": 15,
+      "vars": {
+       "irrigation_mm": 150,
+       "saved_mm": 0
+      }
+     },
+     "income_mean": {
+      "raw": 251,
+      "unit": "usd_ac",
+      "norm": 72,
+      "vars": {
+       "revenue_usd_ac": 251,
+       "diff_usd_ac": 14
+      }
+     },
+     "income_worst": {
+      "raw": 157,
+      "unit": "usd_ac",
+      "norm": 29,
+      "vars": {
+       "worst5_usd_ac": 157,
+       "r0_worst5_usd_ac": 141
+      }
+     },
+     "soil_health": {
+      "raw": 76,
+      "unit": "score",
+      "norm": 100,
+      "vars": {
+       "score": 76,
+       "living_root_days": 285,
+       "legume_years": 4
+      }
+     },
+     "water_erosion": {
+      "raw": 1,
+      "unit": "days",
+      "norm": 100,
+      "vars": {
+       "bare_storm_days": 1,
+       "r0_bare_storm_days": 3
+      }
+     },
+     "wind_erosion": {
+      "raw": 5,
+      "unit": "days",
+      "norm": 100,
+      "vars": {
+       "bare_windy_days": 5,
+       "r0_bare_windy_days": 13
+      }
+     },
+     "pest_break": {
+      "raw": 4,
+      "unit": "years",
+      "norm": 64,
+      "vars": {
+       "max_run_years": 4,
+       "r0_max_run_years": 8
+      }
+     },
+     "heat_frost_risk": {
+      "raw": 22,
+      "unit": "days",
+      "norm": 86,
+      "vars": {
+       "heat_days": 22,
+       "r0_heat_days": 52
+      }
+     }
+    },
+    "requires_equipment": [
+     "hay"
+    ],
+    "needs_forage_market": true,
+    "crops_without_local_market": [],
+    "benefits": [
+     {
+      "text_id": "bare_days_reduced",
+      "vars": {
+       "days": 120
+      }
+     },
+     {
+      "text_id": "legume_added",
+      "vars": {
+       "legume_years": 4,
+       "cycle_years": 6
+      }
+     },
+     {
+      "text_id": "income_steadier",
+      "vars": {
+       "worst5_gain_usd_ac": 16
+      }
+     },
+     {
+      "text_id": "pest_cycle_broken",
+      "vars": {
+       "max_run_years": 4
+      }
+     },
+     {
+      "text_id": "forage_income",
+      "vars": {
+       "forage_crop": "alfalfa"
+      }
+     }
+    ],
+    "evidence": [
+     {
+      "text_id": "replay_avg",
+      "vars": {
+       "years_from": 2000,
+       "years_to": 2025,
+       "irrigation_mm": 150,
+       "revenue_usd_ac": 251
+      },
+      "sources": [
+       "POWER",
+       "SSURGO",
+       "FAO56",
+       "NASS"
+      ]
+     },
+     {
+      "text_id": "replay_drought",
+      "vars": {
+       "year": 2012,
+       "irrigation_mm": 150,
+       "r0_irrigation_mm": 150
+      },
+      "sources": [
+       "POWER",
+       "FAO56"
+      ]
+     },
+     {
+      "text_id": "neighbors",
+      "vars": {
+       "n": 4,
+       "et_mm": 1124,
+       "r0_et_mm": 932
+      },
+      "sources": [
+       "OpenET",
+       "CSB",
+       "SSURGO"
+      ]
+     }
+    ],
+    "gap_ids": [
+     "crop_params_generic",
+     "costs_not_modelled",
+     "no_pest_data"
+    ],
+    "risk_ids": [
+     "alfalfa_stand_water",
+     "equipment_access",
+     "buyer_availability"
+    ],
+    "confidence": "limited"
+   },
+   {
+    "rotation_id": "R5",
+    "feasible": false,
+    "infeasible_reason_id": "needs_more_water",
+    "criteria": {
+     "water_use": {
+      "raw": 150,
+      "unit": "mm",
+      "norm": 15,
+      "vars": {
+       "irrigation_mm": 150,
+       "saved_mm": 0
+      }
+     },
+     "income_mean": {
+      "raw": 238,
+      "unit": "usd_ac",
+      "norm": 61,
+      "vars": {
+       "revenue_usd_ac": 238,
+       "diff_usd_ac": 1
+      }
+     },
+     "income_worst": {
+      "raw": 159,
+      "unit": "usd_ac",
+      "norm": 31,
+      "vars": {
+       "worst5_usd_ac": 159,
+       "r0_worst5_usd_ac": 141
+      }
+     },
+     "soil_health": {
+      "raw": 55,
+      "unit": "score",
+      "norm": 64,
+      "vars": {
+       "score": 55,
+       "living_root_days": 208,
+       "legume_years": 1
+      }
+     },
+     "water_erosion": {
+      "raw": 3,
+      "unit": "days",
+      "norm": 43,
+      "vars": {
+       "bare_storm_days": 3,
+       "r0_bare_storm_days": 3
+      }
+     },
+     "wind_erosion": {
+      "raw": 10,
+      "unit": "days",
+      "norm": 58,
+      "vars": {
+       "bare_windy_days": 10,
+       "r0_bare_windy_days": 13
+      }
+     },
+     "pest_break": {
+      "raw": 1,
+      "unit": "years",
+      "norm": 100,
+      "vars": {
+       "max_run_years": 1,
+       "r0_max_run_years": 8
+      }
+     },
+     "heat_frost_risk": {
+      "raw": 40,
+      "unit": "days",
+      "norm": 43,
+      "vars": {
+       "heat_days": 40,
+       "r0_heat_days": 52
+      }
+     }
+    },
+    "requires_equipment": [],
+    "needs_forage_market": false,
+    "crops_without_local_market": [],
+    "benefits": [
+     {
+      "text_id": "bare_days_reduced",
+      "vars": {
+       "days": 43
+      }
+     },
+     {
+      "text_id": "legume_added",
+      "vars": {
+       "legume_years": 1,
+       "cycle_years": 3
+      }
+     },
+     {
+      "text_id": "income_steadier",
+      "vars": {
+       "worst5_gain_usd_ac": 18
+      }
+     },
+     {
+      "text_id": "pest_cycle_broken",
+      "vars": {
+       "max_run_years": 1
+      }
+     }
+    ],
+    "evidence": [
+     {
+      "text_id": "replay_avg",
+      "vars": {
+       "years_from": 2000,
+       "years_to": 2025,
+       "irrigation_mm": 150,
+       "revenue_usd_ac": 238
+      },
+      "sources": [
+       "POWER",
+       "SSURGO",
+       "FAO56",
+       "NASS"
+      ]
+     },
+     {
+      "text_id": "replay_drought",
+      "vars": {
+       "year": 2012,
+       "irrigation_mm": 150,
+       "r0_irrigation_mm": 150
+      },
+      "sources": [
+       "POWER",
+       "FAO56"
+      ]
+     },
+     {
+      "text_id": "neighbors",
+      "vars": {
+       "n": 3,
+       "et_mm": 906,
+       "r0_et_mm": 932
+      },
+      "sources": [
+       "OpenET",
+       "CSB",
+       "SSURGO"
+      ]
+     }
+    ],
+    "gap_ids": [
+     "county_yields",
+     "crop_params_generic",
+     "neighbors_observational"
+    ],
+    "risk_ids": [
+     "cover_establishment",
+     "seed_availability"
+    ],
+    "confidence": "fair"
+   },
+   {
+    "rotation_id": "R6",
+    "feasible": true,
+    "infeasible_reason_id": null,
+    "criteria": {
+     "water_use": {
+      "raw": 150,
+      "unit": "mm",
+      "norm": 15,
+      "vars": {
+       "irrigation_mm": 150,
+       "saved_mm": 0
+      }
+     },
+     "income_mean": {
+      "raw": 281,
+      "unit": "usd_ac",
+      "norm": 97,
+      "vars": {
+       "revenue_usd_ac": 281,
+       "diff_usd_ac": 44
+      }
+     },
+     "income_worst": {
+      "raw": 209,
+      "unit": "usd_ac",
+      "norm": 75,
+      "vars": {
+       "worst5_usd_ac": 209,
+       "r0_worst5_usd_ac": 141
+      }
+     },
+     "soil_health": {
+      "raw": 39,
+      "unit": "score",
+      "norm": 36,
+      "vars": {
+       "score": 39,
+       "living_root_days": 162,
+       "legume_years": 0
+      }
+     },
+     "water_erosion": {
+      "raw": 3,
+      "unit": "days",
+      "norm": 43,
+      "vars": {
+       "bare_storm_days": 3,
+       "r0_bare_storm_days": 3
+      }
+     },
+     "wind_erosion": {
+      "raw": 13,
+      "unit": "days",
+      "norm": 32,
+      "vars": {
+       "bare_windy_days": 13,
+       "r0_bare_windy_days": 13
+      }
+     },
+     "pest_break": {
+      "raw": 1,
+      "unit": "years",
+      "norm": 100,
+      "vars": {
+       "max_run_years": 1,
+       "r0_max_run_years": 8
+      }
+     },
+     "heat_frost_risk": {
+      "raw": 16,
+      "unit": "days",
+      "norm": 100,
+      "vars": {
+       "heat_days": 16,
+       "r0_heat_days": 52
+      }
+     }
+    },
+    "requires_equipment": [
+     "cotton"
+    ],
+    "needs_forage_market": false,
+    "crops_without_local_market": [
+     "cotton"
+    ],
+    "benefits": [
+     {
+      "text_id": "income_steadier",
+      "vars": {
+       "worst5_gain_usd_ac": 68
+      }
+     },
+     {
+      "text_id": "pest_cycle_broken",
+      "vars": {
+       "max_run_years": 1
+      }
+     }
+    ],
+    "evidence": [
+     {
+      "text_id": "replay_avg",
+      "vars": {
+       "years_from": 2000,
+       "years_to": 2025,
+       "irrigation_mm": 150,
+       "revenue_usd_ac": 281
+      },
+      "sources": [
+       "POWER",
+       "SSURGO",
+       "FAO56",
+       "NASS"
+      ]
+     },
+     {
+      "text_id": "replay_drought",
+      "vars": {
+       "year": 2012,
+       "irrigation_mm": 150,
+       "r0_irrigation_mm": 150
+      },
+      "sources": [
+       "POWER",
+       "FAO56"
+      ]
+     }
+    ],
+    "gap_ids": [
+     "crop_params_generic",
+     "county_yields",
+     "model_simplified"
+    ],
+    "risk_ids": [
+     "equipment_access",
+     "buyer_availability",
+     "new_crop_learning"
+    ],
+    "confidence": "limited"
+   }
+  ],
+  "cap300|actual": [
+   {
+    "rotation_id": "R0",
+    "feasible": true,
+    "infeasible_reason_id": null,
+    "criteria": {
+     "water_use": {
+      "raw": 300,
+      "unit": "mm",
+      "norm": 15,
+      "vars": {
+       "irrigation_mm": 300,
+       "saved_mm": 0
+      }
+     },
+     "income_mean": {
+      "raw": 523,
+      "unit": "usd_ac",
+      "norm": 100,
+      "vars": {
+       "revenue_usd_ac": 523,
+       "diff_usd_ac": 0
+      }
+     },
+     "income_worst": {
+      "raw": 360,
+      "unit": "usd_ac",
+      "norm": 71,
+      "vars": {
+       "worst5_usd_ac": 360,
+       "r0_worst5_usd_ac": 360
+      }
+     },
+     "soil_health": {
+      "raw": 33,
+      "unit": "score",
+      "norm": 25,
+      "vars": {
+       "score": 33,
+       "living_root_days": 165,
+       "legume_years": 0
+      }
+     },
+     "water_erosion": {
+      "raw": 3,
+      "unit": "days",
+      "norm": 43,
+      "vars": {
+       "bare_storm_days": 3,
+       "r0_bare_storm_days": 3
+      }
+     },
+     "wind_erosion": {
+      "raw": 13,
+      "unit": "days",
+      "norm": 32,
+      "vars": {
+       "bare_windy_days": 13,
+       "r0_bare_windy_days": 13
+      }
+     },
+     "pest_break": {
+      "raw": 8,
+      "unit": "years",
+      "norm": 15,
+      "vars": {
+       "max_run_years": 8,
+       "r0_max_run_years": 8
+      }
+     },
+     "heat_frost_risk": {
+      "raw": 44,
+      "unit": "days",
+      "norm": 15,
+      "vars": {
+       "heat_days": 44,
+       "r0_heat_days": 44
+      }
+     }
+    },
+    "requires_equipment": [],
+    "needs_forage_market": false,
+    "crops_without_local_market": [],
+    "benefits": [],
+    "evidence": [
+     {
+      "text_id": "replay_avg",
+      "vars": {
+       "years_from": 2000,
+       "years_to": 2025,
+       "irrigation_mm": 300,
+       "revenue_usd_ac": 523
+      },
+      "sources": [
+       "POWER",
+       "SSURGO",
+       "FAO56",
+       "NASS"
+      ]
+     },
+     {
+      "text_id": "replay_drought",
+      "vars": {
+       "year": 2012,
+       "irrigation_mm": 300,
+       "r0_irrigation_mm": 300
+      },
+      "sources": [
+       "POWER",
+       "FAO56"
+      ]
+     },
+     {
+      "text_id": "validation_et",
+      "vars": {
+       "bias_pct": -31
+      },
+      "sources": [
+       "OpenET",
+       "MODEL"
+      ]
+     }
+    ],
+    "gap_ids": [
+     "costs_not_modelled",
+     "prices_constant",
+     "model_simplified"
+    ],
+    "risk_ids": [
+     "water_rights",
+     "crop_insurance"
+    ],
+    "confidence": "good"
+   },
+   {
+    "rotation_id": "R1",
+    "feasible": true,
+    "infeasible_reason_id": null,
+    "criteria": {
+     "water_use": {
+      "raw": 226,
+      "unit": "mm",
+      "norm": 51,
+      "vars": {
+       "irrigation_mm": 226,
+       "saved_mm": 74
+      }
+     },
+     "income_mean": {
+      "raw": 427,
+      "unit": "usd_ac",
+      "norm": 70,
+      "vars": {
+       "revenue_usd_ac": 427,
+       "diff_usd_ac": -96
+      }
+     },
+     "income_worst": {
+      "raw": 373,
+      "unit": "usd_ac",
+      "norm": 78,
+      "vars": {
+       "worst5_usd_ac": 373,
+       "r0_worst5_usd_ac": 360
+      }
+     },
+     "soil_health": {
+      "raw": 34,
+      "unit": "score",
+      "norm": 27,
+      "vars": {
+       "score": 34,
+       "living_root_days": 172,
+       "legume_years": 0
+      }
+     },
+     "water_erosion": {
+      "raw": 3,
+      "unit": "days",
+      "norm": 43,
+      "vars": {
+       "bare_storm_days": 3,
+       "r0_bare_storm_days": 3
+      }
+     },
+     "wind_erosion": {
+      "raw": 12,
+      "unit": "days",
+      "norm": 40,
+      "vars": {
+       "bare_windy_days": 12,
+       "r0_bare_windy_days": 13
+      }
+     },
+     "pest_break": {
+      "raw": 1,
+      "unit": "years",
+      "norm": 100,
+      "vars": {
+       "max_run_years": 1,
+       "r0_max_run_years": 8
+      }
+     },
+     "heat_frost_risk": {
+      "raw": 24,
+      "unit": "days",
+      "norm": 70,
+      "vars": {
+       "heat_days": 24,
+       "r0_heat_days": 44
+      }
+     }
+    },
+    "requires_equipment": [],
+    "needs_forage_market": false,
+    "crops_without_local_market": [],
+    "benefits": [
+     {
+      "text_id": "water_saved",
+      "vars": {
+       "saved_mm": 74
+      }
+     },
+     {
+      "text_id": "income_steadier",
+      "vars": {
+       "worst5_gain_usd_ac": 13
+      }
+     },
+     {
+      "text_id": "pest_cycle_broken",
+      "vars": {
+       "max_run_years": 1
+      }
+     }
+    ],
+    "evidence": [
+     {
+      "text_id": "replay_avg",
+      "vars": {
+       "years_from": 2000,
+       "years_to": 2025,
+       "irrigation_mm": 226,
+       "revenue_usd_ac": 427
+      },
+      "sources": [
+       "POWER",
+       "SSURGO",
+       "FAO56",
+       "NASS"
+      ]
+     },
+     {
+      "text_id": "replay_drought",
+      "vars": {
+       "year": 2012,
+       "irrigation_mm": 265,
+       "r0_irrigation_mm": 300
+      },
+      "sources": [
+       "POWER",
+       "FAO56"
+      ]
+     },
+     {
+      "text_id": "neighbors",
+      "vars": {
+       "n": 11,
+       "et_mm": 849,
+       "r0_et_mm": 932
+      },
+      "sources": [
+       "OpenET",
+       "CSB",
+       "SSURGO"
+      ]
+     }
+    ],
+    "gap_ids": [
+     "costs_not_modelled",
+     "prices_constant",
+     "county_yields"
+    ],
+    "risk_ids": [
+     "herbicide_carryover",
+     "crop_insurance"
+    ],
+    "confidence": "good"
+   },
+   {
+    "rotation_id": "R2",
+    "feasible": true,
+    "infeasible_reason_id": null,
+    "criteria": {
+     "water_use": {
+      "raw": 126,
+      "unit": "mm",
+      "norm": 100,
+      "vars": {
+       "irrigation_mm": 126,
+       "saved_mm": 174
+      }
+     },
+     "income_mean": {
+      "raw": 253,
+      "unit": "usd_ac",
+      "norm": 15,
+      "vars": {
+       "revenue_usd_ac": 253,
+       "diff_usd_ac": -270
+      }
+     },
+     "income_worst": {
+      "raw": 253,
+      "unit": "usd_ac",
+      "norm": 15,
+      "vars": {
+       "worst5_usd_ac": 253,
+       "r0_worst5_usd_ac": 360
+      }
+     },
+     "soil_health": {
+      "raw": 27,
+      "unit": "score",
+      "norm": 15,
+      "vars": {
+       "score": 27,
+       "living_root_days": 128,
+       "legume_years": 0
+      }
+     },
+     "water_erosion": {
+      "raw": 4,
+      "unit": "days",
+      "norm": 15,
+      "vars": {
+       "bare_storm_days": 4,
+       "r0_bare_storm_days": 3
+      }
+     },
+     "wind_erosion": {
+      "raw": 15,
+      "unit": "days",
+      "norm": 15,
+      "vars": {
+       "bare_windy_days": 15,
+       "r0_bare_windy_days": 13
+      }
+     },
+     "pest_break": {
+      "raw": 1,
+      "unit": "years",
+      "norm": 100,
+      "vars": {
+       "max_run_years": 1,
+       "r0_max_run_years": 8
+      }
+     },
+     "heat_frost_risk": {
+      "raw": 13,
+      "unit": "days",
+      "norm": 100,
+      "vars": {
+       "heat_days": 13,
+       "r0_heat_days": 44
+      }
+     }
+    },
+    "requires_equipment": [],
+    "needs_forage_market": false,
+    "crops_without_local_market": [],
+    "benefits": [
+     {
+      "text_id": "water_saved",
+      "vars": {
+       "saved_mm": 174
+      }
+     },
+     {
+      "text_id": "pest_cycle_broken",
+      "vars": {
+       "max_run_years": 1
+      }
+     }
+    ],
+    "evidence": [
+     {
+      "text_id": "replay_avg",
+      "vars": {
+       "years_from": 2000,
+       "years_to": 2025,
+       "irrigation_mm": 126,
+       "revenue_usd_ac": 253
+      },
+      "sources": [
+       "POWER",
+       "SSURGO",
+       "FAO56",
+       "NASS"
+      ]
+     },
+     {
+      "text_id": "replay_drought",
+      "vars": {
+       "year": 2012,
+       "irrigation_mm": 165,
+       "r0_irrigation_mm": 300
+      },
+      "sources": [
+       "POWER",
+       "FAO56"
+      ]
+     }
+    ],
+    "gap_ids": [
+     "costs_not_modelled",
+     "county_yields",
+     "openet_record_short"
+    ],
+    "risk_ids": [
+     "fallow_wind",
+     "herbicide_carryover"
+    ],
+    "confidence": "good"
+   },
+   {
+    "rotation_id": "R3",
+    "feasible": true,
+    "infeasible_reason_id": null,
+    "criteria": {
+     "water_use": {
+      "raw": 163,
+      "unit": "mm",
+      "norm": 82,
+      "vars": {
+       "irrigation_mm": 163,
+       "saved_mm": 137
+      }
+     },
+     "income_mean": {
+      "raw": 353,
+      "unit": "usd_ac",
+      "norm": 46,
+      "vars": {
+       "revenue_usd_ac": 353,
+       "diff_usd_ac": -170
+      }
+     },
+     "income_worst": {
+      "raw": 353,
+      "unit": "usd_ac",
+      "norm": 68,
+      "vars": {
+       "worst5_usd_ac": 353,
+       "r0_worst5_usd_ac": 360
+      }
+     },
+     "soil_health": {
+      "raw": 36,
+      "unit": "score",
+      "norm": 31,
+      "vars": {
+       "score": 36,
+       "living_root_days": 182,
+       "legume_years": 0
+      }
+     },
+     "water_erosion": {
+      "raw": 3,
+      "unit": "days",
+      "norm": 43,
+      "vars": {
+       "bare_storm_days": 3,
+       "r0_bare_storm_days": 3
+      }
+     },
+     "wind_erosion": {
+      "raw": 12,
+      "unit": "days",
+      "norm": 40,
+      "vars": {
+       "bare_windy_days": 12,
+       "r0_bare_windy_days": 13
+      }
+     },
+     "pest_break": {
+      "raw": 2,
+      "unit": "years",
+      "norm": 88,
+      "vars": {
+       "max_run_years": 2,
+       "r0_max_run_years": 8
+      }
+     },
+     "heat_frost_risk": {
+      "raw": 13,
+      "unit": "days",
+      "norm": 100,
+      "vars": {
+       "heat_days": 13,
+       "r0_heat_days": 44
+      }
+     }
+    },
+    "requires_equipment": [],
+    "needs_forage_market": true,
+    "crops_without_local_market": [
+     "triticale"
+    ],
+    "benefits": [
+     {
+      "text_id": "water_saved",
+      "vars": {
+       "saved_mm": 137
+      }
+     },
+     {
+      "text_id": "pest_cycle_broken",
+      "vars": {
+       "max_run_years": 2
+      }
+     },
+     {
+      "text_id": "forage_income",
+      "vars": {
+       "forage_crop": "triticale"
+      }
+     }
+    ],
+    "evidence": [
+     {
+      "text_id": "replay_avg",
+      "vars": {
+       "years_from": 2000,
+       "years_to": 2025,
+       "irrigation_mm": 163,
+       "revenue_usd_ac": 353
+      },
+      "sources": [
+       "POWER",
+       "SSURGO",
+       "FAO56",
+       "NASS"
+      ]
+     },
+     {
+      "text_id": "replay_drought",
+      "vars": {
+       "year": 2012,
+       "irrigation_mm": 213,
+       "r0_irrigation_mm": 300
+      },
+      "sources": [
+       "POWER",
+       "FAO56"
+      ]
+     }
+    ],
+    "gap_ids": [
+     "crop_params_generic",
+     "prices_constant",
+     "county_yields"
+    ],
+    "risk_ids": [
+     "buyer_availability",
+     "new_crop_learning"
+    ],
+    "confidence": "fair"
+   },
+   {
+    "rotation_id": "R4",
+    "feasible": false,
+    "infeasible_reason_id": "needs_more_water",
+    "criteria": {
+     "water_use": {
+      "raw": 275,
+      "unit": "mm",
+      "norm": 27,
+      "vars": {
+       "irrigation_mm": 275,
+       "saved_mm": 25
+      }
+     },
+     "income_mean": {
+      "raw": 458,
+      "unit": "usd_ac",
+      "norm": 80,
+      "vars": {
+       "revenue_usd_ac": 458,
+       "diff_usd_ac": -65
+      }
+     },
+     "income_worst": {
+      "raw": 328,
+      "unit": "usd_ac",
+      "norm": 55,
+      "vars": {
+       "worst5_usd_ac": 328,
+       "r0_worst5_usd_ac": 360
+      }
+     },
+     "soil_health": {
+      "raw": 76,
+      "unit": "score",
+      "norm": 100,
+      "vars": {
+       "score": 76,
+       "living_root_days": 285,
+       "legume_years": 4
+      }
+     },
+     "water_erosion": {
+      "raw": 1,
+      "unit": "days",
+      "norm": 100,
+      "vars": {
+       "bare_storm_days": 1,
+       "r0_bare_storm_days": 3
+      }
+     },
+     "wind_erosion": {
+      "raw": 5,
+      "unit": "days",
+      "norm": 100,
+      "vars": {
+       "bare_windy_days": 5,
+       "r0_bare_windy_days": 13
+      }
+     },
+     "pest_break": {
+      "raw": 4,
+      "unit": "years",
+      "norm": 64,
+      "vars": {
+       "max_run_years": 4,
+       "r0_max_run_years": 8
+      }
+     },
+     "heat_frost_risk": {
+      "raw": 18,
+      "unit": "days",
+      "norm": 86,
+      "vars": {
+       "heat_days": 18,
+       "r0_heat_days": 44
+      }
+     }
+    },
+    "requires_equipment": [
+     "hay"
+    ],
+    "needs_forage_market": true,
+    "crops_without_local_market": [],
+    "benefits": [
+     {
+      "text_id": "bare_days_reduced",
+      "vars": {
+       "days": 120
+      }
+     },
+     {
+      "text_id": "legume_added",
+      "vars": {
+       "legume_years": 4,
+       "cycle_years": 6
+      }
+     },
+     {
+      "text_id": "pest_cycle_broken",
+      "vars": {
+       "max_run_years": 4
+      }
+     },
+     {
+      "text_id": "forage_income",
+      "vars": {
+       "forage_crop": "alfalfa"
+      }
+     }
+    ],
+    "evidence": [
+     {
+      "text_id": "replay_avg",
+      "vars": {
+       "years_from": 2000,
+       "years_to": 2025,
+       "irrigation_mm": 275,
+       "revenue_usd_ac": 458
+      },
+      "sources": [
+       "POWER",
+       "SSURGO",
+       "FAO56",
+       "NASS"
+      ]
+     },
+     {
+      "text_id": "replay_drought",
+      "vars": {
+       "year": 2012,
+       "irrigation_mm": 283,
+       "r0_irrigation_mm": 300
+      },
+      "sources": [
+       "POWER",
+       "FAO56"
+      ]
+     },
+     {
+      "text_id": "neighbors",
+      "vars": {
+       "n": 4,
+       "et_mm": 1124,
+       "r0_et_mm": 932
+      },
+      "sources": [
+       "OpenET",
+       "CSB",
+       "SSURGO"
+      ]
+     }
+    ],
+    "gap_ids": [
+     "crop_params_generic",
+     "costs_not_modelled",
+     "no_pest_data"
+    ],
+    "risk_ids": [
+     "alfalfa_stand_water",
+     "equipment_access",
+     "buyer_availability"
+    ],
+    "confidence": "limited"
+   },
+   {
+    "rotation_id": "R5",
+    "feasible": true,
+    "infeasible_reason_id": null,
+    "criteria": {
+     "water_use": {
+      "raw": 250,
+      "unit": "mm",
+      "norm": 39,
+      "vars": {
+       "irrigation_mm": 250,
+       "saved_mm": 50
+      }
+     },
+     "income_mean": {
+      "raw": 439,
+      "unit": "usd_ac",
+      "norm": 74,
+      "vars": {
+       "revenue_usd_ac": 439,
+       "diff_usd_ac": -84
+      }
+     },
+     "income_worst": {
+      "raw": 339,
+      "unit": "usd_ac",
+      "norm": 60,
+      "vars": {
+       "worst5_usd_ac": 339,
+       "r0_worst5_usd_ac": 360
+      }
+     },
+     "soil_health": {
+      "raw": 55,
+      "unit": "score",
+      "norm": 64,
+      "vars": {
+       "score": 55,
+       "living_root_days": 208,
+       "legume_years": 1
+      }
+     },
+     "water_erosion": {
+      "raw": 3,
+      "unit": "days",
+      "norm": 43,
+      "vars": {
+       "bare_storm_days": 3,
+       "r0_bare_storm_days": 3
+      }
+     },
+     "wind_erosion": {
+      "raw": 10,
+      "unit": "days",
+      "norm": 58,
+      "vars": {
+       "bare_windy_days": 10,
+       "r0_bare_windy_days": 13
+      }
+     },
+     "pest_break": {
+      "raw": 1,
+      "unit": "years",
+      "norm": 100,
+      "vars": {
+       "max_run_years": 1,
+       "r0_max_run_years": 8
+      }
+     },
+     "heat_frost_risk": {
+      "raw": 34,
+      "unit": "days",
+      "norm": 42,
+      "vars": {
+       "heat_days": 34,
+       "r0_heat_days": 44
+      }
+     }
+    },
+    "requires_equipment": [],
+    "needs_forage_market": false,
+    "crops_without_local_market": [],
+    "benefits": [
+     {
+      "text_id": "water_saved",
+      "vars": {
+       "saved_mm": 50
+      }
+     },
+     {
+      "text_id": "bare_days_reduced",
+      "vars": {
+       "days": 43
+      }
+     },
+     {
+      "text_id": "legume_added",
+      "vars": {
+       "legume_years": 1,
+       "cycle_years": 3
+      }
+     },
+     {
+      "text_id": "pest_cycle_broken",
+      "vars": {
+       "max_run_years": 1
+      }
+     }
+    ],
+    "evidence": [
+     {
+      "text_id": "replay_avg",
+      "vars": {
+       "years_from": 2000,
+       "years_to": 2025,
+       "irrigation_mm": 250,
+       "revenue_usd_ac": 439
+      },
+      "sources": [
+       "POWER",
+       "SSURGO",
+       "FAO56",
+       "NASS"
+      ]
+     },
+     {
+      "text_id": "replay_drought",
+      "vars": {
+       "year": 2012,
+       "irrigation_mm": 265,
+       "r0_irrigation_mm": 300
+      },
+      "sources": [
+       "POWER",
+       "FAO56"
+      ]
+     },
+     {
+      "text_id": "neighbors",
+      "vars": {
+       "n": 3,
+       "et_mm": 906,
+       "r0_et_mm": 932
+      },
+      "sources": [
+       "OpenET",
+       "CSB",
+       "SSURGO"
+      ]
+     }
+    ],
+    "gap_ids": [
+     "county_yields",
+     "crop_params_generic",
+     "neighbors_observational"
+    ],
+    "risk_ids": [
+     "cover_establishment",
+     "seed_availability"
+    ],
+    "confidence": "fair"
+   },
+   {
+    "rotation_id": "R6",
+    "feasible": true,
+    "infeasible_reason_id": null,
+    "criteria": {
+     "water_use": {
+      "raw": 211,
+      "unit": "mm",
+      "norm": 58,
+      "vars": {
+       "irrigation_mm": 211,
+       "saved_mm": 89
+      }
+     },
+     "income_mean": {
+      "raw": 424,
+      "unit": "usd_ac",
+      "norm": 69,
+      "vars": {
+       "revenue_usd_ac": 424,
+       "diff_usd_ac": -99
+      }
+     },
+     "income_worst": {
+      "raw": 414,
+      "unit": "usd_ac",
+      "norm": 100,
+      "vars": {
+       "worst5_usd_ac": 414,
+       "r0_worst5_usd_ac": 360
+      }
+     },
+     "soil_health": {
+      "raw": 39,
+      "unit": "score",
+      "norm": 36,
+      "vars": {
+       "score": 39,
+       "living_root_days": 162,
+       "legume_years": 0
+      }
+     },
+     "water_erosion": {
+      "raw": 3,
+      "unit": "days",
+      "norm": 43,
+      "vars": {
+       "bare_storm_days": 3,
+       "r0_bare_storm_days": 3
+      }
+     },
+     "wind_erosion": {
+      "raw": 13,
+      "unit": "days",
+      "norm": 32,
+      "vars": {
+       "bare_windy_days": 13,
+       "r0_bare_windy_days": 13
+      }
+     },
+     "pest_break": {
+      "raw": 1,
+      "unit": "years",
+      "norm": 100,
+      "vars": {
+       "max_run_years": 1,
+       "r0_max_run_years": 8
+      }
+     },
+     "heat_frost_risk": {
+      "raw": 13,
+      "unit": "days",
+      "norm": 100,
+      "vars": {
+       "heat_days": 13,
+       "r0_heat_days": 44
+      }
+     }
+    },
+    "requires_equipment": [
+     "cotton"
+    ],
+    "needs_forage_market": false,
+    "crops_without_local_market": [
+     "cotton"
+    ],
+    "benefits": [
+     {
+      "text_id": "water_saved",
+      "vars": {
+       "saved_mm": 89
+      }
+     },
+     {
+      "text_id": "income_steadier",
+      "vars": {
+       "worst5_gain_usd_ac": 54
+      }
+     },
+     {
+      "text_id": "pest_cycle_broken",
+      "vars": {
+       "max_run_years": 1
+      }
+     }
+    ],
+    "evidence": [
+     {
+      "text_id": "replay_avg",
+      "vars": {
+       "years_from": 2000,
+       "years_to": 2025,
+       "irrigation_mm": 211,
+       "revenue_usd_ac": 424
+      },
+      "sources": [
+       "POWER",
+       "SSURGO",
+       "FAO56",
+       "NASS"
+      ]
+     },
+     {
+      "text_id": "replay_drought",
+      "vars": {
+       "year": 2012,
+       "irrigation_mm": 265,
+       "r0_irrigation_mm": 300
+      },
+      "sources": [
+       "POWER",
+       "FAO56"
+      ]
+     }
+    ],
+    "gap_ids": [
+     "crop_params_generic",
+     "county_yields",
+     "model_simplified"
+    ],
+    "risk_ids": [
+     "equipment_access",
+     "buyer_availability",
+     "new_crop_learning"
+    ],
+    "confidence": "limited"
+   }
+  ],
+  "cap300|hotdry": [
+   {
+    "rotation_id": "R0",
+    "feasible": true,
+    "infeasible_reason_id": null,
+    "criteria": {
+     "water_use": {
+      "raw": 300,
+      "unit": "mm",
+      "norm": 15,
+      "vars": {
+       "irrigation_mm": 300,
+       "saved_mm": 0
+      }
+     },
+     "income_mean": {
+      "raw": 426,
+      "unit": "usd_ac",
+      "norm": 100,
+      "vars": {
+       "revenue_usd_ac": 426,
+       "diff_usd_ac": 0
+      }
+     },
+     "income_worst": {
+      "raw": 286,
+      "unit": "usd_ac",
+      "norm": 44,
+      "vars": {
+       "worst5_usd_ac": 286,
+       "r0_worst5_usd_ac": 286
+      }
+     },
+     "soil_health": {
+      "raw": 33,
+      "unit": "score",
+      "norm": 25,
+      "vars": {
+       "score": 33,
+       "living_root_days": 165,
+       "legume_years": 0
+      }
+     },
+     "water_erosion": {
+      "raw": 3,
+      "unit": "days",
+      "norm": 43,
+      "vars": {
+       "bare_storm_days": 3,
+       "r0_bare_storm_days": 3
+      }
+     },
+     "wind_erosion": {
+      "raw": 13,
+      "unit": "days",
+      "norm": 32,
+      "vars": {
+       "bare_windy_days": 13,
+       "r0_bare_windy_days": 13
+      }
+     },
+     "pest_break": {
+      "raw": 8,
+      "unit": "years",
+      "norm": 15,
+      "vars": {
+       "max_run_years": 8,
+       "r0_max_run_years": 8
+      }
+     },
+     "heat_frost_risk": {
+      "raw": 52,
+      "unit": "days",
+      "norm": 15,
+      "vars": {
+       "heat_days": 52,
+       "r0_heat_days": 52
+      }
+     }
+    },
+    "requires_equipment": [],
+    "needs_forage_market": false,
+    "crops_without_local_market": [],
+    "benefits": [],
+    "evidence": [
+     {
+      "text_id": "replay_avg",
+      "vars": {
+       "years_from": 2000,
+       "years_to": 2025,
+       "irrigation_mm": 300,
+       "revenue_usd_ac": 426
+      },
+      "sources": [
+       "POWER",
+       "SSURGO",
+       "FAO56",
+       "NASS"
+      ]
+     },
+     {
+      "text_id": "replay_drought",
+      "vars": {
+       "year": 2012,
+       "irrigation_mm": 300,
+       "r0_irrigation_mm": 300
+      },
+      "sources": [
+       "POWER",
+       "FAO56"
+      ]
+     },
+     {
+      "text_id": "validation_et",
+      "vars": {
+       "bias_pct": -31
+      },
+      "sources": [
+       "OpenET",
+       "MODEL"
+      ]
+     }
+    ],
+    "gap_ids": [
+     "costs_not_modelled",
+     "prices_constant",
+     "model_simplified"
+    ],
+    "risk_ids": [
+     "water_rights",
+     "crop_insurance"
+    ],
+    "confidence": "good"
+   },
+   {
+    "rotation_id": "R1",
+    "feasible": true,
+    "infeasible_reason_id": null,
+    "criteria": {
+     "water_use": {
+      "raw": 247,
+      "unit": "mm",
+      "norm": 44,
+      "vars": {
+       "irrigation_mm": 247,
+       "saved_mm": 53
+      }
+     },
+     "income_mean": {
+      "raw": 393,
+      "unit": "usd_ac",
+      "norm": 84,
+      "vars": {
+       "revenue_usd_ac": 393,
+       "diff_usd_ac": -33
+      }
+     },
+     "income_worst": {
+      "raw": 336,
+      "unit": "usd_ac",
+      "norm": 75,
+      "vars": {
+       "worst5_usd_ac": 336,
+       "r0_worst5_usd_ac": 286
+      }
+     },
+     "soil_health": {
+      "raw": 34,
+      "unit": "score",
+      "norm": 27,
+      "vars": {
+       "score": 34,
+       "living_root_days": 172,
+       "legume_years": 0
+      }
+     },
+     "water_erosion": {
+      "raw": 3,
+      "unit": "days",
+      "norm": 43,
+      "vars": {
+       "bare_storm_days": 3,
+       "r0_bare_storm_days": 3
+      }
+     },
+     "wind_erosion": {
+      "raw": 12,
+      "unit": "days",
+      "norm": 40,
+      "vars": {
+       "bare_windy_days": 12,
+       "r0_bare_windy_days": 13
+      }
+     },
+     "pest_break": {
+      "raw": 1,
+      "unit": "years",
+      "norm": 100,
+      "vars": {
+       "max_run_years": 1,
+       "r0_max_run_years": 8
+      }
+     },
+     "heat_frost_risk": {
+      "raw": 28,
+      "unit": "days",
+      "norm": 72,
+      "vars": {
+       "heat_days": 28,
+       "r0_heat_days": 52
+      }
+     }
+    },
+    "requires_equipment": [],
+    "needs_forage_market": false,
+    "crops_without_local_market": [],
+    "benefits": [
+     {
+      "text_id": "water_saved",
+      "vars": {
+       "saved_mm": 53
+      }
+     },
+     {
+      "text_id": "income_steadier",
+      "vars": {
+       "worst5_gain_usd_ac": 50
+      }
+     },
+     {
+      "text_id": "pest_cycle_broken",
+      "vars": {
+       "max_run_years": 1
+      }
+     }
+    ],
+    "evidence": [
+     {
+      "text_id": "replay_avg",
+      "vars": {
+       "years_from": 2000,
+       "years_to": 2025,
+       "irrigation_mm": 247,
+       "revenue_usd_ac": 393
+      },
+      "sources": [
+       "POWER",
+       "SSURGO",
+       "FAO56",
+       "NASS"
+      ]
+     },
+     {
+      "text_id": "replay_drought",
+      "vars": {
+       "year": 2012,
+       "irrigation_mm": 274,
+       "r0_irrigation_mm": 300
+      },
+      "sources": [
+       "POWER",
+       "FAO56"
+      ]
+     },
+     {
+      "text_id": "neighbors",
+      "vars": {
+       "n": 11,
+       "et_mm": 849,
+       "r0_et_mm": 932
+      },
+      "sources": [
+       "OpenET",
+       "CSB",
+       "SSURGO"
+      ]
+     }
+    ],
+    "gap_ids": [
+     "costs_not_modelled",
+     "prices_constant",
+     "county_yields"
+    ],
+    "risk_ids": [
+     "herbicide_carryover",
+     "crop_insurance"
+    ],
+    "confidence": "good"
+   },
+   {
+    "rotation_id": "R2",
+    "feasible": true,
+    "infeasible_reason_id": null,
+    "criteria": {
+     "water_use": {
+      "raw": 147,
+      "unit": "mm",
+      "norm": 100,
+      "vars": {
+       "irrigation_mm": 147,
+       "saved_mm": 153
+      }
+     },
+     "income_mean": {
+      "raw": 250,
+      "unit": "usd_ac",
+      "norm": 15,
+      "vars": {
+       "revenue_usd_ac": 250,
+       "diff_usd_ac": -176
+      }
+     },
+     "income_worst": {
+      "raw": 240,
+      "unit": "usd_ac",
+      "norm": 15,
+      "vars": {
+       "worst5_usd_ac": 240,
+       "r0_worst5_usd_ac": 286
+      }
+     },
+     "soil_health": {
+      "raw": 27,
+      "unit": "score",
+      "norm": 15,
+      "vars": {
+       "score": 27,
+       "living_root_days": 128,
+       "legume_years": 0
+      }
+     },
+     "water_erosion": {
+      "raw": 4,
+      "unit": "days",
+      "norm": 15,
+      "vars": {
+       "bare_storm_days": 4,
+       "r0_bare_storm_days": 3
+      }
+     },
+     "wind_erosion": {
+      "raw": 15,
+      "unit": "days",
+      "norm": 15,
+      "vars": {
+       "bare_windy_days": 15,
+       "r0_bare_windy_days": 13
+      }
+     },
+     "pest_break": {
+      "raw": 1,
+      "unit": "years",
+      "norm": 100,
+      "vars": {
+       "max_run_years": 1,
+       "r0_max_run_years": 8
+      }
+     },
+     "heat_frost_risk": {
+      "raw": 16,
+      "unit": "days",
+      "norm": 100,
+      "vars": {
+       "heat_days": 16,
+       "r0_heat_days": 52
+      }
+     }
+    },
+    "requires_equipment": [],
+    "needs_forage_market": false,
+    "crops_without_local_market": [],
+    "benefits": [
+     {
+      "text_id": "water_saved",
+      "vars": {
+       "saved_mm": 153
+      }
+     },
+     {
+      "text_id": "pest_cycle_broken",
+      "vars": {
+       "max_run_years": 1
+      }
+     }
+    ],
+    "evidence": [
+     {
+      "text_id": "replay_avg",
+      "vars": {
+       "years_from": 2000,
+       "years_to": 2025,
+       "irrigation_mm": 147,
+       "revenue_usd_ac": 250
+      },
+      "sources": [
+       "POWER",
+       "SSURGO",
+       "FAO56",
+       "NASS"
+      ]
+     },
+     {
+      "text_id": "replay_drought",
+      "vars": {
+       "year": 2012,
+       "irrigation_mm": 174,
+       "r0_irrigation_mm": 300
+      },
+      "sources": [
+       "POWER",
+       "FAO56"
+      ]
+     }
+    ],
+    "gap_ids": [
+     "costs_not_modelled",
+     "county_yields",
+     "openet_record_short"
+    ],
+    "risk_ids": [
+     "fallow_wind",
+     "herbicide_carryover"
+    ],
+    "confidence": "good"
+   },
+   {
+    "rotation_id": "R3",
+    "feasible": true,
+    "infeasible_reason_id": null,
+    "criteria": {
+     "water_use": {
+      "raw": 191,
+      "unit": "mm",
+      "norm": 76,
+      "vars": {
+       "irrigation_mm": 191,
+       "saved_mm": 109
+      }
+     },
+     "income_mean": {
+      "raw": 350,
+      "unit": "usd_ac",
+      "norm": 63,
+      "vars": {
+       "revenue_usd_ac": 350,
+       "diff_usd_ac": -76
+      }
+     },
+     "income_worst": {
+      "raw": 340,
+      "unit": "usd_ac",
+      "norm": 78,
+      "vars": {
+       "worst5_usd_ac": 340,
+       "r0_worst5_usd_ac": 286
+      }
+     },
+     "soil_health": {
+      "raw": 36,
+      "unit": "score",
+      "norm": 31,
+      "vars": {
+       "score": 36,
+       "living_root_days": 182,
+       "legume_years": 0
+      }
+     },
+     "water_erosion": {
+      "raw": 3,
+      "unit": "days",
+      "norm": 43,
+      "vars": {
+       "bare_storm_days": 3,
+       "r0_bare_storm_days": 3
+      }
+     },
+     "wind_erosion": {
+      "raw": 12,
+      "unit": "days",
+      "norm": 40,
+      "vars": {
+       "bare_windy_days": 12,
+       "r0_bare_windy_days": 13
+      }
+     },
+     "pest_break": {
+      "raw": 2,
+      "unit": "years",
+      "norm": 88,
+      "vars": {
+       "max_run_years": 2,
+       "r0_max_run_years": 8
+      }
+     },
+     "heat_frost_risk": {
+      "raw": 16,
+      "unit": "days",
+      "norm": 100,
+      "vars": {
+       "heat_days": 16,
+       "r0_heat_days": 52
+      }
+     }
+    },
+    "requires_equipment": [],
+    "needs_forage_market": true,
+    "crops_without_local_market": [
+     "triticale"
+    ],
+    "benefits": [
+     {
+      "text_id": "water_saved",
+      "vars": {
+       "saved_mm": 109
+      }
+     },
+     {
+      "text_id": "income_steadier",
+      "vars": {
+       "worst5_gain_usd_ac": 54
+      }
+     },
+     {
+      "text_id": "pest_cycle_broken",
+      "vars": {
+       "max_run_years": 2
+      }
+     },
+     {
+      "text_id": "forage_income",
+      "vars": {
+       "forage_crop": "triticale"
+      }
+     }
+    ],
+    "evidence": [
+     {
+      "text_id": "replay_avg",
+      "vars": {
+       "years_from": 2000,
+       "years_to": 2025,
+       "irrigation_mm": 191,
+       "revenue_usd_ac": 350
+      },
+      "sources": [
+       "POWER",
+       "SSURGO",
+       "FAO56",
+       "NASS"
+      ]
+     },
+     {
+      "text_id": "replay_drought",
+      "vars": {
+       "year": 2012,
+       "irrigation_mm": 228,
+       "r0_irrigation_mm": 300
+      },
+      "sources": [
+       "POWER",
+       "FAO56"
+      ]
+     }
+    ],
+    "gap_ids": [
+     "crop_params_generic",
+     "prices_constant",
+     "county_yields"
+    ],
+    "risk_ids": [
+     "buyer_availability",
+     "new_crop_learning"
+    ],
+    "confidence": "fair"
+   },
+   {
+    "rotation_id": "R4",
+    "feasible": false,
+    "infeasible_reason_id": "needs_more_water",
+    "criteria": {
+     "water_use": {
+      "raw": 279,
+      "unit": "mm",
+      "norm": 27,
+      "vars": {
+       "irrigation_mm": 279,
+       "saved_mm": 21
+      }
+     },
+     "income_mean": {
+      "raw": 387,
+      "unit": "usd_ac",
+      "norm": 81,
+      "vars": {
+       "revenue_usd_ac": 387,
+       "diff_usd_ac": -39
+      }
+     },
+     "income_worst": {
+      "raw": 273,
+      "unit": "usd_ac",
+      "norm": 36,
+      "vars": {
+       "worst5_usd_ac": 273,
+       "r0_worst5_usd_ac": 286
+      }
+     },
+     "soil_health": {
+      "raw": 76,
+      "unit": "score",
+      "norm": 100,
+      "vars": {
+       "score": 76,
+       "living_root_days": 285,
+       "legume_years": 4
+      }
+     },
+     "water_erosion": {
+      "raw": 1,
+      "unit": "days",
+      "norm": 100,
+      "vars": {
+       "bare_storm_days": 1,
+       "r0_bare_storm_days": 3
+      }
+     },
+     "wind_erosion": {
+      "raw": 5,
+      "unit": "days",
+      "norm": 100,
+      "vars": {
+       "bare_windy_days": 5,
+       "r0_bare_windy_days": 13
+      }
+     },
+     "pest_break": {
+      "raw": 4,
+      "unit": "years",
+      "norm": 64,
+      "vars": {
+       "max_run_years": 4,
+       "r0_max_run_years": 8
+      }
+     },
+     "heat_frost_risk": {
+      "raw": 22,
+      "unit": "days",
+      "norm": 86,
+      "vars": {
+       "heat_days": 22,
+       "r0_heat_days": 52
+      }
+     }
+    },
+    "requires_equipment": [
+     "hay"
+    ],
+    "needs_forage_market": true,
+    "crops_without_local_market": [],
+    "benefits": [
+     {
+      "text_id": "bare_days_reduced",
+      "vars": {
+       "days": 120
+      }
+     },
+     {
+      "text_id": "legume_added",
+      "vars": {
+       "legume_years": 4,
+       "cycle_years": 6
+      }
+     },
+     {
+      "text_id": "pest_cycle_broken",
+      "vars": {
+       "max_run_years": 4
+      }
+     },
+     {
+      "text_id": "forage_income",
+      "vars": {
+       "forage_crop": "alfalfa"
+      }
+     }
+    ],
+    "evidence": [
+     {
+      "text_id": "replay_avg",
+      "vars": {
+       "years_from": 2000,
+       "years_to": 2025,
+       "irrigation_mm": 279,
+       "revenue_usd_ac": 387
+      },
+      "sources": [
+       "POWER",
+       "SSURGO",
+       "FAO56",
+       "NASS"
+      ]
+     },
+     {
+      "text_id": "replay_drought",
+      "vars": {
+       "year": 2012,
+       "irrigation_mm": 287,
+       "r0_irrigation_mm": 300
+      },
+      "sources": [
+       "POWER",
+       "FAO56"
+      ]
+     },
+     {
+      "text_id": "neighbors",
+      "vars": {
+       "n": 4,
+       "et_mm": 1124,
+       "r0_et_mm": 932
+      },
+      "sources": [
+       "OpenET",
+       "CSB",
+       "SSURGO"
+      ]
+     }
+    ],
+    "gap_ids": [
+     "crop_params_generic",
+     "costs_not_modelled",
+     "no_pest_data"
+    ],
+    "risk_ids": [
+     "alfalfa_stand_water",
+     "equipment_access",
+     "buyer_availability"
+    ],
+    "confidence": "limited"
+   },
+   {
+    "rotation_id": "R5",
+    "feasible": true,
+    "infeasible_reason_id": null,
+    "criteria": {
+     "water_use": {
+      "raw": 259,
+      "unit": "mm",
+      "norm": 38,
+      "vars": {
+       "irrigation_mm": 259,
+       "saved_mm": 41
+      }
+     },
+     "income_mean": {
+      "raw": 377,
+      "unit": "usd_ac",
+      "norm": 76,
+      "vars": {
+       "revenue_usd_ac": 377,
+       "diff_usd_ac": -49
+      }
+     },
+     "income_worst": {
+      "raw": 292,
+      "unit": "usd_ac",
+      "norm": 48,
+      "vars": {
+       "worst5_usd_ac": 292,
+       "r0_worst5_usd_ac": 286
+      }
+     },
+     "soil_health": {
+      "raw": 55,
+      "unit": "score",
+      "norm": 64,
+      "vars": {
+       "score": 55,
+       "living_root_days": 208,
+       "legume_years": 1
+      }
+     },
+     "water_erosion": {
+      "raw": 3,
+      "unit": "days",
+      "norm": 43,
+      "vars": {
+       "bare_storm_days": 3,
+       "r0_bare_storm_days": 3
+      }
+     },
+     "wind_erosion": {
+      "raw": 10,
+      "unit": "days",
+      "norm": 58,
+      "vars": {
+       "bare_windy_days": 10,
+       "r0_bare_windy_days": 13
+      }
+     },
+     "pest_break": {
+      "raw": 1,
+      "unit": "years",
+      "norm": 100,
+      "vars": {
+       "max_run_years": 1,
+       "r0_max_run_years": 8
+      }
+     },
+     "heat_frost_risk": {
+      "raw": 40,
+      "unit": "days",
+      "norm": 43,
+      "vars": {
+       "heat_days": 40,
+       "r0_heat_days": 52
+      }
+     }
+    },
+    "requires_equipment": [],
+    "needs_forage_market": false,
+    "crops_without_local_market": [],
+    "benefits": [
+     {
+      "text_id": "water_saved",
+      "vars": {
+       "saved_mm": 41
+      }
+     },
+     {
+      "text_id": "bare_days_reduced",
+      "vars": {
+       "days": 43
+      }
+     },
+     {
+      "text_id": "legume_added",
+      "vars": {
+       "legume_years": 1,
+       "cycle_years": 3
+      }
+     },
+     {
+      "text_id": "pest_cycle_broken",
+      "vars": {
+       "max_run_years": 1
+      }
+     }
+    ],
+    "evidence": [
+     {
+      "text_id": "replay_avg",
+      "vars": {
+       "years_from": 2000,
+       "years_to": 2025,
+       "irrigation_mm": 259,
+       "revenue_usd_ac": 377
+      },
+      "sources": [
+       "POWER",
+       "SSURGO",
+       "FAO56",
+       "NASS"
+      ]
+     },
+     {
+      "text_id": "replay_drought",
+      "vars": {
+       "year": 2012,
+       "irrigation_mm": 274,
+       "r0_irrigation_mm": 300
+      },
+      "sources": [
+       "POWER",
+       "FAO56"
+      ]
+     },
+     {
+      "text_id": "neighbors",
+      "vars": {
+       "n": 3,
+       "et_mm": 906,
+       "r0_et_mm": 932
+      },
+      "sources": [
+       "OpenET",
+       "CSB",
+       "SSURGO"
+      ]
+     }
+    ],
+    "gap_ids": [
+     "county_yields",
+     "crop_params_generic",
+     "neighbors_observational"
+    ],
+    "risk_ids": [
+     "cover_establishment",
+     "seed_availability"
+    ],
+    "confidence": "fair"
+   },
+   {
+    "rotation_id": "R6",
+    "feasible": true,
+    "infeasible_reason_id": null,
+    "criteria": {
+     "water_use": {
+      "raw": 244,
+      "unit": "mm",
+      "norm": 46,
+      "vars": {
+       "irrigation_mm": 244,
+       "saved_mm": 56
+      }
+     },
+     "income_mean": {
+      "raw": 415,
+      "unit": "usd_ac",
+      "norm": 95,
+      "vars": {
+       "revenue_usd_ac": 415,
+       "diff_usd_ac": -11
+      }
+     },
+     "income_worst": {
+      "raw": 375,
+      "unit": "usd_ac",
+      "norm": 100,
+      "vars": {
+       "worst5_usd_ac": 375,
+       "r0_worst5_usd_ac": 286
+      }
+     },
+     "soil_health": {
+      "raw": 39,
+      "unit": "score",
+      "norm": 36,
+      "vars": {
+       "score": 39,
+       "living_root_days": 162,
+       "legume_years": 0
+      }
+     },
+     "water_erosion": {
+      "raw": 3,
+      "unit": "days",
+      "norm": 43,
+      "vars": {
+       "bare_storm_days": 3,
+       "r0_bare_storm_days": 3
+      }
+     },
+     "wind_erosion": {
+      "raw": 13,
+      "unit": "days",
+      "norm": 32,
+      "vars": {
+       "bare_windy_days": 13,
+       "r0_bare_windy_days": 13
+      }
+     },
+     "pest_break": {
+      "raw": 1,
+      "unit": "years",
+      "norm": 100,
+      "vars": {
+       "max_run_years": 1,
+       "r0_max_run_years": 8
+      }
+     },
+     "heat_frost_risk": {
+      "raw": 16,
+      "unit": "days",
+      "norm": 100,
+      "vars": {
+       "heat_days": 16,
+       "r0_heat_days": 52
+      }
+     }
+    },
+    "requires_equipment": [
+     "cotton"
+    ],
+    "needs_forage_market": false,
+    "crops_without_local_market": [
+     "cotton"
+    ],
+    "benefits": [
+     {
+      "text_id": "water_saved",
+      "vars": {
+       "saved_mm": 56
+      }
+     },
+     {
+      "text_id": "income_steadier",
+      "vars": {
+       "worst5_gain_usd_ac": 89
+      }
+     },
+     {
+      "text_id": "pest_cycle_broken",
+      "vars": {
+       "max_run_years": 1
+      }
+     }
+    ],
+    "evidence": [
+     {
+      "text_id": "replay_avg",
+      "vars": {
+       "years_from": 2000,
+       "years_to": 2025,
+       "irrigation_mm": 244,
+       "revenue_usd_ac": 415
+      },
+      "sources": [
+       "POWER",
+       "SSURGO",
+       "FAO56",
+       "NASS"
+      ]
+     },
+     {
+      "text_id": "replay_drought",
+      "vars": {
+       "year": 2012,
+       "irrigation_mm": 274,
+       "r0_irrigation_mm": 300
+      },
+      "sources": [
+       "POWER",
+       "FAO56"
+      ]
+     }
+    ],
+    "gap_ids": [
+     "crop_params_generic",
+     "county_yields",
+     "model_simplified"
+    ],
+    "risk_ids": [
+     "equipment_access",
+     "buyer_availability",
+     "new_crop_learning"
+    ],
+    "confidence": "limited"
+   }
+  ],
+  "cap450|actual": [
+   {
+    "rotation_id": "R0",
+    "feasible": true,
+    "infeasible_reason_id": null,
+    "criteria": {
+     "water_use": {
+      "raw": 444,
+      "unit": "mm",
+      "norm": 15,
+      "vars": {
+       "irrigation_mm": 444,
+       "saved_mm": 0
+      }
+     },
+     "income_mean": {
+      "raw": 812,
+      "unit": "usd_ac",
+      "norm": 100,
+      "vars": {
+       "revenue_usd_ac": 812,
+       "diff_usd_ac": 0
+      }
+     },
+     "income_worst": {
+      "raw": 599,
+      "unit": "usd_ac",
+      "norm": 100,
+      "vars": {
+       "worst5_usd_ac": 599,
+       "r0_worst5_usd_ac": 599
+      }
+     },
+     "soil_health": {
+      "raw": 33,
+      "unit": "score",
+      "norm": 25,
+      "vars": {
+       "score": 33,
+       "living_root_days": 165,
+       "legume_years": 0
+      }
+     },
+     "water_erosion": {
+      "raw": 3,
+      "unit": "days",
+      "norm": 43,
+      "vars": {
+       "bare_storm_days": 3,
+       "r0_bare_storm_days": 3
+      }
+     },
+     "wind_erosion": {
+      "raw": 13,
+      "unit": "days",
+      "norm": 32,
+      "vars": {
+       "bare_windy_days": 13,
+       "r0_bare_windy_days": 13
+      }
+     },
+     "pest_break": {
+      "raw": 8,
+      "unit": "years",
+      "norm": 15,
+      "vars": {
+       "max_run_years": 8,
+       "r0_max_run_years": 8
+      }
+     },
+     "heat_frost_risk": {
+      "raw": 44,
+      "unit": "days",
+      "norm": 15,
+      "vars": {
+       "heat_days": 44,
+       "r0_heat_days": 44
+      }
+     }
+    },
+    "requires_equipment": [],
+    "needs_forage_market": false,
+    "crops_without_local_market": [],
+    "benefits": [],
+    "evidence": [
+     {
+      "text_id": "replay_avg",
+      "vars": {
+       "years_from": 2000,
+       "years_to": 2025,
+       "irrigation_mm": 444,
+       "revenue_usd_ac": 812
+      },
+      "sources": [
+       "POWER",
+       "SSURGO",
+       "FAO56",
+       "NASS"
+      ]
+     },
+     {
+      "text_id": "replay_drought",
+      "vars": {
+       "year": 2012,
+       "irrigation_mm": 450,
+       "r0_irrigation_mm": 450
+      },
+      "sources": [
+       "POWER",
+       "FAO56"
+      ]
+     },
+     {
+      "text_id": "validation_et",
+      "vars": {
+       "bias_pct": -31
+      },
+      "sources": [
+       "OpenET",
+       "MODEL"
+      ]
+     }
+    ],
+    "gap_ids": [
+     "costs_not_modelled",
+     "prices_constant",
+     "model_simplified"
+    ],
+    "risk_ids": [
+     "water_rights",
+     "crop_insurance"
+    ],
+    "confidence": "good"
+   },
+   {
+    "rotation_id": "R1",
+    "feasible": true,
+    "infeasible_reason_id": null,
+    "criteria": {
+     "water_use": {
+      "raw": 274,
+      "unit": "mm",
+      "norm": 60,
+      "vars": {
+       "irrigation_mm": 274,
+       "saved_mm": 170
+      }
+     },
+     "income_mean": {
+      "raw": 524,
+      "unit": "usd_ac",
+      "norm": 56,
+      "vars": {
+       "revenue_usd_ac": 524,
+       "diff_usd_ac": -288
+      }
+     },
+     "income_worst": {
+      "raw": 453,
+      "unit": "usd_ac",
+      "norm": 64,
+      "vars": {
+       "worst5_usd_ac": 453,
+       "r0_worst5_usd_ac": 599
+      }
+     },
+     "soil_health": {
+      "raw": 34,
+      "unit": "score",
+      "norm": 27,
+      "vars": {
+       "score": 34,
+       "living_root_days": 172,
+       "legume_years": 0
+      }
+     },
+     "water_erosion": {
+      "raw": 3,
+      "unit": "days",
+      "norm": 43,
+      "vars": {
+       "bare_storm_days": 3,
+       "r0_bare_storm_days": 3
+      }
+     },
+     "wind_erosion": {
+      "raw": 12,
+      "unit": "days",
+      "norm": 40,
+      "vars": {
+       "bare_windy_days": 12,
+       "r0_bare_windy_days": 13
+      }
+     },
+     "pest_break": {
+      "raw": 1,
+      "unit": "years",
+      "norm": 100,
+      "vars": {
+       "max_run_years": 1,
+       "r0_max_run_years": 8
+      }
+     },
+     "heat_frost_risk": {
+      "raw": 24,
+      "unit": "days",
+      "norm": 70,
+      "vars": {
+       "heat_days": 24,
+       "r0_heat_days": 44
+      }
+     }
+    },
+    "requires_equipment": [],
+    "needs_forage_market": false,
+    "crops_without_local_market": [],
+    "benefits": [
+     {
+      "text_id": "water_saved",
+      "vars": {
+       "saved_mm": 170
+      }
+     },
+     {
+      "text_id": "pest_cycle_broken",
+      "vars": {
+       "max_run_years": 1
+      }
+     }
+    ],
+    "evidence": [
+     {
+      "text_id": "replay_avg",
+      "vars": {
+       "years_from": 2000,
+       "years_to": 2025,
+       "irrigation_mm": 274,
+       "revenue_usd_ac": 524
+      },
+      "sources": [
+       "POWER",
+       "SSURGO",
+       "FAO56",
+       "NASS"
+      ]
+     },
+     {
+      "text_id": "replay_drought",
+      "vars": {
+       "year": 2012,
+       "irrigation_mm": 315,
+       "r0_irrigation_mm": 450
+      },
+      "sources": [
+       "POWER",
+       "FAO56"
+      ]
+     },
+     {
+      "text_id": "neighbors",
+      "vars": {
+       "n": 11,
+       "et_mm": 849,
+       "r0_et_mm": 932
+      },
+      "sources": [
+       "OpenET",
+       "CSB",
+       "SSURGO"
+      ]
+     }
+    ],
+    "gap_ids": [
+     "costs_not_modelled",
+     "prices_constant",
+     "county_yields"
+    ],
+    "risk_ids": [
+     "herbicide_carryover",
+     "crop_insurance"
+    ],
+    "confidence": "good"
+   },
+   {
+    "rotation_id": "R2",
+    "feasible": true,
+    "infeasible_reason_id": null,
+    "criteria": {
+     "water_use": {
+      "raw": 126,
+      "unit": "mm",
+      "norm": 100,
+      "vars": {
+       "irrigation_mm": 126,
+       "saved_mm": 318
+      }
+     },
+     "income_mean": {
+      "raw": 253,
+      "unit": "usd_ac",
+      "norm": 15,
+      "vars": {
+       "revenue_usd_ac": 253,
+       "diff_usd_ac": -559
+      }
+     },
+     "income_worst": {
+      "raw": 253,
+      "unit": "usd_ac",
+      "norm": 15,
+      "vars": {
+       "worst5_usd_ac": 253,
+       "r0_worst5_usd_ac": 599
+      }
+     },
+     "soil_health": {
+      "raw": 27,
+      "unit": "score",
+      "norm": 15,
+      "vars": {
+       "score": 27,
+       "living_root_days": 128,
+       "legume_years": 0
+      }
+     },
+     "water_erosion": {
+      "raw": 4,
+      "unit": "days",
+      "norm": 15,
+      "vars": {
+       "bare_storm_days": 4,
+       "r0_bare_storm_days": 3
+      }
+     },
+     "wind_erosion": {
+      "raw": 15,
+      "unit": "days",
+      "norm": 15,
+      "vars": {
+       "bare_windy_days": 15,
+       "r0_bare_windy_days": 13
+      }
+     },
+     "pest_break": {
+      "raw": 1,
+      "unit": "years",
+      "norm": 100,
+      "vars": {
+       "max_run_years": 1,
+       "r0_max_run_years": 8
+      }
+     },
+     "heat_frost_risk": {
+      "raw": 13,
+      "unit": "days",
+      "norm": 100,
+      "vars": {
+       "heat_days": 13,
+       "r0_heat_days": 44
+      }
+     }
+    },
+    "requires_equipment": [],
+    "needs_forage_market": false,
+    "crops_without_local_market": [],
+    "benefits": [
+     {
+      "text_id": "water_saved",
+      "vars": {
+       "saved_mm": 318
+      }
+     },
+     {
+      "text_id": "pest_cycle_broken",
+      "vars": {
+       "max_run_years": 1
+      }
+     }
+    ],
+    "evidence": [
+     {
+      "text_id": "replay_avg",
+      "vars": {
+       "years_from": 2000,
+       "years_to": 2025,
+       "irrigation_mm": 126,
+       "revenue_usd_ac": 253
+      },
+      "sources": [
+       "POWER",
+       "SSURGO",
+       "FAO56",
+       "NASS"
+      ]
+     },
+     {
+      "text_id": "replay_drought",
+      "vars": {
+       "year": 2012,
+       "irrigation_mm": 165,
+       "r0_irrigation_mm": 450
+      },
+      "sources": [
+       "POWER",
+       "FAO56"
+      ]
+     }
+    ],
+    "gap_ids": [
+     "costs_not_modelled",
+     "county_yields",
+     "openet_record_short"
+    ],
+    "risk_ids": [
+     "fallow_wind",
+     "herbicide_carryover"
+    ],
+    "confidence": "good"
+   },
+   {
+    "rotation_id": "R3",
+    "feasible": true,
+    "infeasible_reason_id": null,
+    "criteria": {
+     "water_use": {
+      "raw": 163,
+      "unit": "mm",
+      "norm": 90,
+      "vars": {
+       "irrigation_mm": 163,
+       "saved_mm": 281
+      }
+     },
+     "income_mean": {
+      "raw": 353,
+      "unit": "usd_ac",
+      "norm": 30,
+      "vars": {
+       "revenue_usd_ac": 353,
+       "diff_usd_ac": -459
+      }
+     },
+     "income_worst": {
+      "raw": 353,
+      "unit": "usd_ac",
+      "norm": 40,
+      "vars": {
+       "worst5_usd_ac": 353,
+       "r0_worst5_usd_ac": 599
+      }
+     },
+     "soil_health": {
+      "raw": 36,
+      "unit": "score",
+      "norm": 31,
+      "vars": {
+       "score": 36,
+       "living_root_days": 182,
+       "legume_years": 0
+      }
+     },
+     "water_erosion": {
+      "raw": 3,
+      "unit": "days",
+      "norm": 43,
+      "vars": {
+       "bare_storm_days": 3,
+       "r0_bare_storm_days": 3
+      }
+     },
+     "wind_erosion": {
+      "raw": 12,
+      "unit": "days",
+      "norm": 40,
+      "vars": {
+       "bare_windy_days": 12,
+       "r0_bare_windy_days": 13
+      }
+     },
+     "pest_break": {
+      "raw": 2,
+      "unit": "years",
+      "norm": 88,
+      "vars": {
+       "max_run_years": 2,
+       "r0_max_run_years": 8
+      }
+     },
+     "heat_frost_risk": {
+      "raw": 13,
+      "unit": "days",
+      "norm": 100,
+      "vars": {
+       "heat_days": 13,
+       "r0_heat_days": 44
+      }
+     }
+    },
+    "requires_equipment": [],
+    "needs_forage_market": true,
+    "crops_without_local_market": [
+     "triticale"
+    ],
+    "benefits": [
+     {
+      "text_id": "water_saved",
+      "vars": {
+       "saved_mm": 281
+      }
+     },
+     {
+      "text_id": "pest_cycle_broken",
+      "vars": {
+       "max_run_years": 2
+      }
+     },
+     {
+      "text_id": "forage_income",
+      "vars": {
+       "forage_crop": "triticale"
+      }
+     }
+    ],
+    "evidence": [
+     {
+      "text_id": "replay_avg",
+      "vars": {
+       "years_from": 2000,
+       "years_to": 2025,
+       "irrigation_mm": 163,
+       "revenue_usd_ac": 353
+      },
+      "sources": [
+       "POWER",
+       "SSURGO",
+       "FAO56",
+       "NASS"
+      ]
+     },
+     {
+      "text_id": "replay_drought",
+      "vars": {
+       "year": 2012,
+       "irrigation_mm": 213,
+       "r0_irrigation_mm": 450
+      },
+      "sources": [
+       "POWER",
+       "FAO56"
+      ]
+     }
+    ],
+    "gap_ids": [
+     "crop_params_generic",
+     "prices_constant",
+     "county_yields"
+    ],
+    "risk_ids": [
+     "buyer_availability",
+     "new_crop_learning"
+    ],
+    "confidence": "fair"
+   },
+   {
+    "rotation_id": "R4",
+    "feasible": true,
+    "infeasible_reason_id": null,
+    "criteria": {
+     "water_use": {
+      "raw": 399,
+      "unit": "mm",
+      "norm": 27,
+      "vars": {
+       "irrigation_mm": 399,
+       "saved_mm": 45
+      }
+     },
+     "income_mean": {
+      "raw": 653,
+      "unit": "usd_ac",
+      "norm": 76,
+      "vars": {
+       "revenue_usd_ac": 653,
+       "diff_usd_ac": -159
+      }
+     },
+     "income_worst": {
+      "raw": 484,
+      "unit": "usd_ac",
+      "norm": 72,
+      "vars": {
+       "worst5_usd_ac": 484,
+       "r0_worst5_usd_ac": 599
+      }
+     },
+     "soil_health": {
+      "raw": 76,
+      "unit": "score",
+      "norm": 100,
+      "vars": {
+       "score": 76,
+       "living_root_days": 285,
+       "legume_years": 4
+      }
+     },
+     "water_erosion": {
+      "raw": 1,
+      "unit": "days",
+      "norm": 100,
+      "vars": {
+       "bare_storm_days": 1,
+       "r0_bare_storm_days": 3
+      }
+     },
+     "wind_erosion": {
+      "raw": 5,
+      "unit": "days",
+      "norm": 100,
+      "vars": {
+       "bare_windy_days": 5,
+       "r0_bare_windy_days": 13
+      }
+     },
+     "pest_break": {
+      "raw": 4,
+      "unit": "years",
+      "norm": 64,
+      "vars": {
+       "max_run_years": 4,
+       "r0_max_run_years": 8
+      }
+     },
+     "heat_frost_risk": {
+      "raw": 18,
+      "unit": "days",
+      "norm": 86,
+      "vars": {
+       "heat_days": 18,
+       "r0_heat_days": 44
+      }
+     }
+    },
+    "requires_equipment": [
+     "hay"
+    ],
+    "needs_forage_market": true,
+    "crops_without_local_market": [],
+    "benefits": [
+     {
+      "text_id": "water_saved",
+      "vars": {
+       "saved_mm": 45
+      }
+     },
+     {
+      "text_id": "bare_days_reduced",
+      "vars": {
+       "days": 120
+      }
+     },
+     {
+      "text_id": "legume_added",
+      "vars": {
+       "legume_years": 4,
+       "cycle_years": 6
+      }
+     },
+     {
+      "text_id": "pest_cycle_broken",
+      "vars": {
+       "max_run_years": 4
+      }
+     },
+     {
+      "text_id": "forage_income",
+      "vars": {
+       "forage_crop": "alfalfa"
+      }
+     }
+    ],
+    "evidence": [
+     {
+      "text_id": "replay_avg",
+      "vars": {
+       "years_from": 2000,
+       "years_to": 2025,
+       "irrigation_mm": 399,
+       "revenue_usd_ac": 653
+      },
+      "sources": [
+       "POWER",
+       "SSURGO",
+       "FAO56",
+       "NASS"
+      ]
+     },
+     {
+      "text_id": "replay_drought",
+      "vars": {
+       "year": 2012,
+       "irrigation_mm": 408,
+       "r0_irrigation_mm": 450
+      },
+      "sources": [
+       "POWER",
+       "FAO56"
+      ]
+     },
+     {
+      "text_id": "neighbors",
+      "vars": {
+       "n": 4,
+       "et_mm": 1124,
+       "r0_et_mm": 932
+      },
+      "sources": [
+       "OpenET",
+       "CSB",
+       "SSURGO"
+      ]
+     }
+    ],
+    "gap_ids": [
+     "crop_params_generic",
+     "costs_not_modelled",
+     "no_pest_data"
+    ],
+    "risk_ids": [
+     "alfalfa_stand_water",
+     "equipment_access",
+     "buyer_availability"
+    ],
+    "confidence": "limited"
+   },
+   {
+    "rotation_id": "R5",
+    "feasible": true,
+    "infeasible_reason_id": null,
+    "criteria": {
+     "water_use": {
+      "raw": 323,
+      "unit": "mm",
+      "norm": 47,
+      "vars": {
+       "irrigation_mm": 323,
+       "saved_mm": 121
+      }
+     },
+     "income_mean": {
+      "raw": 582,
+      "unit": "usd_ac",
+      "norm": 65,
+      "vars": {
+       "revenue_usd_ac": 582,
+       "diff_usd_ac": -230
+      }
+     },
+     "income_worst": {
+      "raw": 500,
+      "unit": "usd_ac",
+      "norm": 76,
+      "vars": {
+       "worst5_usd_ac": 500,
+       "r0_worst5_usd_ac": 599
+      }
+     },
+     "soil_health": {
+      "raw": 55,
+      "unit": "score",
+      "norm": 64,
+      "vars": {
+       "score": 55,
+       "living_root_days": 208,
+       "legume_years": 1
+      }
+     },
+     "water_erosion": {
+      "raw": 3,
+      "unit": "days",
+      "norm": 43,
+      "vars": {
+       "bare_storm_days": 3,
+       "r0_bare_storm_days": 3
+      }
+     },
+     "wind_erosion": {
+      "raw": 10,
+      "unit": "days",
+      "norm": 58,
+      "vars": {
+       "bare_windy_days": 10,
+       "r0_bare_windy_days": 13
+      }
+     },
+     "pest_break": {
+      "raw": 1,
+      "unit": "years",
+      "norm": 100,
+      "vars": {
+       "max_run_years": 1,
+       "r0_max_run_years": 8
+      }
+     },
+     "heat_frost_risk": {
+      "raw": 34,
+      "unit": "days",
+      "norm": 42,
+      "vars": {
+       "heat_days": 34,
+       "r0_heat_days": 44
+      }
+     }
+    },
+    "requires_equipment": [],
+    "needs_forage_market": false,
+    "crops_without_local_market": [],
+    "benefits": [
+     {
+      "text_id": "water_saved",
+      "vars": {
+       "saved_mm": 121
+      }
+     },
+     {
+      "text_id": "bare_days_reduced",
+      "vars": {
+       "days": 43
+      }
+     },
+     {
+      "text_id": "legume_added",
+      "vars": {
+       "legume_years": 1,
+       "cycle_years": 3
+      }
+     },
+     {
+      "text_id": "pest_cycle_broken",
+      "vars": {
+       "max_run_years": 1
+      }
+     }
+    ],
+    "evidence": [
+     {
+      "text_id": "replay_avg",
+      "vars": {
+       "years_from": 2000,
+       "years_to": 2025,
+       "irrigation_mm": 323,
+       "revenue_usd_ac": 582
+      },
+      "sources": [
+       "POWER",
+       "SSURGO",
+       "FAO56",
+       "NASS"
+      ]
+     },
+     {
+      "text_id": "replay_drought",
+      "vars": {
+       "year": 2012,
+       "irrigation_mm": 365,
+       "r0_irrigation_mm": 450
+      },
+      "sources": [
+       "POWER",
+       "FAO56"
+      ]
+     },
+     {
+      "text_id": "neighbors",
+      "vars": {
+       "n": 3,
+       "et_mm": 906,
+       "r0_et_mm": 932
+      },
+      "sources": [
+       "OpenET",
+       "CSB",
+       "SSURGO"
+      ]
+     }
+    ],
+    "gap_ids": [
+     "county_yields",
+     "crop_params_generic",
+     "neighbors_observational"
+    ],
+    "risk_ids": [
+     "cover_establishment",
+     "seed_availability"
+    ],
+    "confidence": "fair"
+   },
+   {
+    "rotation_id": "R6",
+    "feasible": true,
+    "infeasible_reason_id": null,
+    "criteria": {
+     "water_use": {
+      "raw": 213,
+      "unit": "mm",
+      "norm": 77,
+      "vars": {
+       "irrigation_mm": 213,
+       "saved_mm": 231
+      }
+     },
+     "income_mean": {
+      "raw": 427,
+      "unit": "usd_ac",
+      "norm": 41,
+      "vars": {
+       "revenue_usd_ac": 427,
+       "diff_usd_ac": -385
+      }
+     },
+     "income_worst": {
+      "raw": 427,
+      "unit": "usd_ac",
+      "norm": 58,
+      "vars": {
+       "worst5_usd_ac": 427,
+       "r0_worst5_usd_ac": 599
+      }
+     },
+     "soil_health": {
+      "raw": 39,
+      "unit": "score",
+      "norm": 36,
+      "vars": {
+       "score": 39,
+       "living_root_days": 162,
+       "legume_years": 0
+      }
+     },
+     "water_erosion": {
+      "raw": 3,
+      "unit": "days",
+      "norm": 43,
+      "vars": {
+       "bare_storm_days": 3,
+       "r0_bare_storm_days": 3
+      }
+     },
+     "wind_erosion": {
+      "raw": 13,
+      "unit": "days",
+      "norm": 32,
+      "vars": {
+       "bare_windy_days": 13,
+       "r0_bare_windy_days": 13
+      }
+     },
+     "pest_break": {
+      "raw": 1,
+      "unit": "years",
+      "norm": 100,
+      "vars": {
+       "max_run_years": 1,
+       "r0_max_run_years": 8
+      }
+     },
+     "heat_frost_risk": {
+      "raw": 13,
+      "unit": "days",
+      "norm": 100,
+      "vars": {
+       "heat_days": 13,
+       "r0_heat_days": 44
+      }
+     }
+    },
+    "requires_equipment": [
+     "cotton"
+    ],
+    "needs_forage_market": false,
+    "crops_without_local_market": [
+     "cotton"
+    ],
+    "benefits": [
+     {
+      "text_id": "water_saved",
+      "vars": {
+       "saved_mm": 231
+      }
+     },
+     {
+      "text_id": "pest_cycle_broken",
+      "vars": {
+       "max_run_years": 1
+      }
+     }
+    ],
+    "evidence": [
+     {
+      "text_id": "replay_avg",
+      "vars": {
+       "years_from": 2000,
+       "years_to": 2025,
+       "irrigation_mm": 213,
+       "revenue_usd_ac": 427
+      },
+      "sources": [
+       "POWER",
+       "SSURGO",
+       "FAO56",
+       "NASS"
+      ]
+     },
+     {
+      "text_id": "replay_drought",
+      "vars": {
+       "year": 2012,
+       "irrigation_mm": 278,
+       "r0_irrigation_mm": 450
+      },
+      "sources": [
+       "POWER",
+       "FAO56"
+      ]
+     }
+    ],
+    "gap_ids": [
+     "crop_params_generic",
+     "county_yields",
+     "model_simplified"
+    ],
+    "risk_ids": [
+     "equipment_access",
+     "buyer_availability",
+     "new_crop_learning"
+    ],
+    "confidence": "limited"
+   }
+  ],
+  "cap450|hotdry": [
+   {
+    "rotation_id": "R0",
+    "feasible": true,
+    "infeasible_reason_id": null,
+    "criteria": {
+     "water_use": {
+      "raw": 450,
+      "unit": "mm",
+      "norm": 15,
+      "vars": {
+       "irrigation_mm": 450,
+       "saved_mm": 0
+      }
+     },
+     "income_mean": {
+      "raw": 668,
+      "unit": "usd_ac",
+      "norm": 100,
+      "vars": {
+       "revenue_usd_ac": 668,
+       "diff_usd_ac": 0
+      }
+     },
+     "income_worst": {
+      "raw": 481,
+      "unit": "usd_ac",
+      "norm": 100,
+      "vars": {
+       "worst5_usd_ac": 481,
+       "r0_worst5_usd_ac": 481
+      }
+     },
+     "soil_health": {
+      "raw": 33,
+      "unit": "score",
+      "norm": 25,
+      "vars": {
+       "score": 33,
+       "living_root_days": 165,
+       "legume_years": 0
+      }
+     },
+     "water_erosion": {
+      "raw": 3,
+      "unit": "days",
+      "norm": 43,
+      "vars": {
+       "bare_storm_days": 3,
+       "r0_bare_storm_days": 3
+      }
+     },
+     "wind_erosion": {
+      "raw": 13,
+      "unit": "days",
+      "norm": 32,
+      "vars": {
+       "bare_windy_days": 13,
+       "r0_bare_windy_days": 13
+      }
+     },
+     "pest_break": {
+      "raw": 8,
+      "unit": "years",
+      "norm": 15,
+      "vars": {
+       "max_run_years": 8,
+       "r0_max_run_years": 8
+      }
+     },
+     "heat_frost_risk": {
+      "raw": 52,
+      "unit": "days",
+      "norm": 15,
+      "vars": {
+       "heat_days": 52,
+       "r0_heat_days": 52
+      }
+     }
+    },
+    "requires_equipment": [],
+    "needs_forage_market": false,
+    "crops_without_local_market": [],
+    "benefits": [],
+    "evidence": [
+     {
+      "text_id": "replay_avg",
+      "vars": {
+       "years_from": 2000,
+       "years_to": 2025,
+       "irrigation_mm": 450,
+       "revenue_usd_ac": 668
+      },
+      "sources": [
+       "POWER",
+       "SSURGO",
+       "FAO56",
+       "NASS"
+      ]
+     },
+     {
+      "text_id": "replay_drought",
+      "vars": {
+       "year": 2012,
+       "irrigation_mm": 450,
+       "r0_irrigation_mm": 450
+      },
+      "sources": [
+       "POWER",
+       "FAO56"
+      ]
+     },
+     {
+      "text_id": "validation_et",
+      "vars": {
+       "bias_pct": -31
+      },
+      "sources": [
+       "OpenET",
+       "MODEL"
+      ]
+     }
+    ],
+    "gap_ids": [
+     "costs_not_modelled",
+     "prices_constant",
+     "model_simplified"
+    ],
+    "risk_ids": [
+     "water_rights",
+     "crop_insurance"
+    ],
+    "confidence": "good"
+   },
+   {
+    "rotation_id": "R1",
+    "feasible": true,
+    "infeasible_reason_id": null,
+    "criteria": {
+     "water_use": {
+      "raw": 299,
+      "unit": "mm",
+      "norm": 58,
+      "vars": {
+       "irrigation_mm": 299,
+       "saved_mm": 151
+      }
+     },
+     "income_mean": {
+      "raw": 476,
+      "unit": "usd_ac",
+      "norm": 61,
+      "vars": {
+       "revenue_usd_ac": 476,
+       "diff_usd_ac": -192
+      }
+     },
+     "income_worst": {
+      "raw": 414,
+      "unit": "usd_ac",
+      "norm": 75,
+      "vars": {
+       "worst5_usd_ac": 414,
+       "r0_worst5_usd_ac": 481
+      }
+     },
+     "soil_health": {
+      "raw": 34,
+      "unit": "score",
+      "norm": 27,
+      "vars": {
+       "score": 34,
+       "living_root_days": 172,
+       "legume_years": 0
+      }
+     },
+     "water_erosion": {
+      "raw": 3,
+      "unit": "days",
+      "norm": 43,
+      "vars": {
+       "bare_storm_days": 3,
+       "r0_bare_storm_days": 3
+      }
+     },
+     "wind_erosion": {
+      "raw": 12,
+      "unit": "days",
+      "norm": 40,
+      "vars": {
+       "bare_windy_days": 12,
+       "r0_bare_windy_days": 13
+      }
+     },
+     "pest_break": {
+      "raw": 1,
+      "unit": "years",
+      "norm": 100,
+      "vars": {
+       "max_run_years": 1,
+       "r0_max_run_years": 8
+      }
+     },
+     "heat_frost_risk": {
+      "raw": 28,
+      "unit": "days",
+      "norm": 72,
+      "vars": {
+       "heat_days": 28,
+       "r0_heat_days": 52
+      }
+     }
+    },
+    "requires_equipment": [],
+    "needs_forage_market": false,
+    "crops_without_local_market": [],
+    "benefits": [
+     {
+      "text_id": "water_saved",
+      "vars": {
+       "saved_mm": 151
+      }
+     },
+     {
+      "text_id": "pest_cycle_broken",
+      "vars": {
+       "max_run_years": 1
+      }
+     }
+    ],
+    "evidence": [
+     {
+      "text_id": "replay_avg",
+      "vars": {
+       "years_from": 2000,
+       "years_to": 2025,
+       "irrigation_mm": 299,
+       "revenue_usd_ac": 476
+      },
+      "sources": [
+       "POWER",
+       "SSURGO",
+       "FAO56",
+       "NASS"
+      ]
+     },
+     {
+      "text_id": "replay_drought",
+      "vars": {
+       "year": 2012,
+       "irrigation_mm": 338,
+       "r0_irrigation_mm": 450
+      },
+      "sources": [
+       "POWER",
+       "FAO56"
+      ]
+     },
+     {
+      "text_id": "neighbors",
+      "vars": {
+       "n": 11,
+       "et_mm": 849,
+       "r0_et_mm": 932
+      },
+      "sources": [
+       "OpenET",
+       "CSB",
+       "SSURGO"
+      ]
+     }
+    ],
+    "gap_ids": [
+     "costs_not_modelled",
+     "prices_constant",
+     "county_yields"
+    ],
+    "risk_ids": [
+     "herbicide_carryover",
+     "crop_insurance"
+    ],
+    "confidence": "good"
+   },
+   {
+    "rotation_id": "R2",
+    "feasible": true,
+    "infeasible_reason_id": null,
+    "criteria": {
+     "water_use": {
+      "raw": 149,
+      "unit": "mm",
+      "norm": 100,
+      "vars": {
+       "irrigation_mm": 149,
+       "saved_mm": 301
+      }
+     },
+     "income_mean": {
+      "raw": 253,
+      "unit": "usd_ac",
+      "norm": 15,
+      "vars": {
+       "revenue_usd_ac": 253,
+       "diff_usd_ac": -415
+      }
+     },
+     "income_worst": {
+      "raw": 253,
+      "unit": "usd_ac",
+      "norm": 15,
+      "vars": {
+       "worst5_usd_ac": 253,
+       "r0_worst5_usd_ac": 481
+      }
+     },
+     "soil_health": {
+      "raw": 27,
+      "unit": "score",
+      "norm": 15,
+      "vars": {
+       "score": 27,
+       "living_root_days": 128,
+       "legume_years": 0
+      }
+     },
+     "water_erosion": {
+      "raw": 4,
+      "unit": "days",
+      "norm": 15,
+      "vars": {
+       "bare_storm_days": 4,
+       "r0_bare_storm_days": 3
+      }
+     },
+     "wind_erosion": {
+      "raw": 15,
+      "unit": "days",
+      "norm": 15,
+      "vars": {
+       "bare_windy_days": 15,
+       "r0_bare_windy_days": 13
+      }
+     },
+     "pest_break": {
+      "raw": 1,
+      "unit": "years",
+      "norm": 100,
+      "vars": {
+       "max_run_years": 1,
+       "r0_max_run_years": 8
+      }
+     },
+     "heat_frost_risk": {
+      "raw": 16,
+      "unit": "days",
+      "norm": 100,
+      "vars": {
+       "heat_days": 16,
+       "r0_heat_days": 52
+      }
+     }
+    },
+    "requires_equipment": [],
+    "needs_forage_market": false,
+    "crops_without_local_market": [],
+    "benefits": [
+     {
+      "text_id": "water_saved",
+      "vars": {
+       "saved_mm": 301
+      }
+     },
+     {
+      "text_id": "pest_cycle_broken",
+      "vars": {
+       "max_run_years": 1
+      }
+     }
+    ],
+    "evidence": [
+     {
+      "text_id": "replay_avg",
+      "vars": {
+       "years_from": 2000,
+       "years_to": 2025,
+       "irrigation_mm": 149,
+       "revenue_usd_ac": 253
+      },
+      "sources": [
+       "POWER",
+       "SSURGO",
+       "FAO56",
+       "NASS"
+      ]
+     },
+     {
+      "text_id": "replay_drought",
+      "vars": {
+       "year": 2012,
+       "irrigation_mm": 188,
+       "r0_irrigation_mm": 450
+      },
+      "sources": [
+       "POWER",
+       "FAO56"
+      ]
+     }
+    ],
+    "gap_ids": [
+     "costs_not_modelled",
+     "county_yields",
+     "openet_record_short"
+    ],
+    "risk_ids": [
+     "fallow_wind",
+     "herbicide_carryover"
+    ],
+    "confidence": "good"
+   },
+   {
+    "rotation_id": "R3",
+    "feasible": true,
+    "infeasible_reason_id": null,
+    "criteria": {
+     "water_use": {
+      "raw": 192,
+      "unit": "mm",
+      "norm": 88,
+      "vars": {
+       "irrigation_mm": 192,
+       "saved_mm": 258
+      }
+     },
+     "income_mean": {
+      "raw": 353,
+      "unit": "usd_ac",
+      "norm": 35,
+      "vars": {
+       "revenue_usd_ac": 353,
+       "diff_usd_ac": -315
+      }
+     },
+     "income_worst": {
+      "raw": 353,
+      "unit": "usd_ac",
+      "norm": 52,
+      "vars": {
+       "worst5_usd_ac": 353,
+       "r0_worst5_usd_ac": 481
+      }
+     },
+     "soil_health": {
+      "raw": 36,
+      "unit": "score",
+      "norm": 31,
+      "vars": {
+       "score": 36,
+       "living_root_days": 182,
+       "legume_years": 0
+      }
+     },
+     "water_erosion": {
+      "raw": 3,
+      "unit": "days",
+      "norm": 43,
+      "vars": {
+       "bare_storm_days": 3,
+       "r0_bare_storm_days": 3
+      }
+     },
+     "wind_erosion": {
+      "raw": 12,
+      "unit": "days",
+      "norm": 40,
+      "vars": {
+       "bare_windy_days": 12,
+       "r0_bare_windy_days": 13
+      }
+     },
+     "pest_break": {
+      "raw": 2,
+      "unit": "years",
+      "norm": 88,
+      "vars": {
+       "max_run_years": 2,
+       "r0_max_run_years": 8
+      }
+     },
+     "heat_frost_risk": {
+      "raw": 16,
+      "unit": "days",
+      "norm": 100,
+      "vars": {
+       "heat_days": 16,
+       "r0_heat_days": 52
+      }
+     }
+    },
+    "requires_equipment": [],
+    "needs_forage_market": true,
+    "crops_without_local_market": [
+     "triticale"
+    ],
+    "benefits": [
+     {
+      "text_id": "water_saved",
+      "vars": {
+       "saved_mm": 258
+      }
+     },
+     {
+      "text_id": "pest_cycle_broken",
+      "vars": {
+       "max_run_years": 2
+      }
+     },
+     {
+      "text_id": "forage_income",
+      "vars": {
+       "forage_crop": "triticale"
+      }
+     }
+    ],
+    "evidence": [
+     {
+      "text_id": "replay_avg",
+      "vars": {
+       "years_from": 2000,
+       "years_to": 2025,
+       "irrigation_mm": 192,
+       "revenue_usd_ac": 353
+      },
+      "sources": [
+       "POWER",
+       "SSURGO",
+       "FAO56",
+       "NASS"
+      ]
+     },
+     {
+      "text_id": "replay_drought",
+      "vars": {
+       "year": 2012,
+       "irrigation_mm": 242,
+       "r0_irrigation_mm": 450
+      },
+      "sources": [
+       "POWER",
+       "FAO56"
+      ]
+     }
+    ],
+    "gap_ids": [
+     "crop_params_generic",
+     "prices_constant",
+     "county_yields"
+    ],
+    "risk_ids": [
+     "buyer_availability",
+     "new_crop_learning"
+    ],
+    "confidence": "fair"
+   },
+   {
+    "rotation_id": "R4",
+    "feasible": true,
+    "infeasible_reason_id": null,
+    "criteria": {
+     "water_use": {
+      "raw": 404,
+      "unit": "mm",
+      "norm": 28,
+      "vars": {
+       "irrigation_mm": 404,
+       "saved_mm": 46
+      }
+     },
+     "income_mean": {
+      "raw": 546,
+      "unit": "usd_ac",
+      "norm": 75,
+      "vars": {
+       "revenue_usd_ac": 546,
+       "diff_usd_ac": -122
+      }
+     },
+     "income_worst": {
+      "raw": 401,
+      "unit": "usd_ac",
+      "norm": 70,
+      "vars": {
+       "worst5_usd_ac": 401,
+       "r0_worst5_usd_ac": 481
+      }
+     },
+     "soil_health": {
+      "raw": 76,
+      "unit": "score",
+      "norm": 100,
+      "vars": {
+       "score": 76,
+       "living_root_days": 285,
+       "legume_years": 4
+      }
+     },
+     "water_erosion": {
+      "raw": 1,
+      "unit": "days",
+      "norm": 100,
+      "vars": {
+       "bare_storm_days": 1,
+       "r0_bare_storm_days": 3
+      }
+     },
+     "wind_erosion": {
+      "raw": 5,
+      "unit": "days",
+      "norm": 100,
+      "vars": {
+       "bare_windy_days": 5,
+       "r0_bare_windy_days": 13
+      }
+     },
+     "pest_break": {
+      "raw": 4,
+      "unit": "years",
+      "norm": 64,
+      "vars": {
+       "max_run_years": 4,
+       "r0_max_run_years": 8
+      }
+     },
+     "heat_frost_risk": {
+      "raw": 22,
+      "unit": "days",
+      "norm": 86,
+      "vars": {
+       "heat_days": 22,
+       "r0_heat_days": 52
+      }
+     }
+    },
+    "requires_equipment": [
+     "hay"
+    ],
+    "needs_forage_market": true,
+    "crops_without_local_market": [],
+    "benefits": [
+     {
+      "text_id": "water_saved",
+      "vars": {
+       "saved_mm": 46
+      }
+     },
+     {
+      "text_id": "bare_days_reduced",
+      "vars": {
+       "days": 120
+      }
+     },
+     {
+      "text_id": "legume_added",
+      "vars": {
+       "legume_years": 4,
+       "cycle_years": 6
+      }
+     },
+     {
+      "text_id": "pest_cycle_broken",
+      "vars": {
+       "max_run_years": 4
+      }
+     },
+     {
+      "text_id": "forage_income",
+      "vars": {
+       "forage_crop": "alfalfa"
+      }
+     }
+    ],
+    "evidence": [
+     {
+      "text_id": "replay_avg",
+      "vars": {
+       "years_from": 2000,
+       "years_to": 2025,
+       "irrigation_mm": 404,
+       "revenue_usd_ac": 546
+      },
+      "sources": [
+       "POWER",
+       "SSURGO",
+       "FAO56",
+       "NASS"
+      ]
+     },
+     {
+      "text_id": "replay_drought",
+      "vars": {
+       "year": 2012,
+       "irrigation_mm": 412,
+       "r0_irrigation_mm": 450
+      },
+      "sources": [
+       "POWER",
+       "FAO56"
+      ]
+     },
+     {
+      "text_id": "neighbors",
+      "vars": {
+       "n": 4,
+       "et_mm": 1124,
+       "r0_et_mm": 932
+      },
+      "sources": [
+       "OpenET",
+       "CSB",
+       "SSURGO"
+      ]
+     }
+    ],
+    "gap_ids": [
+     "crop_params_generic",
+     "costs_not_modelled",
+     "no_pest_data"
+    ],
+    "risk_ids": [
+     "alfalfa_stand_water",
+     "equipment_access",
+     "buyer_availability"
+    ],
+    "confidence": "limited"
+   },
+   {
+    "rotation_id": "R5",
+    "feasible": true,
+    "infeasible_reason_id": null,
+    "criteria": {
+     "water_use": {
+      "raw": 351,
+      "unit": "mm",
+      "norm": 43,
+      "vars": {
+       "irrigation_mm": 351,
+       "saved_mm": 99
+      }
+     },
+     "income_mean": {
+      "raw": 525,
+      "unit": "usd_ac",
+      "norm": 71,
+      "vars": {
+       "revenue_usd_ac": 525,
+       "diff_usd_ac": -143
+      }
+     },
+     "income_worst": {
+      "raw": 425,
+      "unit": "usd_ac",
+      "norm": 79,
+      "vars": {
+       "worst5_usd_ac": 425,
+       "r0_worst5_usd_ac": 481
+      }
+     },
+     "soil_health": {
+      "raw": 55,
+      "unit": "score",
+      "norm": 64,
+      "vars": {
+       "score": 55,
+       "living_root_days": 208,
+       "legume_years": 1
+      }
+     },
+     "water_erosion": {
+      "raw": 3,
+      "unit": "days",
+      "norm": 43,
+      "vars": {
+       "bare_storm_days": 3,
+       "r0_bare_storm_days": 3
+      }
+     },
+     "wind_erosion": {
+      "raw": 10,
+      "unit": "days",
+      "norm": 58,
+      "vars": {
+       "bare_windy_days": 10,
+       "r0_bare_windy_days": 13
+      }
+     },
+     "pest_break": {
+      "raw": 1,
+      "unit": "years",
+      "norm": 100,
+      "vars": {
+       "max_run_years": 1,
+       "r0_max_run_years": 8
+      }
+     },
+     "heat_frost_risk": {
+      "raw": 40,
+      "unit": "days",
+      "norm": 43,
+      "vars": {
+       "heat_days": 40,
+       "r0_heat_days": 52
+      }
+     }
+    },
+    "requires_equipment": [],
+    "needs_forage_market": false,
+    "crops_without_local_market": [],
+    "benefits": [
+     {
+      "text_id": "water_saved",
+      "vars": {
+       "saved_mm": 99
+      }
+     },
+     {
+      "text_id": "bare_days_reduced",
+      "vars": {
+       "days": 43
+      }
+     },
+     {
+      "text_id": "legume_added",
+      "vars": {
+       "legume_years": 1,
+       "cycle_years": 3
+      }
+     },
+     {
+      "text_id": "pest_cycle_broken",
+      "vars": {
+       "max_run_years": 1
+      }
+     }
+    ],
+    "evidence": [
+     {
+      "text_id": "replay_avg",
+      "vars": {
+       "years_from": 2000,
+       "years_to": 2025,
+       "irrigation_mm": 351,
+       "revenue_usd_ac": 525
+      },
+      "sources": [
+       "POWER",
+       "SSURGO",
+       "FAO56",
+       "NASS"
+      ]
+     },
+     {
+      "text_id": "replay_drought",
+      "vars": {
+       "year": 2012,
+       "irrigation_mm": 374,
+       "r0_irrigation_mm": 450
+      },
+      "sources": [
+       "POWER",
+       "FAO56"
+      ]
+     },
+     {
+      "text_id": "neighbors",
+      "vars": {
+       "n": 3,
+       "et_mm": 906,
+       "r0_et_mm": 932
+      },
+      "sources": [
+       "OpenET",
+       "CSB",
+       "SSURGO"
+      ]
+     }
+    ],
+    "gap_ids": [
+     "county_yields",
+     "crop_params_generic",
+     "neighbors_observational"
+    ],
+    "risk_ids": [
+     "cover_establishment",
+     "seed_availability"
+    ],
+    "confidence": "fair"
+   },
+   {
+    "rotation_id": "R6",
+    "feasible": true,
+    "infeasible_reason_id": null,
+    "criteria": {
+     "water_use": {
+      "raw": 251,
+      "unit": "mm",
+      "norm": 71,
+      "vars": {
+       "irrigation_mm": 251,
+       "saved_mm": 199
+      }
+     },
+     "income_mean": {
+      "raw": 427,
+      "unit": "usd_ac",
+      "norm": 51,
+      "vars": {
+       "revenue_usd_ac": 427,
+       "diff_usd_ac": -241
+      }
+     },
+     "income_worst": {
+      "raw": 427,
+      "unit": "usd_ac",
+      "norm": 80,
+      "vars": {
+       "worst5_usd_ac": 427,
+       "r0_worst5_usd_ac": 481
+      }
+     },
+     "soil_health": {
+      "raw": 39,
+      "unit": "score",
+      "norm": 36,
+      "vars": {
+       "score": 39,
+       "living_root_days": 162,
+       "legume_years": 0
+      }
+     },
+     "water_erosion": {
+      "raw": 3,
+      "unit": "days",
+      "norm": 43,
+      "vars": {
+       "bare_storm_days": 3,
+       "r0_bare_storm_days": 3
+      }
+     },
+     "wind_erosion": {
+      "raw": 13,
+      "unit": "days",
+      "norm": 32,
+      "vars": {
+       "bare_windy_days": 13,
+       "r0_bare_windy_days": 13
+      }
+     },
+     "pest_break": {
+      "raw": 1,
+      "unit": "years",
+      "norm": 100,
+      "vars": {
+       "max_run_years": 1,
+       "r0_max_run_years": 8
+      }
+     },
+     "heat_frost_risk": {
+      "raw": 16,
+      "unit": "days",
+      "norm": 100,
+      "vars": {
+       "heat_days": 16,
+       "r0_heat_days": 52
+      }
+     }
+    },
+    "requires_equipment": [
+     "cotton"
+    ],
+    "needs_forage_market": false,
+    "crops_without_local_market": [
+     "cotton"
+    ],
+    "benefits": [
+     {
+      "text_id": "water_saved",
+      "vars": {
+       "saved_mm": 199
+      }
+     },
+     {
+      "text_id": "pest_cycle_broken",
+      "vars": {
+       "max_run_years": 1
+      }
+     }
+    ],
+    "evidence": [
+     {
+      "text_id": "replay_avg",
+      "vars": {
+       "years_from": 2000,
+       "years_to": 2025,
+       "irrigation_mm": 251,
+       "revenue_usd_ac": 427
+      },
+      "sources": [
+       "POWER",
+       "SSURGO",
+       "FAO56",
+       "NASS"
+      ]
+     },
+     {
+      "text_id": "replay_drought",
+      "vars": {
+       "year": 2012,
+       "irrigation_mm": 316,
+       "r0_irrigation_mm": 450
+      },
+      "sources": [
+       "POWER",
+       "FAO56"
+      ]
+     }
+    ],
+    "gap_ids": [
+     "crop_params_generic",
+     "county_yields",
+     "model_simplified"
+    ],
+    "risk_ids": [
+     "equipment_access",
+     "buyer_availability",
+     "new_crop_learning"
+    ],
+    "confidence": "limited"
+   }
+  ]
+ }
+}

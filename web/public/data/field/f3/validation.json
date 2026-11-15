@@ -1,0 +1,39 @@
+{
+ "_meta": {
+  "schema": "validation@1",
+  "mock": true,
+  "generated_at": "2026-11-15T14:02:09Z",
+  "generator": "web/scripts/mocks/make_mocks.py"
+ },
+ "field_id": "f3",
+ "items": [
+  {
+   "id": "et_vs_openet",
+   "metric": "bias_pct",
+   "value": -44,
+   "n": 10,
+   "level": "limited",
+   "vars": {
+    "bias_pct": -44
+   },
+   "sources": [
+    "OpenET",
+    "MODEL"
+   ]
+  },
+  {
+   "id": "sm_vs_smap",
+   "metric": "r",
+   "value": 0.62,
+   "n": 120,
+   "level": "fair",
+   "vars": {
+    "r": 0.62
+   },
+   "sources": [
+    "SMAP",
+    "MODEL"
+   ]
+  }
+ ]
+}

@@ -1,77 +1,126 @@
-import type { CriterionId, StrategyEntry } from "@/lib/types";
+// Browser-side scoring (README §8.7, handover §5.4). Pure functions.
+import type { CapId, CriterionId, EquipmentId, RotationId, StrategyEntry } from "@/lib/types";
+import { CRITERION_IDS } from "@/lib/schemas";
 
+export const SLIDER_IDS = ["save_water", "income", "steady_income", "soil_health", "erosion"] as const;
+export type SliderId = (typeof SLIDER_IDS)[number];
+export type Sliders = Record<SliderId, number>;          // 0–5 each
 export type Weights = Record<CriterionId, number>;
+
+/** Slider → criteria shares (README §8.7 table). */
+export const SLIDER_SHARES: Record<SliderId, Partial<Record<CriterionId, number>>> = {
+  save_water: { water_use: 1.0 },
+  income: { income_mean: 1.0 },
+  steady_income: { income_worst: 0.7, heat_frost_risk: 0.3 },
+  soil_health: { soil_health: 0.7, pest_break: 0.3 },
+  erosion: { wind_erosion: 0.6, water_erosion: 0.4 },
+};
+
+export const DEFAULT_SLIDERS: Sliders = { save_water: 3, income: 3, steady_income: 3, soil_health: 3, erosion: 3 };
+
 export interface Constraints {
-  cap: "dryland" | "cap150" | "cap300" | "cap450";
+  cap: CapId;
   hay: boolean;
   cotton: boolean;
   forage: boolean;
 }
 
-export const criterionIds: CriterionId[] = ["water", "soil", "climate", "market", "operations"];
-const capMillimeters: Record<Constraints["cap"], number> = {
-  dryland: 0,
-  cap150: 150,
-  cap300: 300,
-  cap450: 450,
-};
+export type ExclusionReason = "needs_more_water" | "needs_equipment" | "no_local_market";
 
-export function weightsFromSliders(sliders: Weights): Weights {
-  const sum = criterionIds.reduce((total, key) => total + Math.max(0, sliders[key]), 0);
-  if (sum === 0) return { water: 20, soil: 20, climate: 20, market: 20, operations: 20 };
-  return Object.fromEntries(criterionIds.map((key) => [key, Math.max(0, sliders[key]) * 100 / sum])) as Weights;
+function zeroWeights(): Weights {
+  return Object.fromEntries(CRITERION_IDS.map((id) => [id, 0])) as Weights;
 }
 
-export function scoreEntry(entry: StrategyEntry, weights: Weights): number {
-  return Math.round(criterionIds.reduce((score, key) => {
-    const normalized = Math.min(100, Math.max(0, entry.criteria[key].norm * 10));
-    return score + normalized * weights[key] / 100;
-  }, 0));
-}
-
-export function excluded(
-  entry: StrategyEntry,
-  constraints: Constraints,
-): null | "needs_more_water" | "needs_equipment" | "needs_forage_market" {
-  if (entry.needs_irrigation_mm > capMillimeters[constraints.cap]) return "needs_more_water";
-  if (entry.needs_equipment) {
-    const equipmentAvailable = entry.equipment_required === "hay"
-      ? constraints.hay
-      : entry.equipment_required === "cotton"
-        ? Boolean(constraints.cotton)
-        : constraints.hay || constraints.cotton;
-    if (!equipmentAvailable) return "needs_equipment";
+/** w_k = Σ over sliders (slider_value × share_k) */
+export function weightsFromSliders(sliders: Sliders): Weights {
+  const weights = zeroWeights();
+  for (const slider of Object.keys(SLIDER_SHARES) as SliderId[]) {
+    const value = sliders[slider] ?? 0;
+    for (const [criterion, share] of Object.entries(SLIDER_SHARES[slider]) as [CriterionId, number][]) {
+      weights[criterion] += value * share;
+    }
   }
-  if (entry.needs_forage_market && !constraints.forage) return "needs_forage_market";
+  return weights;
+}
+
+/** Equal weights when every slider is at 0. */
+function effective(weights: Weights): Weights {
+  const total = CRITERION_IDS.reduce((sum, id) => sum + weights[id], 0);
+  if (total > 0) return weights;
+  return Object.fromEntries(CRITERION_IDS.map((id) => [id, 1])) as Weights;
+}
+
+function rawScore(entry: StrategyEntry, weights: Weights): number {
+  const w = effective(weights);
+  const total = CRITERION_IDS.reduce((sum, id) => sum + w[id], 0);
+  const weighted = CRITERION_IDS.reduce((sum, id) => sum + w[id] * entry.criteria[id].norm, 0);
+  return weighted / total;
+}
+
+/** score(r) = Σ_k w_k × norm_k(r) / Σ_k w_k, rounded to an integer 0–100. */
+export function scoreEntry(entry: StrategyEntry, weights: Weights): number {
+  return Math.round(Math.max(0, Math.min(100, rawScore(entry, weights))));
+}
+
+/** excluded = !feasible OR requires_equipment ⊄ owned OR (needs_forage_market AND !forage_buyer) */
+export function excluded(entry: StrategyEntry, constraints: Constraints): ExclusionReason | null {
+  if (!entry.feasible) {
+    const reason = entry.infeasible_reason_id;
+    return reason === "needs_equipment" || reason === "no_local_market" ? reason : "needs_more_water";
+  }
+  const owned: Record<EquipmentId, boolean> = { hay: constraints.hay, cotton: constraints.cotton };
+  if (entry.requires_equipment.some((item) => !owned[item])) return "needs_equipment";
+  if (entry.needs_forage_market && !constraints.forage) return "no_local_market";
   return null;
 }
 
+export interface Ranked {
+  entry: StrategyEntry;
+  score: number;
+}
+export interface Picked {
+  shown: StrategyEntry[];                                         // R0 first, then up to 3 by score
+  hidden: { entry: StrategyEntry; reason: ExclusionReason }[];    // excluded rotations
+  others: StrategyEntry[];                                        // feasible but outside the top 3
+}
+
+/**
+ * shown = R0 always + top 3 non-excluded rotations by score (ties → lower irrigation_mm_mean).
+ * `irrigation` comes from replay summaries; without it, criteria.water_use.raw is the tie-breaker.
+ */
 export function pickShown(
   entries: StrategyEntry[],
   weights: Weights,
   constraints: Constraints,
-): { shown: StrategyEntry[]; hidden: { entry: StrategyEntry; reason: NonNullable<ReturnType<typeof excluded>> | "lower_rank" }[] } {
-  const current = entries.find((entry) => entry.id === "R0");
-  const eligible = entries.filter((entry) => entry.id !== "R0")
-    .map((entry) => ({ entry, reason: excluded(entry, constraints) }))
-    .sort((a, b) => scoreEntry(b.entry, weights) - scoreEntry(a.entry, weights));
-  const shown = [current, ...eligible.filter(({ reason }) => !reason).slice(0, 3).map(({ entry }) => entry)]
-    .filter((entry): entry is StrategyEntry => Boolean(entry));
-  const hiddenEntries = eligible.filter(({ entry }) => !shown.includes(entry));
+  irrigation?: Partial<Record<RotationId, number>>,
+): Picked {
+  const water = (entry: StrategyEntry) => irrigation?.[entry.rotation_id] ?? entry.criteria.water_use.raw;
+  const current = entries.find((entry) => entry.rotation_id === "R0");
+  const hidden: Picked["hidden"] = [];
+  const candidates: { entry: StrategyEntry; score: number }[] = [];
+  for (const entry of entries) {
+    if (entry.rotation_id === "R0") continue;
+    const reason = excluded(entry, constraints);
+    if (reason) hidden.push({ entry, reason });
+    else candidates.push({ entry, score: rawScore(entry, weights) });
+  }
+  candidates.sort((a, b) => {
+    const diff = Math.round(b.score) - Math.round(a.score);
+    return diff !== 0 ? diff : water(a.entry) - water(b.entry);
+  });
+  const top = candidates.slice(0, 3).map((item) => item.entry);
   return {
-    shown,
-    hidden: hiddenEntries.map(({ entry, reason }) => ({
-      entry,
-      reason: reason || "lower_rank",
-    })),
+    shown: current ? [current, ...top] : top,
+    hidden,
+    others: candidates.slice(3).map((item) => item.entry),
   };
 }
 
+/** The 3 criteria with the highest w_k × norm_k where norm_k ≥ 50. */
 export function whyBullets(entry: StrategyEntry, weights: Weights): CriterionId[] {
-  return criterionIds
-    .map((id) => ({ id, impact: weights[id] * entry.criteria[id].norm }))
-    .filter(({ id }) => entry.criteria[id].norm >= 5)
-    .sort((a, b) => b.impact - a.impact)
-    .slice(0, 3)
-    .map(({ id }) => id);
+  const w = effective(weights);
+  return CRITERION_IDS
+    .filter((id) => entry.criteria[id].norm >= 50 && w[id] > 0)
+    .sort((a, b) => w[b] * entry.criteria[b].norm - w[a] * entry.criteria[a].norm)
+    .slice(0, 3);
 }

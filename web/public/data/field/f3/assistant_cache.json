@@ -1,29 +1,372 @@
 {
-  "_meta": { "version": "1.0.0" },
-  "answers": {
-    "compare_water": {
-      "en": "Rotation models indicate R5 achieves the lowest seasonal irrigation requirement. Confirm site-specific water management planning. [POWER]",
-      "es": "Los modelos de rotación indican que R5 logra la menor necesidad de riego estacional. Confirme la planificación local del agua. [POWER]"
-    },
-    "soil_cover": {
-      "en": "R3 includes an overwinter cover period in the multi-season calendar. Establishment success depends on local planting timing, termination, and profile moisture. [NRCS]",
-      "es": "R3 incluye un período de cobertura invernal en el calendario multiestacional. El éxito del establecimiento depende del momento de siembra, terminación y humedad del perfil. [NRCS]"
-    },
-    "market_check": {
-      "en": "Consult local grain elevators and buyers regarding delivery windows, protein specifications, and contract terms.",
-      "es": "Consulte con acopiadores locales sobre ventanas de entrega, especificaciones de calidad y términos contractuales."
-    },
-    "confidence": {
-      "en": "Field boundaries, soil surveys, climate series, and rotation outcomes are synthesized from satellite and agricultural survey records. Review site-specific parameters before making capital commitments.",
-      "es": "Los límites de campo, estudios de suelo, series climáticas y resultados de rotación se sintetizan a partir de registros satelitales y agrícolas. Revise parámetros del sitio antes de tomar decisiones."
-    },
-    "hot_dry": {
-      "en": "The hotter and drier view simulates rotation performance under historical drought benchmarks and elevated evaporative demand.",
-      "es": "La vista más cálida y seca simula el rendimiento de la rotación bajo puntos de referencia históricos de sequía y mayor demanda evaporativa."
-    },
-    "water_data": {
-      "en": "SMAP observes surface soil moisture over a satellite pixel footprint. Root-zone products integrate land surface models. Treat the signal as regional hydrological context. [SMAP]",
-      "es": "SMAP observa humedad superficial en un píxel satelital. Los productos de zona radicular integran modelos de superficie terrestre como contexto hidrológico regional. [SMAP]"
-    }
+ "_meta": {
+  "schema": "assistant_cache@1",
+  "mock": true,
+  "generated_at": "2026-11-15T14:03:14Z",
+  "generator": "web/scripts/mocks/make_cache.mts"
+ },
+ "field_id": "f3",
+ "scenario": "cap300|actual",
+ "answers": {
+  "q1": {
+   "en": {
+    "answer_md": "On Sandy field, **R2** needs the least irrigation: about 145 mm a year [MODEL], against 245 mm for your current rotation [MODEL]. It averages $250/ac [MODEL]. Check your water right before you change plans.",
+    "citations": [],
+    "numbers": [
+     {
+      "text": "145 mm",
+      "value": 145,
+      "unit": "mm",
+      "verified": true,
+      "fact_id": "replay.R2.cap300|actual.irrigation_mm_mean"
+     },
+     {
+      "text": "245 mm",
+      "value": 245,
+      "unit": "mm",
+      "verified": true,
+      "fact_id": "replay.R0.cap300|actual.irrigation_mm_mean"
+     },
+     {
+      "text": "$250/ac",
+      "value": 250,
+      "unit": "usd",
+      "verified": true,
+      "fact_id": "replay.R2.cap300|actual.revenue_usd_ac_mean"
+     }
+    ],
+    "cached": true,
+    "provider": "cache",
+    "model": null
+   },
+   "es": {
+    "answer_md": "En Sandy field, **R2** necesita menos riego: unos 145 mm al año [MODEL], frente a 245 mm de su rotación actual [MODEL]. Promedia $250/ac [MODEL].",
+    "citations": [],
+    "numbers": [
+     {
+      "text": "145 mm",
+      "value": 145,
+      "unit": "mm",
+      "verified": true,
+      "fact_id": "replay.R2.cap300|actual.irrigation_mm_mean"
+     },
+     {
+      "text": "245 mm",
+      "value": 245,
+      "unit": "mm",
+      "verified": true,
+      "fact_id": "replay.R0.cap300|actual.irrigation_mm_mean"
+     },
+     {
+      "text": "$250/ac",
+      "value": 250,
+      "unit": "usd",
+      "verified": true,
+      "fact_id": "replay.R2.cap300|actual.revenue_usd_ac_mean"
+     }
+    ],
+    "cached": true,
+    "provider": "cache",
+    "model": null
+   }
+  },
+  "q2": {
+   "en": {
+    "answer_md": "Across 2000 to 2025, your current rotation averaged $400/ac [MODEL] and $340/ac in its 5 worst years [MODEL], which include the 2012 drought. Ask your extension agent how your yields compared that year.",
+    "citations": [],
+    "numbers": [
+     {
+      "text": "$400/ac",
+      "value": 400,
+      "unit": "usd",
+      "verified": true,
+      "fact_id": "replay.R0.cap300|actual.revenue_usd_ac_mean"
+     },
+     {
+      "text": "$340/ac",
+      "value": 340,
+      "unit": "usd",
+      "verified": true,
+      "fact_id": "replay.R0.cap300|actual.revenue_usd_ac_worst5"
+     },
+     {
+      "text": "5",
+      "value": 5,
+      "unit": null,
+      "verified": false,
+      "fact_id": null
+     }
+    ],
+    "cached": true,
+    "provider": "cache",
+    "model": null
+   },
+   "es": {
+    "answer_md": "De 2000 a 2025, su rotación actual promedió $400/ac [MODEL] y $340/ac en sus 5 peores años [MODEL], que incluyen la sequía de 2012.",
+    "citations": [],
+    "numbers": [
+     {
+      "text": "$400/ac",
+      "value": 400,
+      "unit": "usd",
+      "verified": true,
+      "fact_id": "replay.R0.cap300|actual.revenue_usd_ac_mean"
+     },
+     {
+      "text": "$340/ac",
+      "value": 340,
+      "unit": "usd",
+      "verified": true,
+      "fact_id": "replay.R0.cap300|actual.revenue_usd_ac_worst5"
+     },
+     {
+      "text": "5",
+      "value": 5,
+      "unit": null,
+      "verified": false,
+      "fact_id": null
+     }
+    ],
+    "cached": true,
+    "provider": "cache",
+    "model": null
+   }
+  },
+  "q3": {
+   "en": {
+    "answer_md": "Alfalfa (R4) needs about 279 mm of irrigation a year here [MODEL], more than your 300 mm limit, plus hay equipment and a forage buyer. This soil holds about 74 mm of water [SSURGO], so alfalfa stands would depend on steady pumping.",
+    "citations": [
+     {
+      "tag": "SSURGO",
+      "name": "SSURGO via Soil Data Access",
+      "url": "https://sdmdataaccess.sc.egov.usda.gov/"
+     }
+    ],
+    "numbers": [
+     {
+      "text": "279 mm",
+      "value": 279,
+      "unit": "mm",
+      "verified": true,
+      "fact_id": "replay.R4.cap300|actual.irrigation_mm_mean"
+     },
+     {
+      "text": "300 mm",
+      "value": 300,
+      "unit": "mm",
+      "verified": false,
+      "fact_id": null
+     },
+     {
+      "text": "74 mm",
+      "value": 74,
+      "unit": "mm",
+      "verified": true,
+      "fact_id": "field.soil.aws_0_100_mm"
+     }
+    ],
+    "cached": true,
+    "provider": "cache",
+    "model": null
+   },
+   "es": {
+    "answer_md": "La alfalfa (R4) necesita unos 279 mm de riego al año aquí [MODEL], más que su límite de 300 mm. Este suelo retiene unos 74 mm de agua [SSURGO].",
+    "citations": [
+     {
+      "tag": "SSURGO",
+      "name": "SSURGO via Soil Data Access",
+      "url": "https://sdmdataaccess.sc.egov.usda.gov/"
+     }
+    ],
+    "numbers": [
+     {
+      "text": "279 mm",
+      "value": 279,
+      "unit": "mm",
+      "verified": true,
+      "fact_id": "replay.R4.cap300|actual.irrigation_mm_mean"
+     },
+     {
+      "text": "300 mm",
+      "value": 300,
+      "unit": "mm",
+      "verified": false,
+      "fact_id": null
+     },
+     {
+      "text": "74 mm",
+      "value": 74,
+      "unit": "mm",
+      "verified": true,
+      "fact_id": "field.soil.aws_0_100_mm"
+     }
+    ],
+    "cached": true,
+    "provider": "cache",
+    "model": null
+   }
+  },
+  "q4": {
+   "en": {
+    "answer_md": "Yes. GRACE shows the regional water store changing by -0.86 cm a year [GRACE], and nearby wells show depth to water growing by 1.16 m a year [USGS]. Saving irrigation now stretches the aquifer.",
+    "citations": [
+     {
+      "tag": "GRACE",
+      "name": "JPL GRACE/GRACE-FO Mascon RL06.3 (CRI filtered)",
+      "url": "https://podaac.jpl.nasa.gov/dataset/TELLUS_GRAC-GRFO_MASCON_CRI_GRID_RL06.3_V4"
+     },
+     {
+      "tag": "USGS",
+      "name": "USGS Water Data APIs — groundwater field measurements",
+      "url": "https://api.waterdata.usgs.gov/"
+     }
+    ],
+    "numbers": [
+     {
+      "text": "-0.86 cm",
+      "value": -0.86,
+      "unit": "cm",
+      "verified": true,
+      "fact_id": "water.grace_trend_cm_per_yr"
+     },
+     {
+      "text": "1.16 m",
+      "value": 1.16,
+      "unit": "m",
+      "verified": true,
+      "fact_id": "water.wells_trend_m_per_yr"
+     }
+    ],
+    "cached": true,
+    "provider": "cache",
+    "model": null
+   },
+   "es": {
+    "answer_md": "Sí. GRACE muestra que el almacenamiento regional de agua cambia -0.86 cm al año [GRACE] y los pozos cercanos muestran que la profundidad al agua aumenta 1.16 m al año [USGS].",
+    "citations": [
+     {
+      "tag": "GRACE",
+      "name": "JPL GRACE/GRACE-FO Mascon RL06.3 (CRI filtered)",
+      "url": "https://podaac.jpl.nasa.gov/dataset/TELLUS_GRAC-GRFO_MASCON_CRI_GRID_RL06.3_V4"
+     },
+     {
+      "tag": "USGS",
+      "name": "USGS Water Data APIs — groundwater field measurements",
+      "url": "https://api.waterdata.usgs.gov/"
+     }
+    ],
+    "numbers": [
+     {
+      "text": "-0.86 cm",
+      "value": -0.86,
+      "unit": "cm",
+      "verified": true,
+      "fact_id": "water.grace_trend_cm_per_yr"
+     },
+     {
+      "text": "1.16 m",
+      "value": 1.16,
+      "unit": "m",
+      "verified": true,
+      "fact_id": "water.wells_trend_m_per_yr"
+     }
+    ],
+    "cached": true,
+    "provider": "cache",
+    "model": null
+   }
+  },
+  "q5": {
+   "en": {
+    "answer_md": "Recent summers (2016 to 2025) bring about 42 days at or above 35 °C [POWER], against 40 days in the 1991 to 2020 normal [POWER]. Heat during July pollination hurts corn most.",
+    "citations": [
+     {
+      "tag": "POWER",
+      "name": "NASA POWER daily (AG community)",
+      "url": "https://power.larc.nasa.gov/"
+     }
+    ],
+    "numbers": [
+     {
+      "text": "42 days",
+      "value": 42,
+      "unit": "days",
+      "verified": true,
+      "fact_id": "climate.recent.days_tmax_ge_35"
+     },
+     {
+      "text": "35 °C",
+      "value": 35,
+      "unit": "c",
+      "verified": false,
+      "fact_id": null
+     },
+     {
+      "text": "40 days",
+      "value": 40,
+      "unit": "days",
+      "verified": true,
+      "fact_id": "climate.normal.days_tmax_ge_35"
+     }
+    ],
+    "cached": true,
+    "provider": "cache",
+    "model": null
+   },
+   "es": {
+    "answer_md": "Los veranos recientes (2016 a 2025) traen unos 42 días a 35 °C o más [POWER], frente a 40 días en la normal de 1991 a 2020 [POWER].",
+    "citations": [
+     {
+      "tag": "POWER",
+      "name": "NASA POWER daily (AG community)",
+      "url": "https://power.larc.nasa.gov/"
+     }
+    ],
+    "numbers": [
+     {
+      "text": "42",
+      "value": 42,
+      "unit": null,
+      "verified": true,
+      "fact_id": "climate.recent.days_tmax_ge_35"
+     },
+     {
+      "text": "35 °C",
+      "value": 35,
+      "unit": "c",
+      "verified": false,
+      "fact_id": null
+     },
+     {
+      "text": "40",
+      "value": 40,
+      "unit": null,
+      "verified": true,
+      "fact_id": "climate.normal.days_tmax_ge_35"
+     }
+    ],
+    "cached": true,
+    "provider": "cache",
+    "model": null
+   }
+  },
+  "q6": {
+   "en": {
+    "answer_md": "Ask about herbicide carryover between crops, local buyers for sorghum or forage, crop insurance rules for a new rotation, and your water right. Our model holds prices constant and does not include input costs.",
+    "citations": [],
+    "numbers": [],
+    "cached": true,
+    "provider": "cache",
+    "model": null
+   },
+   "es": {
+    "answer_md": "Pregunte por el efecto residual de herbicidas, compradores locales de sorgo o forraje, reglas del seguro agrícola y su derecho de agua.",
+    "citations": [],
+    "numbers": [],
+    "cached": true,
+    "provider": "cache",
+    "model": null
+   }
   }
+ }
 }

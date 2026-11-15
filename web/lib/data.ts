@@ -1,115 +1,107 @@
+// Typed client-side loaders for /data/** (handover §4.2). In-memory cache keyed by path.
+import type { ZodType, ZodTypeDef } from "zod";
 import type {
-  CalendarFile, CardTextFile, CopyFile, FieldBundle, FieldId, FieldsFile,
-  NeighborsFile, ObservedFile, ReplayFile, SourcesFile, StrategiesFile,
-  SummaryFile, ValidationFile, WaterFile,
+  AssistantQuestionsFile, CalendarFile, CardText, Content, CopyFile, CropsFile, FieldBundle, FieldId,
+  FieldsFile, GlossaryFile, NeighborsFile, ObservedFile, ReplayFile, RotationsFile, SourcesFile,
+  StrategiesFile, SummaryFile, ValidationFile, WaterFile,
 } from "@/lib/types";
 import {
-  calendarSchema, cardTextSchema, copySchema, fieldsSchema, neighborsSchema,
-  observedSchema, replaySchema, sourcesSchema, strategiesSchema, summarySchema,
-  validationSchema, waterSchema,
+  assistantQuestionsSchema, calendarSchema, cardTextSchema, copySchema, cropsSchema, fieldsSchema,
+  glossarySchema, neighborsSchema, observedSchema, replaySchema, rotationsSchema, sourcesSchema,
+  strategiesSchema, summarySchema, validationSchema, waterSchema,
 } from "@/lib/schemas";
-import type { ZodType } from "zod";
 
-type JsonSchema<T> = ZodType<T>;
+type Schema<T> = ZodType<T, ZodTypeDef, unknown>;
+
 const cache = new Map<string, Promise<unknown>>();
-let hasMockData = false;
+const mockPaths = new Set<string>();
+const listeners = new Set<() => void>();
 
-export function mockDataLoaded(): boolean {
-  return hasMockData;
+export const MOCK_EVENT = "field-shift:mock-data";
+
+/** Paths of every loaded file with `_meta.mock === true`. */
+export function mockFiles(): string[] {
+  return [...mockPaths].sort();
 }
 
-async function load<T>(path: string, schema: JsonSchema<T>, optional = false): Promise<T | null> {
+export function onMockChange(listener: () => void): () => void {
+  listeners.add(listener);
+  return () => listeners.delete(listener);
+}
+
+function markMock(path: string, raw: unknown) {
+  const meta = typeof raw === "object" && raw !== null ? (raw as { _meta?: { mock?: unknown } })._meta : undefined;
+  if (meta?.mock === true && !mockPaths.has(path)) {
+    mockPaths.add(path);
+    listeners.forEach((listener) => listener());
+  }
+}
+
+class MissingFile extends Error {}
+
+function fetchJson(path: string): Promise<unknown> {
   let pending = cache.get(path);
   if (!pending) {
     pending = fetch(path).then(async (response) => {
-      if (optional && response.status === 404) return null;
+      if (response.status === 404) throw new MissingFile(path);
       if (!response.ok) throw new Error(`Could not load ${path} (${response.status})`);
       return response.json() as Promise<unknown>;
     });
-    cache.set(path, pending);
-  }
-  const raw = await pending;
-  if (raw === null) return null;
-  const result = schema.safeParse(raw);
-  if (!result.success) {
-    if (process.env.NODE_ENV === "development") console.error(`Invalid data at ${path}`, result.error.issues);
-    throw new Error(`Data validation failed for ${path}`);
-  }
-  if (typeof raw === "object" && raw !== null && "_meta" in raw &&
-      typeof raw._meta === "object" && raw._meta !== null && "mock" in raw._meta && raw._meta.mock === true) {
-    hasMockData = true;
-    if (typeof window !== "undefined") window.dispatchEvent(new Event("field-shift:mock-data"));
-  }
-  return result.data;
-}
-
-export const getFields = () => load("/data/fields.json", fieldsSchema) as Promise<FieldsFile>;
-export const getSources = () => load("/data/sources.json", sourcesSchema) as Promise<SourcesFile>;
-export const getCrops = async () => {
-  const raw = await fetchJson("/data/crops.json");
-  const parsed = (await import("@/lib/schemas")).cropSchema.array().safeParse(raw);
-  if (!parsed.success) {
-    if (process.env.NODE_ENV === "development") console.error("Invalid data at /data/crops.json", parsed.error.issues);
-    throw new Error("Data validation failed for /data/crops.json");
-  }
-  return parsed.data;
-};
-export const getRotations = async () => {
-  const raw = await fetchJson("/data/rotations.json");
-  const parsed = (await import("@/lib/schemas")).rotationSchema.array().safeParse(raw);
-  if (!parsed.success) {
-    if (process.env.NODE_ENV === "development") console.error("Invalid data at /data/rotations.json", parsed.error.issues);
-    throw new Error("Data validation failed for /data/rotations.json");
-  }
-  return parsed.data;
-};
-
-async function fetchJson(path: string): Promise<unknown> {
-  let pending = cache.get(path);
-  if (!pending) {
-    pending = fetch(path).then(async (response) => {
-      if (!response.ok) throw new Error(`Could not load ${path} (${response.status})`);
-      return response.json() as Promise<unknown>;
-    });
+    pending.catch(() => cache.delete(path));
     cache.set(path, pending);
   }
   return pending;
 }
 
-export const getContent = async () => {
+/**
+ * Load and validate one file. Validation issues are logged loudly but never crash the page:
+ * the raw data is still returned so one stray field does not blank a section.
+ */
+async function load<T>(path: string, schema: Schema<T>): Promise<T> {
+  const raw = await fetchJson(path);
+  markMock(path, raw);
+  const result = schema.safeParse(raw);
+  if (result.success) return result.data;
+  console.error(`[data] ${path} does not match the contract`, result.error.issues.slice(0, 20));
+  return raw as T;
+}
+
+/** Same as load, but a missing file (404) or a network failure resolves to null. */
+async function loadOptional<T>(path: string, schema: Schema<T>): Promise<T | null> {
+  try {
+    return await load(path, schema);
+  } catch (error) {
+    if (!(error instanceof MissingFile)) console.error(`[data] optional file ${path} failed`, error);
+    return null;
+  }
+}
+
+export const getFields = (): Promise<FieldsFile> => load("/data/fields.json", fieldsSchema);
+export const getSources = (): Promise<SourcesFile> => load("/data/sources.json", sourcesSchema);
+export const getCrops = (): Promise<CropsFile> => load("/data/crops.json", cropsSchema);
+export const getRotations = (): Promise<RotationsFile> => load("/data/rotations.json", rotationsSchema);
+
+export async function getContent(): Promise<Content> {
   const [cardText, copy, glossary, questions] = await Promise.all([
-    load("/data/content/card_text.json", cardTextSchema),
-    load("/data/content/copy.json", copySchema),
-    load("/data/content/glossary.json", (await import("@/lib/schemas")).glossarySchema),
-    load("/data/content/assistant_questions.json", (await import("@/lib/schemas")).assistantQuestionsSchema),
+    load<CardText>("/data/content/card_text.json", cardTextSchema),
+    load<CopyFile>("/data/content/copy.json", copySchema),
+    loadOptional<GlossaryFile>("/data/content/glossary.json", glossarySchema),
+    loadOptional<AssistantQuestionsFile>("/data/content/assistant_questions.json", assistantQuestionsSchema),
   ]);
-  if (!cardText || !copy) throw new Error("Content files are missing");
-  if (!glossary || !questions) throw new Error("Assistant content files are missing");
-  return { cardText: cardText as CardTextFile, copy: copy as CopyFile, glossary, questions };
-};
-export function getFieldBundle(fid: FieldId): Promise<FieldBundle> {
-  return Promise.all([
-    load(`/data/field/${fid}/summary.json`, summarySchema),
-    load("/data/field/common/calendar.json", calendarSchema),
-    load("/data/field/common/replay.json", replaySchema),
-    load("/data/field/common/strategies.json", strategiesSchema),
-    load("/data/field/common/validation.json", validationSchema),
-    load("/data/field/common/water.json", waterSchema),
-    load("/data/field/common/observed.json", observedSchema),
-    load("/data/field/common/neighbors.json", neighborsSchema, true),
-  ]).then(([summary, calendar, replay, strategies, validation, water, observed, neighbors]) => {
-    if (!summary || !calendar || !replay || !strategies || !validation || !water || !observed) {
-      throw new Error(`Required field data is missing for ${fid}`);
-    }
-    return {
-      summary: summary as SummaryFile,
-      calendar: calendar as CalendarFile,
-      replay: replay as ReplayFile,
-      strategies: strategies as StrategiesFile,
-      validation: validation as ValidationFile,
-      water: water as WaterFile,
-      observed: observed as ObservedFile,
-      neighbors: neighbors as NeighborsFile | null,
-    };
-  });
+  return { cardText, copy, glossary, questions };
+}
+
+export async function getFieldBundle(fid: FieldId): Promise<FieldBundle> {
+  const base = `/data/field/${fid}`;
+  const [summary, calendar, replay, strategies, validation, water, observed, neighbors] = await Promise.all([
+    load<SummaryFile>(`${base}/summary.json`, summarySchema),
+    load<CalendarFile>(`${base}/calendar.json`, calendarSchema),
+    load<ReplayFile>(`${base}/replay.json`, replaySchema),
+    load<StrategiesFile>(`${base}/strategies.json`, strategiesSchema),
+    loadOptional<ValidationFile>(`${base}/validation.json`, validationSchema),
+    loadOptional<WaterFile>(`${base}/water.json`, waterSchema),
+    loadOptional<ObservedFile>(`${base}/observed.json`, observedSchema),
+    loadOptional<NeighborsFile>(`${base}/neighbors.json`, neighborsSchema),
+  ]);
+  return { summary, calendar, replay, strategies, validation, water, observed, neighbors };
 }

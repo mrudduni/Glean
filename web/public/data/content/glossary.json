@@ -1,35 +1,280 @@
 {
-  "_meta": { "version": "1.0.0" },
-  "entries": {
-    "available_water": {
-      "term": { "en": "Available water storage", "es": "Almacenamiento de agua disponible" },
-      "short": { "en": "An estimate of water volume retained in the soil profile available for crop root uptake.", "es": "Estimación del volumen de agua retenido en el perfil del suelo disponible para absorción radicular." },
-      "long": { "en": "Available water storage is a soil property summarized over a mapped soil unit. Field texture and depth can vary within that unit. Use it as context and confirm with a local soil test.", "es": "El almacenamiento de agua disponible es una propiedad resumida para una unidad de suelo cartografiada. La textura y profundidad pueden variar dentro de esa unidad. Úselo como contexto y confirme con un análisis local." },
-      "source_ids": ["SOIL"]
-    },
-    "organic_matter": {
-      "term": { "en": "Organic matter", "es": "Materia orgánica" },
-      "short": { "en": "Decomposed organic material in soil that enhances nutrient cycling, structure, and water holding capacity.", "es": "Materia orgánica descompuesta en el suelo que mejora el ciclo de nutrientes, la estructura y la capacidad de retención de agua." },
-      "long": { "en": "Soil organic matter influences several soil functions. A single mapped estimate does not describe every part of a field.", "es": "La materia orgánica influye en varias funciones del suelo. Una estimación cartográfica no describe todas las partes del campo." },
-      "source_ids": ["SOIL"]
-    },
-    "wind_erosion": {
-      "term": { "en": "Wind erosion", "es": "Erosión eólica" },
-      "short": { "en": "A mapped susceptibility context. Residue, windbreaks, soil moisture and management change actual risk.", "es": "Contexto de susceptibilidad cartografiada. Los residuos, cortavientos, humedad y manejo cambian el riesgo real." },
-      "long": { "en": "Wind erosion depends on the soil surface and weather as well as soil properties. Confirm local conditions before changing a practice.", "es": "La erosión eólica depende de la superficie y el clima, además de las propiedades del suelo. Confirme condiciones locales antes de cambiar prácticas." },
-      "source_ids": ["NRCS"]
-    },
-    "satellite_vs_ground": {
-      "term": { "en": "Satellite and field measurements", "es": "Satélite y mediciones de campo" },
-      "short": { "en": "Satellite pixels cover a broader area than an individual field.", "es": "Los píxeles satelitales cubren un área mayor que un campo." },
-      "long": { "en": "Satellite observations provide broad coverage and repeat visits, but a pixel may mix crops, roads, water and soil. A satellite estimate is regional context, not a substitute for an on-site measurement.", "es": "Las observaciones satelitales cubren áreas amplias y se repiten, pero un píxel puede mezclar cultivos, caminos, agua y suelo. Una estimación satelital es contexto regional, no sustituye una medición en el sitio." },
-      "source_ids": ["SMAP", "MODIS"]
-    },
-    "model_estimate": {
-      "term": { "en": "Model estimate", "es": "Estimación de modelo" },
-      "short": { "en": "A calculation that combines observations and assumptions.", "es": "Cálculo que combina observaciones y supuestos." },
-      "long": { "en": "Models help fill gaps between observations. Their outputs depend on input quality and assumptions. Check the source, scale and uncertainty before using a number for a decision.", "es": "Los modelos ayudan a completar los intervalos entre observaciones. Sus resultados dependen de la calidad de datos y supuestos. Revise fuente, escala e incertidumbre antes de decidir." },
-      "source_ids": ["POWER", "SMAP"]
-    }
+ "_meta": {
+  "schema": "glossary@1",
+  "mock": true,
+  "generated_at": "2026-11-15T14:02:09Z",
+  "generator": "web/scripts/mocks/make_mocks.py"
+ },
+ "terms": [
+  {
+   "id": "et",
+   "term": {
+    "en": "Evapotranspiration (ET)",
+    "es": ""
+   },
+   "short": {
+    "en": "Water leaving the field through plants and soil.",
+    "es": ""
+   },
+   "long": {
+    "en": "Water leaving the field through plants and soil.",
+    "es": ""
+   }
+  },
+  {
+   "id": "et0",
+   "term": {
+    "en": "Reference ET",
+    "es": ""
+   },
+   "short": {
+    "en": "How much water a short grass crop would use in this weather.",
+    "es": ""
+   },
+   "long": {
+    "en": "How much water a short grass crop would use in this weather.",
+    "es": ""
+   }
+  },
+  {
+   "id": "ndvi",
+   "term": {
+    "en": "NDVI",
+    "es": ""
+   },
+   "short": {
+    "en": "A satellite greenness index: higher means more living plants.",
+    "es": ""
+   },
+   "long": {
+    "en": "A satellite greenness index: higher means more living plants.",
+    "es": ""
+   }
+  },
+  {
+   "id": "soil_moisture_anomaly",
+   "term": {
+    "en": "Soil moisture anomaly",
+    "es": ""
+   },
+   "short": {
+    "en": "How wet the soil is compared with normal for that month.",
+    "es": ""
+   },
+   "long": {
+    "en": "How wet the soil is compared with normal for that month.",
+    "es": ""
+   }
+  },
+  {
+   "id": "root_zone",
+   "term": {
+    "en": "Root zone",
+    "es": ""
+   },
+   "short": {
+    "en": "The soil layer roots can reach, about the top metre.",
+    "es": ""
+   },
+   "long": {
+    "en": "The soil layer roots can reach, about the top metre.",
+    "es": ""
+   }
+  },
+  {
+   "id": "frost_risk",
+   "term": {
+    "en": "Frost risk",
+    "es": ""
+   },
+   "short": {
+    "en": "The chance of a damaging frost while a crop is young.",
+    "es": ""
+   },
+   "long": {
+    "en": "The chance of a damaging frost while a crop is young.",
+    "es": ""
+   }
+  },
+  {
+   "id": "gdd",
+   "term": {
+    "en": "Growing degree days",
+    "es": ""
+   },
+   "short": {
+    "en": "Accumulated warmth that drives crop growth.",
+    "es": ""
+   },
+   "long": {
+    "en": "Accumulated warmth that drives crop growth.",
+    "es": ""
+   }
+  },
+  {
+   "id": "water_balance",
+   "term": {
+    "en": "Water balance",
+    "es": ""
+   },
+   "short": {
+    "en": "Rain and irrigation in, crop use and drainage out.",
+    "es": ""
+   },
+   "long": {
+    "en": "Rain and irrigation in, crop use and drainage out.",
+    "es": ""
+   }
+  },
+  {
+   "id": "evaporative_stress",
+   "term": {
+    "en": "Evaporative stress",
+    "es": ""
+   },
+   "short": {
+    "en": "When crops use less water than the weather demands.",
+    "es": ""
+   },
+   "long": {
+    "en": "When crops use less water than the weather demands.",
+    "es": ""
+   }
+  },
+  {
+   "id": "aquifer",
+   "term": {
+    "en": "Aquifer",
+    "es": ""
+   },
+   "short": {
+    "en": "The underground water store wells pump from: here, the Ogallala.",
+    "es": ""
+   },
+   "long": {
+    "en": "The underground water store wells pump from: here, the Ogallala.",
+    "es": ""
+   }
+  },
+  {
+   "id": "rotation",
+   "term": {
+    "en": "Rotation",
+    "es": ""
+   },
+   "short": {
+    "en": "The order of crops grown on a field across years.",
+    "es": ""
+   },
+   "long": {
+    "en": "The order of crops grown on a field across years.",
+    "es": ""
+   }
+  },
+  {
+   "id": "cover_crop",
+   "term": {
+    "en": "Cover crop",
+    "es": ""
+   },
+   "short": {
+    "en": "A crop grown to protect and feed the soil, not to sell.",
+    "es": ""
+   },
+   "long": {
+    "en": "A crop grown to protect and feed the soil, not to sell.",
+    "es": ""
+   }
+  },
+  {
+   "id": "fallow",
+   "term": {
+    "en": "Fallow",
+    "es": ""
+   },
+   "short": {
+    "en": "A season with no crop to store soil water.",
+    "es": ""
+   },
+   "long": {
+    "en": "A season with no crop to store soil water.",
+    "es": ""
+   }
+  },
+  {
+   "id": "nitrogen_fixing",
+   "term": {
+    "en": "Nitrogen fixing",
+    "es": ""
+   },
+   "short": {
+    "en": "Legumes that add nitrogen to the soil.",
+    "es": ""
+   },
+   "long": {
+    "en": "Legumes that add nitrogen to the soil.",
+    "es": ""
+   }
+  },
+  {
+   "id": "wind_erosion",
+   "term": {
+    "en": "Wind erosion",
+    "es": ""
+   },
+   "short": {
+    "en": "Soil blown away from bare, dry ground.",
+    "es": ""
+   },
+   "long": {
+    "en": "Soil blown away from bare, dry ground.",
+    "es": ""
+   }
+  },
+  {
+   "id": "water_erosion",
+   "term": {
+    "en": "Water erosion",
+    "es": ""
+   },
+   "short": {
+    "en": "Soil washed away by heavy rain on bare ground.",
+    "es": ""
+   },
+   "long": {
+    "en": "Soil washed away by heavy rain on bare ground.",
+    "es": ""
+   }
+  },
+  {
+   "id": "satellite_vs_ground",
+   "term": {
+    "en": "Satellite versus ground",
+    "es": ""
+   },
+   "short": {
+    "en": "We compare satellite readings with ground records to see how far to trust them.",
+    "es": ""
+   },
+   "long": {
+    "en": "We compare satellite readings with ground records to see how far to trust them.",
+    "es": ""
+   }
+  },
+  {
+   "id": "model_estimate",
+   "term": {
+    "en": "Model estimate",
+    "es": ""
+   },
+   "short": {
+    "en": "A number we calculate from data, not one we measured on the field.",
+    "es": ""
+   },
+   "long": {
+    "en": "A number we calculate from data, not one we measured on the field.",
+    "es": ""
+   }
   }
+ ]
 }

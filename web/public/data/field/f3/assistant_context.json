@@ -1,9 +1,1154 @@
 {
-  "_meta": { "version": "1.0.0" },
-  "facts": [
-    { "id": "sample_rain", "text": "Seasonal precipitation estimate is 451 mm from historical climate records.", "source_ids": ["GPM", "POWER"] },
-    { "id": "soil_storage", "text": "Available water storage capacity estimate is 126 mm from USDA SSURGO survey.", "source_ids": ["SOIL"] },
-    { "id": "current_rotation", "text": "The detected rotation sequence is winter wheat and grain sorghum.", "source_ids": ["CDL"] },
-    { "id": "data_status", "text": "Values are derived from Earth observation and agricultural survey databases.", "source_ids": [] }
-  ]
+ "_meta": {
+  "schema": "assistant_context@1",
+  "mock": true,
+  "generated_at": "2026-11-15T14:02:09Z",
+  "generator": "web/scripts/mocks/make_mocks.py"
+ },
+ "field_id": "f3",
+ "field_name": "Sandy field",
+ "facts": [
+  {
+   "id": "field.soil.aws_0_100_mm",
+   "text": "The soil stores about 74 mm of plant-available water in the top metre.",
+   "value": 74,
+   "unit": "mm",
+   "source": "SSURGO"
+  },
+  {
+   "id": "field.soil.om_pct",
+   "text": "Surface organic matter is 0.75%.",
+   "value": 0.75,
+   "unit": "pct",
+   "source": "SSURGO"
+  },
+  {
+   "id": "water.grace_trend_cm_per_yr",
+   "text": "GRACE shows total water storage changing by -0.86 cm per year.",
+   "value": -0.86,
+   "unit": "cm_per_yr",
+   "source": "GRACE"
+  },
+  {
+   "id": "climate.recent.days_tmax_ge_35",
+   "text": "Recent years (2016-2025) average 42 days at or above 35 °C.",
+   "value": 42,
+   "unit": "days",
+   "source": "POWER"
+  },
+  {
+   "id": "climate.normal.days_tmax_ge_35",
+   "text": "The 1991-2020 normal is 40 days at or above 35 °C.",
+   "value": 40,
+   "unit": "days",
+   "source": "POWER"
+  },
+  {
+   "id": "climate.recent.precip_mm_yr",
+   "text": "Recent annual rainfall averages 559 mm.",
+   "value": 559,
+   "unit": "mm",
+   "source": "POWER"
+  },
+  {
+   "id": "climate.recent.frost_free_days",
+   "text": "The recent frost-free season is 199 days.",
+   "value": 199,
+   "unit": "days",
+   "source": "POWER"
+  },
+  {
+   "id": "water.wells_trend_m_per_yr",
+   "text": "Nearby wells show depth to water growing by 1.16 m per year.",
+   "value": 1.16,
+   "unit": "m_per_yr",
+   "source": "USGS"
+  },
+  {
+   "id": "neighbors.corn_soy.et_mm_yr_median",
+   "text": "8 similar nearby fields in the corn_soy class use a median 964 mm of water per year (OpenET).",
+   "value": 964,
+   "unit": "mm",
+   "source": "OpenET",
+   "rotation_id": "R5"
+  },
+  {
+   "id": "neighbors.continuous_corn.et_mm_yr_median",
+   "text": "5 similar nearby fields in the continuous_corn class use a median 879 mm of water per year (OpenET).",
+   "value": 879,
+   "unit": "mm",
+   "source": "OpenET"
+  },
+  {
+   "id": "replay.R0.dryland|actual.irrigation_mm_mean",
+   "text": "Under dryland|actual, R0 needs on average 0 mm of irrigation per year (2000-2025).",
+   "value": 0,
+   "unit": "mm",
+   "source": "MODEL",
+   "scenario": "dryland|actual",
+   "rotation_id": "R0"
+  },
+  {
+   "id": "replay.R0.dryland|actual.revenue_usd_ac_mean",
+   "text": "Under dryland|actual, R0 earns on average $121/ac per year.",
+   "value": 121,
+   "unit": "usd_ac",
+   "source": "MODEL",
+   "scenario": "dryland|actual",
+   "rotation_id": "R0"
+  },
+  {
+   "id": "replay.R1.dryland|actual.irrigation_mm_mean",
+   "text": "Under dryland|actual, R1 needs on average 0 mm of irrigation per year (2000-2025).",
+   "value": 0,
+   "unit": "mm",
+   "source": "MODEL",
+   "scenario": "dryland|actual",
+   "rotation_id": "R1"
+  },
+  {
+   "id": "replay.R1.dryland|actual.revenue_usd_ac_mean",
+   "text": "Under dryland|actual, R1 earns on average $121/ac per year.",
+   "value": 121,
+   "unit": "usd_ac",
+   "source": "MODEL",
+   "scenario": "dryland|actual",
+   "rotation_id": "R1"
+  },
+  {
+   "id": "replay.R2.dryland|actual.irrigation_mm_mean",
+   "text": "Under dryland|actual, R2 needs on average 0 mm of irrigation per year (2000-2025).",
+   "value": 0,
+   "unit": "mm",
+   "source": "MODEL",
+   "scenario": "dryland|actual",
+   "rotation_id": "R2"
+  },
+  {
+   "id": "replay.R2.dryland|actual.revenue_usd_ac_mean",
+   "text": "Under dryland|actual, R2 earns on average $82/ac per year.",
+   "value": 82,
+   "unit": "usd_ac",
+   "source": "MODEL",
+   "scenario": "dryland|actual",
+   "rotation_id": "R2"
+  },
+  {
+   "id": "replay.R3.dryland|actual.irrigation_mm_mean",
+   "text": "Under dryland|actual, R3 needs on average 0 mm of irrigation per year (2000-2025).",
+   "value": 0,
+   "unit": "mm",
+   "source": "MODEL",
+   "scenario": "dryland|actual",
+   "rotation_id": "R3"
+  },
+  {
+   "id": "replay.R3.dryland|actual.revenue_usd_ac_mean",
+   "text": "Under dryland|actual, R3 earns on average $116/ac per year.",
+   "value": 116,
+   "unit": "usd_ac",
+   "source": "MODEL",
+   "scenario": "dryland|actual",
+   "rotation_id": "R3"
+  },
+  {
+   "id": "replay.R4.dryland|actual.irrigation_mm_mean",
+   "text": "Under dryland|actual, R4 needs on average 0 mm of irrigation per year (2000-2025).",
+   "value": 0,
+   "unit": "mm",
+   "source": "MODEL",
+   "scenario": "dryland|actual",
+   "rotation_id": "R4"
+  },
+  {
+   "id": "replay.R4.dryland|actual.revenue_usd_ac_mean",
+   "text": "Under dryland|actual, R4 earns on average $140/ac per year.",
+   "value": 140,
+   "unit": "usd_ac",
+   "source": "MODEL",
+   "scenario": "dryland|actual",
+   "rotation_id": "R4"
+  },
+  {
+   "id": "replay.R5.dryland|actual.irrigation_mm_mean",
+   "text": "Under dryland|actual, R5 needs on average 0 mm of irrigation per year (2000-2025).",
+   "value": 0,
+   "unit": "mm",
+   "source": "MODEL",
+   "scenario": "dryland|actual",
+   "rotation_id": "R5"
+  },
+  {
+   "id": "replay.R5.dryland|actual.revenue_usd_ac_mean",
+   "text": "Under dryland|actual, R5 earns on average $100/ac per year.",
+   "value": 100,
+   "unit": "usd_ac",
+   "source": "MODEL",
+   "scenario": "dryland|actual",
+   "rotation_id": "R5"
+  },
+  {
+   "id": "replay.R6.dryland|actual.irrigation_mm_mean",
+   "text": "Under dryland|actual, R6 needs on average 0 mm of irrigation per year (2000-2025).",
+   "value": 0,
+   "unit": "mm",
+   "source": "MODEL",
+   "scenario": "dryland|actual",
+   "rotation_id": "R6"
+  },
+  {
+   "id": "replay.R6.dryland|actual.revenue_usd_ac_mean",
+   "text": "Under dryland|actual, R6 earns on average $130/ac per year.",
+   "value": 130,
+   "unit": "usd_ac",
+   "source": "MODEL",
+   "scenario": "dryland|actual",
+   "rotation_id": "R6"
+  },
+  {
+   "id": "replay.R0.dryland|hotdry.irrigation_mm_mean",
+   "text": "Under dryland|hotdry, R0 needs on average 0 mm of irrigation per year (2000-2025).",
+   "value": 0,
+   "unit": "mm",
+   "source": "MODEL",
+   "scenario": "dryland|hotdry",
+   "rotation_id": "R0"
+  },
+  {
+   "id": "replay.R0.dryland|hotdry.revenue_usd_ac_mean",
+   "text": "Under dryland|hotdry, R0 earns on average $106/ac per year.",
+   "value": 106,
+   "unit": "usd_ac",
+   "source": "MODEL",
+   "scenario": "dryland|hotdry",
+   "rotation_id": "R0"
+  },
+  {
+   "id": "replay.R1.dryland|hotdry.irrigation_mm_mean",
+   "text": "Under dryland|hotdry, R1 needs on average 0 mm of irrigation per year (2000-2025).",
+   "value": 0,
+   "unit": "mm",
+   "source": "MODEL",
+   "scenario": "dryland|hotdry",
+   "rotation_id": "R1"
+  },
+  {
+   "id": "replay.R1.dryland|hotdry.revenue_usd_ac_mean",
+   "text": "Under dryland|hotdry, R1 earns on average $106/ac per year.",
+   "value": 106,
+   "unit": "usd_ac",
+   "source": "MODEL",
+   "scenario": "dryland|hotdry",
+   "rotation_id": "R1"
+  },
+  {
+   "id": "replay.R2.dryland|hotdry.irrigation_mm_mean",
+   "text": "Under dryland|hotdry, R2 needs on average 0 mm of irrigation per year (2000-2025).",
+   "value": 0,
+   "unit": "mm",
+   "source": "MODEL",
+   "scenario": "dryland|hotdry",
+   "rotation_id": "R2"
+  },
+  {
+   "id": "replay.R2.dryland|hotdry.revenue_usd_ac_mean",
+   "text": "Under dryland|hotdry, R2 earns on average $72/ac per year.",
+   "value": 72,
+   "unit": "usd_ac",
+   "source": "MODEL",
+   "scenario": "dryland|hotdry",
+   "rotation_id": "R2"
+  },
+  {
+   "id": "replay.R3.dryland|hotdry.irrigation_mm_mean",
+   "text": "Under dryland|hotdry, R3 needs on average 0 mm of irrigation per year (2000-2025).",
+   "value": 0,
+   "unit": "mm",
+   "source": "MODEL",
+   "scenario": "dryland|hotdry",
+   "rotation_id": "R3"
+  },
+  {
+   "id": "replay.R3.dryland|hotdry.revenue_usd_ac_mean",
+   "text": "Under dryland|hotdry, R3 earns on average $102/ac per year.",
+   "value": 102,
+   "unit": "usd_ac",
+   "source": "MODEL",
+   "scenario": "dryland|hotdry",
+   "rotation_id": "R3"
+  },
+  {
+   "id": "replay.R4.dryland|hotdry.irrigation_mm_mean",
+   "text": "Under dryland|hotdry, R4 needs on average 0 mm of irrigation per year (2000-2025).",
+   "value": 0,
+   "unit": "mm",
+   "source": "MODEL",
+   "scenario": "dryland|hotdry",
+   "rotation_id": "R4"
+  },
+  {
+   "id": "replay.R4.dryland|hotdry.revenue_usd_ac_mean",
+   "text": "Under dryland|hotdry, R4 earns on average $124/ac per year.",
+   "value": 124,
+   "unit": "usd_ac",
+   "source": "MODEL",
+   "scenario": "dryland|hotdry",
+   "rotation_id": "R4"
+  },
+  {
+   "id": "replay.R5.dryland|hotdry.irrigation_mm_mean",
+   "text": "Under dryland|hotdry, R5 needs on average 0 mm of irrigation per year (2000-2025).",
+   "value": 0,
+   "unit": "mm",
+   "source": "MODEL",
+   "scenario": "dryland|hotdry",
+   "rotation_id": "R5"
+  },
+  {
+   "id": "replay.R5.dryland|hotdry.revenue_usd_ac_mean",
+   "text": "Under dryland|hotdry, R5 earns on average $87/ac per year.",
+   "value": 87,
+   "unit": "usd_ac",
+   "source": "MODEL",
+   "scenario": "dryland|hotdry",
+   "rotation_id": "R5"
+  },
+  {
+   "id": "replay.R6.dryland|hotdry.irrigation_mm_mean",
+   "text": "Under dryland|hotdry, R6 needs on average 0 mm of irrigation per year (2000-2025).",
+   "value": 0,
+   "unit": "mm",
+   "source": "MODEL",
+   "scenario": "dryland|hotdry",
+   "rotation_id": "R6"
+  },
+  {
+   "id": "replay.R6.dryland|hotdry.revenue_usd_ac_mean",
+   "text": "Under dryland|hotdry, R6 earns on average $115/ac per year.",
+   "value": 115,
+   "unit": "usd_ac",
+   "source": "MODEL",
+   "scenario": "dryland|hotdry",
+   "rotation_id": "R6"
+  },
+  {
+   "id": "replay.R0.cap150|actual.irrigation_mm_mean",
+   "text": "Under cap150|actual, R0 needs on average 150 mm of irrigation per year (2000-2025).",
+   "value": 150,
+   "unit": "mm",
+   "source": "MODEL",
+   "scenario": "cap150|actual",
+   "rotation_id": "R0"
+  },
+  {
+   "id": "replay.R0.cap150|actual.revenue_usd_ac_mean",
+   "text": "Under cap150|actual, R0 earns on average $278/ac per year.",
+   "value": 278,
+   "unit": "usd_ac",
+   "source": "MODEL",
+   "scenario": "cap150|actual",
+   "rotation_id": "R0"
+  },
+  {
+   "id": "replay.R1.cap150|actual.irrigation_mm_mean",
+   "text": "Under cap150|actual, R1 needs on average 150 mm of irrigation per year (2000-2025).",
+   "value": 150,
+   "unit": "mm",
+   "source": "MODEL",
+   "scenario": "cap150|actual",
+   "rotation_id": "R1"
+  },
+  {
+   "id": "replay.R1.cap150|actual.revenue_usd_ac_mean",
+   "text": "Under cap150|actual, R1 earns on average $278/ac per year.",
+   "value": 278,
+   "unit": "usd_ac",
+   "source": "MODEL",
+   "scenario": "cap150|actual",
+   "rotation_id": "R1"
+  },
+  {
+   "id": "replay.R2.cap150|actual.irrigation_mm_mean",
+   "text": "Under cap150|actual, R2 needs on average 100 mm of irrigation per year (2000-2025).",
+   "value": 100,
+   "unit": "mm",
+   "source": "MODEL",
+   "scenario": "cap150|actual",
+   "rotation_id": "R2"
+  },
+  {
+   "id": "replay.R2.cap150|actual.revenue_usd_ac_mean",
+   "text": "Under cap150|actual, R2 earns on average $192/ac per year.",
+   "value": 192,
+   "unit": "usd_ac",
+   "source": "MODEL",
+   "scenario": "cap150|actual",
+   "rotation_id": "R2"
+  },
+  {
+   "id": "replay.R3.cap150|actual.irrigation_mm_mean",
+   "text": "Under cap150|actual, R3 needs on average 142 mm of irrigation per year (2000-2025).",
+   "value": 142,
+   "unit": "mm",
+   "source": "MODEL",
+   "scenario": "cap150|actual",
+   "rotation_id": "R3"
+  },
+  {
+   "id": "replay.R3.cap150|actual.revenue_usd_ac_mean",
+   "text": "Under cap150|actual, R3 earns on average $291/ac per year.",
+   "value": 291,
+   "unit": "usd_ac",
+   "source": "MODEL",
+   "scenario": "cap150|actual",
+   "rotation_id": "R3"
+  },
+  {
+   "id": "replay.R4.cap150|actual.irrigation_mm_mean",
+   "text": "Under cap150|actual, R4 needs on average 150 mm of irrigation per year (2000-2025).",
+   "value": 150,
+   "unit": "mm",
+   "source": "MODEL",
+   "scenario": "cap150|actual",
+   "rotation_id": "R4"
+  },
+  {
+   "id": "replay.R4.cap150|actual.revenue_usd_ac_mean",
+   "text": "Under cap150|actual, R4 earns on average $272/ac per year.",
+   "value": 272,
+   "unit": "usd_ac",
+   "source": "MODEL",
+   "scenario": "cap150|actual",
+   "rotation_id": "R4"
+  },
+  {
+   "id": "replay.R5.cap150|actual.irrigation_mm_mean",
+   "text": "Under cap150|actual, R5 needs on average 150 mm of irrigation per year (2000-2025).",
+   "value": 150,
+   "unit": "mm",
+   "source": "MODEL",
+   "scenario": "cap150|actual",
+   "rotation_id": "R5"
+  },
+  {
+   "id": "replay.R5.cap150|actual.revenue_usd_ac_mean",
+   "text": "Under cap150|actual, R5 earns on average $252/ac per year.",
+   "value": 252,
+   "unit": "usd_ac",
+   "source": "MODEL",
+   "scenario": "cap150|actual",
+   "rotation_id": "R5"
+  },
+  {
+   "id": "replay.R6.cap150|actual.irrigation_mm_mean",
+   "text": "Under cap150|actual, R6 needs on average 150 mm of irrigation per year (2000-2025).",
+   "value": 150,
+   "unit": "mm",
+   "source": "MODEL",
+   "scenario": "cap150|actual",
+   "rotation_id": "R6"
+  },
+  {
+   "id": "replay.R6.cap150|actual.revenue_usd_ac_mean",
+   "text": "Under cap150|actual, R6 earns on average $292/ac per year.",
+   "value": 292,
+   "unit": "usd_ac",
+   "source": "MODEL",
+   "scenario": "cap150|actual",
+   "rotation_id": "R6"
+  },
+  {
+   "id": "replay.R0.cap150|hotdry.irrigation_mm_mean",
+   "text": "Under cap150|hotdry, R0 needs on average 150 mm of irrigation per year (2000-2025).",
+   "value": 150,
+   "unit": "mm",
+   "source": "MODEL",
+   "scenario": "cap150|hotdry",
+   "rotation_id": "R0"
+  },
+  {
+   "id": "replay.R0.cap150|hotdry.revenue_usd_ac_mean",
+   "text": "Under cap150|hotdry, R0 earns on average $238/ac per year.",
+   "value": 238,
+   "unit": "usd_ac",
+   "source": "MODEL",
+   "scenario": "cap150|hotdry",
+   "rotation_id": "R0"
+  },
+  {
+   "id": "replay.R1.cap150|hotdry.irrigation_mm_mean",
+   "text": "Under cap150|hotdry, R1 needs on average 150 mm of irrigation per year (2000-2025).",
+   "value": 150,
+   "unit": "mm",
+   "source": "MODEL",
+   "scenario": "cap150|hotdry",
+   "rotation_id": "R1"
+  },
+  {
+   "id": "replay.R1.cap150|hotdry.revenue_usd_ac_mean",
+   "text": "Under cap150|hotdry, R1 earns on average $238/ac per year.",
+   "value": 238,
+   "unit": "usd_ac",
+   "source": "MODEL",
+   "scenario": "cap150|hotdry",
+   "rotation_id": "R1"
+  },
+  {
+   "id": "replay.R2.cap150|hotdry.irrigation_mm_mean",
+   "text": "Under cap150|hotdry, R2 needs on average 100 mm of irrigation per year (2000-2025).",
+   "value": 100,
+   "unit": "mm",
+   "source": "MODEL",
+   "scenario": "cap150|hotdry",
+   "rotation_id": "R2"
+  },
+  {
+   "id": "replay.R2.cap150|hotdry.revenue_usd_ac_mean",
+   "text": "Under cap150|hotdry, R2 earns on average $166/ac per year.",
+   "value": 166,
+   "unit": "usd_ac",
+   "source": "MODEL",
+   "scenario": "cap150|hotdry",
+   "rotation_id": "R2"
+  },
+  {
+   "id": "replay.R3.cap150|hotdry.irrigation_mm_mean",
+   "text": "Under cap150|hotdry, R3 needs on average 148 mm of irrigation per year (2000-2025).",
+   "value": 148,
+   "unit": "mm",
+   "source": "MODEL",
+   "scenario": "cap150|hotdry",
+   "rotation_id": "R3"
+  },
+  {
+   "id": "replay.R3.cap150|hotdry.revenue_usd_ac_mean",
+   "text": "Under cap150|hotdry, R3 earns on average $262/ac per year.",
+   "value": 262,
+   "unit": "usd_ac",
+   "source": "MODEL",
+   "scenario": "cap150|hotdry",
+   "rotation_id": "R3"
+  },
+  {
+   "id": "replay.R4.cap150|hotdry.irrigation_mm_mean",
+   "text": "Under cap150|hotdry, R4 needs on average 150 mm of irrigation per year (2000-2025).",
+   "value": 150,
+   "unit": "mm",
+   "source": "MODEL",
+   "scenario": "cap150|hotdry",
+   "rotation_id": "R4"
+  },
+  {
+   "id": "replay.R4.cap150|hotdry.revenue_usd_ac_mean",
+   "text": "Under cap150|hotdry, R4 earns on average $230/ac per year.",
+   "value": 230,
+   "unit": "usd_ac",
+   "source": "MODEL",
+   "scenario": "cap150|hotdry",
+   "rotation_id": "R4"
+  },
+  {
+   "id": "replay.R5.cap150|hotdry.irrigation_mm_mean",
+   "text": "Under cap150|hotdry, R5 needs on average 150 mm of irrigation per year (2000-2025).",
+   "value": 150,
+   "unit": "mm",
+   "source": "MODEL",
+   "scenario": "cap150|hotdry",
+   "rotation_id": "R5"
+  },
+  {
+   "id": "replay.R5.cap150|hotdry.revenue_usd_ac_mean",
+   "text": "Under cap150|hotdry, R5 earns on average $212/ac per year.",
+   "value": 212,
+   "unit": "usd_ac",
+   "source": "MODEL",
+   "scenario": "cap150|hotdry",
+   "rotation_id": "R5"
+  },
+  {
+   "id": "replay.R6.cap150|hotdry.irrigation_mm_mean",
+   "text": "Under cap150|hotdry, R6 needs on average 150 mm of irrigation per year (2000-2025).",
+   "value": 150,
+   "unit": "mm",
+   "source": "MODEL",
+   "scenario": "cap150|hotdry",
+   "rotation_id": "R6"
+  },
+  {
+   "id": "replay.R6.cap150|hotdry.revenue_usd_ac_mean",
+   "text": "Under cap150|hotdry, R6 earns on average $253/ac per year.",
+   "value": 253,
+   "unit": "usd_ac",
+   "source": "MODEL",
+   "scenario": "cap150|hotdry",
+   "rotation_id": "R6"
+  },
+  {
+   "id": "replay.R0.cap300|actual.irrigation_mm_mean",
+   "text": "Under cap300|actual, R0 needs on average 245 mm of irrigation per year (2000-2025).",
+   "value": 245,
+   "unit": "mm",
+   "source": "MODEL",
+   "scenario": "cap300|actual",
+   "rotation_id": "R0"
+  },
+  {
+   "id": "replay.R0.cap300|actual.revenue_usd_ac_mean",
+   "text": "Under cap300|actual, R0 earns on average $400/ac per year.",
+   "value": 400,
+   "unit": "usd_ac",
+   "source": "MODEL",
+   "scenario": "cap300|actual",
+   "rotation_id": "R0"
+  },
+  {
+   "id": "replay.R0.cap300|actual.revenue_usd_ac_worst5",
+   "text": "Under cap300|actual, R0 earns $340/ac on average in its 5 worst years.",
+   "value": 340,
+   "unit": "usd_ac",
+   "source": "MODEL",
+   "scenario": "cap300|actual",
+   "rotation_id": "R0"
+  },
+  {
+   "id": "replay.R1.cap300|actual.irrigation_mm_mean",
+   "text": "Under cap300|actual, R1 needs on average 245 mm of irrigation per year (2000-2025).",
+   "value": 245,
+   "unit": "mm",
+   "source": "MODEL",
+   "scenario": "cap300|actual",
+   "rotation_id": "R1"
+  },
+  {
+   "id": "replay.R1.cap300|actual.revenue_usd_ac_mean",
+   "text": "Under cap300|actual, R1 earns on average $400/ac per year.",
+   "value": 400,
+   "unit": "usd_ac",
+   "source": "MODEL",
+   "scenario": "cap300|actual",
+   "rotation_id": "R1"
+  },
+  {
+   "id": "replay.R1.cap300|actual.revenue_usd_ac_worst5",
+   "text": "Under cap300|actual, R1 earns $340/ac on average in its 5 worst years.",
+   "value": 340,
+   "unit": "usd_ac",
+   "source": "MODEL",
+   "scenario": "cap300|actual",
+   "rotation_id": "R1"
+  },
+  {
+   "id": "replay.R2.cap300|actual.irrigation_mm_mean",
+   "text": "Under cap300|actual, R2 needs on average 145 mm of irrigation per year (2000-2025).",
+   "value": 145,
+   "unit": "mm",
+   "source": "MODEL",
+   "scenario": "cap300|actual",
+   "rotation_id": "R2"
+  },
+  {
+   "id": "replay.R2.cap300|actual.revenue_usd_ac_mean",
+   "text": "Under cap300|actual, R2 earns on average $250/ac per year.",
+   "value": 250,
+   "unit": "usd_ac",
+   "source": "MODEL",
+   "scenario": "cap300|actual",
+   "rotation_id": "R2"
+  },
+  {
+   "id": "replay.R2.cap300|actual.revenue_usd_ac_worst5",
+   "text": "Under cap300|actual, R2 earns $239/ac on average in its 5 worst years.",
+   "value": 239,
+   "unit": "usd_ac",
+   "source": "MODEL",
+   "scenario": "cap300|actual",
+   "rotation_id": "R2"
+  },
+  {
+   "id": "replay.R3.cap300|actual.irrigation_mm_mean",
+   "text": "Under cap300|actual, R3 needs on average 188 mm of irrigation per year (2000-2025).",
+   "value": 188,
+   "unit": "mm",
+   "source": "MODEL",
+   "scenario": "cap300|actual",
+   "rotation_id": "R3"
+  },
+  {
+   "id": "replay.R3.cap300|actual.revenue_usd_ac_mean",
+   "text": "Under cap300|actual, R3 earns on average $350/ac per year.",
+   "value": 350,
+   "unit": "usd_ac",
+   "source": "MODEL",
+   "scenario": "cap300|actual",
+   "rotation_id": "R3"
+  },
+  {
+   "id": "replay.R3.cap300|actual.revenue_usd_ac_worst5",
+   "text": "Under cap300|actual, R3 earns $339/ac on average in its 5 worst years.",
+   "value": 339,
+   "unit": "usd_ac",
+   "source": "MODEL",
+   "scenario": "cap300|actual",
+   "rotation_id": "R3"
+  },
+  {
+   "id": "replay.R4.cap300|actual.irrigation_mm_mean",
+   "text": "Under cap300|actual, R4 needs on average 279 mm of irrigation per year (2000-2025).",
+   "value": 279,
+   "unit": "mm",
+   "source": "MODEL",
+   "scenario": "cap300|actual",
+   "rotation_id": "R4"
+  },
+  {
+   "id": "replay.R4.cap300|actual.revenue_usd_ac_mean",
+   "text": "Under cap300|actual, R4 earns on average $408/ac per year.",
+   "value": 408,
+   "unit": "usd_ac",
+   "source": "MODEL",
+   "scenario": "cap300|actual",
+   "rotation_id": "R4"
+  },
+  {
+   "id": "replay.R4.cap300|actual.revenue_usd_ac_worst5",
+   "text": "Under cap300|actual, R4 earns $290/ac on average in its 5 worst years.",
+   "value": 290,
+   "unit": "usd_ac",
+   "source": "MODEL",
+   "scenario": "cap300|actual",
+   "rotation_id": "R4"
+  },
+  {
+   "id": "replay.R5.cap300|actual.irrigation_mm_mean",
+   "text": "Under cap300|actual, R5 needs on average 258 mm of irrigation per year (2000-2025).",
+   "value": 258,
+   "unit": "mm",
+   "source": "MODEL",
+   "scenario": "cap300|actual",
+   "rotation_id": "R5"
+  },
+  {
+   "id": "replay.R5.cap300|actual.revenue_usd_ac_mean",
+   "text": "Under cap300|actual, R5 earns on average $390/ac per year.",
+   "value": 390,
+   "unit": "usd_ac",
+   "source": "MODEL",
+   "scenario": "cap300|actual",
+   "rotation_id": "R5"
+  },
+  {
+   "id": "replay.R5.cap300|actual.revenue_usd_ac_worst5",
+   "text": "Under cap300|actual, R5 earns $300/ac on average in its 5 worst years.",
+   "value": 300,
+   "unit": "usd_ac",
+   "source": "MODEL",
+   "scenario": "cap300|actual",
+   "rotation_id": "R5"
+  },
+  {
+   "id": "replay.R6.cap300|actual.irrigation_mm_mean",
+   "text": "Under cap300|actual, R6 needs on average 241 mm of irrigation per year (2000-2025).",
+   "value": 241,
+   "unit": "mm",
+   "source": "MODEL",
+   "scenario": "cap300|actual",
+   "rotation_id": "R6"
+  },
+  {
+   "id": "replay.R6.cap300|actual.revenue_usd_ac_mean",
+   "text": "Under cap300|actual, R6 earns on average $416/ac per year.",
+   "value": 416,
+   "unit": "usd_ac",
+   "source": "MODEL",
+   "scenario": "cap300|actual",
+   "rotation_id": "R6"
+  },
+  {
+   "id": "replay.R6.cap300|actual.revenue_usd_ac_worst5",
+   "text": "Under cap300|actual, R6 earns $375/ac on average in its 5 worst years.",
+   "value": 375,
+   "unit": "usd_ac",
+   "source": "MODEL",
+   "scenario": "cap300|actual",
+   "rotation_id": "R6"
+  },
+  {
+   "id": "replay.R0.cap300|hotdry.irrigation_mm_mean",
+   "text": "Under cap300|hotdry, R0 needs on average 266 mm of irrigation per year (2000-2025).",
+   "value": 266,
+   "unit": "mm",
+   "source": "MODEL",
+   "scenario": "cap300|hotdry",
+   "rotation_id": "R0"
+  },
+  {
+   "id": "replay.R0.cap300|hotdry.revenue_usd_ac_mean",
+   "text": "Under cap300|hotdry, R0 earns on average $366/ac per year.",
+   "value": 366,
+   "unit": "usd_ac",
+   "source": "MODEL",
+   "scenario": "cap300|hotdry",
+   "rotation_id": "R0"
+  },
+  {
+   "id": "replay.R1.cap300|hotdry.irrigation_mm_mean",
+   "text": "Under cap300|hotdry, R1 needs on average 266 mm of irrigation per year (2000-2025).",
+   "value": 266,
+   "unit": "mm",
+   "source": "MODEL",
+   "scenario": "cap300|hotdry",
+   "rotation_id": "R1"
+  },
+  {
+   "id": "replay.R1.cap300|hotdry.revenue_usd_ac_mean",
+   "text": "Under cap300|hotdry, R1 earns on average $366/ac per year.",
+   "value": 366,
+   "unit": "usd_ac",
+   "source": "MODEL",
+   "scenario": "cap300|hotdry",
+   "rotation_id": "R1"
+  },
+  {
+   "id": "replay.R2.cap300|hotdry.irrigation_mm_mean",
+   "text": "Under cap300|hotdry, R2 needs on average 166 mm of irrigation per year (2000-2025).",
+   "value": 166,
+   "unit": "mm",
+   "source": "MODEL",
+   "scenario": "cap300|hotdry",
+   "rotation_id": "R2"
+  },
+  {
+   "id": "replay.R2.cap300|hotdry.revenue_usd_ac_mean",
+   "text": "Under cap300|hotdry, R2 earns on average $244/ac per year.",
+   "value": 244,
+   "unit": "usd_ac",
+   "source": "MODEL",
+   "scenario": "cap300|hotdry",
+   "rotation_id": "R2"
+  },
+  {
+   "id": "replay.R3.cap300|hotdry.irrigation_mm_mean",
+   "text": "Under cap300|hotdry, R3 needs on average 216 mm of irrigation per year (2000-2025).",
+   "value": 216,
+   "unit": "mm",
+   "source": "MODEL",
+   "scenario": "cap300|hotdry",
+   "rotation_id": "R3"
+  },
+  {
+   "id": "replay.R3.cap300|hotdry.revenue_usd_ac_mean",
+   "text": "Under cap300|hotdry, R3 earns on average $344/ac per year.",
+   "value": 344,
+   "unit": "usd_ac",
+   "source": "MODEL",
+   "scenario": "cap300|hotdry",
+   "rotation_id": "R3"
+  },
+  {
+   "id": "replay.R4.cap300|hotdry.irrigation_mm_mean",
+   "text": "Under cap300|hotdry, R4 needs on average 284 mm of irrigation per year (2000-2025).",
+   "value": 284,
+   "unit": "mm",
+   "source": "MODEL",
+   "scenario": "cap300|hotdry",
+   "rotation_id": "R4"
+  },
+  {
+   "id": "replay.R4.cap300|hotdry.revenue_usd_ac_mean",
+   "text": "Under cap300|hotdry, R4 earns on average $347/ac per year.",
+   "value": 347,
+   "unit": "usd_ac",
+   "source": "MODEL",
+   "scenario": "cap300|hotdry",
+   "rotation_id": "R4"
+  },
+  {
+   "id": "replay.R5.cap300|hotdry.irrigation_mm_mean",
+   "text": "Under cap300|hotdry, R5 needs on average 269 mm of irrigation per year (2000-2025).",
+   "value": 269,
+   "unit": "mm",
+   "source": "MODEL",
+   "scenario": "cap300|hotdry",
+   "rotation_id": "R5"
+  },
+  {
+   "id": "replay.R5.cap300|hotdry.revenue_usd_ac_mean",
+   "text": "Under cap300|hotdry, R5 earns on average $338/ac per year.",
+   "value": 338,
+   "unit": "usd_ac",
+   "source": "MODEL",
+   "scenario": "cap300|hotdry",
+   "rotation_id": "R5"
+  },
+  {
+   "id": "replay.R6.cap300|hotdry.irrigation_mm_mean",
+   "text": "Under cap300|hotdry, R6 needs on average 266 mm of irrigation per year (2000-2025).",
+   "value": 266,
+   "unit": "mm",
+   "source": "MODEL",
+   "scenario": "cap300|hotdry",
+   "rotation_id": "R6"
+  },
+  {
+   "id": "replay.R6.cap300|hotdry.revenue_usd_ac_mean",
+   "text": "Under cap300|hotdry, R6 earns on average $391/ac per year.",
+   "value": 391,
+   "unit": "usd_ac",
+   "source": "MODEL",
+   "scenario": "cap300|hotdry",
+   "rotation_id": "R6"
+  },
+  {
+   "id": "replay.R0.cap450|actual.irrigation_mm_mean",
+   "text": "Under cap450|actual, R0 needs on average 297 mm of irrigation per year (2000-2025).",
+   "value": 297,
+   "unit": "mm",
+   "source": "MODEL",
+   "scenario": "cap450|actual",
+   "rotation_id": "R0"
+  },
+  {
+   "id": "replay.R0.cap450|actual.revenue_usd_ac_mean",
+   "text": "Under cap450|actual, R0 earns on average $483/ac per year.",
+   "value": 483,
+   "unit": "usd_ac",
+   "source": "MODEL",
+   "scenario": "cap450|actual",
+   "rotation_id": "R0"
+  },
+  {
+   "id": "replay.R1.cap450|actual.irrigation_mm_mean",
+   "text": "Under cap450|actual, R1 needs on average 297 mm of irrigation per year (2000-2025).",
+   "value": 297,
+   "unit": "mm",
+   "source": "MODEL",
+   "scenario": "cap450|actual",
+   "rotation_id": "R1"
+  },
+  {
+   "id": "replay.R1.cap450|actual.revenue_usd_ac_mean",
+   "text": "Under cap450|actual, R1 earns on average $483/ac per year.",
+   "value": 483,
+   "unit": "usd_ac",
+   "source": "MODEL",
+   "scenario": "cap450|actual",
+   "rotation_id": "R1"
+  },
+  {
+   "id": "replay.R2.cap450|actual.irrigation_mm_mean",
+   "text": "Under cap450|actual, R2 needs on average 147 mm of irrigation per year (2000-2025).",
+   "value": 147,
+   "unit": "mm",
+   "source": "MODEL",
+   "scenario": "cap450|actual",
+   "rotation_id": "R2"
+  },
+  {
+   "id": "replay.R2.cap450|actual.revenue_usd_ac_mean",
+   "text": "Under cap450|actual, R2 earns on average $253/ac per year.",
+   "value": 253,
+   "unit": "usd_ac",
+   "source": "MODEL",
+   "scenario": "cap450|actual",
+   "rotation_id": "R2"
+  },
+  {
+   "id": "replay.R3.cap450|actual.irrigation_mm_mean",
+   "text": "Under cap450|actual, R3 needs on average 190 mm of irrigation per year (2000-2025).",
+   "value": 190,
+   "unit": "mm",
+   "source": "MODEL",
+   "scenario": "cap450|actual",
+   "rotation_id": "R3"
+  },
+  {
+   "id": "replay.R3.cap450|actual.revenue_usd_ac_mean",
+   "text": "Under cap450|actual, R3 earns on average $353/ac per year.",
+   "value": 353,
+   "unit": "usd_ac",
+   "source": "MODEL",
+   "scenario": "cap450|actual",
+   "rotation_id": "R3"
+  },
+  {
+   "id": "replay.R4.cap450|actual.irrigation_mm_mean",
+   "text": "Under cap450|actual, R4 needs on average 404 mm of irrigation per year (2000-2025).",
+   "value": 404,
+   "unit": "mm",
+   "source": "MODEL",
+   "scenario": "cap450|actual",
+   "rotation_id": "R4"
+  },
+  {
+   "id": "replay.R4.cap450|actual.revenue_usd_ac_mean",
+   "text": "Under cap450|actual, R4 earns on average $566/ac per year.",
+   "value": 566,
+   "unit": "usd_ac",
+   "source": "MODEL",
+   "scenario": "cap450|actual",
+   "rotation_id": "R4"
+  },
+  {
+   "id": "replay.R5.cap450|actual.irrigation_mm_mean",
+   "text": "Under cap450|actual, R5 needs on average 349 mm of irrigation per year (2000-2025).",
+   "value": 349,
+   "unit": "mm",
+   "source": "MODEL",
+   "scenario": "cap450|actual",
+   "rotation_id": "R5"
+  },
+  {
+   "id": "replay.R5.cap450|actual.revenue_usd_ac_mean",
+   "text": "Under cap450|actual, R5 earns on average $533/ac per year.",
+   "value": 533,
+   "unit": "usd_ac",
+   "source": "MODEL",
+   "scenario": "cap450|actual",
+   "rotation_id": "R5"
+  },
+  {
+   "id": "replay.R6.cap450|actual.irrigation_mm_mean",
+   "text": "Under cap450|actual, R6 needs on average 248 mm of irrigation per year (2000-2025).",
+   "value": 248,
+   "unit": "mm",
+   "source": "MODEL",
+   "scenario": "cap450|actual",
+   "rotation_id": "R6"
+  },
+  {
+   "id": "replay.R6.cap450|actual.revenue_usd_ac_mean",
+   "text": "Under cap450|actual, R6 earns on average $427/ac per year.",
+   "value": 427,
+   "unit": "usd_ac",
+   "source": "MODEL",
+   "scenario": "cap450|actual",
+   "rotation_id": "R6"
+  },
+  {
+   "id": "replay.R0.cap450|hotdry.irrigation_mm_mean",
+   "text": "Under cap450|hotdry, R0 needs on average 324 mm of irrigation per year (2000-2025).",
+   "value": 324,
+   "unit": "mm",
+   "source": "MODEL",
+   "scenario": "cap450|hotdry",
+   "rotation_id": "R0"
+  },
+  {
+   "id": "replay.R0.cap450|hotdry.revenue_usd_ac_mean",
+   "text": "Under cap450|hotdry, R0 earns on average $439/ac per year.",
+   "value": 439,
+   "unit": "usd_ac",
+   "source": "MODEL",
+   "scenario": "cap450|hotdry",
+   "rotation_id": "R0"
+  },
+  {
+   "id": "replay.R1.cap450|hotdry.irrigation_mm_mean",
+   "text": "Under cap450|hotdry, R1 needs on average 324 mm of irrigation per year (2000-2025).",
+   "value": 324,
+   "unit": "mm",
+   "source": "MODEL",
+   "scenario": "cap450|hotdry",
+   "rotation_id": "R1"
+  },
+  {
+   "id": "replay.R1.cap450|hotdry.revenue_usd_ac_mean",
+   "text": "Under cap450|hotdry, R1 earns on average $439/ac per year.",
+   "value": 439,
+   "unit": "usd_ac",
+   "source": "MODEL",
+   "scenario": "cap450|hotdry",
+   "rotation_id": "R1"
+  },
+  {
+   "id": "replay.R2.cap450|hotdry.irrigation_mm_mean",
+   "text": "Under cap450|hotdry, R2 needs on average 174 mm of irrigation per year (2000-2025).",
+   "value": 174,
+   "unit": "mm",
+   "source": "MODEL",
+   "scenario": "cap450|hotdry",
+   "rotation_id": "R2"
+  },
+  {
+   "id": "replay.R2.cap450|hotdry.revenue_usd_ac_mean",
+   "text": "Under cap450|hotdry, R2 earns on average $253/ac per year.",
+   "value": 253,
+   "unit": "usd_ac",
+   "source": "MODEL",
+   "scenario": "cap450|hotdry",
+   "rotation_id": "R2"
+  },
+  {
+   "id": "replay.R3.cap450|hotdry.irrigation_mm_mean",
+   "text": "Under cap450|hotdry, R3 needs on average 224 mm of irrigation per year (2000-2025).",
+   "value": 224,
+   "unit": "mm",
+   "source": "MODEL",
+   "scenario": "cap450|hotdry",
+   "rotation_id": "R3"
+  },
+  {
+   "id": "replay.R3.cap450|hotdry.revenue_usd_ac_mean",
+   "text": "Under cap450|hotdry, R3 earns on average $353/ac per year.",
+   "value": 353,
+   "unit": "usd_ac",
+   "source": "MODEL",
+   "scenario": "cap450|hotdry",
+   "rotation_id": "R3"
+  },
+  {
+   "id": "replay.R4.cap450|hotdry.irrigation_mm_mean",
+   "text": "Under cap450|hotdry, R4 needs on average 409 mm of irrigation per year (2000-2025).",
+   "value": 409,
+   "unit": "mm",
+   "source": "MODEL",
+   "scenario": "cap450|hotdry",
+   "rotation_id": "R4"
+  },
+  {
+   "id": "replay.R4.cap450|hotdry.revenue_usd_ac_mean",
+   "text": "Under cap450|hotdry, R4 earns on average $475/ac per year.",
+   "value": 475,
+   "unit": "usd_ac",
+   "source": "MODEL",
+   "scenario": "cap450|hotdry",
+   "rotation_id": "R4"
+  },
+  {
+   "id": "replay.R5.cap450|hotdry.irrigation_mm_mean",
+   "text": "Under cap450|hotdry, R5 needs on average 369 mm of irrigation per year (2000-2025).",
+   "value": 369,
+   "unit": "mm",
+   "source": "MODEL",
+   "scenario": "cap450|hotdry",
+   "rotation_id": "R5"
+  },
+  {
+   "id": "replay.R5.cap450|hotdry.revenue_usd_ac_mean",
+   "text": "Under cap450|hotdry, R5 earns on average $466/ac per year.",
+   "value": 466,
+   "unit": "usd_ac",
+   "source": "MODEL",
+   "scenario": "cap450|hotdry",
+   "rotation_id": "R5"
+  },
+  {
+   "id": "replay.R6.cap450|hotdry.irrigation_mm_mean",
+   "text": "Under cap450|hotdry, R6 needs on average 293 mm of irrigation per year (2000-2025).",
+   "value": 293,
+   "unit": "mm",
+   "source": "MODEL",
+   "scenario": "cap450|hotdry",
+   "rotation_id": "R6"
+  },
+  {
+   "id": "replay.R6.cap450|hotdry.revenue_usd_ac_mean",
+   "text": "Under cap450|hotdry, R6 earns on average $427/ac per year.",
+   "value": 427,
+   "unit": "usd_ac",
+   "source": "MODEL",
+   "scenario": "cap450|hotdry",
+   "rotation_id": "R6"
+  }
+ ]
 }

@@ -1,0 +1,1838 @@
+{
+ "_meta": {
+  "schema": "calendar@1",
+  "mock": true,
+  "generated_at": "2026-11-15T14:02:09Z",
+  "generator": "web/scripts/mocks/make_mocks.py"
+ },
+ "field_id": "f3",
+ "climate_risk": [
+  {
+   "month": 1,
+   "p_heat": 0.0,
+   "p_frost": 1.0,
+   "p_dry_spell": 0.54,
+   "storm_days": 0,
+   "windy_days": 2
+  },
+  {
+   "month": 2,
+   "p_heat": 0.0,
+   "p_frost": 1.0,
+   "p_dry_spell": 0.42,
+   "storm_days": 0,
+   "windy_days": 2
+  },
+  {
+   "month": 3,
+   "p_heat": 0.0,
+   "p_frost": 1.0,
+   "p_dry_spell": 0.35,
+   "storm_days": 0,
+   "windy_days": 3
+  },
+  {
+   "month": 4,
+   "p_heat": 0.0,
+   "p_frost": 0.58,
+   "p_dry_spell": 0.08,
+   "storm_days": 0,
+   "windy_days": 5
+  },
+  {
+   "month": 5,
+   "p_heat": 0.31,
+   "p_frost": 0.0,
+   "p_dry_spell": 0.04,
+   "storm_days": 0,
+   "windy_days": 2
+  },
+  {
+   "month": 6,
+   "p_heat": 0.88,
+   "p_frost": 0.0,
+   "p_dry_spell": 0.0,
+   "storm_days": 0,
+   "windy_days": 2
+  },
+  {
+   "month": 7,
+   "p_heat": 1.0,
+   "p_frost": 0.0,
+   "p_dry_spell": 0.0,
+   "storm_days": 0,
+   "windy_days": 0
+  },
+  {
+   "month": 8,
+   "p_heat": 0.96,
+   "p_frost": 0.0,
+   "p_dry_spell": 0.0,
+   "storm_days": 0,
+   "windy_days": 0
+  },
+  {
+   "month": 9,
+   "p_heat": 0.65,
+   "p_frost": 0.0,
+   "p_dry_spell": 0.04,
+   "storm_days": 0,
+   "windy_days": 1
+  },
+  {
+   "month": 10,
+   "p_heat": 0.0,
+   "p_frost": 0.46,
+   "p_dry_spell": 0.19,
+   "storm_days": 0,
+   "windy_days": 2
+  },
+  {
+   "month": 11,
+   "p_heat": 0.0,
+   "p_frost": 1.0,
+   "p_dry_spell": 0.54,
+   "storm_days": 0,
+   "windy_days": 2
+  },
+  {
+   "month": 12,
+   "p_heat": 0.0,
+   "p_frost": 1.0,
+   "p_dry_spell": 0.58,
+   "storm_days": 0,
+   "windy_days": 2
+  }
+ ],
+ "rotations": [
+  {
+   "rotation_id": "R0",
+   "years": [
+    {
+     "year_index": 1,
+     "months": [
+      {
+       "state": "bare",
+       "stage": null,
+       "flags": []
+      },
+      {
+       "state": "bare",
+       "stage": null,
+       "flags": []
+      },
+      {
+       "state": "bare",
+       "stage": null,
+       "flags": []
+      },
+      {
+       "state": "bare",
+       "stage": null,
+       "flags": [
+        "bare_wind"
+       ]
+      },
+      {
+       "state": "corn",
+       "stage": "ini",
+       "flags": []
+      },
+      {
+       "state": "corn",
+       "stage": "dev",
+       "flags": []
+      },
+      {
+       "state": "corn",
+       "stage": "mid",
+       "flags": [
+        "heat"
+       ]
+      },
+      {
+       "state": "corn",
+       "stage": "mid",
+       "flags": [
+        "heat"
+       ]
+      },
+      {
+       "state": "corn",
+       "stage": "late",
+       "flags": []
+      },
+      {
+       "state": "wheat",
+       "stage": "ini",
+       "flags": [
+        "frost"
+       ]
+      },
+      {
+       "state": "wheat",
+       "stage": "ini",
+       "flags": []
+      },
+      {
+       "state": "wheat",
+       "stage": "ini",
+       "flags": []
+      }
+     ]
+    },
+    {
+     "year_index": 2,
+     "months": [
+      {
+       "state": "wheat",
+       "stage": "dev",
+       "flags": []
+      },
+      {
+       "state": "wheat",
+       "stage": "dev",
+       "flags": []
+      },
+      {
+       "state": "wheat",
+       "stage": "dev",
+       "flags": []
+      },
+      {
+       "state": "wheat",
+       "stage": "mid",
+       "flags": []
+      },
+      {
+       "state": "wheat",
+       "stage": "mid",
+       "flags": [
+        "heat"
+       ]
+      },
+      {
+       "state": "wheat",
+       "stage": "late",
+       "flags": []
+      },
+      {
+       "state": "bare",
+       "stage": null,
+       "flags": []
+      },
+      {
+       "state": "bare",
+       "stage": null,
+       "flags": []
+      },
+      {
+       "state": "bare",
+       "stage": null,
+       "flags": []
+      },
+      {
+       "state": "bare",
+       "stage": null,
+       "flags": []
+      },
+      {
+       "state": "bare",
+       "stage": null,
+       "flags": []
+      },
+      {
+       "state": "bare",
+       "stage": null,
+       "flags": []
+      }
+     ]
+    },
+    {
+     "year_index": 3,
+     "months": [
+      {
+       "state": "bare",
+       "stage": null,
+       "flags": []
+      },
+      {
+       "state": "bare",
+       "stage": null,
+       "flags": []
+      },
+      {
+       "state": "bare",
+       "stage": null,
+       "flags": []
+      },
+      {
+       "state": "bare",
+       "stage": null,
+       "flags": [
+        "bare_wind"
+       ]
+      },
+      {
+       "state": "bare",
+       "stage": null,
+       "flags": []
+      },
+      {
+       "state": "sorghum",
+       "stage": "ini",
+       "flags": []
+      },
+      {
+       "state": "sorghum",
+       "stage": "dev",
+       "flags": []
+      },
+      {
+       "state": "sorghum",
+       "stage": "mid",
+       "flags": [
+        "heat"
+       ]
+      },
+      {
+       "state": "sorghum",
+       "stage": "late",
+       "flags": []
+      },
+      {
+       "state": "sorghum",
+       "stage": "late",
+       "flags": []
+      },
+      {
+       "state": "bare",
+       "stage": null,
+       "flags": []
+      },
+      {
+       "state": "bare",
+       "stage": null,
+       "flags": []
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "rotation_id": "R1",
+   "years": [
+    {
+     "year_index": 1,
+     "months": [
+      {
+       "state": "bare",
+       "stage": null,
+       "flags": []
+      },
+      {
+       "state": "bare",
+       "stage": null,
+       "flags": []
+      },
+      {
+       "state": "bare",
+       "stage": null,
+       "flags": []
+      },
+      {
+       "state": "bare",
+       "stage": null,
+       "flags": [
+        "bare_wind"
+       ]
+      },
+      {
+       "state": "corn",
+       "stage": "ini",
+       "flags": []
+      },
+      {
+       "state": "corn",
+       "stage": "dev",
+       "flags": []
+      },
+      {
+       "state": "corn",
+       "stage": "mid",
+       "flags": [
+        "heat"
+       ]
+      },
+      {
+       "state": "corn",
+       "stage": "mid",
+       "flags": [
+        "heat"
+       ]
+      },
+      {
+       "state": "corn",
+       "stage": "late",
+       "flags": []
+      },
+      {
+       "state": "wheat",
+       "stage": "ini",
+       "flags": [
+        "frost"
+       ]
+      },
+      {
+       "state": "wheat",
+       "stage": "ini",
+       "flags": []
+      },
+      {
+       "state": "wheat",
+       "stage": "ini",
+       "flags": []
+      }
+     ]
+    },
+    {
+     "year_index": 2,
+     "months": [
+      {
+       "state": "wheat",
+       "stage": "dev",
+       "flags": []
+      },
+      {
+       "state": "wheat",
+       "stage": "dev",
+       "flags": []
+      },
+      {
+       "state": "wheat",
+       "stage": "dev",
+       "flags": []
+      },
+      {
+       "state": "wheat",
+       "stage": "mid",
+       "flags": []
+      },
+      {
+       "state": "wheat",
+       "stage": "mid",
+       "flags": [
+        "heat"
+       ]
+      },
+      {
+       "state": "wheat",
+       "stage": "late",
+       "flags": []
+      },
+      {
+       "state": "bare",
+       "stage": null,
+       "flags": []
+      },
+      {
+       "state": "bare",
+       "stage": null,
+       "flags": []
+      },
+      {
+       "state": "bare",
+       "stage": null,
+       "flags": []
+      },
+      {
+       "state": "bare",
+       "stage": null,
+       "flags": []
+      },
+      {
+       "state": "bare",
+       "stage": null,
+       "flags": []
+      },
+      {
+       "state": "bare",
+       "stage": null,
+       "flags": []
+      }
+     ]
+    },
+    {
+     "year_index": 3,
+     "months": [
+      {
+       "state": "bare",
+       "stage": null,
+       "flags": []
+      },
+      {
+       "state": "bare",
+       "stage": null,
+       "flags": []
+      },
+      {
+       "state": "bare",
+       "stage": null,
+       "flags": []
+      },
+      {
+       "state": "bare",
+       "stage": null,
+       "flags": [
+        "bare_wind"
+       ]
+      },
+      {
+       "state": "bare",
+       "stage": null,
+       "flags": []
+      },
+      {
+       "state": "sorghum",
+       "stage": "ini",
+       "flags": []
+      },
+      {
+       "state": "sorghum",
+       "stage": "dev",
+       "flags": []
+      },
+      {
+       "state": "sorghum",
+       "stage": "mid",
+       "flags": [
+        "heat"
+       ]
+      },
+      {
+       "state": "sorghum",
+       "stage": "late",
+       "flags": []
+      },
+      {
+       "state": "sorghum",
+       "stage": "late",
+       "flags": []
+      },
+      {
+       "state": "bare",
+       "stage": null,
+       "flags": []
+      },
+      {
+       "state": "bare",
+       "stage": null,
+       "flags": []
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "rotation_id": "R2",
+   "years": [
+    {
+     "year_index": 1,
+     "months": [
+      {
+       "state": "wheat",
+       "stage": "dev",
+       "flags": []
+      },
+      {
+       "state": "wheat",
+       "stage": "dev",
+       "flags": []
+      },
+      {
+       "state": "wheat",
+       "stage": "dev",
+       "flags": []
+      },
+      {
+       "state": "wheat",
+       "stage": "mid",
+       "flags": []
+      },
+      {
+       "state": "wheat",
+       "stage": "mid",
+       "flags": [
+        "heat"
+       ]
+      },
+      {
+       "state": "wheat",
+       "stage": "late",
+       "flags": []
+      },
+      {
+       "state": "bare",
+       "stage": null,
+       "flags": []
+      },
+      {
+       "state": "bare",
+       "stage": null,
+       "flags": []
+      },
+      {
+       "state": "bare",
+       "stage": null,
+       "flags": []
+      },
+      {
+       "state": "bare",
+       "stage": null,
+       "flags": []
+      },
+      {
+       "state": "bare",
+       "stage": null,
+       "flags": []
+      },
+      {
+       "state": "bare",
+       "stage": null,
+       "flags": []
+      }
+     ]
+    },
+    {
+     "year_index": 2,
+     "months": [
+      {
+       "state": "bare",
+       "stage": null,
+       "flags": []
+      },
+      {
+       "state": "bare",
+       "stage": null,
+       "flags": []
+      },
+      {
+       "state": "bare",
+       "stage": null,
+       "flags": []
+      },
+      {
+       "state": "bare",
+       "stage": null,
+       "flags": [
+        "bare_wind"
+       ]
+      },
+      {
+       "state": "bare",
+       "stage": null,
+       "flags": []
+      },
+      {
+       "state": "sorghum",
+       "stage": "ini",
+       "flags": []
+      },
+      {
+       "state": "sorghum",
+       "stage": "dev",
+       "flags": []
+      },
+      {
+       "state": "sorghum",
+       "stage": "mid",
+       "flags": [
+        "heat"
+       ]
+      },
+      {
+       "state": "sorghum",
+       "stage": "late",
+       "flags": []
+      },
+      {
+       "state": "sorghum",
+       "stage": "late",
+       "flags": []
+      },
+      {
+       "state": "bare",
+       "stage": null,
+       "flags": []
+      },
+      {
+       "state": "bare",
+       "stage": null,
+       "flags": []
+      }
+     ]
+    },
+    {
+     "year_index": 3,
+     "months": [
+      {
+       "state": "bare",
+       "stage": null,
+       "flags": []
+      },
+      {
+       "state": "bare",
+       "stage": null,
+       "flags": []
+      },
+      {
+       "state": "bare",
+       "stage": null,
+       "flags": []
+      },
+      {
+       "state": "bare",
+       "stage": null,
+       "flags": [
+        "bare_wind"
+       ]
+      },
+      {
+       "state": "bare",
+       "stage": null,
+       "flags": []
+      },
+      {
+       "state": "bare",
+       "stage": null,
+       "flags": []
+      },
+      {
+       "state": "bare",
+       "stage": null,
+       "flags": []
+      },
+      {
+       "state": "bare",
+       "stage": null,
+       "flags": []
+      },
+      {
+       "state": "bare",
+       "stage": null,
+       "flags": []
+      },
+      {
+       "state": "wheat",
+       "stage": "ini",
+       "flags": [
+        "frost"
+       ]
+      },
+      {
+       "state": "wheat",
+       "stage": "ini",
+       "flags": []
+      },
+      {
+       "state": "wheat",
+       "stage": "ini",
+       "flags": []
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "rotation_id": "R3",
+   "years": [
+    {
+     "year_index": 1,
+     "months": [
+      {
+       "state": "wheat",
+       "stage": "dev",
+       "flags": []
+      },
+      {
+       "state": "wheat",
+       "stage": "dev",
+       "flags": []
+      },
+      {
+       "state": "wheat",
+       "stage": "dev",
+       "flags": []
+      },
+      {
+       "state": "wheat",
+       "stage": "mid",
+       "flags": []
+      },
+      {
+       "state": "wheat",
+       "stage": "mid",
+       "flags": [
+        "heat"
+       ]
+      },
+      {
+       "state": "wheat",
+       "stage": "late",
+       "flags": []
+      },
+      {
+       "state": "bare",
+       "stage": null,
+       "flags": []
+      },
+      {
+       "state": "bare",
+       "stage": null,
+       "flags": []
+      },
+      {
+       "state": "bare",
+       "stage": null,
+       "flags": []
+      },
+      {
+       "state": "bare",
+       "stage": null,
+       "flags": []
+      },
+      {
+       "state": "bare",
+       "stage": null,
+       "flags": []
+      },
+      {
+       "state": "bare",
+       "stage": null,
+       "flags": []
+      }
+     ]
+    },
+    {
+     "year_index": 2,
+     "months": [
+      {
+       "state": "bare",
+       "stage": null,
+       "flags": []
+      },
+      {
+       "state": "bare",
+       "stage": null,
+       "flags": []
+      },
+      {
+       "state": "bare",
+       "stage": null,
+       "flags": []
+      },
+      {
+       "state": "bare",
+       "stage": null,
+       "flags": [
+        "bare_wind"
+       ]
+      },
+      {
+       "state": "bare",
+       "stage": null,
+       "flags": []
+      },
+      {
+       "state": "sorghum",
+       "stage": "ini",
+       "flags": []
+      },
+      {
+       "state": "sorghum",
+       "stage": "dev",
+       "flags": []
+      },
+      {
+       "state": "sorghum",
+       "stage": "mid",
+       "flags": [
+        "heat"
+       ]
+      },
+      {
+       "state": "sorghum",
+       "stage": "late",
+       "flags": []
+      },
+      {
+       "state": "triticale",
+       "stage": "ini",
+       "flags": [
+        "frost"
+       ]
+      },
+      {
+       "state": "triticale",
+       "stage": "ini",
+       "flags": []
+      },
+      {
+       "state": "triticale",
+       "stage": "ini",
+       "flags": []
+      }
+     ]
+    },
+    {
+     "year_index": 3,
+     "months": [
+      {
+       "state": "triticale",
+       "stage": "dev",
+       "flags": []
+      },
+      {
+       "state": "triticale",
+       "stage": "dev",
+       "flags": []
+      },
+      {
+       "state": "triticale",
+       "stage": "dev",
+       "flags": []
+      },
+      {
+       "state": "triticale",
+       "stage": "mid",
+       "flags": []
+      },
+      {
+       "state": "triticale",
+       "stage": "late",
+       "flags": []
+      },
+      {
+       "state": "bare",
+       "stage": null,
+       "flags": []
+      },
+      {
+       "state": "bare",
+       "stage": null,
+       "flags": []
+      },
+      {
+       "state": "bare",
+       "stage": null,
+       "flags": []
+      },
+      {
+       "state": "bare",
+       "stage": null,
+       "flags": []
+      },
+      {
+       "state": "wheat",
+       "stage": "ini",
+       "flags": [
+        "frost"
+       ]
+      },
+      {
+       "state": "wheat",
+       "stage": "ini",
+       "flags": []
+      },
+      {
+       "state": "wheat",
+       "stage": "ini",
+       "flags": []
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "rotation_id": "R4",
+   "years": [
+    {
+     "year_index": 1,
+     "months": [
+      {
+       "state": "alfalfa",
+       "stage": null,
+       "flags": []
+      },
+      {
+       "state": "alfalfa",
+       "stage": null,
+       "flags": []
+      },
+      {
+       "state": "alfalfa",
+       "stage": "dev",
+       "flags": []
+      },
+      {
+       "state": "alfalfa",
+       "stage": "dev",
+       "flags": [
+        "frost"
+       ]
+      },
+      {
+       "state": "alfalfa",
+       "stage": "mid",
+       "flags": [
+        "heat"
+       ]
+      },
+      {
+       "state": "alfalfa",
+       "stage": "mid",
+       "flags": [
+        "heat"
+       ]
+      },
+      {
+       "state": "alfalfa",
+       "stage": "mid",
+       "flags": [
+        "heat"
+       ]
+      },
+      {
+       "state": "alfalfa",
+       "stage": "mid",
+       "flags": [
+        "heat"
+       ]
+      },
+      {
+       "state": "alfalfa",
+       "stage": "mid",
+       "flags": [
+        "heat"
+       ]
+      },
+      {
+       "state": "alfalfa",
+       "stage": null,
+       "flags": []
+      },
+      {
+       "state": "alfalfa",
+       "stage": null,
+       "flags": []
+      },
+      {
+       "state": "alfalfa",
+       "stage": null,
+       "flags": []
+      }
+     ]
+    },
+    {
+     "year_index": 2,
+     "months": [
+      {
+       "state": "alfalfa",
+       "stage": null,
+       "flags": []
+      },
+      {
+       "state": "alfalfa",
+       "stage": null,
+       "flags": []
+      },
+      {
+       "state": "alfalfa",
+       "stage": "dev",
+       "flags": []
+      },
+      {
+       "state": "alfalfa",
+       "stage": "dev",
+       "flags": [
+        "frost"
+       ]
+      },
+      {
+       "state": "alfalfa",
+       "stage": "mid",
+       "flags": [
+        "heat"
+       ]
+      },
+      {
+       "state": "alfalfa",
+       "stage": "mid",
+       "flags": [
+        "heat"
+       ]
+      },
+      {
+       "state": "alfalfa",
+       "stage": "mid",
+       "flags": [
+        "heat"
+       ]
+      },
+      {
+       "state": "alfalfa",
+       "stage": "mid",
+       "flags": [
+        "heat"
+       ]
+      },
+      {
+       "state": "alfalfa",
+       "stage": "mid",
+       "flags": [
+        "heat"
+       ]
+      },
+      {
+       "state": "alfalfa",
+       "stage": null,
+       "flags": []
+      },
+      {
+       "state": "alfalfa",
+       "stage": null,
+       "flags": []
+      },
+      {
+       "state": "alfalfa",
+       "stage": null,
+       "flags": []
+      }
+     ]
+    },
+    {
+     "year_index": 3,
+     "months": [
+      {
+       "state": "alfalfa",
+       "stage": null,
+       "flags": []
+      },
+      {
+       "state": "alfalfa",
+       "stage": null,
+       "flags": []
+      },
+      {
+       "state": "alfalfa",
+       "stage": "dev",
+       "flags": []
+      },
+      {
+       "state": "alfalfa",
+       "stage": "dev",
+       "flags": [
+        "frost"
+       ]
+      },
+      {
+       "state": "alfalfa",
+       "stage": "mid",
+       "flags": [
+        "heat"
+       ]
+      },
+      {
+       "state": "alfalfa",
+       "stage": "mid",
+       "flags": [
+        "heat"
+       ]
+      },
+      {
+       "state": "alfalfa",
+       "stage": "mid",
+       "flags": [
+        "heat"
+       ]
+      },
+      {
+       "state": "alfalfa",
+       "stage": "mid",
+       "flags": [
+        "heat"
+       ]
+      },
+      {
+       "state": "alfalfa",
+       "stage": "mid",
+       "flags": [
+        "heat"
+       ]
+      },
+      {
+       "state": "alfalfa",
+       "stage": null,
+       "flags": []
+      },
+      {
+       "state": "alfalfa",
+       "stage": null,
+       "flags": []
+      },
+      {
+       "state": "alfalfa",
+       "stage": null,
+       "flags": []
+      }
+     ]
+    },
+    {
+     "year_index": 4,
+     "months": [
+      {
+       "state": "alfalfa",
+       "stage": null,
+       "flags": []
+      },
+      {
+       "state": "alfalfa",
+       "stage": null,
+       "flags": []
+      },
+      {
+       "state": "alfalfa",
+       "stage": "dev",
+       "flags": []
+      },
+      {
+       "state": "alfalfa",
+       "stage": "dev",
+       "flags": [
+        "frost"
+       ]
+      },
+      {
+       "state": "alfalfa",
+       "stage": "mid",
+       "flags": [
+        "heat"
+       ]
+      },
+      {
+       "state": "alfalfa",
+       "stage": "mid",
+       "flags": [
+        "heat"
+       ]
+      },
+      {
+       "state": "alfalfa",
+       "stage": "mid",
+       "flags": [
+        "heat"
+       ]
+      },
+      {
+       "state": "alfalfa",
+       "stage": "mid",
+       "flags": [
+        "heat"
+       ]
+      },
+      {
+       "state": "alfalfa",
+       "stage": "mid",
+       "flags": [
+        "heat"
+       ]
+      },
+      {
+       "state": "alfalfa",
+       "stage": null,
+       "flags": []
+      },
+      {
+       "state": "alfalfa",
+       "stage": null,
+       "flags": []
+      },
+      {
+       "state": "alfalfa",
+       "stage": null,
+       "flags": []
+      }
+     ]
+    },
+    {
+     "year_index": 5,
+     "months": [
+      {
+       "state": "bare",
+       "stage": null,
+       "flags": []
+      },
+      {
+       "state": "bare",
+       "stage": null,
+       "flags": []
+      },
+      {
+       "state": "bare",
+       "stage": null,
+       "flags": []
+      },
+      {
+       "state": "bare",
+       "stage": null,
+       "flags": [
+        "bare_wind"
+       ]
+      },
+      {
+       "state": "corn",
+       "stage": "ini",
+       "flags": []
+      },
+      {
+       "state": "corn",
+       "stage": "dev",
+       "flags": []
+      },
+      {
+       "state": "corn",
+       "stage": "mid",
+       "flags": [
+        "heat"
+       ]
+      },
+      {
+       "state": "corn",
+       "stage": "mid",
+       "flags": [
+        "heat"
+       ]
+      },
+      {
+       "state": "corn",
+       "stage": "late",
+       "flags": []
+      },
+      {
+       "state": "wheat",
+       "stage": "ini",
+       "flags": [
+        "frost"
+       ]
+      },
+      {
+       "state": "wheat",
+       "stage": "ini",
+       "flags": []
+      },
+      {
+       "state": "wheat",
+       "stage": "ini",
+       "flags": []
+      }
+     ]
+    },
+    {
+     "year_index": 6,
+     "months": [
+      {
+       "state": "wheat",
+       "stage": "dev",
+       "flags": []
+      },
+      {
+       "state": "wheat",
+       "stage": "dev",
+       "flags": []
+      },
+      {
+       "state": "wheat",
+       "stage": "dev",
+       "flags": []
+      },
+      {
+       "state": "wheat",
+       "stage": "mid",
+       "flags": []
+      },
+      {
+       "state": "wheat",
+       "stage": "mid",
+       "flags": [
+        "heat"
+       ]
+      },
+      {
+       "state": "wheat",
+       "stage": "late",
+       "flags": []
+      },
+      {
+       "state": "bare",
+       "stage": null,
+       "flags": []
+      },
+      {
+       "state": "bare",
+       "stage": null,
+       "flags": []
+      },
+      {
+       "state": "bare",
+       "stage": null,
+       "flags": []
+      },
+      {
+       "state": "bare",
+       "stage": null,
+       "flags": []
+      },
+      {
+       "state": "bare",
+       "stage": null,
+       "flags": []
+      },
+      {
+       "state": "bare",
+       "stage": null,
+       "flags": []
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "rotation_id": "R5",
+   "years": [
+    {
+     "year_index": 1,
+     "months": [
+      {
+       "state": "rye_cover",
+       "stage": null,
+       "flags": []
+      },
+      {
+       "state": "rye_cover",
+       "stage": null,
+       "flags": []
+      },
+      {
+       "state": "rye_cover",
+       "stage": null,
+       "flags": []
+      },
+      {
+       "state": "bare",
+       "stage": null,
+       "flags": [
+        "bare_wind"
+       ]
+      },
+      {
+       "state": "corn",
+       "stage": "ini",
+       "flags": []
+      },
+      {
+       "state": "corn",
+       "stage": "dev",
+       "flags": []
+      },
+      {
+       "state": "corn",
+       "stage": "mid",
+       "flags": [
+        "heat"
+       ]
+      },
+      {
+       "state": "corn",
+       "stage": "mid",
+       "flags": [
+        "heat"
+       ]
+      },
+      {
+       "state": "corn",
+       "stage": "late",
+       "flags": []
+      },
+      {
+       "state": "corn",
+       "stage": "late",
+       "flags": []
+      },
+      {
+       "state": "bare",
+       "stage": null,
+       "flags": []
+      },
+      {
+       "state": "bare",
+       "stage": null,
+       "flags": []
+      }
+     ]
+    },
+    {
+     "year_index": 2,
+     "months": [
+      {
+       "state": "bare",
+       "stage": null,
+       "flags": []
+      },
+      {
+       "state": "bare",
+       "stage": null,
+       "flags": []
+      },
+      {
+       "state": "bare",
+       "stage": null,
+       "flags": []
+      },
+      {
+       "state": "bare",
+       "stage": null,
+       "flags": [
+        "bare_wind"
+       ]
+      },
+      {
+       "state": "soybean",
+       "stage": "ini",
+       "flags": []
+      },
+      {
+       "state": "soybean",
+       "stage": "dev",
+       "flags": []
+      },
+      {
+       "state": "soybean",
+       "stage": "mid",
+       "flags": [
+        "heat"
+       ]
+      },
+      {
+       "state": "soybean",
+       "stage": "late",
+       "flags": []
+      },
+      {
+       "state": "soybean",
+       "stage": "late",
+       "flags": []
+      },
+      {
+       "state": "wheat",
+       "stage": "ini",
+       "flags": [
+        "frost"
+       ]
+      },
+      {
+       "state": "wheat",
+       "stage": "ini",
+       "flags": []
+      },
+      {
+       "state": "wheat",
+       "stage": "ini",
+       "flags": []
+      }
+     ]
+    },
+    {
+     "year_index": 3,
+     "months": [
+      {
+       "state": "wheat",
+       "stage": "dev",
+       "flags": []
+      },
+      {
+       "state": "wheat",
+       "stage": "dev",
+       "flags": []
+      },
+      {
+       "state": "wheat",
+       "stage": "dev",
+       "flags": []
+      },
+      {
+       "state": "wheat",
+       "stage": "mid",
+       "flags": []
+      },
+      {
+       "state": "wheat",
+       "stage": "mid",
+       "flags": [
+        "heat"
+       ]
+      },
+      {
+       "state": "wheat",
+       "stage": "late",
+       "flags": []
+      },
+      {
+       "state": "bare",
+       "stage": null,
+       "flags": []
+      },
+      {
+       "state": "bare",
+       "stage": null,
+       "flags": []
+      },
+      {
+       "state": "bare",
+       "stage": null,
+       "flags": []
+      },
+      {
+       "state": "bare",
+       "stage": null,
+       "flags": []
+      },
+      {
+       "state": "rye_cover",
+       "stage": null,
+       "flags": []
+      },
+      {
+       "state": "rye_cover",
+       "stage": null,
+       "flags": []
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "rotation_id": "R6",
+   "years": [
+    {
+     "year_index": 1,
+     "months": [
+      {
+       "state": "bare",
+       "stage": null,
+       "flags": []
+      },
+      {
+       "state": "bare",
+       "stage": null,
+       "flags": []
+      },
+      {
+       "state": "bare",
+       "stage": null,
+       "flags": []
+      },
+      {
+       "state": "bare",
+       "stage": null,
+       "flags": [
+        "bare_wind"
+       ]
+      },
+      {
+       "state": "cotton",
+       "stage": "ini",
+       "flags": []
+      },
+      {
+       "state": "cotton",
+       "stage": "dev",
+       "flags": []
+      },
+      {
+       "state": "cotton",
+       "stage": "mid",
+       "flags": [
+        "heat"
+       ]
+      },
+      {
+       "state": "cotton",
+       "stage": "mid",
+       "flags": [
+        "heat"
+       ]
+      },
+      {
+       "state": "cotton",
+       "stage": "late",
+       "flags": []
+      },
+      {
+       "state": "wheat",
+       "stage": "ini",
+       "flags": [
+        "frost"
+       ]
+      },
+      {
+       "state": "wheat",
+       "stage": "ini",
+       "flags": []
+      },
+      {
+       "state": "wheat",
+       "stage": "ini",
+       "flags": []
+      }
+     ]
+    },
+    {
+     "year_index": 2,
+     "months": [
+      {
+       "state": "wheat",
+       "stage": "dev",
+       "flags": []
+      },
+      {
+       "state": "wheat",
+       "stage": "dev",
+       "flags": []
+      },
+      {
+       "state": "wheat",
+       "stage": "dev",
+       "flags": []
+      },
+      {
+       "state": "wheat",
+       "stage": "mid",
+       "flags": []
+      },
+      {
+       "state": "wheat",
+       "stage": "mid",
+       "flags": [
+        "heat"
+       ]
+      },
+      {
+       "state": "wheat",
+       "stage": "late",
+       "flags": []
+      },
+      {
+       "state": "bare",
+       "stage": null,
+       "flags": []
+      },
+      {
+       "state": "bare",
+       "stage": null,
+       "flags": []
+      },
+      {
+       "state": "bare",
+       "stage": null,
+       "flags": []
+      },
+      {
+       "state": "bare",
+       "stage": null,
+       "flags": []
+      },
+      {
+       "state": "bare",
+       "stage": null,
+       "flags": []
+      },
+      {
+       "state": "bare",
+       "stage": null,
+       "flags": []
+      }
+     ]
+    },
+    {
+     "year_index": 3,
+     "months": [
+      {
+       "state": "bare",
+       "stage": null,
+       "flags": []
+      },
+      {
+       "state": "bare",
+       "stage": null,
+       "flags": []
+      },
+      {
+       "state": "bare",
+       "stage": null,
+       "flags": []
+      },
+      {
+       "state": "bare",
+       "stage": null,
+       "flags": [
+        "bare_wind"
+       ]
+      },
+      {
+       "state": "bare",
+       "stage": null,
+       "flags": []
+      },
+      {
+       "state": "sorghum",
+       "stage": "ini",
+       "flags": []
+      },
+      {
+       "state": "sorghum",
+       "stage": "dev",
+       "flags": []
+      },
+      {
+       "state": "sorghum",
+       "stage": "mid",
+       "flags": [
+        "heat"
+       ]
+      },
+      {
+       "state": "sorghum",
+       "stage": "late",
+       "flags": []
+      },
+      {
+       "state": "sorghum",
+       "stage": "late",
+       "flags": []
+      },
+      {
+       "state": "bare",
+       "stage": null,
+       "flags": []
+      },
+      {
+       "state": "bare",
+       "stage": null,
+       "flags": []
+      }
+     ]
+    }
+   ]
+  }
+ ]
+}

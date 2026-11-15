@@ -1,91 +1,90 @@
 {
-  "_meta": {
-    "version": "0.1.0"
+ "_meta": {
+  "schema": "sources@1",
+  "mock": false,
+  "generated_at": "2026-11-14T20:41:49Z",
+  "generator": "data-pipeline/process/build_sources.py"
+ },
+ "sources": [
+  {
+   "tag": "POWER",
+   "name": "NASA POWER daily (AG community)",
+   "provider": "NASA Langley Research Center",
+   "url": "https://power.larc.nasa.gov/",
+   "what": "Daily max/min/mean air temperature, humidity, wind at 2 m and 10 m, solar radiation, corrected precipitation",
+   "resolution": "0.5° × 0.625° grid, daily",
+   "period": "1981–2025 (solar from 1984)",
+   "used_for": "Rotation Replay weather, reference ET, heat, frost and wind days"
   },
-  "sources": {
-    "POWER": {
-      "name": {
-        "en": "NASA POWER",
-        "es": "NASA POWER"
-      },
-      "url": "https://power.larc.nasa.gov/",
-      "role": {
-        "en": "Point weather, solar irradiance, and agro-climatological context.",
-        "es": "Contexto meteorológico, irradiancia solar y agroclimatológico puntual."
-      },
-      "license": "NASA POWER data use terms"
-    },
-    "SMAP": {
-      "name": {
-        "en": "NASA SMAP",
-        "es": "NASA SMAP"
-      },
-      "url": "https://smap.jpl.nasa.gov/",
-      "role": {
-        "en": "Satellite soil-moisture context. Pixel values are not field measurements.",
-        "es": "Contexto de humedad del suelo por satélite. Los valores de píxel no son mediciones del campo."
-      },
-      "license": "NASA data"
-    },
-    "GPM": {
-      "name": {
-        "en": "NASA GPM IMERG",
-        "es": "NASA GPM IMERG"
-      },
-      "url": "https://gpm.nasa.gov/data/imerg",
-      "role": {
-        "en": "Satellite precipitation context.",
-        "es": "Contexto de precipitación por satélite."
-      },
-      "license": "NASA data"
-    },
-    "SOIL": {
-      "name": {
-        "en": "USDA Soil Data Access",
-        "es": "USDA Soil Data Access"
-      },
-      "url": "https://www.nrcs.usda.gov/resources/data-and-reports/soil-survey-geographic-database-ssurgo",
-      "role": {
-        "en": "Soil survey attributes and map-unit context.",
-        "es": "Atributos de estudios de suelo y contexto de unidades cartográficas."
-      },
-      "license": "Public domain"
-    },
-    "CDL": {
-      "name": {
-        "en": "USDA Cropland Data Layer",
-        "es": "USDA Cropland Data Layer"
-      },
-      "url": "https://www.nass.usda.gov/Research_and_Science/Cropland/SARS1a.php",
-      "role": {
-        "en": "Crop-history context. Classification can be uncertain, especially for less common crops.",
-        "es": "Contexto del historial de cultivos. La clasificación puede ser incierta, en especial para cultivos menos comunes."
-      },
-      "license": "Public domain"
-    },
-    "MODIS": {
-      "name": {
-        "en": "NASA MODIS and VIIRS",
-        "es": "NASA MODIS y VIIRS"
-      },
-      "url": "https://lpdaac.usgs.gov/products/mod13q1v061/",
-      "role": {
-        "en": "Vegetation-index context at a much coarser scale than a field.",
-        "es": "Contexto de índices de vegetación a una escala mucho mayor que un campo."
-      },
-      "license": "NASA data"
-    },
-    "NRCS": {
-      "name": {
-        "en": "USDA NRCS",
-        "es": "USDA NRCS"
-      },
-      "url": "https://www.nrcs.usda.gov/",
-      "role": {
-        "en": "Conservation practice and soil interpretation references.",
-        "es": "Referencias para prácticas de conservación e interpretación del suelo."
-      },
-      "license": "Public domain"
-    }
+  {
+   "tag": "GRACE",
+   "name": "JPL GRACE/GRACE-FO Mascon RL06.3 (CRI filtered)",
+   "provider": "NASA JPL / PO.DAAC",
+   "url": "https://podaac.jpl.nasa.gov/dataset/TELLUS_GRAC-GRFO_MASCON_CRI_GRID_RL06.3_V4",
+   "what": "Monthly terrestrial water storage anomaly (liquid water equivalent)",
+   "resolution": "0.5° grid; ~300 km true resolution",
+   "period": "2002-04 → latest (gap 2017-07 → 2018-05)",
+   "used_for": "Regional aquifer / water-storage trend in the water outlook"
+  },
+  {
+   "tag": "SSURGO",
+   "name": "SSURGO via Soil Data Access",
+   "provider": "USDA NRCS",
+   "url": "https://sdmdataaccess.sc.egov.usda.gov/",
+   "what": "Map units, components and horizons: AWC, AWS 0–100 cm, organic matter, K factor, hydrologic group, WEG/WEI, drainage, restrictions",
+   "resolution": "Map units at 1:12,000–1:24,000",
+   "period": "Current release",
+   "used_for": "Soil water holding, erodibility, soil-health inputs and neighbour matching"
+  },
+  {
+   "tag": "CSB",
+   "name": "Crop Sequence Boundaries 2018–2025 (rev23)",
+   "provider": "USDA NASS",
+   "url": "https://www.nass.usda.gov/Research_and_Science/Crop-Sequence-Boundaries/",
+   "what": "Field polygons with the Cropland Data Layer crop for each year",
+   "resolution": "Field polygons from 30 m CDL",
+   "period": "2018–2025",
+   "used_for": "Demo field outlines, crop history, detected rotation, neighbour pool"
+  },
+  {
+   "tag": "NASS",
+   "name": "Quick Stats",
+   "provider": "USDA NASS",
+   "url": "https://quickstats.nass.usda.gov/",
+   "what": "Survey yields (irrigated / non-irrigated), prices received, acres planted",
+   "resolution": "Finney County, SW Kansas district, Kansas",
+   "period": "2000–2025 (prices 2015–2024)",
+   "used_for": "Yields, prices and the local-market check"
+  },
+  {
+   "tag": "OpenET",
+   "name": "OpenET Ensemble",
+   "provider": "OpenET (NASA, USGS, DRI, EDF, Google and partners)",
+   "url": "https://etdata.org/",
+   "what": "Actual evapotranspiration, ensemble of 6 satellite models",
+   "resolution": "30 m, monthly",
+   "period": "2016 → latest",
+   "used_for": "Replay validation and neighbours' real water use"
+  },
+  {
+   "tag": "PRISM",
+   "name": "PRISM daily (4 km)",
+   "provider": "PRISM Climate Group, Oregon State University",
+   "url": "https://prism.oregonstate.edu/",
+   "what": "Daily min/max temperature and precipitation",
+   "resolution": "4 km, daily",
+   "period": "1991–2025",
+   "used_for": "1991–2020 climate normals vs 2016–2025, ground-based check of POWER"
+  },
+  {
+   "tag": "USGS",
+   "name": "USGS Water Data APIs — groundwater field measurements",
+   "provider": "U.S. Geological Survey",
+   "url": "https://api.waterdata.usgs.gov/",
+   "what": "Depth to water below land surface at monitoring wells (USGS, KGS and Kansas DWR wells)",
+   "resolution": "Individual wells",
+   "period": "2000–2025",
+   "used_for": "Local aquifer trend near each field; also terrain (USGS 3DEP) until SRTM arrives"
   }
+ ]
 }

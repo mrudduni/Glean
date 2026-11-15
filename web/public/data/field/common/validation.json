@@ -1,8 +1,0 @@
-{
-  "_meta": { "version": "1.0.0" },
-  "checks": [
-    { "id": "regional_context", "level": "low", "vars": {}, "source_ids": ["POWER", "GPM"] },
-    { "id": "model_estimate", "level": "low", "vars": {}, "source_ids": ["SMAP", "MODIS"] },
-    { "id": "local_check", "level": "low", "vars": {}, "source_ids": ["SOIL", "CDL"] }
-  ]
-}

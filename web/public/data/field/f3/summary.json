@@ -1,22 +1,90 @@
 {
-  "_meta": { "version": "1.0.0" },
-  "field_id": "f3",
-  "current_rotation": { "id": "R0", "years": [2018, 2025], "steps": ["wheat", "sorghum", "wheat", "sorghum"] },
-  "soil": {
-    "texture": { "en": "Sandy loam", "es": "Franco arenoso" },
-    "water_storage_mm": 126,
-    "organic_matter_pct": 1.6,
-    "wind_erosion": { "en": "Higher mapped susceptibility", "es": "Susceptibilidad cartografiada mayor" },
-    "source_ids": ["SOIL"]
-  },
-  "climate": {
-    "normal": { "frost_free_days": 165, "hot_days": 28, "precipitation_mm": 472 },
-    "recent": { "frost_free_days": 170, "hot_days": 36, "precipitation_mm": 451 },
-    "source_ids": ["POWER", "GPM"]
-  },
-  "headline_facts": [
-    { "text_id": "soil", "vars": { "texture": "sandy loam" }, "source_ids": ["SOIL"] },
-    { "text_id": "water", "vars": { "storage_mm": 126 }, "source_ids": ["SOIL"] },
-    { "text_id": "climate", "vars": { "hot_days": 36 }, "source_ids": ["POWER"] }
+ "_meta": {
+  "schema": "summary@1",
+  "mock": true,
+  "generated_at": "2026-11-15T14:02:09Z",
+  "generator": "web/scripts/mocks/make_mocks.py"
+ },
+ "field_id": "f3",
+ "current_rotation": {
+  "steps": [
+   {
+    "crop": "corn",
+    "cover_after": null
+   },
+   {
+    "crop": "wheat",
+    "cover_after": null
+   },
+   {
+    "crop": "sorghum",
+    "cover_after": null
+   }
+  ],
+  "rotation_class": "corn_wheat_sorghum",
+  "years": [
+   2018,
+   2025
   ]
+ },
+ "climate": {
+  "normal": {
+   "frost_free_days": 195,
+   "last_spring_frost": "04-14",
+   "first_fall_frost": "10-26",
+   "gdd_base10_c": 2520,
+   "precip_mm_yr": 556,
+   "days_tmax_ge_35": 40,
+   "et0_mm_yr": 1470
+  },
+  "recent": {
+   "frost_free_days": 199,
+   "last_spring_frost": "04-15",
+   "first_fall_frost": "11-01",
+   "gdd_base10_c": 2643,
+   "precip_mm_yr": 559,
+   "days_tmax_ge_35": 42,
+   "et0_mm_yr": 1495
+  },
+  "normal_period": "1991-2020",
+  "recent_period": "2016-2025",
+  "sources": [
+   "POWER"
+  ]
+ },
+ "water": {
+  "grace_trend_cm_per_yr": -0.86,
+  "wells_trend_m_per_yr": 1.16,
+  "outlook": "declining"
+ },
+ "headline_facts": [
+  {
+   "text_id": "grace_trend",
+   "vars": {
+    "cm_per_yr": -0.86
+   },
+   "sources": [
+    "GRACE"
+   ]
+  },
+  {
+   "text_id": "heat_days_change",
+   "vars": {
+    "days": 2
+   },
+   "sources": [
+    "POWER"
+   ]
+  },
+  {
+   "text_id": "current_rotation",
+   "vars": {
+    "years_from": 2018,
+    "years_to": 2025
+   },
+   "sources": [
+    "CSB"
+   ]
+  }
+ ]
 }
