@@ -1,156 +1,151 @@
 "use client";
 
 import { ArrowDownRight, ArrowUpRight, Droplets, Leaf, MapPinned, ThermometerSun } from "lucide-react";
-import { Area, AreaChart, ResponsiveContainer, Tooltip } from "recharts";
-import type { Field, FieldBundle, Lang, SourcesFile, Crop, Rotation, CopyFile, CardTextFile } from "@/lib/types";
-import { fill, formatVar, t } from "@/lib/i18n";
+import { Area, AreaChart, ResponsiveContainer, Tooltip, YAxis } from "recharts";
+import type { CopyFile, Field, GlossaryFile, SummaryFile, WaterFile } from "@/lib/types";
+import { fill, formatVar } from "@/lib/i18n";
+import { cardLine, type UI } from "@/lib/ui";
 import { SourceChips } from "@/components/SourceChips";
+import { CropChips } from "@/components/CropChips";
+import { theme } from "@/lib/theme";
 
-const monthLabels = {
-  en: ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"],
-  es: ["Ene", "Feb", "Mar", "Abr", "May", "Jun", "Jul", "Ago", "Sep", "Oct", "Nov", "Dic"],
-};
+/** SSURGO wind erodibility group → plain words key (1 and 2 blow most easily). */
+function windClass(weg: string | null): "high" | "moderate" | "low" | null {
+  if (!weg) return null;
+  const n = parseInt(weg, 10);
+  if (Number.isNaN(n)) return null;
+  return n <= 2 ? "high" : n <= 4 ? "moderate" : "low";
+}
 
 export function OverviewPanel({
-  field,
-  bundle,
-  crops,
-  rotations,
-  sources,
-  copy,
-  cardText,
-  lang,
+  field, summary, water, glossary, copy, ui,
 }: {
   field: Field;
-  bundle: FieldBundle;
-  crops: Crop[];
-  rotations: Rotation[];
-  sources: SourcesFile;
+  summary: SummaryFile;
+  water: WaterFile | null;
+  glossary: GlossaryFile | null;
   copy: CopyFile["strings"];
-  cardText: CardTextFile;
-  lang: Lang;
+  ui: UI;
 }) {
-  const cropMap = new Map(crops.map((crop) => [crop.id, crop]));
-  const rotation = rotations.find((item) => item.id === bundle.summary.current_rotation.id);
-  const graceData = bundle.water.grace.map((point) => ({ month: point.month, value: point.anomaly_mm }));
-  const trend = bundle.water.grace.at(-1)?.anomaly_mm ?? 0;
-  const outlook = t(`overview.outlook.${bundle.water.outlook}`, copy, lang);
-  const years = bundle.summary.current_rotation.years[1] - bundle.summary.current_rotation.years[0] + 1;
-  const hotDayDelta = bundle.summary.climate.recent.hot_days - bundle.summary.climate.normal.hot_days;
+  const { t, lang } = ui;
+  const soil = field.soil;
+  const { normal, recent } = summary.climate;
+  const heatDelta = recent.days_tmax_ge_35 - normal.days_tmax_ge_35;
+  const grace = water?.grace.series.map((point) => ({ month: point.month, value: point.tws_anom_cm })) ?? [];
+  const wind = windClass(soil.weg);
+  const windTerm = glossary?.terms.find((term) => term.id === "wind_erosion");
+  const [from, to] = summary.current_rotation.years;
+  const nearestWell = water?.wells.slice().sort((a, b) => a.distance_km - b.distance_km)[0];
+
   return (
-    <section className="workspace-section" id="overview">
+    <section className="workspace-section" id="overview" aria-labelledby="overview-heading">
       <div className="section-title-row">
         <div>
-          <div className="eyebrow"><span className="eyebrow-rule" /> FIELD SNAPSHOT</div>
-          <h2>{t("overview.title", copy, lang)}</h2>
-          <p>{t("overview.subtitle", copy, lang)}</p>
+          <div className="eyebrow"><span className="eyebrow-rule" /> {t("overview.eyebrow", "Field snapshot")}</div>
+          <h2 id="overview-heading">{t("nav.overview")}</h2>
         </div>
         <span className="section-index">01 / 06</span>
       </div>
 
       <div className="overview-grid">
         <article className="overview-card current-rotation-card">
-          <div className="card-kicker"><span className="icon-disc"><Leaf size={17} /></span><span>{t("overview.current", copy, lang)}</span></div>
-          <h3>{rotation?.name[lang] || rotation?.name.en || "Current rotation"}</h3>
-          <div className="crop-chip-line">
-            <div className="crop-chip-group">
-              {(field.current_crops || bundle.summary.current_rotation.steps).map((id, index) => {
-                const crop = cropMap.get(id);
-                return crop ? <span className="crop-chip" key={`${id}-${index}`} style={{ "--chip-color": crop.color } as React.CSSProperties}>{crop.name[lang] || crop.name.en}</span> : null;
-              })}
-            </div>
-          </div>
-          <p className="small-note">{fill(copy["overview.detected_from"], { years }, lang)}</p>
-          <SourceChips ids={["CDL"]} sources={sources} lang={lang} />
+          <div className="card-kicker"><span className="icon-disc"><Leaf size={17} aria-hidden="true" /></span><span>{t("overview.current_rotation")}</span></div>
+          <h3>{t("rotation_class." + summary.current_rotation.rotation_class, summary.current_rotation.rotation_class.replaceAll("_", " "))}</h3>
+          <CropChips steps={summary.current_rotation.steps} ui={ui} />
+          <p className="small-note">{fill(copy["overview.detected_from"], { years_from: from, years_to: to }, lang)}</p>
+          <SourceChips tags={["CSB"]} sources={ui.sources} />
         </article>
 
         <article className="overview-card soil-card">
-          <div className="card-kicker"><span className="icon-disc sand"><MapPinned size={17} /></span><span>{t("overview.soil", copy, lang)}</span></div>
-          <div className="soil-texture">{bundle.summary.soil.texture[lang] || bundle.summary.soil.texture.en}</div>
+          <div className="card-kicker"><span className="icon-disc sand"><MapPinned size={17} aria-hidden="true" /></span><span>{t("overview.soil")}</span></div>
+          <div className="soil-texture">{soil.texture}</div>
+          <p className="micro-note">{soil.map_unit_name}</p>
           <div className="soil-metrics">
-            <div><small>{t("overview.water_storage", copy, lang)}</small><strong>{formatVar("storage_mm", bundle.summary.soil.water_storage_mm, lang)}</strong></div>
-            <div><small>{t("overview.organic_matter", copy, lang)}</small><strong>{formatVar("organic_pct", bundle.summary.soil.organic_matter_pct, lang)}</strong></div>
+            <div><small>{t("overview.water_storage", "Water storage, top metre")}</small><strong>{formatVar("aws_mm", soil.aws_0_100_mm, lang)}</strong></div>
+            <div><small>{t("overview.organic_matter", "Organic matter")}</small><strong>{formatVar("om_pct", soil.om_pct, lang)}</strong></div>
           </div>
-          <div className="wind-note"><span>{t("overview.wind_erosion", copy, lang)}</span><strong>{bundle.summary.soil.wind_erosion[lang] || bundle.summary.soil.wind_erosion.en}</strong></div>
-          <p className="micro-note">{t("overview.soil_note", copy, lang)}</p>
-          <SourceChips ids={bundle.summary.soil.source_ids} sources={sources} lang={lang} />
+          {wind && (
+            <div className="wind-note">
+              <span>{t("overview.wind_erodibility", "Wind erodibility")}</span>
+              <strong>{t(`overview.wind.${wind}`, { high: "Blows easily", moderate: "Moderate", low: "Low" }[wind])}</strong>
+            </div>
+          )}
+          {windTerm && <p className="micro-note">{windTerm.short[lang] || windTerm.short.en}</p>}
+          <SourceChips tags={["SSURGO"]} sources={ui.sources} />
         </article>
 
         <article className="overview-card climate-card">
-          <div className="card-kicker"><span className="icon-disc orange"><ThermometerSun size={17} /></span><span>{t("overview.climate", copy, lang)}</span></div>
-          <div className="climate-legend"><span><i className="dot normal" />{t("overview.normal", copy, lang)}</span><span><i className="dot recent" />{t("overview.recent", copy, lang)}</span></div>
-          <ClimatePair label={t("overview.frost_free", copy, lang)} normal={bundle.summary.climate.normal.frost_free_days} recent={bundle.summary.climate.recent.frost_free_days} lang={lang} />
-          <ClimatePair label={t("overview.hot_days", copy, lang)} normal={bundle.summary.climate.normal.hot_days} recent={bundle.summary.climate.recent.hot_days} lang={lang} />
-          <ClimatePair label={t("overview.precip", copy, lang)} normal={bundle.summary.climate.normal.precipitation_mm} recent={bundle.summary.climate.recent.precipitation_mm} unit=" mm" lang={lang} />
-          <span className={`climate-delta ${hotDayDelta >= 0 ? "up" : "down"}`}>
-            {hotDayDelta >= 0 ? <ArrowUpRight size={14} /> : <ArrowDownRight size={14} />}
-            {fill(copy["overview.hot_day_change"], { count: Math.abs(hotDayDelta) }, lang)}
+          <div className="card-kicker"><span className="icon-disc orange"><ThermometerSun size={17} aria-hidden="true" /></span><span>{t("overview.climate_shift")}</span></div>
+          <div className="climate-legend">
+            <span><i className="dot normal" />{summary.climate.normal_period}</span>
+            <span><i className="dot recent" />{summary.climate.recent_period}</span>
+          </div>
+          <ClimatePair label={t("overview.frost_free", "Frost-free days")} normal={normal.frost_free_days} recent={recent.frost_free_days} format={(v) => `${formatVar("days", v, lang)} ${t("unit.days", "days")}`} />
+          <ClimatePair label={t("overview.hot_days", "Days at or above 35 °C")} normal={normal.days_tmax_ge_35} recent={recent.days_tmax_ge_35} format={(v) => `${formatVar("days", v, lang)} ${t("unit.days", "days")}`} />
+          <ClimatePair label={t("overview.precip", "Rain per year")} normal={normal.precip_mm_yr} recent={recent.precip_mm_yr} format={(v) => formatVar("precip_mm", v, lang)} />
+          <span className={`climate-delta ${heatDelta >= 0 ? "up" : "down"}`}>
+            {heatDelta >= 0 ? <ArrowUpRight size={14} aria-hidden="true" /> : <ArrowDownRight size={14} aria-hidden="true" />}
+            {cardLine(ui, "headline", "heat_days_change", { days: heatDelta })}
           </span>
-          <SourceChips ids={bundle.summary.climate.source_ids} sources={sources} lang={lang} />
+          <SourceChips tags={summary.climate.sources} sources={ui.sources} />
         </article>
 
         <article className="overview-card water-card">
-          <div className="card-kicker"><span className="icon-disc blue"><Droplets size={17} /></span><span>{t("overview.water", copy, lang)}</span></div>
-          <div className="water-status"><span className="water-status-dot" />{outlook}</div>
-          <div className="water-chart">
-            <ResponsiveContainer width="100%" height={85}>
-              <AreaChart data={graceData}>
-                <defs><linearGradient id="waterFill" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stopColor="#5c8e7a" stopOpacity={0.3} /><stop offset="100%" stopColor="#5c8e7a" stopOpacity={0} /></linearGradient></defs>
-                <Tooltip
-                  contentStyle={{
-                    background: "var(--surface)",
-                    border: "1px solid var(--line)",
-                    borderRadius: 8,
-                    fontSize: 13,
-                    color: "var(--ink)",
-                    boxShadow: "0 6px 18px rgba(0, 0, 0, 0.25)",
-                  }}
-                  itemStyle={{ color: "var(--ink)" }}
-                  formatter={(value) => [`${value} mm`, "Anomaly"]}
-                  labelFormatter={(label) => String(label)}
-                />
-                <Area type="monotone" dataKey="value" stroke="#4b8c76" fill="url(#waterFill)" strokeWidth={2} />
-              </AreaChart>
-            </ResponsiveContainer>
-          </div>
-          <p className="micro-note">{t("overview.grace_note", copy, lang)} {bundle.water.well && <span>{lang === "es" ? "Tendencia del pozo cercano:" : "Nearby well trend:"} {bundle.water.well.trend_m_per_year.toFixed(1)} m/year.</span>}</p>
-          <SourceChips ids={["SMAP"]} sources={sources} lang={lang} />
+          <div className="card-kicker"><span className="icon-disc blue"><Droplets size={17} aria-hidden="true" /></span><span>{t("overview.water_outlook")}</span></div>
+          <div className={`water-status outlook-${summary.water.outlook}`}><span className="water-status-dot" />{t(`overview.outlook.${summary.water.outlook}`)}</div>
+          {grace.length > 0 && (
+            <div className="water-chart" aria-label={t("overview.grace_chart", "GRACE water storage anomaly, cm")} role="img">
+              <ResponsiveContainer width="100%" height={85}>
+                <AreaChart data={grace}>
+                  <YAxis hide domain={["dataMin", "dataMax"]} />
+                  <Tooltip
+                    contentStyle={{ background: "var(--surface)", border: "1px solid var(--line)", borderRadius: 8, fontSize: 13, color: "var(--ink)" }}
+                    formatter={(value) => [`${value} cm`, "GRACE"]}
+                    labelFormatter={(_label, payload) => String(payload?.[0]?.payload?.month ?? "")}
+                  />
+                  <Area type="monotone" dataKey="value" stroke={theme.risk.frost} fill={theme.risk.frost} fillOpacity={0.18} strokeWidth={2} isAnimationActive={false} />
+                </AreaChart>
+              </ResponsiveContainer>
+            </div>
+          )}
+          <dl className="water-facts">
+            <div><dt>GRACE</dt><dd>{formatVar("cm_per_yr", summary.water.grace_trend_cm_per_yr, lang)}</dd></div>
+            {summary.water.wells_trend_m_per_yr !== null && (
+              <div>
+                <dt>{t("overview.wells_trend", "Depth to water, nearby wells")}</dt>
+                <dd>{formatVar("m_per_yr", summary.water.wells_trend_m_per_yr, lang)}</dd>
+              </div>
+            )}
+            {nearestWell && <div><dt>{t("overview.nearest_well", "Nearest well")}</dt><dd>{nearestWell.name}, {nearestWell.distance_km} km</dd></div>}
+          </dl>
+          <SourceChips tags={["GRACE", "USGS"]} sources={ui.sources} />
         </article>
       </div>
 
       <div className="headline-row">
-        <div className="headline-title"><span>FIELD NOTES</span><h3>{t("overview.headlines", copy, lang)}</h3></div>
-        {bundle.summary.headline_facts.map((fact, index) => {
-          const text = cardText.headline[fact.text_id];
-          return (
-            <article className="headline-fact" key={`${fact.text_id}-${index}`}>
-              <span className="headline-number">0{index + 1}</span>
-              <p>{fill(text, fact.vars, lang)}</p>
-              <SourceChips ids={fact.source_ids} sources={sources} lang={lang} />
-            </article>
-          );
-        })}
+        <div className="headline-title"><span>{t("overview.notes_kicker", "Field notes")}</span><h3>{t("overview.headlines", "What stands out")}</h3></div>
+        {summary.headline_facts.map((fact, index) => (
+          <article className="headline-fact" key={`${fact.text_id}-${index}`}>
+            <span className="headline-number">0{index + 1}</span>
+            <p>{cardLine(ui, "headline", fact.text_id, fact.vars)}</p>
+            <SourceChips tags={fact.sources} sources={ui.sources} />
+          </article>
+        ))}
       </div>
     </section>
   );
 }
 
-function ClimatePair({ label, normal, recent, unit = " days", lang = "en" }: { label: string; normal: number; recent: number; unit?: string; lang?: Lang }) {
+function ClimatePair({ label, normal, recent, format }: { label: string; normal: number; recent: number; format: (v: number) => string }) {
   const max = Math.max(normal, recent, 1);
   return (
     <div className="climate-pair">
-      <div className="climate-pair-label"><span>{label}</span><b>{recent}{unit}</b></div>
-      <div className="climate-track"><span className="climate-bar normal" style={{ width: `${normal / max * 100}%` }} /><span className="climate-bar recent" style={{ width: `${recent / max * 100}%` }} /></div>
-      <div className="climate-values"><span>{lang === "es" ? "Referencia" : "Reference"} {normal}{unit}</span><span>{lang === "es" ? "Reciente" : "Recent"} {recent}{unit}</span></div>
+      <div className="climate-pair-label"><span>{label}</span><b>{format(recent)}</b></div>
+      <div className="climate-track" aria-hidden="true">
+        <span className="climate-bar normal" style={{ width: `${(normal / max) * 100}%` }} />
+        <span className="climate-bar recent" style={{ width: `${(recent / max) * 100}%` }} />
+      </div>
+      <div className="climate-values"><span>{format(normal)}</span><span>{format(recent)}</span></div>
     </div>
-  );
-}
-
-export function WaterTrend({ bundle, lang }: { bundle: FieldBundle; lang: Lang }) {
-  const data = bundle.water.grace.map((point, index) => ({ month: monthLabels[lang][index] || point.month, value: point.anomaly_mm }));
-  return (
-    <ResponsiveContainer width="100%" height={72}>
-      <AreaChart data={data}><Area dataKey="value" type="monotone" stroke="#4b8c76" fill="#dcebe3" strokeWidth={2} /></AreaChart>
-    </ResponsiveContainer>
   );
 }

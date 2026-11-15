@@ -105,3 +105,6 @@ export async function getFieldBundle(fid: FieldId): Promise<FieldBundle> {
   ]);
   return { summary, calendar, replay, strategies, validation, water, observed, neighbors };
 }
+
+export const getValidation = (fid: FieldId): Promise<ValidationFile | null> =>
+  loadOptional<ValidationFile>(`/data/field/${fid}/validation.json`, validationSchema);

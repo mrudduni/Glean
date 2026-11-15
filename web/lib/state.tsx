@@ -1,141 +1,136 @@
 "use client";
 
+// App state, mirrored in URL search params so a view can be shared (handover §5).
 import { createContext, useCallback, useContext, useEffect, useMemo, useState } from "react";
 import { usePathname } from "next/navigation";
-import type { Climate, CriterionId, FieldId, Lang, ScenarioId, WaterCap } from "@/lib/types";
-import type { Weights } from "@/lib/score";
+import type { CapId, ClimateId, FieldId, Lang, ScenarioKey } from "@/lib/types";
+import { CAP_IDS } from "@/lib/schemas";
+import { DEFAULT_SLIDERS, SLIDER_IDS, type SliderId, type Sliders } from "@/lib/score";
 
 export type Theme = "light" | "dark";
 
-export interface FieldShiftState {
+interface Values {
   field: FieldId;
-  cap: WaterCap;
-  climate: Climate;
-  weights: Weights;
+  cap: CapId;
+  climate: ClimateId;
+  sliders: Sliders;
   hay: boolean;
   cotton: boolean;
   forage: boolean;
   lang: Lang;
   theme: Theme;
-  scenario: ScenarioId;
+}
+
+export interface FieldShiftState extends Values {
+  scenario: ScenarioKey;
   setField: (value: FieldId) => void;
-  setCap: (value: WaterCap) => void;
-  setClimate: (value: Climate) => void;
-  setWeight: (key: CriterionId, value: number) => void;
+  setCap: (value: CapId) => void;
+  setClimate: (value: ClimateId) => void;
+  setSlider: (key: SliderId, value: number) => void;
   setHay: (value: boolean) => void;
   setCotton: (value: boolean) => void;
   setForage: (value: boolean) => void;
   setLang: (value: Lang) => void;
   setTheme: (value: Theme) => void;
-  toggleTheme: () => void;
 }
 
-const initialWeights: Weights = { water: 3, soil: 3, climate: 3, market: 3, operations: 3 };
-const initialState = {
-  field: "f1" as FieldId,
-  cap: "cap300" as WaterCap,
-  climate: "actual" as Climate,
-  weights: initialWeights,
-  hay: false,
-  cotton: false,
-  forage: false,
-  lang: "en" as Lang,
-  theme: "light" as Theme,
+const initial: Values = {
+  field: "f1", cap: "cap300", climate: "actual", sliders: DEFAULT_SLIDERS,
+  hay: false, cotton: false, forage: false, lang: "en", theme: "light",
 };
 
 const StateContext = createContext<FieldShiftState | null>(null);
 
-function readState(search: string, pathname: string) {
-  const params = new URLSearchParams(search);
-  const pathField = pathname.match(/\/field\/(f1|f2|f3)/)?.[1];
-  const queryField = params.get("field");
-  const cap = params.get("cap");
-  const climate = params.get("climate");
-  const lang = params.get("lang");
-  let theme: Theme = "light";
-  if (typeof window !== "undefined") {
+function preferredTheme(params: URLSearchParams): Theme {
+  const query = params.get("theme");
+  if (query === "dark" || query === "light") return query;
+  try {
     const saved = localStorage.getItem("fieldshift_theme");
-    if (saved === "dark" || saved === "light") {
-      theme = saved;
-    } else if (window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches) {
-      theme = "dark";
-    }
+    if (saved === "dark" || saved === "light") return saved;
+  } catch {
+    // storage blocked: fall through to the system preference
   }
-  const queryTheme = params.get("theme");
-  if (queryTheme === "dark" || queryTheme === "light") {
-    theme = queryTheme;
+  return window.matchMedia?.("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+}
+
+function readState(): Values {
+  const params = new URLSearchParams(window.location.search);
+  const pathField = window.location.pathname.match(/\/field\/(f1|f2|f3)/)?.[1];
+  const queryField = params.get("field");
+  const cap = params.get("cap") as CapId | null;
+  const sliders = { ...DEFAULT_SLIDERS };
+  for (const key of SLIDER_IDS) {
+    const raw = params.get(`w_${key}`);
+    const parsed = raw === null ? NaN : Number(raw);
+    if (Number.isFinite(parsed)) sliders[key] = Math.max(0, Math.min(5, Math.round(parsed)));
   }
-  const weights = { ...initialWeights };
-  (["water", "soil", "climate", "market", "operations"] as CriterionId[]).forEach((key) => {
-    const parsed = Number(params.get(`w_${key}`));
-    if (Number.isFinite(parsed)) weights[key] = Math.max(0, Math.min(5, parsed));
-  });
   return {
-    field: (pathField || queryField || "f1") as FieldId,
-    cap: (["dryland", "cap150", "cap300", "cap450"].includes(cap || "") ? cap : "cap300") as WaterCap,
-    climate: (climate === "hotdry" ? "hotdry" : "actual") as Climate,
-    weights,
+    field: (pathField || (["f1", "f2", "f3"].includes(queryField ?? "") ? queryField : "f1")) as FieldId,
+    cap: cap && CAP_IDS.includes(cap) ? cap : "cap300",
+    climate: params.get("climate") === "hotdry" ? "hotdry" : "actual",
+    sliders,
     hay: params.get("hay") === "1",
     cotton: params.get("cotton") === "1",
     forage: params.get("forage") === "1",
-    lang: (lang === "es" ? "es" : "en") as Lang,
-    theme,
+    lang: params.get("lang") === "es" ? "es" : "en",
+    theme: preferredTheme(params),
   };
 }
 
-function writeState(values: typeof initialState) {
-  if (typeof window === "undefined") return;
+function writeState(values: Values) {
   const params = new URLSearchParams(window.location.search);
   params.set("field", values.field);
   params.set("cap", values.cap);
   params.set("climate", values.climate);
   params.set("lang", values.lang);
-  params.set("theme", values.theme);
-  (Object.keys(values.weights) as CriterionId[]).forEach((key) => params.set(`w_${key}`, String(values.weights[key])));
+  for (const key of SLIDER_IDS) params.set(`w_${key}`, String(values.sliders[key]));
   params.set("hay", values.hay ? "1" : "0");
   params.set("cotton", values.cotton ? "1" : "0");
   params.set("forage", values.forage ? "1" : "0");
+  params.delete("theme");
   window.history.replaceState(window.history.state, "", `${window.location.pathname}?${params.toString()}`);
+}
+
+function applyTheme(theme: Theme) {
+  document.documentElement.setAttribute("data-theme", theme);
+  document.documentElement.classList.toggle("dark", theme === "dark");
 }
 
 export function AppProvider({ children }: { children: React.ReactNode }) {
   const pathname = usePathname();
-  const [values, setValues] = useState(initialState);
+  const [values, setValues] = useState<Values>(initial);
 
   useEffect(() => {
-    const initial = readState(window.location.search, window.location.pathname);
-    setValues(initial);
-    document.documentElement.setAttribute("data-theme", initial.theme);
-    document.documentElement.classList.toggle("dark", initial.theme === "dark");
-    const onPopState = () => {
-      const state = readState(window.location.search, window.location.pathname);
-      setValues(state);
-      document.documentElement.setAttribute("data-theme", state.theme);
-      document.documentElement.classList.toggle("dark", state.theme === "dark");
-    };
+    setValues(readState());
+    const onPopState = () => setValues(readState());
     window.addEventListener("popstate", onPopState);
     return () => window.removeEventListener("popstate", onPopState);
   }, []);
 
   useEffect(() => {
-    if (typeof document !== "undefined") {
-      document.documentElement.setAttribute("data-theme", values.theme);
-      document.documentElement.classList.toggle("dark", values.theme === "dark");
+    applyTheme(values.theme);
+    try {
       localStorage.setItem("fieldshift_theme", values.theme);
+    } catch {
+      // ignore blocked storage
     }
   }, [values.theme]);
 
   useEffect(() => {
+    document.documentElement.lang = values.lang;
+  }, [values.lang]);
+
+  useEffect(() => {
+    const pathField = pathname.match(/\/field\/(f1|f2|f3)/)?.[1] as FieldId | undefined;
     setValues((current) => {
-      const pathField = pathname.match(/\/field\/(f1|f2|f3)/)?.[1];
       if (!pathField || pathField === current.field) return current;
-      const next = { ...current, field: pathField as FieldId };
+      const next = { ...current, field: pathField };
       writeState(next);
       return next;
     });
   }, [pathname]);
 
-  const update = useCallback((patch: Partial<typeof initialState>) => {
+  const update = useCallback((patch: Partial<Values>) => {
     setValues((current) => {
       const next = { ...current, ...patch };
       writeState(next);
@@ -143,33 +138,19 @@ export function AppProvider({ children }: { children: React.ReactNode }) {
     });
   }, []);
 
-  const setTheme = useCallback((theme: Theme) => {
-    update({ theme });
-  }, [update]);
-
-  const toggleTheme = useCallback(() => {
-    setValues((current) => {
-      const nextTheme: Theme = current.theme === "dark" ? "light" : "dark";
-      const next = { ...current, theme: nextTheme };
-      writeState(next);
-      return next;
-    });
-  }, []);
-
   const state = useMemo<FieldShiftState>(() => ({
     ...values,
-    scenario: `${values.cap}|${values.climate}` as ScenarioId,
-    setField: (value) => update({ field: value }),
-    setCap: (value) => update({ cap: value }),
-    setClimate: (value) => update({ climate: value }),
-    setWeight: (key, value) => update({ weights: { ...values.weights, [key]: Math.max(0, Math.min(5, value)) } }),
-    setHay: (value) => update({ hay: value }),
-    setCotton: (value) => update({ cotton: value }),
-    setForage: (value) => update({ forage: value }),
-    setLang: (value) => update({ lang: value }),
-    setTheme,
-    toggleTheme,
-  }), [setTheme, toggleTheme, update, values]);
+    scenario: `${values.cap}|${values.climate}`,
+    setField: (field) => update({ field }),
+    setCap: (cap) => update({ cap }),
+    setClimate: (climate) => update({ climate }),
+    setSlider: (key, value) => update({ sliders: { ...values.sliders, [key]: Math.max(0, Math.min(5, value)) } }),
+    setHay: (hay) => update({ hay }),
+    setCotton: (cotton) => update({ cotton }),
+    setForage: (forage) => update({ forage }),
+    setLang: (lang) => update({ lang }),
+    setTheme: (theme) => update({ theme }),
+  }), [update, values]);
 
   return <StateContext.Provider value={state}>{children}</StateContext.Provider>;
 }

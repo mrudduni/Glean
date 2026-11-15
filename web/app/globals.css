@@ -2,6 +2,19 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Legacy aliases onto the README token names in styles/tokens.css. */
+:root {
+  --ink: var(--color-fg);
+  --muted: var(--color-muted);
+  --surface: var(--color-surface);
+  --canvas: var(--color-bg);
+  --line: var(--color-border);
+  --primary: var(--color-accent);
+  --primary-light: color-mix(in srgb, var(--color-accent) 14%, transparent);
+  --accent: #df9a4f;
+}
+[data-theme="dark"] { --accent: #f5a65b; }
+
 :root {
   color-scheme: light;
   --font-sans: Arial, Helvetica, sans-serif;
@@ -3530,4 +3543,49 @@ main {
 [data-theme="dark"] .source-table td a:hover,
 .dark .source-table td a:hover {
   color: #ffffff;
+}
+
+/* ==========================================================================
+   Contract migration additions
+   ========================================================================== */
+.mock-banner { position: sticky; top: 0; z-index: 60; padding: 6px 16px; background: #f8eddb; color: #6b4a1f; border-bottom: 1px solid #e7cfa6; font-size: 13px; font-weight: 600; text-align: center; }
+[data-theme="dark"] .mock-banner { background: #3a2c17; color: #f3d9a8; border-color: #5a4422; }
+.legend-dot.irrigated { background: var(--crop-corn); }
+.legend-dot.dryland { background: var(--crop-wheat); }
+.legend-dot.sandy { background: var(--risk-wind); }
+.climate-month { grid-template-rows: 14px 6px 6px 6px 14px; }
+.frost-meter::before { background: var(--risk-frost); }
+.heat-meter::before { background: var(--risk-heat); }
+.dry-meter::before { background: var(--risk-dry); }
+.legend-risk.heat { background: var(--risk-heat); }
+.legend-risk.frost { background: var(--risk-frost); }
+.legend-risk.dry { background: var(--risk-dry); }
+.risk-strip-legend { flex-wrap: wrap; }
+.crop-chip-step { display: inline-flex; flex-wrap: wrap; gap: 4px; }
+.crop-chip.cover { opacity: .85; font-style: italic; }
+.water-facts { display: grid; gap: 6px; margin: 10px 0; }
+.water-facts div { display: flex; justify-content: space-between; gap: 12px; font-size: 13px; }
+.water-facts dt { color: var(--muted); }
+.water-facts dd { margin: 0; font-weight: 700; text-align: right; }
+.water-status.outlook-declining .water-status-dot { background: var(--color-limited); }
+.water-status.outlook-stable .water-status-dot { background: var(--color-fair); }
+.water-status.outlook-rising .water-status-dot { background: var(--color-good); }
+.confidence-label { color: var(--muted); font-size: 12px; }
+.replay-summary-table { width: 100%; border-collapse: separate; }
+.replay-summary-table tbody { display: contents; }
+.replay-summary-row th, .replay-summary-row td { display: grid; gap: 3px; padding: 0; font-weight: inherit; text-align: left; }
+.replay-summary-row th.summary-rotation { display: flex; }
+.verified-number svg { margin-left: 2px; vertical-align: -1px; color: #3e7e5b; }
+.trust-field { margin-bottom: 24px; }
+.trust-field h3 { margin: 0 0 10px; font-size: 16px; }
+.trust-field.current h3::after { content: " \2022"; color: var(--color-accent); }
+.source-table td small { display: block; color: var(--muted); font-size: 12px; }
+.neighbor-rotation { display: inline-block; min-width: 28px; margin-right: 8px; padding: 1px 6px; border-radius: 4px; color: #fff; font-size: 11px; font-weight: 700; text-align: center; }
+.neighbors-table th[scope="row"] { font-weight: 600; text-align: left; }
+fieldset.control-group, fieldset.equipment-options { margin: 0; padding: 0; border: 0; min-width: 0; }
+fieldset legend.control-label { padding: 0; margin-bottom: 8px; }
+.toggle-row:focus-within .switch-track { outline: 3px solid #d59a55; outline-offset: 2px; }
+.calendar-scroll { overflow-x: auto; max-width: 100%; }
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; transition-duration: 0.01ms !important; scroll-behavior: auto !important; }
 }

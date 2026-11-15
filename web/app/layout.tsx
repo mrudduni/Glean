@@ -5,10 +5,11 @@ import "@/styles/tokens.css";
 import { AppProvider } from "@/lib/state";
 import { SiteFooter, SiteHeader } from "@/components/SiteHeader";
 import { InteractiveBackground } from "@/components/InteractiveBackground";
+import { MockBanner } from "@/components/MockBanner";
 
 export const metadata: Metadata = {
-  title: "Field Shift | Agricultural Decision Support Platform",
-  description: "An agricultural decision-support tool comparing crop rotation strategies using Earth observations, soil data, and local agronomic priorities.",
+  title: "Field Shift",
+  description: "Compare crop rotations for three Finney County, Kansas fields with NASA Earth observations, soil data and your own priorities.",
 };
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
@@ -25,6 +26,7 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
         <AppProvider>
           <InteractiveBackground />
           <SiteHeader />
+          <MockBanner />
           <main>{children}</main>
           <SiteFooter />
         </AppProvider>

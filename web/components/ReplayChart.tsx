@@ -1,98 +1,96 @@
 "use client";
 
 import { useMemo, useState } from "react";
-import {
-  CartesianGrid, Line, LineChart, ReferenceArea, ResponsiveContainer,
-  Tooltip, XAxis, YAxis,
-} from "recharts";
-import type { CopyFile, ReplayFile, StrategyEntry } from "@/lib/types";
-import { fill, t } from "@/lib/i18n";
+import { CartesianGrid, Line, LineChart, ReferenceArea, ResponsiveContainer, Tooltip, XAxis, YAxis } from "recharts";
+import type { ReplayFile, ReplayYear, RotationId, ScenarioKey } from "@/lib/types";
+import { formatVar, loc } from "@/lib/i18n";
 import { useFieldShift } from "@/lib/state";
 import { theme } from "@/lib/theme";
+import type { UI } from "@/lib/ui";
 
 type Metric = "irrigation" | "revenue" | "stress" | "bare";
-const colors = theme.rotation;
-const metrics: Metric[] = ["irrigation", "revenue", "stress", "bare"];
+const METRICS: Metric[] = ["irrigation", "revenue", "stress", "bare"];
+const FIELD: Record<Metric, keyof ReplayYear> = {
+  irrigation: "irrigation_mm", revenue: "revenue_usd_ac", stress: "stress_days", bare: "bare_days",
+};
+/** For revenue the worst years are the lowest; for the others they are the highest. */
+const HIGHER_IS_WORSE: Record<Metric, boolean> = { irrigation: true, revenue: false, stress: true, bare: true };
 
-export function ReplayChart({ replay, shown, copy }: { replay: ReplayFile; shown: StrategyEntry[]; copy: CopyFile["strings"] }) {
-  const { climate, lang, theme } = useFieldShift();
-  const isDark = theme === "dark";
+export function ReplayChart({ replay, scenario, order, ui }: { replay: ReplayFile; scenario: ScenarioKey; order: RotationId[]; ui: UI }) {
+  const { t, lang } = ui;
+  const { theme: mode } = useFieldShift();
+  const dark = mode === "dark";
   const [metric, setMetric] = useState<Metric>("irrigation");
-  const series = replay.series[climate];
-  const chartData = useMemo(() => {
-    const years = [...new Set(shown.flatMap((entry) => series[entry.id]?.[metric]?.map((point) => point.year) || []))].sort((a, b) => a - b);
+  const runs = useMemo(() => replay.scenarios[scenario] ?? {}, [replay, scenario]);
+  const ids = useMemo(() => order.filter((id) => runs[id]), [order, runs]);
+  const key = FIELD[metric];
+  const format = (value: number) => (
+    metric === "irrigation" ? formatVar("irrigation_mm", value, lang)
+      : metric === "revenue" ? formatVar("revenue_usd_ac", value, lang)
+        : `${formatVar("days", value, lang)} ${t("unit.days", "days")}`
+  );
+
+  const data = useMemo(() => {
+    const years: number[] = [];
+    for (let y = replay.years[0]; y <= replay.years[1]; y += 1) years.push(y);
     return years.map((year) => {
-      const row: Record<string, string | number> = { year };
-      shown.forEach((entry) => {
-        row[entry.id] = series[entry.id]?.[metric]?.find((point) => point.year === year)?.value ?? 0;
-      });
+      const row: Record<string, number | null> = { year };
+      for (const id of ids) {
+        const point = runs[id]?.by_year.find((item) => item.year === year);
+        row[id] = point ? (point[key] as number) : null;
+      }
       return row;
     });
-  }, [metric, series, shown]);
-  const unit = metric === "irrigation" ? " mm" : metric === "revenue" ? " $/ac" : " days";
-  const metricLabels = {
-    irrigation: t("replay.metric.irrigation", copy, lang),
-    revenue: t("replay.metric.revenue", copy, lang),
-    stress: t("replay.metric.stress", copy, lang),
-    bare: t("replay.metric.bare", copy, lang),
-  };
-  const summaries = shown.map((entry) => {
-    const points = series[entry.id]?.[metric] || [];
-    const values = points.map((point) => point.value).sort((a, b) => a - b);
-    const worst = metric === "revenue" ? values.slice(0, 5) : values.slice(-5);
-    const average = values.length ? values.reduce((total, value) => total + value, 0) / values.length : 0;
-    const worstAverage = worst.length ? worst.reduce((total, value) => total + value, 0) / worst.length : 0;
-    return { id: entry.id, average, worstAverage };
+  }, [ids, key, replay.years, runs]);
+
+  const summaries = ids.map((id) => {
+    const values = (runs[id]?.by_year ?? []).map((item) => item[key] as number).sort((a, b) => a - b);
+    const worst = HIGHER_IS_WORSE[metric] ? values.slice(-5) : values.slice(0, 5);
+    const avg = values.length ? values.reduce((a, b) => a + b, 0) / values.length : 0;
+    return { id, avg, worst: worst.length ? worst.reduce((a, b) => a + b, 0) / worst.length : 0, feasible: runs[id]?.feasible ?? false };
   });
+
+  const axis = dark ? "#8da192" : "#6a7063";
   return (
-    <section className="workspace-section replay-section" id="replay">
+    <section className="workspace-section replay-section" id="replay" aria-labelledby="replay-heading">
       <div className="section-title-row">
         <div>
-          <div className="eyebrow"><span className="eyebrow-rule" /> LOOK BACK BEFORE LOOKING AHEAD</div>
-          <h2>{t("replay.title", copy, lang)}</h2>
-          <p>{t("replay.subtitle", copy, lang)}</p>
+          <div className="eyebrow"><span className="eyebrow-rule" /> {t("replay.eyebrow", "Look back before looking ahead")}</div>
+          <h2 id="replay-heading">{t("replay.title")}</h2>
+          <p>{t("replay.subtitle")}</p>
         </div>
         <span className="section-index">05 / 06</span>
       </div>
       <div className="replay-panel">
         <div className="replay-toolbar">
-          <div className="replay-metric-switch" role="group" aria-label="Choose replay metric">
-            {metrics.map((item) => <button type="button" key={item} aria-pressed={metric === item} onClick={() => setMetric(item)}>{metricLabels[item]}</button>)}
+          <div className="replay-metric-switch" role="group" aria-label={t("replay.metric_label", "Choose what to plot")}>
+            {METRICS.map((item) => (
+              <button type="button" key={item} aria-pressed={metric === item} onClick={() => setMetric(item)}>{t(`replay.metric.${item}`)}</button>
+            ))}
           </div>
-          <span className={`scenario-chip ${climate}`}>{climate === "actual" ? t("priority.actual", copy, lang) : t("priority.hotdry", copy, lang)}</span>
+          <span className={`scenario-chip ${scenario.split("|")[1]}`}>{t(`constraints.cap.${scenario.split("|")[0]}`)} · {t(`climate.${scenario.split("|")[1]}`)}</span>
         </div>
         <div className="chart-scroll">
-          <div className="replay-chart-inner">
+          <div className="replay-chart-inner" role="img" aria-label={`${t("replay.title")}: ${t(`replay.metric.${metric}`)}, ${ids.join(", ")}`}>
             <ResponsiveContainer width="100%" height={302}>
-              <LineChart data={chartData} margin={{ top: 16, right: 12, bottom: 8, left: 0 }}>
-                <CartesianGrid stroke={isDark ? "rgba(255, 255, 255, 0.08)" : "#e8e8df"} strokeDasharray="3 5" vertical={false} />
-                <XAxis dataKey="year" type="number" domain={[2000, 2025]} ticks={[2000, 2005, 2010, 2015, 2020, 2025]} tickLine={false} axisLine={false} tick={{ fontSize: 13, fill: isDark ? "#8da192" : "#6a7063" }} />
-                <YAxis width={52} tickLine={false} axisLine={false} tick={{ fontSize: 13, fill: isDark ? "#8da192" : "#6a7063" }} />
+              <LineChart data={data} margin={{ top: 16, right: 12, bottom: 8, left: 0 }}>
+                <CartesianGrid stroke={dark ? "rgba(255,255,255,0.08)" : "#e8e8df"} strokeDasharray="3 5" vertical={false} />
+                {replay.drought_years.map((year) => (
+                  <ReferenceArea key={year} x1={year - 0.5} x2={year + 0.5} fill={theme.risk.heat} fillOpacity={dark ? 0.22 : 0.14} strokeOpacity={0} ifOverflow="hidden" />
+                ))}
+                <XAxis dataKey="year" type="number" domain={[replay.years[0], replay.years[1]]} ticks={[2000, 2005, 2010, 2015, 2020, 2025]} tickLine={false} axisLine={false} tick={{ fontSize: 13, fill: axis }} />
+                <YAxis width={56} tickLine={false} axisLine={false} tick={{ fontSize: 13, fill: axis }} />
                 <Tooltip
-                  contentStyle={{
-                    background: isDark ? "rgba(18, 28, 22, 0.96)" : "#fff",
-                    border: isDark ? "1px solid rgba(255, 255, 255, 0.12)" : "1px solid #e4e6dc",
-                    borderRadius: 8,
-                    fontSize: 14,
-                    color: isDark ? "#edf5ef" : "#24352b",
-                    boxShadow: isDark ? "0 8px 24px rgba(0, 0, 0, 0.5)" : "0 4px 14px rgba(0, 0, 0, 0.08)",
-                  }}
-                  itemStyle={{ color: isDark ? "#edf5ef" : "#24352b" }}
-                  formatter={(value, name) => [`${value}${unit}`, `${name}`]}
-                  labelFormatter={(value) => fill(copy["replay.year"], { year: String(value) }, lang)}
+                  contentStyle={{ background: "var(--surface)", border: "1px solid var(--line)", borderRadius: 8, fontSize: 14, color: "var(--ink)" }}
+                  formatter={(value, name) => [typeof value === "number" ? format(value) : String(value), String(name)]}
+                  labelFormatter={(year) => (replay.drought_years.includes(Number(year)) ? `${year} · ${t("replay.drought_marker")}` : String(year))}
                 />
-                {replay.drought_years.map((year) => <ReferenceArea key={year} x1={year - 0.6} x2={year + 0.6} fill="#d98762" fillOpacity={isDark ? 0.2 : 0.12} strokeOpacity={0} />)}
-                {shown.map((entry) => (
+                {ids.map((id) => (
                   <Line
-                    key={entry.id}
-                    type="monotone"
-                    dataKey={entry.id}
-                    name={entry.id}
-                    stroke={colors[entry.id]}
-                    strokeWidth={entry.id === "R0" ? 2 : 2.4}
-                    strokeDasharray={entry.id === "R0" ? "5 4" : undefined}
-                    dot={{ r: 3, strokeWidth: 1.5, fill: isDark ? "#121d16" : "#fff" }}
-                    activeDot={{ r: 5, strokeWidth: 0 }}
+                    key={id} type="monotone" dataKey={id} name={id}
+                    stroke={theme.rot[id]} strokeWidth={id === "R0" ? 2 : 2.4}
+                    strokeDasharray={id === "R0" ? "5 4" : undefined}
+                    dot={false} activeDot={{ r: 5, strokeWidth: 0 }} isAnimationActive={false} connectNulls
                   />
                 ))}
               </LineChart>
@@ -100,24 +98,24 @@ export function ReplayChart({ replay, shown, copy }: { replay: ReplayFile; shown
           </div>
         </div>
         <div className="replay-legend">
-          {shown.map((entry) => <span key={entry.id}><i style={{ background: colors[entry.id] }} />{entry.id}</span>)}
-          <span className="drought-key"><i />{t("replay.drought_sample", copy, lang, "Historic drought benchmark years")}</span>
+          {ids.map((id) => <span key={id}><i style={{ background: theme.rot[id] }} />{id} · {loc(ui.cardText.rotations[id]?.name, lang)}</span>)}
+          <span className="drought-key"><i />{t("replay.drought_marker")}: {replay.drought_years.join(", ")}</span>
         </div>
-        <div className="replay-summary-table">
-          {summaries.map((item) => (
-            <div className="replay-summary-row" key={item.id}>
-              <span className="summary-rotation"><i style={{ background: colors[item.id] }} />{item.id}</span>
-              <span><small>{t("replay.average", copy, lang)}</small><b>{formatMetric(item.average, metric)}{unit}</b></span>
-              <span><small>{t("replay.worst", copy, lang)}</small><b>{formatMetric(item.worstAverage, metric)}{unit}</b></span>
-            </div>
-          ))}
-        </div>
-        <p className="chart-note">{t("replay.note", copy, lang)}</p>
+        <table className="replay-summary-table">
+          <caption className="sr-only">{t("replay.summary_caption", "Average and worst 5 years per rotation")}</caption>
+          <thead className="sr-only"><tr><th>{t("replay.rotation", "Rotation")}</th><th>{t("replay.average", "Average")}</th><th>{t("replay.worst5", "Worst 5 years")}</th></tr></thead>
+          <tbody>
+            {summaries.map((item) => (
+              <tr className="replay-summary-row" key={item.id}>
+                <th scope="row" className="summary-rotation"><i style={{ background: theme.rot[item.id] }} />{item.id}{!item.feasible && <small> · {t("replay.not_feasible", "over your water limit")}</small>}</th>
+                <td><small>{t("replay.average", "Average")}</small><b>{format(Math.round(item.avg))}</b></td>
+                <td><small>{t("replay.worst5", "Worst 5 years")}</small><b>{format(Math.round(item.worst))}</b></td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+        <p className="chart-note">{t("replay.note", "Average across every phase of the rotation, on this field's real weather.")}</p>
       </div>
     </section>
   );
-}
-
-function formatMetric(value: number, metric: Metric): string {
-  return metric === "revenue" ? `$${Math.round(value).toLocaleString()}` : Math.round(value).toLocaleString();
 }

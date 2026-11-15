@@ -1,174 +1,72 @@
 "use client";
 
-import { useMemo, useState } from "react";
-import { AlertTriangle, Check, ChevronDown, ChevronUp, Droplets, Info, Leaf, ShieldCheck } from "lucide-react";
-import type {
-  CardTextFile, CopyFile, Crop, Field, Lang, Rotation, SourcesFile, StrategyEntry,
-} from "@/lib/types";
-import { fill, formatVar, t } from "@/lib/i18n";
-import { criterionIds, pickShown, scoreEntry, weightsFromSliders, whyBullets, type Constraints } from "@/lib/score";
+import { useState } from "react";
+import { AlertTriangle, Check, ChevronDown, ChevronUp, Droplets, Info, Leaf, ListChecks, ShieldCheck } from "lucide-react";
+import type { CopyFile, CriterionId, Rotation, RotationId, StrategyEntry, SummaryFile } from "@/lib/types";
+import { fill, formatVar, loc } from "@/lib/i18n";
+import { CRITERION_IDS } from "@/lib/schemas";
+import { scoreEntry, whyBullets, type Picked, type Weights } from "@/lib/score";
+import { cardLine, cropLabel, type UI } from "@/lib/ui";
 import { SourceChips } from "@/components/SourceChips";
 import { TrustBadge } from "@/components/TrustBadge";
-import { useFieldShift } from "@/lib/state";
-import { theme } from "@/lib/theme";
+import { CropChips } from "@/components/CropChips";
+import { rotColor } from "@/lib/theme";
 
-const criterionCopy: Record<string, string> = {
-  water: "priority.water",
-  soil: "priority.soil",
-  climate: "priority.climate",
-  market: "priority.market",
-  operations: "priority.operations",
-};
-
-const rotationColors = theme.rotation;
+export function rotationSteps(id: RotationId, rotations: Rotation[], summary: SummaryFile) {
+  return id === "R0" ? summary.current_rotation.steps : rotations.find((rotation) => rotation.id === id)?.steps ?? [];
+}
 
 export function StrategyPanel({
-  entries,
-  rotations,
-  crops,
-  field,
-  cardText,
-  copy,
-  sources,
-  lang,
-  scenarioAdjustments,
+  picked, weights, rotations, summary, irrigation, copy, ui,
 }: {
-  entries: StrategyEntry[];
+  picked: Picked;
+  weights: Weights;
   rotations: Rotation[];
-  crops: Crop[];
-  field: Field;
-  cardText: CardTextFile;
+  summary: SummaryFile;
+  irrigation: Partial<Record<RotationId, number>>;
   copy: CopyFile["strings"];
-  sources: SourcesFile;
-  lang: Lang;
-  scenarioAdjustments: Record<string, { irrigation_factor: number; climate_delta: number }>;
+  ui: UI;
 }) {
-  const { weights: sliders, cap, climate, hay, cotton, forage } = useFieldShift();
+  const { t, lang } = ui;
   const [showHidden, setShowHidden] = useState(false);
-  const weights = useMemo(() => weightsFromSliders(sliders), [sliders]);
-  const scenarioKey = `${cap}|${climate}`;
-  const adjustment = useMemo(
-    () => scenarioAdjustments[scenarioKey] || { irrigation_factor: 1, climate_delta: 0 },
-    [scenarioAdjustments, scenarioKey]
-  );
-  const activeEntries = useMemo(() => entries.map((entry) => ({
-    ...entry,
-    needs_irrigation_mm: Math.round(entry.needs_irrigation_mm * adjustment.irrigation_factor),
-    criteria: {
-      ...entry.criteria,
-      climate: { ...entry.criteria.climate, norm: Math.max(0, Math.min(10, entry.criteria.climate.norm + adjustment.climate_delta)) },
-    },
-  })), [entries, adjustment]);
-  const constraints: Constraints = { cap, hay, cotton, forage };
-  const { shown, hidden } = pickShown(activeEntries, weights, constraints);
-  const rotationMap = new Map(rotations.map((rotation) => [rotation.id, rotation]));
-  const cropMap = new Map(crops.map((crop) => [crop.id, crop]));
-  const reasons = {
-    needs_more_water: t("strategy.hidden_water", copy, lang, "Needs more water than selected"),
-    needs_equipment: t("strategy.hidden_equipment", copy, lang, "Needs unavailable equipment"),
-    needs_forage_market: t("strategy.hidden_forage", copy, lang, "Needs a forage market"),
-    lower_rank: t("strategy.lower_rank", copy, lang),
-  };
+  const name = (id: RotationId) => loc(ui.cardText.rotations[id]?.name, lang) || id;
+  const hiddenCount = picked.hidden.length + picked.others.length;
+
   return (
-    <section className="workspace-section strategies-section" id="strategies">
+    <section className="workspace-section strategies-section" id="strategies" aria-labelledby="strategies-heading">
       <div className="section-title-row">
         <div>
-          <div className="eyebrow"><span className="eyebrow-rule" /> COMPARE YOUR OPTIONS</div>
-          <h2>{t("strategy.title", copy, lang)}</h2>
-          <p>{t("strategy.subtitle", copy, lang)}</p>
+          <div className="eyebrow"><span className="eyebrow-rule" /> {t("strategies.eyebrow", "Compare your options")}</div>
+          <h2 id="strategies-heading">{t("nav.plan")}</h2>
+          <p>{t("strategies.subtitle", "Your current rotation and the three that fit your priorities best.")}</p>
         </div>
         <span className="section-index">04 / 06</span>
       </div>
-      {shown.length <= 1 && <div className="empty-state"><Info size={17} />{t("strategy.empty", copy, lang)}</div>}
+      {picked.shown.length <= 1 && <div className="empty-state"><Info size={17} aria-hidden="true" />{t("strategies.none_fit", "No other rotation fits these limits. Try a higher water cap or tick the equipment you have.")}</div>}
       <div className="strategy-grid">
-        {shown.map((entry) => {
-          const rotation = rotationMap.get(entry.id);
-          if (!rotation) return null;
-          const cropIds = entry.id === "R0" ? (field.current_crops || rotation.steps.map((step) => step.crop_id)) : rotation.steps.map((step) => step.crop_id);
-          const score = scoreEntry(entry, weights);
-          const why = entry.id === "R0" ? [] : whyBullets(entry, weights);
-          const allRisks = entry.crops_without_local_market.length
-            ? [...entry.risks, "no_local_market"]
-            : entry.risks;
-          return (
-            <article className={`strategy-card ${entry.id === "R0" ? "current-strategy" : ""}`} key={entry.id} style={{ "--rotation-color": rotationColors[entry.id] || "#557a56" } as React.CSSProperties}>
-              <div className="strategy-card-head">
-                <div className="strategy-id">{entry.id}</div>
-                <div className="strategy-heading">
-                  <div className="strategy-title-line">
-                    <h3>{rotation.name[lang] || rotation.name.en}</h3>
-                    {entry.id === "R0" && <span className="current-pill"><Check size={11} />{t("strategy.current", copy, lang)}</span>}
-                  </div>
-                  <p>{fill(cardText.rotations[entry.id], {}, lang)}</p>
-                </div>
-              </div>
-              <div className="strategy-crops">{cropIds.map((id, index) => {
-                const crop = cropMap.get(id);
-                return crop ? <span className="crop-chip" key={`${id}-${index}`} style={{ "--chip-color": crop.color } as React.CSSProperties}>{crop.name[lang] || crop.name.en}</span> : null;
-              })}</div>
-              <div className="score-row">
-                <div><small>{t("strategy.score", copy, lang)}</small><strong>{score}<span>/100</span></strong></div>
-                <div className="score-meter" role="meter" aria-valuenow={score} aria-valuemin={0} aria-valuemax={100} aria-label={`${t("strategy.score", copy, lang)} ${score} out of 100`}>
-                  <i style={{ width: `${score}%` }} />
-                </div>
-              </div>
-              <div className="strategy-meta-row">
-                <TrustBadge level={entry.confidence} label={t(`confidence.${entry.confidence}`, copy, lang)} />
-                <span className="water-need"><Droplets size={15} />{formatVar("amount_mm", entry.needs_irrigation_mm, lang)}</span>
-              </div>
-              <div className="criteria-bars">
-                {criterionIds.map((id) => (
-                  <div className="criterion-bar" key={id}>
-                    <span>{t(criterionCopy[id], copy, lang)}</span>
-                    <i><b style={{ width: `${entry.criteria[id].norm * 10}%` }} /></i>
-                    <strong>{entry.criteria[id].norm.toFixed(1)}</strong>
-                  </div>
-                ))}
-              </div>
-
-              <CardSection title={t("strategy.why", copy, lang)} icon={<Leaf size={15} />}>
-                {entry.id === "R0"
-                  ? <p className="section-empty">{t("strategy.current_baseline", copy, lang)}</p>
-                  : <ul>{why.map((id) => <li key={id}>{fill(cardText.why[id], entry.criteria[id].vars, lang)}</li>)}</ul>}
-              </CardSection>
-              <CardSection title={t("strategy.evidence", copy, lang)} icon={<Info size={15} />}>
-                {entry.evidence.length ? entry.evidence.map((item, index) => (
-                  <div className="text-evidence" key={`${item.text_id}-${index}`}>
-                    <p>{fill(cardText.evidence[item.text_id], { ...entry.criteria.water.vars, ...item.vars }, lang)}</p>
-                    <SourceChips ids={item.source_ids} sources={sources} lang={lang} />
-                  </div>
-                )) : <p className="section-empty">{lang === "es" ? "La línea base no tiene una explicación de evidencia adicional." : "The baseline has no additional evidence explanation."}</p>}
-              </CardSection>
-              <CardSection title={t("strategy.benefits", copy, lang)} icon={<ShieldCheck size={15} />}>
-                {entry.benefits.length ? entry.benefits.map((item, index) => (
-                  <div className="text-evidence" key={`${item.text_id}-${index}`}>
-                    <p>{fill(cardText.benefits[item.text_id], item.vars, lang)}</p>
-                    <SourceChips ids={item.source_ids} sources={sources} lang={lang} />
-                  </div>
-                )) : <p className="section-empty">{lang === "es" ? "La línea base se muestra sin beneficios añadidos." : "The baseline is shown without added benefit claims."}</p>}
-              </CardSection>
-              <CardSection title={t("strategy.gaps", copy, lang)} icon={<Info size={15} />} tone="gap">
-                <ul>{entry.gaps.map((id) => <li key={id}>{fill(cardText.gaps[id], {}, lang)}</li>)}</ul>
-              </CardSection>
-              <CardSection title={t("strategy.risks", copy, lang)} icon={<AlertTriangle size={15} />} tone="risk">
-                <ul>{allRisks.map((id, index) => <li key={`${id}-${index}`}>{fill(cardText.risks[id], {}, lang)}</li>)}</ul>
-              </CardSection>
-            </article>
-          );
-        })}
+        {picked.shown.map((entry) => (
+          <StrategyCard key={entry.rotation_id} entry={entry} weights={weights} steps={rotationSteps(entry.rotation_id, rotations, summary)} irrigation={irrigation[entry.rotation_id]} ui={ui} />
+        ))}
       </div>
-      {hidden.length > 0 && (
+      {hiddenCount > 0 && (
         <div className="hidden-strategies">
-          <button type="button" className="hidden-toggle" aria-expanded={showHidden} onClick={() => setShowHidden((value) => !value)}>
-            <span>{showHidden ? <ChevronUp size={16} /> : <ChevronDown size={16} />}{showHidden ? t("strategy.hide_hidden", copy, lang) : t("strategy.show_hidden", copy, lang).replace("{count}", String(hidden.length))}</span>
-            <span className="hidden-count">{hidden.length}</span>
+          <button type="button" className="hidden-toggle" aria-expanded={showHidden} aria-controls="hidden-strategy-list" onClick={() => setShowHidden((value) => !value)}>
+            <span>{showHidden ? <ChevronUp size={16} aria-hidden="true" /> : <ChevronDown size={16} aria-hidden="true" />}{fill(copy["card.hidden_count"], { n: hiddenCount }, lang)}</span>
+            <span className="hidden-count">{hiddenCount}</span>
           </button>
           {showHidden && (
-            <div className="hidden-list">
-              {hidden.map(({ entry, reason }) => (
-                <div className="hidden-item" key={entry.id}>
-                  <span className="hidden-rotation">{entry.id} · {rotationMap.get(entry.id)?.name[lang] || rotationMap.get(entry.id)?.name.en}</span>
-                  <span>{reasons[reason]}</span>
+            <div className="hidden-list" id="hidden-strategy-list">
+              {picked.hidden.map(({ entry, reason }) => (
+                <div className="hidden-item" key={entry.rotation_id}>
+                  <span className="hidden-rotation">{entry.rotation_id} · {name(entry.rotation_id)}</span>
+                  <span>{cardLine(ui, "infeasible", reason)}</span>
+                  <span className="hidden-score">{scoreEntry(entry, weights)}/100</span>
+                </div>
+              ))}
+              {picked.others.map((entry) => (
+                <div className="hidden-item" key={entry.rotation_id}>
+                  <span className="hidden-rotation">{entry.rotation_id} · {name(entry.rotation_id)}</span>
+                  <span>{t("card.lower_score", "Fits your limits, but scores lower than the three shown.")}</span>
                   <span className="hidden-score">{scoreEntry(entry, weights)}/100</span>
                 </div>
               ))}
@@ -176,8 +74,91 @@ export function StrategyPanel({
           )}
         </div>
       )}
-      <p className="strategy-footnote">{t("strategy.score_note", copy, lang)}</p>
+      <p className="strategy-footnote">{t("strategies.score_note", "Scores are relative to the rotations compared here, 0 to 100. They are model estimates, not forecasts.")}</p>
     </section>
+  );
+}
+
+function StrategyCard({
+  entry, weights, steps, irrigation, ui,
+}: {
+  entry: StrategyEntry;
+  weights: Weights;
+  steps: Rotation["steps"];
+  irrigation: number | undefined;
+  ui: UI;
+}) {
+  const { t, lang } = ui;
+  const id = entry.rotation_id;
+  const score = scoreEntry(entry, weights);
+  const why = whyBullets(entry, weights);
+  const text = ui.cardText.rotations[id];
+  const current = id === "R0";
+  const label = (k: CriterionId) => loc(ui.cardText.criteria_labels[k], lang) || k;
+  return (
+    <article className={`strategy-card ${current ? "current-strategy" : ""}`} style={{ "--rotation-color": rotColor(id) } as React.CSSProperties} aria-labelledby={`card-${id}`}>
+      <div className="strategy-card-head">
+        <div className="strategy-id">{id}</div>
+        <div className="strategy-heading">
+          <div className="strategy-title-line">
+            <h3 id={`card-${id}`}>{loc(text?.name, lang) || id}</h3>
+            {current && <span className="current-pill"><Check size={11} aria-hidden="true" />{t("card.current_badge")}</span>}
+          </div>
+          <p>{loc(text?.tagline, lang)}</p>
+        </div>
+      </div>
+      <div className="strategy-crops"><CropChips steps={steps} ui={ui} /></div>
+      <div className="score-row">
+        <div><small>{t("card.score")}</small><strong>{score}<span>/100</span></strong></div>
+        <div className="score-meter" role="meter" aria-valuenow={score} aria-valuemin={0} aria-valuemax={100} aria-label={t("card.score")}>
+          <i style={{ width: `${score}%` }} />
+        </div>
+      </div>
+      <div className="strategy-meta-row">
+        <span className="confidence-label">{t("card.confidence")}</span>
+        <TrustBadge level={entry.confidence} label={t(`trust.level.${entry.confidence}`)} />
+        {irrigation !== undefined && <span className="water-need" title={t("replay.metric.irrigation")}><Droplets size={15} aria-hidden="true" />{formatVar("irrigation_mm", irrigation, lang)}</span>}
+      </div>
+      <div className="criteria-bars">
+        {CRITERION_IDS.map((k) => (
+          <div className="criterion-bar" key={k}>
+            <span>{label(k)}</span>
+            <i aria-hidden="true"><b style={{ width: `${entry.criteria[k].norm}%` }} /></i>
+            <strong>{Math.round(entry.criteria[k].norm)}</strong>
+          </div>
+        ))}
+      </div>
+
+      <CardSection title={t("card.why")} icon={<Leaf size={15} aria-hidden="true" />}>
+        {why.length
+          ? <ul>{why.map((k) => <li key={k}><b>{label(k)}.</b> {cardLine(ui, "why", k, entry.criteria[k].vars)}</li>)}</ul>
+          : <p className="section-empty">{current ? t("card.current_why", "This is your baseline. The other cards are compared against it.") : t("card.no_why", "No criterion stands out at these priorities.")}</p>}
+      </CardSection>
+      <CardSection title={t("card.evidence")} icon={<ListChecks size={15} aria-hidden="true" />}>
+        {entry.evidence.length ? entry.evidence.map((item, index) => (
+          <div className="text-evidence" key={`${item.text_id}-${index}`}>
+            <p>{cardLine(ui, "evidence", item.text_id, item.vars)}</p>
+            <SourceChips tags={item.sources} sources={ui.sources} />
+          </div>
+        )) : <p className="section-empty">{t("card.none", "Nothing listed.")}</p>}
+      </CardSection>
+      <CardSection title={t("card.benefits")} icon={<ShieldCheck size={15} aria-hidden="true" />}>
+        {entry.benefits.length
+          ? <ul>{entry.benefits.map((item, index) => <li key={`${item.text_id}-${index}`}>{cardLine(ui, "benefits", item.text_id, item.vars)}</li>)}</ul>
+          : <p className="section-empty">{current ? t("card.current_benefits", "Benefits of the other rotations are measured against this one.") : t("card.none", "Nothing listed.")}</p>}
+      </CardSection>
+      <CardSection title={t("card.gaps")} icon={<Info size={15} aria-hidden="true" />} tone="gap">
+        {entry.gap_ids.length ? <ul>{entry.gap_ids.map((gap) => <li key={gap}>{cardLine(ui, "gaps", gap)}</li>)}</ul> : <p className="section-empty">{t("card.none", "Nothing listed.")}</p>}
+      </CardSection>
+      <CardSection title={t("card.risks")} icon={<AlertTriangle size={15} aria-hidden="true" />} tone="risk">
+        <ul>
+          {entry.risk_ids.map((risk) => <li key={risk}>{cardLine(ui, "risks", risk)}</li>)}
+          {entry.crops_without_local_market.length > 0 && (
+            <li>{cardLine(ui, "infeasible", "no_local_market")} ({entry.crops_without_local_market.map((crop) => cropLabel(ui, crop)).join(", ")})</li>
+          )}
+        </ul>
+      </CardSection>
+    </article>
   );
 }
 

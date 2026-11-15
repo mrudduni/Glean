@@ -1,80 +1,74 @@
 "use client";
 
-import { SlidersHorizontal, Droplets, Wheat, Tractor, Coins, SunMedium } from "lucide-react";
+import { Coins, Droplets, Scale, Sprout, Wind } from "lucide-react";
 import { useFieldShift } from "@/lib/state";
-import { t } from "@/lib/i18n";
-import type { CriterionId, CopyFile } from "@/lib/types";
+import { CAP_IDS } from "@/lib/schemas";
+import type { SliderId } from "@/lib/score";
+import type { TFunction } from "@/lib/i18n";
 
-const priorities: { id: CriterionId; icon: typeof Droplets; copyKey: string }[] = [
-  { id: "water", icon: Droplets, copyKey: "priority.water" },
-  { id: "soil", icon: Wheat, copyKey: "priority.soil" },
-  { id: "climate", icon: SunMedium, copyKey: "priority.climate" },
-  { id: "market", icon: Coins, copyKey: "priority.market" },
-  { id: "operations", icon: Tractor, copyKey: "priority.operations" },
+const sliders: { id: SliderId; icon: typeof Droplets }[] = [
+  { id: "save_water", icon: Droplets },
+  { id: "income", icon: Coins },
+  { id: "steady_income", icon: Scale },
+  { id: "soil_health", icon: Sprout },
+  { id: "erosion", icon: Wind },
 ];
 
-const caps = [
-  { value: "dryland", key: "priority.cap.dryland" },
-  { value: "cap150", key: "priority.cap.150" },
-  { value: "cap300", key: "priority.cap.300" },
-  { value: "cap450", key: "priority.cap.450" },
-] as const;
-
-export function PrioritiesPanel({ copy }: { copy: CopyFile["strings"] }) {
-  const { lang, weights, setWeight, cap, setCap, climate, setClimate, hay, cotton, forage, setHay, setCotton, setForage } = useFieldShift();
+export function PrioritiesPanel({ t }: { t: TFunction }) {
+  const state = useFieldShift();
   return (
-    <section className="workspace-section priorities-section" id="priorities">
+    <section className="workspace-section priorities-section" id="priorities" aria-labelledby="priorities-heading">
       <div className="section-title-row">
         <div>
-          <div className="eyebrow"><span className="eyebrow-rule" /> MAKE IT YOURS</div>
-          <h2>{t("priority.title", copy, lang)}</h2>
-          <p>{t("priority.subtitle", copy, lang)}</p>
+          <div className="eyebrow"><span className="eyebrow-rule" /> {t("priorities.eyebrow", "Make it yours")}</div>
+          <h2 id="priorities-heading">{t("priorities.title")}</h2>
+          <p>{t("priorities.subtitle", "Move the sliders to say what matters most. The cards below re-rank instantly.")}</p>
         </div>
         <span className="section-index">03 / 06</span>
       </div>
       <div className="priority-panel">
         <div className="priority-sliders">
-          {priorities.map(({ id, icon: Icon, copyKey }) => (
-            <label className="priority-slider" key={id}>
-              <span className="priority-icon"><Icon size={18} /></span>
-              <span className="priority-name">{t(copyKey, copy, lang)}</span>
-              <input
-                type="range"
-                min="0"
-                max="5"
-                step="1"
-                value={weights[id]}
-                aria-label={t(copyKey, copy, lang)}
-                onChange={(event) => setWeight(id, Number(event.currentTarget.value))}
-              />
-              <span className="slider-value">{weights[id]}<small>/5</small></span>
-            </label>
-          ))}
+          {sliders.map(({ id, icon: Icon }) => {
+            const label = t(`priorities.${id}`);
+            return (
+              <label className="priority-slider" key={id}>
+                <span className="priority-icon"><Icon size={18} aria-hidden="true" /></span>
+                <span className="priority-name">{label}</span>
+                <input
+                  type="range" min={0} max={5} step={1}
+                  value={state.sliders[id]}
+                  aria-valuetext={`${state.sliders[id]} / 5`}
+                  onChange={(event) => state.setSlider(id, Number(event.currentTarget.value))}
+                />
+                <span className="slider-value" aria-hidden="true">{state.sliders[id]}<small>/5</small></span>
+              </label>
+            );
+          })}
         </div>
         <div className="priority-controls">
-          <div className="control-group">
-            <span className="control-label">{t("priority.cap", copy, lang)}</span>
-            <div className="segmented-control" role="group" aria-label={t("priority.cap", copy, lang)}>
-              {caps.map((item) => (
-                <button type="button" key={item.value} aria-pressed={cap === item.value} onClick={() => setCap(item.value)}>
-                  {t(item.key, copy, lang)}
+          <fieldset className="control-group">
+            <legend className="control-label">{t("constraints.water_cap")}</legend>
+            <div className="segmented-control" role="group">
+              {CAP_IDS.map((cap) => (
+                <button type="button" key={cap} aria-pressed={state.cap === cap} onClick={() => state.setCap(cap)}>
+                  {t(`constraints.cap.${cap}`)}
                 </button>
               ))}
             </div>
-          </div>
-          <div className="control-group climate-control">
-            <span className="control-label">{t("priority.climate_toggle", copy, lang)}</span>
-            <div className="segmented-control" role="group" aria-label={t("priority.climate_toggle", copy, lang)}>
-              <button type="button" aria-pressed={climate === "actual"} onClick={() => setClimate("actual")}>{t("priority.actual", copy, lang)}</button>
-              <button type="button" aria-pressed={climate === "hotdry"} onClick={() => setClimate("hotdry")}>{t("priority.hotdry", copy, lang)}</button>
+          </fieldset>
+          <fieldset className="control-group climate-control">
+            <legend className="control-label">{t("climate.title")}</legend>
+            <div className="segmented-control" role="group">
+              <button type="button" aria-pressed={state.climate === "actual"} onClick={() => state.setClimate("actual")}>{t("climate.actual")}</button>
+              <button type="button" aria-pressed={state.climate === "hotdry"} onClick={() => state.setClimate("hotdry")}>{t("climate.hotdry")}</button>
             </div>
-          </div>
-          <div className="equipment-options">
-            <Toggle label={t("priority.hay", copy, lang)} value={hay} onChange={setHay} />
-            <Toggle label={t("priority.cotton", copy, lang)} value={cotton} onChange={setCotton} />
-            <Toggle label={t("priority.forage", copy, lang)} value={forage} onChange={setForage} />
-          </div>
-          <div className="priority-footnote"><SlidersHorizontal size={16} /> {t("priority.share_note", copy, lang)}</div>
+          </fieldset>
+          <fieldset className="equipment-options">
+            <legend className="control-label">{t("constraints.title")}</legend>
+            <Toggle label={t("constraints.hay_equipment")} value={state.hay} onChange={state.setHay} />
+            <Toggle label={t("constraints.cotton_equipment")} value={state.cotton} onChange={state.setCotton} />
+            <Toggle label={t("constraints.forage_buyer")} value={state.forage} onChange={state.setForage} />
+          </fieldset>
         </div>
       </div>
     </section>
@@ -85,7 +79,7 @@ function Toggle({ label, value, onChange }: { label: string; value: boolean; onC
   return (
     <label className="toggle-row">
       <span>{label}</span>
-      <input type="checkbox" checked={value} onChange={(event) => onChange(event.currentTarget.checked)} />
+      <input type="checkbox" role="switch" checked={value} onChange={(event) => onChange(event.currentTarget.checked)} />
       <span className="switch-track" aria-hidden="true"><i /></span>
     </label>
   );

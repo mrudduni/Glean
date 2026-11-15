@@ -1,93 +1,116 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import Link from "next/link";
 import { ArrowUpRight, CheckCircle2, Database, Eye, Info } from "lucide-react";
-import { SourceChips } from "@/components/SourceChips";
 import { ValidationCards } from "@/components/TrustBadge";
 import { useFieldShift } from "@/lib/state";
-import { getContent, getFieldBundle, getFields, getSources } from "@/lib/data";
-import { t } from "@/lib/i18n";
-import type { CardTextFile, CopyFile, FieldBundle, FieldId, FieldsFile, SourcesFile } from "@/lib/types";
+import { getContent, getCrops, getFields, getSources, getValidation } from "@/lib/data";
+import { loc, makeT } from "@/lib/i18n";
+import { cropNames, type UI } from "@/lib/ui";
+import type { Content, CopyFile, Field, FieldId, SourcesFile, ValidationFile } from "@/lib/types";
+
+const NO_STRINGS: CopyFile["strings"] = {};
 
 export default function HowWeKnowPage() {
-  const { field, lang } = useFieldShift();
+  const { field: fieldId, lang } = useFieldShift();
   const [sources, setSources] = useState<SourcesFile | null>(null);
-  const [fields, setFields] = useState<FieldsFile | null>(null);
-  const [bundle, setBundle] = useState<FieldBundle | null>(null);
-  const [copy, setCopy] = useState<CopyFile["strings"]>({});
-  const [cardText, setCardText] = useState<CardTextFile | null>(null);
-  const [glossary, setGlossary] = useState<Record<string, { term: { en: string; es?: string }; short: { en: string; es?: string }; long: { en: string; es?: string }; source_ids?: string[] }>>({});
+  const [fields, setFields] = useState<Field[]>([]);
+  const [content, setContent] = useState<Content | null>(null);
+  const [crops, setCrops] = useState<UI["crops"]>({});
+  const [validation, setValidation] = useState<Partial<Record<FieldId, ValidationFile | null>>>({});
   const [error, setError] = useState(false);
 
   useEffect(() => {
     let active = true;
-    Promise.all([getSources(), getFields(), getContent(), getFieldBundle(field as FieldId)])
-      .then(([sourceData, fieldData, content, fieldBundle]) => {
+    Promise.all([getSources(), getFields(), getContent(), getCrops().catch(() => null)])
+      .then(async ([sourceData, fieldData, contentData, cropData]) => {
         if (!active) return;
         setSources(sourceData);
-        setFields(fieldData);
-        setBundle(fieldBundle);
-        setCopy(content.copy.strings);
-        setCardText(content.cardText);
-        setGlossary((content.glossary as { entries: typeof glossary }).entries);
+        setFields(fieldData.fields);
+        setContent(contentData);
+        setCrops(cropNames(cropData));
+        const bundles = await Promise.all(fieldData.fields.map((item) => getValidation(item.id).then((v) => [item.id, v] as const)));
+        if (active) setValidation(Object.fromEntries(bundles));
       })
       .catch((reason: unknown) => {
-        console.error("Could not load trust and source details", reason);
+        console.error("[how-we-know] could not load", reason);
         if (active) setError(true);
       });
     return () => { active = false; };
-  }, [field]);
+  }, []);
+
+  const t = useMemo(() => makeT(content?.copy.strings ?? NO_STRINGS, lang), [content, lang]);
+  const ui: UI | null = content && sources ? { lang, t, cardText: content.cardText, crops, sources } : null;
+  const glossary = content?.glossary?.terms ?? [];
+  const term = (id: string) => glossary.find((item) => item.id === id);
 
   return (
     <div className="trust-page page-wrap">
       <section className="trust-hero">
-        <div className="eyebrow"><span className="eyebrow-rule" /> TRANSPARENCY BEFORE CERTAINTY</div>
-        <h1>{t("trust.title", copy, lang)}</h1>
-        <p>{t("trust.subtitle", copy, lang)}</p>
-        <div className="trust-intro-note"><Info size={18} /><span>{t("disclaimer.main", copy, lang)}</span></div>
+        <div className="eyebrow"><span className="eyebrow-rule" /> {t("trust.eyebrow", "Transparency before certainty")}</div>
+        <h1>{t("trust.title")}</h1>
+        <p>{t("trust.subtitle")}</p>
+        <div className="trust-intro-note"><Info size={18} aria-hidden="true" /><span>{t("disclaimer.main")}</span></div>
       </section>
-      {error && <div className="error-panel" role="alert">{t("error.title", copy, lang)} <button className="text-button" type="button" onClick={() => window.location.reload()}>{t("error.retry", copy, lang)}</button></div>}
-      {bundle && cardText && sources && (
-        <section className="trust-section">
-          <div className="trust-section-heading"><span className="trust-section-icon"><CheckCircle2 size={20} /></span><div><h2>{t("trust.validation", copy, lang)}</h2><p>{t("trust.validation_status", copy, lang)}</p></div></div>
-          <ValidationCards validation={bundle.validation} cardText={cardText} copy={copy} sources={sources} lang={lang} />
-          <div className="validation-definition"><span>INPUT CHECK</span><p>{t("trust.input_check", copy, lang)}</p><span>PROCESS CHECK</span><p>{t("trust.process_check", copy, lang)}</p><span>OUTCOME CHECK</span><p>{t("trust.outcome_check", copy, lang)}</p></div>
+      {error && <div className="error-panel" role="alert">{t("error.title", "The data could not be loaded")} <button className="text-button" type="button" onClick={() => window.location.reload()}>{t("error.retry", "Try again")}</button></div>}
+
+      {ui && (
+        <section className="trust-section" aria-labelledby="validation-heading">
+          <div className="trust-section-heading"><span className="trust-section-icon"><CheckCircle2 size={20} aria-hidden="true" /></span><div><h2 id="validation-heading">{t("trust.validation", "Checks against independent data")}</h2></div></div>
+          {fields.map((field) => (
+            <div key={field.id} className={field.id === fieldId ? "trust-field current" : "trust-field"}>
+              <h3>{loc(field.name, lang)}</h3>
+              {validation[field.id]
+                ? <ValidationCards validation={validation[field.id] as ValidationFile} ui={ui} />
+                : <p className="section-empty">{t("section.not_available", "Not available for this field yet.")}</p>}
+            </div>
+          ))}
         </section>
       )}
-      <section className="trust-section source-section">
-        <div className="trust-section-heading"><span className="trust-section-icon"><Database size={20} /></span><div><h2>{t("trust.sources", copy, lang)}</h2><p>{t("trust.sources_status", copy, lang)}</p></div></div>
-        {!sources ? <div className="trust-loading">{t("trust.loading_sources", copy, lang)}</div> : (
+
+      <section className="trust-section source-section" aria-labelledby="sources-heading">
+        <div className="trust-section-heading"><span className="trust-section-icon"><Database size={20} aria-hidden="true" /></span><div><h2 id="sources-heading">{t("trust.sources")}</h2></div></div>
+        {sources && (
           <div className="source-table-wrap">
             <table className="source-table">
-              <thead><tr><th>TAG</th><th>{lang === "es" ? "FUENTE" : "SOURCE"}</th><th>{lang === "es" ? "FUNCIÓN Y LÍMITE" : "ROLE AND LIMIT"}</th><th>{lang === "es" ? "LICENCIA / TÉRMINOS" : "LICENSE / TERMS"}</th></tr></thead>
-              <tbody>{Object.entries(sources.sources).map(([id, source]) => (
-                <tr key={id}><td><code>{id}</code></td><td><a href={source.url} target="_blank" rel="noreferrer">{source.name[lang] || source.name.en}<ArrowUpRight size={14} /></a></td><td>{source.role[lang] || source.role.en}</td><td>{source.license || t("trust.license_terms", copy, lang)}</td></tr>
-              ))}</tbody>
+              <thead><tr><th scope="col">{t("trust.tag", "Tag")}</th><th scope="col">{t("trust.source", "Source")}</th><th scope="col">{t("trust.used_for", "Used for")}</th><th scope="col">{t("trust.coverage", "Resolution and period")}</th></tr></thead>
+              <tbody>
+                {sources.sources.map((source) => (
+                  <tr key={source.tag}>
+                    <td><code>{source.tag}</code></td>
+                    <td><a href={source.url} target="_blank" rel="noreferrer">{source.name}<ArrowUpRight size={14} aria-hidden="true" /></a><small>{source.provider}</small></td>
+                    <td>{source.used_for}<small>{source.what}</small></td>
+                    <td>{source.resolution}<small>{source.period}</small></td>
+                  </tr>
+                ))}
+              </tbody>
             </table>
           </div>
         )}
-        {fields && <p className="source-note"><Eye size={16} />{t("trust.selected_field", copy, lang).replace("{name}", fields.fields.find((item) => item.id === field)?.name[lang] || field)}</p>}
       </section>
-      <section className="trust-section glossary-section">
-        <div className="trust-section-heading"><span className="trust-section-icon"><Eye size={20} /></span><div><h2>{t("trust.glossary", copy, lang)}</h2><p>{t("trust.glossary_intro", copy, lang)}</p></div></div>
+
+      <section className="trust-section glossary-section" aria-labelledby="glossary-heading">
+        <div className="trust-section-heading"><span className="trust-section-icon"><Eye size={20} aria-hidden="true" /></span><div><h2 id="glossary-heading">{t("trust.glossary")}</h2></div></div>
+        <div className="explainer-grid">
+          {["satellite_vs_ground", "model_estimate"].map((id, index) => {
+            const item = term(id);
+            return item ? <article key={id}><span>0{index + 1}</span><h3>{loc(item.term, lang)}</h3><p>{loc(item.long, lang)}</p></article> : null;
+          })}
+        </div>
         <div className="glossary-grid">
-          {Object.entries(glossary).map(([id, item]) => (
-            <details className="glossary-card" key={id}>
-              <summary><span>{item.term[lang] || item.term.en}</span><small>{item.short[lang] || item.short.en}</small></summary>
-              <p>{item.long[lang] || item.long.en}</p>
-              {sources && <SourceChips ids={item.source_ids || []} sources={sources} lang={lang} />}
+          {glossary.map((item) => (
+            <details className="glossary-card" key={item.id}>
+              <summary><span>{loc(item.term, lang)}</span><small>{loc(item.short, lang)}</small></summary>
+              <p>{loc(item.long, lang)}</p>
             </details>
           ))}
         </div>
-        <div className="explainer-grid">
-          <article><span>01</span><h3>{t("trust.satellite_title", copy, lang)}</h3><p>{t("trust.satellite_vs_ground", copy, lang)}</p></article>
-          <article><span>02</span><h3>{t("trust.model_title", copy, lang)}</h3><p>{t("trust.model_estimate", copy, lang)}</p></article>
-        </div>
       </section>
+
       <section className="trust-closing">
-        <p>{lang === "es" ? "Explore los datos y modelos aplicados a sus campos para evaluar rotaciones sostenibles." : "Ready to explore satellite evidence and compare rotations for your fields?"}</p>
-        <Link className="button-primary" href={`/field/${field}`}>{lang === "es" ? "Volver al campo" : "Return to field workspace"} <ArrowUpRight size={17} /></Link>
+        <p>{t("disclaimer.main")}</p>
+        <Link className="button-primary" href={`/field/${fieldId}`}>{t("nav.back_to_field", "Back to the field")} <ArrowUpRight size={17} aria-hidden="true" /></Link>
       </section>
     </div>
   );
