@@ -1,6 +1,7 @@
 "use client";
 
 import { Children, Fragment, useEffect, useRef, useState, type ReactNode } from "react";
+import { createPortal } from "react-dom";
 import ReactMarkdown from "react-markdown";
 import { ArrowUpRight, Bot, CircleCheck, KeyRound, LoaderCircle, MessageCircle, Send, X } from "lucide-react";
 import type { AskRequest, AskResponse, AssistantQuestionsFile, FieldId, Lang, RotationId, ScenarioKey, SourcesFile } from "@/lib/types";
@@ -146,7 +147,8 @@ export function AssistantDrawer({
       <button ref={fabRef} className="assistant-fab" type="button" aria-haspopup="dialog" aria-expanded={open} onClick={() => setOpen(true)}>
         <MessageCircle size={18} aria-hidden="true" /><span>{t("assistant.title")}</span>
       </button>
-      {open && (
+      {/* Portal to <body> so the drawer stacks above the site header, not inside <main>'s stacking context. */}
+      {open && createPortal(
         <div className="assistant-overlay" onMouseDown={(event) => { if (event.target === event.currentTarget) setOpen(false); }}>
           <aside className="assistant-drawer" role="dialog" aria-modal="true" aria-labelledby="assistant-heading" ref={panelRef}>
             <header className="assistant-header">
@@ -160,7 +162,13 @@ export function AssistantDrawer({
                   <article className={`chat-message ${message.role}`} key={message.id}>
                     {message.role === "assistant" && <span className="chat-avatar"><Bot size={13} aria-hidden="true" /></span>}
                     <div className="chat-bubble">
-                      {message.response?.notice && <div className="assistant-notice" role="status">{t("assistant.using_cache")}</div>}
+                      {message.response?.notice && (
+                        <div className="assistant-notice" role="status">
+                          {message.response.notice === "scenario_mismatch"
+                            ? t("assistant.cache_mismatch", "Saved answer, written for different settings than the cards on screen. Ask in your own words for an answer that matches them.")
+                            : t("assistant.using_cache")}
+                        </div>
+                      )}
                       {message.response ? <Answer response={message.response} sources={sources} t={t} /> : <p>{message.content}</p>}
                     </div>
                   </article>
@@ -222,7 +230,8 @@ export function AssistantDrawer({
               </div>
             </form>
           </aside>
-        </div>
+        </div>,
+        document.body,
       )}
     </>
   );

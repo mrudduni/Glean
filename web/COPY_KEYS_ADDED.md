@@ -2,7 +2,9 @@
 
 These keys are not in README §8.6. The web app calls each one as `t("key", "English fallback")`.
 
-Status: all of them were added to `content/copy.json` with `en` and `es` text in role/content 3c740c7 (2026-11-15). Add new keys here and to copy.json together. Added after that commit, not yet in copy.json: `neighbors.fields_header`, `assistant.busy`, `card.unlock_tick` (Tick “{option}” to include it.), `assistant.own_key*` (9 keys), `card.unlock_cap` (Set the water limit to “{option}” or higher to include it.).
+Status: all of them were added to `content/copy.json` with `en` and `es` text in role/content 3c740c7 (2026-11-15). Add new keys here and to copy.json together. Added after that commit, not yet in copy.json: `neighbors.fields_header`, `assistant.busy`, `card.unlock_tick` (Tick “{option}” to include it.), `assistant.own_key*` (9 keys), `card.unlock_cap` (Set the water limit to “{option}” or higher to include it.), `assistant.cache_mismatch` (Saved answer, written for different settings than the cards on screen. Ask in your own words for an answer that matches them.).
+
+Spanish for every key added on role/web-ui-polish is in `lib/copyFallbacks.ts` (used only until the key is in copy.json). Templates may use `{name|one|other}` for plurals, e.g. `{years} {years|year|years}`.
 
 Generated from a grep of `t("…")` calls in `app/`, `components/` and `lib/`.
 
@@ -10,6 +12,38 @@ Generated from a grep of `t("…")` calls in `app/`, `components/` and `lib/`.
 |---|---|---|
 | `app.location` | app/page.tsx | Finney County, Kansas |
 | `assistant.busy` | app/api/ask/route.ts | The assistant is busy right now. Try one of the suggested questions below. Their answers are ready. |
+| `assistant.cache_mismatch` | components/AssistantDrawer.tsx | Saved answer, written for different settings than the cards on screen. Ask in your own words for an answer that matches them. |
+| `error.check_connection` | app/page.tsx | Check your connection and try again. |
+| `priorities.rail_hint` | components/PrioritiesPanel.tsx | Move a slider and the cards re-rank instantly. |
+| `summary.best_fit` | components/FieldWorkspace.tsx | Best fit for your priorities |
+| `summary.vs_current` | components/FieldWorkspace.tsx | Match score {score}, against {current} for your current rotation. |
+| `summary.see_options` | components/FieldWorkspace.tsx | Compare all options |
+| `card.shared_title` | components/StrategyPanel.tsx | Applies to every option above |
+| `card.shared_more` | components/StrategyPanel.tsx | Plus {n} that apply to every option, listed below the cards. |
+| `card.bars_hint` | components/StrategyPanel.tsx | Bars compare the options shown: 100 is the best of them on that point. |
+| `replay.unit.irrigation` | components/ReplayChart.tsx | Irrigation water, mm per year |
+| `replay.unit.revenue` | components/ReplayChart.tsx | Income before costs, $ per acre |
+| `replay.unit.stress` | components/ReplayChart.tsx | Days of crop water stress per year |
+| `replay.unit.bare` | components/ReplayChart.tsx | Days of bare ground per year |
+| `calendar.years_in_10` | components/FieldCalendar.tsx | years in 10 |
+| `calendar.days_per_month` | components/FieldCalendar.tsx | days a month |
+| `overview.measure` | components/OverviewPanel.tsx | Measure (screen readers only) |
+| `overview.change` | components/OverviewPanel.tsx | Change |
+| `overview.grace_trend` | components/OverviewPanel.tsx | GRACE trend |
+| `overview.well_chart` | components/OverviewPanel.tsx | Depth to water at the nearest well ({km} km), metres below ground |
+| `overview.wells_deeper` | components/OverviewPanel.tsx | deeper each year |
+| `overview.wells_shallower` | components/OverviewPanel.tsx | shallower each year |
+| `neighbors.similarity` | components/NeighborsView.tsx | {pct}% similar |
+| `neighbors.matched_count` | components/NeighborsView.tsx | {matched} of {pool} nearby fields match on soil and irrigation. |
+| `neighbors.no_greenness` | components/NeighborsView.tsx | Drought-year greenness (MODIS) is not available for these fields yet. |
+| `neighbors.method` | components/NeighborsView.tsx | How these fields were matched |
+| `neighbors.your_field` | components/NeighborsView.tsx | Your field |
+| `trust.check` | app/how-we-know/page.tsx | What we checked |
+| `trust.match` | app/how-we-know/page.tsx | Match |
+| `trust.n` | app/how-we-know/page.tsx | Data points |
+| `error.field_title` | components/FieldWorkspace.tsx | This field could not be loaded |
+| `error.detail` | components/FieldWorkspace.tsx | Technical detail |
+| `state.loading_field` | components/FieldWorkspace.tsx | Loading this field (screen readers) |
 | `assistant.own_key` | components/AssistantDrawer.tsx | Use my own key |
 | `assistant.own_key_on` | components/AssistantDrawer.tsx | on |
 | `assistant.own_key_toggle` | components/AssistantDrawer.tsx | Answer free-text questions with my key |

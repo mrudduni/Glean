@@ -260,6 +260,7 @@ export const askResponseSchema: Schema<T.AskResponse> = z.object({
 });
 export const assistantCacheSchema: Schema<T.AssistantCache> = z.object({
   _meta: metaSchema, field_id: fieldId, scenario: z.literal("cap300|actual"),
+  top_rotations: z.array(rotationId).max(7).optional(),
   answers: z.record(z.string(), fullRecord(LANGS, askResponseSchema)),
 });
 

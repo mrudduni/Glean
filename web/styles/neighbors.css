@@ -1,0 +1,25 @@
+/* Farms like yours. */
+.neighbors-grid { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.1fr); gap: var(--sp-5); align-items: start; }
+.neighbors-map .leaflet-map, .neighbors-map .map-placeholder { height: 440px; }
+.neighbors-table-wrap { display: grid; gap: var(--sp-3); min-width: 0; overflow-x: auto; }
+.neighbors-table { width: 100%; border-collapse: collapse; font-size: var(--fs-cap); }
+.neighbors-table th, .neighbors-table td { padding: var(--sp-3) var(--sp-2); border-bottom: 1px solid var(--rule); text-align: right; vertical-align: middle; }
+.neighbors-table thead th { color: var(--text-2); font-weight: 600; vertical-align: bottom; }
+.neighbors-table th:first-child { text-align: left; }
+.neighbors-table tbody th { font-weight: 600; color: var(--text-1); }
+.neighbors-table tbody th small { display: block; margin-top: 2px; padding-left: 20px; color: var(--color-accent); font-weight: 600; }
+.neighbors-table td { color: var(--text-1); white-space: nowrap; }
+.neighbor-name { display: inline-flex; align-items: center; gap: var(--sp-2); }
+.neighbor-name i { flex: none; width: 12px; height: 12px; border-radius: 2px; }
+.current-neighbor { background: var(--accent-wash); }
+.neighbors-disclaimer { margin: 0; padding: var(--sp-3); border-left: 0; border-radius: var(--radius-sm); background: var(--sunken); color: var(--text-1); font-size: var(--fs-cap); }
+.neighbors-method summary { cursor: pointer; color: var(--color-accent); font-size: var(--fs-cap); font-weight: 600; }
+.neighbors-method p { margin: var(--sp-2) 0 0; color: var(--text-2); font-size: var(--fs-cap); }
+@media (max-width: 1023px) {
+  .neighbors-grid { grid-template-columns: minmax(0, 1fr); }
+  .neighbors-map .leaflet-map, .neighbors-map .map-placeholder { height: 50vh; min-height: 300px; }
+}
+/* Five legend entries would cover the imagery; on this map the legend sits under it. */
+.neighbors-map .map-shell { overflow: visible; border: 0; background: none; }
+.neighbors-map .leaflet-map { border: 1px solid var(--rule); border-radius: var(--radius); }
+.neighbors-map .map-legend { position: static; max-width: none; margin-top: var(--sp-2); padding: 0; background: none; box-shadow: none; font-weight: 500; }

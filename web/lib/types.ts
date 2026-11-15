@@ -224,6 +224,7 @@ export interface Fact {
 // field/{fid}/assistant_cache.json
 export interface AssistantCache {
   _meta: Meta; field_id: FieldId; scenario: "cap300|actual";
+  top_rotations?: RotationId[];   // cards on screen when the cache was generated (R0 + top 3)
   answers: Record<string, Record<Lang, AskResponse>>;   // question id (q1–q6) → lang → response (§9)
 }
 

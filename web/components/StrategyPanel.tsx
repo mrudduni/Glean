@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { AlertTriangle, Check, ChevronDown, ChevronUp, Droplets, Info, Leaf, ListChecks, ShieldCheck } from "lucide-react";
+import { AlertTriangle, ChevronDown, ChevronUp, Droplets, Info } from "lucide-react";
 import type { CapId, CopyFile, CriterionId, EquipmentId, Rotation, RotationId, StrategyEntry, SummaryFile } from "@/lib/types";
 import { fill, formatVar, interpolate, loc } from "@/lib/i18n";
 import { useGlean } from "@/lib/state";
@@ -34,23 +34,39 @@ export function StrategyPanel({
   const [showHidden, setShowHidden] = useState(false);
   const name = (id: RotationId) => loc(ui.cardText.rotations[id]?.name, lang) || id;
   const hiddenCount = picked.hidden.length + picked.others.length;
+  // Caveats every shown card carries are said once, below the cards, instead of four times.
+  const common = (lists: string[][]) => (lists.length > 1 ? lists.reduce((a, b) => a.filter((item) => b.includes(item))) : []);
+  const sharedGaps = common(picked.shown.map((entry) => entry.gap_ids));
+  const sharedRisks = common(picked.shown.map((entry) => entry.risk_ids));
 
   return (
-    <section className="workspace-section strategies-section" id="strategies" aria-labelledby="strategies-heading">
-      <div className="section-title-row">
-        <div>
-          <div className="eyebrow"><span className="eyebrow-rule" /> {t("strategies.eyebrow", "Compare your options")}</div>
-          <h2 id="strategies-heading">{t("nav.plan")}</h2>
-          <p>{t("strategies.subtitle", "Your current rotation and the three that fit your priorities most closely.")}</p>
-        </div>
-        <span className="section-index">04 / 06</span>
-      </div>
+    <div className="strategy-results">
       {picked.shown.length - 1 === Object.keys(picked.filled).length && <div className="empty-state"><Info size={17} aria-hidden="true" />{t("strategies.none_fit", "No other rotation fits these limits. Try a higher water cap or tick the equipment you have.")}</div>}
+      <p className="criteria-hint">{t("card.bars_hint", "Bars compare the options shown: 100 is the best of them on that point.")}</p>
       <div className="strategy-grid">
         {picked.shown.map((entry) => (
-          <StrategyCard key={entry.rotation_id} entry={entry} reason={picked.filled[entry.rotation_id]} rotations={rotations} weights={weights} steps={rotationSteps(entry.rotation_id, rotations, summary)} irrigation={irrigation[entry.rotation_id]} shownAt={shownAt[entry.rotation_id]} ui={ui} />
+          <StrategyCard key={entry.rotation_id} entry={entry} reason={picked.filled[entry.rotation_id]} rotations={rotations} weights={weights} steps={rotationSteps(entry.rotation_id, rotations, summary)} irrigation={irrigation[entry.rotation_id]} shownAt={shownAt[entry.rotation_id]} sharedGaps={sharedGaps} sharedRisks={sharedRisks} ui={ui} />
         ))}
       </div>
+      {(sharedGaps.length > 0 || sharedRisks.length > 0) && (
+        <section className="shared-caveats" id="shared-caveats" aria-labelledby="shared-caveats-heading">
+          <h3 id="shared-caveats-heading">{t("card.shared_title", "Applies to every option above")}</h3>
+          <div className="shared-caveats-grid">
+            {sharedGaps.length > 0 && (
+              <div>
+                <h4>{t("card.gaps")}</h4>
+                <ul>{sharedGaps.map((gap) => <li key={gap}>{cardLine(ui, "gaps", gap)}</li>)}</ul>
+              </div>
+            )}
+            {sharedRisks.length > 0 && (
+              <div>
+                <h4>{t("card.risks")}</h4>
+                <ul>{sharedRisks.map((risk) => <li key={risk}>{cardLine(ui, "risks", risk)}</li>)}</ul>
+              </div>
+            )}
+          </div>
+        </section>
+      )}
       {hiddenCount > 0 && (
         <div className="hidden-strategies">
           <button type="button" className="hidden-toggle" aria-expanded={showHidden} aria-controls="hidden-strategy-list" onClick={() => setShowHidden((value) => !value)}>
@@ -61,14 +77,14 @@ export function StrategyPanel({
             <div className="hidden-list" id="hidden-strategy-list">
               {picked.hidden.map(({ entry, reason }) => (
                 <div className="hidden-item" key={entry.rotation_id}>
-                  <span className="hidden-rotation">{entry.rotation_id} · {name(entry.rotation_id)}</span>
+                  <span className="hidden-rotation">{name(entry.rotation_id)}</span>
                   <span>{cardLine(ui, "infeasible", reason)}</span>
                   <span className="hidden-score">{scoreEntry(entry, weights)}/100</span>
                 </div>
               ))}
               {picked.others.map((entry) => (
                 <div className="hidden-item" key={entry.rotation_id}>
-                  <span className="hidden-rotation">{entry.rotation_id} · {name(entry.rotation_id)}</span>
+                  <span className="hidden-rotation">{name(entry.rotation_id)}</span>
                   <span>{t("card.lower_score", "Fits your limits, but scores lower than the three shown.")}</span>
                   <span className="hidden-score">{scoreEntry(entry, weights)}/100</span>
                 </div>
@@ -78,7 +94,7 @@ export function StrategyPanel({
         </div>
       )}
       <p className="strategy-footnote">{t("strategies.score_note", "Scores are relative to the rotations compared here, 0 to 100. They are model estimates, not forecasts.")}</p>
-    </section>
+    </div>
   );
 }
 
@@ -99,7 +115,7 @@ function unlockHint(entry: StrategyEntry, reason: ExclusionReason, rotations: Ro
 }
 
 function StrategyCard({
-  entry, reason, weights, steps, rotations, irrigation, shownAt, ui,
+  entry, reason, weights, steps, rotations, irrigation, shownAt, sharedGaps, sharedRisks, ui,
 }: {
   entry: StrategyEntry;
   shownAt?: CapId | "none";
@@ -108,10 +124,17 @@ function StrategyCard({
   rotations: Rotation[];
   steps: Rotation["steps"];
   irrigation: number | undefined;
+  sharedGaps: string[];
+  sharedRisks: string[];
   ui: UI;
 }) {
   const { t, lang } = ui;
   const id = entry.rotation_id;
+  const gaps = entry.gap_ids.filter((gap) => !sharedGaps.includes(gap));
+  const risks = entry.risk_ids.filter((risk) => !sharedRisks.includes(risk));
+  const sharedNote = (n: number) => (n > 0
+    ? <li className="shared-note"><a href="#shared-caveats">{interpolate(t("card.shared_more", "Plus {n} that apply to every option, listed below the cards."), { n })}</a></li>
+    : null);
   const score = scoreEntry(entry, weights);
   const current = id === "R0";
   // R0 is the baseline: its why and benefit lines would compare it with itself.
@@ -127,12 +150,8 @@ function StrategyCard({
   return (
     <article className={`strategy-card ${current ? "current-strategy" : ""}`} style={{ "--rotation-color": rotColor(id) } as React.CSSProperties} aria-labelledby={`card-${id}`}>
       <div className="strategy-card-head">
-        <div className="strategy-id">{id}</div>
         <div className="strategy-heading">
-          <div className="strategy-title-line">
-            <h3 id={`card-${id}`}>{loc(text?.name, lang) || id}</h3>
-            {current && <span className="current-pill"><Check size={11} aria-hidden="true" />{t("card.current_badge")}</span>}
-          </div>
+          <h3 id={`card-${id}`}><span className="rotation-key" aria-hidden="true" />{loc(text?.name, lang) || id}</h3>
           {reason && (
             <p className="infeasible-badge">
               <AlertTriangle size={13} aria-hidden="true" />
@@ -142,10 +161,11 @@ function StrategyCard({
           {shownAt && <p className="shown-at">{shownAt === "none"
             ? t("card.no_water_here", es ? "Este campo no tiene riego. Estas cifras suponen cero agua, así que subestiman esta rotación." : "This field is not irrigated. These numbers assume no water, so they understate this rotation.")
             : interpolate(t("card.shown_at", es ? "Cifras mostradas con: {cap}." : "Numbers shown with: {cap}."), { cap: t(`constraints.cap.${shownAt}`) })}</p>}
-          <p>{loc(text?.tagline, lang)}</p>
+          <p className="strategy-tagline">{loc(text?.tagline, lang)}</p>
         </div>
       </div>
       <div className="strategy-crops"><CropChips steps={steps} ui={ui} /></div>
+      <div className="strategy-score">
       <div className="score-row">
         <div><small>{t("card.score")}</small><strong><AnimatedNumber value={score} /><span>/100</span></strong></div>
         <div className="score-meter" role="meter" aria-valuenow={score} aria-valuemin={0} aria-valuemax={100} aria-label={t("card.score")}>
@@ -157,6 +177,7 @@ function StrategyCard({
         <TrustBadge level={entry.confidence} label={t(`trust.level.${entry.confidence}`)} />
         {irrigation !== undefined && <span className="water-need" title={t("replay.metric.irrigation")}><Droplets size={15} aria-hidden="true" />{formatVar("irrigation_mm", irrigation, lang)}</span>}
       </div>
+      </div>
       <div className="criteria-bars">
         {CRITERION_IDS.map((k) => (
           <div className="criterion-bar" key={k}>
@@ -167,30 +188,38 @@ function StrategyCard({
         ))}
       </div>
 
-      <CardSection title={t("card.why")} icon={<Leaf size={15} aria-hidden="true" />}>
+      <CardSection title={t("card.why")}>
         {why.length
           ? <ul>{why.map((k) => <li key={k}><b>{label(k)}.</b> {cardLine(ui, "why", k, entry.criteria[k].vars)}</li>)}</ul>
           : <p className="section-empty">{current ? t("card.current_why", "This is your baseline. The other cards are compared against it.") : shownAt === "none" ? t("card.no_water_why", es ? "No se sugiere aquí: necesita riego que este campo no tiene." : "Not suggested here: it needs irrigation this field does not have.") : t("card.no_why", "No criterion stands out at these priorities.")}</p>}
       </CardSection>
-      <CardSection title={t("card.evidence")} icon={<ListChecks size={15} aria-hidden="true" />}>
-        {entry.evidence.length ? entry.evidence.map((item, index) => (
-          <div className="text-evidence" key={`${item.text_id}-${index}`}>
-            <p>{cardLine(ui, "evidence", item.text_id, item.vars)}</p>
-            <SourceChips tags={item.sources} sources={ui.sources} />
-          </div>
-        )) : <p className="section-empty">{t("card.none", "Nothing listed.")}</p>}
-      </CardSection>
-      <CardSection title={t("card.benefits")} icon={<ShieldCheck size={15} aria-hidden="true" />}>
+      <section className="strategy-subsection">
+        {entry.evidence.length ? (
+          <details className="evidence-details">
+            <summary><h4>{t("card.evidence")}</h4><span className="evidence-count">{entry.evidence.length}</span><ChevronDown size={15} aria-hidden="true" /></summary>
+            {entry.evidence.map((item, index) => (
+              <div className="text-evidence" key={`${item.text_id}-${index}`}>
+                <p>{cardLine(ui, "evidence", item.text_id, item.vars)}</p>
+                <SourceChips tags={item.sources} sources={ui.sources} />
+              </div>
+            ))}
+          </details>
+        ) : <><h4>{t("card.evidence")}</h4><p className="section-empty">{t("card.none", "Nothing listed.")}</p></>}
+      </section>
+      <CardSection title={t("card.benefits")}>
         {benefits.length
           ? <ul>{benefits.map((item, index) => <li key={`${item.text_id}-${index}`}>{cardLine(ui, "benefits", item.text_id, item.vars)}</li>)}</ul>
           : <p className="section-empty">{current ? t("card.current_benefits", "Benefits of the other rotations are measured against this one.") : t("card.none", "Nothing listed.")}</p>}
       </CardSection>
-      <CardSection title={t("card.gaps")} icon={<Info size={15} aria-hidden="true" />} tone="gap">
-        {entry.gap_ids.length ? <ul>{entry.gap_ids.map((gap) => <li key={gap}>{cardLine(ui, "gaps", gap)}</li>)}</ul> : <p className="section-empty">{t("card.none", "Nothing listed.")}</p>}
+      <CardSection title={t("card.gaps")} tone="gap">
+        {gaps.length || sharedGaps.length
+          ? <ul>{gaps.map((gap) => <li key={gap}>{cardLine(ui, "gaps", gap)}</li>)}{sharedNote(sharedGaps.length)}</ul>
+          : <p className="section-empty">{t("card.none", "Nothing listed.")}</p>}
       </CardSection>
-      <CardSection title={t("card.risks")} icon={<AlertTriangle size={15} aria-hidden="true" />} tone="risk">
+      <CardSection title={t("card.risks")} tone="risk">
         <ul>
-          {entry.risk_ids.map((risk) => <li key={risk}>{cardLine(ui, "risks", risk)}</li>)}
+          {risks.map((risk) => <li key={risk}>{cardLine(ui, "risks", risk)}</li>)}
+          {sharedNote(sharedRisks.length)}
           {entry.crops_without_local_market.length > 0 && (
             <li>{cardLine(ui, "infeasible", "no_local_market")} ({entry.crops_without_local_market.map((crop) => cropLabel(ui, crop)).join(", ")})</li>
           )}
@@ -200,6 +229,6 @@ function StrategyCard({
   );
 }
 
-function CardSection({ title, icon, children, tone = "" }: { title: string; icon: React.ReactNode; children: React.ReactNode; tone?: string }) {
-  return <section className={`strategy-subsection ${tone}`}><h4>{icon}{title}</h4>{children}</section>;
+function CardSection({ title, children, tone = "" }: { title: string; children: React.ReactNode; tone?: string }) {
+  return <section className={`strategy-subsection ${tone}`}><h4>{title}</h4>{children}</section>;
 }

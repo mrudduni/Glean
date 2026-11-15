@@ -1,5 +1,6 @@
 // Text lookup and placeholder formatting (README §7.4, handover §6).
 import type { CopyFile, CropId, Lang, Localized } from "@/lib/types";
+import { ES_FALLBACK } from "@/lib/copyFallbacks";
 
 export type CropNames = Partial<Record<CropId | string, Localized>>;
 type Strings = CopyFile["strings"];
@@ -13,7 +14,9 @@ export function loc(value: Localized | undefined, lang: Lang): string {
 /** copy.strings[key][lang] → en → fallback → key. Before copy has loaded, a missing key reads as "" so raw keys never flash. */
 export function translate(strings: Strings, key: string, lang: Lang, fallback?: string): string {
   const entry = strings[key];
-  return entry?.[lang] || entry?.en || fallback || (isEmpty(strings) ? "" : key);
+  if (entry?.[lang]) return entry[lang];
+  if (lang === "es" && ES_FALLBACK[key]) return ES_FALLBACK[key];
+  return entry?.en || fallback || (isEmpty(strings) ? "" : key);
 }
 
 function isEmpty(strings: Strings): boolean {
@@ -46,6 +49,18 @@ export function makeT(strings: Strings, lang: Lang): TFunction {
 }
 
 const MINUS = "−";
+
+/**
+ * Plural selector for copy templates: "{years} {years|year|years}" picks the word for the value
+ * with Intl.PluralRules, so templates need not dodge plurals ("in years: 1"). Unknown names stay as written.
+ */
+function plurals(text: string, values: Record<string, string | number>, lang: Lang): string {
+  return text.replace(/\{([a-zA-Z0-9_]+)\|([^|{}]*)\|([^|{}]*)\}/g, (match, name: string, one: string, other: string) => {
+    const value = Number(values[name]);
+    if (!(name in values) || !Number.isFinite(value)) return match;
+    return new Intl.PluralRules(lang === "es" ? "es" : "en").select(value) === "one" ? one : other;
+  });
+}
 
 function num(value: number, lang: Lang, maxDecimals: number, minDecimals = 0): string {
   const text = new Intl.NumberFormat(lang === "es" ? "es-ES" : "en-US", {
@@ -100,7 +115,7 @@ export function fill(
   lang: Lang,
   crops?: CropNames,
 ): string {
-  const text = loc(template, lang);
+  const text = plurals(loc(template, lang), vars, lang);
   return text.replace(/\{([a-zA-Z0-9_]+)\}/g, (_match, name: string) => {
     if (!(name in vars)) {
       console.warn(`Missing template value: {${name}}`);
@@ -111,6 +126,6 @@ export function fill(
 }
 
 /** Fill plain `{name}` placeholders with already-formatted strings (UI chrome only). */
-export function interpolate(text: string, values: Record<string, string | number>): string {
-  return text.replace(/\{([a-zA-Z0-9_]+)\}/g, (match, name: string) => (name in values ? String(values[name]) : match));
+export function interpolate(text: string, values: Record<string, string | number>, lang: Lang = "en"): string {
+  return plurals(text, values, lang).replace(/\{([a-zA-Z0-9_]+)\}/g, (match, name: string) => (name in values ? String(values[name]) : match));
 }

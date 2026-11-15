@@ -1,0 +1,68 @@
+# UI/UX polish checklist
+
+Branch `role/web-ui-polish`, cut from `origin/main` at `6de2157`. Scope **B**: fix the audit findings and bring the layout back to `design/wireframes/index.html`, inside `web/` only, using the existing tokens in `web/styles/tokens.css`.
+
+Each item names its audit ID. Ticked items are committed and checked with `npm test`, `npm run typecheck` and `npm run build`.
+
+## Direction
+
+"Survey sheet, not SaaS." The only image is the real satellite basemap (pivot circles inside section squares). Everything else is quiet: token ink on the token background, one accent (token blue, read as water), crop colours only where they mean a crop, hairline rules shared by the calendar, charts and map. Fraunces only for the field name and page titles; Source Sans 3 for the rest; tabular figures on every number; IBM Plex Mono only for source tags.
+
+## P0
+
+- [x] **#1** Assistant drawer renders above the site header (portal); title and close button visible on desktop and phone
+- [x] **#2** Cached answers flag when they were written for a different set of cards than the ones on screen
+
+## Remove the generic chrome
+
+- [x] **#7** No cursor glow, drifting orbs, particle canvas, fake "live" dot, pulsing assistant button or decorative blur
+- [x] **#8** No eyebrow kicker above every heading, no `0N / 06` counters, no `01 02 03` numbering on non-sequences
+- [x] **#8b** Strategies is in the section nav (lands with #5, where priorities and cards merge)
+
+## Foundation
+
+- [x] **#10** Styles read only token variables; dark mode comes from the token swap, not a second hand-written stylesheet
+  - [x] Foundation: `styles/base.css` (type scale, text/rule ramp, header, footer, buttons, chips, badges, form controls, states)
+  - [x] Home + map (`styles/home.css`, `styles/map.css`) · [x] Field workspace (`styles/workspace.css`) · [x] Overview (`styles/overview.css`) · [x] Calendar (`styles/calendar.css`) · [x] Cards (`styles/cards.css`) · [x] Replay (`styles/replay.css`) · [x] Neighbours (`styles/neighbors.css`) · [x] Assistant (`styles/assistant.css`) · [x] How we know (`styles/trust.css`)
+- [x] **#11** Text meets WCAG AA (4.5:1) in light and dark; labels ≥ 14px, body 16px (only the Leaflet attribution control is smaller)
+- [x] **#15** Tabular figures on every number (set once on `body`)
+
+## Layout (wireframes)
+
+- [x] **#9** Home: the map is the hero, zoomed to the three fields with thick labelled outlines; one field list; no stats panel
+- [x] **#4** Field page: headline facts and the best-fit summary sit in the masthead, above the fold
+- [x] **#5** Priorities sit in a sticky rail beside the strategy cards, so a slider change visibly re-ranks them; collapsible on phones
+- [x] **#6** Strategy cards: caveats shared by every card shown once; evidence collapsed; crop sequence as coloured blocks with arrows
+- [x] **#17** Rotation names lead; R-codes are gone from cards, calendar, replay and Farms like yours
+
+## Charts and data
+
+- [x] **#3** Replay: straight lines, theme-aware colours, direct end labels, neutral drought bands with labels
+- [x] **#12** Calendar: rotations stacked so none hide off-screen; readable risk strip; legend instead of two-letter codes
+- [x] **#16** Farms like yours: map zooms to matched fields; readable tooltips and table
+- [x] **#14** Assistant: verified-number mark stays inline
+
+## Copy, states, i18n
+
+- [x] **#13** Plural-aware `fill()` and `interpolate()`: templates can write `{years} {years|year|years}` (F side); wording issues reported to U
+- [x] **#18** Loading skeleton shaped like the page; errors in plain words
+- [x] **#20** No hard-coded English in TSX; numbers formatted per language; new keys have Spanish fallbacks in `lib/copyFallbacks.ts` until they reach `copy.json`
+- [x] **#21** Well trend states direction; units never wrap
+- [x] **#22** Disclaimer shown once per page
+- [x] **#23** How-we-know: validation as a readable table
+
+## Verification
+
+- [x] Before/after screenshots at 1440, 768 and 375, light and dark, every route, drawer and states (71 shots each; no route scrolls sideways at 375)
+- [x] Contrast: 0 text elements below WCAG AA across home, field and How we know, light and dark (874 checked)
+- [x] Keyboard: logical tab order; drawer moves focus to the question box, traps Tab, closes on Escape and returns focus to its button; a slider moved by keyboard re-ranks the cards; calendar and chart scroll regions are focusable
+- [x] `prefers-reduced-motion` honoured (animations and smooth scroll off)
+- [x] Hard-coded colours: 582 hex values in `globals.css` before; 4 deliberate literals after (ink on crop fills, labels over satellite imagery)
+- [x] `npm test` (134), `npm run typecheck`, `npm run build` pass on every commit
+
+## Not changed here (owner decisions or other folders)
+
+- **Mock banner** is switched off on `main` ("suppressed per production requirements"); left as is.
+- **M** (`model/`): `assistant_cache.json` was generated for top order R4, R5, R1, R0, but the default cards are R0, R5, R1, R2. Rebuild for the default order; round numbers such as 75.43.
+- **D** (`data-pipeline/`): `neighbors.json` NDVI drought columns are all null; `sources.json` `used_for` / `what` text has no Spanish.
+- **U** (`content/`, `design/`): `fill()` now supports `{n|one|other}` plurals, so templates like "in years: 1" can become "{years} {years|year|years}"; please add the keys and Spanish from `COPY_KEYS_ADDED.md` / `lib/copyFallbacks.ts` to `copy.json`; "changed by −3 days a year" is a period difference, not a rate; "−0.9 cm/yr a year" doubles the unit; plural workarounds read robotic ("in years: 1"); criterion label "Heat and frost risk" reads backwards (100 = least risk); the rotation palette fails the dataviz colour checks (light: R0↔R1 ΔE 12.9 normal vision, R1/R3 below the lightness band; dark, hand-tuned: R6↔R3 ΔE 3.6 deutan, R3↔R0 ΔE 9.4 normal) — the chart compensates with dashes, end labels, legend and table, but the tokens need a re-step; `web/styles/tokens.css` has drifted from `design/tokens.css` (dark muted text #eaf3ed is nearly the body colour).
