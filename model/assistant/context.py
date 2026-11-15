@@ -275,7 +275,7 @@ def main():
     a = ap.parse_args()
     if a.standins:
         import standins
-        tmp = Path(tempfile.mkdtemp(prefix="fs_standins_"))
+        tmp = Path(__file__).resolve().parent / ".standins"
         standins.make(tmp, {"f1": True, "f2": False, "f3": True})
         a.model_web = tmp
     for fid in FIELDS:
