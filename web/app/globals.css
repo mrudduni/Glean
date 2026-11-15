@@ -26,15 +26,9 @@
 * { box-sizing: border-box; }
 html { scroll-behavior: smooth; scroll-padding-top: 114px; }
 
-/* Ultra-Premium Ambient Atmosphere */
 body {
   margin: 0;
-  background:
-    radial-gradient(ellipse 90% 60% at 10% 8%, rgba(79, 140, 105, 0.08) 0%, transparent 50%),
-    radial-gradient(ellipse 80% 50% at 90% 20%, rgba(223, 154, 79, 0.06) 0%, transparent 45%),
-    radial-gradient(ellipse 70% 60% at 50% 85%, rgba(49, 93, 71, 0.07) 0%, transparent 55%),
-    var(--canvas);
-  background-attachment: fixed;
+  background: var(--canvas);
   color: var(--ink);
   font-family: var(--font-sans);
   font-size: 16px;
@@ -87,45 +81,6 @@ button:focus:not(:focus-visible), a:focus:not(:focus-visible), input:focus:not(:
   to { opacity: 1; }
 }
 
-@keyframes floatGentle {
-  0%, 100% {
-    transform: translateY(0);
-  }
-  50% {
-    transform: translateY(-6px);
-  }
-}
-
-@keyframes pulseRadar {
-  0% {
-    box-shadow: 0 0 0 0 rgba(219, 154, 78, 0.7);
-  }
-  70% {
-    box-shadow: 0 0 0 10px rgba(219, 154, 78, 0);
-  }
-  100% {
-    box-shadow: 0 0 0 0 rgba(219, 154, 78, 0);
-  }
-}
-
-@keyframes fabPulse {
-  0%, 100% {
-    box-shadow: 0 8px 26px rgba(33, 60, 46, 0.36), 0 0 0 0 rgba(49, 93, 71, 0.35);
-  }
-  50% {
-    box-shadow: 0 14px 38px rgba(33, 60, 46, 0.48), 0 0 0 9px rgba(49, 93, 71, 0);
-  }
-}
-
-@keyframes shimmerSweep {
-  0% {
-    transform: translateX(-150%);
-  }
-  100% {
-    transform: translateX(250%);
-  }
-}
-
 @keyframes spin {
   to { transform: rotate(360deg); }
 }
@@ -149,103 +104,8 @@ button:focus:not(:focus-visible), a:focus:not(:focus-visible), input:focus:not(:
 /* ==========================================================================
    INTERACTIVE MOVING GRADIENT & CURSOR AURA
    ========================================================================== */
-@keyframes drift1 {
-  0% { transform: translate3d(0, 0, 0) scale(1); }
-  50% { transform: translate3d(80px, 60px, 0) scale(1.1); }
-  100% { transform: translate3d(-40px, 100px, 0) scale(0.95); }
-}
-
-@keyframes drift2 {
-  0% { transform: translate3d(0, 0, 0) scale(1); }
-  50% { transform: translate3d(-90px, 50px, 0) scale(1.15); }
-  100% { transform: translate3d(50px, -70px, 0) scale(0.92); }
-}
-
-@keyframes drift3 {
-  0% { transform: translate3d(0, 0, 0) scale(1); }
-  50% { transform: translate3d(60px, -80px, 0) scale(1.08); }
-  100% { transform: translate3d(-70px, 40px, 0) scale(0.98); }
-}
-
-.interactive-bg-container {
-  position: fixed;
-  inset: 0;
-  z-index: 0;
-  pointer-events: none;
-  overflow: hidden;
-  contain: paint;
-}
-
-.ambient-drift-mesh {
-  position: absolute;
-  border-radius: 50%;
-  pointer-events: none;
-  mix-blend-mode: multiply;
-  will-change: transform;
-}
-
-.drift-orb-1 {
-  width: 750px;
-  height: 750px;
-  top: -12%;
-  left: -8%;
-  background: radial-gradient(circle, rgba(55, 125, 85, 0.16) 0%, rgba(55, 125, 85, 0.06) 45%, transparent 70%);
-  filter: blur(80px);
-  animation: drift1 22s infinite alternate ease-in-out;
-}
-
-.drift-orb-2 {
-  width: 700px;
-  height: 700px;
-  top: 25%;
-  right: -10%;
-  background: radial-gradient(circle, rgba(223, 154, 79, 0.15) 0%, rgba(223, 154, 79, 0.05) 50%, transparent 70%);
-  filter: blur(85px);
-  animation: drift2 26s infinite alternate ease-in-out;
-}
-
-.drift-orb-3 {
-  width: 850px;
-  height: 850px;
-  bottom: -18%;
-  left: 15%;
-  background: radial-gradient(circle, rgba(82, 148, 136, 0.14) 0%, rgba(82, 148, 136, 0.04) 50%, transparent 70%);
-  filter: blur(95px);
-  animation: drift3 30s infinite alternate ease-in-out;
-}
 
 /* Interactive Cursor Follower Orbs */
-.cursor-glow {
-  position: absolute;
-  top: 0;
-  left: 0;
-  border-radius: 50%;
-  pointer-events: none;
-  mix-blend-mode: multiply;
-  will-change: transform, opacity;
-  transition: opacity 0.6s var(--ease-spring);
-}
-
-.cursor-glow-primary {
-  width: 560px;
-  height: 560px;
-  background: radial-gradient(circle, rgba(50, 122, 82, 0.22) 0%, rgba(42, 98, 66, 0.1) 45%, transparent 70%);
-  filter: blur(70px);
-  opacity: 0;
-}
-
-.cursor-glow-secondary {
-  width: 480px;
-  height: 480px;
-  background: radial-gradient(circle, rgba(223, 154, 79, 0.19) 0%, rgba(206, 131, 50, 0.07) 45%, transparent 70%);
-  filter: blur(75px);
-  opacity: 0;
-}
-
-main {
-  position: relative;
-  z-index: 1;
-}
 
 /* ==========================================================================
    HEADER & NAVIGATION
@@ -254,8 +114,6 @@ main {
   position: relative;
   z-index: 20;
   background: rgba(255, 254, 250, 0.88);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
   border-bottom: 1px solid rgba(228, 230, 220, 0.85);
   transition: background 0.3s ease, border-color 0.3s ease;
 }
@@ -316,7 +174,6 @@ main {
   height: 8px;
   border-radius: 50%;
   background: #db9a4e;
-  animation: pulseRadar 2.4s infinite ease-out;
 }
 .header-nav {
   display: flex;
@@ -563,8 +420,6 @@ main {
   color: #214b34;
   background: rgba(255, 255, 255, 0.55);
   border: 1px solid rgba(49, 93, 71, 0.28);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
   font-size: 13px;
   font-weight: 700;
   letter-spacing: 0.6px;
@@ -594,8 +449,6 @@ main {
   gap: 16px;
   padding: 24px;
   background: rgba(255, 254, 250, 0.88);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
   border: 1px solid rgba(220, 226, 214, 0.95);
   border-radius: 14px;
   box-shadow: 0 12px 36px rgba(33, 59, 42, 0.08), inset 0 1px 0 rgba(255, 255, 255, 0.7);
@@ -630,7 +483,6 @@ main {
   border-radius: 50%;
   background: #34a853;
   box-shadow: 0 0 0 0 rgba(52, 168, 83, 0.7);
-  animation: pulseRadar 2.4s infinite;
 }
 .telemetry-coordinates {
   font-size: 11px;
@@ -823,8 +675,6 @@ main {
   gap: 16px;
   padding: 9px 13px;
   background: rgba(255, 254, 249, 0.94);
-  backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px);
   border-radius: 6px;
   color: #435041;
   font-size: 12px;
@@ -857,8 +707,6 @@ main {
   flex: 1;
   padding: 20px 24px 18px;
   background: rgba(255, 254, 250, 0.88);
-  backdrop-filter: blur(14px);
-  -webkit-backdrop-filter: blur(14px);
   border: 1px solid rgba(228, 230, 220, 0.95);
   border-radius: 10px;
   position: relative;
@@ -976,8 +824,6 @@ main {
   gap: 16px;
   padding: 24px 22px;
   background: rgba(255, 254, 250, 0.88);
-  backdrop-filter: blur(14px);
-  -webkit-backdrop-filter: blur(14px);
   border: 1px solid rgba(225, 229, 219, 0.95);
   border-radius: 12px;
   box-shadow: 0 4px 16px rgba(33, 59, 42, 0.04);
@@ -1179,8 +1025,6 @@ main {
   top: 0;
   background: rgba(248, 248, 241, 0.92);
   border-block: 1px solid rgba(223, 226, 215, 0.85);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
   box-shadow: 0 2px 12px rgba(0, 0, 0, 0.03);
 }
 .section-nav-inner { display: flex; align-items: center; overflow-x: auto; gap: 4px; scrollbar-width: none; }
@@ -1240,8 +1084,6 @@ main {
   height: 100%;
   padding: 20px 18px;
   background: rgba(255, 254, 250, 0.88);
-  backdrop-filter: blur(14px);
-  -webkit-backdrop-filter: blur(14px);
   border: 1px solid rgba(228, 230, 220, 0.95);
   border-radius: 10px;
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.02);
@@ -1366,8 +1208,6 @@ main {
   width: 460px;
   padding: 16px;
   background: rgba(255, 254, 250, 0.9);
-  backdrop-filter: blur(14px);
-  -webkit-backdrop-filter: blur(14px);
   border: 1px solid rgba(228, 230, 220, 0.95);
   border-radius: 8px;
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.02);
@@ -1573,8 +1413,6 @@ main {
   height: 100%;
   padding: 18px 16px;
   background: rgba(255, 254, 250, 0.9);
-  backdrop-filter: blur(14px);
-  -webkit-backdrop-filter: blur(14px);
   border: 1px solid rgba(220, 223, 211, 0.95);
   border-top: 4px solid var(--rotation-color);
   border-radius: 10px;
@@ -1623,7 +1461,6 @@ main {
   position: absolute;
   inset: 0;
   background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.45), transparent);
-  animation: shimmerSweep 3s infinite;
 }
 
 .strategy-meta-row { display: flex; justify-content: space-between; align-items: center; gap: 6px; min-height: 34px; margin-top: 4px; }
@@ -1695,8 +1532,6 @@ main {
 .replay-panel {
   padding: 20px;
   background: rgba(255, 254, 250, 0.9);
-  backdrop-filter: blur(14px);
-  -webkit-backdrop-filter: blur(14px);
   border: 1px solid rgba(228, 230, 220, 0.95);
   border-radius: 10px;
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.02);
@@ -1815,7 +1650,6 @@ main {
   border-radius: 99px;
   background: linear-gradient(135deg, #35674c 0%, #214834 100%);
   color: white;
-  animation: fabPulse 3.6s infinite ease-in-out;
   font-size: 13px;
   font-weight: 700;
   letter-spacing: .3px;
@@ -1843,8 +1677,6 @@ main {
   display: flex;
   justify-content: flex-end;
   background: rgba(21, 41, 30, 0.45);
-  backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px);
   animation: fadeIn 0.3s var(--ease-spring);
 }
 .assistant-drawer {
@@ -2051,8 +1883,6 @@ main {
   border: 1px solid rgba(220, 224, 212, 0.95);
   border-radius: 8px;
   background: rgba(255, 254, 250, 0.9);
-  backdrop-filter: blur(14px);
-  -webkit-backdrop-filter: blur(14px);
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.02);
   transition: transform 0.25s var(--ease-spring), box-shadow 0.25s ease;
 }
@@ -2080,8 +1910,6 @@ main {
   border: 1px solid rgba(220, 224, 212, 0.95);
   border-radius: 8px;
   background: rgba(255, 254, 250, 0.9);
-  backdrop-filter: blur(14px);
-  -webkit-backdrop-filter: blur(14px);
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.02);
   transition: transform 0.25s var(--ease-spring), box-shadow 0.25s ease;
 }
@@ -2263,7 +2091,6 @@ main {
   }
 }
 
-
 /* ==========================================================================
    DUAL THEME & MORPHISM DESIGN SYSTEM
    ========================================================================== */
@@ -2276,11 +2103,7 @@ main {
 
 [data-theme="dark"] body,
 .dark body {
-  background:
-    radial-gradient(ellipse 90% 60% at 10% 8%, rgba(78, 203, 135, 0.08) 0%, transparent 55%),
-    radial-gradient(ellipse 80% 50% at 90% 20%, rgba(245, 166, 91, 0.07) 0%, transparent 50%),
-    radial-gradient(ellipse 70% 60% at 50% 85%, rgba(42, 107, 72, 0.1) 0%, transparent 60%),
-    var(--canvas);
+  background: var(--canvas);
   color: var(--ink);
 }
 
@@ -2291,40 +2114,6 @@ main {
 }
 
 /* Bioluminescent Aurora Morphism (Screen blending in Dark Mode) */
-[data-theme="dark"] .ambient-drift-mesh,
-.dark .ambient-drift-mesh {
-  mix-blend-mode: screen;
-}
-
-[data-theme="dark"] .drift-orb-1,
-.dark .drift-orb-1 {
-  background: radial-gradient(circle, rgba(78, 203, 135, 0.15) 0%, rgba(46, 125, 83, 0.05) 50%, transparent 70%);
-}
-
-[data-theme="dark"] .drift-orb-2,
-.dark .drift-orb-2 {
-  background: radial-gradient(circle, rgba(245, 166, 91, 0.13) 0%, rgba(206, 131, 50, 0.04) 50%, transparent 70%);
-}
-
-[data-theme="dark"] .drift-orb-3,
-.dark .drift-orb-3 {
-  background: radial-gradient(circle, rgba(98, 171, 147, 0.14) 0%, rgba(56, 115, 98, 0.04) 50%, transparent 70%);
-}
-
-[data-theme="dark"] .cursor-glow,
-.dark .cursor-glow {
-  mix-blend-mode: screen;
-}
-
-[data-theme="dark"] .cursor-glow-primary,
-.dark .cursor-glow-primary {
-  background: radial-gradient(circle, rgba(78, 203, 135, 0.22) 0%, rgba(46, 140, 92, 0.08) 45%, transparent 70%);
-}
-
-[data-theme="dark"] .cursor-glow-secondary,
-.dark .cursor-glow-secondary {
-  background: radial-gradient(circle, rgba(245, 166, 91, 0.18) 0%, rgba(212, 135, 50, 0.06) 45%, transparent 70%);
-}
 
 /* Header & Navigation in Dark Mode */
 [data-theme="dark"] .site-header,
@@ -3634,7 +3423,6 @@ fieldset legend.control-label { padding: 0; margin-bottom: 8px; }
 /* Excluded rotation shown to fill the row to R0 + 3 */
 .infeasible-badge { display: flex; gap: 6px; align-items: flex-start; margin: 8px 0 0; padding: 6px 9px; border-radius: 6px; font-size: 13px; line-height: 1.35; color: var(--ink); background: color-mix(in srgb, var(--risk-heat) 14%, transparent); border: 1px solid color-mix(in srgb, var(--risk-heat) 40%, transparent); }
 .infeasible-badge svg { flex: none; margin-top: 2px; color: var(--risk-heat); }
-
 
 /* Bring your own key, inside the assistant drawer */
 .own-key { margin: 0 18px; border-top: 1px solid var(--line); font-size: 14px; }

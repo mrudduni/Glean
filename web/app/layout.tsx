@@ -4,7 +4,6 @@ import "./globals.css";
 import "@/styles/tokens.css";
 import { AppProvider } from "@/lib/state";
 import { SiteFooter, SiteHeader } from "@/components/SiteHeader";
-import { InteractiveBackground } from "@/components/InteractiveBackground";
 import { MockBanner } from "@/components/MockBanner";
 
 export const metadata: Metadata = {
@@ -33,7 +32,6 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
       </head>
       <body>
         <AppProvider>
-          <InteractiveBackground />
           <SiteHeader />
           <MockBanner />
           <main>{children}</main>
